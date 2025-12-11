@@ -1,15 +1,15 @@
 ---
 type: linkedin-person
 created: '2025-12-08'
-last_updated: '2025-12-08'
-last_interaction: '2025-12-08'
+last_updated: '2025-12-11'
+last_interaction: '2025-12-11'
 
 profile:
   name: "Taha Hussain"
   linkedin_url: "https://www.linkedin.com/in/tahahussain"
   headline: null
   location: null
-  followers: 84208
+  followers: 84319
   posts: null
   articles: null
 
@@ -24,8 +24,15 @@ themes:
   - team-management
   - performance-management
   - engineering-culture
+  - content-creation-psychology
 
 engagement_history:
+  - date: '2025-12-11'
+    type: "comment"
+    post_url: "https://www.linkedin.com/posts/tahahussain_most-people-say-they-are-afraid-to-post-activity-7404743542340014080-ILR6"
+    topic: "Validation addiction in content creation"
+    status: "draft"
+    file: "comments/2025-12-11-taha-hussain-validation-addiction.md"
   - date: '2025-12-08'
     type: "comment"
     post_url: "https://www.linkedin.com/posts/tahahussain_most-underperformers-on-your-team-are-not-activity-7403475347566178304-vUIu"
