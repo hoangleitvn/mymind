@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INNOMIZE - Company Introduction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', system-ui, sans-serif;
+            background: #e5e7e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFF3E2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Pattern background - using actual pattern */
+        .pattern-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../assets/patterns/variant2.png');
+            background-repeat: repeat;
+            background-size: 300px;
+            opacity: 0.4;
+        }
+
+        /* Content container */
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 70px 90px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Logo section - using actual logo */
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+
+        /* Main content */
+        .main-content {
+            max-width: 1100px;
+        }
+
+        .tagline-small {
+            font-size: 18px;
+            font-weight: 600;
+            color: #EA322A;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .headline {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 80px;
+            font-weight: 700;
+            color: #2E3840;
+            line-height: 0.95;
+            margin-bottom: 32px;
+        }
+
+        .headline span {
+            color: #EA322A;
+        }
+
+        .description {
+            font-size: 26px;
+            color: #535B62;
+            line-height: 1.5;
+            max-width: 850px;
+        }
+
+        /* Values section */
+        .values {
+            display: flex;
+            gap: 50px;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: white;
+            padding: 20px 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            background: #EA322A;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .value-icon svg {
+            width: 26px;
+            height: 26px;
+            color: white;
+        }
+
+        .value-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2E3840;
+        }
+
+        .value-desc {
+            font-size: 13px;
+            color: #708999;
+            margin-top: 2px;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .website {
+            font-size: 18px;
+            color: #708999;
+            font-weight: 500;
+        }
+
+        .established {
+            font-size: 16px;
+            color: #93A5B2;
+        }
+
+        /* Red accent bar */
+        .accent-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #EA322A 0%, #F76D55 50%, #FF9C82 100%);
+        }
+
+        /* Left red accent */
+        .left-accent {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 8px;
+            height: 100%;
+            background: #EA322A;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <!-- Pattern background -->
+        <div class="pattern-bg"></div>
+
+        <!-- Left accent -->
+        <div class="left-accent"></div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Header with actual logo -->
+            <div class="logo-section">
+                <img src="../assets/Fitlogo_Horizontal_RGB.png" alt="INNOMIZE" class="logo-img">
+            </div>
+
+            <!-- Main content -->
+            <div class="main-content">
+                <div class="tagline-small">Software Development Partner</div>
+                <h1 class="headline">
+                    Building <span>Better Solutions</span><br>
+                    for Better Lives
+                </h1>
+                <p class="description">
+                    Vietnam-based software development and IT consulting company helping businesses achieve digital transformation through cutting-edge solutions since 2018.
+                </p>
+            </div>
+
+            <!-- Values -->
+            <div class="values">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="value-text">Innovation</div>
+                        <div class="value-desc">Transforming challenges into opportunities</div>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="value-text">Commitment</div>
+                        <div class="value-desc">Delivering on every promise</div>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="value-text">Sharing</div>
+                        <div class="value-desc">Growing together as partners</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="website">www.innomizetech.com</div>
+                <div class="established">Est. 2018 · Ho Chi Minh City, Vietnam</div>
+            </div>
+        </div>
+
+        <!-- Accent bar -->
+        <div class="accent-bar"></div>
+    </div>
+</body>
+</html>

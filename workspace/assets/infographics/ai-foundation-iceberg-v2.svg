@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" width="1080" height="1350">
+  <defs>
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <linearGradient id="icebergTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e5e7eb"/>
+    </linearGradient>
+
+    <linearGradient id="icebergMiddle" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+
+    <linearGradient id="icebergBottom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d1fae5"/>
+      <stop offset="50%" stop-color="#00a86b"/>
+      <stop offset="100%" stop-color="#065f46"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1350" fill="#f9fafb"/>
+
+  <text x="540" y="60" font-family="Inter, system-ui, sans-serif" font-size="38" font-weight="700" fill="#1f2937" text-anchor="middle">The Engineering Iceberg</text>
+  <text x="540" y="100" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="500" fill="#6b7280" text-anchor="middle">What You See vs. What Makes It Work</text>
+
+  <!-- Sky area -->
+  <rect x="0" y="120" width="1080" height="230" fill="#f0f9ff"/>
+
+  <!-- Water area -->
+  <rect x="0" y="350" width="1080" height="920" fill="url(#waterGradient)"/>
+
+  <!-- Water line -->
+  <line x1="0" y1="350" x2="1080" y2="350" stroke="#0284c7" stroke-width="3" stroke-dasharray="10,5"/>
+
+  <!-- Labels -->
+  <rect x="30" y="150" width="80" height="40" rx="6" fill="#9ca3af"/>
+  <text x="70" y="177" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">20%</text>
+  <text x="120" y="177" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#6b7280" text-anchor="start">Visible</text>
+
+  <rect x="30" y="390" width="80" height="40" rx="6" fill="#f59e0b"/>
+  <text x="70" y="417" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">40%</text>
+  <text x="120" y="417" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#f9fafb" text-anchor="start">Maintenance Reality</text>
+
+  <rect x="30" y="780" width="80" height="40" rx="6" fill="#00a86b"/>
+  <text x="70" y="807" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">40%</text>
+  <text x="120" y="807" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#f9fafb" text-anchor="start">Foundation</text>
+
+  <!-- Iceberg top (20% visible) -->
+  <polygon points="540,140 650,350 430,350" fill="url(#icebergTop)" stroke="#d1d5db" stroke-width="2"/>
+
+  <!-- Iceberg middle (40% maintenance reality) -->
+  <polygon points="430,350 650,350 720,650 360,650" fill="url(#icebergMiddle)" stroke="#d97706" stroke-width="2" opacity="0.95"/>
+
+  <!-- Iceberg bottom (40% foundation) -->
+  <polygon points="360,650 720,650 780,900 700,1100 540,1180 380,1100 300,900" fill="url(#icebergBottom)" stroke="#065f46" stroke-width="2" opacity="0.95"/>
+
+  <!-- 20% Visible content -->
+  <g font-family="Inter, system-ui, sans-serif" fill="#1f2937">
+    <text x="750" y="180" font-size="16" font-weight="600">Vibe Coding</text>
+    <text x="750" y="210" font-size="16" font-weight="600">AI Demos</text>
+    <text x="750" y="240" font-size="16" font-weight="600">Ship in Days</text>
+    <text x="750" y="270" font-size="16" font-weight="600">Beautiful UX</text>
+    <text x="750" y="300" font-size="16" font-weight="600">Everyone Can Build</text>
+
+    <line x1="655" y1="250" x2="740" y2="230" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4,2"/>
+  </g>
+
+  <!-- 40% Maintenance Reality content (LEFT side) -->
+  <g font-family="Inter, system-ui, sans-serif">
+    <text x="70" y="490" font-size="15" font-weight="700" fill="#92400e">THE REALITY</text>
+
+    <text x="70" y="530" font-size="14" font-weight="600" fill="#1f2937">Legacy Maintenance</text>
+    <text x="70" y="550" font-size="12" fill="#6b7280">20+ year old systems</text>
+
+    <text x="70" y="585" font-size="14" font-weight="600" fill="#1f2937">Decompiling Binaries</text>
+    <text x="70" y="605" font-size="12" fill="#6b7280">Lost source code</text>
+
+    <text x="70" y="640" font-size="14" font-weight="600" fill="#1f2937">Line-by-Line Reading</text>
+    <text x="70" y="660" font-size="12" fill="#6b7280">Understanding messy code</text>
+
+    <text x="70" y="695" font-size="14" font-weight="600" fill="#1f2937">Fixing Data Issues</text>
+    <text x="70" y="715" font-size="12" fill="#6b7280">Inconsistencies nobody documented</text>
+
+    <text x="70" y="750" font-size="14" font-weight="600" fill="#1f2937">System Integration</text>
+    <text x="70" y="770" font-size="12" fill="#6b7280">Connecting isolated parts</text>
+
+    <!-- Connector lines to middle iceberg -->
+    <line x1="250" y1="530" x2="380" y2="500" stroke="#d97706" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="250" y1="590" x2="370" y2="550" stroke="#d97706" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="250" y1="650" x2="365" y2="600" stroke="#d97706" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+  </g>
+
+  <!-- 40% Foundation content (RIGHT side) -->
+  <g font-family="Inter, system-ui, sans-serif">
+    <text x="830" y="880" font-size="15" font-weight="700" fill="#065f46">THE FOUNDATION</text>
+
+    <text x="830" y="920" font-size="14" font-weight="600" fill="#f9fafb">Architecture and ADRs</text>
+    <text x="830" y="940" font-size="12" fill="#d1fae5">Documented decisions</text>
+
+    <text x="830" y="975" font-size="14" font-weight="600" fill="#f9fafb">Design Standards</text>
+    <text x="830" y="995" font-size="12" fill="#d1fae5">Consistent patterns</text>
+
+    <text x="830" y="1030" font-size="14" font-weight="600" fill="#f9fafb">Best Practices</text>
+    <text x="830" y="1050" font-size="12" fill="#d1fae5">Proven approaches</text>
+
+    <text x="830" y="1085" font-size="14" font-weight="600" fill="#f9fafb">Rules and Guidelines</text>
+    <text x="830" y="1105" font-size="12" fill="#d1fae5">Clear boundaries</text>
+
+    <text x="830" y="1140" font-size="14" font-weight="600" fill="#f9fafb">Process</text>
+    <text x="830" y="1160" font-size="12" fill="#d1fae5">Dev, test, validate, deploy</text>
+
+    <!-- Connector lines to bottom iceberg -->
+    <line x1="820" y1="920" x2="720" y2="880" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="820" y1="975" x2="740" y2="950" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="820" y1="1030" x2="750" y2="1000" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="820" y1="1085" x2="720" y2="1050" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+  </g>
+
+  <!-- Center labels on iceberg -->
+  <text x="540" y="260" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#6b7280" text-anchor="middle">HYPE</text>
+
+  <text x="540" y="480" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">REALITY</text>
+  <text x="540" y="510" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#78350f" text-anchor="middle">What teams actually deal with</text>
+
+  <text x="540" y="870" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">FOUNDATION</text>
+  <text x="540" y="900" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#d1fae5" text-anchor="middle">What prevents the chaos above</text>
+
+  <!-- Key insight box -->
+  <rect x="180" y="1210" width="720" height="50" rx="8" fill="#1f2937"/>
+  <text x="540" y="1242" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#f9fafb" text-anchor="middle">Strong foundation reduces maintenance chaos. Weak foundation multiplies it.</text>
+
+  <!-- Tagline -->
+  <text x="540" y="1310" font-family="Poppins, Inter, sans-serif" font-size="22" font-weight="700" fill="#00a86b" text-anchor="middle">Foundation First. Speed Follows.</text>
+
+  <!-- Attribution -->
+  <text x="540" y="1340" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" fill="#9ca3af" text-anchor="middle">Ship with Clarity  |  @hoangleitvn</text>
+</svg>

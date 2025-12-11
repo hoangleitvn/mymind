@@ -23,6 +23,7 @@ Founders waste months building the wrong thing or over-engineering MVPs that nev
 
 - **Speed vs. Quality** — context choice based on stage (Pre-PMF = speed, Post-PMF = quality, Foundation = both)
 - **Build 20% that matters** — focus on what drives value, let customers guide the rest
+- **Buy vs Build** — build what differentiates, buy everything else; code is liability not asset
 - **Foundation-first for scale** — ship fast with bones that won't break at 10x growth
 - **Build with users** — listen carefully, understand real problems, create fans not just users
 - **Reduce onboarding friction** — guest/trial mode beats sign-up walls, show value immediately

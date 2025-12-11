@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Card - Ugly but Working</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #1a1a1a;
+      padding: 20px;
+    }
+
+    .quote-card {
+      width: 600px;
+      height: 700px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+      position: relative;
+
+      /* Paper texture background */
+      background:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"),
+        linear-gradient(
+          180deg,
+          #d4d0c8 0%,
+          #c9c5bc 25%,
+          #d1cdc4 50%,
+          #c7c3ba 75%,
+          #d0ccc3 100%
+        );
+      background-blend-mode: overlay, normal;
+
+      box-shadow:
+        inset 0 0 100px rgba(0,0,0,0.08),
+        inset 0 0 50px rgba(0,0,0,0.05);
+    }
+
+    .visual-container {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 40px;
+      align-items: center;
+    }
+
+    .visual-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .visual-label {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 14px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .vs-text {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 18px;
+      color: #888;
+      font-style: italic;
+    }
+
+    /* Rough sketch - visible, real, imperfect */
+    .rough-sketch {
+      width: 140px;
+      height: 140px;
+      position: relative;
+    }
+
+    /* Faded blueprint - perfect but invisible */
+    .faded-blueprint {
+      width: 140px;
+      height: 140px;
+      opacity: 0.25;
+      position: relative;
+    }
+
+    .quote-text {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 28px;
+      line-height: 1.5;
+      color: #2a2a2a;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .highlight {
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        transparent 10%,
+        #f0e14a 10%,
+        #f0e14a 90%,
+        transparent 90%,
+        transparent 100%
+      );
+      padding: 0 4px;
+    }
+
+    .attribution {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 20px;
+      color: #2a2a2a;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="quote-card">
+
+    <!-- Visual: Rough Sketch vs Faded Blueprint -->
+    <div class="visual-container">
+
+      <!-- Left: Rough sketch (ugly but working) -->
+      <div class="visual-side">
+        <svg class="rough-sketch" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+          <!-- Rough, hand-drawn app wireframe -->
+          <rect x="15" y="10" width="110" height="120" fill="none" stroke="#2a2a2a" stroke-width="2" stroke-dasharray="0" style="stroke-linecap: round; stroke-linejoin: round;"/>
+
+          <!-- Wobbly header bar -->
+          <path d="M 18 30 Q 70 28 122 31" stroke="#2a2a2a" stroke-width="2" fill="none"/>
+
+          <!-- Rough content boxes -->
+          <rect x="22" y="40" width="40" height="35" fill="none" stroke="#2a2a2a" stroke-width="1.5" rx="2" transform="rotate(-1 42 57)"/>
+          <rect x="78" y="42" width="40" height="33" fill="none" stroke="#2a2a2a" stroke-width="1.5" rx="2" transform="rotate(1 98 58)"/>
+
+          <!-- Scribbled lines (content) -->
+          <path d="M 26 85 Q 50 84 95 86" stroke="#2a2a2a" stroke-width="1.5" fill="none"/>
+          <path d="M 28 95 Q 60 96 90 94" stroke="#2a2a2a" stroke-width="1.5" fill="none"/>
+          <path d="M 25 105 Q 55 104 75 106" stroke="#2a2a2a" stroke-width="1.5" fill="none"/>
+
+          <!-- Rough button -->
+          <rect x="45" y="112" width="50" height="14" fill="#2a2a2a" rx="3" transform="rotate(-0.5 70 119)"/>
+
+          <!-- Small checkmark (it works!) -->
+          <path d="M 105 12 L 112 20 L 128 5" stroke="#4a7c4e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="visual-label">Ships</span>
+      </div>
+
+      <span class="vs-text">vs</span>
+
+      <!-- Right: Perfect blueprint (faded/invisible) -->
+      <div class="visual-side">
+        <svg class="faded-blueprint" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+          <!-- Perfect, precise app wireframe -->
+          <rect x="15" y="10" width="110" height="120" fill="none" stroke="#1a4a7c" stroke-width="1.5"/>
+
+          <!-- Perfect header -->
+          <line x1="15" y1="30" x2="125" y2="30" stroke="#1a4a7c" stroke-width="1"/>
+
+          <!-- Grid lines (blueprint style) -->
+          <line x1="70" y1="30" x2="70" y2="130" stroke="#1a4a7c" stroke-width="0.5" stroke-dasharray="2,2"/>
+          <line x1="15" y1="80" x2="125" y2="80" stroke="#1a4a7c" stroke-width="0.5" stroke-dasharray="2,2"/>
+
+          <!-- Perfect content boxes -->
+          <rect x="22" y="38" width="40" height="35" fill="none" stroke="#1a4a7c" stroke-width="1"/>
+          <rect x="78" y="38" width="40" height="35" fill="none" stroke="#1a4a7c" stroke-width="1"/>
+
+          <!-- Perfect lines -->
+          <line x1="22" y1="85" x2="118" y2="85" stroke="#1a4a7c" stroke-width="1"/>
+          <line x1="22" y1="95" x2="100" y2="95" stroke="#1a4a7c" stroke-width="1"/>
+          <line x1="22" y1="105" x2="80" y2="105" stroke="#1a4a7c" stroke-width="1"/>
+
+          <!-- Perfect button -->
+          <rect x="45" y="112" width="50" height="14" fill="none" stroke="#1a4a7c" stroke-width="1" rx="2"/>
+
+          <!-- Dimension markers (blueprint style) -->
+          <line x1="5" y1="10" x2="5" y2="130" stroke="#1a4a7c" stroke-width="0.5"/>
+          <line x1="3" y1="10" x2="7" y2="10" stroke="#1a4a7c" stroke-width="0.5"/>
+          <line x1="3" y1="130" x2="7" y2="130" stroke="#1a4a7c" stroke-width="0.5"/>
+        </svg>
+        <span class="visual-label">Stays in Figma</span>
+      </div>
+
+    </div>
+
+    <!-- Quote -->
+    <p class="quote-text">
+      "<span class="highlight">Ugly but working</span><br>
+      <span class="highlight">beats perfect but invisible.</span>"
+    </p>
+    <p class="attribution">— Hoang Le</p>
+  </div>
+</body>
+</html>

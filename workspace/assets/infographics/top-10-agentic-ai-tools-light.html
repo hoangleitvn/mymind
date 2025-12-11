@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top 10 Agentic AI Tools - 2025 (Light Theme)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Primary Palette */
+      --primary: #00a86b;
+      --primary-light: #d1fae5;
+      --primary-dark: #065f46;
+      --secondary: #374151;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+
+      /* Neutrals */
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --gray: #6b7280;
+      --gray-light: #e5e7eb;
+      --slate: #f1f5f9;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--gray-light);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .infographic {
+      width: 800px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Subtle gradient overlay */
+    .infographic::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 300px;
+      background: linear-gradient(180deg, rgba(0, 168, 107, 0.04) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--primary);
+      letter-spacing: -0.01em;
+    }
+
+    .year {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--gray-light);
+    }
+
+    .year span {
+      color: var(--dark);
+    }
+
+    .title-container {
+      text-align: center;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--white);
+      background: var(--primary);
+      display: inline-block;
+      padding: 16px 48px;
+      border-radius: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tool-card {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+      border: 1px solid var(--gray-light);
+    }
+
+    .tool-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .tool-number {
+      width: 36px;
+      height: 36px;
+      background: var(--white);
+      border: 2px solid var(--gray-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--secondary);
+      flex-shrink: 0;
+    }
+
+    .tool-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--dark);
+      flex-grow: 1;
+    }
+
+    .tool-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--primary);
+    }
+
+    .tool-features {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .tool-features li {
+      font-size: 13px;
+      color: var(--secondary);
+      line-height: 1.5;
+      padding: 4px 0;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .tool-features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 6px;
+      height: 6px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+
+    /* Alternating card positions for number */
+    .tool-card:nth-child(even) .tool-header {
+      flex-direction: row-reverse;
+    }
+
+    .tool-card:nth-child(even) .tool-features li {
+      text-align: right;
+      padding-left: 0;
+      padding-right: 16px;
+    }
+
+    .tool-card:nth-child(even) .tool-features li::before {
+      left: auto;
+      right: 0;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray-light);
+      position: relative;
+      z-index: 1;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .follow-label {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .author-avatar {
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: white;
+    }
+
+    .author-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--dark);
+    }
+
+    .author-tagline {
+      font-size: 13px;
+      color: var(--primary);
+      margin-left: 8px;
+    }
+
+    .repost-btn {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Accent highlight for top tools */
+    .tool-card:nth-child(1) .tool-number,
+    .tool-card:nth-child(2) .tool-number {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    /* Subtle hover effect for cards */
+    .tool-card {
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .tool-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 168, 107, 0.1);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic">
+    <div class="header">
+      <div class="brand-name">Hoang Le</div>
+      <div class="year">20<span>25</span></div>
+    </div>
+
+    <div class="title-container">
+      <h1 class="title">TOP 10 AGENTIC AI TOOLS</h1>
+    </div>
+
+    <div class="tools-grid">
+      <!-- Tool 1: n8n -->
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-number">1</div>
+          <div class="tool-name">n8n</div>
+        </div>
+        <ul class="tool-features">
+          <li>Low code workflow automation with 400+ integrations</li>
+          <li>Self hosted for flexibility and data control</li>
+          <li>Great for multi agent orchestration</li>
+        </ul>
+      </div>
+
+      <!-- Tool 2: Make.com -->
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-number">2</div>
+          <div class="tool-name">Make.com</div>
+        </div>
+        <ul class="tool-features">
+          <li>No code visual automation for business users</li>
+          <li>1,000+ SaaS app integrations</li>
+          <li>Perfect for non technical teams</li>
+        </ul>
+      </div>
+
+      <!-- Tool 3: LangChain -->
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-number">3</div>
+          <div class="tool-name">LangChain</div>
+        </div>
+        <ul class="tool-features">
+          <li>Framework for building LLM powered apps</li>
+          <li>Complex RAG pipelines and agent tools</li>
+          <li>Suited for developers building production apps</li>
+        </ul>
+      </div>
+
+      <!-- Tool 4: AutoGen -->
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-number">4</div>
+          <div class="tool-name">AutoGen</div>
+        </div>
+        <ul class="tool-features">
+          <li>Multi agent conversation orchestration</li>
+          <li>Human + AI collaborative workflows</li>
+          <li>Strong in enterprise R&D</li>
+          <li>Supports agent to agent negotiation</li>
+        </ul>
+      </div>
+
+      <!-- Tool 5: LangGraph -->
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-number">5</div>
+          <div class="tool-name">LangGraph</div>
+        </div>
+        <ul class="tool-features">
+          <li>Graph based stateful agent workflows</li>
+          <li>Advanced task routing and orchestration</li>
+          <li>Works seamlessly with LangChain</li>
+          <li>Dynamic decision making pipelines</li>
+        </ul>
+      </div>
+
+      <!-- Tool 6: Flowise -->
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-number">6</div>
+          <div class="tool-name">Flowise</div>
+        </div>
+        <ul class="tool-features">
+          <li>Drag and drop builder for agents</li>
+          <li>Open source, easy customization</li>
+          <li>Rapid prototyping of RAG pipelines</li>
+          <li>Visual debugging for agent interactions</li>
+        </ul>
+      </div>
+
+      <!-- Tool 7: CrewAI -->
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-number">7</div>
+          <div class="tool-name">CrewAI</div>
+        </div>
+        <ul class="tool-features">
+          <li>Specialized multi agent teamwork</li>
+          <li>Role based task decomposition</li>
+          <li>Ideal for enterprise workflows</li>
+          <li>Enables collaboration between agents</li>
+        </ul>
+      </div>
+
+      <!-- Tool 8: OpenAI Agentic Stack -->
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-number">8</div>
+          <div class="tool-name">OpenAI Agentic Stack</div>
+        </div>
+        <ul class="tool-features">
+          <li>Built into ChatGPT ecosystem</li>
+          <li>Native tool calling and memory</li>
+          <li>Best for quick deployments</li>
+          <li>Simplifies integration with external APIs</li>
+        </ul>
+      </div>
+
+      <!-- Tool 9: LlamaIndex -->
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-number">9</div>
+          <div class="tool-name">LlamaIndex</div>
+        </div>
+        <ul class="tool-features">
+          <li>Connects LLMs with private data</li>
+          <li>Enables long term memory and context</li>
+          <li>Core for enterprise RAG systems</li>
+          <li>Provides modular data connectors</li>
+        </ul>
+      </div>
+
+      <!-- Tool 10: Semantic Kernel -->
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-number">10</div>
+          <div class="tool-name">Semantic Kernel</div>
+        </div>
+        <ul class="tool-features">
+          <li>SDK for agent development</li>
+          <li>Built in memory and connectors</li>
+          <li>Enterprise ready integrations</li>
+          <li>Multiple LLM backends and plugins</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="author">
+        <span class="follow-label">Follow</span>
+        <div class="author-info">
+          <div class="author-avatar">HL</div>
+          <span class="author-name">Hoang Le</span>
+          <span class="author-tagline">Engineering Tech Leader</span>
+        </div>
+      </div>
+      <span class="repost-btn">Repost</span>
+    </div>
+  </div>
+</body>
+</html>

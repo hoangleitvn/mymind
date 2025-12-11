@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Cover - Hoang Le</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #f3f4f6;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: -24px;
+    }
+
+    /* LinkedIn Cover: 1584 x 396 px (4:1 ratio) */
+    /* Scaled to 792 x 198 for preview */
+    .cover-container {
+      width: 792px;
+      height: 198px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .cover {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #1f2937 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0 48px;
+    }
+
+    /* Subtle pattern overlay */
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(0, 168, 107, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    /* Geometric accent */
+    .geometric-accent {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 200px;
+      overflow: hidden;
+    }
+
+    .geometric-accent::before {
+      content: '';
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 280px;
+      height: 280px;
+      border: 3px solid rgba(0, 168, 107, 0.3);
+      border-radius: 50%;
+    }
+
+    .geometric-accent::after {
+      content: '';
+      position: absolute;
+      right: -30px;
+      bottom: -80px;
+      width: 200px;
+      height: 200px;
+      border: 2px solid rgba(245, 158, 11, 0.2);
+      border-radius: 50%;
+    }
+
+    /* Content */
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex: 1;
+    }
+
+    /* Profile section */
+    .profile-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .profile-picture {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid #00a86b;
+      background: #00a86b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .profile-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .profile-handle {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    /* Divider */
+    .divider {
+      width: 2px;
+      height: 100px;
+      background: linear-gradient(to bottom, transparent, #00a86b, transparent);
+    }
+
+    /* Message section */
+    .message-section {
+      flex: 1;
+    }
+
+    .tagline {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #f9fafb;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .tagline .highlight {
+      color: #00a86b;
+    }
+
+    .tagline .accent {
+      color: #f59e0b;
+    }
+
+    .description {
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.5;
+      max-width: 400px;
+    }
+
+    /* Tags */
+    .tags {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      padding: 4px 12px;
+      background: rgba(0, 168, 107, 0.15);
+      border: 1px solid rgba(0, 168, 107, 0.3);
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #4ade80;
+    }
+
+    /* Instructions */
+    .instructions {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      max-width: 792px;
+      width: 100%;
+    }
+
+    .instructions h2 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 12px;
+    }
+
+    .instructions ul {
+      list-style: none;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .instructions li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .instructions li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #00a86b;
+    }
+
+    .color-ref {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+    }
+
+    .color-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>LinkedIn Cover Preview</h1>
+  <p class="subtitle">Dimensions: 1584 x 396px (shown at 50% scale)</p>
+
+  <div class="cover-container">
+    <div class="cover">
+      <div class="geometric-accent"></div>
+
+      <div class="content">
+        <div class="profile-section">
+          <div class="profile-picture">HL</div>
+          <div class="profile-name">Hoang Le</div>
+          <div class="profile-handle">@hoangleitvn</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="message-section">
+          <div class="tagline">
+            Build <span class="highlight">20%</span> that matters.<br>
+            Let users shape the <span class="accent">rest</span>.
+          </div>
+          <div class="description">
+            Tech Leader & Founder helping startups go from zero to live users with speed, compliance, and focus.
+          </div>
+          <div class="tags">
+            <span class="tag">Engineering Leadership</span>
+            <span class="tag">Product Development</span>
+            <span class="tag">Embedded CTO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <h2>Brand Elements Used</h2>
+    <ul>
+      <li>Primary: Jade Green <span class="color-ref"><span class="color-dot" style="background: #00a86b;"></span>#00a86b</span></li>
+      <li>Secondary: Charcoal <span class="color-ref"><span class="color-dot" style="background: #374151;"></span>#374151</span></li>
+      <li>Accent: Gold/Amber <span class="color-ref"><span class="color-dot" style="background: #f59e0b;"></span>#f59e0b</span></li>
+      <li>Display font: Poppins Bold (tagline)</li>
+      <li>Body font: Inter (description, tags)</li>
+      <li>Profile placeholder: Replace with hoangle-profile.png</li>
+    </ul>
+  </div>
+
+  <div class="instructions">
+    <h2>To Export as PNG</h2>
+    <ul>
+      <li>Open in browser and take screenshot, or</li>
+      <li>Use browser dev tools to capture at 2x for retina</li>
+      <li>Final size should be 1584 x 396px for LinkedIn</li>
+    </ul>
+  </div>
+</body>
+</html>

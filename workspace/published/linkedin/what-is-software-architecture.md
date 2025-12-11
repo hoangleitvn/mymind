@@ -17,13 +17,13 @@ series_order: 1
 published_date: '2025-11-28T01:00:05Z'
 post_url: https://www.linkedin.com/feed/update/urn:li:activity:7399975334722363392/
 performance_metrics:
-  impressions: 1309
-  reached: 754
+  impressions: 1438
+  reached: 819
   profile_views: 6
   followers: 3
-  reactions: 20
+  reactions: 21
   comments: 1
-  saves: 3
+  saves: 5
   reposts: 4
   sends: 0
 ---

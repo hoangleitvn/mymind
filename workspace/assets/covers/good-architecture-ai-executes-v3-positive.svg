@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00a86b"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ecfdf5"/>
+      <stop offset="100%" stop-color="#d1fae5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="#f9fafb"/>
+
+  <!-- Subtle grid pattern -->
+  <g stroke="#e5e7eb" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="270" x2="1080" y2="270"/>
+    <line x1="0" y1="540" x2="1080" y2="540"/>
+    <line x1="0" y1="810" x2="1080" y2="810"/>
+    <line x1="270" y1="0" x2="270" y2="1080"/>
+    <line x1="540" y1="0" x2="540" y2="1080"/>
+    <line x1="810" y1="0" x2="810" y2="1080"/>
+  </g>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1080" height="6" fill="url(#accentGradient)"/>
+
+  <!-- Main title line 1 -->
+  <text x="540" y="160" font-family="Inter, system-ui, sans-serif" font-size="56" font-weight="800" fill="#1f2937" text-anchor="middle" letter-spacing="-1">Good Architecture Means</text>
+
+  <!-- Main title line 2 with accent -->
+  <text x="540" y="235" font-family="Inter, system-ui, sans-serif" font-size="50" font-weight="800" fill="#00a86b" text-anchor="middle" letter-spacing="-0.5">AI Executes Without Rework</text>
+
+  <!-- Accent line -->
+  <rect x="290" y="265" width="500" height="4" rx="2" fill="url(#accentGradient)"/>
+
+  <!-- Subtitle -->
+  <text x="540" y="320" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="500" fill="#6b7280" text-anchor="middle">The validation signal for your system design</text>
+
+  <!-- OPTION 3: Positive-Only with 4 Feature Cards -->
+  <g font-family="Inter, system-ui, sans-serif">
+    <!-- Card 1 -->
+    <rect x="90" y="380" width="440" height="120" rx="12" fill="url(#cardGradient)" stroke="#a7f3d0" stroke-width="1.5"/>
+    <circle cx="140" cy="440" r="28" fill="#00a86b"/>
+    <text x="140" y="448" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">01</text>
+    <text x="185" y="425" font-size="18" font-weight="700" fill="#065f46">AI follows patterns naturally</text>
+    <text x="185" y="455" font-size="15" fill="#374151">No conflicts, no constant corrections</text>
+
+    <!-- Card 2 -->
+    <rect x="550" y="380" width="440" height="120" rx="12" fill="url(#cardGradient)" stroke="#a7f3d0" stroke-width="1.5"/>
+    <circle cx="600" cy="440" r="28" fill="#00a86b"/>
+    <text x="600" y="448" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">02</text>
+    <text x="645" y="425" font-size="18" font-weight="700" fill="#065f46">Features slot into structure</text>
+    <text x="645" y="455" font-size="15" fill="#374151">New code fits existing architecture</text>
+
+    <!-- Card 3 -->
+    <rect x="90" y="520" width="440" height="120" rx="12" fill="url(#cardGradient)" stroke="#a7f3d0" stroke-width="1.5"/>
+    <circle cx="140" cy="580" r="28" fill="#00a86b"/>
+    <text x="140" y="588" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">03</text>
+    <text x="185" y="565" font-size="18" font-weight="700" fill="#065f46">Execution is predictable</text>
+    <text x="185" y="595" font-size="15" fill="#374151">Know what you'll get before you ship</text>
+
+    <!-- Card 4 -->
+    <rect x="550" y="520" width="440" height="120" rx="12" fill="url(#cardGradient)" stroke="#a7f3d0" stroke-width="1.5"/>
+    <circle cx="600" cy="580" r="28" fill="#00a86b"/>
+    <text x="600" y="588" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">04</text>
+    <text x="645" y="565" font-size="18" font-weight="700" fill="#065f46">Foundation enables speed</text>
+    <text x="645" y="595" font-size="15" fill="#374151">Invest upfront, compound forever</text>
+  </g>
+
+  <!-- Key equation -->
+  <rect x="90" y="690" width="900" height="70" rx="10" fill="#ffffff" stroke="#00a86b" stroke-width="2"/>
+  <text x="540" y="735" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600" fill="#065f46" text-anchor="middle">Clear patterns → Predictable execution → Faster shipping</text>
+
+  <!-- Key insight -->
+  <text x="540" y="820" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="500" fill="#6b7280" text-anchor="middle">If AI can execute within your architecture without constant corrections,</text>
+  <text x="540" y="850" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700" fill="#374151" text-anchor="middle">the architecture is right.</text>
+
+  <!-- Bottom divider -->
+  <line x1="90" y1="910" x2="990" y2="910" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- Author section -->
+  <g>
+    <circle cx="140" cy="970" r="44" fill="#00a86b"/>
+    <circle cx="140" cy="970" r="40" fill="#d1d5db"/>
+    <text x="140" y="978" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="600" fill="#6b7280" text-anchor="middle">HL</text>
+    <text x="200" y="962" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600" fill="#1f2937">Hoang Le</text>
+    <text x="200" y="988" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="500" fill="#00a86b">@hoangleitvn</text>
+  </g>
+
+  <text x="990" y="975" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#9ca3af" text-anchor="end">#SoftwareArchitecture #AIEngineering #SystemDesign</text>
+</svg>

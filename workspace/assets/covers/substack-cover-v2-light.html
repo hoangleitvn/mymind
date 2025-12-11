@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ship with Clarity - Substack Cover (Light)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #e5e7eb;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .page-header {
+      max-width: 1456px;
+      width: 100%;
+    }
+
+    .page-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .page-subtitle {
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    /* Substack Cover: 1456 x 816 px */
+    .cover-container {
+      width: 1456px;
+      height: 816px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .cover {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      position: relative;
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* Left section - Green accent */
+    .left-accent {
+      width: 8px;
+      background: #00a86b;
+    }
+
+    /* Main content area */
+    .main-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 64px 80px;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: auto;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: #d1fae5;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #059669;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 24px;
+    }
+
+    .title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 64px;
+      font-weight: 800;
+      color: #1f2937;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -2px;
+    }
+
+    .title span {
+      color: #00a86b;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      color: #6b7280;
+      font-weight: 400;
+      max-width: 600px;
+    }
+
+    /* Middle - Tagline */
+    .tagline-section {
+      margin: auto 0;
+    }
+
+    .tagline {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #1f2937;
+      padding-left: 24px;
+      border-left: 4px solid #00a86b;
+    }
+
+    .tagline span {
+      color: #00a86b;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 32px;
+      border-top: 1px solid #e5e7eb;
+      margin-top: auto;
+    }
+
+    .pub-tagline {
+      font-size: 14px;
+      color: #6b7280;
+      font-style: italic;
+    }
+
+    .topics {
+      display: flex;
+      gap: 12px;
+    }
+
+    .topic {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .topic-icon {
+      font-size: 16px;
+    }
+
+    .topic.green {
+      background: #d1fae5;
+      color: #059669;
+    }
+
+    .topic.amber {
+      background: #fef3c7;
+      color: #d97706;
+    }
+
+    .topic.blue {
+      background: #dbeafe;
+      color: #2563eb;
+    }
+
+    /* Right side decoration */
+    .right-decoration {
+      width: 300px;
+      background: linear-gradient(180deg, #f0fdf4 0%, #d1fae5 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 48px;
+      position: relative;
+    }
+
+    .decoration-text {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-family: 'Poppins', sans-serif;
+      font-size: 120px;
+      font-weight: 800;
+      color: rgba(0, 168, 107, 0.1);
+      letter-spacing: -4px;
+    }
+
+    .icon-stack {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .icon-item {
+      width: 64px;
+      height: 64px;
+      background: white;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      font-size: 28px;
+    }
+
+    .info-label {
+      background: #f3f4f6;
+      padding: 16px 24px;
+      border-radius: 8px;
+      max-width: 1456px;
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    .info-label h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 4px;
+    }
+
+    .info-label p {
+      font-size: 13px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-header">
+    <h1 class="page-title">Substack Cover - Light Theme</h1>
+    <p class="page-subtitle">1456 x 816px (Substack recommended size)</p>
+  </div>
+
+  <div class="cover-container">
+    <div class="cover">
+
+      <!-- Left accent -->
+      <div class="left-accent"></div>
+
+      <!-- Main content -->
+      <div class="main-area">
+        <div class="header">
+          <div class="badge">Newsletter</div>
+          <h1 class="title">Ship with <span>Clarity</span></h1>
+          <p class="subtitle">Engineering leadership, product development, and building things that last.</p>
+        </div>
+
+        <div class="tagline-section">
+          <p class="tagline">In the AI era, <span>speed is easy</span>.<br>Clarity is rare.</p>
+        </div>
+
+        <div class="footer">
+          <div class="pub-tagline">
+            No frameworks copied. No theory without proof.
+          </div>
+          <div class="topics">
+            <div class="topic green"><span class="topic-icon">🏗️</span> Engineering</div>
+            <div class="topic amber"><span class="topic-icon">📦</span> Product</div>
+            <div class="topic blue"><span class="topic-icon">🤖</span> AI</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right decoration -->
+      <div class="right-decoration">
+        <span class="decoration-text">CLARITY</span>
+        <div class="icon-stack">
+          <div class="icon-item">🏗️</div>
+          <div class="icon-item">⚡</div>
+          <div class="icon-item">🎯</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="info-label">
+    <h3>Usage</h3>
+    <p>Open in browser → Screenshot at actual size → Upload to Substack as publication cover image</p>
+  </div>
+</body>
+</html>

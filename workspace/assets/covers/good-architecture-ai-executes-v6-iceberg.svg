@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <linearGradient id="icebergTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fecaca"/>
+      <stop offset="100%" stop-color="#fca5a5"/>
+    </linearGradient>
+
+    <linearGradient id="icebergBottom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d1fae5"/>
+      <stop offset="50%" stop-color="#00a86b"/>
+      <stop offset="100%" stop-color="#065f46"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="#f9fafb"/>
+
+  <!-- Title -->
+  <text x="540" y="55" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="700" fill="#1f2937" text-anchor="middle">Good Architecture Means</text>
+  <text x="540" y="95" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="700" fill="#00a86b" text-anchor="middle">AI Executes Without Rework</text>
+
+  <!-- Sky area -->
+  <rect x="0" y="120" width="1080" height="200" fill="#fef2f2"/>
+
+  <!-- Water area -->
+  <rect x="0" y="320" width="1080" height="660" fill="url(#waterGradient)"/>
+
+  <!-- Water line -->
+  <line x1="0" y1="320" x2="1080" y2="320" stroke="#0284c7" stroke-width="3" stroke-dasharray="10,5"/>
+
+  <!-- Labels -->
+  <rect x="40" y="150" width="100" height="36" rx="6" fill="#dc2626"/>
+  <text x="90" y="175" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">VISIBLE</text>
+  <text x="155" y="175" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#991b1b" text-anchor="start">What breaks</text>
+
+  <rect x="40" y="450" width="100" height="36" rx="6" fill="#00a86b"/>
+  <text x="90" y="475" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">HIDDEN</text>
+  <text x="155" y="475" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#d1fae5" text-anchor="start">What enables</text>
+
+  <!-- Iceberg top (visible - the problems) -->
+  <polygon points="540,140 680,320 400,320" fill="url(#icebergTop)" stroke="#fca5a5" stroke-width="2"/>
+
+  <!-- Iceberg bottom (hidden - the foundation) -->
+  <polygon points="400,320 680,320 780,550 720,750 540,820 360,750 300,550" fill="url(#icebergBottom)" stroke="#065f46" stroke-width="2" opacity="0.95"/>
+
+  <!-- Top section content (problems) -->
+  <g font-family="Inter, system-ui, sans-serif" fill="#1f2937">
+    <text x="750" y="175" font-size="15" font-weight="600">✗ AI conflicts with code</text>
+    <text x="750" y="205" font-size="15" font-weight="600">✗ Every feature = restructure</text>
+    <text x="750" y="235" font-size="15" font-weight="600">✗ Constant rework cycles</text>
+    <text x="750" y="265" font-size="15" font-weight="600">✗ More fixing than building</text>
+
+    <line x1="685" y1="220" x2="740" y2="210" stroke="#dc2626" stroke-width="1" stroke-dasharray="4,2"/>
+  </g>
+
+  <text x="540" y="250" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="#991b1b" text-anchor="middle">SYMPTOMS</text>
+
+  <!-- Bottom section content (foundation) -->
+  <g font-family="Inter, system-ui, sans-serif">
+    <text x="800" y="420" font-size="15" font-weight="700" fill="#065f46">THE FOUNDATION</text>
+
+    <text x="800" y="460" font-size="14" font-weight="600" fill="#f9fafb">Clear Patterns</text>
+    <text x="800" y="480" font-size="12" fill="#d1fae5">Defined structure AI follows</text>
+
+    <text x="800" y="515" font-size="14" font-weight="600" fill="#f9fafb">Consistent Architecture</text>
+    <text x="800" y="535" font-size="12" fill="#d1fae5">Features slot into place</text>
+
+    <text x="800" y="570" font-size="14" font-weight="600" fill="#f9fafb">Documented Decisions</text>
+    <text x="800" y="590" font-size="12" fill="#d1fae5">ADRs guide AI behavior</text>
+
+    <text x="800" y="625" font-size="14" font-weight="600" fill="#f9fafb">Predictable Execution</text>
+    <text x="800" y="645" font-size="12" fill="#d1fae5">Ship without corrections</text>
+
+    <!-- Connector lines -->
+    <line x1="790" y1="460" x2="720" y2="450" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="790" y1="515" x2="740" y2="500" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="790" y1="570" x2="750" y2="550" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+  </g>
+
+  <!-- Center labels on iceberg -->
+  <text x="540" y="480" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">FOUNDATION</text>
+  <text x="540" y="510" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#d1fae5" text-anchor="middle">What makes AI work with your code</text>
+
+  <!-- Result indicator -->
+  <g transform="translate(200, 600)">
+    <rect x="0" y="0" width="160" height="80" rx="10" fill="#ffffff" stroke="#00a86b" stroke-width="2"/>
+    <text x="80" y="35" font-family="Poppins, sans-serif" font-size="32" font-weight="800" fill="#00a86b" text-anchor="middle">0</text>
+    <text x="80" y="60" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#065f46" text-anchor="middle">rework needed</text>
+  </g>
+
+  <!-- Key insight box -->
+  <rect x="140" y="860" width="800" height="50" rx="8" fill="#1f2937"/>
+  <text x="540" y="892" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#f9fafb" text-anchor="middle">Strong foundation = AI follows patterns naturally. Weak foundation = endless rework.</text>
+
+  <!-- Tagline -->
+  <text x="540" y="950" font-family="Poppins, Inter, sans-serif" font-size="20" font-weight="700" fill="#00a86b" text-anchor="middle">Foundation First. Speed Follows.</text>
+
+  <!-- Author section -->
+  <g>
+    <circle cx="140" cy="1010" r="36" fill="#00a86b"/>
+    <circle cx="140" cy="1010" r="32" fill="#d1d5db"/>
+    <text x="140" y="1018" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="600" fill="#6b7280" text-anchor="middle">HL</text>
+    <text x="190" y="1002" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600" fill="#1f2937">Hoang Le</text>
+    <text x="190" y="1024" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#00a86b">@hoangleitvn</text>
+  </g>
+
+  <text x="990" y="1015" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="500" fill="#6b7280" text-anchor="end">#SoftwareArchitecture #AIEngineering</text>
+</svg>

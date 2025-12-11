@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" width="1080" height="1350">
+  <defs>
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <linearGradient id="icebergTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e5e7eb"/>
+    </linearGradient>
+
+    <linearGradient id="icebergBottom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d1fae5"/>
+      <stop offset="50%" stop-color="#00a86b"/>
+      <stop offset="100%" stop-color="#065f46"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1350" fill="#f9fafb"/>
+
+  <text x="540" y="70" font-family="Inter, system-ui, sans-serif" font-size="42" font-weight="700" fill="#1f2937" text-anchor="middle">AI in Engineering</text>
+  <text x="540" y="115" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="500" fill="#6b7280" text-anchor="middle">What You See vs. What Makes It Work</text>
+
+  <rect x="0" y="140" width="1080" height="280" fill="#f0f9ff"/>
+
+  <rect x="0" y="420" width="1080" height="850" fill="url(#waterGradient)"/>
+
+  <line x1="0" y1="420" x2="1080" y2="420" stroke="#0284c7" stroke-width="3" stroke-dasharray="10,5"/>
+
+  <rect x="40" y="170" width="100" height="50" rx="8" fill="#f59e0b"/>
+  <text x="90" y="203" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">20%</text>
+  <text x="150" y="203" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="500" fill="#6b7280" text-anchor="start">Visible</text>
+
+  <rect x="40" y="460" width="100" height="50" rx="8" fill="#00a86b"/>
+  <text x="90" y="493" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">80%</text>
+  <text x="150" y="493" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="500" fill="#f9fafb" text-anchor="start">Hidden Foundation</text>
+
+  <polygon points="540,160 620,420 460,420" fill="url(#icebergTop)" stroke="#e5e7eb" stroke-width="2"/>
+
+  <polygon points="460,420 620,420 750,700 800,950 700,1150 540,1220 380,1150 280,950 330,700" fill="url(#icebergBottom)" stroke="#065f46" stroke-width="2" opacity="0.95"/>
+
+  <g font-family="Inter, system-ui, sans-serif" fill="#1f2937">
+    <text x="680" y="230" font-size="18" font-weight="600">Vibe Coding</text>
+    <text x="680" y="260" font-size="18" font-weight="600">AI Demos</text>
+    <text x="680" y="290" font-size="18" font-weight="600">Ship in Days</text>
+    <text x="680" y="320" font-size="18" font-weight="600">Beautiful UX</text>
+    <text x="680" y="350" font-size="18" font-weight="600">Everyone Can Build</text>
+
+    <line x1="625" y1="300" x2="670" y2="280" stroke="#6b7280" stroke-width="1" stroke-dasharray="4,2"/>
+  </g>
+
+  <g font-family="Inter, system-ui, sans-serif">
+    <text x="80" y="570" font-size="17" font-weight="600" fill="#f9fafb">Legacy Maintenance</text>
+    <text x="80" y="600" font-size="14" fill="#d1fae5">20+ year old systems</text>
+
+    <text x="80" y="670" font-size="17" font-weight="600" fill="#f9fafb">No Documentation</text>
+    <text x="80" y="700" font-size="14" fill="#d1fae5">Read the code</text>
+
+    <text x="80" y="770" font-size="17" font-weight="600" fill="#f9fafb">Decompiling Binaries</text>
+    <text x="80" y="800" font-size="14" fill="#d1fae5">Combined files, lost source</text>
+
+    <text x="80" y="870" font-size="17" font-weight="600" fill="#f9fafb">Line-by-Line Reading</text>
+    <text x="80" y="900" font-size="14" fill="#d1fae5">Understanding messy code</text>
+
+    <text x="80" y="970" font-size="17" font-weight="600" fill="#f9fafb">System Integration</text>
+    <text x="80" y="1000" font-size="14" fill="#d1fae5">Connecting isolated parts</text>
+
+    <text x="820" y="570" font-size="17" font-weight="600" fill="#f9fafb">Design Standards</text>
+
+    <text x="820" y="640" font-size="17" font-weight="600" fill="#f9fafb">Best Practices</text>
+
+    <text x="820" y="710" font-size="17" font-weight="600" fill="#f9fafb">Rules and Patterns</text>
+
+    <text x="820" y="780" font-size="17" font-weight="600" fill="#f9fafb">Process</text>
+    <text x="820" y="810" font-size="14" fill="#d1fae5">Dev, Test, Validate</text>
+
+    <text x="820" y="880" font-size="17" font-weight="600" fill="#f9fafb">Data Consistency</text>
+    <text x="820" y="910" font-size="14" fill="#d1fae5">Fixing what nobody documented</text>
+
+    <text x="820" y="980" font-size="17" font-weight="600" fill="#f9fafb">Engineering Judgment</text>
+    <text x="820" y="1010" font-size="14" fill="#d1fae5">Human decisions AI cannot make</text>
+
+    <line x1="270" y1="580" x2="380" y2="600" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="270" y1="680" x2="350" y2="720" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="270" y1="780" x2="320" y2="840" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="270" y1="880" x2="300" y2="950" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="270" y1="980" x2="340" y2="1050" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+
+    <line x1="810" y1="570" x2="700" y2="600" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="810" y1="640" x2="720" y2="680" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="810" y1="710" x2="750" y2="760" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="810" y1="790" x2="770" y2="850" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="810" y1="890" x2="760" y2="950" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+    <line x1="810" y1="990" x2="700" y2="1050" stroke="#d1fae5" stroke-width="1" stroke-dasharray="4,2" opacity="0.6"/>
+  </g>
+
+  <text x="540" y="750" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">THE</text>
+  <text x="540" y="790" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="middle">FOUNDATION</text>
+
+  <rect x="200" y="1070" width="680" height="60" rx="8" fill="#065f46" opacity="0.9"/>
+  <text x="540" y="1108" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle">AI is a turbo, not a robot. It speeds up what you already have.</text>
+
+  <rect x="300" y="1180" width="480" height="70" rx="12" fill="#1f2937"/>
+  <text x="540" y="1220" font-family="Poppins, Inter, sans-serif" font-size="26" font-weight="700" fill="#00a86b" text-anchor="middle">Foundation First.</text>
+  <text x="540" y="1248" font-family="Poppins, Inter, sans-serif" font-size="20" font-weight="600" fill="#f9fafb" text-anchor="middle">AI Second.</text>
+
+  <text x="540" y="1320" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#6b7280" text-anchor="middle">@hoangleitvn</text>
+</svg>

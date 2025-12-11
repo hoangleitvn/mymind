@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Iceberg - Flowchart Style</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #e5e7eb;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1080px;
+      width: 100%;
+    }
+
+    .page-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .page-subtitle {
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    /* LinkedIn Square: 1080 x 1080 px */
+    .infographic-container {
+      width: 1080px;
+      height: 1080px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .infographic {
+      width: 100%;
+      height: 100%;
+      background: #f8fafc;
+      position: relative;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .header-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: #00a86b;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #1f2937;
+    }
+
+    .header .subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+
+    /* Flowchart layout */
+    .flowchart {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Vertical connector line */
+    .connector-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 80px;
+      width: 4px;
+      background: linear-gradient(180deg, #d1d5db 0%, #f59e0b 40%, #00a86b 100%);
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    /* Flow rows */
+    .flow-row {
+      display: flex;
+      align-items: stretch;
+      gap: 24px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .flow-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    /* Level indicator */
+    .level-indicator {
+      width: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .level-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .level-visible .level-circle { background: #9ca3af; }
+    .level-reality .level-circle { background: #f59e0b; }
+    .level-foundation .level-circle { background: #00a86b; }
+
+    .level-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 6px;
+      text-align: center;
+    }
+
+    .level-visible .level-label { color: #6b7280; }
+    .level-reality .level-label { color: #d97706; }
+    .level-foundation .level-label { color: #059669; }
+
+    /* Content card */
+    .flow-card {
+      flex: 1;
+      background: white;
+      border-radius: 16px;
+      padding: 20px 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border-left: 4px solid;
+    }
+
+    .level-visible .flow-card { border-color: #9ca3af; }
+    .level-reality .flow-card { border-color: #f59e0b; }
+    .level-foundation .flow-card { border-color: #00a86b; }
+
+    .flow-card-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .level-visible .flow-card-title { color: #6b7280; }
+    .level-reality .flow-card-title { color: #d97706; }
+    .level-foundation .flow-card-title { color: #059669; }
+
+    .flow-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .flow-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #4b5563;
+      background: #f9fafb;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    .flow-item-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: white;
+    }
+
+    .level-visible .flow-item-icon { background: #9ca3af; }
+    .level-reality .flow-item-icon { background: #f59e0b; }
+    .level-foundation .flow-item-icon { background: #00a86b; }
+
+    /* Arrow connectors */
+    .arrow-down {
+      display: flex;
+      justify-content: center;
+      padding: 8px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .arrow-icon {
+      width: 32px;
+      height: 32px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      font-size: 14px;
+    }
+
+    .arrow-icon.amber { color: #f59e0b; }
+    .arrow-icon.green { color: #00a86b; }
+
+    /* Key insight */
+    .key-insight {
+      display: flex;
+      justify-content: center;
+      margin-top: auto;
+    }
+
+    .insight-box {
+      background: #1f2937;
+      padding: 20px 40px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 700px;
+    }
+
+    .insight-box p {
+      font-size: 15px;
+      color: #f9fafb;
+      line-height: 1.5;
+    }
+
+    .insight-box strong {
+      color: #00a86b;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #00a86b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .author-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .author-handle {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .tagline {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #00a86b;
+    }
+
+    .style-label {
+      background: #f3f4f6;
+      padding: 16px 24px;
+      border-radius: 8px;
+      max-width: 1080px;
+      width: 100%;
+    }
+
+    .style-label h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 4px;
+    }
+
+    .style-label p {
+      font-size: 13px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Style 5: Flowchart</h1>
+      <p class="page-subtitle">LinkedIn Square: 1080 x 1080px</p>
+    </div>
+  </div>
+
+  <div class="infographic-container">
+    <div class="infographic">
+
+      <!-- Header -->
+      <div class="header">
+        <div class="header-badge">Engineering Reality</div>
+        <h1>The Engineering Iceberg</h1>
+        <p class="subtitle">What You See vs. What Makes It Work</p>
+      </div>
+
+      <!-- Flowchart -->
+      <div class="flowchart">
+        <div class="connector-line"></div>
+
+        <!-- Level 1: Visible -->
+        <div class="flow-row level-visible">
+          <div class="level-indicator">
+            <div class="level-circle">20%</div>
+            <div class="level-label">Visible</div>
+          </div>
+          <div class="flow-card">
+            <div class="flow-card-title">What Everyone Sees</div>
+            <div class="flow-items">
+              <div class="flow-item"><span class="flow-item-icon">✓</span>Vibe Coding</div>
+              <div class="flow-item"><span class="flow-item-icon">✓</span>AI Demos</div>
+              <div class="flow-item"><span class="flow-item-icon">✓</span>Ship in Days</div>
+              <div class="flow-item"><span class="flow-item-icon">✓</span>Beautiful UX</div>
+              <div class="flow-item"><span class="flow-item-icon">✓</span>Everyone Can Build</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow-down">
+          <div class="arrow-icon amber">↓</div>
+        </div>
+
+        <!-- Level 2: Reality -->
+        <div class="flow-row reverse level-reality">
+          <div class="level-indicator">
+            <div class="level-circle">40%</div>
+            <div class="level-label">Reality</div>
+          </div>
+          <div class="flow-card">
+            <div class="flow-card-title">What Teams Actually Deal With</div>
+            <div class="flow-items">
+              <div class="flow-item"><span class="flow-item-icon">!</span>Legacy Maintenance</div>
+              <div class="flow-item"><span class="flow-item-icon">!</span>Decompiling Binaries</div>
+              <div class="flow-item"><span class="flow-item-icon">!</span>Reading Code Line by Line</div>
+              <div class="flow-item"><span class="flow-item-icon">!</span>Fixing Data Issues</div>
+              <div class="flow-item"><span class="flow-item-icon">!</span>System Integration</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow-down">
+          <div class="arrow-icon green">↓</div>
+        </div>
+
+        <!-- Level 3: Foundation -->
+        <div class="flow-row level-foundation">
+          <div class="level-indicator">
+            <div class="level-circle">40%</div>
+            <div class="level-label">Foundation</div>
+          </div>
+          <div class="flow-card">
+            <div class="flow-card-title">What Prevents the Chaos</div>
+            <div class="flow-items">
+              <div class="flow-item"><span class="flow-item-icon">★</span>Architecture & ADRs</div>
+              <div class="flow-item"><span class="flow-item-icon">★</span>Design Standards</div>
+              <div class="flow-item"><span class="flow-item-icon">★</span>Best Practices</div>
+              <div class="flow-item"><span class="flow-item-icon">★</span>Rules & Guidelines</div>
+              <div class="flow-item"><span class="flow-item-icon">★</span>Process (Dev, Test, Deploy)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Insight -->
+        <div class="key-insight">
+          <div class="insight-box">
+            <p><strong>Strong foundation</strong> reduces maintenance chaos. <strong>Weak foundation</strong> multiplies it.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="author">
+          <div class="author-avatar">HL</div>
+          <div>
+            <div class="author-name">Hoang Le</div>
+            <div class="author-handle">@hoangleitvn</div>
+          </div>
+        </div>
+        <div class="tagline">Foundation First. Speed Follows.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="style-label">
+    <h3>Flowchart Style</h3>
+    <p>Logical flow with step-by-step progression. Best for: How-to content, decision trees, complex processes.</p>
+  </div>
+</body>
+</html>

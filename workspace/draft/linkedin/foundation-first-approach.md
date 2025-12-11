@@ -16,11 +16,7 @@ series: architecture-foundations
 series_order: 5
 ---
 
-90% business logic. 10% scaffolding.
-
-That's the ratio I aim for on every project.
-
-Most teams get this backwards.
+90% business logic. 10% scaffolding. That's the ratio I aim for on every project. Most teams get this backwards.
 
 They skip foundations to "move fast." Then spend 80% of their time fighting infrastructure instead of building features.
 
