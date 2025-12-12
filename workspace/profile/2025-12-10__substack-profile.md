@@ -1,12 +1,13 @@
 ---
 platform: substack
 created: 2025-12-10
+updated: 2025-12-11
 status: draft
-positioning: Engineering leader writing about building and shipping with clarity
+positioning: Engineering leader writing about building things that last
 next_review: 2026-03-10
 ---
 
-# Substack Profile: 2025-12-10
+# Substack Profile: 2025-12-11
 
 ## Summary
 
@@ -16,7 +17,7 @@ next_review: 2026-03-10
 |---------|--------|----------|
 | Bio | Done | High |
 | Profile Photo | Done | High |
-| Publication Name | Done | Medium |
+| Publication Name | Revised | Medium |
 | About Page | Pending | Medium |
 
 ---
@@ -25,14 +26,14 @@ next_review: 2026-03-10
 
 ```
 Hoang Le (person)
-├── Ship with Clarity (newsletter - thought leadership)
+├── Builds That Last (newsletter - thought leadership)
 ├── INNOMIZE (company - services)
 └── Mize Studio
     ├── MizeForge (tools)
     └── MizeStack (infrastructure)
 ```
 
-**Ship with Clarity** is personal thought leadership, separate from company brands.
+**Builds That Last** is personal thought leadership, separate from company brands.
 
 ---
 
@@ -41,15 +42,15 @@ Hoang Le (person)
 ### Recommended
 
 ```
-Engineering leader & founder. 15+ years building products. Helping founders go from zero to live users. Writing about engineering leadership, product development, and building with clarity.
+Engineering leader & founder. 15+ years building products. Helping founders go from zero to live users. Writing about engineering leadership, product development, and builds that last.
 ```
 
-**Character count:** ~185
+**Character count:** ~180
 
 ### Why This Works
 - Clean and scannable
 - Positions as practitioner, not guru
-- "Building with clarity" ties to core principles
+- "Builds that last" ties to publication name and core principle
 - Works for broader audience (not just founders seeking CTOs)
 
 ### Keywords Included
@@ -64,28 +65,43 @@ Engineering leader & founder. 15+ years building products. Helping founders go f
 
 ### Final Choice
 
-**Name:** Ship with Clarity
+**Name:** Builds That Last
 
-**Alias:** shipwithclarity
+**Alias:** buildsthatlast
 
-**URL:** shipwithclarity.substack.com
+**Custom Domain:** buildsthatlast.com (to purchase)
+
+**Backup Domain:** theshippingpractice.com (to purchase)
 
 **Short description:** Building and shipping products with clarity. Engineering leadership, product development, and things that last. By Hoang Le.
 
 **Publication introduction:**
-Ship with Clarity is about building products that last. Engineering leadership lessons, product development principles, and honest takes on architecture, teams, and execution from 15 years shipping 50+ projects. No theory without proof. No frameworks copied from Twitter. Just what I've learned building things that had to work. Subscribe if you're an engineer becoming a leader, a founder building a technical team, or anyone tired of advice that doesn't ship.
+Builds That Last is about building products that endure. Engineering leadership lessons, product development principles, and honest takes on architecture, teams, and execution from 15 years shipping 50+ projects. No theory without proof. No frameworks copied from Twitter. Just what I've learned building things that had to work. Subscribe if you're an engineer becoming a leader, a founder building a technical team, or anyone tired of advice that doesn't ship.
 
-**Character count:** 498
+**Character count:** ~480
 
 **Categories:**
 - Primary: Technology
 - Secondary: Startups or Business
 
+### Taglines
+
+**Primary (covers, headers, social):**
+> Everyone ships fast. Few build to last.
+
+**Secondary (About page, intro):**
+> In the AI era, shipping is easy. Building to last is what matters.
+
 ### Why This Name
-- Action-oriented ("Ship") + core principle ("Clarity")
+- Outcome-focused: emphasizes durability and quality
+- "Last" = lasting impact, things that endure
+- Short, memorable (4 syllables)
 - Stands alone from personal brand (hoangleitvn)
 - Separate from company brands (INNOMIZE, Mize*)
-- Memorable and unique
+- Avoids conflict with shipwithclarity.com (competitor)
+
+### Previous Name (Deprecated)
+- **Ship with Clarity** - deprecated due to domain conflict with competitor selling similar frameworks
 
 ---
 
@@ -123,11 +139,11 @@ Hi, I'm Hoang.
 
 Most engineering advice sounds good in theory. It falls apart when you're shipping under pressure.
 
-I've spent 15 years learning what actually works.
+I've spent 15 years learning what actually lasts.
 
 50+ projects shipped across startups and enterprise. Supply chain, law tech, healthcare, public SaaS. Teams scaled from 0 to 40+ engineers. Clients across US, UK, France, Singapore, and Malaysia.
 
-This newsletter is for engineers and founders who want to build with clarity, not chaos.
+This newsletter is for engineers and founders who want to build things that last, not things that break.
 
 **What you'll get:**
 - Engineering leadership lessons from real projects
@@ -165,6 +181,11 @@ Use same professional photo as LinkedIn for consistency across platforms.
 - [x] Upload profile photo (same as LinkedIn)
 - [ ] Write About page
 - [x] Publish first post
+- [ ] Purchase buildsthatlast.com domain
+- [ ] Purchase theshippingpractice.com domain (backup)
+- [ ] Configure custom domain on Substack
+- [ ] Update publication name to "Builds That Last"
+- [ ] Update bio with new tagline
 
 ---
 
@@ -174,7 +195,7 @@ Use same professional photo as LinkedIn for consistency across platforms.
 - Engineering leadership
 - Product development philosophy
 - 15 principles (can expand each into articles)
-- Building with clarity
+- Builds that last (durability, quality, longevity)
 - Founder lessons
 
 ### Post Frequency
@@ -200,4 +221,6 @@ Use same professional photo as LinkedIn for consistency across platforms.
 | Date | Changes Made |
 |------|--------------|
 | 2025-12-10 | Initial profile document created |
+| 2025-12-11 | Rebranded from "Ship with Clarity" to "Builds That Last" due to domain conflict |
+| 2025-12-11 | Updated taglines: Primary "Everyone ships fast. Few build to last." / Secondary "In the AI era, shipping is easy. Building to last is what matters." |
 

@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1f2937"/>
+      <stop offset="100%" style="stop-color:#374151"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1200" fill="url(#bgGradient)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.03">
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="600" x2="1200" y2="600" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="800" x2="1200" y2="800" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="1000" x2="1200" y2="1000" stroke="#ffffff" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="1200" stroke="#ffffff" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="1200" stroke="#ffffff" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="1200" stroke="#ffffff" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="1200" stroke="#ffffff" stroke-width="1"/>
+    <line x1="1000" y1="0" x2="1000" y2="1200" stroke="#ffffff" stroke-width="1"/>
+  </g>
+
+  <!-- Accent corner element -->
+  <rect x="0" y="0" width="8" height="200" fill="#00a86b"/>
+
+  <!-- Main visual: Two paths - wrong vs right -->
+  <g transform="translate(600, 380)">
+    <!-- Wrong path (tangled, chaotic) -->
+    <g transform="translate(-280, 0)">
+      <path d="M0,0 Q30,-40 20,20 Q10,60 50,40 Q80,20 60,70 Q40,100 80,90 Q120,80 100,130 Q80,160 120,150"
+            stroke="#6b7280" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.6"/>
+      <path d="M20,10 Q60,0 40,50 Q20,80 70,60 Q100,40 90,100"
+            stroke="#6b7280" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.4"/>
+      <circle cx="120" cy="150" r="8" fill="#f59e0b" opacity="0.8"/>
+      <text x="60" y="200" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#6b7280" text-anchor="middle">WRONG APPROACH</text>
+    </g>
+
+    <!-- Right path (clear, direct) -->
+    <g transform="translate(160, 0)">
+      <path d="M0,0 L0,150"
+            stroke="#00a86b" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <polygon points="0,160 -10,140 10,140" fill="#00a86b"/>
+      <circle cx="0" cy="0" r="8" fill="#00a86b"/>
+      <text x="0" y="200" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#00a86b" text-anchor="middle">RIGHT APPROACH</text>
+    </g>
+
+    <!-- VS divider -->
+    <text x="0" y="80" font-family="Inter, system-ui, sans-serif" font-size="24" fill="#4b5563" text-anchor="middle" font-weight="600">vs</text>
+  </g>
+
+  <!-- Main headline -->
+  <text x="600" y="700" font-family="Poppins, Inter, system-ui, sans-serif" font-size="56" fill="#f9fafb" text-anchor="middle" font-weight="700">
+    You're not bad at this.
+  </text>
+
+  <!-- Subheadline with accent -->
+  <text x="600" y="780" font-family="Poppins, Inter, system-ui, sans-serif" font-size="56" fill="#00a86b" text-anchor="middle" font-weight="700">
+    You're just doing it wrong.
+  </text>
+
+  <!-- Supporting text -->
+  <text x="600" y="880" font-family="Inter, system-ui, sans-serif" font-size="24" fill="#9ca3af" text-anchor="middle">
+    Same person. Different approach. Different results.
+  </text>
+
+  <!-- Divider line -->
+  <line x1="500" y1="940" x2="700" y2="940" stroke="#00a86b" stroke-width="2" opacity="0.5"/>
+
+  <!-- Three pillars at bottom -->
+  <g transform="translate(600, 1020)">
+    <!-- Can't explain clearly -->
+    <g transform="translate(-300, 0)">
+      <circle cx="0" cy="0" r="24" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.7"/>
+      <text x="0" y="6" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#f59e0b" text-anchor="middle">?</text>
+      <text x="0" y="50" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#9ca3af" text-anchor="middle">Can't explain it</text>
+    </g>
+
+    <!-- No other tasks -->
+    <g transform="translate(0, 0)">
+      <circle cx="0" cy="0" r="24" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.7"/>
+      <text x="0" y="6" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#f59e0b" text-anchor="middle">1</text>
+      <text x="0" y="50" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#9ca3af" text-anchor="middle">Only one task</text>
+    </g>
+
+    <!-- No plan -->
+    <g transform="translate(300, 0)">
+      <circle cx="0" cy="0" r="24" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.7"/>
+      <text x="0" y="6" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#f59e0b" text-anchor="middle">-</text>
+      <text x="0" y="50" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#9ca3af" text-anchor="middle">No plan</text>
+    </g>
+  </g>
+
+  <!-- Bottom accent -->
+  <rect x="0" y="1180" width="1200" height="20" fill="#00a86b" opacity="0.3"/>
+
+</svg>

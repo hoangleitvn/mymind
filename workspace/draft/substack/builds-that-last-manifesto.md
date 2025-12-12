@@ -1,19 +1,20 @@
 ---
-title: "Ship with Clarity: Why Foundation Comes Before Speed"
+title: "Builds That Last: Why Foundation Comes Before Speed"
 subtitle: "A manifesto for modern engineering in the AI era"
 type: substack-article
 status: draft
 created: 2025-12-10
-publication: Ship with Clarity
+updated: 2025-12-11
+publication: Builds That Last
 article_type: manifesto/founding-article
 topic: engineering-philosophy
 audiences: [engineers, tech-leaders, founders]
-key_message: "In the AI era, speed is easy. Clarity is rare. Foundation first, speed follows."
+key_message: "Everyone ships fast. Few build to last. Foundation first, speed follows."
 word_count: 2600
 tone: conversational-storytelling
 ---
 
-# Ship with Clarity: Why Foundation Comes Before Speed
+# Builds That Last: Why Foundation Comes Before Speed
 
 I've been building and leading engineering teams for 15 years. Over 50 projects. Startups, enterprises, legacy systems, greenfield builds. Some still live. Some failed. Some never shipped. Some are still in development.
 
@@ -225,15 +226,15 @@ Most engineering advice sounds good in theory. It falls apart when you're shippi
 
 I've spent 15 years learning what actually works. Not from books or Medium posts. From building things that had to work.
 
-I'm calling this publication "Ship with Clarity" because that's what's missing in the conversation.
+I'm calling this publication "Builds That Last" because that's what's missing in the conversation.
 
 Everyone's focused on shipping fast. But fast to where? Fast toward what?
 
-Clarity is knowing what you're building and why. Clarity is understanding the system well enough to change it confidently. Clarity is building something that your future self (or the engineer who inherits your code) can actually maintain.
+Building things that last means knowing what you're building and why. It means understanding the system well enough to change it confidently. It means creating something that your future self (or the engineer who inherits your code) can actually maintain.
 
-> In the AI era, speed is easy. Clarity is rare.
+> In the AI era, shipping is easy. Building to last is what matters.
 
-This newsletter is for engineers and founders who want to build with clarity, not chaos. No frameworks copied. No theory without proof. Just what I've learned building things that had to work.
+This newsletter is for engineers and founders who want to build things that last, not things that break. No frameworks copied. No theory without proof. Just what I've learned building things that had to work.
 
 ## What's Coming
 
@@ -263,6 +264,6 @@ That's what I want to explore in this publication.
 
 Learn to share. Share to learn.
 
-Welcome to Ship with Clarity.
+Welcome to Builds That Last.
 
 *What's your experience with the 80% below water? I'd love to hear your stories in the comments.*

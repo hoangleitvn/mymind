@@ -11,14 +11,14 @@ captured: 2025-12-11T10:30:00+07:00
 
 ## Raw Capture
 
-Thinking about MizeForge supporting projects instead of flat structure. Example: "Ship with Clarity" is a project containing articles, visual assets, Substack setup, LinkedIn promotion - but currently:
+Thinking about MizeForge supporting projects instead of flat structure. Example: "Builds That Last" is a project containing articles, visual assets, Substack setup, LinkedIn promotion - but currently:
 1. No project plan exists
 2. Flat structure mixes with other work (LinkedIn posts on various themes/angles)
 3. Overlap between project-specific content and general content library
 
 ## Context
 
-- Currently working on "Ship with Clarity" Substack publication launch
+- Currently working on "Builds That Last" Substack publication launch
 - Multiple deliverables: manifesto article, 6 infographic styles, cover images, logos, LinkedIn promo
 - Parallel work happening: daily LinkedIn engagement, other content themes
 - Hard to see project boundaries vs ongoing content work
@@ -43,7 +43,7 @@ Thinking about MizeForge supporting projects instead of flat structure. Example:
 ```
 workspace/
 ├── projects/
-│   └── ship-with-clarity/
+│   └── builds-that-last/
 │       ├── PROJECT.md (brief, goals, timeline)
 │       ├── articles/
 │       ├── assets/
@@ -66,7 +66,7 @@ Keep flat structure but add project tagging:
 ```
 workspace/
 ├── active-projects/
-│   └── ship-with-clarity/  (self-contained)
+│   └── builds-that-last/  (self-contained)
 ├── library/  (reusable content, templates)
 ├── engagement/  (daily LinkedIn, comments)
 └── moments/
@@ -84,7 +84,7 @@ workspace/
 - Platform: Internal product thinking / MizeForge roadmap
 - Format: Feature spec, product decision
 - Angle: Real user pain point from dogfooding
-- Related: Current session working on Ship with Clarity
+- Related: Current session working on Builds That Last
 
 ## Follow-up
 

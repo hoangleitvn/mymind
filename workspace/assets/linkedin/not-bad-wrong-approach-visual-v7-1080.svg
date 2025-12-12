@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f9fafb"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="url(#bgGradient)"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1080" height="5" fill="#00a86b"/>
+
+  <!-- Profile section (top left) -->
+  <g transform="translate(50, 40)">
+    <!-- Profile picture placeholder -->
+    <circle cx="24" cy="24" r="24" fill="#e5e7eb"/>
+    <circle cx="24" cy="24" r="24" fill="none" stroke="#00a86b" stroke-width="2"/>
+    <text x="24" y="31" font-family="Poppins, Inter, system-ui, sans-serif" font-size="17" fill="#374151" text-anchor="middle" font-weight="600">HL</text>
+
+    <!-- Name and handle -->
+    <text x="60" y="20" font-family="Poppins, Inter, system-ui, sans-serif" font-size="16" fill="#1f2937" font-weight="700">Hoang Le</text>
+    <text x="60" y="38" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b7280">@hoangleitvn</text>
+  </g>
+
+  <!-- Two-panel illustration area -->
+  <g transform="translate(50, 100)">
+    <!-- Left panel: BEFORE (chaos) -->
+    <rect x="0" y="0" width="475" height="420" rx="12" fill="#fef3c7" opacity="0.5"/>
+    <rect x="0" y="0" width="475" height="420" rx="12" fill="none" stroke="#e5e7eb" stroke-width="2"/>
+
+    <!-- Chaos illustration -->
+    <g transform="translate(237, 180)">
+      <!-- Stressed figure -->
+      <circle cx="0" cy="0" r="45" fill="#f59e0b" opacity="0.2"/>
+      <text x="0" y="-50" font-family="Inter, system-ui, sans-serif" font-size="44" fill="#92400e" text-anchor="middle">😰</text>
+
+      <!-- Flying papers -->
+      <rect x="-110" y="-90" width="36" height="45" rx="4" fill="#ffffff" stroke="#d1d5db" transform="rotate(-15)"/>
+      <rect x="70" y="-70" width="36" height="45" rx="4" fill="#ffffff" stroke="#d1d5db" transform="rotate(20)"/>
+      <rect x="-90" y="50" width="36" height="45" rx="4" fill="#ffffff" stroke="#d1d5db" transform="rotate(-25)"/>
+      <rect x="90" y="35" width="36" height="45" rx="4" fill="#ffffff" stroke="#d1d5db" transform="rotate(10)"/>
+      <rect x="-50" y="90" width="36" height="45" rx="4" fill="#ffffff" stroke="#d1d5db" transform="rotate(5)"/>
+      <rect x="35" y="95" width="36" height="45" rx="4" fill="#ffffff" stroke="#d1d5db" transform="rotate(-8)"/>
+    </g>
+
+    <!-- Label -->
+    <text x="237" y="385" font-family="Inter, system-ui, sans-serif" font-size="16" fill="#92400e" text-anchor="middle" font-weight="600">WRONG APPROACH</text>
+
+    <!-- Right panel: AFTER (organized) -->
+    <rect x="505" y="0" width="475" height="420" rx="12" fill="#d1fae5" opacity="0.5"/>
+    <rect x="505" y="0" width="475" height="420" rx="12" fill="none" stroke="#e5e7eb" stroke-width="2"/>
+
+    <!-- Organized illustration -->
+    <g transform="translate(743, 180)">
+      <!-- Calm figure -->
+      <circle cx="0" cy="0" r="45" fill="#00a86b" opacity="0.15"/>
+      <text x="0" y="-50" font-family="Inter, system-ui, sans-serif" font-size="44" fill="#065f46" text-anchor="middle">😊</text>
+
+      <!-- Organized charts on wall -->
+      <rect x="-105" y="-90" width="60" height="42" rx="4" fill="#ffffff" stroke="#00a86b" stroke-width="2"/>
+      <rect x="-35" y="-90" width="60" height="42" rx="4" fill="#ffffff" stroke="#00a86b" stroke-width="2"/>
+      <rect x="35" y="-90" width="60" height="42" rx="4" fill="#ffffff" stroke="#00a86b" stroke-width="2"/>
+
+      <!-- Chart bars inside -->
+      <rect x="-95" y="-65" width="8" height="12" fill="#00a86b" opacity="0.6"/>
+      <rect x="-82" y="-72" width="8" height="19" fill="#00a86b" opacity="0.8"/>
+      <rect x="-69" y="-68" width="8" height="15" fill="#00a86b"/>
+
+      <!-- Pie chart placeholder -->
+      <circle cx="-5" cy="-69" r="12" fill="none" stroke="#00a86b" stroke-width="2"/>
+      <path d="M-5,-69 L-5,-81 A12,12 0 0,1 7,-69 Z" fill="#00a86b" opacity="0.6"/>
+
+      <!-- Bar chart in third box -->
+      <rect x="45" y="-65" width="8" height="12" fill="#f59e0b" opacity="0.8"/>
+      <rect x="58" y="-72" width="8" height="19" fill="#f59e0b"/>
+      <rect x="71" y="-62" width="8" height="9" fill="#f59e0b" opacity="0.6"/>
+
+      <!-- Desk -->
+      <rect x="-90" y="55" width="180" height="8" rx="2" fill="#374151"/>
+      <rect x="-70" y="63" width="6" height="45" fill="#374151"/>
+      <rect x="64" y="63" width="6" height="45" fill="#374151"/>
+
+      <!-- Laptop on desk -->
+      <rect x="-35" y="25" width="70" height="45" rx="4" fill="#374151"/>
+      <rect x="-30" y="30" width="60" height="30" rx="2" fill="#d1fae5"/>
+
+      <!-- Checkmark on laptop screen -->
+      <text x="0" y="52" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#00a86b" text-anchor="middle">✓</text>
+    </g>
+
+    <!-- Label -->
+    <text x="743" y="385" font-family="Inter, system-ui, sans-serif" font-size="16" fill="#065f46" text-anchor="middle" font-weight="600">RIGHT APPROACH</text>
+  </g>
+
+  <!-- Main headline -->
+  <text x="540" y="620" font-family="Poppins, Inter, system-ui, sans-serif" font-size="56" fill="#1f2937" text-anchor="middle" font-weight="700">
+    YOU'RE <tspan fill="#00a86b">NOT BAD</tspan> AT THIS.
+  </text>
+
+  <!-- Second line -->
+  <text x="540" y="695" font-family="Poppins, Inter, system-ui, sans-serif" font-size="40" fill="#00a86b" text-anchor="middle" font-weight="700">
+    You're just doing it wrong.
+  </text>
+
+  <!-- Supporting text -->
+  <text x="540" y="765" font-family="Inter, system-ui, sans-serif" font-size="22" fill="#6b7280" text-anchor="middle">
+    Same person. Different approach. Different results.
+  </text>
+
+  <!-- Bottom section with key message -->
+  <g transform="translate(540, 900)">
+    <rect x="-360" y="-32" width="720" height="72" rx="12" fill="#f1f5f9"/>
+    <text x="0" y="-2" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#374151" text-anchor="middle" font-weight="500">
+      The fix isn't "be better."
+    </text>
+    <text x="0" y="28" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#00a86b" text-anchor="middle" font-weight="600">
+      The fix is "do it differently."
+    </text>
+  </g>
+
+  <!-- Bottom accent -->
+  <rect x="0" y="1075" width="1080" height="5" fill="#00a86b"/>
+
+</svg>
