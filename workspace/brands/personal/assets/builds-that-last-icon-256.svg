@@ -1,0 +1,14 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background (optional - remove if you want transparent) -->
+  <!-- <rect width="256" height="256" fill="#f9fafb"/> -->
+
+  <!-- Building Blocks - Stacked foundation representing durability -->
+  <!-- Bottom block (widest) - Primary Green -->
+  <rect x="32" y="160" width="192" height="56" rx="8" fill="#00a86b"/>
+
+  <!-- Middle block - Forest Green (darker) -->
+  <rect x="56" y="96" width="144" height="56" rx="8" fill="#065f46"/>
+
+  <!-- Top block (narrowest) - Charcoal -->
+  <rect x="80" y="40" width="96" height="48" rx="8" fill="#374151"/>
+</svg>
