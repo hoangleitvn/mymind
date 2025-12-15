@@ -1,8 +1,8 @@
 ---
 type: linkedin-person
 created: '2025-12-08T06:32:00Z'
-last_updated: '2025-12-09T03:10:00Z'
-last_interaction: '2025-12-09'
+last_updated: '2025-12-15'
+last_interaction: '2025-12-15'
 
 profile:
   name: "Jordan Dea-Mattson"
@@ -59,6 +59,13 @@ engagement_history:
     topic: "One-shot fallacy in AI coding"
     status: "draft"
     file: "comments/2025-12-09-jordan-dea-mattson-one-shot-fallacy.md"
+
+  - date: '2025-12-15'
+    type: "comment"
+    post_url: "https://www.linkedin.com/posts/jordandeamattson_i-thought-i-was-a-good-writer-then-i-started-activity-7406166132568731649-OdPp"
+    topic: "AI writing collaborator with Claude"
+    status: "draft"
+    file: "comments/2025-12-15-jordan-dea-mattson-ai-writing-collaborator.md"
 
 tags: [tech-leadership, ai-development, vibe-coding, workshops, singapore]
 
