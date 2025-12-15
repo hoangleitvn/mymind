@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <!-- Background gradient (light theme) -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa"/>
+      <stop offset="50%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8f9fa"/>
+    </linearGradient>
+
+    <!-- AWS Orange gradient -->
+    <linearGradient id="awsOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9900"/>
+      <stop offset="100%" style="stop-color:#FF6600"/>
+    </linearGradient>
+
+    <!-- Card gradient (light) -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8f9fa"/>
+    </linearGradient>
+
+    <!-- Kubernetes blue gradient -->
+    <linearGradient id="k8sBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#326ce5"/>
+      <stop offset="100%" style="stop-color:#2558c5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.05">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e1e4e8" stroke-width="1"/>
+    </pattern>
+    <rect width="1200" height="630" fill="url(#grid)"/>
+  </g>
+
+  <!-- Decorative circles (tech aesthetic) -->
+  <circle cx="100" cy="100" r="200" fill="#FF9900" opacity="0.05"/>
+  <circle cx="1100" cy="530" r="250" fill="#326ce5" opacity="0.05"/>
+
+  <!-- EKS icon - top left -->
+  <g transform="translate(50, 50)">
+    <rect x="0" y="0" width="50" height="50" rx="10" fill="#FF9900"/>
+    <!-- Simplified K8s wheel -->
+    <circle cx="25" cy="25" r="12" fill="none" stroke="#000000" stroke-width="2"/>
+    <circle cx="25" cy="25" r="4" fill="#000000"/>
+  </g>
+
+  <!-- Header: re:Invent 2025 badge -->
+  <g transform="translate(600, 60)">
+    <rect x="-80" y="-18" width="160" height="36" rx="18" fill="url(#awsOrange)"/>
+    <text x="0" y="6" font-family="Arial, sans-serif" font-size="14" fill="#000000" text-anchor="middle" font-weight="bold">re:Invent 2025</text>
+  </g>
+
+  <!-- Main Title -->
+  <text x="600" y="130" font-family="Arial, sans-serif" font-size="42" fill="#1a1a1a" text-anchor="middle" font-weight="bold">AWS EKS Capabilities</text>
+  <text x="600" y="180" font-family="Arial, sans-serif" font-size="32" fill="#57606a" text-anchor="middle">What We Learned After Testing It</text>
+
+  <!-- Three Feature Cards -->
+
+  <!-- Card 1: Argo CD -->
+  <g transform="translate(80, 220)">
+    <!-- Card background -->
+    <rect x="0" y="0" width="320" height="260" rx="16" fill="url(#cardGrad)" stroke="#e1e4e8" stroke-width="2"/>
+
+    <!-- Card header -->
+    <rect x="0" y="0" width="320" height="50" rx="16" fill="#FF9900"/>
+    <rect x="0" y="34" width="320" height="16" fill="#FF9900"/>
+
+    <!-- Icon: GitOps arrows -->
+    <g transform="translate(24, 25)">
+      <circle cx="0" cy="0" r="4" fill="#ffffff"/>
+      <line x1="4" y1="0" x2="16" y2="0" stroke="#ffffff" stroke-width="2"/>
+      <polygon points="20,0 14,-4 14,4" fill="#ffffff"/>
+    </g>
+
+    <text x="50" y="30" font-family="Arial, sans-serif" font-size="18" fill="#ffffff" font-weight="bold">Managed Argo CD</text>
+
+    <!-- Content -->
+    <g transform="translate(20, 68)">
+      <text font-family="Arial, sans-serif" font-size="15" fill="#57606a">
+        <tspan x="0" y="0">GitOps continuous deployment</tspan>
+        <tspan x="0" y="22">managed by AWS</tspan>
+      </text>
+
+      <!-- Key points -->
+      <g transform="translate(0, 52)">
+        <circle cx="8" cy="8" r="5" fill="#1a7f37"/>
+        <text x="22" y="13" font-family="Arial, sans-serif" font-size="14" fill="#1a1a1a">45% K8s users in production</text>
+
+        <circle cx="8" cy="34" r="5" fill="#1a7f37"/>
+        <text x="22" y="39" font-family="Arial, sans-serif" font-size="14" fill="#1a1a1a">Zero cluster overhead</text>
+
+        <circle cx="8" cy="60" r="5" fill="#1a7f37"/>
+        <text x="22" y="65" font-family="Arial, sans-serif" font-size="14" fill="#1a1a1a">Auto patching + updates</text>
+      </g>
+
+      <!-- Highlight -->
+      <g transform="translate(0, 140)">
+        <rect x="0" y="0" width="280" height="40" rx="8" fill="#fff8f0" stroke="#FF9900" stroke-width="1"/>
+        <text x="14" y="26" font-family="Arial, sans-serif" font-size="14" fill="#c65102" font-weight="bold">IAM Identity Center SSO</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Card 2: ACK -->
+  <g transform="translate(440, 220)">
+    <!-- Card background -->
+    <rect x="0" y="0" width="320" height="260" rx="16" fill="url(#cardGrad)" stroke="#e1e4e8" stroke-width="2"/>
+
+    <!-- Card header -->
+    <rect x="0" y="0" width="320" height="50" rx="16" fill="url(#k8sBlue)"/>
+    <rect x="0" y="34" width="320" height="16" fill="url(#k8sBlue)"/>
+
+    <!-- Icon: K8s + AWS -->
+    <g transform="translate(24, 25)">
+      <rect x="0" y="-8" width="16" height="16" rx="2" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="8" cy="0" r="3" fill="#ffffff"/>
+    </g>
+
+    <text x="50" y="30" font-family="Arial, sans-serif" font-size="18" fill="#ffffff" font-weight="bold">ACK</text>
+
+    <!-- Content -->
+    <g transform="translate(20, 68)">
+      <text font-family="Arial, sans-serif" font-size="15" fill="#57606a">
+        <tspan x="0" y="0">AWS resources via K8s CRDs</tspan>
+        <tspan x="0" y="22">S3, RDS, IAM from kubectl</tspan>
+      </text>
+
+      <!-- Key points -->
+      <g transform="translate(0, 52)">
+        <circle cx="8" cy="8" r="5" fill="#1a7f37"/>
+        <text x="22" y="13" font-family="Arial, sans-serif" font-size="14" fill="#1a1a1a">200+ CRDs, 50+ services</text>
+
+        <circle cx="8" cy="34" r="5" fill="#1a7f37"/>
+        <text x="22" y="39" font-family="Arial, sans-serif" font-size="14" fill="#1a1a1a">Resource adoption</text>
+
+        <circle cx="8" cy="60" r="5" fill="#1a7f37"/>
+        <text x="22" y="65" font-family="Arial, sans-serif" font-size="14" fill="#1a1a1a">Terraform migration path</text>
+      </g>
+
+      <!-- Highlight -->
+      <g transform="translate(0, 140)">
+        <rect x="0" y="0" width="280" height="40" rx="8" fill="#f0f4ff" stroke="#326ce5" stroke-width="1"/>
+        <text x="14" y="26" font-family="Arial, sans-serif" font-size="14" fill="#1e4ba8" font-weight="bold">Gradual migration supported</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Card 3: KRO -->
+  <g transform="translate(800, 220)">
+    <!-- Card background -->
+    <rect x="0" y="0" width="320" height="260" rx="16" fill="url(#cardGrad)" stroke="#e1e4e8" stroke-width="2"/>
+
+    <!-- Card header -->
+    <rect x="0" y="0" width="320" height="50" rx="16" fill="#21262d"/>
+    <rect x="0" y="34" width="320" height="16" fill="#21262d"/>
+
+    <!-- Icon: bundled resources -->
+    <g transform="translate(24, 17)">
+      <rect x="0" y="0" width="12" height="12" rx="2" fill="none" stroke="#FF9900" stroke-width="2"/>
+      <rect x="6" y="6" width="12" height="12" rx="2" fill="none" stroke="#FF9900" stroke-width="2"/>
+    </g>
+
+    <text x="50" y="30" font-family="Arial, sans-serif" font-size="18" fill="#ffffff" font-weight="bold">KRO</text>
+
+    <!-- Content -->
+    <g transform="translate(20, 68)">
+      <text font-family="Arial, sans-serif" font-size="15" fill="#57606a">
+        <tspan x="0" y="0">Reusable resource bundles</tspan>
+        <tspan x="0" y="22">Kubernetes-native composition</tspan>
+      </text>
+
+      <!-- Key points -->
+      <g transform="translate(0, 52)">
+        <circle cx="8" cy="8" r="5" fill="#1a7f37"/>
+        <text x="22" y="13" font-family="Arial, sans-serif" font-size="14" fill="#1a1a1a">AWS + Google + Azure</text>
+
+        <circle cx="8" cy="34" r="5" fill="#1a7f37"/>
+        <text x="22" y="39" font-family="Arial, sans-serif" font-size="14" fill="#1a1a1a">Joint collaboration</text>
+
+        <circle cx="8" cy="60" r="5" fill="#d29922"/>
+        <text x="22" y="65" font-family="Arial, sans-serif" font-size="14" fill="#1a1a1a">Early-stage (not prod ready)</text>
+      </g>
+
+      <!-- Highlight -->
+      <g transform="translate(0, 140)">
+        <rect x="0" y="0" width="280" height="40" rx="8" fill="#f0f3f6" stroke="#d0d7de" stroke-width="1"/>
+        <text x="14" y="26" font-family="Arial, sans-serif" font-size="14" fill="#57606a" font-weight="bold">3 cloud providers backing</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom: Key insight -->
+  <g transform="translate(600, 515)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="18" fill="#1a1a1a" text-anchor="middle" font-weight="bold">
+      Controllers run off-cluster  |  70-80% overhead reduction  |  Pay-per-resource
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(0, 555)">
+    <rect x="0" y="0" width="1200" height="75" fill="#f0f3f6"/>
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="#d0d7de" stroke-width="1"/>
+
+    <!-- INNOMIZE Logo -->
+    <image x="18" y="15" width="195" height="40" href="../../brands/innomize/assets/Fitlogo_Horizontal_RGB.png"/>
+
+    <!-- Logo/badge right side -->
+    <g transform="translate(1050, 20)">
+      <rect x="0" y="0" width="100" height="36" rx="8" fill="#FF9900"/>
+      <text x="50" y="24" font-family="Arial, sans-serif" font-size="14" fill="#000000" text-anchor="middle" font-weight="bold">AWS EKS</text>
+    </g>
+  </g>
+
+</svg>

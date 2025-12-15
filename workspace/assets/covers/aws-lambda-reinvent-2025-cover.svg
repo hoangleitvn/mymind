@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <!-- Background gradient (light theme) -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa"/>
+      <stop offset="50%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8f9fa"/>
+    </linearGradient>
+
+    <!-- AWS Orange gradient -->
+    <linearGradient id="awsOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9900"/>
+      <stop offset="100%" style="stop-color:#FF6600"/>
+    </linearGradient>
+
+    <!-- Card gradient (light) -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8f9fa"/>
+    </linearGradient>
+
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.05">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e1e4e8" stroke-width="1"/>
+    </pattern>
+    <rect width="1200" height="630" fill="url(#grid)"/>
+  </g>
+
+  <!-- Decorative circles (tech aesthetic) -->
+  <circle cx="100" cy="100" r="200" fill="#FF9900" opacity="0.05"/>
+  <circle cx="1100" cy="530" r="250" fill="#FF9900" opacity="0.05"/>
+
+  <!-- Lambda icon - top left -->
+  <g transform="translate(50, 50)">
+    <rect x="0" y="0" width="50" height="50" rx="10" fill="#FF9900"/>
+    <text x="25" y="38" font-family="Georgia, serif" font-size="36" fill="#000000" text-anchor="middle" font-weight="bold">λ</text>
+  </g>
+
+  <!-- Header: re:Invent 2025 badge -->
+  <g transform="translate(600, 60)">
+    <rect x="-80" y="-18" width="160" height="36" rx="18" fill="url(#awsOrange)"/>
+    <text x="0" y="6" font-family="Arial, sans-serif" font-size="14" fill="#000000" text-anchor="middle" font-weight="bold">re:Invent 2025</text>
+  </g>
+
+  <!-- Main Title -->
+  <text x="600" y="130" font-family="Arial, sans-serif" font-size="42" fill="#1a1a1a" text-anchor="middle" font-weight="bold">AWS Lambda's Biggest Update</text>
+  <text x="600" y="180" font-family="Arial, sans-serif" font-size="32" fill="#57606a" text-anchor="middle">What It Means for Your Architecture</text>
+
+  <!-- Two Feature Cards -->
+
+  <!-- Card 1: Durable Functions -->
+  <g transform="translate(160, 230)">
+    <!-- Card background -->
+    <rect x="0" y="0" width="400" height="280" rx="16" fill="url(#cardGrad)" stroke="#e1e4e8" stroke-width="2"/>
+
+    <!-- Card header -->
+    <rect x="0" y="0" width="400" height="50" rx="16" fill="#FF9900"/>
+    <rect x="0" y="34" width="400" height="16" fill="#FF9900"/>
+
+    <!-- Icon: workflow/steps -->
+    <g transform="translate(30, 25)">
+      <circle cx="0" cy="0" r="4" fill="#ffffff"/>
+      <line x1="4" y1="0" x2="20" y2="0" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="24" cy="0" r="4" fill="#ffffff"/>
+      <line x1="28" y1="0" x2="44" y2="0" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="48" cy="0" r="4" fill="#ffffff"/>
+    </g>
+
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="18" fill="#ffffff" font-weight="bold">Durable Functions</text>
+
+    <!-- Content -->
+    <g transform="translate(24, 68)">
+      <text font-family="Arial, sans-serif" font-size="16" fill="#57606a">
+        <tspan x="0" y="0">Multi-step workflows in code</tspan>
+        <tspan x="0" y="26">No Step Functions required</tspan>
+      </text>
+
+      <!-- Key points -->
+      <g transform="translate(0, 62)">
+        <circle cx="8" cy="8" r="5" fill="#1a7f37"/>
+        <text x="22" y="13" font-family="Arial, sans-serif" font-size="15" fill="#1a1a1a">Auto checkpointing</text>
+
+        <circle cx="8" cy="38" r="5" fill="#1a7f37"/>
+        <text x="22" y="43" font-family="Arial, sans-serif" font-size="15" fill="#1a1a1a">Wait up to 1 year (no cost)</text>
+
+        <circle cx="8" cy="68" r="5" fill="#1a7f37"/>
+        <text x="22" y="73" font-family="Arial, sans-serif" font-size="15" fill="#1a1a1a">Built-in retries + saga pattern</text>
+      </g>
+
+      <!-- Pricing highlight -->
+      <g transform="translate(0, 158)">
+        <rect x="0" y="0" width="352" height="44" rx="8" fill="#fff8f0" stroke="#FF9900" stroke-width="1"/>
+        <text x="16" y="28" font-family="Arial, sans-serif" font-size="16" fill="#c65102" font-weight="bold">$8/M ops</text>
+        <text x="108" y="28" font-family="Arial, sans-serif" font-size="16" fill="#57606a">vs Step Functions $25/M</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Card 2: Managed Instances -->
+  <g transform="translate(640, 230)">
+    <!-- Card background -->
+    <rect x="0" y="0" width="400" height="280" rx="16" fill="url(#cardGrad)" stroke="#e1e4e8" stroke-width="2"/>
+
+    <!-- Card header -->
+    <rect x="0" y="0" width="400" height="50" rx="16" fill="#21262d"/>
+    <rect x="0" y="34" width="400" height="16" fill="#21262d"/>
+
+    <!-- Icon: server/instance -->
+    <g transform="translate(30, 15)">
+      <rect x="0" y="0" width="20" height="20" rx="3" fill="none" stroke="#FF9900" stroke-width="2"/>
+      <rect x="26" y="0" width="20" height="20" rx="3" fill="none" stroke="#FF9900" stroke-width="2"/>
+      <circle cx="10" cy="10" r="3" fill="#FF9900"/>
+      <circle cx="36" cy="10" r="3" fill="#FF9900"/>
+    </g>
+
+    <text x="100" y="30" font-family="Arial, sans-serif" font-size="18" fill="#ffffff" font-weight="bold">Managed Instances</text>
+
+    <!-- Content -->
+    <g transform="translate(24, 68)">
+      <text font-family="Arial, sans-serif" font-size="16" fill="#57606a">
+        <tspan x="0" y="0">Lambda DX + EC2 pricing</tspan>
+        <tspan x="0" y="26">For steady-state workloads</tspan>
+      </text>
+
+      <!-- Key points -->
+      <g transform="translate(0, 62)">
+        <circle cx="8" cy="8" r="5" fill="#1a7f37"/>
+        <text x="22" y="13" font-family="Arial, sans-serif" font-size="15" fill="#1a1a1a">No cold starts</text>
+
+        <circle cx="8" cy="38" r="5" fill="#1a7f37"/>
+        <text x="22" y="43" font-family="Arial, sans-serif" font-size="15" fill="#1a1a1a">Up to 72% savings (RI/SP)</text>
+
+        <circle cx="8" cy="68" r="5" fill="#1a7f37"/>
+        <text x="22" y="73" font-family="Arial, sans-serif" font-size="15" fill="#1a1a1a">Full EC2 instance selection</text>
+      </g>
+
+      <!-- Pricing highlight -->
+      <g transform="translate(0, 158)">
+        <rect x="0" y="0" width="352" height="44" rx="8" fill="#f0f3f6" stroke="#d0d7de" stroke-width="1"/>
+        <text x="16" y="28" font-family="Arial, sans-serif" font-size="16" fill="#c65102" font-weight="bold">EC2 + 15%</text>
+        <text x="118" y="28" font-family="Arial, sans-serif" font-size="16" fill="#57606a">management fee</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom: Other updates -->
+  <g transform="translate(600, 545)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#57606a" text-anchor="middle">
+      + Cold Start Elimination  |  SnapStart for Python/.NET  |  New Runtimes Fast-Track
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(0, 580)">
+    <rect x="0" y="0" width="1200" height="50" fill="#f0f3f6"/>
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="#d0d7de" stroke-width="1"/>
+
+    <!-- Profile picture -->
+    <defs>
+      <clipPath id="avatarClip">
+        <circle cx="32" cy="25" r="18"/>
+      </clipPath>
+    </defs>
+    <circle cx="32" cy="25" r="19" fill="#d0d7de"/>
+    <image x="14" y="7" width="36" height="36" clip-path="url(#avatarClip)" href="hoangle-profile.png" preserveAspectRatio="xMidYMid slice"/>
+
+    <!-- Author -->
+    <text x="62" y="22" font-family="Arial, sans-serif" font-size="16" fill="#1a1a1a" font-weight="bold">Hoang Le</text>
+    <text x="62" y="40" font-family="Arial, sans-serif" font-size="14" fill="#57606a">@hoangleitvn</text>
+  </g>
+
+</svg>

@@ -13,8 +13,18 @@ target_hashtags: [AWS, Lambda, Serverless, CloudArchitecture, reInvent2025]
 word_count: 150
 published_date: '2025-12-07T07:43:01Z'
 post_url: https://www.linkedin.com/feed/update/urn:li:activity:7403338350969229313/
-article_link: https://hoangleitvn.substack.com/p/aws-lambdas-biggest-update-in-years
 visual: assets/covers/aws-lambda-reinvent-2025-cover.png
+performance_metrics:
+  impressions: 4556
+  member_reached: 2743
+  profile_views: 22
+  followers: 9
+  reactions: 25
+  comments: 9
+  reposts: 4
+  saves: 6
+  sends_on_linkedin: 1
+substack_url: https://innomize.substack.com/p/aws-lambdas-biggest-update-in-years
 ---
 
 Lambda is too expensive at scale, can't handle complex workflows, has cold start issues. These were valid complaints. Until this week.
