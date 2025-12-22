@@ -1,7 +1,7 @@
 ---
 title: "Write a Simple Doc Before Coding - A Lesson I Repeat for Years"
 type: linkedin-post
-status: draft
+status: published
 created: 2025-12-12
 topic: documentation-before-coding
 theme: engineering-leadership
@@ -16,6 +16,8 @@ moment_id: 20251212-140000
 moment_file: workspace/moments/2025-12-12-140000__experience-simple-doc-before-coding.md
 series: team-coaching-insights
 series_order: 6
+published_date: '2025-12-19T06:00:02Z'
+post_url: https://www.linkedin.com/feed/update/urn:li:activity:7407660966777323520/
 ---
 
 I had this conversation yesterday. I've had it for years.

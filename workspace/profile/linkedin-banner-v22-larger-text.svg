@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396">
+  <defs>
+    <linearGradient id="baseGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0a0e12"/>
+      <stop offset="25%" style="stop-color:#111921"/>
+      <stop offset="50%" style="stop-color:#1a242e"/>
+      <stop offset="75%" style="stop-color:#1e2a36"/>
+      <stop offset="100%" style="stop-color:#141c24"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1584" height="396" fill="url(#baseGradient)"/>
+
+  <!-- Subtle top accent line -->
+  <rect x="0" y="0" width="1584" height="3" fill="#EA322A" opacity="0.7"/>
+
+  <!-- Single row of circles at bottom -->
+  <g opacity="0.06">
+    <circle cx="100" cy="370" r="12" fill="#EA322A"/>
+    <circle cx="220" cy="365" r="22" fill="#EA322A"/>
+    <circle cx="380" cy="358" r="35" fill="#EA322A"/>
+    <circle cx="580" cy="345" r="52" fill="#EA322A"/>
+    <circle cx="830" cy="325" r="75" fill="#EA322A"/>
+    <circle cx="1140" cy="295" r="105" fill="#EA322A"/>
+    <circle cx="1450" cy="250" r="150" fill="#EA322A"/>
+  </g>
+
+  <!-- Content - CENTER aligned -->
+  <g transform="translate(792, 70)">
+    <text x="0" y="60" font-family="'Bai Jamjuree', system-ui, sans-serif" font-size="54" font-weight="700" fill="#ffffff" text-anchor="middle">
+      Everyone ships fast.
+    </text>
+    <text x="0" y="122" font-family="'Bai Jamjuree', system-ui, sans-serif" font-size="54" font-weight="700" fill="#EA322A" text-anchor="middle">
+      Few build to last.
+    </text>
+
+    <rect x="-35" y="150" width="70" height="2" fill="#4E6E81" opacity="0.5"/>
+
+    <text x="0" y="200" font-family="'Manrope', system-ui, sans-serif" font-size="24" font-weight="500" fill="#a0b0c0" text-anchor="middle">
+      Building Teams That Build Things That Last
+    </text>
+
+    <text x="0" y="240" font-family="'Manrope', system-ui, sans-serif" font-size="18" font-weight="400" fill="#708090" text-anchor="middle">
+      From zero to live users
+    </text>
+  </g>
+
+</svg>

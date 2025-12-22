@@ -1,0 +1,59 @@
+<svg width="1456" height="816" viewBox="0 0 1456 816" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1456" height="816" fill="#0F172A"/>
+
+  <!-- Right accent panel -->
+  <rect x="1160" y="0" width="296" height="816" fill="#134E4A"/>
+
+  <!-- Watermark on right -->
+  <text x="1308" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="120" font-weight="900" fill="#115E59" text-anchor="middle" transform="rotate(90 1308 400)">BTL</text>
+
+  <!-- Icons on right panel -->
+  <g transform="translate(1248, 280)">
+    <rect x="0" y="0" width="60" height="60" rx="12" fill="#1E293B" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.2))"/>
+    <text x="30" y="42" font-size="30" text-anchor="middle">🏗️</text>
+  </g>
+
+  <g transform="translate(1248, 370)">
+    <rect x="0" y="0" width="60" height="60" rx="12" fill="#1E293B" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.2))"/>
+    <text x="30" y="42" font-size="30" text-anchor="middle">⚡</text>
+  </g>
+
+  <g transform="translate(1248, 460)">
+    <rect x="0" y="0" width="60" height="60" rx="12" fill="#1E293B" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.2))"/>
+    <text x="30" y="42" font-size="30" text-anchor="middle">🎯</text>
+  </g>
+
+  <!-- Series badge -->
+  <rect x="80" y="80" width="180" height="36" rx="18" fill="#134E4A" stroke="#00A86B" stroke-width="1.5"/>
+  <text x="170" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#00A86B" text-anchor="middle" letter-spacing="1">BUILDS THAT LAST</text>
+
+  <!-- Main title -->
+  <text x="80" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="64" font-weight="900" fill="#FFFFFF">Why Foundation</text>
+  <text x="80" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="64" font-weight="900" fill="#FFFFFF">Comes Before</text>
+  <text x="80" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="64" font-weight="900" fill="#00A86B">Speed</text>
+
+  <!-- Quote with green bar -->
+  <rect x="80" y="440" width="5" height="80" rx="2" fill="#00A86B"/>
+  <text x="105" y="475" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="600" fill="#FFFFFF">Everyone ships fast.</text>
+  <text x="105" y="510" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="600" fill="#94A3B8">Few <tspan fill="#00A86B" font-weight="700">build to last</tspan>.</text>
+
+  <!-- Bottom line -->
+  <line x1="80" y1="620" x2="1080" y2="620" stroke="#334155" stroke-width="1"/>
+
+  <!-- Bottom tagline -->
+  <text x="80" y="680" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#64748B">A manifesto for modern engineering in the AI era</text>
+
+  <!-- Category pills -->
+  <g transform="translate(80, 720)">
+    <rect x="0" y="0" width="140" height="40" rx="20" fill="#134E4A"/>
+    <text x="70" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#00A86B" text-anchor="middle">Foundation</text>
+
+    <rect x="160" y="0" width="140" height="40" rx="20" fill="#422006"/>
+    <text x="230" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#F59E0B" text-anchor="middle">Leadership</text>
+
+    <rect x="320" y="0" width="100" height="40" rx="20" fill="#0C4A6E"/>
+    <text x="370" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#0EA5E9" text-anchor="middle">AI</text>
+  </g>
+
+</svg>

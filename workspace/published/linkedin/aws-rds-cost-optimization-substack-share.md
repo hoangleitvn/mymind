@@ -15,6 +15,17 @@ word_count: 270
 substack_url: https://innomize.substack.com/p/aws-database-cost-optimization-what
 published_date: '2025-12-15T03:47:01Z'
 post_url: https://www.linkedin.com/feed/update/urn:li:activity:7406177859314159618/
+analytics_url: https://www.linkedin.com/analytics/post-summary/urn:li:activity:7406177859314159618/
+performance_metrics:
+  impressions: 689
+  member_reached: 264
+  profile_views: 0
+  followers: 0
+  reactions: 6
+  comments: 6
+  reposts: 2
+  saves: 0
+  sends_on_linkedin: 0
 ---
 
 Closing my AWS re:Invent 2025 deep dive series.

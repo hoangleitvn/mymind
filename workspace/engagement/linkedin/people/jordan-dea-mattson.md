@@ -67,6 +67,18 @@ engagement_history:
     status: "draft"
     file: "comments/2025-12-15-jordan-dea-mattson-ai-writing-collaborator.md"
 
+  - date: '2025-12-15'
+    type: "comment_received"
+    post_url: "https://www.linkedin.com/posts/hoangleitvn_aws-rds-cloudcost-activity-7406177859314159618-3ZxK"
+    context: "Jordan commented on our AWS RDS cost optimization post, appreciating the re:Invent summaries"
+    file: "comments/2025-12-15-our-post-aws-rds-cost-optimization.md"
+
+  - date: '2025-12-15'
+    type: "reply_posted"
+    post_url: "https://www.linkedin.com/posts/hoangleitvn_aws-rds-cloudcost-activity-7406177859314159618-3ZxK"
+    context: "Replied thanking Jordan, asked for content ideas and offered to read his insights"
+    file: "comments/2025-12-15-our-post-aws-rds-cost-optimization.md"
+
 tags: [tech-leadership, ai-development, vibe-coding, workshops, singapore]
 
 next_action: "Monitor for response after posting comment"
