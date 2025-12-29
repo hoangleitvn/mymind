@@ -18,7 +18,6 @@ word_count: 1850
 
 *What 15 years of shipping taught me about the difference between building and prompting.*
 
----
 
 ## I'm Not an Expert at Anything
 
@@ -47,7 +46,6 @@ You don't need to be the best architect. You need to ship architecture that work
 
 That's the builder mindset. And it's more relevant now than ever.
 
----
 
 ## The Vibe Coding Problem
 
@@ -78,7 +76,6 @@ This is why I can ship systems without being an expert in any single technology.
 
 Vibe coders don't have this. They have prompts and hope.
 
----
 
 ## The Fundamentals That Actually Matter
 
@@ -144,7 +141,6 @@ Most performance problems are database problems. Most scaling problems are datab
 
 AI can write queries for you. AI can't tell you if your data model makes sense for your use case.
 
----
 
 ## The Framework: Building with AI (Not Vibe Coding)
 
@@ -205,7 +201,6 @@ Debug yourself first. When something doesn't work, try to understand why before 
 
 The goal isn't to build faster. The goal is to build while learning.
 
----
 
 ## The Difference
 
@@ -223,7 +218,6 @@ Both used AI. One learned. One didn't.
 
 Which one would you hire?
 
----
 
 ## You Don't Need to Be an Expert
 
@@ -239,7 +233,6 @@ AI is the most powerful learning and building tool we've ever had. But it's not 
 
 What are you amplifying?
 
----
 
 ## Start Here
 
@@ -255,12 +248,11 @@ If you're a junior developer reading this, here's your action plan:
 
 5. **Ask AI "why" more than "how."** "Why this approach?" teaches you more than "How do I do X?"
 
-Stop vibe coding. Start building with understanding.
+If you're vibe coding, switch to building with understanding. That's what lasts.
 
 The builders who thrive in the AI era won't be the ones who prompt the fastest. They'll be the ones who understand what they're building.
 
 That's what lasts.
 
----
 
 *What fundamentals would you add to this list? Reply and let me know what you wish you'd learned earlier.*

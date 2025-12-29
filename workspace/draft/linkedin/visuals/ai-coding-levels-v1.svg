@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="level4Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#ef4444"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.03">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+    </pattern>
+    <rect width="1080" height="1080" fill="url(#grid)"/>
+  </g>
+
+  <!-- Header -->
+  <text x="540" y="80" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="600" fill="#94a3b8" text-anchor="middle" letter-spacing="3">THE PROGRESSION</text>
+
+  <text x="540" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="800" fill="white" text-anchor="middle">6 Levels of AI Coding</text>
+
+  <!-- Subheader insight -->
+  <rect x="240" y="170" width="600" height="50" rx="25" fill="url(#accentGrad)" opacity="0.15"/>
+  <text x="540" y="203" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#60a5fa" text-anchor="middle" font-style="italic">Most engineers are stuck at Level 2</text>
+
+  <!-- Level boxes -->
+  <!-- Level 0 -->
+  <g transform="translate(80, 260)">
+    <rect width="920" height="90" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect width="70" height="90" rx="12" fill="#334155"/>
+    <text x="35" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" fill="#64748b" text-anchor="middle">0</text>
+    <text x="100" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#94a3b8">"AI writes bad code"</text>
+    <text x="100" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="17" fill="#64748b">You judge AI by whether it writes code YOU would write</text>
+  </g>
+
+  <!-- Level 1 -->
+  <g transform="translate(80, 360)">
+    <rect width="920" height="90" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect width="70" height="90" rx="12" fill="#475569"/>
+    <text x="35" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" fill="#94a3b8" text-anchor="middle">1</text>
+    <text x="100" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#cbd5e1">"AI assists my coding"</text>
+    <text x="100" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="17" fill="#94a3b8">You write. AI autocompletes. You're still the brain.</text>
+  </g>
+
+  <!-- Level 2 - Highlighted as "stuck" -->
+  <g transform="translate(80, 460)">
+    <rect width="920" height="90" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect width="70" height="90" rx="12" fill="#ef4444"/>
+    <text x="35" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" fill="white" text-anchor="middle">2</text>
+    <text x="100" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="white">"AI writes code I review"</text>
+    <text x="100" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="17" fill="#fca5a5">Prompt → Generate → Fix → Repeat. Most teams live here.</text>
+    <!-- Stuck indicator -->
+    <rect x="750" y="25" width="150" height="40" rx="20" fill="#ef4444" opacity="0.2"/>
+    <text x="825" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#ef4444" text-anchor="middle">← MOST STUCK</text>
+  </g>
+
+  <!-- Level 3 -->
+  <g transform="translate(80, 560)">
+    <rect width="920" height="90" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect width="70" height="90" rx="12" fill="#3b82f6"/>
+    <text x="35" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" fill="white" text-anchor="middle">3</text>
+    <text x="100" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#e2e8f0">"AI follows my instructions"</text>
+    <text x="100" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="17" fill="#94a3b8">You specify HOW. Step-by-step scaffolding. Guardrails everywhere.</text>
+  </g>
+
+  <!-- Gap indicator between 3 and 4 -->
+  <g transform="translate(460, 655)">
+    <line x1="0" y1="0" x2="160" y2="0" stroke="url(#level4Grad)" stroke-width="3" stroke-dasharray="8,4"/>
+    <text x="80" y="-10" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#f59e0b" text-anchor="middle">HARDEST JUMP</text>
+  </g>
+
+  <!-- Level 4 - Key transition -->
+  <g transform="translate(80, 680)">
+    <rect width="920" height="90" rx="12" fill="#1e293b" stroke="url(#level4Grad)" stroke-width="2"/>
+    <rect width="70" height="90" rx="12" fill="url(#level4Grad)"/>
+    <text x="35" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" fill="white" text-anchor="middle">4</text>
+    <text x="100" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#fbbf24">"AI solves my problem"</text>
+    <text x="100" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="17" fill="#fcd34d">You specify WHAT and WHY. AI figures out HOW.</text>
+  </g>
+
+  <!-- Level 5 -->
+  <g transform="translate(80, 780)">
+    <rect width="920" height="90" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <rect width="70" height="90" rx="12" fill="#8b5cf6"/>
+    <text x="35" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" fill="white" text-anchor="middle">5</text>
+    <text x="100" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#c4b5fd">"AI reasons about the system"</text>
+    <text x="100" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="17" fill="#a78bfa">You give context and constraints. AI makes decisions. You validate.</text>
+  </g>
+
+  <!-- Key insight box -->
+  <rect x="80" y="900" width="920" height="80" rx="12" fill="url(#accentGrad)" opacity="0.1"/>
+  <rect x="80" y="900" width="920" height="80" rx="12" fill="none" stroke="url(#accentGrad)" stroke-width="1"/>
+  <text x="540" y="935" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="white" text-anchor="middle">THE SHIFT</text>
+  <text x="540" y="965" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#60a5fa" text-anchor="middle">Stop writing instructions → Start writing context</text>
+
+  <!-- Right side progression arrow -->
+  <g transform="translate(1020, 310)">
+    <line x1="0" y1="0" x2="0" y2="550" stroke="url(#accentGrad)" stroke-width="4" opacity="0.3"/>
+    <polygon points="0,560 -10,540 10,540" fill="#8b5cf6"/>
+  </g>
+
+  <!-- HOW vs WHAT/WHY labels on the side -->
+  <text x="1045" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="middle" transform="rotate(90, 1045, 420)">HOW</text>
+  <text x="1045" y="750" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#8b5cf6" text-anchor="middle" transform="rotate(90, 1045, 750)">WHAT + WHY</text>
+
+</svg>

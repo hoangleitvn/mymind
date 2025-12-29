@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTL - Client Pitch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --btl-jade: #00a86b;
+            --btl-jade-dark: #008553;
+            --btl-jade-light: #10b981;
+            --btl-charcoal: #1f2937;
+            --btl-slate: #374151;
+            --btl-white: #ffffff;
+            --bg-base: #111827;
+            --bg-elevated: #1f2937;
+            --bg-surface: #374151;
+            --text-primary: #ffffff;
+            --text-subdued: #9ca3af;
+            --font-display: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        [data-theme="light"] {
+            --bg-base: #f8fafc;
+            --bg-elevated: #ffffff;
+            --bg-surface: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-subdued: #64748b;
+            --btl-charcoal: #f1f5f9;
+            --btl-white: #1e293b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; overflow: hidden; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-base);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .presentation {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation - Spotify Style */
+        .nav {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 6px 12px;
+            border-radius: 500px;
+            backdrop-filter: blur(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        [data-theme="light"] .nav {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .nav-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            color: var(--text-subdued);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover { color: var(--text-primary); background: var(--bg-surface); }
+        .nav-btn:disabled { opacity: 0.2; cursor: not-allowed; }
+        .nav-btn:disabled:hover { background: transparent; color: var(--text-subdued); }
+        .nav-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+        .nav-divider {
+            width: 1px;
+            height: 16px;
+            background: var(--bg-surface);
+            margin: 0 4px;
+        }
+
+        .action-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            color: var(--text-subdued);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover { color: var(--text-primary); background: var(--bg-surface); }
+        .action-btn svg { width: 14px; height: 14px; fill: currentColor; }
+        .action-btn .exit-icon { display: none; }
+        body.is-fullscreen .action-btn .enter-icon { display: none; }
+        body.is-fullscreen .action-btn .exit-icon { display: block; }
+
+        .slide-counter {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-subdued);
+            min-width: 36px;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--btl-jade);
+            transition: width 0.3s ease;
+            z-index: 100;
+        }
+
+        /* Auto-hide nav */
+        body.auto-hide .nav { opacity: 0; transform: translateY(10px); }
+        body.auto-hide.nav-visible .nav { opacity: 1; transform: translateY(0); }
+
+        .slides {
+            flex: 1;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Title Slide */
+        .slide-title {
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+        }
+
+        .slide-title .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .slide-title .logo-mark {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 28px;
+        }
+
+        .slide-title .logo-text {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .slide-title h1 {
+            font-family: var(--font-display);
+            font-size: 54px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+        }
+
+        .slide-title p {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.35;
+            opacity: 0.9;
+            max-width: 700px;
+        }
+
+        /* Content Slide */
+        /* Two-part layout: Header top, Body centered */
+        .slide-content-layout {
+            background: var(--bg-base);
+            align-items: stretch;
+        }
+
+        .slide-content-layout .slide-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .slide-content-layout .slide-header {
+            flex-shrink: 0;
+        }
+
+        .slide-content-layout .slide-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Left-aligned variant */
+        .slide-content-layout.align-left .slide-header {
+            text-align: left;
+        }
+
+        .slide-content-layout.align-left .slide-body {
+            align-items: flex-start;
+        }
+
+        .slide-header {
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .slide-header .section-label {
+            display: inline-block;
+            background: rgba(0, 168, 107, 0.2);
+            color: var(--btl-jade-light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .slide-header h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.20;
+        }
+
+        .slide-header h2 span {
+            color: var(--btl-jade);
+        }
+
+        /* Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .content-grid.two-col {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-item {
+            background: var(--bg-elevated);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .grid-item .icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 168, 107, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .grid-item h3 {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+
+        .grid-item p {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.35;
+            color: var(--text-subdued);
+        }
+
+        /* Problem/Solution */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .split-side h3 {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 24px;
+        }
+
+        .split-side.problem h3 {
+            color: #6b7280;
+        }
+
+        .split-side.solution h3 {
+            color: var(--btl-jade);
+        }
+
+        .split-side ul {
+            list-style: none;
+        }
+
+        .split-side li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.35;
+            color: var(--text-subdued);
+        }
+
+        .split-side li::before {
+            content: '×';
+            color: #6b7280;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .split-side.solution li::before {
+            content: '✓';
+            color: var(--btl-jade);
+        }
+
+        /* Process */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .process-step .number {
+            width: 48px;
+            height: 48px;
+            background: var(--btl-jade);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 800;
+            margin: 0 auto 16px;
+        }
+
+        .process-step h4 {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+
+        .process-step p {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.40;
+            color: var(--text-subdued);
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pricing-card {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .price {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.20;
+            margin-bottom: 4px;
+        }
+
+        .pricing-card .period {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.40;
+            color: var(--text-subdued);
+            margin-bottom: 24px;
+        }
+
+        .pricing-card.featured .period {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .pricing-card li {
+            padding: 8px 0;
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.40;
+            color: var(--text-subdued);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-card.featured li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .pricing-card li::before {
+            content: '✓';
+            color: var(--btl-jade-light);
+        }
+
+        .pricing-card.featured li::before {
+            color: white;
+        }
+
+        /* Case Study */
+        .case-study-card {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .case-study-content h3 {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        .case-study-content p {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.35;
+            color: var(--text-subdued);
+            margin-bottom: 24px;
+        }
+
+        .case-study-stats {
+            display: flex;
+            gap: 32px;
+        }
+
+        .case-stat .value {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--btl-jade);
+        }
+
+        .case-stat .label {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.40;
+            color: var(--text-subdued);
+        }
+
+        .case-study-visual {
+            background: var(--bg-surface);
+            border-radius: 12px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+        }
+
+        /* CTA */
+        .slide-cta {
+            background: linear-gradient(135deg, var(--btl-charcoal) 0%, #0f172a 100%);
+            text-align: center;
+        }
+
+        .slide-cta h2 {
+            font-family: var(--font-display);
+            font-size: 54px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+        }
+
+        .slide-cta h2 span {
+            color: var(--btl-jade);
+        }
+
+        .slide-cta p {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.35;
+            color: var(--text-subdued);
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .cta-btn {
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .cta-btn.primary {
+            background: var(--btl-jade);
+            color: white;
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            border: 2px solid var(--btl-jade);
+            color: var(--btl-jade);
+        }
+
+        @media (max-width: 1024px) {
+            .slide { padding: 40px; }
+            .slide-title h1 { font-size: 48px; }
+            .content-grid, .pricing-grid, .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .split-layout, .case-study-card { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <div class="progress-bar" id="progressBar"></div>
+
+        <div class="slides" id="slides">
+            <!-- Slide 1: Title -->
+            <div class="slide slide-title active" data-slide="1">
+                <div class="slide-content">
+                    <div class="logo">
+                        <div class="logo-mark">BTL</div>
+                        <div class="logo-text">Builds That Last</div>
+                    </div>
+                    <h1>Building Your Vision</h1>
+                    <p>A partnership proposal for [Client Name] to deliver scalable, maintainable software that grows with your business.</p>
+                </div>
+            </div>
+
+            <!-- Slide 2: Problem/Solution -->
+            <div class="slide slide-content-layout align-left" data-slide="2">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <span class="section-label">The Challenge</span>
+                        <h2>Common <span>Pain Points</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="split-layout">
+                            <div class="split-side problem">
+                                <h3>What You're Facing</h3>
+                                <ul>
+                                    <li>Technical debt slowing down new features</li>
+                                    <li>Difficulty scaling with growing demand</li>
+                                    <li>High turnover in development teams</li>
+                                    <li>Unpredictable delivery timelines</li>
+                                </ul>
+                            </div>
+                            <div class="split-side solution">
+                                <h3>How We Help</h3>
+                                <ul>
+                                    <li>Architecture that scales from day one</li>
+                                    <li>Maintainable code your team can own</li>
+                                    <li>Predictable delivery with clear milestones</li>
+                                    <li>Knowledge transfer throughout the project</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Our Approach -->
+            <div class="slide slide-content-layout align-left" data-slide="3">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <span class="section-label">Our Approach</span>
+                        <h2>How We <span>Work</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="content-grid">
+                            <div class="grid-item">
+                                <div class="icon">🎯</div>
+                                <h3>Outcome-Focused</h3>
+                                <p>We start with your business goals and work backward to the technical solution. Every decision ties to outcomes.</p>
+                            </div>
+                            <div class="grid-item">
+                                <div class="icon">🔄</div>
+                                <h3>Iterative Delivery</h3>
+                                <p>Ship value early and often. We break projects into 2-week sprints with working software at each milestone.</p>
+                            </div>
+                            <div class="grid-item">
+                                <div class="icon">🤝</div>
+                                <h3>True Partnership</h3>
+                                <p>We work as an extension of your team. Daily standups, shared Slack channels, full transparency.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Process -->
+            <div class="slide slide-content-layout align-left" data-slide="4">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <span class="section-label">The Process</span>
+                        <h2>Engagement <span>Model</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="process-grid">
+                            <div class="process-step">
+                                <div class="number">1</div>
+                                <h4>Discovery</h4>
+                                <p>Deep dive into your requirements, constraints, and goals.</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="number">2</div>
+                                <h4>Architecture</h4>
+                                <p>Design the technical foundation and project roadmap.</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="number">3</div>
+                                <h4>Build</h4>
+                                <p>Iterative development with regular demos and feedback.</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="number">4</div>
+                                <h4>Launch & Support</h4>
+                                <p>Go live with confidence and ongoing maintenance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Case Study -->
+            <div class="slide slide-content-layout" data-slide="5">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <span class="section-label">Proof Point</span>
+                        <h2>Case <span>Study</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="case-study-card">
+                            <div class="case-study-content">
+                                <h3>TechStartup Inc.</h3>
+                                <p>Rebuilt legacy platform serving 100K+ users. Reduced page load time by 60%, enabled team to ship 3x faster with modern architecture.</p>
+                                <div class="case-study-stats">
+                                    <div class="case-stat">
+                                        <div class="value">60%</div>
+                                        <div class="label">Faster Load Times</div>
+                                    </div>
+                                    <div class="case-stat">
+                                        <div class="value">3x</div>
+                                        <div class="label">Shipping Speed</div>
+                                    </div>
+                                    <div class="case-stat">
+                                        <div class="value">100K+</div>
+                                        <div class="label">Users Served</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="case-study-visual">🚀</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Pricing -->
+            <div class="slide slide-content-layout" data-slide="6">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <span class="section-label">Investment</span>
+                        <h2>Engagement <span>Options</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="pricing-grid">
+                            <div class="pricing-card">
+                                <h3>Project-Based</h3>
+                                <div class="price">Custom</div>
+                                <div class="period">fixed scope</div>
+                                <ul>
+                                    <li>Defined deliverables</li>
+                                    <li>Fixed timeline</li>
+                                    <li>Milestone payments</li>
+                                    <li>Best for: MVPs, specific features</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-card featured">
+                                <h3>Dedicated Team</h3>
+                                <div class="price">$15K+</div>
+                                <div class="period">per month</div>
+                                <ul>
+                                    <li>2-4 dedicated engineers</li>
+                                    <li>Flexible scope</li>
+                                    <li>Weekly sprints</li>
+                                    <li>Best for: Ongoing development</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-card">
+                                <h3>Consulting</h3>
+                                <div class="price">$300</div>
+                                <div class="period">per hour</div>
+                                <ul>
+                                    <li>Architecture review</li>
+                                    <li>Technical strategy</li>
+                                    <li>Team mentoring</li>
+                                    <li>Best for: Guidance & audits</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Next Steps -->
+            <div class="slide slide-cta" data-slide="7">
+                <div class="slide-content">
+                    <h2>Let's Get <span>Started</span></h2>
+                    <p>Ready to discuss your project? Here's what happens next.</p>
+                    <div class="process-grid" style="margin-bottom: 48px;">
+                        <div class="process-step">
+                            <div class="number">1</div>
+                            <h4>Call</h4>
+                            <p>30-min discovery call this week</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="number">2</div>
+                            <h4>Proposal</h4>
+                            <p>Detailed proposal within 3 days</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="number">3</div>
+                            <h4>Kickoff</h4>
+                            <p>Start building in 1-2 weeks</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="number">4</div>
+                            <h4>Ship</h4>
+                            <p>First deliverable in 30 days</p>
+                        </div>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#" class="cta-btn primary">Schedule Discovery Call</a>
+                        <a href="#" class="cta-btn secondary">Request Proposal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation - Spotify Style -->
+        <nav class="nav" id="nav">
+            <button class="nav-btn" id="prevBtn" onclick="prevSlide()" title="Previous (←)">
+                <svg viewBox="0 0 16 16"><path d="M11 3L5 8l6 5V3z"/></svg>
+            </button>
+            <span class="slide-counter"><span id="currentSlide">1</span>/<span id="totalSlides">7</span></span>
+            <button class="nav-btn" id="nextBtn" onclick="nextSlide()" title="Next (→)">
+                <svg viewBox="0 0 16 16"><path d="M5 3l6 5-6 5V3z"/></svg>
+            </button>
+            <div class="nav-divider"></div>
+            <button class="action-btn" onclick="toggleTheme()" title="Toggle theme (t)">
+                <svg class="light-icon" viewBox="0 0 16 16"><path d="M8 12a4 4 0 100-8 4 4 0 000 8zm0 1.5a5.5 5.5 0 110-11 5.5 5.5 0 010 11zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 12a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 12zm7-4a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0115 8zM4 8a.75.75 0 01-.75.75H1.75a.75.75 0 010-1.5h1.5A.75.75 0 014 8z"/></svg>
+                <svg class="dark-icon" viewBox="0 0 16 16" style="display:none"><path d="M6.5 0A6.5 6.5 0 000 6.5a6.5 6.5 0 009.5 5.75A7.5 7.5 0 016.5 0z"/></svg>
+            </button>
+            <button class="action-btn" onclick="toggleFullscreen()" title="Fullscreen (f)">
+                <svg class="enter-icon" viewBox="0 0 16 16"><path d="M2 2.5A.5.5 0 012.5 2H5a.5.5 0 010 1H3v2a.5.5 0 01-1 0V2.5zM11 2a.5.5 0 000 1h2v2a.5.5 0 001 0V2.5a.5.5 0 00-.5-.5H11zM2.5 11a.5.5 0 01.5.5V13h2a.5.5 0 010 1H2.5a.5.5 0 01-.5-.5V11.5a.5.5 0 01.5-.5zm11 0a.5.5 0 01.5.5v2a.5.5 0 01-.5.5H11a.5.5 0 010-1h2v-1.5a.5.5 0 01.5-.5z"/></svg>
+                <svg class="exit-icon" viewBox="0 0 16 16"><path d="M5 2.5a.5.5 0 01-1 0V1a.5.5 0 01.5-.5H6a.5.5 0 010 1H5v1zm6-1a.5.5 0 010-1h1.5a.5.5 0 01.5.5V2.5a.5.5 0 01-1 0V2h-1zm-6 11a.5.5 0 011 0V14h1a.5.5 0 010 1H4.5a.5.5 0 01-.5-.5V12.5zm7 0a.5.5 0 011 0v1.5a.5.5 0 01-.5.5H11a.5.5 0 010-1h1v-1z"/></svg>
+            </button>
+        </nav>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 7;
+        let hideNavTimeout;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('progressBar').style.width = (currentSlide / totalSlides * 100) + '%';
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+
+        function nextSlide() { currentSlide++; showSlide(currentSlide); }
+        function prevSlide() { currentSlide--; showSlide(currentSlide); }
+
+        // Theme toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('btl-theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const lightIcon = document.querySelector('.light-icon');
+            const darkIcon = document.querySelector('.dark-icon');
+            if (theme === 'light') {
+                lightIcon.style.display = 'none';
+                darkIcon.style.display = 'block';
+            } else {
+                lightIcon.style.display = 'block';
+                darkIcon.style.display = 'none';
+            }
+        }
+
+        // Fullscreen toggle
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+                document.body.classList.add('is-fullscreen');
+            } else {
+                document.exitFullscreen();
+                document.body.classList.remove('is-fullscreen');
+            }
+        }
+
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) document.body.classList.remove('is-fullscreen');
+        });
+
+        // Auto-hide nav
+        function showNav() {
+            document.body.classList.add('nav-visible');
+            clearTimeout(hideNavTimeout);
+            hideNavTimeout = setTimeout(() => document.body.classList.remove('nav-visible'), 3000);
+        }
+
+        document.body.classList.add('auto-hide');
+        document.addEventListener('mousemove', showNav);
+        document.addEventListener('click', showNav);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            showNav();
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 't' || e.key === 'T') toggleTheme();
+            if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+            if (e.key === 'Escape' && document.fullscreenElement) document.exitFullscreen();
+        });
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('btl-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        showSlide(currentSlide);
+        showNav();
+    </script>
+</body>
+</html>

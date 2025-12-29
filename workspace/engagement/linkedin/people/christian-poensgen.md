@@ -1,21 +1,21 @@
 ---
 type: linkedin-person
 created: '2025-12-10T05:00:00Z'
-last_updated: '2025-12-10T05:00:00Z'
+last_updated: '2025-12-24'
 
 profile:
   name: "Dr. Christian Poensgen"
   linkedin_url: "https://uk.linkedin.com/in/christianpoensgen"
   headline: null
-  followers: 246373
-  posts: 886
+  followers: 247580
+  posts: 907
   articles: 2
 
 relationship:
   status: "new"
   stage: "awareness"
   priority: "low"
-  last_interaction: '2025-12-10'
+  last_interaction: '2025-12-24'
   notes: "Productivity and personal growth content creator"
 
 content_themes:
@@ -26,6 +26,11 @@ content_themes:
   - Visual frameworks
 
 engagement_history:
+  - date: '2025-12-24'
+    type: "comment"
+    post_topic: "7 visuals that reshaped my thinking"
+    file: "comments/2025-12-24-christian-poensgen-7-visuals-thinking.md"
+    status: "ready"
   - date: '2025-12-10'
     type: "comment"
     post_topic: "7 visuals for taking action"

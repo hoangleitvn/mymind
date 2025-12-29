@@ -40,7 +40,6 @@ Production incident downtime cost = $5-10K/hour. Duct tape fix in 30 mins >> per
 
 Celebratory (hero engineer). Pragmatic. Challenge perfectionism. Context-driven.
 
----
 
 ## Related Angles
 

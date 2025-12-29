@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTL Voucher Templates</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        :root {
+            --btl-jade: #00a86b;
+            --btl-jade-dark: #008553;
+            --btl-jade-light: #10b981;
+            --btl-charcoal: #1f2937;
+            --btl-slate: #374151;
+            --btl-white: #ffffff;
+            --font-display: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            /* Dark theme (default) */
+            --bg-base: #111827;
+            --bg-elevated: #1f2937;
+            --bg-surface: #374151;
+            --text-primary: #ffffff;
+            --text-subdued: #9ca3af;
+            --border-color: #4b5563;
+        }
+
+        [data-theme="light"] {
+            --bg-base: #f9fafb;
+            --bg-elevated: #ffffff;
+            --bg-surface: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-subdued: #64748b;
+            --border-color: #d1d5db;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-base);
+            color: var(--text-primary);
+            font-size: 16px;
+            line-height: 26px;
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .header {
+            background: var(--bg-elevated);
+            padding: 24px 40px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--btl-jade);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-subdued);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 26px;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover { color: var(--btl-jade); }
+
+        .header h1 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 32px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 32px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--btl-jade);
+            border-radius: 2px;
+        }
+
+        .voucher-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 32px;
+        }
+
+        .voucher-card {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .voucher-preview {
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a 0%, #111827 100%);
+        }
+
+        .voucher-info {
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+            transition: border-color 0.3s;
+        }
+
+        .voucher-meta h3 {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 26px;
+            margin-bottom: 4px;
+        }
+
+        .voucher-meta p {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+            color: var(--text-subdued);
+        }
+
+        .export-btn {
+            font-family: var(--font-body);
+            background: var(--btl-jade);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 26px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .export-btn:hover {
+            background: var(--btl-jade-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ========================================
+           GIFT CARD
+           ======================================== */
+        .gift-card {
+            width: 420px;
+            height: 260px;
+            background: linear-gradient(135deg, var(--btl-charcoal) 0%, #0f172a 100%);
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gift-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--btl-jade);
+        }
+
+        .gift-card .logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .gift-card .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gift-card .logo-mark {
+            width: 44px;
+            height: 44px;
+            background: var(--btl-jade);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .gift-card .logo-text {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 26px;
+        }
+
+        .gift-card .badge {
+            font-family: var(--font-body);
+            background: rgba(0, 168, 107, 0.2);
+            color: var(--btl-jade-light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .gift-card .value-section {
+            text-align: center;
+        }
+
+        .gift-card .value-label {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+            color: var(--text-subdued);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .gift-card .value {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 56px;
+            color: var(--btl-jade);
+        }
+
+        .gift-card .code-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .gift-card .code {
+            font-family: var(--font-mono);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 26px;
+            letter-spacing: 2px;
+            color: var(--text-subdued);
+        }
+
+        .gift-card .expires {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+            color: var(--text-subdued);
+        }
+
+        /* ========================================
+           WORKSHOP PASS
+           ======================================== */
+        .workshop-pass {
+            width: 420px;
+            height: 280px;
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .workshop-pass::after {
+            content: '';
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .workshop-pass .header-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .workshop-pass .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .workshop-pass .logo-mark {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .workshop-pass .logo-text {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 26px;
+        }
+
+        .workshop-pass .pass-type {
+            text-align: right;
+        }
+
+        .workshop-pass .pass-label {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .workshop-pass .pass-name {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 26px;
+        }
+
+        .workshop-pass .content {
+            text-align: center;
+        }
+
+        .workshop-pass .title {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 32px;
+            margin-bottom: 8px;
+        }
+
+        .workshop-pass .subtitle {
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 26px;
+            opacity: 0.9;
+        }
+
+        .workshop-pass .footer-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        .workshop-pass .date-info {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+        }
+
+        .workshop-pass .date-label {
+            opacity: 0.7;
+            margin-bottom: 2px;
+        }
+
+        .workshop-pass .date-value {
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+
+        .workshop-pass .ticket-code {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        /* ========================================
+           PROMO VOUCHER
+           ======================================== */
+        .promo-voucher {
+            width: 420px;
+            height: 200px;
+            background: var(--btl-charcoal);
+            border-radius: 16px;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-voucher::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 5px;
+            background: var(--btl-jade);
+        }
+
+        .promo-left {
+            flex: 1;
+            padding: 24px 24px 24px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .promo-left .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .promo-left .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--btl-jade);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 11px;
+        }
+
+        .promo-left .logo-text {
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 18px;
+        }
+
+        .promo-left .promo-text {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 32px;
+        }
+
+        .promo-left .promo-text span {
+            color: var(--btl-jade);
+        }
+
+        .promo-left .code-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .promo-left .code {
+            font-family: var(--font-mono);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 26px;
+            background: var(--bg-surface);
+            padding: 6px 12px;
+            border-radius: 6px;
+            letter-spacing: 1px;
+        }
+
+        .promo-left .expires {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+            color: var(--text-subdued);
+        }
+
+        .promo-right {
+            width: 140px;
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .promo-right .discount-value {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 56px;
+        }
+
+        .promo-right .discount-label {
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 26px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ========================================
+           EVENT TICKET
+           ======================================== */
+        .event-ticket {
+            width: 420px;
+            height: 180px;
+            background: var(--btl-charcoal);
+            border-radius: 16px;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-ticket::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--btl-jade);
+        }
+
+        .ticket-main {
+            flex: 1;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .ticket-main .event-name {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 32px;
+        }
+
+        .ticket-main .event-name span {
+            color: var(--btl-jade);
+        }
+
+        .ticket-main .event-details {
+            display: flex;
+            gap: 24px;
+        }
+
+        .ticket-main .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .ticket-main .detail-label {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+            color: var(--text-subdued);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ticket-main .detail-value {
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 26px;
+        }
+
+        .ticket-stub {
+            width: 100px;
+            background: var(--bg-surface);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-left: 2px dashed rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .ticket-stub::before,
+        .ticket-stub::after {
+            content: '';
+            position: absolute;
+            left: -12px;
+            width: 24px;
+            height: 24px;
+            background: var(--bg-base);
+            border-radius: 50%;
+        }
+
+        .ticket-stub::before { top: -12px; }
+        .ticket-stub::after { bottom: -12px; }
+
+        .ticket-stub .stub-number {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+            letter-spacing: 1px;
+            color: var(--text-subdued);
+            transform: rotate(-90deg);
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            .voucher-grid { grid-template-columns: 1fr; }
+            .voucher-preview { padding: 20px; overflow-x: auto; }
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 200;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-surface);
+            transform: translateY(-2px);
+        }
+
+        .theme-toggle svg {
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        [data-theme="light"] .theme-toggle .sun-icon {
+            display: none;
+        }
+
+        [data-theme="light"] .theme-toggle .moon-icon {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme (t)">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M12 18a6 6 0 100-12 6 6 0 000 12zM12 2a1 1 0 011 1v2a1 1 0 01-2 0V3a1 1 0 011-1zm0 16a1 1 0 011 1v2a1 1 0 01-2 0v-2a1 1 0 011-1zm10-6a1 1 0 01-1 1h-2a1 1 0 010-2h2a1 1 0 011 1zM6 12a1 1 0 01-1 1H3a1 1 0 010-2h2a1 1 0 011 1z"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" style="display:none">
+            <path fill="currentColor" d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
+        </svg>
+    </button>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <a href="../index.html" class="back-btn">← Back</a>
+                <h1>Voucher Templates</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Gift Cards -->
+        <section class="section">
+            <h2 class="section-title">Gift Cards</h2>
+            <div class="voucher-grid">
+                <div class="voucher-card">
+                    <div class="voucher-preview">
+                        <div class="gift-card" id="gift-card-1">
+                            <div class="logo-row">
+                                <div class="logo">
+                                    <div class="logo-mark">BTL</div>
+                                    <div class="logo-text">Builds That Last</div>
+                                </div>
+                                <span class="badge">Gift Card</span>
+                            </div>
+                            <div class="value-section">
+                                <div class="value-label">Value</div>
+                                <div class="value">$500</div>
+                            </div>
+                            <div class="code-row">
+                                <div class="code">BTL-GIFT-2025-XXXX</div>
+                                <div class="expires">Valid until Dec 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="voucher-info">
+                        <div class="voucher-meta">
+                            <h3>Gift Card - Premium</h3>
+                            <p>Standard gift card format</p>
+                        </div>
+                        <button class="export-btn" onclick="exportVoucher('gift-card-1', 'btl-gift-card')">Export PNG</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workshop Passes -->
+        <section class="section">
+            <h2 class="section-title">Workshop Passes</h2>
+            <div class="voucher-grid">
+                <div class="voucher-card">
+                    <div class="voucher-preview">
+                        <div class="workshop-pass" id="workshop-pass-1">
+                            <div class="header-row">
+                                <div class="logo">
+                                    <div class="logo-mark">BTL</div>
+                                    <div class="logo-text">Builds That Last</div>
+                                </div>
+                                <div class="pass-type">
+                                    <div class="pass-label">Access</div>
+                                    <div class="pass-name">VIP Pass</div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <h2 class="title">Architecture Workshop 2025</h2>
+                                <p class="subtitle">Building Scalable Systems with Modern Patterns</p>
+                            </div>
+                            <div class="footer-row">
+                                <div class="date-info">
+                                    <div class="date-label">Date</div>
+                                    <div class="date-value">March 15, 2025</div>
+                                </div>
+                                <div class="ticket-code">WS-VIP-2025</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="voucher-info">
+                        <div class="voucher-meta">
+                            <h3>Workshop Pass - VIP</h3>
+                            <p>Event access pass</p>
+                        </div>
+                        <button class="export-btn" onclick="exportVoucher('workshop-pass-1', 'btl-workshop-pass')">Export PNG</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promo Vouchers -->
+        <section class="section">
+            <h2 class="section-title">Promotional Vouchers</h2>
+            <div class="voucher-grid">
+                <div class="voucher-card">
+                    <div class="voucher-preview">
+                        <div class="promo-voucher" id="promo-voucher-1">
+                            <div class="promo-left">
+                                <div class="logo">
+                                    <div class="logo-mark">BTL</div>
+                                    <div class="logo-text">Builds That Last</div>
+                                </div>
+                                <div class="promo-text">Get <span>20% off</span> your first consultation</div>
+                                <div class="code-info">
+                                    <span class="code">FIRST20</span>
+                                    <span class="expires">Expires Jan 31, 2025</span>
+                                </div>
+                            </div>
+                            <div class="promo-right">
+                                <div class="discount-value">20%</div>
+                                <div class="discount-label">Off</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="voucher-info">
+                        <div class="voucher-meta">
+                            <h3>Promo Voucher - Discount</h3>
+                            <p>First-time client offer</p>
+                        </div>
+                        <button class="export-btn" onclick="exportVoucher('promo-voucher-1', 'btl-promo-voucher')">Export PNG</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Tickets -->
+        <section class="section">
+            <h2 class="section-title">Event Tickets</h2>
+            <div class="voucher-grid">
+                <div class="voucher-card">
+                    <div class="voucher-preview">
+                        <div class="event-ticket" id="event-ticket-1">
+                            <div class="ticket-main">
+                                <div class="event-name">BTL <span>Tech Summit</span> 2025</div>
+                                <div class="event-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Date</span>
+                                        <span class="detail-value">April 20, 2025</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Time</span>
+                                        <span class="detail-value">9:00 AM - 5:00 PM</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Venue</span>
+                                        <span class="detail-value">Ho Chi Minh City</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ticket-stub">
+                                <div class="stub-number">ADMIT ONE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="voucher-info">
+                        <div class="voucher-meta">
+                            <h3>Event Ticket - Standard</h3>
+                            <p>Conference admission ticket</p>
+                        </div>
+                        <button class="export-btn" onclick="exportVoucher('event-ticket-1', 'btl-event-ticket')">Export PNG</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Theme Management
+        function getTheme() {
+            return localStorage.getItem('btl-vouchers-theme') || 'dark';
+        }
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('btl-vouchers-theme', theme);
+            updateThemeIcon(theme);
+        }
+
+        function toggleTheme() {
+            const currentTheme = getTheme();
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+            if (theme === 'light') {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+        }
+
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = getTheme();
+            setTheme(savedTheme);
+        });
+
+        // Keyboard shortcut (t) for theme toggle
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 't' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+                const activeEl = document.activeElement;
+                if (activeEl.tagName !== 'INPUT' && activeEl.tagName !== 'TEXTAREA') {
+                    toggleTheme();
+                }
+            }
+        });
+
+        // Export Voucher Function
+        async function exportVoucher(elementId, filename) {
+            const element = document.getElementById(elementId);
+            try {
+                const canvas = await html2canvas(element, {
+                    scale: 3,
+                    backgroundColor: null,
+                    useCORS: true
+                });
+                const link = document.createElement('a');
+                link.download = `${filename}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            } catch (error) {
+                console.error('Export failed:', error);
+                alert('Export failed. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>

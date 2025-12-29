@@ -1,7 +1,7 @@
 ---
 type: linkedin-engagement
-created: '2025-12-15'
-last_updated: '2025-12-15'
+created: '2025-12-15T00:00:00Z'
+last_updated: '2025-12-15T00:00:00Z'
 
 author:
   name: "Jean Kang"
@@ -22,43 +22,59 @@ post:
     - "Purpose and money can coexist"
   hashtags: []
 
-notable_comments:
-  - author: "Bill Achola"
-    content: "Ikigai works best when it is treated as a direction, not a destination."
-    reactions: 2
-    insight: "Direction vs destination framing"
-  - author: "Mike Leber"
-    content: "Using Ikigai helps identify careers that align passion, skills, and value to others."
-    reactions: 6
-    insight: "Alignment summary"
-
-our_engagement:
-  - id: 1
-    type: "comment"
-    reply_to: null
-    status: "posted"
-    timestamp: '2025-12-15'
-    content: |
-My Ikigai: building teams that build things that last.
-    strategy: "Simple personal sharing - mirrors Jean's format, authentic voice"
+thread_topic: "Ikigai framework for career clarity"
+topic_tags: [career-development, ikigai, purpose, self-discovery]
 
 engagement_status: "posted"
+response_received: false
+follow_up_needed: false
+follow_up_date: null
 ---
 
-## Post Analysis
+## Original Post
 
-Jean Kang (263K followers) shares a clear 3-step Ikigai framework for career clarity. The post uses visual formatting (emojis, structure) and credits the original source. 903 reactions indicates strong resonance.
+How to find a career you genuinely love. Ikigai = intersection of good at, love doing, world needs, can be paid for. 3-step framework: answer questions, cross-reference, find themes. Purpose and money can coexist.
 
-Most comments are supportive agreement. Bill Achola's "direction, not destination" comment adds genuine nuance.
+## Notable Comments
 
-## Comment Strategy
+```yaml
+- id: 1734220800001
+  author: "Bill Achola"
+  profile: null
+  sentiment: "positive"
+  content: |
+    Ikigai works best when it is treated as a direction, not a destination.
+  reactions: 2
+  insight: "Direction vs destination framing"
+  replies: []
 
-**Approach:** Personal experience with an insightful addition
+- id: 1734220800002
+  author: "Mike Leber"
+  profile: null
+  sentiment: "positive"
+  content: |
+    Using Ikigai helps identify careers that align passion, skills, and value to others.
+  reactions: 6
+  insight: "Alignment summary"
+  replies: []
+```
 
-**Why:** The existing comments are mostly agreement. Adding the evolution angle (Ikigai changes as you grow) provides substance without disagreeing with the core message. Connects to my founder journey from engineer to tech leader.
+## Our Engagement
 
-**Voice check:**
-- No generic praise
-- Specific personal experience
-- Adds nuance to the framework
-- Short, direct sentences
+```yaml
+- id: 1734220800100
+  type: "comment"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-15T00:00:00Z'
+  content: |
+    My Ikigai: building teams that build things that last.
+  strategy: "Simple personal sharing - mirrors Jean's format, authentic voice"
+```
+
+## Notes
+
+- Jean Kang (263K followers) shares a clear 3-step Ikigai framework for career clarity
+- 903 reactions indicates strong resonance
+- Bill Achola's "direction, not destination" comment adds genuine nuance
+- Simple, authentic comment that connects to personal brand

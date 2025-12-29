@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTL - Architecture Workshop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --btl-jade: #00a86b;
+            --btl-jade-dark: #008553;
+            --btl-jade-light: #10b981;
+            --btl-charcoal: #1f2937;
+            --btl-slate: #374151;
+            --btl-white: #ffffff;
+            --bg-base: #111827;
+            --bg-elevated: #1f2937;
+            --bg-surface: #374151;
+            --text-primary: #ffffff;
+            --text-subdued: #9ca3af;
+            --font-display: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        [data-theme="light"] {
+            --bg-base: #f8fafc;
+            --bg-elevated: #ffffff;
+            --bg-surface: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-subdued: #64748b;
+            --btl-charcoal: #f1f5f9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; overflow: hidden; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-base);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .presentation { height: 100vh; display: flex; flex-direction: column; }
+
+        /* Navigation - Spotify Style */
+        .nav {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 6px 12px;
+            border-radius: 500px;
+            backdrop-filter: blur(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        [data-theme="light"] .nav {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .nav-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            color: var(--text-subdued);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover { color: var(--text-primary); background: var(--bg-surface); }
+        .nav-btn:disabled { opacity: 0.2; cursor: not-allowed; }
+        .nav-btn:disabled:hover { background: transparent; color: var(--text-subdued); }
+        .nav-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+        .nav-divider {
+            width: 1px;
+            height: 16px;
+            background: var(--bg-surface);
+            margin: 0 4px;
+        }
+
+        .action-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            color: var(--text-subdued);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover { color: var(--text-primary); background: var(--bg-surface); }
+        .action-btn svg { width: 14px; height: 14px; fill: currentColor; }
+        .action-btn .exit-icon { display: none; }
+        body.is-fullscreen .action-btn .enter-icon { display: none; }
+        body.is-fullscreen .action-btn .exit-icon { display: block; }
+
+        .slide-counter {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-subdued);
+            min-width: 36px;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--btl-jade);
+            transition: width 0.3s ease;
+            z-index: 100;
+        }
+
+        /* Auto-hide nav */
+        body.auto-hide .nav { opacity: 0; transform: translateY(10px); }
+        body.auto-hide.nav-visible .nav { opacity: 1; transform: translateY(0); }
+
+        .slides { flex: 1; position: relative; }
+
+        .slide {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .slide.active { opacity: 1; visibility: visible; }
+        .slide-content { max-width: 1200px; width: 100%; }
+
+        /* Title Slide */
+        .slide-title {
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+        }
+
+        .slide-title .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .slide-title .logo-mark {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 28px;
+            color: white;
+        }
+
+        .slide-title .logo-text {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .slide-title h1 {
+            font-family: var(--font-display);
+            font-size: 54px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .slide-title p {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.35;
+            opacity: 0.9;
+            max-width: 700px;
+            color: white;
+        }
+
+        /* Content Slide */
+        /* Two-part layout: Header top, Body centered */
+        .slide-content-layout {
+            background: var(--bg-base);
+            align-items: stretch;
+        }
+
+        .slide-content-layout .slide-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .slide-content-layout .slide-header {
+            flex-shrink: 0;
+        }
+
+        .slide-content-layout .slide-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Left-aligned variant */
+        .slide-content-layout.align-left .slide-header {
+            text-align: left;
+        }
+
+        .slide-content-layout.align-left .slide-body {
+            align-items: flex-start;
+        }
+
+        .slide-header {
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .slide-header .section-label {
+            display: inline-block;
+            background: rgba(0, 168, 107, 0.2);
+            color: var(--btl-jade-light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .slide-header h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.20;
+        }
+
+        .slide-header h2 span { color: var(--btl-jade-light); }
+
+        /* Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .grid-item {
+            background: var(--bg-elevated);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="light"] .grid-item {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .grid-item .icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 168, 107, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .grid-item h3 {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+
+        .grid-item p {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.35;
+            color: var(--text-subdued);
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 24px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            line-height: 1.8;
+            color: #e2e8f0;
+            overflow-x: auto;
+        }
+
+        .code-block .comment { color: #64748b; }
+        .code-block .keyword { color: #c084fc; }
+        .code-block .string { color: #4ade80; }
+        .code-block .function { color: #60a5fa; }
+
+        /* Exercise Card */
+        .exercise-card {
+            background: linear-gradient(135deg, rgba(0, 168, 107, 0.1) 0%, rgba(6, 95, 70, 0.1) 100%);
+            border: 2px dashed var(--btl-jade);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .exercise-card h3 {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 16px;
+            color: var(--btl-jade-light);
+        }
+
+        .exercise-card ol {
+            padding-left: 24px;
+        }
+
+        .exercise-card li {
+            padding: 8px 0;
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.35;
+            color: var(--text-subdued);
+        }
+
+        .exercise-card .timer {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--btl-jade);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 16px;
+        }
+
+        /* Diagram */
+        .diagram {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="light"] .diagram {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .diagram-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .diagram-box {
+            width: 120px;
+            height: 80px;
+            background: var(--bg-surface);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .diagram-box.highlight {
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+            color: white;
+        }
+
+        .diagram-arrow {
+            font-size: 24px;
+            color: var(--text-subdued);
+        }
+
+        .diagram-label {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.40;
+            color: var(--text-subdued);
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.35;
+        }
+
+        [data-theme="light"] .checklist li {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .checklist li:last-child { border-bottom: none; }
+
+        .checklist .check {
+            width: 28px;
+            height: 28px;
+            background: rgba(0, 168, 107, 0.2);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--btl-jade-light);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Summary Slide */
+        .slide-summary {
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+            text-align: center;
+        }
+
+        .slide-summary h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.20;
+            margin-bottom: 32px;
+            color: white;
+        }
+
+        .takeaways {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .takeaway {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .takeaway .number {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .takeaway p {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.40;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        @media (max-width: 1024px) {
+            .slide { padding: 40px; }
+            .slide-title h1 { font-size: 48px; }
+            .content-grid { grid-template-columns: 1fr; }
+            .takeaways { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <div class="progress-bar" id="progressBar"></div>
+
+        <div class="slides" id="slides">
+            <!-- Slide 1: Title -->
+            <div class="slide slide-title active" data-slide="1">
+                <div class="slide-content">
+                    <div class="logo">
+                        <div class="logo-mark">BTL</div>
+                        <div class="logo-text">Builds That Last</div>
+                    </div>
+                    <h1>Architecture Workshop</h1>
+                    <p>Building scalable systems with modern patterns and best practices.</p>
+                </div>
+            </div>
+
+            <!-- Slide 2: Agenda -->
+            <div class="slide slide-content-layout align-left" data-slide="2">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <span class="section-label">Today's Workshop</span>
+                        <h2>What We'll <span>Cover</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="content-grid">
+                            <div class="grid-item">
+                                <div class="icon">🎯</div>
+                                <h3>1. Architecture Principles</h3>
+                                <p>Core principles that guide good system design. Separation of concerns, loose coupling, high cohesion.</p>
+                            </div>
+                            <div class="grid-item">
+                                <div class="icon">🏗️</div>
+                                <h3>2. Common Patterns</h3>
+                                <p>Proven patterns for scalability: layered architecture, microservices, event-driven design.</p>
+                            </div>
+                            <div class="grid-item">
+                                <div class="icon">⚡</div>
+                                <h3>3. Hands-on Exercise</h3>
+                                <p>Design a system together. Apply what we've learned to a real-world scenario.</p>
+                            </div>
+                            <div class="grid-item">
+                                <div class="icon">📋</div>
+                                <h3>4. Review & Discussion</h3>
+                                <p>Review solutions, discuss trade-offs, and answer questions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Principles -->
+            <div class="slide slide-content-layout align-left" data-slide="3">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <span class="section-label">Foundation</span>
+                        <h2>Key <span>Principles</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <ul class="checklist">
+                            <li>
+                                <span class="check">1</span>
+                                <div>
+                                    <strong>Single Responsibility</strong> - Each module should have one reason to change
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check">2</span>
+                                <div>
+                                    <strong>Loose Coupling</strong> - Minimize dependencies between components
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check">3</span>
+                                <div>
+                                    <strong>High Cohesion</strong> - Keep related functionality together
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check">4</span>
+                                <div>
+                                    <strong>Dependency Inversion</strong> - Depend on abstractions, not concretions
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Architecture Diagram -->
+            <div class="slide slide-content-layout" data-slide="4">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <span class="section-label">Pattern</span>
+                        <h2>Layered <span>Architecture</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="diagram">
+                            <div class="diagram-boxes">
+                                <div class="diagram-box">Presentation</div>
+                                <span class="diagram-arrow">↓</span>
+                                <div class="diagram-box highlight">Business Logic</div>
+                                <span class="diagram-arrow">↓</span>
+                                <div class="diagram-box">Data Access</div>
+                            </div>
+                            <p class="diagram-label">Each layer only communicates with adjacent layers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Code Example -->
+            <div class="slide slide-content-layout align-left" data-slide="5">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <span class="section-label">Example</span>
+                        <h2>Clean <span>Code</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="code-block">
+<span class="comment">// Dependency Injection Example</span>
+<span class="keyword">class</span> <span class="function">UserService</span> {
+  <span class="keyword">constructor</span>(
+    <span class="keyword">private</span> userRepo: <span class="function">IUserRepository</span>,
+    <span class="keyword">private</span> emailService: <span class="function">IEmailService</span>
+  ) {}
+
+  <span class="keyword">async</span> <span class="function">createUser</span>(data: CreateUserDTO) {
+    <span class="keyword">const</span> user = <span class="keyword">await</span> <span class="keyword">this</span>.userRepo.create(data);
+    <span class="keyword">await</span> <span class="keyword">this</span>.emailService.sendWelcome(user.email);
+    <span class="keyword">return</span> user;
+  }
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Exercise -->
+            <div class="slide slide-content-layout align-left" data-slide="6">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <span class="section-label">Hands-On</span>
+                        <h2>Design <span>Exercise</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="exercise-card">
+                            <h3>🎯 Your Challenge</h3>
+                            <p style="margin-bottom: 16px; color: var(--text-subdued);">Design a system for an e-commerce order processing service. Consider:</p>
+                            <ol>
+                                <li>How would you structure the main components?</li>
+                                <li>What patterns would you use for handling payments?</li>
+                                <li>How would you ensure the system scales?</li>
+                                <li>What happens when a service fails?</li>
+                            </ol>
+                            <div class="timer">⏱️ 20 minutes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Summary -->
+            <div class="slide slide-summary" data-slide="7">
+                <div class="slide-content">
+                    <h2>Key Takeaways</h2>
+                    <div class="takeaways">
+                        <div class="takeaway">
+                            <div class="number">01</div>
+                            <p>Start with principles, not patterns</p>
+                        </div>
+                        <div class="takeaway">
+                            <div class="number">02</div>
+                            <p>Design for change and scalability</p>
+                        </div>
+                        <div class="takeaway">
+                            <div class="number">03</div>
+                            <p>Keep it simple until you can't</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation - Spotify Style -->
+        <nav class="nav" id="nav">
+            <button class="nav-btn" id="prevBtn" onclick="prevSlide()" title="Previous (←)">
+                <svg viewBox="0 0 16 16"><path d="M11 3L5 8l6 5V3z"/></svg>
+            </button>
+            <span class="slide-counter"><span id="currentSlide">1</span>/<span id="totalSlides">7</span></span>
+            <button class="nav-btn" id="nextBtn" onclick="nextSlide()" title="Next (→)">
+                <svg viewBox="0 0 16 16"><path d="M5 3l6 5-6 5V3z"/></svg>
+            </button>
+            <div class="nav-divider"></div>
+            <button class="action-btn" onclick="toggleTheme()" title="Toggle theme (t)">
+                <svg class="light-icon" viewBox="0 0 16 16"><path d="M8 12a4 4 0 100-8 4 4 0 000 8zm0 1.5a5.5 5.5 0 110-11 5.5 5.5 0 010 11zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 12a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 12zm7-4a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0115 8zM4 8a.75.75 0 01-.75.75H1.75a.75.75 0 010-1.5h1.5A.75.75 0 014 8z"/></svg>
+                <svg class="dark-icon" viewBox="0 0 16 16" style="display:none"><path d="M6.5 0A6.5 6.5 0 000 6.5a6.5 6.5 0 009.5 5.75A7.5 7.5 0 016.5 0z"/></svg>
+            </button>
+            <button class="action-btn" onclick="toggleFullscreen()" title="Fullscreen (f)">
+                <svg class="enter-icon" viewBox="0 0 16 16"><path d="M2 2.5A.5.5 0 012.5 2H5a.5.5 0 010 1H3v2a.5.5 0 01-1 0V2.5zM11 2a.5.5 0 000 1h2v2a.5.5 0 001 0V2.5a.5.5 0 00-.5-.5H11zM2.5 11a.5.5 0 01.5.5V13h2a.5.5 0 010 1H2.5a.5.5 0 01-.5-.5V11.5a.5.5 0 01.5-.5zm11 0a.5.5 0 01.5.5v2a.5.5 0 01-.5.5H11a.5.5 0 010-1h2v-1.5a.5.5 0 01.5-.5z"/></svg>
+                <svg class="exit-icon" viewBox="0 0 16 16"><path d="M5 2.5a.5.5 0 01-1 0V1a.5.5 0 01.5-.5H6a.5.5 0 010 1H5v1zm6-1a.5.5 0 010-1h1.5a.5.5 0 01.5.5V2.5a.5.5 0 01-1 0V2h-1zm-6 11a.5.5 0 011 0V14h1a.5.5 0 010 1H4.5a.5.5 0 01-.5-.5V12.5zm7 0a.5.5 0 011 0v1.5a.5.5 0 01-.5.5H11a.5.5 0 010-1h1v-1z"/></svg>
+            </button>
+        </nav>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 7;
+        let hideNavTimeout;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('progressBar').style.width = (currentSlide / totalSlides * 100) + '%';
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+
+        function nextSlide() { currentSlide++; showSlide(currentSlide); }
+        function prevSlide() { currentSlide--; showSlide(currentSlide); }
+
+        // Theme toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('btl-theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const lightIcon = document.querySelector('.light-icon');
+            const darkIcon = document.querySelector('.dark-icon');
+            if (theme === 'light') {
+                lightIcon.style.display = 'none';
+                darkIcon.style.display = 'block';
+            } else {
+                lightIcon.style.display = 'block';
+                darkIcon.style.display = 'none';
+            }
+        }
+
+        // Fullscreen toggle
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+                document.body.classList.add('is-fullscreen');
+            } else {
+                document.exitFullscreen();
+                document.body.classList.remove('is-fullscreen');
+            }
+        }
+
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) document.body.classList.remove('is-fullscreen');
+        });
+
+        // Auto-hide nav
+        function showNav() {
+            document.body.classList.add('nav-visible');
+            clearTimeout(hideNavTimeout);
+            hideNavTimeout = setTimeout(() => document.body.classList.remove('nav-visible'), 3000);
+        }
+
+        document.body.classList.add('auto-hide');
+        document.addEventListener('mousemove', showNav);
+        document.addEventListener('click', showNav);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            showNav();
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 't' || e.key === 'T') toggleTheme();
+            if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+            if (e.key === 'Escape' && document.fullscreenElement) document.exitFullscreen();
+        });
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('btl-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        showSlide(currentSlide);
+        showNav();
+    </script>
+</body>
+</html>

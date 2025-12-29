@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Brand Color Scale */
+      --brand-50: #ecfdf5;
+      --brand-100: #d1fae5;
+      --brand-400: #10b981;
+      --brand-500: #00a86b;
+      --brand-600: #008553;
+      --brand-700: #007a4c;
+      --brand-800: #065f46;
+
+      /* Base Color Scale */
+      --base-50: #f9fafb;
+      --base-100: #f1f5f9;
+      --base-200: #e5e7eb;
+      --base-300: #d1d5db;
+      --base-400: #9ca3af;
+      --base-500: #6b7280;
+      --base-600: #4b5563;
+      --base-700: #374151;
+      --base-800: #1f2937;
+      --base-900: #111827;
+
+      /* Semantic */
+      --warning-fill: #f59e0b;
+      --warning-text: #92400e;
+
+      /* Typography */
+      --font-display: 'Poppins', 'Inter', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--base-50);
+      color: var(--base-800);
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+
+    body.dark {
+      background: var(--base-800);
+      color: var(--base-50);
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--base-800);
+      padding: 0;
+    }
+
+    .accent-bar {
+      height: 4px;
+      background: var(--brand-500);
+    }
+
+    .header-content {
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--base-50);
+      letter-spacing: 0.5px;
+    }
+
+    .theme-toggle {
+      background: var(--base-700);
+      border: none;
+      color: var(--base-300);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-family: var(--font-body);
+      cursor: pointer;
+    }
+
+    .theme-toggle:active {
+      background: var(--base-600);
+    }
+
+    /* Sections */
+    .section {
+      padding: 24px 20px;
+      border-bottom: 1px solid var(--base-200);
+    }
+
+    body.dark .section {
+      border-bottom-color: var(--base-700);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--base-500);
+      margin-bottom: 20px;
+    }
+
+    body.dark .section-subtitle {
+      color: var(--base-400);
+    }
+
+    /* Color Grid */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (min-width: 480px) {
+      .color-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .color-card {
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    body.dark .color-card {
+      background: var(--base-700);
+    }
+
+    .color-swatch {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .color-info {
+      padding: 10px;
+    }
+
+    .color-name {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .color-hex {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--base-500);
+    }
+
+    body.dark .color-hex {
+      color: var(--base-400);
+    }
+
+    .color-usage {
+      font-size: 10px;
+      color: var(--base-500);
+      margin-top: 4px;
+    }
+
+    body.dark .color-usage {
+      color: var(--base-400);
+    }
+
+    /* Scale Display */
+    .scale-row {
+      display: flex;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .scale-item {
+      flex: 1;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    .scale-label {
+      font-size: 12px;
+      color: var(--base-500);
+      margin-bottom: 8px;
+    }
+
+    body.dark .scale-label {
+      color: var(--base-400);
+    }
+
+    /* Typography */
+    .typo-sample {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--base-200);
+    }
+
+    body.dark .typo-sample {
+      border-bottom-color: var(--base-700);
+    }
+
+    .typo-sample:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .typo-label {
+      font-size: 11px;
+      color: var(--base-500);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    body.dark .typo-label {
+      color: var(--base-400);
+    }
+
+    .typo-display {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .typo-heading {
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .typo-body {
+      font-size: 16px;
+    }
+
+    .typo-secondary {
+      font-size: 14px;
+      color: var(--base-500);
+    }
+
+    body.dark .typo-secondary {
+      color: var(--base-400);
+    }
+
+    .typo-code {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--brand-700);
+    }
+
+    body.dark .typo-code {
+      color: var(--brand-400);
+    }
+
+    .typo-link {
+      font-size: 16px;
+      color: var(--brand-700);
+      text-decoration: underline;
+    }
+
+    body.dark .typo-link {
+      color: var(--brand-400);
+    }
+
+    /* Components */
+    .component-group {
+      margin-bottom: 24px;
+    }
+
+    .component-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--base-500);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    body.dark .component-label {
+      color: var(--base-400);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all 0.15s;
+    }
+
+    .btn-primary {
+      background: var(--brand-600);
+      color: white;
+    }
+
+    .btn-primary:active {
+      background: var(--brand-700);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--base-700);
+      border: 2px solid var(--base-700);
+    }
+
+    body.dark .btn-secondary {
+      color: var(--base-50);
+      border-color: var(--base-50);
+    }
+
+    .btn-ghost {
+      background: var(--brand-50);
+      color: var(--brand-700);
+    }
+
+    body.dark .btn-ghost {
+      background: var(--brand-800);
+      color: var(--brand-400);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .tag-primary {
+      background: var(--brand-100);
+      color: var(--brand-800);
+    }
+
+    body.dark .tag-primary {
+      background: var(--brand-800);
+      color: var(--brand-400);
+    }
+
+    .tag-neutral {
+      background: var(--base-100);
+      color: var(--base-700);
+    }
+
+    body.dark .tag-neutral {
+      background: var(--base-700);
+      color: var(--base-200);
+    }
+
+    .tag-warning {
+      background: #fef3c7;
+      color: var(--warning-text);
+    }
+
+    body.dark .tag-warning {
+      background: var(--warning-text);
+      color: #fef3c7;
+    }
+
+    /* Cards */
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1.5px solid var(--base-300);
+    }
+
+    body.dark .card {
+      background: var(--base-700);
+      border-color: var(--base-600);
+    }
+
+    .card-accent {
+      height: 5px;
+      background: var(--brand-500);
+    }
+
+    .card-content {
+      padding: 16px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: var(--base-500);
+      margin-bottom: 16px;
+    }
+
+    body.dark .card-text {
+      color: var(--base-400);
+    }
+
+    .card-btn {
+      padding: 8px 16px;
+      background: var(--brand-600);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* Usage Guide */
+    .usage-table {
+      width: 100%;
+      font-size: 13px;
+    }
+
+    .usage-row {
+      display: flex;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--base-200);
+    }
+
+    body.dark .usage-row {
+      border-bottom-color: var(--base-700);
+    }
+
+    .usage-role {
+      width: 40%;
+      font-weight: 500;
+    }
+
+    .usage-value {
+      width: 60%;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--base-500);
+    }
+
+    body.dark .usage-value {
+      color: var(--base-400);
+    }
+
+    /* Nav */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--base-800);
+      display: flex;
+      border-top: 1px solid var(--base-700);
+    }
+
+    .nav-item {
+      flex: 1;
+      padding: 12px 8px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--base-400);
+      text-decoration: none;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .nav-item.active {
+      color: var(--brand-500);
+    }
+
+    .nav-icon {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="accent-bar"></div>
+    <div class="header-content">
+      <div class="logo">BTL DESIGN SYSTEM</div>
+      <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark</button>
+    </div>
+  </header>
+
+  <!-- Brand Colors -->
+  <section class="section" id="brand">
+    <h2 class="section-title">Brand Colors</h2>
+    <p class="section-subtitle">Jade Green - The identity color. Use for accents, CTAs, and highlights.</p>
+
+    <div class="scale-label">Full Scale</div>
+    <div class="scale-row">
+      <div class="scale-item" style="background: #ecfdf5; color: #065f46;">50</div>
+      <div class="scale-item" style="background: #d1fae5; color: #065f46;">100</div>
+      <div class="scale-item" style="background: #10b981; color: white;">400</div>
+      <div class="scale-item" style="background: #00a86b; color: white;">500</div>
+      <div class="scale-item" style="background: #008553; color: white;">600</div>
+      <div class="scale-item" style="background: #007a4c; color: white;">700</div>
+      <div class="scale-item" style="background: #065f46; color: white;">800</div>
+    </div>
+
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #00a86b; color: white;">Brand</div>
+        <div class="color-info">
+          <div class="color-name">brand-500</div>
+          <div class="color-hex">#00a86b</div>
+          <div class="color-usage">Accents, focus rings</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #008553; color: white;">Button</div>
+        <div class="color-info">
+          <div class="color-name">brand-600</div>
+          <div class="color-hex">#008553</div>
+          <div class="color-usage">Button fills (4.69:1)</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #007a4c; color: white;">Text</div>
+        <div class="color-info">
+          <div class="color-name">brand-700</div>
+          <div class="color-hex">#007a4c</div>
+          <div class="color-usage">Links, text (5.14:1)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Base Colors -->
+  <section class="section" id="base">
+    <h2 class="section-title">Base Colors</h2>
+    <p class="section-subtitle">Charcoal scale - The workhorse. Text, structure, backgrounds.</p>
+
+    <div class="scale-label">Full Scale</div>
+    <div class="scale-row">
+      <div class="scale-item" style="background: #f9fafb; color: #374151;">50</div>
+      <div class="scale-item" style="background: #e5e7eb; color: #374151;">200</div>
+      <div class="scale-item" style="background: #9ca3af; color: white;">400</div>
+      <div class="scale-item" style="background: #6b7280; color: white;">500</div>
+      <div class="scale-item" style="background: #374151; color: white;">700</div>
+      <div class="scale-item" style="background: #1f2937; color: white;">800</div>
+      <div class="scale-item" style="background: #111827; color: white;">900</div>
+    </div>
+
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #1f2937; color: white;">Headlines</div>
+        <div class="color-info">
+          <div class="color-name">base-800</div>
+          <div class="color-hex">#1f2937</div>
+          <div class="color-usage">Primary text (light)</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #6b7280; color: white;">Secondary</div>
+        <div class="color-info">
+          <div class="color-name">base-500</div>
+          <div class="color-hex">#6b7280</div>
+          <div class="color-usage">Secondary text</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #d1d5db; color: #374151;">Border</div>
+        <div class="color-info">
+          <div class="color-name">base-300</div>
+          <div class="color-hex">#d1d5db</div>
+          <div class="color-usage">Borders, dividers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section class="section" id="typography">
+    <h2 class="section-title">Typography</h2>
+    <p class="section-subtitle">Poppins for display, Inter for body, JetBrains Mono for code.</p>
+
+    <div class="typo-sample">
+      <div class="typo-label">Display / Poppins 28px Bold</div>
+      <div class="typo-display">Builds That Last</div>
+    </div>
+
+    <div class="typo-sample">
+      <div class="typo-label">Heading / Inter 20px Semibold</div>
+      <div class="typo-heading">Foundation First, Speed Follows</div>
+    </div>
+
+    <div class="typo-sample">
+      <div class="typo-label">Body / Inter 16px Regular</div>
+      <div class="typo-body">The demo always works. It's what comes after that separates software that lasts from software that collapses.</div>
+    </div>
+
+    <div class="typo-sample">
+      <div class="typo-label">Secondary / Inter 14px</div>
+      <div class="typo-secondary">Engineering leadership lessons from real projects.</div>
+    </div>
+
+    <div class="typo-sample">
+      <div class="typo-label">Code / JetBrains Mono 14px</div>
+      <div class="typo-code">const foundation = architecture + standards;</div>
+    </div>
+
+    <div class="typo-sample">
+      <div class="typo-label">Link / Inter 16px</div>
+      <a href="#" class="typo-link">Read the full manifesto</a>
+    </div>
+  </section>
+
+  <!-- Components -->
+  <section class="section" id="components">
+    <h2 class="section-title">Components</h2>
+
+    <div class="component-group">
+      <div class="component-label">Buttons</div>
+      <div class="button-row">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-ghost">Ghost</button>
+      </div>
+    </div>
+
+    <div class="component-group">
+      <div class="component-label">Tags</div>
+      <div class="tag-row">
+        <span class="tag tag-primary">Engineering</span>
+        <span class="tag tag-neutral">Leadership</span>
+        <span class="tag tag-warning">Important</span>
+      </div>
+    </div>
+
+    <div class="component-group">
+      <div class="component-label">Card with Accent Bar</div>
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-content">
+          <div class="card-title">The Iceberg Problem</div>
+          <div class="card-text">What you see is 20% above water. The 80% below is where real engineering happens.</div>
+          <button class="card-btn">Read More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Usage -->
+  <section class="section" id="usage">
+    <h2 class="section-title">Quick Reference</h2>
+
+    <div class="usage-table">
+      <div class="usage-row">
+        <div class="usage-role">Primary Button</div>
+        <div class="usage-value">#008553 + white</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Links (light)</div>
+        <div class="usage-value">#007a4c</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Links (dark)</div>
+        <div class="usage-value">#10b981</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Accent Bar</div>
+        <div class="usage-value">#00a86b, 4-5px</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Headlines (light)</div>
+        <div class="usage-value">#1f2937</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Headlines (dark)</div>
+        <div class="usage-value">#f9fafb</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Body text (light)</div>
+        <div class="usage-value">#374151</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Secondary text</div>
+        <div class="usage-value">#6b7280 / #9ca3af</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Borders (light)</div>
+        <div class="usage-value">#d1d5db</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Borders (dark)</div>
+        <div class="usage-value">#4b5563</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="#brand" class="nav-item active">
+      <span class="nav-icon">●</span>
+      Brand
+    </a>
+    <a href="#base" class="nav-item">
+      <span class="nav-icon">■</span>
+      Base
+    </a>
+    <a href="#typography" class="nav-item">
+      <span class="nav-icon">Aa</span>
+      Type
+    </a>
+    <a href="#components" class="nav-item">
+      <span class="nav-icon">◧</span>
+      UI
+    </a>
+    <a href="#usage" class="nav-item">
+      <span class="nav-icon">☰</span>
+      Ref
+    </a>
+  </nav>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+
+    // Smooth scroll for nav
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', function(e) {
+        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

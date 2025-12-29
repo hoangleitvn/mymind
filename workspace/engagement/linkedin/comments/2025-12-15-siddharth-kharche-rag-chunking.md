@@ -1,7 +1,7 @@
 ---
 type: linkedin-engagement
-created: '2025-12-15'
-last_updated: '2025-12-15'
+created: '2025-12-15T00:00:00Z'
+last_updated: '2025-12-15T00:00:00Z'
 
 author:
   name: "Siddharth Kharche"
@@ -18,34 +18,54 @@ post:
   angle: "rag-chunking"
   key_points:
     - "Most RAG failures are chunking failures, not LLM failures"
-    - "Fixed-size → recursive → semantic → hierarchical chunking"
+    - "Fixed-size to recursive to semantic to hierarchical chunking"
     - "Goal: preserve meaning, improve recall, reduce noise"
     - "Good chunking = balance context preservation and retrieval precision"
   hashtags: [AI, RAG, LangChain, GenAI, VectorDatabases]
 
-notable_comments:
-  - author: "Jiyanshi Batra"
-    content: "What about variable chunking size"
-    reactions: 1
-    insight: "Question about dynamic chunking"
-
-our_engagement:
-  - id: 1
-    type: "comment"
-    reply_to: null
-    status: "posted"
-    timestamp: '2025-12-15'
-    content: |
-Great breakdown. For the research paper use case, what chunking strategy have you found most efficient? Semantic or hierarchical?
-    strategy: "Thoughtful question - asks for practical recommendation based on his experience"
+thread_topic: "RAG chunking strategies"
+topic_tags: [ai-engineering, rag, chunking, llm, vector-databases]
 
 engagement_status: "posted"
+response_received: false
+follow_up_needed: false
+follow_up_date: null
 ---
 
-## Post Analysis
+## Original Post
 
-Siddharth breaks down RAG chunking strategies. 14K followers, posts AI/ML tutorials with YouTube and GitHub links. Technical content creator.
+Most RAG failures are chunking failures, not LLM failures. Fixed-size to recursive to semantic to hierarchical chunking. Goal: preserve meaning, improve recall, reduce noise. Good chunking = balance context preservation and retrieval precision.
 
-## Comment Strategy
+## Notable Comments
 
-Validate the post, ask specific question about chunking strategy for research papers to spark discussion.
+```yaml
+- id: 1734220800001
+  author: "Jiyanshi Batra"
+  profile: null
+  sentiment: "question"
+  content: |
+    What about variable chunking size
+  reactions: 1
+  insight: "Question about dynamic chunking"
+  replies: []
+```
+
+## Our Engagement
+
+```yaml
+- id: 1734220800100
+  type: "comment"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-15T00:00:00Z'
+  content: |
+    Great breakdown. For the research paper use case, what chunking strategy have you found most efficient? Semantic or hierarchical?
+  strategy: "Thoughtful question - asks for practical recommendation based on his experience"
+```
+
+## Notes
+
+- Siddharth breaks down RAG chunking strategies
+- 14K followers, posts AI/ML tutorials with YouTube and GitHub links
+- Technical content creator
+- Asked specific question about chunking strategy for research papers

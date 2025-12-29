@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #2E3840; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #2E3840;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  padding: 30pt 40pt 0 40pt;
+}
+h2 {
+  font-size: 28pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin: 0 0 6pt 0;
+}
+.highlight {
+  color: #EA322A;
+}
+.source {
+  font-size: 11pt;
+  color: #708999;
+  margin: 0;
+}
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20pt 40pt 30pt 40pt;
+}
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 60pt;
+  margin-bottom: 24pt;
+}
+.stat {
+  text-align: center;
+}
+.stat-value {
+  font-size: 56pt;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1;
+}
+.stat-value.primary {
+  color: #EA322A;
+}
+.stat-value.secondary {
+  color: #4E6E81;
+}
+.stat-label {
+  font-size: 14pt;
+  color: #a5a9ad;
+  margin: 10pt 0 0 0;
+  max-width: 200pt;
+}
+.quote-block {
+  background: #353f48;
+  border-left: 4pt solid #EA322A;
+  padding: 16pt 20pt;
+  border-radius: 0 8pt 8pt 0;
+  margin-top: auto;
+}
+.quote-text {
+  font-size: 13pt;
+  font-style: italic;
+  color: #FFFFFF;
+  line-height: 1.5;
+  margin: 0;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h2>The AI <span class="highlight">Adoption Gap</span></h2>
+  <p class="source">McKinsey Global Institute, November 2025</p>
+</div>
+<div class="body">
+  <div class="stats-row">
+    <div class="stat">
+      <p class="stat-value primary">90%</p>
+      <p class="stat-label">of companies have invested in AI</p>
+    </div>
+    <div class="stat">
+      <p class="stat-value secondary">&lt;40%</p>
+      <p class="stat-label">report measurable gains</p>
+    </div>
+  </div>
+  <div class="quote-block">
+    <p class="quote-text">"Most workflows were designed for a pre-AI world. Applying AI to individual tasks within legacy processes is unlikely to deliver the productivity gains now possible."</p>
+  </div>
+</div>
+</body>
+</html>

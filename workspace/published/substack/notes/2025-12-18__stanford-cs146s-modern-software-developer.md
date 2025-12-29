@@ -37,7 +37,6 @@ Start learning. Start building.
 Course: https://themodernsoftware.dev/
 Assignments: https://github.com/mihail911/modern-software-dev-assignments
 
----
 
 ## Notes
 

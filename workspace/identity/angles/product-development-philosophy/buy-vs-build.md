@@ -51,15 +51,14 @@ Teams replacing $300/month SaaS tools with $24K+ custom builds, then spending mo
 - Your team would rather maintain features than internal tools
 - The cost is predictable and the liability is externalized
 
-## MizeForge Connection
+## Mizemind Connection
 
-MizeForge helps teams build what matters faster. The philosophy: use tools that accelerate core product development, don't waste cycles building infrastructure that's already solved.
+Mizemind helps teams build what matters faster. The philosophy: use tools that accelerate core product development, don't waste cycles building infrastructure that's already solved.
 
 ## Tone
 
 Direct. Numbers-driven. Challenges "control" instinct with real cost math.
 
----
 
 ## Related Angles
 

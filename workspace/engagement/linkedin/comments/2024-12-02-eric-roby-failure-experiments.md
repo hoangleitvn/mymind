@@ -55,7 +55,6 @@ Here's what each failed experiment gave me:
 Experience isn't built on perfection.
 It's built on experiments.
 
----
 
 ## Notable Comments
 
@@ -76,14 +75,14 @@ Each failed attempt sharpens your instincts and helps you build a toolkit for ta
 ```yaml
 - id: 1733154300000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-02T15:10:00Z'
   content: |
-This is the tradeoff most teams miss: over-design upfront to avoid failure, or ship fast and let failures teach you what actually needs to scale.
+    This is the tradeoff most teams miss: over-design upfront to avoid failure, or ship fast and let failures teach you what actually needs to scale.
 
-The second path is faster. The first feels safer but costs more time.
+    The second path is faster. The first feels safer but costs more time.
   strategy: "Expert Insight - Frames the tradeoff clearly, adds practical insight about shipping vs. over-designing."
-  replies: []
 ```
 
 ## Notes

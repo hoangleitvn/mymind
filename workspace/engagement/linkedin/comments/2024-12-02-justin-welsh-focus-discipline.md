@@ -61,7 +61,6 @@ It's about eliminating everything that doesn't move you forward.
 Your growth demands your full attention.
 Everything else is noise.
 
----
 
 ## Notable Comments
 
@@ -92,14 +91,14 @@ The people who win aren't doing more they're cutting out everything that doesn't
 ```yaml
 - id: 1733154960000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-02T15:21:00Z'
   content: |
-Lived this. The trap wasn't obvious distractions. It was "productive" ones. Watching what competitors shipped. Reading every new framework launch. Feeling behind.
+    Lived this. The trap wasn't obvious distractions. It was "productive" ones. Watching what competitors shipped. Reading every new framework launch. Feeling behind.
 
-Switching to "head down, execute the plan" changed everything. Both in engineering and content. Progress compounds when you stop comparing.
+    Switching to "head down, execute the plan" changed everything. Both in engineering and content. Progress compounds when you stop comparing.
   strategy: "Personal Experience - Shares authentic experience, connects to both engineering and content contexts, adds insight about 'productive distractions' trap."
-  replies: []
 ```
 
 ## Notes

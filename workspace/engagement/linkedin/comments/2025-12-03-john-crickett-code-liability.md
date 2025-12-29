@@ -49,7 +49,6 @@ Key points to remember:
 - Dependencies bring hidden risk and extra upkeep
 - Code is expensive to change but cheap to defer
 
----
 
 ## Notable Comments
 
@@ -100,14 +99,14 @@ The good thing about AI is it makes basics of engineering popular
 ```yaml
 - id: 1733269680000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2025-12-03T02:06:00Z'
   content: |
-This is why I think AI in software engineering is a snowball, not a bubble. Teams add AI-generated code faster than they can validate it. The liability compounds when no one fully understands what got added.
+    This is why I think AI in software engineering is a snowball, not a bubble. Teams add AI-generated code faster than they can validate it. The liability compounds when no one fully understands what got added.
 
-Simple fix: if you can't explain it, you don't ship it. One filter, big impact on keeping the codebase understandable.
+    Simple fix: if you can't explain it, you don't ship it. One filter, big impact on keeping the codebase understandable.
   strategy: "Experience + Practical Addition - Extends the code liability concept to AI-generated code specifically, adds concrete team practice, ties to 'AI snowball' angle."
-  replies: []
 ```
 
 ## Notes

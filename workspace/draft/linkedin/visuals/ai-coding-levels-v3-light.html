@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      width: 1080px;
+      height: 1080px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #ffffff;
+      padding: 40px 50px;
+      padding-right: 70px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header .label {
+      font-size: 22px;
+      font-weight: 600;
+      color: #64748b;
+      letter-spacing: 4px;
+      margin-bottom: 8px;
+    }
+    .header h1 {
+      font-size: 52px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 16px;
+    }
+    .header .subtitle {
+      display: inline-block;
+      background: #fef2f2;
+      color: #dc2626;
+      font-size: 20px;
+      font-weight: 500;
+      padding: 10px 32px;
+      border-radius: 25px;
+    }
+    .levels {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .level {
+      display: flex;
+      align-items: center;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 80px;
+    }
+    .level-num {
+      width: 65px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: #94a3b8;
+      background: #e2e8f0;
+      flex-shrink: 0;
+    }
+    .level-content {
+      padding: 0 20px;
+      flex: 1;
+    }
+    .level-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 4px;
+    }
+    .level-desc {
+      font-size: 16px;
+      color: #64748b;
+    }
+
+    /* Level 0 */
+    .level-0 .level-num { background: #e2e8f0; color: #94a3b8; }
+
+    /* Level 1 */
+    .level-1 .level-num { background: #cbd5e1; color: #64748b; }
+    .level-1 .level-title { color: #334155; }
+
+    /* Level 2 - Stuck */
+    .level-2 {
+      background: #fef2f2;
+      border: 2px solid #fca5a5;
+      position: relative;
+    }
+    .level-2 .level-num { background: #ef4444; color: white; }
+    .level-2 .level-title { color: #dc2626; font-weight: 700; }
+    .level-2 .level-desc { color: #b91c1c; }
+    .level-2 .badge {
+      position: absolute;
+      right: 20px;
+      background: #ef4444;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 20px;
+    }
+
+    /* Level 3 */
+    .level-3 {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+    }
+    .level-3 .level-num { background: #3b82f6; color: white; }
+    .level-3 .level-title { color: #1e40af; }
+    .level-3 .level-desc { color: #3b82f6; }
+
+    /* Gap */
+    .gap {
+      background: #fefce8;
+      border: 2px dashed #fde047;
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ca8a04;
+    }
+
+    /* Level 4 */
+    .level-4 {
+      background: #fffbeb;
+      border: 2px solid #fbbf24;
+    }
+    .level-4 .level-num {
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: white;
+    }
+    .level-4 .level-title { color: #b45309; font-weight: 700; }
+    .level-4 .level-desc { color: #d97706; }
+
+    /* Level 5 */
+    .level-5 {
+      background: #faf5ff;
+      border: 2px solid #c4b5fd;
+    }
+    .level-5 .level-num { background: #8b5cf6; color: white; }
+    .level-5 .level-title { color: #6d28d9; }
+    .level-5 .level-desc { color: #7c3aed; }
+
+    /* Insight box */
+    .insight {
+      background: #f0f9ff;
+      border: 2px solid #0ea5e9;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      margin-top: 12px;
+    }
+    .insight .label {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0369a1;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+    .insight .text {
+      font-size: 22px;
+      font-weight: 600;
+      color: #0c4a6e;
+    }
+
+    /* Footer with profile */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 20px;
+      gap: 12px;
+    }
+    .footer .handle {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0077b5;
+    }
+    .footer .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0077b5;
+    }
+
+    /* Side labels */
+    .side-labels {
+      position: absolute;
+      right: 12px;
+      top: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .side-label {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 12px 6px;
+      border-radius: 4px;
+    }
+    .side-label.how {
+      background: #f1f5f9;
+      color: #64748b;
+      height: 280px;
+    }
+    .side-label.what-why {
+      background: #f5f3ff;
+      color: #7c3aed;
+      height: 200px;
+    }
+    .side-arrow {
+      width: 2px;
+      height: 40px;
+      background: #94a3b8;
+      position: relative;
+    }
+    .side-arrow::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 8px solid #7c3aed;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="label">THE PROGRESSION</div>
+    <h1>6 Levels of AI Coding</h1>
+    <span class="subtitle">Most engineers are stuck at Level 2</span>
+  </div>
+
+  <div class="levels">
+    <div class="level level-0">
+      <div class="level-num">0</div>
+      <div class="level-content">
+        <div class="level-title">"AI writes bad code"</div>
+        <div class="level-desc">You judge AI by whether it writes code YOU would write</div>
+      </div>
+    </div>
+
+    <div class="level level-1">
+      <div class="level-num">1</div>
+      <div class="level-content">
+        <div class="level-title">"AI assists my coding"</div>
+        <div class="level-desc">You write. AI autocompletes. You're still the brain.</div>
+      </div>
+    </div>
+
+    <div class="level level-2">
+      <div class="level-num">2</div>
+      <div class="level-content">
+        <div class="level-title">"AI writes code I review"</div>
+        <div class="level-desc">Prompt → Generate → Fix → Repeat. Most teams live here.</div>
+      </div>
+      <span class="badge">MOST STUCK HERE</span>
+    </div>
+
+    <div class="level level-3">
+      <div class="level-num">3</div>
+      <div class="level-content">
+        <div class="level-title">"AI follows my instructions"</div>
+        <div class="level-desc">You specify HOW. Step-by-step scaffolding. Guardrails everywhere.</div>
+      </div>
+    </div>
+
+    <div class="gap">HARDEST JUMP — Trusting the model to think</div>
+
+    <div class="level level-4">
+      <div class="level-num">4</div>
+      <div class="level-content">
+        <div class="level-title">"AI solves my problem"</div>
+        <div class="level-desc">You specify WHAT and WHY. AI figures out HOW.</div>
+      </div>
+    </div>
+
+    <div class="level level-5">
+      <div class="level-num">5</div>
+      <div class="level-content">
+        <div class="level-title">"AI reasons about the system"</div>
+        <div class="level-desc">You give context and constraints. AI makes decisions. You validate.</div>
+      </div>
+    </div>
+
+    <div class="insight">
+      <div class="label">THE SHIFT</div>
+      <div class="text">Stop writing instructions → Start writing context</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="handle">@hoangleitvn</span>
+    <img class="avatar" src="../../../profile/hoangle-profile-v2.jpeg" alt="Hoang Le">
+  </div>
+
+  <!-- Side labels -->
+  <div class="side-labels">
+    <div class="side-label how">SPECIFY HOW</div>
+    <div class="side-arrow"></div>
+    <div class="side-label what-why">SPECIFY WHAT + WHY</div>
+  </div>
+</body>
+</html>

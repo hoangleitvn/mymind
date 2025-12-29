@@ -25,7 +25,7 @@ post:
 thread_topic: "AI career transformation - beyond job replacement"
 topic_tags: [ai-transformation, career-development, workforce-evolution, ai-workflow]
 
-engagement_status: "draft"
+engagement_status: "posted"
 response_received: false
 follow_up_needed: false
 follow_up_date: null
@@ -46,16 +46,16 @@ AI isn't just changing jobs, it's changing careers. (Content not fetched due to 
 ```yaml
 - id: 1733962200000
   type: "comment"
-  status: "draft"
-  sentiment: "positive"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-12T00:00:00Z'
   content: |
-Totally agreed. We need to ask the right question. Instead of "will AI replace us" ask "how do we work differently, learn new skills, build systems that actually work with AI?"
+    Totally agreed. We need to ask the right question. Instead of "will AI replace us" ask "how do we work differently, learn new skills, build systems that actually work with AI?"
 
-We're building software. We can't just plug AI into our old workflow and expect magic. We need to build systems where AI is the multiplier, shows its speed, while we still control and monitor every single line of code.
+    We're building software. We can't just plug AI into our old workflow and expect magic. We need to build systems where AI is the multiplier, shows its speed, while we still control and monitor every single line of code.
 
-That's the shift.
+    That's the shift.
   strategy: "Supportive Agreement - Share opinion directly, first person perspective"
-  replies: []
 ```
 
 ## Notes

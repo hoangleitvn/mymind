@@ -80,7 +80,7 @@ Think: "This approach isn't working for them"
 **Hook options:**
 - "You're not worse than you think. Your approach is wrong."
 - "The problem isn't capability. The problem is method."
-- "Stop trying to be better. Start doing things differently."
+- "If you're trying to be better, switch to doing things differently. Approach beats effort."
 
 **Structure:**
 - Hook: The reframe

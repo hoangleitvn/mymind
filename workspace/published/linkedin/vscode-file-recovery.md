@@ -56,7 +56,6 @@ But here's the real lesson:
 
 Commit early. Commit often. Your future self will thank you.
 
----
 
 **Recovery paths for VS Code auto-backups:**
 - Mac: `~/Library/Application Support/Code/User/History/`

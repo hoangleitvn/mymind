@@ -1,0 +1,13 @@
+{
+  "name": "innomize-cover-exports",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "export": "node export-cover.mjs",
+    "export:goodsfirm": "node export-cover.mjs goodsfirm-review-christmas-2025.html",
+    "export:hiring": "node export-cover.mjs hiring-software-engineers.html"
+  },
+  "dependencies": {
+    "puppeteer": "^23.0.0"
+  }
+}

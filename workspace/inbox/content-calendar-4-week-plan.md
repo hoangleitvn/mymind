@@ -14,7 +14,6 @@ publishing_frequency: 3x/week (Tue/Thu/Sat 9am)
 **Time:** 9am (LinkedIn optimal posting time)
 **Total posts:** 12 posts over 4 weeks
 
----
 
 ## Week 1: AI Workflows + Career Growth
 
@@ -45,7 +44,6 @@ publishing_frequency: 3x/week (Tue/Thu/Sat 9am)
 **Key message:** Token management is cost control and UX design combined
 **Performance target:** 400+ impressions
 
----
 
 ## Week 2: Outsourcing 2.0 + Modern Engineering
 
@@ -76,7 +74,6 @@ publishing_frequency: 3x/week (Tue/Thu/Sat 9am)
 **Key message:** Governance and ownership beat headcount
 **Performance target:** 500+ impressions
 
----
 
 ## Week 3: Architecture + Mizestack
 
@@ -107,7 +104,6 @@ publishing_frequency: 3x/week (Tue/Thu/Sat 9am)
 **Key message:** Right architecture accelerates teams by removing repeated decisions
 **Performance target:** 500+ impressions
 
----
 
 ## Week 4: Founder Leadership + Productivity
 
@@ -138,7 +134,6 @@ publishing_frequency: 3x/week (Tue/Thu/Sat 9am)
 **Key message:** Senior level is defined by communication, not code output
 **Performance target:** 600+ impressions
 
----
 
 ## Theme Distribution Summary
 
@@ -159,7 +154,6 @@ publishing_frequency: 3x/week (Tue/Thu/Sat 9am)
 
 **✅ Balanced across all 8 themes**
 
----
 
 ## Persona Distribution Summary
 
@@ -169,7 +163,6 @@ publishing_frequency: 3x/week (Tue/Thu/Sat 9am)
 
 **✅ Aligns with recommended 60/30/10 split**
 
----
 
 ## Hook Type Distribution
 
@@ -183,7 +176,6 @@ publishing_frequency: 3x/week (Tue/Thu/Sat 9am)
 
 **✅ Diverse hook usage, favors high-performing formulas**
 
----
 
 ## Performance Targets
 
@@ -197,7 +189,6 @@ publishing_frequency: 3x/week (Tue/Thu/Sat 9am)
 - Comments by persona
 - Best-performing angle by theme
 
----
 
 ## Execution Checklist
 
@@ -222,7 +213,6 @@ publishing_frequency: 3x/week (Tue/Thu/Sat 9am)
 - [ ] Respond to all comments within 2 hours
 - [ ] Save performance data to post frontmatter
 
----
 
 ## Content Creation Workflow
 
@@ -244,7 +234,6 @@ publishing_frequency: 3x/week (Tue/Thu/Sat 9am)
 3. Engage with comments immediately (first 2 hours critical)
 4. Move to workspace/published/
 
----
 
 ## Quick Wins This Week
 
@@ -266,7 +255,6 @@ publishing_frequency: 3x/week (Tue/Thu/Sat 9am)
 - Use "build once → reuse 20x" angle
 - Before/After hook format
 
----
 
 ## Notes
 

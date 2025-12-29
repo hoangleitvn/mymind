@@ -53,7 +53,7 @@ Signs you're actually planning:
 → Chose this task over other options
 → Working toward a goal, not just completing tasks
 
-Stop reacting. Start planning.
+If you're reacting to whatever appears, switch to planning ahead. Know what's next before you finish what's now.
 
 What's on your list right now?
 

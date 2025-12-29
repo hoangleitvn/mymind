@@ -1,7 +1,7 @@
 ---
 type: linkedin-person
 created: '2025-12-15'
-last_updated: '2025-12-15'
+last_updated: '2025-12-25'
 
 profile:
   name: "Shivani Virdi"
@@ -14,8 +14,8 @@ profile:
 relationship:
   stage: "new"
   first_interaction: '2025-12-15'
-  last_interaction: '2025-12-15'
-  interaction_count: 1
+  last_interaction: '2025-12-25'
+  interaction_count: 2
 
 themes:
   - ai-engineering
@@ -29,6 +29,10 @@ notes: |
   NeoSage newsletter.
 
 engagement_history:
+  - date: '2025-12-25'
+    type: "comment"
+    post_topic: "Claude Code workflow framework"
+    file: "comments/2025-12-25-shivani-virdi-claude-code-workflow.md"
   - date: '2025-12-15'
     type: "comment"
     post_topic: "RAG as essential AI skill"

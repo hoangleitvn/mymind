@@ -24,41 +24,42 @@ next_review: 2026-03-22
 | Experience | 6/10 | High |
 | Featured | 4/10 | Low |
 
----
 
 ## Headline
 
 ### Final Selection
 
-**Fractional CTO for Founders | Zero to live users, built to last | 50+ products shipped**
+**Fractional CTO | Builds that last | Ship fast, scale safely | Cloud, DevSecOps, AI**
 
 ### Scoring Breakdown
 
 | Criterion | Score | Notes |
 |-----------|-------|-------|
 | Clarity of Role | 10/10 | "Fractional CTO" is precise and well-known |
-| Value Proposition | 10/10 | Journey + durability in one phrase |
-| Differentiation | 10/10 | Clear service model |
-| Proof/Credibility | 10/10 | "50+ products shipped" is concrete |
-| Target Audience | 10/10 | "For Founders" direct address |
-| Keywords | 10/10 | Fractional CTO, founders, products—all searchable |
-| Brand Alignment | 10/10 | "Built to last" = exact brand |
-| Emotional Hook | 10/10 | "Zero to live users" = transformation story |
+| Brand Alignment | 10/10 | "Builds that last" = publication name, brand consistency |
+| Philosophy | 10/10 | "Ship fast, scale safely" = core tension (speed + quality) |
+| Keywords | 10/10 | Cloud, DevSecOps, AI—all searchable technical terms |
+| Rhythm | 10/10 | Clean four-part structure: Role, Brand, Philosophy, Skills |
+| Character Count | 10/10 | ~78 characters, room to breathe |
 
 ### Rationale
 
-- "Fractional" has higher search volume than "Embedded"—founders actively search this term
-- "For Founders" directly addresses target audience
-- "Zero to live users, built to last" combines journey + brand promise
-- "50+ products shipped" provides immediate proof
+- "Fractional CTO" is highly searchable, clear role
+- "Builds that last" ties to Substack publication, builds brand recognition
+- "Ship fast, scale safely" captures the speed + quality balance (core philosophy)
+- "Cloud, DevSecOps, AI" adds technical keyword searchability
+- No special characters, clean rendering across all devices
 
-### Alternatives Considered
+### Previous Version (Dec 22)
 
-1. "Embedded CTO for Founders | Zero to live users, built to last | 50+ products shipped" — Strong but lower search volume for "Embedded"
-2. "CTO & Engineering Advisor | Helping startups ship products that last | Vietnam-based Global Delivery" — Score: 6/10, "Advisor" too generic, geography-led
-3. "Your startup needs a technical owner, not a vendor | Embedded CTO | 50+ products, zero to live users" — Bold but slightly risky tone
+"Fractional CTO for Founders | Zero to live users, built to last | 50+ products shipped"
 
----
+Trade-offs from previous:
+- Removed "for Founders" (audience now implicit)
+- Removed "50+ products shipped" (proof point moved to About)
+- Added technical keywords (Cloud, DevSecOps, AI)
+- Added "Ship fast, scale safely" philosophy
+
 
 ## About Section
 
@@ -101,7 +102,6 @@ If you're building something and need a technical owner (not just a team), let's
 | "Built to last" | "quality that lasts", "foundation-first" |
 | "50+ products" | "50+ projects shipped" |
 
----
 
 ## Banner
 
@@ -134,7 +134,6 @@ If you're building something and need a technical owner (not just a team), let's
 - `linkedin-banner-v22-larger-text-2x.png` — 2x (3168×792) 169KB
 - `linkedin-banner-v22-larger-text-4x.png` — 4x (6336×1584) 396KB ← Use this
 
----
 
 ## Experience
 
@@ -142,7 +141,6 @@ If you're building something and need a technical owner (not just a team), let's
 
 **Priority:** High — Needs more quantified outcomes
 
----
 
 ## Skills
 
@@ -171,7 +169,6 @@ If you're building something and need a technical owner (not just a team), let's
 - Outdated technologies
 - Skills that don't support Fractional CTO positioning
 
----
 
 ## Services
 
@@ -212,7 +209,6 @@ Not staff augmentation. Accountability-driven development with ownership.
 
 **Character count:** 486/500
 
----
 
 ## Featured
 
@@ -224,7 +220,6 @@ Not staff augmentation. Accountability-driven development with ownership.
 3. "Foundation-first" philosophy explanation
 4. INNOMIZE website (innomizetech.com)
 
----
 
 ## Action Items
 
@@ -244,19 +239,18 @@ Not staff augmentation. Accountability-driven development with ownership.
 - [ ] Create Featured content
 - [ ] Add INNOMIZE website to Featured
 
----
 
 ## Change Log
 
 | Date | Changes Made |
 |------|--------------|
+| 2025-12-25 | Updated headline to: "Fractional CTO \| Builds that last \| Ship fast, scale safely \| Cloud, DevSecOps, AI" |
 | 2025-12-22 | Created new profile version from 2025-11-28 baseline |
-| 2025-12-22 | Finalized headline: "Fractional CTO for Founders \| Zero to live users, built to last \| 50+ products shipped" |
+| 2025-12-22 | Previous headline: "Fractional CTO for Founders \| Zero to live users, built to last \| 50+ products shipped" |
 | 2025-12-22 | Updated About section: "We embed" → "I work as your Fractional CTO" |
 | 2025-12-22 | Created banner v22 with larger font sizes (54px/24px/18px) |
 | 2025-12-22 | Added Services section with 10 recommended services and description |
 | 2025-12-22 | Added top 5 Skills recommendations |
 
----
 
 *Profile URL: https://www.linkedin.com/in/hoangleitvn/*

@@ -3,7 +3,6 @@
 **Date:** 2025-11-28
 **Profile:** Hoang Le - Engineering Tech Leader & Founder at INNOMIZE
 
----
 
 ## Your Positioning
 
@@ -15,7 +14,6 @@
 
 People who align with your audience: Technical Founders, Startup CEOs, CTOs at early-stage companies
 
----
 
 ## Morning (9-10am) - Target Connections
 
@@ -36,7 +34,6 @@ Comment on posts from people you want to build relationships with.
 - **Angle:** Add founder + operator perspective they often miss
 - **Look for:** Posts about what makes startups succeed/fail technically
 
----
 
 ## Midday (12-1pm) - Your Content
 
@@ -46,7 +43,6 @@ Respond to comments on your recent posts.
 - **Thank insightful comments with expansion** - Add a follow-up insight
 - **Keep conversations going** - Ask follow-up questions to commenters
 
----
 
 ## Afternoon (3-4pm) - Industry Content
 
@@ -64,7 +60,6 @@ Engage with trending content in your space.
 - **Why:** Your differentiation (Outsourcing 2.0 model)
 - **Angle:** Accountability over hours, embedded ownership vs. staff aug
 
----
 
 ## Daily Targets
 
@@ -72,7 +67,6 @@ Engage with trending content in your space.
 - [ ] Respond to all comments on your posts within 2 hours
 - [ ] 1 strategic connection request (if you find someone relevant)
 
----
 
 ## Comment Angles to Use
 

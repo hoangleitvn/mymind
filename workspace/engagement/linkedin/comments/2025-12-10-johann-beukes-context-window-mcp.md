@@ -44,7 +44,7 @@ I hear from a lot of great developers that they absolutely hate working with AI 
   profile: null
   sentiment: "positive"
   content: |
-Most of the AI tools and platforms make working with them frustrating, especially in enterprise where we deal with many different tools, access controls and this wild thing known as other humans. This is a big driver behind devgraph.ai; our goal is to help by providing the right context to both AI and people as well as alleviating various aspects of discovery and alignment of MCP servers to a given task or workflow.
+    Most of the AI tools and platforms make working with them frustrating, especially in enterprise where we deal with many different tools, access controls and this wild thing known as other humans. This is a big driver behind devgraph.ai; our goal is to help by providing the right context to both AI and people as well as alleviating various aspects of discovery and alignment of MCP servers to a given task or workflow.
   reactions: 1
   insight: "Enterprise context challenges, promoting devgraph.ai"
   replies: []
@@ -54,7 +54,7 @@ Most of the AI tools and platforms make working with them frustrating, especiall
   profile: null
   sentiment: "constructive"
   content: |
-I'm not sure which MCP tools you're using. To your point, if you're using the right ones for your current project or even your current session, then it might actually save you context in the long run or give you much better results which saves you time and friction.
+    I'm not sure which MCP tools you're using. To your point, if you're using the right ones for your current project or even your current session, then it might actually save you context in the long run or give you much better results which saves you time and friction.
   reactions: 1
   insight: "Right MCP for right task can save context"
   replies: []
@@ -64,7 +64,7 @@ I'm not sure which MCP tools you're using. To your point, if you're using the ri
   profile: null
   sentiment: "neutral"
   content: |
-Managing context is a big part of the work (for now)
+    Managing context is a big part of the work (for now)
   reactions: 1
   insight: "Accepts context management as current reality"
   replies: []
@@ -73,17 +73,17 @@ Managing context is a big part of the work (for now)
 ## Our Engagement
 
 ```yaml
-- id: 1
+- id: 1733805700000
   type: "comment"
   reply_to: null
-  status: "draft"
+  status: "posted"
   timestamp: '2025-12-10T04:50:00Z'
   content: |
-This is why I rarely use MCP tools, or if I have to, I turn them on per session only when needed.
+    This is why I rarely use MCP tools, or if I have to, I turn them on per session only when needed.
 
-Two things that helped reduce initial context:
-1. Tool search. Let the agent find tools when needed instead of loading everything upfront.
-2. On-demand MCP activation. Only enable specific servers for the task at hand.
+    Two things that helped reduce initial context:
+    1. Tool search. Let the agent find tools when needed instead of loading everything upfront.
+    2. On-demand MCP activation. Only enable specific servers for the task at hand.
   strategy: "Insightful Addition + Personal Experience - shares practical techniques, validates pain point"
 ```
 
@@ -93,4 +93,3 @@ Two things that helped reduce initial context:
 - Aligns with our AI-assisted development theme
 - Good opportunity to share practical Claude Code workflow insights
 - Could follow up when he posts the MCP guidelines he mentioned
-

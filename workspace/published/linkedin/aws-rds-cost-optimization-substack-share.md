@@ -28,9 +28,7 @@ performance_metrics:
   sends_on_linkedin: 0
 ---
 
-Closing my AWS re:Invent 2025 deep dive series.
-
-Here are the updates that actually change how you manage RDS and database costs in 2026.
+Closing my AWS re:Invent 2025 deep dive series. Here are the updates that actually change how you manage RDS and database costs in 2026.
 
 We just audited one client project at INNOMIZE: 5 RDS instances still running on db.t3. The re:Invent announcements made us rethink our migration path.
 

@@ -40,7 +40,6 @@ Now I'm back with Claude Code, while its tooling is nowhere near what Cursor off
 Or maybe it's a first love thing… who knows…
 In any event, I get higher-quality code far faster
 
----
 
 ## Notable Comments
 
@@ -71,14 +70,14 @@ If you're a CLI fan CC is so good. Cursor's ability to take screenshots of the b
 ```yaml
 - id: 1733154600000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-02T15:15:00Z'
   content: |
-Same experience. Cursor has better tooling, but Claude Code's reasoning depth wins for complex tasks.
+    Same experience. Cursor has better tooling, but Claude Code's reasoning depth wins for complex tasks.
 
-The skills feature changed the game for me. Reduced token usage and got more consistent results by giving it structured context upfront.
+    The skills feature changed the game for me. Reduced token usage and got more consistent results by giving it structured context upfront.
   strategy: "Personal Experience - Validates his experience, adds practical insight about skills feature that reinforces Tobias's comment."
-  replies: []
 ```
 
 ## Notes

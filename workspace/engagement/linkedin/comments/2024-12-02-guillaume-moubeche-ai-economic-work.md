@@ -66,7 +66,6 @@ Market size: 100x bigger
 
 The revolution isn't AI doing your job. It's AI doing work that was economically impossible.
 
----
 
 ## Notable Comments
 
@@ -97,14 +96,14 @@ This IS replacement, actually - just on a 5-year delay. Your pharma scientists r
 ```yaml
 - id: 1733152500000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-02T14:55:00Z'
   content: |
-We've been measuring AI productivity wrong. Instead of "AI does 2 developers' work," it's "AI does work nobody could afford to touch."
+    We've been measuring AI productivity wrong. Instead of "AI does 2 developers' work," it's "AI does work nobody could afford to touch."
 
-The ROI calculation changes when the baseline was zero.
+    The ROI calculation changes when the baseline was zero.
   strategy: "Expert Insight - Reframes productivity debate to reinforce Guillaume's thesis"
-  replies: []
 ```
 
 ## Notes

@@ -2,7 +2,6 @@
 
 Core principles that guide how I build, lead, and make decisions.
 
----
 
 ## Clarity
 
@@ -15,7 +14,6 @@ Correct direction outweighs early velocity. Moving fast in the wrong direction c
 ### Build with intention
 Every decision carries purpose. Architecture, code structure, naming, boundaries, and processes must exist for a reason. Intentional systems evolve predictably. Accidental systems accumulate chaos. Nothing should be added unless it supports the desired outcome.
 
----
 
 ## Structure
 
@@ -28,7 +26,6 @@ Design so the system can evolve without fear. Boundaries, interfaces, and contra
 ### Simplicity as advantage
 Simple systems ship faster, break less, and are easier to evolve. Complexity is justified only when forced by real constraints. Simplicity reduces cost, improves clarity, and extends the life of the system.
 
----
 
 ## Context
 
@@ -38,7 +35,6 @@ The correct answer depends entirely on stage, constraints, and goals. Pre-PMF ch
 ### Think in lifecycles
 Different stages require different decisions. Some solutions are temporary bridges, others are long-term foundations. Knowing which is which prevents over-engineering early and prevents technical debt from becoming structural later.
 
----
 
 ## Outcomes
 
@@ -48,7 +44,6 @@ Effort is irrelevant without impact. Value comes from shipped results, improved 
 ### Proof, not assumption
 Validate decisions with evidence. Data, metrics, profiling, logs, and real usage patterns. Assumptions introduce hidden risks. Proof creates confidence in design and prioritization. Build based on what is true, not what is feared.
 
----
 
 ## Teams
 
@@ -61,7 +56,6 @@ Reduce the mental overhead required to build, decide, and maintain. Through conv
 ### Culture as infrastructure
 Culture determines long-term velocity, quality, and resilience. Clear expectations, autonomy, high standards, and shared mental models become the invisible architecture that keeps teams aligned and systems healthy as they scale.
 
----
 
 ## Practice
 
@@ -71,7 +65,6 @@ Capture decisions, reasoning, and standards as work happens. Documentation is a 
 ### AI as leverage
 AI accelerates thinking, execution, and iteration. It removes barriers in writing, research, debugging, and system design. But judgment, prioritization, and architecture remain human responsibilities. Use AI as a multiplier, not a substitute.
 
----
 
 ## Quick Reference
 
@@ -93,7 +86,6 @@ AI accelerates thinking, execution, and iteration. It removes barriers in writin
 | Document while building | Capture decisions as work happens |
 | AI as leverage | Use AI as a multiplier, not a substitute |
 
----
 
 ## Usage Notes
 

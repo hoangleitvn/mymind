@@ -2,20 +2,20 @@
 id: 20251212-130000
 type: insight
 status: raw
-themes: [product-development, mizeforge, architecture]
+themes: [product-development, mizemind, architecture]
 tags: [ioc, framework-design, customization, user-ownership, templates]
 captured: 2025-12-12T13:00:00+07:00
 ---
 
-# MizeForge Should Use IoC Pattern for User Customization
+# Mizemind Should Use IoC Pattern for User Customization
 
 ## Raw Capture
 
-I am building a framework or system. I cannot let others just follow my templates, my ideas, etc. Then the MizeForge architecture should allow users to define their own identity, branding, template systems. We could have defaults but they can override. In software this is IoC (Inversion of Control). Is that right?
+I am building a framework or system. I cannot let others just follow my templates, my ideas, etc. Then the Mizemind architecture should allow users to define their own identity, branding, template systems. We could have defaults but they can override. In software this is IoC (Inversion of Control). Is that right?
 
 ## The Insight
 
-MizeForge shouldn't impose the creator's (Hoang's) way of doing things. It should provide:
+Mizemind shouldn't impose the creator's (Hoang's) way of doing things. It should provide:
 - **Defaults** that work out of the box
 - **Override capability** for users to customize everything
 - **User-owned configuration** for identity, branding, templates
@@ -44,7 +44,7 @@ Framework provides defaults, user controls specifics:
 - User owns the content/voice/structure
 ```
 
-### MizeForge IoC Model
+### Mizemind IoC Model
 
 | Component | Default (Framework) | Override (User) |
 |-----------|---------------------|-----------------|
@@ -100,7 +100,7 @@ User Space (workspace/):
 
 ## Implementation Notes
 
-Current MizeForge already does this partially:
+Current Mizemind already does this partially:
 - `identity-kit` loads from user's `workspace/identity/`
 - `brand-kit` loads from user's `workspace/brands/`
 - Templates are in plugins but could be overridable
@@ -127,7 +127,7 @@ This could be a post about:
 
 ## Follow-up
 
-- [ ] Review current MizeForge architecture against IoC principles
+- [ ] Review current Mizemind architecture against IoC principles
 - [ ] Document override capabilities clearly
 - [ ] Add user template override feature
 - [ ] Consider writing about this approach

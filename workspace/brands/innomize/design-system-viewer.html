@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INNOMIZE Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Primary (Red) */
+      --primary: #EA322A;
+      --primary-hover: #D42A23;
+      --primary-light-1: #F76D55;
+      --primary-light-2: #FF9C82;
+      --primary-light-3: #FFC8B1;
+      --primary-light-4: #FFF3E2;
+
+      /* Secondary (Steel Blue) */
+      --secondary: #4E6E81;
+      --secondary-light-1: #708999;
+      --secondary-light-2: #93A5B2;
+      --secondary-light-3: #B6C2CB;
+      --secondary-light-4: #DAE0E5;
+
+      /* Neutrals */
+      --dark: #2E3840;
+      --dark-2: #535B62;
+      --gray: #7B8187;
+      --gray-light: #A5A9AD;
+      --gray-lighter: #D1D3D5;
+      --bg: #E5E7E8;
+      --bg-light: #F8F8F8;
+      --white: #FFFFFF;
+
+      /* Typography */
+      --font-display: 'Bai Jamjuree', system-ui, sans-serif;
+      --font-body: 'Manrope', system-ui, sans-serif;
+
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+
+      /* Radius */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+
+      /* Theme */
+      --bg-primary: var(--bg-light);
+      --bg-secondary: var(--white);
+      --text-primary: var(--dark);
+      --text-secondary: var(--dark-2);
+      --text-muted: var(--gray);
+      --border-color: var(--gray-lighter);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: var(--dark);
+      --bg-secondary: var(--dark-2);
+      --text-primary: var(--white);
+      --text-secondary: var(--gray-lighter);
+      --text-muted: var(--gray-light);
+      --border-color: var(--gray);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--dark);
+    }
+
+    .accent-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-light-4), var(--primary-light-2), var(--primary));
+    }
+
+    .header-content {
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--primary);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      color: white;
+    }
+
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+
+    .theme-toggle {
+      background: var(--dark-2);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      color: var(--gray-light);
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    /* Section */
+    .section {
+      padding: var(--space-lg) var(--space-lg);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+      line-height: 0.9;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: var(--space-lg);
+    }
+
+    /* Color Scale */
+    .color-scale {
+      display: flex;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: var(--space-md);
+    }
+
+    .color-scale-item {
+      flex: 1;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .color-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Color Grid */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-sm);
+    }
+
+    @media (min-width: 480px) {
+      .color-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .color-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .color-swatch {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .color-info {
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .color-name {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .color-hex {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: monospace;
+    }
+
+    /* Typography */
+    .typo-sample {
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .typo-sample:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .typo-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: var(--space-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .typo-display {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 0.9;
+    }
+
+    .typo-h1 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 0.9;
+    }
+
+    .typo-h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 0.9;
+    }
+
+    .typo-body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .typo-small {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* Buttons */
+    .component-group {
+      margin-bottom: var(--space-lg);
+    }
+
+    .component-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: var(--space-md);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--secondary);
+      border: 2px solid var(--secondary);
+    }
+
+    [data-theme="dark"] .btn-secondary {
+      color: var(--secondary-light-3);
+      border-color: var(--secondary-light-3);
+    }
+
+    .btn-ghost {
+      background: var(--primary-light-4);
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .btn-ghost {
+      background: rgba(234, 50, 42, 0.15);
+    }
+
+    /* Tags */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .tag {
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .tag-primary {
+      background: var(--primary-light-3);
+      color: var(--primary);
+    }
+
+    .tag-secondary {
+      background: var(--secondary-light-4);
+      color: var(--secondary);
+    }
+
+    .tag-neutral {
+      background: var(--bg);
+      color: var(--dark-2);
+    }
+
+    [data-theme="dark"] .tag-neutral {
+      background: var(--gray);
+      color: var(--white);
+    }
+
+    /* Card */
+    .card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      max-width: 300px;
+    }
+
+    .card-gradient {
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary-light-4), var(--primary-light-2), var(--primary));
+    }
+
+    .card-content {
+      padding: var(--space-lg);
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+      line-height: 0.9;
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
+    }
+
+    .card-btn {
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Gradient Demo */
+    .gradient-demo {
+      height: 120px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--primary-light-4), var(--primary-light-2), var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-md);
+    }
+
+    .gradient-text {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Usage Table */
+    .usage-table {
+      width: 100%;
+      font-size: 13px;
+    }
+
+    .usage-row {
+      display: flex;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .usage-role {
+      width: 40%;
+      font-weight: 500;
+    }
+
+    .usage-value {
+      width: 60%;
+      font-family: monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Bottom Nav */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--dark);
+      display: flex;
+      border-top: 1px solid var(--dark-2);
+    }
+
+    .nav-item {
+      flex: 1;
+      padding: 12px 8px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--gray-light);
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-item.active {
+      color: var(--primary);
+    }
+
+    .nav-icon {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
+
+    /* Stats Row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    .stat-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      text-align: center;
+      border: 1px solid var(--border-color);
+    }
+
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: var(--space-xs);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Profile */
+    .profile-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      background: var(--bg-secondary);
+      padding: var(--space-md);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+    }
+
+    .profile-avatar {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--primary-light-2), var(--primary));
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 20px;
+      color: white;
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    .profile-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .profile-role {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .profile-btn {
+      padding: 8px 16px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="accent-bar"></div>
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-mark">IN</div>
+        <span class="logo-text">INNOMIZE</span>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()">☀️</button>
+    </div>
+  </header>
+
+  <!-- Primary Colors -->
+  <section class="section" id="primary">
+    <h2 class="section-title">Primary Colors</h2>
+    <p class="section-subtitle">Innomize Red - The signature brand color</p>
+
+    <div class="color-label">Red Scale</div>
+    <div class="color-scale">
+      <div class="color-scale-item" style="background: #FFF3E2; color: #EA322A;">L4</div>
+      <div class="color-scale-item" style="background: #FFC8B1; color: #EA322A;">L3</div>
+      <div class="color-scale-item" style="background: #FF9C82; color: white;">L2</div>
+      <div class="color-scale-item" style="background: #F76D55; color: white;">L1</div>
+      <div class="color-scale-item" style="background: #EA322A; color: white;">Primary</div>
+    </div>
+
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #EA322A; color: white;">Brand</div>
+        <div class="color-info">
+          <div class="color-name">Primary</div>
+          <div class="color-hex">#EA322A</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #F76D55; color: white;">Coral</div>
+        <div class="color-info">
+          <div class="color-name">Light 1</div>
+          <div class="color-hex">#F76D55</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #FFF3E2; color: #EA322A;">Cream</div>
+        <div class="color-info">
+          <div class="color-name">Light 4</div>
+          <div class="color-hex">#FFF3E2</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secondary Colors -->
+  <section class="section" id="secondary">
+    <h2 class="section-title">Secondary Colors</h2>
+    <p class="section-subtitle">Steel Blue - Professional balance</p>
+
+    <div class="color-label">Steel Blue Scale</div>
+    <div class="color-scale">
+      <div class="color-scale-item" style="background: #DAE0E5; color: #4E6E81;">L4</div>
+      <div class="color-scale-item" style="background: #B6C2CB; color: #4E6E81;">L3</div>
+      <div class="color-scale-item" style="background: #93A5B2; color: white;">L2</div>
+      <div class="color-scale-item" style="background: #708999; color: white;">L1</div>
+      <div class="color-scale-item" style="background: #4E6E81; color: white;">Secondary</div>
+    </div>
+
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #4E6E81; color: white;">Steel</div>
+        <div class="color-info">
+          <div class="color-name">Secondary</div>
+          <div class="color-hex">#4E6E81</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #2E3840; color: white;">Charcoal</div>
+        <div class="color-info">
+          <div class="color-name">Dark</div>
+          <div class="color-hex">#2E3840</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #7B8187; color: white;">Gray</div>
+        <div class="color-info">
+          <div class="color-name">Medium</div>
+          <div class="color-hex">#7B8187</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section class="section" id="typography">
+    <h2 class="section-title">Typography</h2>
+    <p class="section-subtitle">Bai Jamjuree for display, Manrope for body</p>
+
+    <div class="typo-sample">
+      <div class="typo-label">Display / Bai Jamjuree 32px Bold</div>
+      <div class="typo-display">Innovate. Scale. Succeed.</div>
+    </div>
+
+    <div class="typo-sample">
+      <div class="typo-label">H1 / Bai Jamjuree 28px Bold</div>
+      <div class="typo-h1">Better Solutions, Better Lives</div>
+    </div>
+
+    <div class="typo-sample">
+      <div class="typo-label">H2 / Bai Jamjuree 22px SemiBold</div>
+      <div class="typo-h2">Your Trusted Software Partner</div>
+    </div>
+
+    <div class="typo-sample">
+      <div class="typo-label">Body / Manrope 16px Regular</div>
+      <div class="typo-body">Using technology to create a better world for all. We develop innovative solutions that improve people's lives.</div>
+    </div>
+
+    <div class="typo-sample">
+      <div class="typo-label">Small / Manrope 14px</div>
+      <div class="typo-small">Founded in 2018 · Vietnam · Software Development</div>
+    </div>
+  </section>
+
+  <!-- Components -->
+  <section class="section" id="components">
+    <h2 class="section-title">Components</h2>
+
+    <div class="component-group">
+      <div class="component-label">Buttons</div>
+      <div class="button-row">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-ghost">Ghost</button>
+      </div>
+    </div>
+
+    <div class="component-group">
+      <div class="component-label">Tags</div>
+      <div class="tag-row">
+        <span class="tag tag-primary">Innovation</span>
+        <span class="tag tag-secondary">Technology</span>
+        <span class="tag tag-neutral">Software</span>
+      </div>
+    </div>
+
+    <div class="component-group">
+      <div class="component-label">Gradient</div>
+      <div class="gradient-demo">
+        <span class="gradient-text">INNOMIZE</span>
+      </div>
+    </div>
+
+    <div class="component-group">
+      <div class="component-label">Stats</div>
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-value">50+</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">40+</div>
+          <div class="stat-label">Engineers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">7</div>
+          <div class="stat-label">Years</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="component-group">
+      <div class="component-label">Profile Card</div>
+      <div class="profile-row">
+        <div class="profile-avatar">HL</div>
+        <div class="profile-info">
+          <div class="profile-name">Hoang Le</div>
+          <div class="profile-role">Founder & CEO</div>
+        </div>
+        <button class="profile-btn">Contact</button>
+      </div>
+    </div>
+
+    <div class="component-group">
+      <div class="component-label">Card with Gradient</div>
+      <div class="card">
+        <div class="card-gradient"></div>
+        <div class="card-content">
+          <div class="card-title">Software Development</div>
+          <div class="card-text">End-to-end product development from concept to deployment.</div>
+          <button class="card-btn">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reference -->
+  <section class="section" id="reference">
+    <h2 class="section-title">Quick Reference</h2>
+
+    <div class="usage-table">
+      <div class="usage-row">
+        <div class="usage-role">Primary Button</div>
+        <div class="usage-value">#EA322A + white</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Headlines</div>
+        <div class="usage-value">Bai Jamjuree Bold</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Body Text</div>
+        <div class="usage-value">Manrope Regular</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Dark Background</div>
+        <div class="usage-value">#2E3840</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Light Background</div>
+        <div class="usage-value">#F8F8F8</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Gradient</div>
+        <div class="usage-value">#FFF3E2 → #FF9C82 → #EA322A</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Accent Bar</div>
+        <div class="usage-value">Gradient (4px height)</div>
+      </div>
+      <div class="usage-row">
+        <div class="usage-role">Border Radius</div>
+        <div class="usage-value">4px (sm) / 8px (md) / 16px (lg)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <a href="#primary" class="nav-item active">
+      <span class="nav-icon">●</span>
+      Primary
+    </a>
+    <a href="#secondary" class="nav-item">
+      <span class="nav-icon">●</span>
+      Secondary
+    </a>
+    <a href="#typography" class="nav-item">
+      <span class="nav-icon">Aa</span>
+      Type
+    </a>
+    <a href="#components" class="nav-item">
+      <span class="nav-icon">◧</span>
+      UI
+    </a>
+    <a href="#reference" class="nav-item">
+      <span class="nav-icon">☰</span>
+      Ref
+    </a>
+  </nav>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.querySelector('.theme-toggle');
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        btn.textContent = '☀️';
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        btn.textContent = '🌙';
+      }
+    }
+
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', function() {
+        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

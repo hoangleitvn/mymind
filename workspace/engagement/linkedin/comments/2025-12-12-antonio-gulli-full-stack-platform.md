@@ -45,7 +45,7 @@ The message is getting trough. you need a full stack platform: from chip, to mod
   profile: null
   sentiment: "positive"
   content: |
-This is the definitive shift from 'model wars' to 'ecosystem wars'. You nailed the critical differentiator: Contextual State. OpenAI has the brain (model) but Google/Microsoft own the Nervous System (OS, Browser, Email, Docs). An agent living inside the platform doesn't just have lower latency; it has implicit permission and context.
+    This is the definitive shift from 'model wars' to 'ecosystem wars'. You nailed the critical differentiator: Contextual State. OpenAI has the brain (model) but Google/Microsoft own the Nervous System (OS, Browser, Email, Docs). An agent living inside the platform doesn't just have lower latency; it has implicit permission and context.
   reactions: 1
   insight: "Excellent framing - brain vs nervous system analogy"
   replies: []
@@ -55,7 +55,7 @@ This is the definitive shift from 'model wars' to 'ecosystem wars'. You nailed t
   profile: null
   sentiment: "neutral"
   content: |
-At a certain point of time things will start to amalgamate.
+    At a certain point of time things will start to amalgamate.
   reactions: 1
   insight: "Convergence prediction"
   replies: []
@@ -66,14 +66,14 @@ At a certain point of time things will start to amalgamate.
 ```yaml
 - id: 1733989894000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2025-12-12T06:58:00Z'
   content: |
-This is why chasing the "best model" is a trap. OpenAI has models, but no ecosystem. Google and Microsoft own where the work happens.
+    This is why chasing the "best model" is a trap. OpenAI has models, but no ecosystem. Google and Microsoft own where the work happens.
 
-I picked a platform that fits my stack, learned to design systems that work with it, then scaled. Make it work first. Multi-model optimization is a problem most teams will never actually need to solve.
+    I picked a platform that fits my stack, learned to design systems that work with it, then scaled. Make it work first. Multi-model optimization is a problem most teams will never actually need to solve.
   strategy: "Personal Experience + Expert Insight - Validate the ecosystem thesis with practical builder perspective, add pragmatic advice about model selection"
-  replies: []
 ```
 
 ## Notes

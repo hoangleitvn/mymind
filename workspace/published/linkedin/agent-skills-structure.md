@@ -27,7 +27,6 @@ performance_metrics:
 
 Today I sat down to review the structure of my AI agent skills, and realized something: **Chaos doesn't come from lacking skills, but from lacking structure.**
 
----
 
 **Why structure matters?**
 
@@ -43,7 +42,6 @@ Like organizing your home or office:
 - Systematic → Find things fast, work efficiently
 - Messy → Waste time, feel stressed
 
----
 
 **How I built my Agent Skills Structure:**
 
@@ -74,7 +72,6 @@ Instead of creating random skills, I grouped them into **domain-based categories
 
 **Total: 63 skills**
 
----
 
 **Plot twist:**
 
@@ -86,7 +83,6 @@ Turns out I'm doing way more than I thought!
 
 (Disclaimer: These are skills for training AI agents, not my personal skills. I still have a lot to learn 😅)
 
----
 
 **Results:**
 
@@ -98,7 +94,6 @@ After building this structure:
 
 Structure isn't constraint, it's **clarity**.
 
----
 
 **What about you?**
 
@@ -110,11 +105,9 @@ Comment and share your approach to organizing work/skills! I'd love to learn dif
 
 P/S: I'll deep dive into each category in the next series 👇
 
----
 
 #AIAgents #SystemThinking #ProductivityHacks #TechLeadership #LearningInPublic
 
----
 
 # Enhanced Version - Vietnamese
 
@@ -122,7 +115,6 @@ P/S: I'll deep dive into each category in the next series 👇
 
 Hôm nay ngồi lại review structure của AI agent skills mình xây dựng, và nhận ra một điều: **Chaos không phải do thiếu kỹ năng, mà do thiếu structure.**
 
----
 
 **Tại sao structure quan trọng?**
 
@@ -138,7 +130,6 @@ Giống như việc sắp xếp nhà cửa, văn phòng:
 - Có hệ thống → Tìm đồ nhanh, làm việc hiệu quả
 - Bừa bộn → Mất thời gian, stress
 
----
 
 **Cách tôi xây dựng Agent Skills Structure:**
 
@@ -169,7 +160,6 @@ Thay vì tạo skills random, tôi group chúng theo **domain-based categories**
 
 **Total: 63 skills**
 
----
 
 **Plot twist:**
 
@@ -181,7 +171,6 @@ Hoá ra mình đang làm nhiều thứ hơn nghĩ!
 
 (Disclaimer: Đây là skills để train AI agent, không phải skills cá nhân của tôi đâu nhé. Tôi còn phải học nhiều lắm 😅)
 
----
 
 **Kết quả:**
 
@@ -193,7 +182,6 @@ Sau khi có structure này:
 
 Structure không phải là constraint, mà là **clarity**.
 
----
 
 **Bạn thì sao?**
 
@@ -205,6 +193,5 @@ Comment chia sẻ cách bạn organize công việc/kỹ năng của mình nhé!
 
 P/S: Tôi sẽ deep dive vào từng category trong series tiếp theo 👇
 
----
 
 #AIAgents #SystemThinking #ProductivityHacks #TechLeadership #LearningInPublic

@@ -4,7 +4,6 @@
 **Date saved:** 2025-11-25
 **Topic:** AI agent knowledge management, context persistence, knowledge structure
 
----
 
 ## Core Concept
 
@@ -17,7 +16,6 @@ Enables:
 
 **Key problem solved:** Teams waste time rebuilding context each session. Context gets lost. Knowledge doesn't persist.
 
----
 
 ## Knowledge Structure (5 Layers)
 
@@ -44,7 +42,6 @@ Enables:
 
 **Critical insight:** Don't store isolated chunks. **Enrich connections** between knowledge components.
 
----
 
 ## How to Connect Knowledge
 
@@ -71,7 +68,6 @@ Enables:
 - **Abstraction layers** → expose multiple data sources via APIs
 - **GraphRAG** → knowledge as interconnected nodes
 
----
 
 ## Key Challenges
 
@@ -91,7 +87,6 @@ Enables:
 - Code quality inconsistent without shared baselines
 - Need organizational guidelines enforced automatically
 
----
 
 ## Best Practices
 
@@ -103,7 +98,6 @@ Enables:
    - Healthcare: HIPAA-aware schemas
    - Retail: Inventory logic prioritized
 
----
 
 ## Key Takeaways for Our Knowledge System
 
@@ -131,7 +125,6 @@ Enables:
 - Autonomous knowledge capture mechanisms
 - Freshness strategies (versioning, staleness detection)
 
----
 
 ## Related to Current Work
 
@@ -146,7 +139,6 @@ Solution components align:
 - Architecture decisions reused → Procedures & Policies layer
 - Patterns applied automatically → Enriched connections + GraphRAG
 
----
 
 ## Questions to Answer
 

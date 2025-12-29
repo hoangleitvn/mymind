@@ -14,7 +14,6 @@ Matt's key insight on what makes posts go viral:
 
 > "ANYONE can understand these posts. You don't need to know anything about the topic at hand."
 
----
 
 ## 6 Viral Post Examples (2025)
 
@@ -41,7 +40,6 @@ Mar → $12,336
 
 **Pattern:** Goal → Progress → Breakdown → Tools → Question
 
----
 
 ### Post 2: Morning Routine Disaster (768 reactions)
 **Type:** Relatable Story / Humor
@@ -66,7 +64,6 @@ Mar → $12,336
 
 **Pattern:** Setup (who I am) → "Perfect" routine → Disaster → Recovery → Punchline
 
----
 
 ### Post 3: AI Ghost-writing Roast (447 reactions)
 **Type:** Contrarian / Critique
@@ -89,7 +86,6 @@ And it is nothing like this 😂
 
 **Pattern:** Observation → Call-out → Why it's bad → 7 tips to fix → CTA
 
----
 
 ### Post 4: Monthly Revenue + Tools (783 reactions)
 **Type:** Transparency / Tool Stack
@@ -111,7 +107,6 @@ I save 100s of hours, $1,000s on payroll and generate $1,000s more because I use
 
 **Pattern:** Result → Constraints → Tools list with purpose → Question
 
----
 
 ### Post 5: Anti-Hustle Manifesto (1,010 reactions - HIGHEST)
 **Type:** Values / Anti-establishment
@@ -137,7 +132,6 @@ I'm the complete opposite. I prefer to:
 
 **Pattern:** What I don't need (list) → What I prefer (list) → Self-aware joke
 
----
 
 ### Post 6: Life Transformation Timeline (756 reactions)
 **Type:** Before/After Journey
@@ -170,7 +164,6 @@ Today?
 
 **Pattern:** Timeline (years ago → today) → What changed → Lesson → CTA
 
----
 
 ## Key Takeaways for Our Framework
 
@@ -210,7 +203,6 @@ Today?
 - "I'm a simple guy. I don't need to:"
 - "[Person] did [thing]. It was [strong opinion]."
 
----
 
 ## Application Notes
 

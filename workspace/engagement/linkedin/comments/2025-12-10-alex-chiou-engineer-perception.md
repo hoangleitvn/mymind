@@ -45,17 +45,17 @@ Many engineers struggle in their career, because they refuse to accept who the t
   profile: null
   sentiment: "positive"
   content: |
-So the real promotion path is: A → learns to talk like B → evolves into C. It's basically Pokémon but with Jira tickets.
+    So the real promotion path is: A → learns to talk like B → evolves into C. It's basically Pokemon but with Jira tickets.
   reactions: 2
   insight: "Clever reframe as evolution path"
   replies: []
 
 - id: 1733800282001
-  author: "João Oliveira"
+  author: "Joao Oliveira"
   profile: null
   sentiment: "neutral"
   content: |
-Engineer A should build their own thing. No sense in casting pearls before swine.
+    Engineer A should build their own thing. No sense in casting pearls before swine.
   reactions: 1
   insight: "Alternative path - entrepreneurship"
   replies: []
@@ -66,14 +66,15 @@ Engineer A should build their own thing. No sense in casting pearls before swine
 ```yaml
 - id: 1733800300000
   type: "comment"
-  status: "draft"
-  sentiment: "positive"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-10T03:32:00Z'
   content: |
-First, do the work well and get it done. Then learn communication skills to make your contributions visible.
+    First, do the work well and get it done. Then learn communication skills to make your contributions visible.
 
-The company won't wait for you to figure this out. You need to evolve and transform into new roles where you multiply your impact, not just add to it.
+    The company won't wait for you to figure this out. You need to evolve and transform into new roles where you multiply your impact, not just add to it.
 
-A stays an A forever. C keeps growing.
+    A stays an A forever. C keeps growing.
   strategy: "Supportive Agreement - Simple, direct, adds evolution framing"
 ```
 

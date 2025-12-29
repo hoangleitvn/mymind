@@ -1,7 +1,7 @@
 ---
 type: linkedin-engagement
-created: '2025-12-08'
-last_updated: '2025-12-08'
+created: '2025-12-08T00:00:00Z'
+last_updated: '2025-12-08T00:00:00Z'
 
 author:
   name: "Matt Barker"
@@ -14,8 +14,8 @@ post:
   reactions: 167
   comments_count: 0
   reposts: 0
-  theme: "content-creation"
-  angle: "viral-post-framework"
+  theme: "Content creation and viral post framework"
+  angle: "Commenting timing doesn't make posts viral - the post itself matters"
   key_points:
     - Commenting timing doesn't make posts viral
     - The post itself matters (topic, writing, distribution)
@@ -24,48 +24,67 @@ post:
     - Anyone should be able to understand
   hashtags: []
 
-notable_comments:
-  - author: "Michael Erhard"
-    content: "Keep it simple, keep it real, keep it emotional. Just write from your lived experience, don't overthink it."
-    reactions: 6
-    insight: "Simplicity + emotion + experience"
-  - author: "Christopher Maihofer"
-    content: "I've come across a lot of these cheap hacks that apparently make your post go viral. They don't work."
-    reactions: 4
-    insight: "Hacks don't work, quality does"
-
-our_engagement:
-  - id: 1
-    type: "research"
-    reply_to: null
-    status: "completed"
-    timestamp: '2025-12-08'
-    content: |
-Extracted all 6 viral post examples and saved analysis to:
-brainstorming/2025-12-08__matt-barker-viral-post-framework.md
-    strategy: "Research - Save viral post patterns for our content framework adoption"
+thread_topic: "Viral post framework"
+topic_tags: [content-creation, linkedin, viral-posts, content-strategy]
 
 engagement_status: "research_completed"
+response_received: false
+follow_up_needed: false
+follow_up_date: null
 ---
 
-## Post Summary
+## Original Post
 
 Matt Barker sharing what actually makes posts go viral (not timing or engagement hacks). Key insight: broadly understandable topics + simple packaging. Includes 6 links to his most viral posts from 2025.
 
-## Why Engage
+## Notable Comments
+
+```yaml
+- id: 1733616000000
+  author: "Michael Erhard"
+  profile: null
+  sentiment: "positive"
+  content: |
+    Keep it simple, keep it real, keep it emotional. Just write from your lived experience, don't overthink it.
+  reactions: 6
+  insight: "Simplicity + emotion + experience"
+  replies: []
+
+- id: 1733616100000
+  author: "Christopher Maihofer"
+  profile: null
+  sentiment: "positive"
+  content: |
+    I've come across a lot of these cheap hacks that apparently make your post go viral. They don't work.
+  reactions: 4
+  insight: "Hacks don't work, quality does"
+  replies: []
+```
+
+## Our Engagement
+
+```yaml
+- id: 1733616000000
+  type: "research"
+  reply_to: null
+  status: "completed"
+  timestamp: '2025-12-08T00:00:00Z'
+  content: |
+    Extracted all 6 viral post examples and saved analysis to:
+    brainstorming/2025-12-08__matt-barker-viral-post-framework.md
+  strategy: "Research - Save viral post patterns for our content framework adoption"
+```
+
+## Notes
 
 - Major LinkedIn creator (186K followers) in content creation space
 - Relevant to our content framework development
 - Viral post examples worth studying
-
-## Research Completed
-
-Extracted and analyzed all 6 viral posts:
-1. Revenue Breakdown (628 reactions) - Transparency + numbers
-2. Morning Routine Disaster (768 reactions) - Relatable humor
-3. AI Ghost-writing Roast (447 reactions) - Contrarian critique
-4. Monthly Revenue + Tools (783 reactions) - Tool stack
-5. Anti-Hustle Manifesto (1,010 reactions) - Values/authenticity
-6. Life Transformation (756 reactions) - Before/after timeline
-
-Full analysis saved to: `brainstorming/2025-12-08__matt-barker-viral-post-framework.md`
+- Extracted and analyzed all 6 viral posts:
+  1. Revenue Breakdown (628 reactions) - Transparency + numbers
+  2. Morning Routine Disaster (768 reactions) - Relatable humor
+  3. AI Ghost-writing Roast (447 reactions) - Contrarian critique
+  4. Monthly Revenue + Tools (783 reactions) - Tool stack
+  5. Anti-Hustle Manifesto (1,010 reactions) - Values/authenticity
+  6. Life Transformation (756 reactions) - Before/after timeline
+- Full analysis saved to: brainstorming/2025-12-08__matt-barker-viral-post-framework.md

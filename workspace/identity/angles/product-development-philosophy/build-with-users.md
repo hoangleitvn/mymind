@@ -42,7 +42,6 @@ Products built with user feedback succeed 3x more than isolation builds (INNOMIZ
 
 Empathetic. User-focused. Behavior-driven. Challenge "build and they will come" assumptions.
 
----
 
 ## Related Angles
 

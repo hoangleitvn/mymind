@@ -14,7 +14,6 @@ based-on: design-philosophy-evolution.md
 
 FLOW removes the gap between intention and expression. Writers don't type—they create. The platform senses what you want to say before you fully articulate it.
 
----
 
 ## Design Principles Applied
 
@@ -26,7 +25,6 @@ FLOW removes the gap between intention and expression. Writers don't type—they
 | **Voice + Gesture First** | Dictate ideas, sculpt with hands. Keyboard optional |
 | **AI Agents** | Personal writing partner that knows your voice, anticipates your needs |
 
----
 
 ## Core Features
 
@@ -103,7 +101,6 @@ FLOW removes the gap between intention and expression. Writers don't type—they
 - Timing recommendations based on audience behavior
 - Cross-platform performance predicted before publish
 
----
 
 ## Visual Language
 
@@ -125,7 +122,6 @@ FLOW removes the gap between intention and expression. Writers don't type—they
 - **Review mode:** Neutral grays, clarity focus
 - **Flow state:** Colors fade, content sharpens
 
----
 
 ## Interaction Hierarchy
 
@@ -135,7 +131,6 @@ FLOW removes the gap between intention and expression. Writers don't type—they
 4. **Eye tracking** — Focus and selection
 5. **Touch/keyboard** — Precision editing (legacy support)
 
----
 
 ## What Dies in FLOW
 
@@ -148,7 +143,6 @@ FLOW removes the gap between intention and expression. Writers don't type—they
 | Writer's block | AI partner + flow optimization |
 | Platform-specific writing | One voice, auto-adapted output |
 
----
 
 ## Day in the Life: FLOW User
 
@@ -169,7 +163,6 @@ Sit. Switch to precision mode. Keyboard appears on any surface. Biometrics detec
 **Publishing:**
 "Publish to LinkedIn, newsletter, and blog." FLOW auto-adapts voice and format. Predicts: LinkedIn version will perform 23% better with this opening. One-gesture approval.
 
----
 
 ## Technical Foundation (2030 Ready)
 
@@ -179,7 +172,6 @@ Sit. Switch to precision mode. Keyboard appears on any surface. Biometrics detec
 - **Biometric wearables** ubiquitous
 - **Edge computing** for real-time response
 
----
 
 ## Key Insight
 
@@ -187,7 +179,6 @@ FLOW doesn't help you write faster. It removes everything that isn't writing.
 
 The platform becomes invisible so the words become visible.
 
----
 
 ## From Research to Reality
 

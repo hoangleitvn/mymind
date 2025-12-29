@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Adoption Workshop | INNOMIZE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* INNOMIZE Brand Colors */
+            --primary: #EA322A;
+            --primary-dark: #D42A23;
+            --primary-light: #F76D55;
+            --secondary: #4E6E81;
+            --secondary-light: #708999;
+
+            /* Dark theme (default) - per SLIDE-SPEC.md */
+            --bg-base: #2E3840;
+            --bg-surface: #353f48;
+            --bg-surface-alt: #3d4750;
+            --text-primary: #FFFFFF;
+            --text-subdued: #B8BCBF;
+            --border-color: #4a545d;
+
+            /* Semantic Colors - WCAG adjusted */
+            --success: #4ADE80;
+            --warning: #FBBF24;
+
+            /* Typography */
+            --font-display: 'Bai Jamjuree', system-ui, sans-serif;
+            --font-body: 'Manrope', system-ui, sans-serif;
+
+            /* Font Scale per SLIDE-SPEC.md (base 18px = 1rem) */
+            --text-label: 0.67rem;    /* 12pt - takeaway label */
+            --text-source: 0.78rem;   /* 14pt - source text */
+            --text-body-sm: 0.89rem;  /* 16pt - body text min */
+            --text-body: 1rem;        /* 18pt - body text, list items */
+            --text-col-header: 1.11rem; /* 20pt - column headers */
+            --text-quote: 1.22rem;    /* 22pt - quote block */
+            --text-title: 2rem;       /* 36pt - slide title */
+            --text-statement: 2.22rem;/* 40pt - statement quote */
+            --text-stat-sm: 2.67rem;  /* 48pt - stat number small */
+            --text-stat-lg: 4rem;     /* 72pt - stat number large */
+
+            /* Spacing per SLIDE-SPEC.md */
+            --slide-padding-h: 56pt;
+            --slide-padding-v: 40pt;
+            --gap-header: 24pt;
+            --gap-content: 20pt;
+            --card-padding: 20pt;
+            --card-padding-lg: 24pt;
+            --card-radius: 12pt;
+
+            /* Zoom level */
+            --zoom: 1;
+        }
+
+        [data-theme="light"] {
+            --bg-base: #F8F8F8;
+            --bg-surface: #FFFFFF;
+            --bg-surface-alt: #F1F3F5;
+            --text-primary: #2E3840;
+            --text-subdued: #5C6369;
+            --border-color: #D1D3D5;
+            --success: #16A34A;
+            --warning: #D97706;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: calc(18px * var(--zoom)); }
+        html, body { height: 100%; overflow: hidden; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-base);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .presentation { height: 100vh; display: flex; flex-direction: column; }
+
+        /* Progress Bar - Red accent at top */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--primary);
+            transition: width 0.4s ease;
+            z-index: 100;
+        }
+
+        /* Navigation - Floating pill */
+        .nav {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.5rem 0.875rem;
+            border-radius: 500px;
+            backdrop-filter: blur(12px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        [data-theme="light"] .nav {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-btn {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            color: var(--text-subdued);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-size: var(--text-source);
+        }
+
+        .nav-btn:hover { color: var(--text-primary); background: var(--bg-surface-alt); }
+        .nav-btn:disabled { opacity: 0.2; cursor: not-allowed; }
+        .nav-btn svg { width: 1rem; height: 1rem; fill: currentColor; }
+
+        .nav-divider {
+            width: 1px;
+            height: 1.25rem;
+            background: var(--border-color);
+            margin: 0 0.375rem;
+        }
+
+        .action-btn {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            color: var(--text-subdued);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover { color: var(--text-primary); background: var(--bg-surface-alt); }
+        .action-btn svg { width: 1rem; height: 1rem; fill: currentColor; }
+        .action-btn .exit-icon { display: none; }
+        body.is-fullscreen .action-btn .enter-icon { display: none; }
+        body.is-fullscreen .action-btn .exit-icon { display: block; }
+
+        .slide-counter {
+            font-size: var(--text-label);
+            font-weight: 600;
+            color: var(--text-subdued);
+            min-width: 2.75rem;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Zoom indicator */
+        .zoom-indicator {
+            position: fixed;
+            top: 20pt;
+            right: 20pt;
+            background: var(--bg-surface);
+            border: 1pt solid var(--border-color);
+            padding: 8pt 14pt;
+            border-radius: 8pt;
+            font-size: var(--text-source);
+            color: var(--text-subdued);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 100;
+        }
+
+        .zoom-indicator.visible { opacity: 1; }
+
+        /* Nav hover zone - invisible hitbox at bottom right */
+        .nav-zone {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 100px;
+            z-index: 99;
+        }
+
+        /* Auto-hide nav - show on hover zone */
+        .nav {
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+        }
+
+        .nav-zone:hover .nav {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Slides Container */
+        .slides { flex: 1; position: relative; overflow: hidden; }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--slide-padding-v) var(--slide-padding-h);
+            opacity: 0;
+            visibility: hidden;
+            /* Animation base */
+            transform: translateX(0) scale(1);
+            transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+        }
+
+        /* Slide Animations */
+        .slide.prev {
+            opacity: 0;
+            transform: translateX(-5%) scale(0.95);
+        }
+
+        .slide.next {
+            opacity: 0;
+            transform: translateX(5%) scale(0.95);
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0) scale(1);
+        }
+
+        /* Fade animation variant */
+        body[data-animation="fade"] .slide.prev,
+        body[data-animation="fade"] .slide.next {
+            transform: scale(0.98);
+        }
+
+        /* Slide animation variant */
+        body[data-animation="slide"] .slide.prev {
+            transform: translateX(-100%);
+        }
+        body[data-animation="slide"] .slide.next {
+            transform: translateX(100%);
+        }
+
+        /* Zoom animation variant */
+        body[data-animation="zoom"] .slide.prev {
+            transform: scale(0.8);
+        }
+        body[data-animation="zoom"] .slide.next {
+            transform: scale(1.1);
+        }
+
+        .slide-content {
+            width: 100%;
+            max-width: 960pt;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* =========================================
+           SLIDE TYPES - per SLIDE-SPEC.md
+           ========================================= */
+
+        /* Title Slide - Dark charcoal with 6pt red accent bar */
+        .slide-title {
+            background: linear-gradient(135deg, var(--bg-base) 0%, #232a31 100%);
+            text-align: center;
+        }
+
+        .slide-title::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6pt;
+            background: var(--primary);
+        }
+
+        .slide-title .slide-content {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-title .logo {
+            margin-bottom: 32pt;
+        }
+
+        .slide-title .logo img {
+            height: 48pt;
+            width: auto;
+        }
+
+        .slide-title h1 {
+            font-family: var(--font-display);
+            font-size: var(--text-title);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 16pt;
+            color: var(--text-primary);
+        }
+
+        .slide-title h1 .accent {
+            color: var(--primary);
+        }
+
+        .slide-title .subtitle {
+            font-size: var(--text-body);
+            font-weight: 400;
+            line-height: 1.4;
+            color: var(--text-subdued);
+            margin-bottom: 24pt;
+        }
+
+        .slide-title .meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24pt;
+            font-size: var(--text-body-sm);
+            color: var(--text-subdued);
+        }
+
+        .slide-title .meta span {
+            display: flex;
+            align-items: center;
+            gap: 8pt;
+        }
+
+        /* Statement Slide - per SLIDE-SPEC.md */
+        .slide-statement {
+            background: var(--bg-base);
+            text-align: center;
+        }
+
+        .slide-statement .slide-content {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-statement h2 {
+            font-family: var(--font-display);
+            font-size: var(--text-statement);
+            font-weight: 700;
+            line-height: 1.25;
+            max-width: 90%;
+        }
+
+        .slide-statement h2 .highlight {
+            color: var(--primary);
+        }
+
+        .slide-statement .source {
+            margin-top: 20pt;
+            font-size: var(--text-source);
+            color: var(--text-subdued);
+        }
+
+        /* Content Layout - per SLIDE-SPEC.md */
+        .slide-content-layout {
+            background: var(--bg-base);
+        }
+
+        .slide-header {
+            flex-shrink: 0;
+            margin-bottom: var(--gap-header);
+        }
+
+        .slide-header h2 {
+            font-family: var(--font-display);
+            font-size: var(--text-title);
+            font-weight: 700;
+            line-height: 1.15;
+        }
+
+        .slide-header h2 .highlight { color: var(--primary); }
+
+        .slide-header .source {
+            margin-top: 10pt;
+            font-size: var(--text-source);
+            color: var(--text-subdued);
+        }
+
+        .slide-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Big Numbers - per SLIDE-SPEC.md */
+        .big-number-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--gap-content);
+            text-align: center;
+        }
+
+        .big-number .value {
+            font-family: var(--font-display);
+            font-size: var(--text-stat-lg);
+            font-weight: 700;
+            line-height: 1;
+            color: var(--primary);
+            margin-bottom: 12pt;
+        }
+
+        .big-number .value.secondary {
+            color: var(--secondary);
+        }
+
+        .big-number .label {
+            font-size: var(--text-body);
+            font-weight: 400;
+            color: var(--text-subdued);
+            line-height: 1.4;
+        }
+
+        /* Stats Grid - per SLIDE-SPEC.md */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--gap-content);
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            padding: var(--card-padding);
+            border-radius: var(--card-radius);
+            border: 1pt solid var(--border-color);
+        }
+
+        .stat-card .value {
+            font-family: var(--font-display);
+            font-size: var(--text-stat-sm);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10pt;
+        }
+
+        .stat-card .label {
+            font-size: var(--text-body-sm);
+            color: var(--text-subdued);
+            line-height: 1.5;
+        }
+
+        .stat-card.warning .value {
+            color: var(--warning);
+        }
+
+        /* Two Column - per SLIDE-SPEC.md */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gap-content);
+        }
+
+        .column h3 {
+            font-family: var(--font-display);
+            font-size: var(--text-col-header);
+            font-weight: 600;
+            margin-bottom: 16pt;
+            color: var(--primary);
+        }
+
+        .column h3.success { color: var(--success); }
+        .column h3.warning { color: var(--warning); }
+        .column h3.muted { color: var(--text-subdued); }
+
+        .column ul {
+            list-style: none;
+        }
+
+        .column ul li {
+            font-size: var(--text-body);
+            margin-bottom: 10pt;
+            padding-left: 18pt;
+            position: relative;
+            color: var(--text-subdued);
+            line-height: 1.5;
+        }
+
+        .column ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8pt;
+            width: 6pt;
+            height: 6pt;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        /* Quote Block - per SLIDE-SPEC.md */
+        .quote-block {
+            background: var(--bg-surface);
+            border-left: 4pt solid var(--primary);
+            padding: 16pt 20pt;
+            border-radius: 0 10pt 10pt 0;
+            margin-top: var(--gap-content);
+        }
+
+        .quote-block p {
+            font-size: var(--text-quote);
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--text-primary);
+        }
+
+        .quote-block .attribution {
+            margin-top: 12pt;
+            font-size: var(--text-source);
+            color: var(--text-subdued);
+            font-style: normal;
+        }
+
+        /* Takeaway Box - per SLIDE-SPEC.md */
+        .takeaway {
+            background: var(--bg-surface);
+            border: 1pt solid var(--border-color);
+            border-radius: 10pt;
+            padding: 12pt 16pt;
+            margin-top: var(--gap-content);
+        }
+
+        .takeaway h4 {
+            font-family: var(--font-display);
+            font-size: var(--text-label);
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .takeaway p {
+            font-size: var(--text-body);
+            line-height: 1.5;
+        }
+
+        .takeaway p .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Icon Cards Grid - per SLIDE-SPEC.md */
+        .icon-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--gap-content);
+        }
+
+        .icon-card {
+            background: var(--bg-surface);
+            border: 1pt solid var(--border-color);
+            border-radius: var(--card-radius);
+            padding: var(--card-padding);
+            display: flex;
+            gap: 16pt;
+            align-items: flex-start;
+            transition: border-color 0.2s;
+        }
+
+        .icon-card:hover {
+            border-color: var(--primary);
+        }
+
+        .icon-card .icon {
+            width: 36pt;
+            height: 36pt;
+            background: rgba(234, 50, 42, 0.15);
+            border-radius: 8pt;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18pt;
+            flex-shrink: 0;
+        }
+
+        .icon-card .content h4 {
+            font-family: var(--font-display);
+            font-size: var(--text-body);
+            font-weight: 600;
+            margin-bottom: 6pt;
+            color: var(--text-primary);
+        }
+
+        .icon-card .content p {
+            font-size: var(--text-body-sm);
+            color: var(--text-subdued);
+            line-height: 1.4;
+        }
+
+        /* Session Cards - per SLIDE-SPEC.md */
+        .session-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12pt;
+        }
+
+        .session-item {
+            background: var(--bg-surface);
+            border: 1pt solid var(--border-color);
+            border-radius: var(--card-radius);
+            padding: 14pt 20pt;
+            display: flex;
+            align-items: center;
+            gap: 16pt;
+        }
+
+        .session-item .number {
+            width: 28pt;
+            height: 28pt;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: var(--text-body-sm);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .session-item .info {
+            flex: 1;
+        }
+
+        .session-item .info h4 {
+            font-family: var(--font-display);
+            font-size: var(--text-body);
+            font-weight: 600;
+            margin-bottom: 4pt;
+        }
+
+        .session-item .info p {
+            font-size: var(--text-source);
+            color: var(--text-subdued);
+        }
+
+        .session-item .duration {
+            font-size: var(--text-source);
+            color: var(--text-subdued);
+            white-space: nowrap;
+        }
+
+        /* Approach Cards - per SLIDE-SPEC.md */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--gap-content);
+        }
+
+        .approach-card {
+            background: var(--bg-surface);
+            border: 1pt solid var(--border-color);
+            border-radius: var(--card-radius);
+            padding: var(--card-padding-lg);
+            text-align: center;
+        }
+
+        .approach-card .step {
+            width: 28pt;
+            height: 28pt;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: var(--text-body-sm);
+            font-weight: 700;
+            margin: 0 auto 12pt;
+        }
+
+        .approach-card h4 {
+            font-family: var(--font-display);
+            font-size: var(--text-body);
+            font-weight: 600;
+            margin-bottom: 8pt;
+        }
+
+        .approach-card p {
+            font-size: var(--text-body-sm);
+            color: var(--text-subdued);
+            line-height: 1.4;
+        }
+
+        /* Success Metrics - per SLIDE-SPEC.md */
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--gap-content);
+        }
+
+        .success-card {
+            background: var(--bg-surface);
+            border: 1pt solid var(--border-color);
+            border-radius: var(--card-radius);
+            padding: var(--card-padding);
+            text-align: center;
+        }
+
+        .success-card .icon {
+            font-size: 24pt;
+            margin-bottom: 10pt;
+        }
+
+        .success-card h4 {
+            font-family: var(--font-display);
+            font-size: var(--text-body);
+            font-weight: 600;
+            margin-bottom: 6pt;
+        }
+
+        .success-card p {
+            font-size: var(--text-body-sm);
+            color: var(--text-subdued);
+            line-height: 1.4;
+        }
+
+        /* CTA Slide - per SLIDE-SPEC.md */
+        .slide-cta {
+            background: linear-gradient(135deg, var(--bg-base) 0%, #232a31 100%);
+            text-align: center;
+        }
+
+        .slide-cta::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6pt;
+            background: var(--primary);
+        }
+
+        .slide-cta .slide-content {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-cta h2 {
+            font-family: var(--font-display);
+            font-size: var(--text-title);
+            font-weight: 700;
+            margin-bottom: 20pt;
+        }
+
+        .slide-cta h2 .highlight {
+            color: var(--primary);
+        }
+
+        .slide-cta .cta-list {
+            list-style: none;
+            margin-bottom: 24pt;
+        }
+
+        .slide-cta .cta-list li {
+            font-size: var(--text-body);
+            color: var(--text-subdued);
+            margin-bottom: 8pt;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10pt;
+        }
+
+        .slide-cta .cta-list li .check {
+            color: var(--success);
+        }
+
+        .slide-cta .next-session {
+            background: var(--bg-surface);
+            border: 1pt solid var(--border-color);
+            border-radius: var(--card-radius);
+            padding: 16pt 24pt;
+            display: inline-block;
+        }
+
+        .slide-cta .next-session .label {
+            font-size: var(--text-label);
+            color: var(--text-subdued);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6pt;
+        }
+
+        .slide-cta .next-session .title {
+            font-family: var(--font-display);
+            font-size: var(--text-body);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .slide { padding: 24pt 28pt; }
+            .big-number-grid { grid-template-columns: 1fr; gap: 14pt; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .two-column { grid-template-columns: 1fr; gap: 14pt; }
+            .icon-cards { grid-template-columns: 1fr; }
+            .approach-grid { grid-template-columns: 1fr; gap: 10pt; }
+            .success-grid { grid-template-columns: repeat(2, 1fr); gap: 10pt; }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --text-title: 1.78rem;
+                --text-statement: 2rem;
+                --text-stat-lg: 3.5rem;
+            }
+            .session-item { flex-wrap: wrap; }
+            .session-item .duration { width: 100%; margin-left: 44pt; }
+            .success-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body data-animation="default">
+    <div class="presentation">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="zoom-indicator" id="zoomIndicator">100%</div>
+
+        <div class="slides" id="slides">
+
+            <!-- Slide 1: Title -->
+            <div class="slide slide-title active" data-slide="1">
+                <div class="slide-content">
+                    <div class="logo">
+                        <img src="../../brands/innomize/assets/Fitlogo_Horizontal_White.png" alt="INNOMIZE" class="logo-dark">
+                    </div>
+                    <h1>AI Adoption<br><span class="accent">Workshop Series</span></h1>
+                    <p class="subtitle">Building AI capability across teams</p>
+                    <div class="meta">
+                        <span>📅 5 Sessions</span>
+                        <span>⏱️ 45-60 min each</span>
+                        <span>👥 All Teams</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Core Quote -->
+            <div class="slide slide-statement next" data-slide="2">
+                <div class="slide-content">
+                    <h2>"AI adoption is a <span class="highlight">workflow and skills</span> decision.<br>Tools follow."</h2>
+                </div>
+            </div>
+
+            <!-- Slide 3: The Adoption Gap -->
+            <div class="slide slide-content-layout next" data-slide="3">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>The AI <span class="highlight">Adoption Gap</span></h2>
+                        <p class="source">McKinsey Global Institute, November 2025</p>
+                    </div>
+                    <div class="slide-body">
+                        <div class="big-number-grid">
+                            <div class="big-number">
+                                <div class="value">90%</div>
+                                <div class="label">of companies have invested in AI</div>
+                            </div>
+                            <div class="big-number">
+                                <div class="value secondary">&lt;40%</div>
+                                <div class="label">report measurable gains</div>
+                            </div>
+                        </div>
+                        <div class="quote-block">
+                            <p>"Most workflows were designed for a pre-AI world. Applying AI to individual tasks within legacy processes is unlikely to deliver the productivity gains now possible."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: The Risks -->
+            <div class="slide slide-content-layout next" data-slide="4">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>The Risks <span class="highlight">Without Discipline</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="value">40%</div>
+                                <div class="label">of AI-generated code contains security vulnerabilities</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="value">36%</div>
+                                <div class="label">of "vibe coders" skip testing entirely</div>
+                            </div>
+                            <div class="stat-card warning">
+                                <div class="value">⚠️</div>
+                                <div class="label">Technical debt compounds — each shortcut accumulates into bigger problems</div>
+                            </div>
+                            <div class="stat-card warning">
+                                <div class="value">🔥</div>
+                                <div class="label">Senior developer burnout from reviewing AI-generated chaos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Productivity Reality -->
+            <div class="slide slide-statement next" data-slide="5">
+                <div class="slide-content">
+                    <h2>"AI changed <span class="highlight">the work</span>,<br>not the workload."</h2>
+                    <p class="source">The Red Queen Effect of AI Productivity</p>
+                </div>
+            </div>
+
+            <!-- Slide 6: What Actually Happens -->
+            <div class="slide slide-content-layout next" data-slide="6">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>What <span class="highlight">Actually Happens</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="two-column">
+                            <div class="column">
+                                <h3 class="warning">What People Expect</h3>
+                                <ul>
+                                    <li>AI makes work 10x faster</li>
+                                    <li>Therefore: work 10x less</li>
+                                    <li>Same output, less effort</li>
+                                </ul>
+                            </div>
+                            <div class="column">
+                                <h3 class="success">What Actually Happens</h3>
+                                <ul>
+                                    <li>AI makes work 10x faster</li>
+                                    <li>We tackle 10x more complex problems</li>
+                                    <li>Workload stays same, <strong>capability expands</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="takeaway">
+                            <h4>The Right Question</h4>
+                            <p>Don't ask "How much time does AI save?" — Ask "<span class="highlight">What can we build now that we couldn't before?</span>"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Skills That Rise -->
+            <div class="slide slide-content-layout next" data-slide="7">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>Skills That <span class="highlight">Rise in Value</span></h2>
+                        <p class="source">McKinsey analysis of 800+ occupations</p>
+                    </div>
+                    <div class="slide-body">
+                        <div class="two-column">
+                            <div class="column">
+                                <h3 class="success">Increasing Demand</h3>
+                                <ul>
+                                    <li><strong>Problem-solving</strong></li>
+                                    <li><strong>Communication</strong> and negotiation</li>
+                                    <li><strong>Leadership</strong> and collaboration</li>
+                                    <li>Coaching and empathy</li>
+                                    <li><strong style="color: var(--primary);">AI fluency</strong> (fastest-growing)</li>
+                                </ul>
+                            </div>
+                            <div class="column">
+                                <h3 class="muted">Exposed to Automation</h3>
+                                <ul>
+                                    <li>Routine digital tasks</li>
+                                    <li>Information processing</li>
+                                    <li>Rules-based work</li>
+                                    <li>Data entry and formatting</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="takeaway">
+                            <h4>Key Finding</h4>
+                            <p><span class="highlight">72% of skills</span> employers seek are used in BOTH automatable and non-automatable work. The future is skill partnership, not replacement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: The 4 Concerns -->
+            <div class="slide slide-content-layout next" data-slide="8">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>The <span class="highlight">4 Concerns</span> We Address</h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="icon-cards">
+                            <div class="icon-card">
+                                <div class="icon">🧠</div>
+                                <div class="content">
+                                    <h4>Understanding</h4>
+                                    <p>"What is AI, really? How does it work? What can it actually do for my role?"</p>
+                                </div>
+                            </div>
+                            <div class="icon-card">
+                                <div class="icon">🎯</div>
+                                <div class="content">
+                                    <h4>Skills Gap</h4>
+                                    <p>"I don't know how to use AI effectively. I try prompts but get inconsistent results."</p>
+                                </div>
+                            </div>
+                            <div class="icon-card">
+                                <div class="icon">⚙️</div>
+                                <div class="content">
+                                    <h4>Workflow Integration</h4>
+                                    <p>"How do I fit AI into my actual work? Where does it help vs. hurt?"</p>
+                                </div>
+                            </div>
+                            <div class="icon-card">
+                                <div class="icon">🔒</div>
+                                <div class="content">
+                                    <h4>Data & Privacy</h4>
+                                    <p>"What can I share with AI? What are the boundaries? How do I stay compliant?"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Our Approach -->
+            <div class="slide slide-content-layout next" data-slide="9">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>Our <span class="highlight">Approach</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="approach-grid">
+                            <div class="approach-card">
+                                <div class="step">1</div>
+                                <h4>Skills First</h4>
+                                <p>Build the human capabilities that make AI useful: problem framing, decomposition, evaluation.</p>
+                            </div>
+                            <div class="approach-card">
+                                <div class="step">2</div>
+                                <h4>Workflow Design</h4>
+                                <p>Redesign how you work, not just add AI to old processes. Validation gates, not blind trust.</p>
+                            </div>
+                            <div class="approach-card">
+                                <div class="step">3</div>
+                                <h4>Tools Follow</h4>
+                                <p>Once skills and workflows are solid, the right tools become obvious and effective.</p>
+                            </div>
+                        </div>
+                        <div class="takeaway">
+                            <h4>Philosophy</h4>
+                            <p>We don't teach tools. We build <span class="highlight">AI-fluent practitioners</span> who can adapt as tools evolve.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: Workshop Structure -->
+            <div class="slide slide-content-layout next" data-slide="10">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>Workshop <span class="highlight">Structure</span></h2>
+                        <p class="source">5 sessions over 5 weeks</p>
+                    </div>
+                    <div class="slide-body">
+                        <div class="session-list">
+                            <div class="session-item">
+                                <div class="number">1</div>
+                                <div class="info">
+                                    <h4>AI Foundations</h4>
+                                    <p>What AI is, how it works, generative vs reasoning models</p>
+                                </div>
+                                <div class="duration">45 min</div>
+                            </div>
+                            <div class="session-item">
+                                <div class="number">2</div>
+                                <div class="info">
+                                    <h4>The 5 Skills That Matter</h4>
+                                    <p>Problem framing, decomposition, evaluation, correction, systems thinking</p>
+                                </div>
+                                <div class="duration">45 min</div>
+                            </div>
+                            <div class="session-item">
+                                <div class="number">3</div>
+                                <div class="info">
+                                    <h4>Workflow & Validation</h4>
+                                    <p>Building AI workflows with validation gates</p>
+                                </div>
+                                <div class="duration">45 min</div>
+                            </div>
+                            <div class="session-item">
+                                <div class="number">4</div>
+                                <div class="info">
+                                    <h4>Data Privacy & Best Practices</h4>
+                                    <p>Absolute boundaries, team-specific guidelines</p>
+                                </div>
+                                <div class="duration">45 min</div>
+                            </div>
+                            <div class="session-item">
+                                <div class="number">5</div>
+                                <div class="info">
+                                    <h4>Demo & Roadmap</h4>
+                                    <p>See AI in action, personal commitments, adoption roadmap</p>
+                                </div>
+                                <div class="duration">60 min</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 11: Who This Is For -->
+            <div class="slide slide-content-layout next" data-slide="11">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>Who This Is <span class="highlight">For</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="icon-cards">
+                            <div class="icon-card">
+                                <div class="icon">💻</div>
+                                <div class="content">
+                                    <h4>Engineering Teams</h4>
+                                    <p>Learn to use AI for coding without accumulating technical debt or security vulnerabilities.</p>
+                                </div>
+                            </div>
+                            <div class="icon-card">
+                                <div class="icon">📋</div>
+                                <div class="content">
+                                    <h4>Project Managers</h4>
+                                    <p>Understand AI capabilities to set realistic expectations and scope work effectively.</p>
+                                </div>
+                            </div>
+                            <div class="icon-card">
+                                <div class="icon">👥</div>
+                                <div class="content">
+                                    <h4>HR & Operations</h4>
+                                    <p>Apply AI to documentation, processes, and communication while protecting sensitive data.</p>
+                                </div>
+                            </div>
+                            <div class="icon-card">
+                                <div class="icon">💰</div>
+                                <div class="content">
+                                    <h4>Finance & Admin</h4>
+                                    <p>Automate analysis and reporting with clear boundaries on what data can be processed.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: What Success Looks Like -->
+            <div class="slide slide-content-layout next" data-slide="12">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>What <span class="highlight">Success</span> Looks Like</h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="success-grid">
+                            <div class="success-card">
+                                <div class="icon">🎯</div>
+                                <h4>Confident Usage</h4>
+                                <p>Every team member knows when AI helps and when it doesn't</p>
+                            </div>
+                            <div class="success-card">
+                                <div class="icon">✅</div>
+                                <h4>Quality Output</h4>
+                                <p>AI-assisted work meets the same standards as manual work</p>
+                            </div>
+                            <div class="success-card">
+                                <div class="icon">🔒</div>
+                                <h4>Clear Boundaries</h4>
+                                <p>Everyone knows what data is safe to use with AI tools</p>
+                            </div>
+                            <div class="success-card">
+                                <div class="icon">⚡</div>
+                                <h4>Real Productivity</h4>
+                                <p>Measurable improvement in capability, not just speed</p>
+                            </div>
+                            <div class="success-card">
+                                <div class="icon">🔄</div>
+                                <h4>Sustainable Practice</h4>
+                                <p>Habits that improve over time as tools evolve</p>
+                            </div>
+                            <div class="success-card">
+                                <div class="icon">🤝</div>
+                                <h4>Team Alignment</h4>
+                                <p>Shared vocabulary and standards across the organization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 13: Ground Rules -->
+            <div class="slide slide-content-layout next" data-slide="13">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>Workshop <span class="highlight">Ground Rules</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="two-column">
+                            <div class="column">
+                                <h3 class="success">We Encourage</h3>
+                                <ul>
+                                    <li>Asking "stupid" questions</li>
+                                    <li>Sharing failures and frustrations</li>
+                                    <li>Challenging assumptions</li>
+                                    <li>Trying things live in sessions</li>
+                                    <li>Bringing real work examples</li>
+                                </ul>
+                            </div>
+                            <div class="column">
+                                <h3 class="warning">We Avoid</h3>
+                                <ul>
+                                    <li>Tool advocacy or debates</li>
+                                    <li>Hype or fear-mongering</li>
+                                    <li>One-size-fits-all answers</li>
+                                    <li>Skipping the fundamentals</li>
+                                    <li>Sharing client/sensitive data</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="takeaway">
+                            <h4>Core Principle</h4>
+                            <p>This is <span class="highlight">practical training</span>, not a lecture. The goal is usable skills by the end of each session.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 14: Your Commitment -->
+            <div class="slide slide-statement next" data-slide="14">
+                <div class="slide-content">
+                    <h2>"The best time to build AI skills<br>was yesterday.<br>The second best time is <span class="highlight">now</span>."</h2>
+                </div>
+            </div>
+
+            <!-- Slide 15: Next Steps -->
+            <div class="slide slide-cta next" data-slide="15">
+                <div class="slide-content">
+                    <h2>Ready to <span class="highlight">Begin</span></h2>
+                    <ul class="cta-list">
+                        <li><span class="check">✓</span> 5 sessions, 5 weeks</li>
+                        <li><span class="check">✓</span> Skills before tools</li>
+                        <li><span class="check">✓</span> Practical, hands-on focus</li>
+                        <li><span class="check">✓</span> Team-specific guidance</li>
+                    </ul>
+                    <div class="next-session">
+                        <div class="label">Next Session</div>
+                        <div class="title">Session 1: AI Foundations</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation with hover zone -->
+        <div class="nav-zone">
+        <nav class="nav" id="nav">
+            <button class="nav-btn" id="prevBtn" onclick="prevSlide()" title="Previous (←)">
+                <svg viewBox="0 0 16 16"><path d="M11 3L5 8l6 5V3z"/></svg>
+            </button>
+            <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">15</span></span>
+            <button class="nav-btn" id="nextBtn" onclick="nextSlide()" title="Next (→)">
+                <svg viewBox="0 0 16 16"><path d="M5 3l6 5-6 5V3z"/></svg>
+            </button>
+            <div class="nav-divider"></div>
+            <button class="action-btn" onclick="zoomOut()" title="Zoom out (-)">
+                <svg viewBox="0 0 16 16"><path d="M3 8a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9A.5.5 0 013 8z"/></svg>
+            </button>
+            <button class="action-btn" onclick="zoomIn()" title="Zoom in (+)">
+                <svg viewBox="0 0 16 16"><path d="M8 3a.5.5 0 01.5.5v4h4a.5.5 0 010 1h-4v4a.5.5 0 01-1 0v-4h-4a.5.5 0 010-1h4v-4A.5.5 0 018 3z"/></svg>
+            </button>
+            <div class="nav-divider"></div>
+            <button class="action-btn" onclick="toggleTheme()" title="Toggle theme (t)">
+                <svg class="light-icon" viewBox="0 0 16 16"><path d="M8 12a4 4 0 100-8 4 4 0 000 8zm0 1.5a5.5 5.5 0 110-11 5.5 5.5 0 010 11zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 12a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 12zm7-4a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0115 8zM4 8a.75.75 0 01-.75.75H1.75a.75.75 0 010-1.5h1.5A.75.75 0 014 8z"/></svg>
+                <svg class="dark-icon" viewBox="0 0 16 16" style="display:none"><path d="M6.5 0A6.5 6.5 0 000 6.5a6.5 6.5 0 009.5 5.75A7.5 7.5 0 016.5 0z"/></svg>
+            </button>
+            <button class="action-btn" onclick="toggleFullscreen()" title="Fullscreen (f)">
+                <svg class="enter-icon" viewBox="0 0 16 16"><path d="M2 2.5A.5.5 0 012.5 2H5a.5.5 0 010 1H3v2a.5.5 0 01-1 0V2.5zM11 2a.5.5 0 000 1h2v2a.5.5 0 001 0V2.5a.5.5 0 00-.5-.5H11zM2.5 11a.5.5 0 01.5.5V13h2a.5.5 0 010 1H2.5a.5.5 0 01-.5-.5V11.5a.5.5 0 01.5-.5zm11 0a.5.5 0 01.5.5v2a.5.5 0 01-.5.5H11a.5.5 0 010-1h2v-1.5a.5.5 0 01.5-.5z"/></svg>
+                <svg class="exit-icon" viewBox="0 0 16 16"><path d="M5 2.5a.5.5 0 01-1 0V1a.5.5 0 01.5-.5H6a.5.5 0 010 1H5v1zm6-1a.5.5 0 010-1h1.5a.5.5 0 01.5.5V2.5a.5.5 0 01-1 0V2h-1zm-6 11a.5.5 0 011 0V14h1a.5.5 0 010 1H4.5a.5.5 0 01-.5-.5V12.5zm7 0a.5.5 0 011 0v1.5a.5.5 0 01-.5.5H11a.5.5 0 010-1h1v-1z"/></svg>
+            </button>
+        </nav>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        let zoomLevel = 1;
+        let zoomTimeout;
+
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function updateSlideClasses() {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev', 'next');
+                const slideNum = index + 1;
+                if (slideNum === currentSlide) {
+                    slide.classList.add('active');
+                } else if (slideNum < currentSlide) {
+                    slide.classList.add('prev');
+                } else {
+                    slide.classList.add('next');
+                }
+            });
+        }
+
+        function showSlide(n) {
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+
+            updateSlideClasses();
+
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('progressBar').style.width = (currentSlide / totalSlides * 100) + '%';
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+
+        function nextSlide() { currentSlide++; showSlide(currentSlide); }
+        function prevSlide() { currentSlide--; showSlide(currentSlide); }
+
+        // Zoom functions
+        function updateZoom() {
+            document.documentElement.style.setProperty('--zoom', zoomLevel);
+            const indicator = document.getElementById('zoomIndicator');
+            indicator.textContent = Math.round(zoomLevel * 100) + '%';
+            indicator.classList.add('visible');
+            clearTimeout(zoomTimeout);
+            zoomTimeout = setTimeout(() => indicator.classList.remove('visible'), 1500);
+        }
+
+        function zoomIn() {
+            zoomLevel = Math.min(zoomLevel + 0.1, 2);
+            updateZoom();
+        }
+
+        function zoomOut() {
+            zoomLevel = Math.max(zoomLevel - 0.1, 0.5);
+            updateZoom();
+        }
+
+        function resetZoom() {
+            zoomLevel = 1;
+            updateZoom();
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('innomize-theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const lightIcon = document.querySelector('.light-icon');
+            const darkIcon = document.querySelector('.dark-icon');
+            if (theme === 'light') {
+                lightIcon.style.display = 'none';
+                darkIcon.style.display = 'block';
+            } else {
+                lightIcon.style.display = 'block';
+                darkIcon.style.display = 'none';
+            }
+        }
+
+        // Fullscreen toggle
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+                document.body.classList.add('is-fullscreen');
+            } else {
+                document.exitFullscreen();
+                document.body.classList.remove('is-fullscreen');
+            }
+        }
+
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) document.body.classList.remove('is-fullscreen');
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+            if (e.key === 't' || e.key === 'T') toggleTheme();
+            if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+            if (e.key === '+' || e.key === '=') { e.preventDefault(); zoomIn(); }
+            if (e.key === '-' || e.key === '_') { e.preventDefault(); zoomOut(); }
+            if (e.key === '0') { e.preventDefault(); resetZoom(); }
+            if (e.key === 'Escape' && document.fullscreenElement) document.exitFullscreen();
+        });
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('innomize-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        // Initialize
+        updateSlideClasses();
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

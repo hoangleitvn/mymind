@@ -62,14 +62,14 @@ What is one hard truth you learned the hard way?
 ```yaml
 - id: 1733990700000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2025-12-12T07:05:00Z'
   content: |
-After 15+ years building teams and products, I keep coming back to this: there is no perfect architecture, only the right one for right now.
+    After 15+ years building teams and products, I keep coming back to this: there is no perfect architecture, only the right one for right now.
 
-Speed vs. stability. Scalability vs. cost. Ship now vs. design for later. The senior engineer knows the answers. The principal engineer knows which question to ask first.
+    Speed vs. stability. Scalability vs. cost. Ship now vs. design for later. The senior engineer knows the answers. The principal engineer knows which question to ask first.
   strategy: "Personal Experience + Supportive Agreement - Validates their trade-off point with own experience, adds spin on the senior vs principal distinction"
-  replies: []
 ```
 
 ## Notes

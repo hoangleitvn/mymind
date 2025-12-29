@@ -87,7 +87,7 @@ This keeps content in repo (AI can edit) while providing UI for non-devs.
 
 - Prefer JamStack (Headless CMS + Static Site Generator)
 - Dislike traditional CMS (WordPress, Drupal)
-- Already use markdown for content (MizeForge workspace)
+- Already use markdown for content (Mizemind workspace)
 - Building tools with AI assistance (Cursor, Claude Code)
 
 ## Implications for Mizestack / Future Work

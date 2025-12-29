@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 2: The 5 Skills That Matter | INNOMIZE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #EA322A;
+            --primary-light: #F76D55;
+            --cream: #FFF3E2;
+            --secondary: #4E6E81;
+            --dark: #2E3840;
+            --gray: #7B8187;
+            --gray-light: #A5A9AD;
+            --gray-lighter: #D1D3D5;
+            --white: #FFFFFF;
+            --font-display: 'Bai Jamjuree', system-ui, sans-serif;
+            --font-body: 'Manrope', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--dark); color: var(--white); line-height: 1.6; padding-bottom: 60px; }
+        .slide { min-height: 100vh; padding: 60px 80px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+        .slide::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--primary); }
+        .slide-number { position: absolute; bottom: 30px; right: 40px; font-size: 14px; color: var(--gray); font-weight: 500; }
+        .logo { position: absolute; top: 30px; left: 40px; font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--primary); }
+        .slide.title { text-align: center; background: linear-gradient(135deg, var(--dark) 0%, #1a2530 100%); }
+        .slide.title h1 { font-family: var(--font-display); font-size: 64px; font-weight: 700; margin-bottom: 16px; line-height: 0.9; }
+        .slide.title .subtitle { font-size: 28px; color: var(--gray-light); margin-bottom: 48px; }
+        .slide.title .meta { font-size: 18px; color: var(--gray); }
+        .slide.title .meta span { margin: 0 16px; }
+        .slide.title .meta .divider { color: var(--primary); }
+        .slide.section { background: var(--primary); text-align: center; }
+        .slide.section::before { background: var(--dark); }
+        .slide.section h2 { font-family: var(--font-display); font-size: 56px; font-weight: 700; margin-bottom: 16px; }
+        .slide.section .section-subtitle { font-size: 24px; color: var(--cream); }
+        .slide h2 { font-family: var(--font-display); font-size: 48px; font-weight: 700; margin-bottom: 40px; line-height: 1.1; }
+        .slide h3 { font-family: var(--font-display); font-size: 24px; font-weight: 600; margin-bottom: 16px; color: var(--primary); }
+        .slide p { font-size: 22px; margin-bottom: 20px; max-width: 900px; color: var(--gray-lighter); }
+        .slide ul { font-size: 22px; margin-left: 32px; margin-bottom: 24px; }
+        .slide ul li { margin-bottom: 14px; color: var(--gray-lighter); }
+        .highlight { color: var(--primary); font-weight: 600; }
+        .success { color: #4ade80; }
+        .warning { color: #fbbf24; }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 20px; }
+        .column h3 { font-size: 22px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--secondary); }
+        .column ul { font-size: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 18px; }
+        th, td { padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--secondary); }
+        th { background: var(--secondary); font-weight: 600; font-family: var(--font-display); }
+        .quote { font-size: 28px; font-style: italic; padding: 32px; border-left: 4px solid var(--primary); background: rgba(234, 50, 42, 0.1); margin: 24px 0; }
+        .takeaway { background: rgba(78, 110, 129, 0.2); border: 1px solid var(--secondary); border-radius: 12px; padding: 20px; margin: 16px 0; }
+        .takeaway h4 { color: var(--primary); font-family: var(--font-display); font-size: 16px; margin-bottom: 8px; }
+        .takeaway p { font-size: 18px; margin: 0; color: var(--white); }
+        .skill-card { background: rgba(78, 110, 129, 0.15); border-left: 4px solid var(--primary); border-radius: 0 12px 12px 0; padding: 24px; margin-bottom: 20px; }
+        .skill-card h4 { font-family: var(--font-display); font-size: 22px; color: var(--white); margin-bottom: 8px; }
+        .skill-card p { font-size: 18px; color: var(--gray-light); margin: 0; }
+        .skill-number { display: inline-block; background: var(--primary); color: var(--white); font-size: 14px; font-weight: 700; width: 28px; height: 28px; line-height: 28px; text-align: center; border-radius: 50%; margin-right: 12px; }
+        .exercise-box { background: rgba(234, 50, 42, 0.1); border: 1px solid var(--primary); border-radius: 12px; padding: 24px; margin-top: 24px; }
+        .exercise-box h4 { color: var(--primary); font-family: var(--font-display); font-size: 18px; margin-bottom: 12px; }
+        .exercise-box p { font-size: 18px; margin: 0; color: var(--white); }
+        .nav-footer { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(46, 56, 64, 0.98); border-top: 1px solid var(--secondary); padding: 12px 40px; display: flex; justify-content: center; gap: 12px; z-index: 100; }
+        .nav-link { color: var(--gray-light); text-decoration: none; font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 6px; transition: all 0.2s; }
+        .nav-link:hover { background: var(--secondary); color: var(--white); }
+        .nav-link.active { background: var(--primary); color: var(--white); }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide title">
+    <div class="logo">INNOMIZE</div>
+    <h1>The 5 Skills<br>That Matter</h1>
+    <p class="subtitle">Human skills that determine AI productivity</p>
+    <p class="meta">
+        <span>Session 2 of 5</span>
+        <span class="divider">|</span>
+        <span>60 minutes</span>
+    </p>
+    <div class="slide-number">1</div>
+</div>
+
+<!-- Slide 2: Opening -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Same Tool, Different Results</h2>
+
+    <p>We've seen teams where 20% of people become 5x more productive with AI.</p>
+    <p>Same tool. Same training. Same access.</p>
+
+    <div class="quote">
+        What's the difference?
+    </div>
+
+    <p>The difference is 5 human skills. These determine whether AI multiplies your capability or your mistakes.</p>
+
+    <div class="slide-number">2</div>
+</div>
+
+<!-- Slide 3: The 5 Skills Overview -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>The 5 Skills</h2>
+
+    <div class="skill-card">
+        <h4><span class="skill-number">1</span>Problem Framing</h4>
+        <p>Turn vague into testable</p>
+    </div>
+    <div class="skill-card">
+        <h4><span class="skill-number">2</span>Decomposition</h4>
+        <p>Split work into verifiable steps</p>
+    </div>
+    <div class="skill-card">
+        <h4><span class="skill-number">3</span>Evaluation</h4>
+        <p>Know what "done" looks like before you start</p>
+    </div>
+    <div class="skill-card">
+        <h4><span class="skill-number">4</span>Correction</h4>
+        <p>Fix the 20%, don't regenerate</p>
+    </div>
+    <div class="skill-card">
+        <h4><span class="skill-number">5</span>Systems Thinking</h4>
+        <p>Make it easier next time</p>
+    </div>
+
+    <div class="slide-number">3</div>
+</div>
+
+<!-- Slide 4: Skill 1 Section -->
+<div class="slide section">
+    <div class="logo" style="color: var(--dark);">INNOMIZE</div>
+    <h2>Skill 1</h2>
+    <p class="section-subtitle">Problem Framing</p>
+    <div class="slide-number" style="color: var(--cream);">4</div>
+</div>
+
+<!-- Slide 5: Problem Framing -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Problem Framing</h2>
+    <h3>Turn vague into specific</h3>
+
+    <table>
+        <tr>
+            <th>Vague</th>
+            <th>Specific</th>
+        </tr>
+        <tr>
+            <td>"Make this better"</td>
+            <td>"Reduce response time from 4 hours to 1 hour"</td>
+        </tr>
+        <tr>
+            <td>"Write a post"</td>
+            <td>"Write a LinkedIn post announcing X, for audience Y, with tone Z"</td>
+        </tr>
+        <tr>
+            <td>"Summarize this"</td>
+            <td>"Extract 5 key points, focus on action items, max 200 words"</td>
+        </tr>
+    </table>
+
+    <div class="exercise-box">
+        <h4>Exercise</h4>
+        <p>Take a vague request from your work. Rewrite it as a specific prompt.</p>
+    </div>
+
+    <div class="slide-number">5</div>
+</div>
+
+<!-- Slide 6: Skill 2 Section -->
+<div class="slide section">
+    <div class="logo" style="color: var(--dark);">INNOMIZE</div>
+    <h2>Skill 2</h2>
+    <p class="section-subtitle">Decomposition</p>
+    <div class="slide-number" style="color: var(--cream);">6</div>
+</div>
+
+<!-- Slide 7: Decomposition -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Decomposition</h2>
+    <h3>Split work into verifiable steps</h3>
+
+    <div class="two-column">
+        <div class="column">
+            <h3 class="warning">Bad</h3>
+            <p style="font-size: 20px;">"Write a quarterly report"</p>
+            <p style="font-size: 16px; color: var(--gray);">Too big. AI will guess and get it wrong.</p>
+        </div>
+        <div class="column">
+            <h3 class="success">Good</h3>
+            <ul style="font-size: 18px;">
+                <li>Gather data from sources A, B, C</li>
+                <li>Verify numbers are correct</li>
+                <li>Analyze trends (what changed, why)</li>
+                <li>Draft summary (max 1 page)</li>
+                <li>Format for stakeholders</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="takeaway">
+        <h4>Key Point</h4>
+        <p>Each step can be verified before moving to next. Errors caught early.</p>
+    </div>
+
+    <div class="slide-number">7</div>
+</div>
+
+<!-- Slide 8: Decomposition Exercise -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Decomposition Practice</h2>
+
+    <p>Take a complex task you do regularly.</p>
+
+    <div class="exercise-box">
+        <h4>Exercise</h4>
+        <p>Break it into 5-7 verifiable steps. Each step should have a clear "done" state that you can check before moving on.</p>
+    </div>
+
+    <p style="margin-top: 32px;">Example tasks:</p>
+    <ul>
+        <li>Creating a new employee onboarding package</li>
+        <li>Preparing monthly financial summary</li>
+        <li>Writing technical documentation</li>
+        <li>Drafting a client proposal</li>
+    </ul>
+
+    <div class="slide-number">8</div>
+</div>
+
+<!-- Slide 9: Skill 3 Section -->
+<div class="slide section">
+    <div class="logo" style="color: var(--dark);">INNOMIZE</div>
+    <h2>Skill 3</h2>
+    <p class="section-subtitle">Evaluation</p>
+    <div class="slide-number" style="color: var(--cream);">9</div>
+</div>
+
+<!-- Slide 10: Evaluation -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Evaluation</h2>
+    <h3>Know what "done" looks like before you start</h3>
+
+    <p>Before prompting AI, ask:</p>
+
+    <ul>
+        <li>What <span class="highlight">must be present</span> in the output?</li>
+        <li>What would <span class="warning">disqualify</span> it?</li>
+        <li>What <span class="highlight">quality level</span> is required?</li>
+        <li>How will I <span class="highlight">verify</span> it's correct?</li>
+    </ul>
+
+    <div class="takeaway">
+        <h4>Without Evaluation Criteria</h4>
+        <p>You accept "plausible-looking" output. Plausible ≠ correct.</p>
+    </div>
+
+    <div class="slide-number">10</div>
+</div>
+
+<!-- Slide 11: Evaluation Exercise -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Evaluation Practice</h2>
+
+    <div class="exercise-box">
+        <h4>Exercise</h4>
+        <p>Pick an AI task you do regularly. Write 3-5 evaluation criteria.</p>
+    </div>
+
+    <p style="margin-top: 32px;">Example: Job Description Draft</p>
+    <ul style="font-size: 20px;">
+        <li>✓ Includes all required skills from manager's list</li>
+        <li>✓ Matches our company tone (professional but approachable)</li>
+        <li>✓ No prohibited terms (check legal list)</li>
+        <li>✓ Salary range is correct</li>
+        <li>✓ Benefits listed accurately</li>
+    </ul>
+
+    <div class="slide-number">11</div>
+</div>
+
+<!-- Slide 12: Skill 4 Section -->
+<div class="slide section">
+    <div class="logo" style="color: var(--dark);">INNOMIZE</div>
+    <h2>Skill 4</h2>
+    <p class="section-subtitle">Correction</p>
+    <div class="slide-number" style="color: var(--cream);">12</div>
+</div>
+
+<!-- Slide 13: Correction -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Correction</h2>
+    <h3>Fix the 20%, don't regenerate</h3>
+
+    <p>When AI output is 80% right:</p>
+
+    <div class="two-column">
+        <div class="column">
+            <h3 class="warning">❌ Regenerate</h3>
+            <ul style="font-size: 18px;">
+                <li>Try different prompt</li>
+                <li>Hope for better</li>
+                <li>Waste time</li>
+                <li>Never improve</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3 class="success">✓ Correct</h3>
+            <ul style="font-size: 18px;">
+                <li>Edit the 20% that's wrong</li>
+                <li>Build understanding</li>
+                <li>Learn what to fix</li>
+                <li>Improve next prompt</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="takeaway">
+        <h4>Key Insight</h4>
+        <p>Teams that regenerate instead of correct waste enormous time and never improve.</p>
+    </div>
+
+    <div class="slide-number">13</div>
+</div>
+
+<!-- Slide 14: Skill 5 Section -->
+<div class="slide section">
+    <div class="logo" style="color: var(--dark);">INNOMIZE</div>
+    <h2>Skill 5</h2>
+    <p class="section-subtitle">Systems Thinking</p>
+    <div class="slide-number" style="color: var(--cream);">14</div>
+</div>
+
+<!-- Slide 15: Systems Thinking -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Systems Thinking</h2>
+    <h3>Make it easier next time</h3>
+
+    <p>After each AI task, ask:</p>
+
+    <ul>
+        <li>Can I <span class="highlight">save this prompt</span> for reuse?</li>
+        <li>Can I <span class="highlight">create a template</span>?</li>
+        <li>What <span class="success">worked</span> that I should repeat?</li>
+        <li>What <span class="warning">failed</span> that I should avoid?</li>
+    </ul>
+
+    <div class="takeaway">
+        <h4>The Difference</h4>
+        <p>Teams with systems thinking improve over time. Teams without do the same work repeatedly.</p>
+    </div>
+
+    <div class="slide-number">15</div>
+</div>
+
+<!-- Slide 16: Building Assets -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Building Assets, Not One-Off Work</h2>
+
+    <div class="two-column">
+        <div class="column">
+            <h3>One-Off Work</h3>
+            <ul style="font-size: 18px;">
+                <li>Write prompt from scratch each time</li>
+                <li>No documentation</li>
+                <li>Knowledge stays in your head</li>
+                <li>Start over when you forget</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>System Assets</h3>
+            <ul style="font-size: 18px;">
+                <li>Prompt library (saved, organized)</li>
+                <li>Templates for common tasks</li>
+                <li>Documented what works</li>
+                <li>Team can learn from each other</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="exercise-box">
+        <h4>Action</h4>
+        <p>Identify one prompt you use often. Save it somewhere you can find it again.</p>
+    </div>
+
+    <div class="slide-number">16</div>
+</div>
+
+<!-- Slide 17: Summary -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>The 5 Skills Summary</h2>
+
+    <table>
+        <tr>
+            <th>Skill</th>
+            <th>What It Does</th>
+            <th>Without It</th>
+        </tr>
+        <tr>
+            <td><strong>Problem Framing</strong></td>
+            <td>Vague → Specific</td>
+            <td>Garbage in, garbage out</td>
+        </tr>
+        <tr>
+            <td><strong>Decomposition</strong></td>
+            <td>Big → Small steps</td>
+            <td>Big tasks fail</td>
+        </tr>
+        <tr>
+            <td><strong>Evaluation</strong></td>
+            <td>Know "done" first</td>
+            <td>Accept wrong output</td>
+        </tr>
+        <tr>
+            <td><strong>Correction</strong></td>
+            <td>Fix, don't regenerate</td>
+            <td>Waste time, never improve</td>
+        </tr>
+        <tr>
+            <td><strong>Systems Thinking</strong></td>
+            <td>Build reusable assets</td>
+            <td>Repeat same work</td>
+        </tr>
+    </table>
+
+    <div class="slide-number">17</div>
+</div>
+
+<!-- Slide 18: Key Insight -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>The Key Insight</h2>
+
+    <div class="quote">
+        These 5 skills determine AI productivity more than tool selection.
+    </div>
+
+    <p>Tool training is necessary but not sufficient.</p>
+    <p>These skills determine whether AI multiplies your capability or your mistakes.</p>
+
+    <div class="slide-number">18</div>
+</div>
+
+<!-- Slide 19: Next Session -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Next Session</h2>
+
+    <h3 style="font-size: 32px; margin-bottom: 24px; color: var(--white);">Session 3: Workflow Design & Validation</h3>
+
+    <p>We'll learn how to:</p>
+
+    <ul style="font-size: 24px;">
+        <li>Design AI-assisted workflows for your role</li>
+        <li>Add validation points to catch errors early</li>
+        <li>Avoid "validation-debt" (unverified AI output accumulating)</li>
+    </ul>
+
+    <p style="margin-top: 32px; color: var(--gray);">Same time next week.</p>
+
+    <div class="slide-number">19</div>
+</div>
+
+<!-- Slide 20: Thank You -->
+<div class="slide title">
+    <div class="logo">INNOMIZE</div>
+    <h1>Questions?</h1>
+    <p class="subtitle">Thank you for your attention</p>
+    <p class="meta">
+        <span>Session 2: The 5 Skills That Matter</span>
+    </p>
+    <div class="slide-number">20</div>
+</div>
+
+<!-- Navigation Footer -->
+<nav class="nav-footer">
+    <a href="00-workshop-introduction.html" class="nav-link">Intro</a>
+    <a href="01-session-ai-foundations.html" class="nav-link">Session 1</a>
+    <a href="02-session-five-skills.html" class="nav-link active">Session 2</a>
+    <a href="03-session-workflow-validation.html" class="nav-link">Session 3</a>
+    <a href="04-session-data-privacy.html" class="nav-link">Session 4</a>
+    <a href="05-session-demo-roadmap.html" class="nav-link">Session 5</a>
+</nav>
+
+</body>
+</html>

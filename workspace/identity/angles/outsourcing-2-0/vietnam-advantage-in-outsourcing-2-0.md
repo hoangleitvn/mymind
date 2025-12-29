@@ -40,7 +40,6 @@ Traditional Vietnam outsourcing: $25/hour, poor quality, communication gaps, rew
 
 Data-driven. Model-focused. Quality+cost balanced.
 
----
 
 ## Related Angles
 

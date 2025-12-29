@@ -60,7 +60,7 @@ If your business can't run a single day without you, that's not success. That's 
   profile: null
   sentiment: "positive"
   content: |
-This hits harder than most founders want to admit. The 80-hour grind is rarely about dedication — it's usually a sign that the entire business is being held together by one person's habits, shortcuts, and firefighting.
+    This hits harder than most founders want to admit. The 80-hour grind is rarely about dedication — it's usually a sign that the entire business is being held together by one person's habits, shortcuts, and firefighting.
   reactions: 5
   insight: "Strong validation, adds 'habits, shortcuts, firefighting' framing"
   replies: []
@@ -70,7 +70,7 @@ This hits harder than most founders want to admit. The 80-hour grind is rarely a
   profile: null
   sentiment: "positive"
   content: |
-Provocative and necessary Erik. You're calling out something many founders secretly know but rarely confront: overwork at the top is often a design failure, not a virtue.
+    Provocative and necessary Erik. You're calling out something many founders secretly know but rarely confront: overwork at the top is often a design failure, not a virtue.
   reactions: 2
   insight: "Frames as 'design failure, not virtue'"
   replies: []
@@ -80,7 +80,7 @@ Provocative and necessary Erik. You're calling out something many founders secre
   profile: null
   sentiment: "question"
   content: |
-What if you just genuinely enjoy your work, and are passionate about the domain?
+    What if you just genuinely enjoy your work, and are passionate about the domain?
   reactions: 1
   insight: "Counter-question about passion vs bottleneck"
   replies: []
@@ -90,7 +90,7 @@ What if you just genuinely enjoy your work, and are passionate about the domain?
   profile: null
   sentiment: "positive"
   content: |
-It starts with mapping out the week and seeing what we do and where we are actually involved. You become the bottleneck so fast and 80hours is a clear sign.
+    It starts with mapping out the week and seeing what we do and where we are actually involved. You become the bottleneck so fast and 80hours is a clear sign.
   reactions: 4
   insight: "Practical validation of mapping approach"
   replies: []
@@ -101,16 +101,17 @@ It starts with mapping out the week and seeing what we do and where we are actua
 ```yaml
 - id: 1733799400000
   type: "comment"
-  status: "draft"
-  sentiment: "positive"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-10T03:17:00Z'
   content: |
-Overworking, can't delegate, teams depending on founder for every answer. These are symptoms, not badges of honor.
+    Overworking, can't delegate, teams depending on founder for every answer. These are symptoms, not badges of honor.
 
-What helped me was building an environment with autonomy plus alignment. Empower teams to make decisions. Your job becomes answering questions when they're stuck, not making every call.
+    What helped me was building an environment with autonomy plus alignment. Empower teams to make decisions. Your job becomes answering questions when they're stuck, not making every call.
 
-This applies to any leadership role, not just CEOs.
+    This applies to any leadership role, not just CEOs.
 
-The flip side is harder though. How do you build a culture where teams actually ask questions instead of waiting silently? Curious what practices have worked for you.
+    The flip side is harder though. How do you build a culture where teams actually ask questions instead of waiting silently? Curious what practices have worked for you.
   strategy: "Founder Persona - Sharing notes tone, connected sentences, genuine question"
 ```
 

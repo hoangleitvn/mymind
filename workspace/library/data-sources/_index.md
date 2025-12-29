@@ -4,7 +4,6 @@
 **Categories:** 3 (Engineering, Product, Finance)
 **Last Updated:** 2025-11-27
 
----
 
 ## Engineering (14 sources)
 
@@ -46,7 +45,6 @@
 | [State of DevEx Report](engineering/state-of-devex-report.md) | Ongoing | Developer experience, productivity |
 | [GitLab DevSecOps Survey](engineering/gitlab-devsecops-survey.md) | Annual | DevSecOps practices, CI/CD adoption |
 
----
 
 ## Product (9 sources)
 
@@ -75,7 +73,6 @@
 | [OpenView SaaS Benchmarks](product/openview-saas-benchmarks.md) | Annual | SaaS growth metrics, ARR benchmarks |
 | [ChartMogul SaaS Metrics](product/chartmogul-saas-metrics.md) | Ongoing | MRR, churn, LTV/CAC ratios |
 
----
 
 ## Finance (12 sources)
 
@@ -111,7 +108,6 @@
 |--------|--------|---------|
 | [a16z Content](finance/a16z-content.md) | Ongoing | Tech trends, startup strategy, market thesis |
 
----
 
 ## Quick Reference by Theme
 
@@ -125,7 +121,6 @@
 | **Founder Mindset** | First Round, a16z, SVB, CB Insights |
 | **Practical Engineering** | DORA, GitLab, JetBrains, GitHub Octoverse |
 
----
 
 ## Quick Reference by Persona
 
@@ -136,7 +131,6 @@
 | **Consultant/Advisor** | McKinsey, BCG, Bain, Forrester, Gartner |
 | **Company (INNOMIZE)** | DORA, SaaStr, OpenView, McKinsey |
 
----
 
 ## Maintenance
 

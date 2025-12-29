@@ -6,24 +6,24 @@ energy: 75
 tags: [naming, branding, architecture]
 ---
 
-# Product Naming Decision: MizeForge vs Mizemind
+# Product Naming Decision: Mizemind vs Mizemind
 
 ## The Question
-Deciding between using **MizeForge** or **Mizemind** as the core platform name.
+Deciding between using **Mizemind** or **Mizemind** as the core platform name.
 
 ## Context
-- **MizeForge** = the brain, the content creation engine
+- **Mizemind** = the brain, the content creation engine
 - **Mizeflow** = visualization layer, spatial canvas for content constellation
 
 ## Considerations
-- MizeForge implies crafting, building, forging ideas into content
+- Mizemind implies crafting, building, forging ideas into content
 - Mizemind suggests thinking, cognition, the mental aspects of content creation
-- The "Mize" prefix creates a product family: Mizeforge, Mizeflow, Mizemind
+- The "Mize" prefix creates a product family: Mizeflow, Mizestack
 
 ## Architecture View
 ```
 Mizemind (?)          - Strategic thinking layer
-    └── MizeForge     - Content creation brain
+    └── Mizemind     - Content creation brain
         └── Mizeflow  - Visual content pipeline
 ```
 
@@ -32,5 +32,4 @@ Mizemind (?)          - Strategic thinking layer
 - Does "mind" suggest AI/intelligence partnership better?
 - Could both coexist with different roles?
 
----
 *Captured for future exploration*

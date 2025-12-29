@@ -21,7 +21,6 @@ In this article, I'll break down the four mental shifts that define engineering 
 
 If you've ever felt stuck despite learning constantly, or wondered why some engineers accelerate while others stagnate, this framework will clarify everything.
 
----
 
 ## Why Mental Shifts Matter More Than Skills
 
@@ -41,7 +40,6 @@ And here's the problem: no one teaches you these mental shifts explicitly. You'r
 
 The cost of staying in the wrong mindset compounds. You become the person who "executes well but isn't ready for the next level." And no one can explain exactly why.
 
----
 
 ## The Four Mental Shifts
 
@@ -64,7 +62,6 @@ They don't wait for perfect instructions. They don't go rogue and build somethin
 
 **Common trap:** Waiting for detailed step-by-step instructions instead of asking clarifying questions. Or assuming too much and building the wrong thing. Both stem from not owning the outcome of your task.
 
----
 
 ### Level 2: Middle → Deliver a Project
 
@@ -85,7 +82,6 @@ When someone asks "where are we on auth?", you have the answer. Not just for you
 
 **Common trap:** Completing your work but not ensuring the project succeeds. Saying "my part is done" when the feature still doesn't work end-to-end. Still thinking in terms of "my tasks" instead of "our project."
 
----
 
 ### Level 3: Senior/Lead → Deliver Standards
 
@@ -108,7 +104,6 @@ You're no longer measured by what you personally ship, but by what the team can 
 
 **Common trap:** Still doing individual contributor work instead of leveraging yourself through others. Being the "hero" who fixes everything instead of building systems that prevent problems. Hoarding knowledge instead of distributing it.
 
----
 
 ### Level 4: Management → Deliver a Team
 
@@ -129,7 +124,6 @@ You think: "How do I build a team that can handle bigger, more complex problems 
 
 **Common trap:** Trying to stay technical by doing IC work instead of focusing on people and systems. Micromanaging because you don't trust the team you built. Optimizing for short-term delivery at the expense of team development.
 
----
 
 ## How to Apply This Framework
 
@@ -171,7 +165,6 @@ Challenge yourself to expand your mental model:
 - You can articulate *why* you do things, not just *how*
 - Opportunities start finding you instead of you chasing them
 
----
 
 ## The Mindset Matters More Than the Title
 
@@ -191,7 +184,6 @@ If you are, you're already growing. The recognition will follow.
 
 If you're not, now you know exactly what to work on. And that clarity is worth more than any vague advice about "being more strategic" or "showing leadership."
 
----
 
 **Where do you see yourself in this framework?** More importantly—where is your *thinking* right now?
 
@@ -204,7 +196,6 @@ Drop a comment and let's discuss. These transitions are rarely easy, but they're
 
 #EngineeringLeadership #CareerGrowth #SoftwareEngineering #TechLeadership #DeveloperGrowth
 
----
 
 **Metadata:**
 - Word count: 1,480 words

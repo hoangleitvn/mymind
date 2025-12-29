@@ -74,6 +74,9 @@ You are presenting it from a rational viewpoint...the issue is the current marke
 ```yaml
 - id: 1733221800000
   type: "comment"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-03T10:15:00Z'
   content: |
     The harder question is "how do you know if your team is ready?"
 
@@ -83,26 +86,21 @@ You are presenting it from a rational viewpoint...the issue is the current marke
 
     AI makes the gap between capable and struggling teams visible faster. That's actually useful, if leadership is willing to see it.
   strategy: "Experience/Expert - adds practical readiness test, reinforces 'know what good looks like' principle"
-  replies:
-    - id: 1733300000000
-      author: "Luke Mason"
-      type: "reply"
-      content: "Hoang Le interesting perspective from the programming angle."
-      sentiment: "positive"
 
 - id: 1733300100000
   type: "reply"
-  in_reply_to: 1733300000000
-  content: |
-The programming angle is just where I see it most clearly, but this applies to anyone working with computers.
-
-AI isn't new. It's been evolving for decades. What's different now is the adoption curve. And the real skill isn't knowing every AI tool out there. It's knowing how to structure your workflow around them: how you validate output, when you use which tool, what you never delegate to AI. Build that system first, then you can scale. Adding new models, new capabilities, without starting over each time.
-
-The teams struggling aren't struggling because they picked the wrong tool. They're struggling because they skipped the workflow design step.
-
-The bigger question is what happens when AI reaches people who don't use computers at all. That's when we'll really see if it's an amplifier or a replacement. But until then, the core truth remains: we're humans because we think and do. AI that removes both isn't augmentation. It's something else entirely.
-  strategy: "Thought leadership - workflow over tools, extends amplifier concept, philosophical anchor"
+  reply_to: 1733221800000
   status: "posted"
+  timestamp: '2025-12-04T08:00:00Z'
+  content: |
+    The programming angle is just where I see it most clearly, but this applies to anyone working with computers.
+
+    AI isn't new. It's been evolving for decades. What's different now is the adoption curve. And the real skill isn't knowing every AI tool out there. It's knowing how to structure your workflow around them: how you validate output, when you use which tool, what you never delegate to AI. Build that system first, then you can scale. Adding new models, new capabilities, without starting over each time.
+
+    The teams struggling aren't struggling because they picked the wrong tool. They're struggling because they skipped the workflow design step.
+
+    The bigger question is what happens when AI reaches people who don't use computers at all. That's when we'll really see if it's an amplifier or a replacement. But until then, the core truth remains: we're humans because we think and do. AI that removes both isn't augmentation. It's something else entirely.
+  strategy: "Thought leadership - workflow over tools, extends amplifier concept, philosophical anchor"
 ```
 
 ## Direct Message

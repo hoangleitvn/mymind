@@ -2,18 +2,18 @@
 id: 20251212-134500
 type: idea
 status: raw
-themes: [mizeforge, product-development, content-strategy]
+themes: [mizemind, product-development, content-strategy]
 tags: [scheduling, planning, skill-idea, content-calendar, dogfooding]
 captured: 2025-12-12T13:45:00+07:00
 ---
 
-# MizeForge Needs a Post Scheduler Skill
+# Mizemind Needs a Post Scheduler Skill
 
 ## Raw Capture
 
 I'm also stuck with planning posts. Don't know what to post today. I have 7 drafts ready but no schedule. I face the same planning problem I coach my team about.
 
-We need a post scheduler skill for MizeForge.
+We need a post scheduler skill for Mizemind.
 
 ## The Problem (Dogfooding)
 
@@ -54,7 +54,7 @@ User: "I posted today's post"
 Skill: Marks as posted, updates calendar, moves to archive
 ```
 
-What is the best workflow, maybe plan for a week or month in advance then schedule the posts (manually is fine, copy/paste is fine. This isn't the top priority we need to solve for MizeForge). What we need is to define a working workflow that help me and users use the system better. Build the system than optimizing the tools.
+What is the best workflow, maybe plan for a week or month in advance then schedule the posts (manually is fine, copy/paste is fine. This isn't the top priority we need to solve for Mizemind). What we need is to define a working workflow that help me and users use the system better. Build the system than optimizing the tools.
 
 Here is am thinking
 1. Of of week - review weekly stat -> analyze performance

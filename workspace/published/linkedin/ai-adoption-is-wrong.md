@@ -28,7 +28,7 @@ Most engineering teams are adopting AI wrong.
 
 They're treating it like a new tool in the toolbox.
 
-It's not. It's a fundamental shift in how we build software.
+It's a fundamental shift in how we build software.
 
 I've implemented AI-assisted development across multiple teams over the past 12 months. Here's what actually works:
 
@@ -76,7 +76,7 @@ What the 5x group did differently:
 - They refactor AI code for clarity
 - They understand before merging
 
-AI adoption isn't a tool decision. It's a workflow and skills decision.
+AI adoption is a workflow and skills decision. Tools follow.
 
 What's your biggest challenge with AI adoption on your team?
 

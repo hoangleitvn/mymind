@@ -9,7 +9,7 @@ author:
 
 post:
   source: "external"
-  url: "https://www.llongerinkedin.com/posts/sahil-sheikh-ds_dont-hire-an-ai-engineer-if-heshe-doesn-activity-7406204177305153536-4XEc"
+  url: "https://www.linkedin.com/posts/sahil-sheikh-ds_dont-hire-an-ai-engineer-if-heshe-doesn-activity-7406204177305153536-4XEc"
   date: '2025-12-16'
   reactions: 169
   comments_count: 10
@@ -26,7 +26,7 @@ post:
 thread_topic: "AI Engineer skill requirements debate"
 topic_tags: [ai-engineering, hiring, ml-fundamentals, genai, career-advice]
 
-engagement_status: "draft"
+engagement_status: "posted"
 response_received: false
 follow_up_needed: false
 follow_up_date: null
@@ -40,11 +40,11 @@ Don't hire an "AI Engineer" if he/she doesn't have a strong ML background…. I 
 
 ```yaml
 - id: 1734567600000
-  author: "João Oliveira"
+  author: "Joao Oliveira"
   profile: null
   sentiment: "negative"
   content: |
-I understand your point, but I completely disagree. AI engineers are essentially software engineers who know how to leverage GenAI to build things, mostly using off-the-shelf tools. Data scientists, for the most part, are not necessarily good software engineers. In fact, the best ones I've worked with are far better at solving complex problems using math and statistics than at building e2ed production systems. That's exactly why ML engineers exist: to bridge the gap between notebooks and production. You're comparing apples and oranges here.
+    I understand your point, but I completely disagree. AI engineers are essentially software engineers who know how to leverage GenAI to build things, mostly using off-the-shelf tools. Data scientists, for the most part, are not necessarily good software engineers. In fact, the best ones I've worked with are far better at solving complex problems using math and statistics than at building e2ed production systems. That's exactly why ML engineers exist: to bridge the gap between notebooks and production. You're comparing apples and oranges here.
   reactions: 13
   insight: "Strong counterpoint - distinguishes AI Engineer (software focus) from Data Scientist (math/stats focus)"
   replies: []
@@ -54,7 +54,7 @@ I understand your point, but I completely disagree. AI engineers are essentially
   profile: null
   sentiment: "neutral"
   content: |
-There's truth here, but I think the failure mode is slightly misidentified. Most GenAI projects don't fail because people lack deep ML theory. They fail because organizations confuse model use with problem ownership. You can have perfect ML foundations and still ship nothing if the work isn't tied to real decisions, constraints, and accountability. That said, you're right about skill debt. Titles inflated by trends always get stress-tested when the cycle turns. The engineers who survive aren't the ones chasing LLM wrappers or clinging to "pure ML," but the ones who understand systems end-to-end: data, incentives, deployment, and when not to use AI at all. It's not GenAI vs classical ML. It's shallow execution vs durable understanding. Trends end. Leverage stays.
+    There's truth here, but I think the failure mode is slightly misidentified. Most GenAI projects don't fail because people lack deep ML theory. They fail because organizations confuse model use with problem ownership. You can have perfect ML foundations and still ship nothing if the work isn't tied to real decisions, constraints, and accountability. That said, you're right about skill debt. Titles inflated by trends always get stress-tested when the cycle turns. The engineers who survive aren't the ones chasing LLM wrappers or clinging to "pure ML," but the ones who understand systems end-to-end: data, incentives, deployment, and when not to use AI at all. It's not GenAI vs classical ML. It's shallow execution vs durable understanding. Trends end. Leverage stays.
   reactions: 1
   insight: "Nuanced take - reframes as execution problem, not skills problem"
   replies: []
@@ -64,7 +64,7 @@ There's truth here, but I think the failure mode is slightly misidentified. Most
   profile: null
   sentiment: "neutral"
   content: |
-"Strong ML background" is a good filter if the role involves training, fine-tuning, modeling choices, metrics, and statistical rigor. But it shouldn't be a blanket rule for every "AI Engineer." In practice, there are two paths: AI Application Engineer (LLM/RAG/agents) and ML Engineer (CV/TS/GNN/classical). The real hiring mistake isn't focusing on "LLM people"; it's hiring without defining the path and measuring success through demos instead of offline evaluations, production KPIs, and drift and quality monitoring.
+    "Strong ML background" is a good filter if the role involves training, fine-tuning, modeling choices, metrics, and statistical rigor. But it shouldn't be a blanket rule for every "AI Engineer." In practice, there are two paths: AI Application Engineer (LLM/RAG/agents) and ML Engineer (CV/TS/GNN/classical). The real hiring mistake isn't focusing on "LLM people"; it's hiring without defining the path and measuring success through demos instead of offline evaluations, production KPIs, and drift and quality monitoring.
   reactions: 2
   insight: "Practical framework - distinguishes AI Application Engineer from ML Engineer"
   replies: []
@@ -75,16 +75,17 @@ There's truth here, but I think the failure mode is slightly misidentified. Most
 ```yaml
 - id: 1734580200000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "neutral"
+  timestamp: '2025-12-19T04:50:00Z'
   content: |
-The 90% failure rate is real. But from shipping 50+ products: projects fail because of product vision, GTM, and unclear success metrics. Not because the team lacked ML PhDs.
+    The 90% failure rate is real. But from shipping 50+ products: projects fail because of product vision, GTM, and unclear success metrics. Not because the team lacked ML PhDs.
 
-We've failed projects with strong teams. 2-3 Masters and PhDs in ML/Data Science. Still failed. Nobody said "the code was bad" or "the team wasn't technical enough." The problems were upstream: unclear problem definition, no production constraints, no ownership.
+    We've failed projects with strong teams. 2-3 Masters and PhDs in ML/Data Science. Still failed. Nobody said "the code was bad" or "the team wasn't technical enough." The problems were upstream: unclear problem definition, no production constraints, no ownership.
 
-We've also shipped successful AI products with engineers who learned ML on the job. The difference? Systems first, model second. Understanding how to build AI-native systems matters more than understanding how transformers work.
+    We've also shipped successful AI products with engineers who learned ML on the job. The difference? Systems first, model second. Understanding how to build AI-native systems matters more than understanding how transformers work.
 
-If you want ML skills, hire ML engineers or data scientists. They'll research and write papers. But they rarely ship to production without help from engineers who understand systems, evaluation, and when NOT to use AI at all.
+    If you want ML skills, hire ML engineers or data scientists. They'll research and write papers. But they rarely ship to production without help from engineers who understand systems, evaluation, and when NOT to use AI at all.
   strategy: "Expert Insight + Personal Experience - Challenges premise with real examples of both failure modes"
 ```
 
@@ -93,4 +94,4 @@ If you want ML skills, hire ML engineers or data scientists. They'll research an
 - Post sparked good debate between ML purists vs engineering pragmatists
 - Aligns with my positioning on pragmatic engineering over theory
 - Good opportunity to add production perspective missing from the discussion
-- João and Donny's comments are well-reasoned counterpoints worth acknowledging
+- Joao and Donny's comments are well-reasoned counterpoints worth acknowledging

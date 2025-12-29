@@ -94,27 +94,27 @@ That burned $180k and still figuring it out part... feels like every entrepreneu
 ```yaml
 - id: 1733148600000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-02T14:50:00Z'
   content: |
-Your wife's advice is gold. "Do everything yourself first" is exactly how you find the friction points before you scale.
+    Your wife's advice is gold. "Do everything yourself first" is exactly how you find the friction points before you scale.
 
-I ran into the same lesson building my engineering consulting company. First two years, I did everything: sales, delivery, hiring, even the invoices. Painful, but I understood every bottleneck before handing it off.
+    I ran into the same lesson building my engineering consulting company. First two years, I did everything: sales, delivery, hiring, even the invoices. Painful, but I understood every bottleneck before handing it off.
 
-The "learning by doing" part hits hard. Reading frameworks is easy. Building the muscle memory to actually execute? That only comes from reps.
+    The "learning by doing" part hits hard. Reading frameworks is easy. Building the muscle memory to actually execute? That only comes from reps.
   strategy: "Personal Experience - Connects founder journey to his core message"
-  replies: []
 
 - id: 1733148700000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "question"
+  timestamp: '2024-12-02T14:52:00Z'
   content: |
-The "no sales calls" policy is counterintuitive and brilliant. Most coaches optimize for conversion rates. You optimized for your time and sanity.
+    The "no sales calls" policy is counterintuitive and brilliant. Most coaches optimize for conversion rates. You optimized for your time and sanity.
 
-Curious: did removing sales calls hurt conversion initially, or did the Notion/Google Doc approach convert better than you expected?
+    Curious: did removing sales calls hurt conversion initially, or did the Notion/Google Doc approach convert better than you expected?
   strategy: "Thoughtful Question - Shows genuine curiosity about his unconventional approach"
-  replies: []
 ```
 
 ## Notes

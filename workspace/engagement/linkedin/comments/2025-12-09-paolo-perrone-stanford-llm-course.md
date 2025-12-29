@@ -11,9 +11,9 @@ post:
   source: "external"
   url: "https://www.linkedin.com/posts/paoloperrone_afshine-amidi-just-sent-me-something-if-activity-7403615052546711552-IXYw"
   date: '2025-12-08'
-  reactions: null
+  reactions: 0
   comments_count: 67
-  reposts: null
+  reposts: 0
   theme: "Free Stanford-level AI education"
   angle: "Democratizing premium technical knowledge"
   key_points:
@@ -57,7 +57,7 @@ Syllabus:
   sentiment: "positive"
   content: |
     Companies deploying AI agents or RAG systems need engineers who understand LoRA, reward modeling and context length trade-offs, not just APIs.
-  reactions: null
+  reactions: 0
   insight: "Validates production knowledge gap"
   replies: []
 
@@ -67,7 +67,7 @@ Syllabus:
   sentiment: "positive"
   content: |
     Foundation knowledge beats keeping up with the latest model hype every single time.
-  reactions: null
+  reactions: 0
   insight: "Aligns with foundation-first philosophy"
   replies: []
 ```
@@ -77,50 +77,37 @@ Syllabus:
 ```yaml
 - id: 1733747000000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2025-12-09T10:00:00Z'
   content: |
     Saw this yesterday. Already saved. The lecture on agentic LLMs and RAG is the one I'm starting with.
   strategy: "Quick value signal - shows action taken, specific interest area"
-  replies:
-    - id: 1733748000000
-      author: "Paolo Perrone"
-      sentiment: "positive"
-      content: |
-        Hoang Smart starting point - the RAG lecture covers what actually breaks in production vs what works in demos. What's the most common RAG failure mode you've hit when shipping products?
-      reactions: null
 
 - id: 1733749000000
   type: "reply"
-  reply_to: 1733748000000
+  reply_to: 1733747000000
   status: "posted"
-  sentiment: "neutral"
+  timestamp: '2025-12-09T10:30:00Z'
   content: |
     Chunking that splits context across boundaries. The answer exists in the docs, but the retrieval pulls half of it from one chunk and misses the other half entirely.
 
     Smaller chunks improve precision but lose context. Larger chunks retrieve more noise. Finding the right balance is more trial and error than science.
   strategy: "Expert Insight - Direct answer with real production experience"
-  replies:
-    - id: 1733750000000
-      author: "Paolo Perrone"
-      sentiment: "question"
-      content: |
-        Hoang Exactly - and most RAG tutorials pretend chunk size is a hyperparameter you tune once. In reality it's domain-specific and breaks differently across document types. Have you found any reliable heuristics for chunk sizing across your 50+ products, or is it still mostly per-project experimentation?
-      reactions: null
 
 - id: 1733751000000
   type: "reply"
-  reply_to: 1733750000000
+  reply_to: 1733749000000
   status: "draft"
-  sentiment: "positive"
+  timestamp: '2025-12-09T11:00:00Z'
   content: |
-Mostly per-project. We've done a few with RAG, some with prompting only.
+    Mostly per-project. We've done a few with RAG, some with prompting only.
 
-Recent example: research paper ingestion. Engineer started with fixed chunk sizes. Results were poor. We switched to section headers, markdown output instead of raw text. For math formulas and tables, different strategy entirely.
+    Recent example: research paper ingestion. Engineer started with fixed chunk sizes. Results were poor. We switched to section headers, markdown output instead of raw text. For math formulas and tables, different strategy entirely.
 
-Still building, still experimenting, still measuring. No silver bullet yet.
+    Still building, still experimenting, still measuring. No silver bullet yet.
 
-One thing I'm exploring: CAG (Cache-Augmented Generation) as alternative to chunking altogether. Have you worked with it?
+    One thing I'm exploring: CAG (Cache-Augmented Generation) as alternative to chunking altogether. Have you worked with it?
   strategy: "Expert Insight - Real project example showing iteration. Flips conversation with CAG question to continue dialogue."
 ```
 

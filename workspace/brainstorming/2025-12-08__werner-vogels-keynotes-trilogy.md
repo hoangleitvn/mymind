@@ -3,7 +3,6 @@
 **Purpose:** Reference for LinkedIn post connecting three years of AWS re:Invent keynotes
 **Date:** 2025-12-08
 
----
 
 ## The Throughline
 
@@ -17,7 +16,6 @@ Werner Vogels' final three keynotes form a coherent philosophy:
 
 **Single thread:** Own your systems. Control complexity. Build with intention.
 
----
 
 ## 2023: The Frugal Architect
 
@@ -53,7 +51,6 @@ Werner didn't mention AI until the second hour. Urged people to remember "old AI
 
 **Website:** [thefrugalarchitect.com](https://thefrugalarchitect.com)
 
----
 
 ## 2024: Simplexity
 
@@ -102,7 +99,6 @@ Simplexity: building complex systems that remain uncluttered despite their compl
 - **Amazon S3:** Originally eventual consistency, transitioned to strong consistency. Transformed limitation into asset.
 - **CloudWatch:** Evolved from simple tool to "mega service." Restructured into modular components with clear APIs.
 
----
 
 ## 2025: The Renaissance Developer (Final Keynote)
 
@@ -161,7 +157,6 @@ AI generates code faster than humans comprehend it, creating dangerous gaps befo
 ### Closing Message
 "Most of what we build, nobody will ever see. The only reason we do this well is our own professional pride in operational excellence. That is what defines the best builders."
 
----
 
 ## Connecting the Three Keynotes
 
@@ -199,7 +194,6 @@ Werner spent 14 years teaching AWS builders:
 
 The tooling keeps changing. These principles don't.
 
----
 
 ## For LinkedIn Post
 

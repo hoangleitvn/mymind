@@ -40,7 +40,6 @@ Most successful companies started with "ugly" tech, refactored after market domi
 
 Direct. Challenging. Reframe technical as strategic. Business-first.
 
----
 
 ## Related Angles
 

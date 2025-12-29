@@ -85,12 +85,10 @@ Spec writing time: 3 weeks → 20 minutes
 Time to working software: 6 weeks → 3 hours
 Accuracy to actual user needs: 60% → 95% (after iteration)
 
----
 
 Question for you: Are you still writing specs that become obsolete before coding starts? Or have you found a better way?
 
 Drop your experience in comments - I'm curious what hybrid approaches are working for different team sizes and contexts.
 
----
 
 #SoftwareDevelopment #AI #EngineeringLeadership #ProductDevelopment #TechLeadership

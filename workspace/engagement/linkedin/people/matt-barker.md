@@ -44,7 +44,7 @@ LinkedIn writing coach with 186K followers. Runs one-person business ($300K/year
 
 ## Why Track
 
-- In content creation space (relevant to MizeForge)
+- In content creation space (relevant to Mizemind)
 - Successful viral content patterns worth studying
 - Transparency model (shares real numbers)
 - Anti-hustle voice resonates

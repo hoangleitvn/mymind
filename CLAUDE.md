@@ -54,3 +54,8 @@ When user requests to "create session log", "record session log", or "save sessi
    - **Pending Tasks**: Remaining work items organized by priority
    - **Recommendation**: Next steps
 4. Keep output concise and scannable
+
+## Critical Rules
+
+1. **No `---` section separators** - Never use `---` as horizontal rule or section divider in markdown files. Use blank lines between sections instead. Exception: YAML frontmatter delimiters at start of file are required.
+2. **Concise sections** - Use clear headers and brief content. Avoid redundant separators.

@@ -1,14 +1,14 @@
 ---
 type: linkedin-person
 created: '2024-12-02'
-last_updated: '2024-12-02'
+last_updated: '2025-12-23'
 
 profile:
   name: "Oshri Cohen"
   linkedin_url: "https://linkedin.com/in/oshricohen"
   headline: null
   location: null
-  followers: 22719
+  followers: 22790
   posts: null
   articles: 9
 
@@ -17,24 +17,29 @@ relationship:
   connection_status: "not_connected"
   priority: "medium"
   first_contact: '2024-12-02'
-  last_interaction: '2024-12-02'
+  last_interaction: '2025-12-23'
 
 themes:
   - ai-coding-tools
   - claude-code
   - cursor
   - developer-productivity
+  - agentic-development
 
 engagements:
   - date: '2024-12-02'
     type: "comment"
     file: "comments/2024-12-02-oshri-cohen-claude-code-vs-cursor.md"
     outcome: "posted"
+  - date: '2025-12-23'
+    type: "comment"
+    file: "comments/2025-12-23-oshri-cohen-agentic-pr-workflow.md"
+    outcome: "draft"
 
-tags: [ai, claude-code, cursor, developer, ai-coding]
+tags: [ai, claude-code, cursor, developer, ai-coding, agentic-development]
 
-next_action: "Monitor for response, potential connection based on shared Claude Code usage"
-next_action_date: null
+next_action: "Post comment on agentic PR workflow post"
+next_action_date: '2025-12-23'
 ---
 
 ## About

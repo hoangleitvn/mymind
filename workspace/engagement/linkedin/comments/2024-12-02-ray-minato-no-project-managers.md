@@ -95,7 +95,6 @@ Our Development Leads manage outcomes.
 
 And that difference is everything.
 
----
 
 ## Notable Comments
 
@@ -116,14 +115,14 @@ Sounds very much like an early startup founder role. Multiple hats, interdiscipl
 ```yaml
 - id: 1733156940000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-02T15:54:00Z'
   content: |
-Same at INNOMIZE. Some projects we run without PM - team owns the outcome and full execution. When we do have PM, they're enablers, not gatekeepers.
+    Same at INNOMIZE. Some projects we run without PM - team owns the outcome and full execution. When we do have PM, they're enablers, not gatekeepers.
 
-This works especially well for early startups and small teams. PM becomes more valuable when you have multiple teams needing alignment and constant timeline coordination.
+    This works especially well for early startups and small teams. PM becomes more valuable when you have multiple teams needing alignment and constant timeline coordination.
   strategy: "Personal Experience - Shares INNOMIZE experience directly, adds nuance about when PM makes sense (scaling/alignment), positions PM as enabler not controller."
-  replies: []
 ```
 
 ## Notes

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 4: Data Privacy & Best Practices | INNOMIZE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #EA322A;
+            --cream: #FFF3E2;
+            --secondary: #4E6E81;
+            --dark: #2E3840;
+            --gray: #7B8187;
+            --gray-light: #A5A9AD;
+            --gray-lighter: #D1D3D5;
+            --white: #FFFFFF;
+            --font-display: 'Bai Jamjuree', system-ui, sans-serif;
+            --font-body: 'Manrope', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--dark); color: var(--white); line-height: 1.6; padding-bottom: 60px; }
+        .slide { min-height: 100vh; padding: 60px 80px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+        .slide::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--primary); }
+        .slide-number { position: absolute; bottom: 30px; right: 40px; font-size: 14px; color: var(--gray); }
+        .logo { position: absolute; top: 30px; left: 40px; font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--primary); }
+        .slide.title { text-align: center; background: linear-gradient(135deg, var(--dark) 0%, #1a2530 100%); }
+        .slide.title h1 { font-family: var(--font-display); font-size: 56px; font-weight: 700; margin-bottom: 16px; line-height: 0.95; }
+        .slide.title .subtitle { font-size: 28px; color: var(--gray-light); margin-bottom: 48px; }
+        .slide.title .meta { font-size: 18px; color: var(--gray); }
+        .slide.title .meta span { margin: 0 16px; }
+        .slide.title .meta .divider { color: var(--primary); }
+        .slide.section { background: var(--primary); text-align: center; }
+        .slide.section::before { background: var(--dark); }
+        .slide.section h2 { font-family: var(--font-display); font-size: 56px; font-weight: 700; margin-bottom: 16px; }
+        .slide.section .section-subtitle { font-size: 24px; color: var(--cream); }
+        .slide h2 { font-family: var(--font-display); font-size: 48px; font-weight: 700; margin-bottom: 40px; line-height: 1.1; }
+        .slide h3 { font-family: var(--font-display); font-size: 24px; font-weight: 600; margin-bottom: 16px; color: var(--primary); }
+        .slide p { font-size: 22px; margin-bottom: 20px; max-width: 900px; color: var(--gray-lighter); }
+        .slide ul { font-size: 22px; margin-left: 32px; margin-bottom: 24px; }
+        .slide ul li { margin-bottom: 14px; color: var(--gray-lighter); }
+        .highlight { color: var(--primary); font-weight: 600; }
+        .success { color: #4ade80; }
+        .warning { color: #fbbf24; }
+        .danger { color: #ef4444; }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 20px; }
+        .column h3 { font-size: 22px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--secondary); }
+        .column ul { font-size: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 18px; }
+        th, td { padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--secondary); }
+        th { background: var(--secondary); font-weight: 600; font-family: var(--font-display); }
+        .quote { font-size: 28px; font-style: italic; padding: 32px; border-left: 4px solid var(--primary); background: rgba(234, 50, 42, 0.1); margin: 24px 0; }
+        .takeaway { background: rgba(78, 110, 129, 0.2); border: 1px solid var(--secondary); border-radius: 12px; padding: 20px; margin: 16px 0; }
+        .takeaway h4 { color: var(--primary); font-family: var(--font-display); font-size: 16px; margin-bottom: 8px; }
+        .takeaway p { font-size: 18px; margin: 0; color: var(--white); }
+        .danger-box { background: rgba(239, 68, 68, 0.1); border: 2px solid #ef4444; border-radius: 12px; padding: 24px; margin: 20px 0; }
+        .danger-box h4 { color: #ef4444; font-family: var(--font-display); font-size: 20px; margin-bottom: 12px; }
+        .danger-box ul { margin: 0; font-size: 18px; }
+        .danger-box li { color: var(--gray-lighter); margin-bottom: 8px; }
+        .safe-box { background: rgba(74, 222, 128, 0.1); border: 2px solid #4ade80; border-radius: 12px; padding: 24px; margin: 20px 0; }
+        .safe-box h4 { color: #4ade80; font-family: var(--font-display); font-size: 20px; margin-bottom: 12px; }
+        .safe-box ul { margin: 0; font-size: 18px; }
+        .safe-box li { color: var(--gray-lighter); margin-bottom: 8px; }
+        .nav-footer { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(46, 56, 64, 0.98); border-top: 1px solid var(--secondary); padding: 12px 40px; display: flex; justify-content: center; gap: 12px; z-index: 100; }
+        .nav-link { color: var(--gray-light); text-decoration: none; font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 6px; transition: all 0.2s; }
+        .nav-link:hover { background: var(--secondary); color: var(--white); }
+        .nav-link.active { background: var(--primary); color: var(--white); }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide title">
+    <div class="logo">INNOMIZE</div>
+    <h1>Data Privacy &<br>Best Practices</h1>
+    <p class="subtitle">What data never enters AI, and practical guidelines</p>
+    <p class="meta">
+        <span>Session 4 of 5</span>
+        <span class="divider">|</span>
+        <span>45 minutes</span>
+    </p>
+    <div class="slide-number">1</div>
+</div>
+
+<!-- Slide 2: How AI Handles Data -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>How AI Tools Handle Data</h2>
+
+    <p>What happens when you paste data into AI?</p>
+
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Data Handling</th>
+            <th>Risk Level</th>
+        </tr>
+        <tr>
+            <td><strong>Cloud AI</strong><br><span style="font-size: 14px; color: var(--gray);">ChatGPT, Gemini, Claude web</span></td>
+            <td>Sent to external servers, may be used for training, stored temporarily or permanently</td>
+            <td><span class="warning">Medium-High</span></td>
+        </tr>
+        <tr>
+            <td><strong>Enterprise/API</strong><br><span style="font-size: 14px; color: var(--gray);">Paid plans, API access</span></td>
+            <td>Usually not used for training, better data controls, still leaves your network</td>
+            <td><span class="warning">Medium</span></td>
+        </tr>
+        <tr>
+            <td><strong>Local AI</strong><br><span style="font-size: 14px; color: var(--gray);">Ollama, local models</span></td>
+            <td>Runs on your computer, data stays local, limited capability</td>
+            <td><span class="success">Low</span></td>
+        </tr>
+    </table>
+
+    <div class="slide-number">2</div>
+</div>
+
+<!-- Slide 3: Key Point -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>The Key Point</h2>
+
+    <div class="quote">
+        Assume anything you paste into AI could be seen by others.
+    </div>
+
+    <p>Even with "privacy settings" and "enterprise plans":</p>
+    <ul>
+        <li>Data leaves your computer</li>
+        <li>Data is processed on external servers</li>
+        <li>Policies can change</li>
+        <li>Breaches happen</li>
+    </ul>
+
+    <div class="takeaway">
+        <h4>Simple Rule</h4>
+        <p>If you wouldn't email it to a stranger, don't paste it into AI.</p>
+    </div>
+
+    <div class="slide-number">3</div>
+</div>
+
+<!-- Slide 4: What Never Enters AI -->
+<div class="slide section">
+    <div class="logo" style="color: var(--dark);">INNOMIZE</div>
+    <h2>What Never Enters AI</h2>
+    <p class="section-subtitle">Absolute boundaries</p>
+    <div class="slide-number" style="color: var(--cream);">4</div>
+</div>
+
+<!-- Slide 5: Absolute Boundaries -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Absolute Boundaries</h2>
+
+    <div class="danger-box">
+        <h4>Never paste into AI:</h4>
+        <ul>
+            <li><strong>Client data:</strong> Source code, credentials, API keys, database contents</li>
+            <li><strong>Personal data:</strong> Employee records, salaries, health info, ID numbers</li>
+            <li><strong>Financial data:</strong> Bank accounts, specific transactions, financial reports</li>
+            <li><strong>Confidential:</strong> NDAs, contracts, strategic plans, pricing</li>
+            <li><strong>Credentials:</strong> Passwords, tokens, access keys</li>
+        </ul>
+    </div>
+
+    <p style="margin-top: 24px;">These are <span class="danger">non-negotiable</span>. No exceptions.</p>
+
+    <div class="slide-number">5</div>
+</div>
+
+<!-- Slide 6: HR/Admin Guidelines -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>For HR & Admin</h2>
+
+    <div class="two-column">
+        <div>
+            <div class="danger-box">
+                <h4>Never Enter</h4>
+                <ul>
+                    <li>Employee personal information</li>
+                    <li>Salary or compensation data</li>
+                    <li>Performance reviews with names</li>
+                    <li>Health or leave records</li>
+                    <li>ID numbers, addresses</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class="safe-box">
+                <h4>Safe to Use</h4>
+                <ul>
+                    <li>Generic templates</li>
+                    <li>Policy format questions</li>
+                    <li>Anonymized scenarios</li>
+                    <li>General HR practices</li>
+                    <li>Document formatting</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-number">6</div>
+</div>
+
+<!-- Slide 7: Finance Guidelines -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>For Finance</h2>
+
+    <div class="two-column">
+        <div>
+            <div class="danger-box">
+                <h4>Never Enter</h4>
+                <ul>
+                    <li>Bank account numbers</li>
+                    <li>Specific transaction data</li>
+                    <li>Client financial details</li>
+                    <li>Internal reports with real numbers</li>
+                    <li>Tax filings, audit data</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class="safe-box">
+                <h4>Safe to Use</h4>
+                <ul>
+                    <li>Formula explanations</li>
+                    <li>Report structure templates</li>
+                    <li>Generic analysis methods</li>
+                    <li>Formatting questions</li>
+                    <li>Concept explanations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-number">7</div>
+</div>
+
+<!-- Slide 8: IT Guidelines -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>For IT</h2>
+
+    <div class="two-column">
+        <div>
+            <div class="danger-box">
+                <h4>Never Enter</h4>
+                <ul>
+                    <li>Client source code (without permission)</li>
+                    <li>Credentials or secrets</li>
+                    <li>Production data</li>
+                    <li>Security configurations</li>
+                    <li>Internal system details</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class="safe-box">
+                <h4>Safe to Use</h4>
+                <ul>
+                    <li>Generic code questions</li>
+                    <li>Public documentation queries</li>
+                    <li>Framework/library questions</li>
+                    <li>Algorithm explanations</li>
+                    <li>Best practice questions</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="takeaway">
+        <h4>Check First</h4>
+        <p>Check client contract for AI usage permissions before using AI on client projects.</p>
+    </div>
+
+    <div class="slide-number">8</div>
+</div>
+
+<!-- Slide 9: Safe Alternatives -->
+<div class="slide section">
+    <div class="logo" style="color: var(--dark);">INNOMIZE</div>
+    <h2>Safe Alternatives</h2>
+    <p class="section-subtitle">What to do instead</p>
+    <div class="slide-number" style="color: var(--cream);">9</div>
+</div>
+
+<!-- Slide 10: Anonymization -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Safe Alternatives</h2>
+
+    <div class="two-column">
+        <div class="column">
+            <h3>Anonymization</h3>
+            <ul style="font-size: 18px;">
+                <li>Replace names with "Employee A", "Client B"</li>
+                <li>Replace specific numbers with ranges</li>
+                <li>Remove identifying details</li>
+                <li>Use percentages instead of actuals</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Ask for Patterns</h3>
+            <ul style="font-size: 18px;">
+                <li>Instead of pasting data: "How do I analyze employee turnover?"</li>
+                <li>Instead of pasting code: "How do I implement authentication in Node.js?"</li>
+                <li>Ask about methods, not specific data</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="takeaway" style="margin-top: 24px;">
+        <h4>The Pattern</h4>
+        <p>Use AI for the HOW. Add your real data manually afterward.</p>
+    </div>
+
+    <div class="slide-number">10</div>
+</div>
+
+<!-- Slide 11: Quick Decision Guide -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Quick Decision Guide</h2>
+
+    <p>Before pasting anything into AI, ask:</p>
+
+    <ul>
+        <li>Would I be comfortable if this appeared on a public website? <span class="success">→ OK</span></li>
+        <li>Does this contain anyone's personal information? <span class="danger">→ DON'T</span></li>
+        <li>Is this client data or code? <span class="danger">→ DON'T (unless explicit permission)</span></li>
+        <li>Could this harm the company if leaked? <span class="danger">→ DON'T</span></li>
+        <li>Can I anonymize this first? <span class="success">→ Anonymize, then OK</span></li>
+    </ul>
+
+    <div class="quote">
+        When in doubt, don't paste.
+    </div>
+
+    <div class="slide-number">11</div>
+</div>
+
+<!-- Slide 12: Key Takeaways -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Key Takeaways</h2>
+
+    <div class="takeaway">
+        <h4>1. Assume AI data is not private</h4>
+        <p>Anything you paste could potentially be seen by others.</p>
+    </div>
+
+    <div class="takeaway">
+        <h4>2. Know your absolute boundaries</h4>
+        <p>Personal data, credentials, client data, financials — never enter these.</p>
+    </div>
+
+    <div class="takeaway">
+        <h4>3. Anonymize or use patterns</h4>
+        <p>Ask AI for methods and templates. Add real data manually.</p>
+    </div>
+
+    <div class="takeaway">
+        <h4>4. When in doubt, don't paste</h4>
+        <p>It's better to do something manually than to risk a data breach.</p>
+    </div>
+
+    <div class="slide-number">12</div>
+</div>
+
+<!-- Slide 13: Next Session -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Next Session</h2>
+
+    <h3 style="font-size: 32px; margin-bottom: 24px; color: var(--white);">Session 5: Demo & Roadmap</h3>
+
+    <p>We'll cover:</p>
+
+    <ul style="font-size: 24px;">
+        <li>Live demo of AI workflow in action</li>
+        <li>INNOMIZE adoption roadmap</li>
+        <li>Personal commitment planning</li>
+        <li>Q&A from all sessions</li>
+    </ul>
+
+    <p style="margin-top: 32px; color: var(--gray);">Same time next week.</p>
+
+    <div class="slide-number">13</div>
+</div>
+
+<!-- Slide 14: Thank You -->
+<div class="slide title">
+    <div class="logo">INNOMIZE</div>
+    <h1>Questions?</h1>
+    <p class="subtitle">Thank you for your attention</p>
+    <p class="meta">
+        <span>Session 4: Data Privacy & Best Practices</span>
+    </p>
+    <div class="slide-number">14</div>
+</div>
+
+<!-- Navigation Footer -->
+<nav class="nav-footer">
+    <a href="00-workshop-introduction.html" class="nav-link">Intro</a>
+    <a href="01-session-ai-foundations.html" class="nav-link">Session 1</a>
+    <a href="02-session-five-skills.html" class="nav-link">Session 2</a>
+    <a href="03-session-workflow-validation.html" class="nav-link">Session 3</a>
+    <a href="04-session-data-privacy.html" class="nav-link active">Session 4</a>
+    <a href="05-session-demo-roadmap.html" class="nav-link">Session 5</a>
+</nav>
+
+</body>
+</html>

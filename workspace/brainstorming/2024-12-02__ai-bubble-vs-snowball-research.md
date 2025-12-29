@@ -4,7 +4,6 @@
 **Topic:** AI market speculation and vibe coding risks
 **Purpose:** Research notes + LinkedIn post draft
 
----
 
 ## Part 1: Terminology Clarification
 
@@ -30,7 +29,6 @@
 
 **Source:** [Wikipedia - Economic Bubble](https://en.wikipedia.org/wiki/Economic_bubble), [CFP Glossary](https://www.cfp.pt/en/glossary/snowball-effect)
 
----
 
 ## Part 2: The AI Bubble Debate (2025)
 
@@ -84,7 +82,6 @@
 - [CNBC - Michael Burry Analysis](https://www.cnbc.com/2025/11/25/michael-burrys-next-big-short-an-inside-look-at-his-analysis-showing-ai-is-a-bubble.html)
 - [Yale Insights - How AI Bubble Bursts](https://insights.som.yale.edu/insights/this-is-how-the-ai-bubble-bursts)
 
----
 
 ## Part 3: Vibe Coding - The Real Snowball Problem
 
@@ -147,7 +144,6 @@
 - [arXiv - Vibe Coding in Practice](https://arxiv.org/html/2510.00328v1)
 - [The New Stack - Problems with Vibe Coding](https://thenewstack.io/ai-contrarians-on-the-problems-with-vibe-coding/)
 
----
 
 ## Part 4: Key Insight for Post
 
@@ -163,7 +159,6 @@ AI investment might be a **bubble** (market speculation that could pop), but vib
 - Produces code that *looks* professional but lacks architectural integrity
 - The snowball isn't the tool itself—it's the accumulating mess when used without discipline
 
----
 
 ## Part 5: LinkedIn Post Draft
 
@@ -200,7 +195,6 @@ The snowball keeps rolling and crushes codebases.
 
 Which one should we worry about more?
 
----
 
 ### Option B: More Detailed Version
 
@@ -245,7 +239,6 @@ One corrects itself. The other keeps rolling.
 
 Which should we worry about?
 
----
 
 ## Part 6: Visual Assets
 
@@ -268,7 +261,6 @@ Two animated GIFs created for this post:
 - HTML animation: `assets/linkedin-covers/ai-bubble-vs-snowball-animated.html`
 - Frame capture script: `assets/linkedin-covers/capture-frames.js`
 
----
 
 ## Part 7: Final Draft Posts
 
@@ -304,7 +296,6 @@ The snowball keeps rolling and crushes codebases.
 
 Which one should we worry about more?
 
----
 
 ### Version B: Square Format (1:1 Visual)
 
@@ -344,7 +335,6 @@ The snowball crushes codebases.
 
 One corrects itself. The other keeps rolling.
 
----
 
 ## Notes for Publishing
 

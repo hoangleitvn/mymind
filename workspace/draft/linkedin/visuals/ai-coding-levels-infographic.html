@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6 Levels of AI Coding - Infographic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #e5e7eb;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1080px;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+
+    .page-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 4px;
+    }
+
+    .page-subtitle {
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    .export-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: #00a86b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .export-btn:hover {
+      background: #059669;
+    }
+
+    .export-btn:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+
+    /* LinkedIn Square: 1080 x 1080 px */
+    .infographic-container {
+      width: 1080px;
+      height: 1080px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .infographic {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      position: relative;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Subtle background pattern */
+    .infographic::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(circle at 0% 100%, rgba(0, 168, 107, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 100% 0%, rgba(245, 158, 11, 0.05) 0%, transparent 30%);
+      pointer-events: none;
+    }
+
+    /* Header */
+    .header {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .header-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(0, 168, 107, 0.15);
+      border: 1px solid rgba(0, 168, 107, 0.3);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #00a86b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #f9fafb;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .header h1 .highlight {
+      color: #00a86b;
+    }
+
+    .header .subtitle {
+      font-size: 18px;
+      color: #9ca3af;
+    }
+
+    .header .subtitle .stuck {
+      color: #f59e0b;
+      font-weight: 600;
+    }
+
+    /* Main Content */
+    .main-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex: 1;
+      gap: 40px;
+    }
+
+    /* Levels Column */
+    .levels-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .level-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 20px;
+      background: rgba(55, 65, 81, 0.5);
+      border-radius: 12px;
+      border: 1px solid rgba(75, 85, 99, 0.5);
+      transition: all 0.2s;
+    }
+
+    .level-row.stuck {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+
+    .level-row.mindset-shift {
+      background: rgba(0, 168, 107, 0.15);
+      border-color: rgba(0, 168, 107, 0.4);
+    }
+
+    .level-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .level-row:nth-child(1) .level-number { background: #6b7280; }
+    .level-row:nth-child(2) .level-number { background: #4b5563; }
+    .level-row.stuck .level-number { background: #f59e0b; }
+    .level-row:nth-child(4) .level-number { background: #374151; }
+    .level-row.mindset-shift .level-number { background: #00a86b; }
+    .level-row:nth-child(6) .level-number { background: #059669; }
+
+    .level-info {
+      flex: 1;
+    }
+
+    .level-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #f9fafb;
+      margin-bottom: 4px;
+    }
+
+    .level-desc {
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.4;
+    }
+
+    .level-row.stuck .level-desc {
+      color: #fcd34d;
+    }
+
+    .level-row.mindset-shift .level-desc {
+      color: #6ee7b7;
+    }
+
+    .level-tag {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tag-stuck {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fcd34d;
+    }
+
+    .tag-leap {
+      background: rgba(0, 168, 107, 0.2);
+      color: #6ee7b7;
+    }
+
+    /* The Gap Indicator */
+    .gap-indicator {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      margin: 4px 0;
+    }
+
+    .gap-line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #f59e0b, #00a86b, transparent);
+    }
+
+    .gap-text {
+      font-size: 11px;
+      font-weight: 600;
+      color: #f59e0b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    /* Insight Column */
+    .insight-column {
+      width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .insight-card {
+      padding: 24px;
+      background: rgba(55, 65, 81, 0.6);
+      border-radius: 16px;
+      border: 1px solid rgba(75, 85, 99, 0.5);
+    }
+
+    .insight-card.key-insight {
+      background: linear-gradient(135deg, rgba(0, 168, 107, 0.15) 0%, rgba(6, 95, 70, 0.2) 100%);
+      border-color: rgba(0, 168, 107, 0.3);
+    }
+
+    .insight-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #00a86b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .insight-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #f9fafb;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .insight-text {
+      font-size: 14px;
+      color: #9ca3af;
+      line-height: 1.6;
+    }
+
+    .insight-text strong {
+      color: #f9fafb;
+    }
+
+    /* Comparison Box */
+    .comparison-box {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .compare-item {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .compare-old {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .compare-new {
+      background: rgba(0, 168, 107, 0.1);
+      border: 1px solid rgba(0, 168, 107, 0.3);
+    }
+
+    .compare-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .compare-old .compare-label { color: #fca5a5; }
+    .compare-new .compare-label { color: #6ee7b7; }
+
+    .compare-value {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .compare-old .compare-value { color: #fca5a5; }
+    .compare-new .compare-value { color: #6ee7b7; }
+
+    /* Stats Box */
+    .stats-box {
+      padding: 20px;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 12px;
+    }
+
+    .stats-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: #fcd34d;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .stat-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .stat-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .stat-icon {
+      font-size: 14px;
+    }
+
+    .stat-text {
+      font-size: 13px;
+      color: #d1d5db;
+    }
+
+    .stat-text strong {
+      color: #fcd34d;
+    }
+
+    /* Footer */
+    .footer {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(75, 85, 99, 0.5);
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #00a86b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+      border: 2px solid rgba(0, 168, 107, 0.3);
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .author-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .author-handle {
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: #00a86b;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .cta-icon {
+      font-size: 14px;
+    }
+
+    /* Instructions panel */
+    .instructions {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      max-width: 1080px;
+      width: 100%;
+    }
+
+    .instructions h2 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 12px;
+    }
+
+    .instructions ul {
+      list-style: none;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .instructions li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .instructions li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #00a86b;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">6 Levels of AI Coding - Infographic</h1>
+      <p class="page-subtitle">LinkedIn Square: 1080 x 1080px</p>
+    </div>
+    <button class="export-btn" onclick="exportToPNG()">
+      <span class="export-icon">↓</span>
+      Export to PNG
+    </button>
+  </div>
+
+  <div class="infographic-container">
+    <div class="infographic">
+
+      <!-- Header -->
+      <div class="header">
+        <div class="header-badge">AI Coding</div>
+        <h1><span class="highlight">6</span> Levels of AI Coding</h1>
+        <p class="subtitle">Most engineers are <span class="stuck">stuck at Level 2</span></p>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+
+        <!-- Levels Column -->
+        <div class="levels-column">
+
+          <div class="level-row">
+            <div class="level-number">0</div>
+            <div class="level-info">
+              <div class="level-title">"AI writes bad code"</div>
+              <div class="level-desc">You judge AI by whether it writes code YOU would write.</div>
+            </div>
+          </div>
+
+          <div class="level-row">
+            <div class="level-number">1</div>
+            <div class="level-info">
+              <div class="level-title">"AI assists my coding"</div>
+              <div class="level-desc">You write. AI autocompletes. You're still the brain.</div>
+            </div>
+          </div>
+
+          <div class="level-row stuck">
+            <div class="level-number">2</div>
+            <div class="level-info">
+              <div class="level-title">"AI writes code I review"</div>
+              <div class="level-desc">Prompt. Generate. Fix. Repeat. Most teams live here.</div>
+            </div>
+            <span class="level-tag tag-stuck">Most Here</span>
+          </div>
+
+          <div class="level-row">
+            <div class="level-number">3</div>
+            <div class="level-info">
+              <div class="level-title">"AI follows my instructions"</div>
+              <div class="level-desc">You specify HOW. Step-by-step scaffolding. Guardrails everywhere.</div>
+            </div>
+          </div>
+
+          <!-- The Gap -->
+          <div class="gap-indicator">
+            <div class="gap-line"></div>
+            <span class="gap-text">Hardest Jump</span>
+            <div class="gap-line"></div>
+          </div>
+
+          <div class="level-row mindset-shift">
+            <div class="level-number">4</div>
+            <div class="level-info">
+              <div class="level-title">"AI solves my problem"</div>
+              <div class="level-desc">You specify WHAT and WHY. AI figures out HOW.</div>
+            </div>
+            <span class="level-tag tag-leap">Mindset Shift</span>
+          </div>
+
+          <div class="level-row">
+            <div class="level-number">5</div>
+            <div class="level-info">
+              <div class="level-title">"AI reasons about the system"</div>
+              <div class="level-desc">You give context and constraints. AI makes decisions.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Insight Column -->
+        <div class="insight-column">
+
+          <div class="insight-card key-insight">
+            <div class="insight-label">Key Insight</div>
+            <div class="insight-title">Stop Writing HOW.<br/>Start Writing WHAT + WHY.</div>
+            <div class="insight-text">
+              <strong>Generative AI</strong> needs HOW.<br/>
+              <strong>Reasoning AI</strong> needs WHAT and WHY.
+            </div>
+            <div class="comparison-box">
+              <div class="compare-item compare-old">
+                <div class="compare-label">Level 3</div>
+                <div class="compare-value">HOW</div>
+              </div>
+              <div class="compare-item compare-new">
+                <div class="compare-label">Level 4+</div>
+                <div class="compare-value">WHAT + WHY</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats-box">
+            <div class="stats-title">Vercel's Results (After Shift)</div>
+            <div class="stat-row">
+              <span class="stat-icon">📉</span>
+              <span class="stat-text">Deleted <strong>80%</strong> of agent code</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-icon">✓</span>
+              <span class="stat-text">Success rate: 80% → <strong>100%</strong></span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-icon">⚡</span>
+              <span class="stat-text">Speed: <strong>3.5x faster</strong></span>
+            </div>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-label">The Real Barrier</div>
+            <div class="insight-text">
+              Most teams have the <strong>tooling</strong> for Level 4.<br/>
+              They don't have the <strong>mindset</strong>.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="author">
+          <div class="author-avatar">HL</div>
+          <div class="author-info">
+            <span class="author-name">Hoang Le</span>
+            <span class="author-handle">@hoangleitvn</span>
+          </div>
+        </div>
+        <div class="cta">
+          <span>Follow for more</span>
+          <span class="cta-icon">→</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="instructions">
+    <h2>Export Instructions</h2>
+    <ul>
+      <li>Click "Export to PNG" to download as 2x resolution (2160x2160px)</li>
+      <li>For LinkedIn, the 1080x1080 square format is optimal for feed visibility</li>
+      <li>The dark theme provides high contrast and stops the scroll</li>
+      <li>Key visual elements: Level 2 highlighted in amber, Level 4 highlighted in green</li>
+    </ul>
+  </div>
+
+  <!-- html2canvas library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <script>
+    async function exportToPNG() {
+      const btn = document.querySelector('.export-btn');
+      const originalText = btn.innerHTML;
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="export-icon">⏳</span> Exporting...';
+
+      try {
+        const element = document.querySelector('.infographic-container');
+        await document.fonts.ready;
+
+        const canvas = await html2canvas(element, {
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: '#1f2937',
+          logging: false,
+          imageTimeout: 0,
+          onclone: function(clonedDoc) {
+            const clonedElement = clonedDoc.querySelector('.infographic-container');
+            clonedElement.style.width = '1080px';
+            clonedElement.style.height = '1080px';
+            clonedElement.style.borderRadius = '0';
+            clonedElement.style.boxShadow = 'none';
+          }
+        });
+
+        const link = document.createElement('a');
+        link.download = 'ai-coding-levels-infographic-2x.png';
+        link.href = canvas.toDataURL('image/png', 1.0);
+        link.click();
+
+        btn.innerHTML = '<span class="export-icon">✓</span> Exported!';
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.innerHTML = originalText;
+        }, 2000);
+
+      } catch (error) {
+        console.error('Export failed:', error);
+        btn.innerHTML = '<span class="export-icon">✕</span> Failed';
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.innerHTML = originalText;
+        }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>

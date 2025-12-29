@@ -8,7 +8,6 @@ INNOMIZE imagery follows a cohesive visual language that emphasizes:
 - **Warmth through red tones** - Distinctive brand color application
 - **Professionalism** - Clean, organized, purposeful
 
----
 
 ## Illustration Style
 
@@ -48,7 +47,6 @@ When adapting illustrations from external sources:
 3. Simplify if overly detailed
 4. Ensure clean lines and shapes
 
----
 
 ## Photography Style
 
@@ -91,7 +89,6 @@ For the signature INNOMIZE photo treatment:
 | Quality | Sharp, well-lit, professional |
 | Background | Clean, uncluttered |
 
----
 
 ## Pattern
 
@@ -133,7 +130,6 @@ The pattern uses two alternating shapes:
 | Header/footer bands | 20-30% | Contained areas without text overlap |
 | Pure decorative (no text) | 40-60% | Only in image-focused areas |
 
----
 
 ### Pattern Placement Strategies
 
@@ -230,7 +226,6 @@ Skip pattern entirely. Use other brand elements for recognition.
 - Brand gradient in header section only
 - Logo placement for recognition
 
----
 
 ### Pattern Strategy Selection Guide
 
@@ -247,7 +242,6 @@ Skip pattern entirely. Use other brand elements for recognition.
 | Forms/Applications | No Pattern | Functional, distraction-free |
 | Team/Company intro | Edge Accent or Bands | Professional with brand identity |
 
----
 
 ### Pattern Usage Rules
 
@@ -269,7 +263,6 @@ Skip pattern entirely. Use other brand elements for recognition.
 - Stretch or distort the pattern
 - Mix with other patterns
 
----
 
 ## Iconography
 
@@ -314,7 +307,6 @@ INNOMIZE uses free, open-source icon sets licensed under MIT:
 | LG | 32px | Feature icons |
 | XL | 48px | Hero sections |
 
----
 
 ## Social Media Specifications
 
@@ -334,7 +326,6 @@ INNOMIZE uses free, open-source icon sets licensed under MIT:
 - Pattern as decorative element
 - Clear hierarchy: headline, supporting text, illustration
 
----
 
 ## Asset Inventory
 
@@ -349,7 +340,6 @@ INNOMIZE uses free, open-source icon sets licensed under MIT:
 
 See `logo.md` for complete logo asset inventory.
 
----
 
 ## Usage Notes
 

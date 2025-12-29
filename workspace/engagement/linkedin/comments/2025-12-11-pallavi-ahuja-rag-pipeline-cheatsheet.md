@@ -14,8 +14,6 @@ post:
   reactions: 60
   comments_count: 9
   reposts: 0
-  has_infographic: true
-  infographic_title: "How to Build a Vector RAG? - 9 Steps"
   theme: "RAG pipeline architecture"
   angle: "practical production cheatsheet"
   key_points:
@@ -25,32 +23,16 @@ post:
     - Learned from trial-and-error in production
   hashtags: []
 
-notable_comments:
-  - author: "Sai Dasari"
-    content: "Really like how you organized this. Most people talk about embeddings and retrieval but forget orchestration and observability — glad to see them included."
-    reactions: 1
-  - author: "Vineeth Vijayaraghavan"
-    content: "This is a really comprehensive breakdown of the RAG pipeline. It's good to distill such a process into these actionable steps."
-    reactions: 1
+thread_topic: "Production RAG pipeline architecture"
+topic_tags: [rag, ai-engineering, production, llm, langchain]
 
-our_engagement:
-  - id: 1
-    type: "comment"
-    reply_to: null
-    status: "draft"
-    timestamp: '2025-12-11T05:01:00Z'
-    content: |
-Solid checklist for anyone moving from prototype to production.
-
-One thing I'd add: build the system first, select/evaluate models second. Too many teams start with "which LLM should we use?" before they have retrieval working.
-
-The pipeline matters more than the model.
-    strategy: "Expert Insight - Adds sequencing principle (system before model selection)"
-
-engagement_status: "draft"
+engagement_status: "posted"
+response_received: false
+follow_up_needed: false
+follow_up_date: null
 ---
 
-## Post Content
+## Original Post
 
 This is the 9-step production RAG cheat sheet I wish I had a year ago. I learned this by trial and error. You can get it in 2 minutes. Here is the full pipeline, from data to answer:
 
@@ -63,3 +45,50 @@ This is the 9-step production RAG cheat sheet I wish I had a year ago. I learned
 7. Generate - Feed the context to your LLM (GPT-4o, Llama 3, Claude 3).
 8. Observe - Log everything: cost, latency, and prompts (Langfuse, Arize AI).
 9. Evaluate - Test outputs for relevance & faithfulness. (A/B testing, Human Feedback).
+
+## Notable Comments
+
+```yaml
+- id: 1733900400001
+  author: "Sai Dasari"
+  profile: null
+  sentiment: "positive"
+  content: |
+    Really like how you organized this. Most people talk about embeddings and retrieval but forget orchestration and observability — glad to see them included.
+  reactions: 1
+  insight: "Acknowledges often-overlooked steps"
+  replies: []
+
+- id: 1733900400002
+  author: "Vineeth Vijayaraghavan"
+  profile: null
+  sentiment: "positive"
+  content: |
+    This is a really comprehensive breakdown of the RAG pipeline. It's good to distill such a process into these actionable steps.
+  reactions: 1
+  insight: "Appreciates actionable breakdown"
+  replies: []
+```
+
+## Our Engagement
+
+```yaml
+- id: 1733900460000
+  type: "comment"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-11T05:01:00Z'
+  content: |
+    Solid checklist for anyone moving from prototype to production.
+
+    One thing I'd add: build the system first, select/evaluate models second. Too many teams start with "which LLM should we use?" before they have retrieval working.
+
+    The pipeline matters more than the model.
+  strategy: "Expert Insight - Adds sequencing principle (system before model selection)"
+```
+
+## Notes
+
+- Has infographic with 9-step workflow
+- Practical tool recommendations at each stage
+- Good for AI engineering positioning

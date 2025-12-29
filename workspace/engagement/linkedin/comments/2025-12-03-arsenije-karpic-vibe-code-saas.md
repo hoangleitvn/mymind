@@ -39,7 +39,6 @@ I see this one everywhere in my feed.
 
 My take is that if you have time to vibe code an internal tool you can pay 10-30$ / user / month, you are not focusing on the right things.
 
----
 
 ## Notable Comments
 
@@ -70,16 +69,16 @@ The game is changing. And that will come with lessons on both sides of the wall.
 ```yaml
 - id: 1733270760000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2025-12-03T02:24:00Z'
   content: |
-The math gets worse when you count maintenance. That $24K build becomes $24K + ongoing bugs + security patches + "why did it break" debugging sessions.
+    The math gets worse when you count maintenance. That $24K build becomes $24K + ongoing bugs + security patches + "why did it break" debugging sessions.
 
-SaaS tools externalize that liability. The vibe-coded version makes it your problem forever.
+    SaaS tools externalize that liability. The vibe-coded version makes it your problem forever.
 
-Build what differentiates your product. Buy everything else.
+    Build what differentiates your product. Buy everything else.
   strategy: "Experience + Extension - Extends his point with the hidden costs (maintenance, liability), ties to 'code is liability' theme, ends with clear principle."
-  replies: []
 ```
 
 ## Notes

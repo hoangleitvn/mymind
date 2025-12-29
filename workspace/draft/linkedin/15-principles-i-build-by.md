@@ -14,7 +14,7 @@ optimal_post_time: Tuesday, 9am
 word_count: 285
 ---
 
-15 years building products. 50+ projects shipped. These are the principles I keep coming back to.
+15 years building products. 50+ projects shipped, some failed, some succeed. These are the principles I keep coming back to.
 
 On Clarity:
 → Build with clarity. When clarity is present, teams move with confidence. When it's absent, speed creates waste.
@@ -28,14 +28,14 @@ On Structure:
 
 On Context:
 → Decisions with context. Pre-PMF choices differ from post-PMF. There are no universal solutions.
-→ Think in lifecycles. Some solutions are temporary bridges, others are long-term foundations.
+→ Think in life-cycles. Some solutions are temporary bridges, others are long-term foundations.
 
 On Outcomes:
 → Outcome over activity. Measure work by what it enables, not what it consumes.
 → Proof, not assumption. Build based on what is true, not what is feared.
 
 On Teams:
-→ Enable teams. Your job is to empower, not gatekeep.
+→ Enable teams. Your job is to empower, not gate keeper.
 → Remove cognitive load. Free teams to think about business logic, not unnecessary complexity.
 → Culture as infrastructure. Culture determines long-term velocity, quality, and resilience.
 

@@ -4,7 +4,6 @@
 **Type:** Leadership / Culture / Content Brainstorming
 **Status:** Research Complete
 
----
 
 ## The Core Problem
 
@@ -32,7 +31,6 @@
 - CEO has explicitly stated "asking questions = collaboration, not weakness"
 - Yet... silence across all teams
 
----
 
 ## The Paradox
 
@@ -53,7 +51,6 @@
 
 The missing piece: **A culture of proactive questioning**
 
----
 
 ## Research: Expert Frameworks
 
@@ -81,7 +78,6 @@ The missing piece: **A culture of proactive questioning**
 
 **Source:** [Asana - Build Psychological Safety](https://asana.com/resources/scale-amy-edmondson)
 
----
 
 ### 2. Edgar Schein's Humble Inquiry
 
@@ -102,7 +98,6 @@ The missing piece: **A culture of proactive questioning**
 - Past experiences (with other bosses, other jobs) condition behavior
 - The salesperson's "afraid to be blamed" maps directly to #1
 
----
 
 ### 3. Employee Silence Research
 
@@ -125,7 +120,6 @@ The missing piece: **A culture of proactive questioning**
 **Key Insight:**
 > "Voice is treated as an indicator of employees' commitment and contribution to the organization whereas silence is a symptom of fear, defensiveness, or deviance."
 
----
 
 ### 4. Vietnam's Cultural Context (Hofstede)
 
@@ -147,7 +141,6 @@ The paradox: A flat structure in a high power distance culture may be MORE intim
 
 **Source:** [Hofstede Analysis of Vietnam](https://www.linkedin.com/pulse/hofstede-peek-vietnams-business-culture-bj%C3%B6rn-koslowski)
 
----
 
 ### 5. Founder Bottleneck vs. Team Dependency
 
@@ -165,7 +158,6 @@ The paradox: A flat structure in a high power distance culture may be MORE intim
 - Direction without autonomy = dependency
 - Need: Clear decision rights + psychological safety to question
 
----
 
 ## Root Cause Analysis
 
@@ -179,7 +171,6 @@ The paradox: A flat structure in a high power distance culture may be MORE intim
 | **Historical** | Past experiences with other bosses/companies | Cultural conditioning |
 | **Clarity** | Unclear on what questions to ask or what progress looks like | "I don't know what I don't know" |
 
----
 
 ## The Deeper Questions
 
@@ -197,7 +188,6 @@ The paradox: A flat structure in a high power distance culture may be MORE intim
 
 6. What would happen if you said: "No questions means no clarity. No clarity means we pause until we have questions."
 
----
 
 ## Solutions Framework
 
@@ -228,7 +218,6 @@ The paradox: A flat structure in a high power distance culture may be MORE intim
 | **Hiring for Initiative** | Screen for question-asking behavior in interviews. |
 | **Consistent Responsiveness** | Build long-term pattern of positive responses to questions. Takes 12-18 months minimum. |
 
----
 
 ## Content Angles
 
@@ -242,7 +231,6 @@ The paradox: A flat structure in a high power distance culture may be MORE intim
 
 **Pattern (from Matt Barker framework):** Setup → Unexpected problem → Honest struggle → Open question
 
----
 
 ### Angle B: Two-Sided Framework Post
 **"The Question Gap: When Leaders Wait and Teams Stay Silent"**
@@ -254,7 +242,6 @@ The paradox: A flat structure in a high power distance culture may be MORE intim
 
 **Pattern:** Problem statement → Both perspectives → Framework → Engagement question
 
----
 
 ### Angle C: Counter-Narrative to Erik's Post
 **"I'm Not the Bottleneck. My Team Just Doesn't Engage."**
@@ -266,7 +253,6 @@ The paradox: A flat structure in a high power distance culture may be MORE intim
 
 **Pattern:** Reference popular take → Contrarian perspective → Evidence → Question
 
----
 
 ### Angle D: Series (Multiple Posts)
 
@@ -285,7 +271,6 @@ The paradox: A flat structure in a high power distance culture may be MORE intim
 - What works in high power distance environments
 - The long-term investment
 
----
 
 ### Angle E: Cultural Context Post
 **"Leading in a High Power Distance Culture: The Silence Challenge"**
@@ -297,7 +282,6 @@ The paradox: A flat structure in a high power distance culture may be MORE intim
 
 **Pattern:** Cultural context → Challenge → What works → Call for experiences
 
----
 
 ## Recommended Approach
 
@@ -313,7 +297,6 @@ The paradox: A flat structure in a high power distance culture may be MORE intim
 
 **Angle E** could be a strong differentiator - most leadership content is Western-centric.
 
----
 
 ## Connection to Existing Content
 
@@ -329,7 +312,6 @@ This brainstorming expands that question into full content.
 2. Publish "counter-narrative" post (Angle C)
 3. If engagement, develop into series (Angle D)
 
----
 
 ## Key Quotes to Use
 
@@ -344,7 +326,6 @@ This brainstorming expands that question into full content.
 - "I'm afraid of working directly with the Founder/CEO"
 - "I think I need to do it by myself"
 
----
 
 ## Open Questions for Further Exploration
 
@@ -358,7 +339,6 @@ This brainstorming expands that question into full content.
 
 5. What's the cost of this silence in concrete terms? Lost revenue, missed opportunities, etc.?
 
----
 
 ## Sources
 
@@ -372,7 +352,6 @@ This brainstorming expands that question into full content.
 - [Inc - Creating a Question-Based Culture](https://www.inc.com/martin-zwilling/5-ways-that-creating-a-question-based-culture-improves-leadership.html)
 - [IDEO U - How to Ask Better Questions](https://www.ideou.com/blogs/inspiration/why-leadership-is-not-about-having-all-the-answers)
 
----
 
 ## Next Steps
 

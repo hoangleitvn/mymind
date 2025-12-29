@@ -40,7 +40,6 @@ Feature built in isolation: 6 weeks development → 10% adoption. Feature built 
 
 Pragmatic. User-focused. Iteration-driven.
 
----
 
 ## Related Angles
 

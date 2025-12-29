@@ -19,7 +19,7 @@ I preach "ship early, ship smaller."
 
 Here's why I haven't shipped.
 
-I've been building MizeForge for weeks. My identity says "ship fast." My behavior says "still building."
+I've been building Mizemind for weeks. My identity says "ship fast." My behavior says "still building."
 
 The tension kept me up last night.
 
@@ -27,7 +27,7 @@ Then I realized: "Ship fast" doesn't mean "ship anything."
 
 It means: Ship the smallest thing that proves or disproves your assumption.
 
-The question isn't "Is MizeForge perfect?"
+The question isn't "Is Mizemind perfect?"
 The question is: "What's the smallest version that teaches me something?"
 
 I was confusing speed with recklessness.

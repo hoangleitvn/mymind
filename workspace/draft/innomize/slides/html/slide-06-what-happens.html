@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #2E3840; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #2E3840;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  padding: 26pt 40pt 0 40pt;
+}
+h2 {
+  font-size: 28pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin: 0;
+}
+.highlight {
+  color: #EA322A;
+}
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20pt 40pt 24pt 40pt;
+}
+.two-column {
+  display: flex;
+  gap: 30pt;
+  margin-bottom: 16pt;
+}
+.column {
+  flex: 1;
+}
+h3 {
+  font-size: 16pt;
+  font-weight: bold;
+  margin: 0 0 12pt 0;
+}
+h3.warning {
+  color: #fbbf24;
+}
+h3.success {
+  color: #4ade80;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  font-size: 13pt;
+  color: #a5a9ad;
+  margin-bottom: 8pt;
+  padding-left: 16pt;
+  position: relative;
+  line-height: 1.4;
+}
+li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6pt;
+  width: 6pt;
+  height: 6pt;
+  border-radius: 50%;
+  background: #EA322A;
+}
+.takeaway {
+  background: #353f48;
+  border: 1pt solid #4a545d;
+  border-radius: 10pt;
+  padding: 14pt 18pt;
+  margin-top: auto;
+}
+.takeaway-label {
+  font-size: 10pt;
+  font-weight: bold;
+  color: #EA322A;
+  text-transform: uppercase;
+  letter-spacing: 0.5pt;
+  margin: 0 0 6pt 0;
+}
+.takeaway-text {
+  font-size: 14pt;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.4;
+}
+.takeaway-highlight {
+  color: #EA322A;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h2>What <span class="highlight">Actually Happens</span></h2>
+</div>
+<div class="body">
+  <div class="two-column">
+    <div class="column">
+      <h3 class="warning">What People Expect</h3>
+      <ul>
+        <li>AI makes work 10x faster</li>
+        <li>Therefore: work 10x less</li>
+        <li>Same output, less effort</li>
+      </ul>
+    </div>
+    <div class="column">
+      <h3 class="success">What Actually Happens</h3>
+      <ul>
+        <li>AI makes work 10x faster</li>
+        <li>We tackle 10x more complex problems</li>
+        <li>Workload stays same, capability expands</li>
+      </ul>
+    </div>
+  </div>
+  <div class="takeaway">
+    <p class="takeaway-label">The Right Question</p>
+    <p class="takeaway-text">Don't ask "How much time does AI save?" - Ask "<span class="takeaway-highlight">What can we build now that we couldn't before?</span>"</p>
+  </div>
+</div>
+</body>
+</html>

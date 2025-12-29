@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTL Marketing Materials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* BTL Brand Colors */
+            --btl-jade: #00a86b;
+            --btl-jade-dark: #008553;
+            --btl-jade-light: #10b981;
+            --btl-charcoal: #1f2937;
+
+            /* Dark theme (default) */
+            --bg-base: #111827;
+            --bg-elevated: #1f2937;
+            --bg-surface: #374151;
+            --text-primary: #ffffff;
+            --text-subdued: #9ca3af;
+            --border-color: #4b5563;
+        }
+
+        [data-theme="light"] {
+            --bg-base: #f9fafb;
+            --bg-elevated: #ffffff;
+            --bg-surface: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-subdued: #64748b;
+            --border-color: #d1d5db;
+        }
+
+        :root {
+            /* Typography - Font Families */
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Typography Scale - Desktop */
+            --text-display: 48px;
+            --lh-display: 56px;
+            --text-h1: 40px;
+            --lh-h1: 48px;
+            --text-h2: 32px;
+            --lh-h2: 40px;
+            --text-h3: 24px;
+            --lh-h3: 32px;
+            --text-h4: 20px;
+            --lh-h4: 28px;
+            --text-body: 16px;
+            --lh-body: 26px;
+            --text-body-sm: 14px;
+            --lh-body-sm: 22px;
+            --text-caption: 12px;
+            --lh-caption: 18px;
+            --text-label: 14px;
+            --lh-label: 20px;
+            --text-button: 14px;
+            --lh-button: 20px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-base);
+            color: var(--text-primary);
+            font-size: var(--text-body);
+            line-height: var(--lh-body);
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .header {
+            background: var(--bg-elevated);
+            padding: 24px 40px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--btl-jade);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-subdued);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: var(--text-body-sm);
+            line-height: var(--lh-body-sm);
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover { color: var(--btl-jade); }
+
+        .header h1 {
+            font-family: var(--font-heading);
+            font-size: var(--text-h3);
+            line-height: var(--lh-h3);
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: var(--text-h4);
+            line-height: var(--lh-h4);
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--btl-jade);
+            border-radius: 2px;
+        }
+
+        .material-grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .material-card {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .material-preview {
+            padding: 40px;
+            background: var(--bg-surface);
+            transition: background-color 0.3s;
+        }
+
+        .material-info {
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+            transition: border-color 0.3s;
+        }
+
+        .material-meta h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-h4);
+            line-height: var(--lh-h4);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .material-meta p {
+            font-family: var(--font-body);
+            font-size: var(--text-body-sm);
+            line-height: var(--lh-body-sm);
+            font-weight: 400;
+            color: var(--text-subdued);
+        }
+
+        .copy-btn {
+            background: var(--btl-jade);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: var(--text-button);
+            line-height: var(--lh-button);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--btl-jade-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ========================================
+           HERO SECTION TEMPLATE
+           ======================================== */
+        .hero-template {
+            text-align: center;
+            padding: 60px 40px;
+            background: var(--btl-charcoal);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-template::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--btl-jade);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 168, 107, 0.2);
+            color: var(--btl-jade);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-family: var(--font-body);
+            font-size: var(--text-caption);
+            line-height: var(--lh-caption);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: var(--text-display);
+            line-height: var(--lh-display);
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+        }
+
+        .hero-title span {
+            color: var(--btl-jade);
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            line-height: var(--lh-body);
+            font-weight: 400;
+            color: var(--text-subdued);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--btl-jade);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: var(--text-button);
+            line-height: var(--lh-button);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .hero-cta:hover {
+            background: var(--btl-jade-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ========================================
+           FEATURE CARD TEMPLATE
+           ======================================== */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-elevated);
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        [data-theme="light"] .feature-card:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 168, 107, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-family: var(--font-heading);
+            font-size: var(--text-h4);
+            line-height: var(--lh-h4);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-family: var(--font-body);
+            font-size: var(--text-body-sm);
+            line-height: var(--lh-body-sm);
+            font-weight: 400;
+            color: var(--text-subdued);
+        }
+
+        /* ========================================
+           PRICING CARD TEMPLATE
+           ======================================== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            align-items: start;
+        }
+
+        .pricing-card {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            position: relative;
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+            transform: scale(1.05);
+            color: white;
+        }
+
+        .pricing-card.featured .pricing-name,
+        .pricing-card.featured .pricing-price {
+            color: white;
+        }
+
+        .pricing-card.featured .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--btl-charcoal);
+            color: var(--btl-white);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-family: var(--font-body);
+            font-size: var(--text-caption);
+            line-height: var(--lh-caption);
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .pricing-name {
+            font-family: var(--font-heading);
+            font-size: var(--text-h4);
+            line-height: var(--lh-h4);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            font-family: var(--font-heading);
+            font-size: var(--text-display);
+            line-height: var(--lh-display);
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+        }
+
+        .pricing-period {
+            font-family: var(--font-body);
+            font-size: var(--text-body-sm);
+            line-height: var(--lh-body-sm);
+            font-weight: 400;
+            color: var(--text-subdued);
+            margin-bottom: 24px;
+        }
+
+        .pricing-card.featured .pricing-period {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            font-family: var(--font-body);
+            font-size: var(--text-body-sm);
+            line-height: var(--lh-body-sm);
+            font-weight: 400;
+            color: var(--text-subdued);
+        }
+
+        .pricing-card.featured .pricing-features li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--btl-jade);
+            font-weight: 600;
+        }
+
+        .pricing-card.featured .pricing-features li::before {
+            color: white;
+        }
+
+        .pricing-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: var(--text-button);
+            line-height: var(--lh-button);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .pricing-btn.primary {
+            background: var(--btl-jade);
+            color: white;
+        }
+
+        .pricing-btn.secondary {
+            background: transparent;
+            border: 2px solid var(--btl-jade);
+            color: var(--btl-jade);
+        }
+
+        .pricing-card.featured .pricing-btn {
+            background: white;
+            color: var(--btl-jade);
+        }
+
+        /* ========================================
+           TESTIMONIAL TEMPLATE
+           ======================================== */
+        .testimonial-card {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .testimonial-quote {
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            line-height: var(--lh-body);
+            font-weight: 400;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 64px;
+            color: var(--btl-jade);
+            position: absolute;
+            top: 20px;
+            left: 24px;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .testimonial-avatar {
+            width: 56px;
+            height: 56px;
+            background: var(--btl-jade);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: var(--text-body);
+        }
+
+        .testimonial-name {
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            line-height: var(--lh-body);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .testimonial-role {
+            font-family: var(--font-body);
+            font-size: var(--text-body-sm);
+            line-height: var(--lh-body-sm);
+            font-weight: 400;
+            color: var(--text-subdued);
+        }
+
+        /* ========================================
+           CTA BANNER TEMPLATE
+           ======================================== */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+            border-radius: 16px;
+            padding: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+        }
+
+        .cta-content h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-h2);
+            line-height: var(--lh-h2);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .cta-content p {
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            line-height: var(--lh-body);
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--btl-jade);
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: var(--text-button);
+            line-height: var(--lh-button);
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ========================================
+           STATS SECTION TEMPLATE
+           ======================================== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 24px;
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: var(--text-display);
+            line-height: var(--lh-display);
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            color: var(--btl-jade);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-family: var(--font-body);
+            font-size: var(--text-label);
+            line-height: var(--lh-label);
+            font-weight: 500;
+            color: var(--text-subdued);
+        }
+
+        /* ========================================
+           THEME TOGGLE BUTTON
+           ======================================== */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--bg-elevated);
+            color: var(--text-subdued);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .theme-toggle:hover {
+            color: var(--text-primary);
+            background: var(--bg-surface);
+        }
+
+        [data-theme="light"] .sun-icon { display: none; }
+        [data-theme="light"] .moon-icon { display: block; }
+
+        /* Light theme specific overrides */
+        [data-theme="light"] .hero-template {
+            background: var(--bg-surface);
+        }
+
+        [data-theme="light"] .pricing-card.featured .pricing-badge {
+            background: var(--btl-charcoal);
+        }
+
+        [data-theme="light"] .theme-toggle {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            .feature-grid, .pricing-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-title {
+                font-size: var(--text-h2);
+                line-height: var(--lh-h2);
+            }
+            .cta-banner { flex-direction: column; text-align: center; }
+            .pricing-price,
+            .stat-value {
+                font-size: var(--text-h1);
+                line-height: var(--lh-h1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme (t)">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M12 18a6 6 0 100-12 6 6 0 000 12zM12 2a1 1 0 011 1v2a1 1 0 01-2 0V3a1 1 0 011-1zm0 16a1 1 0 011 1v2a1 1 0 01-2 0v-2a1 1 0 011-1zm10-6a1 1 0 01-1 1h-2a1 1 0 010-2h2a1 1 0 011 1zM6 12a1 1 0 01-1 1H3a1 1 0 010-2h2a1 1 0 011 1z"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" style="display:none">
+            <path fill="currentColor" d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
+        </svg>
+    </button>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <a href="../index.html" class="back-btn">← Back</a>
+                <h1>Marketing Materials</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="section">
+            <h2 class="section-title">Hero Section</h2>
+            <div class="material-card">
+                <div class="material-preview">
+                    <div class="hero-template">
+                        <span class="hero-badge">Build Better Software</span>
+                        <h1 class="hero-title">Software That <span>Lasts</span></h1>
+                        <p class="hero-subtitle">We help teams build sustainable, scalable software that grows with your business. No shortcuts, just solid foundations.</p>
+                        <a href="#" class="hero-cta">Start Building →</a>
+                    </div>
+                </div>
+                <div class="material-info">
+                    <div class="material-meta">
+                        <h3>Hero Section - Primary</h3>
+                        <p>Main landing page hero with CTA</p>
+                    </div>
+                    <button class="copy-btn">Copy HTML</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Cards -->
+        <section class="section">
+            <h2 class="section-title">Feature Cards</h2>
+            <div class="material-card">
+                <div class="material-preview">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🏗️</div>
+                            <h3 class="feature-title">Solid Foundations</h3>
+                            <p class="feature-desc">Architecture designed for scale. We build systems that grow with your business needs.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3 class="feature-title">Fast Delivery</h3>
+                            <p class="feature-desc">Rapid iteration without compromising quality. Ship features that work from day one.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔒</div>
+                            <h3 class="feature-title">Security First</h3>
+                            <p class="feature-desc">Built-in security practices. Protect your users and your business.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="material-info">
+                    <div class="material-meta">
+                        <h3>Feature Cards - 3 Column</h3>
+                        <p>Highlight key features or benefits</p>
+                    </div>
+                    <button class="copy-btn">Copy HTML</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Cards -->
+        <section class="section">
+            <h2 class="section-title">Pricing Cards</h2>
+            <div class="material-card">
+                <div class="material-preview">
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h3 class="pricing-name">Starter</h3>
+                            <div class="pricing-price">$2,500</div>
+                            <div class="pricing-period">per month</div>
+                            <ul class="pricing-features">
+                                <li>Up to 40 hours/month</li>
+                                <li>1 dedicated engineer</li>
+                                <li>Slack support</li>
+                                <li>Code reviews</li>
+                            </ul>
+                            <button class="pricing-btn secondary">Get Started</button>
+                        </div>
+                        <div class="pricing-card featured">
+                            <span class="pricing-badge">Most Popular</span>
+                            <h3 class="pricing-name">Professional</h3>
+                            <div class="pricing-price">$8,000</div>
+                            <div class="pricing-period">per month</div>
+                            <ul class="pricing-features">
+                                <li>Up to 160 hours/month</li>
+                                <li>2-3 engineers</li>
+                                <li>Priority support</li>
+                                <li>Architecture consulting</li>
+                                <li>Weekly sync calls</li>
+                            </ul>
+                            <button class="pricing-btn">Get Started</button>
+                        </div>
+                        <div class="pricing-card">
+                            <h3 class="pricing-name">Enterprise</h3>
+                            <div class="pricing-price">Custom</div>
+                            <div class="pricing-period">tailored pricing</div>
+                            <ul class="pricing-features">
+                                <li>Unlimited hours</li>
+                                <li>Dedicated team</li>
+                                <li>24/7 support</li>
+                                <li>On-site workshops</li>
+                                <li>SLA guarantees</li>
+                            </ul>
+                            <button class="pricing-btn secondary">Contact Us</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="material-info">
+                    <div class="material-meta">
+                        <h3>Pricing Cards - 3 Tier</h3>
+                        <p>Service pricing with featured plan</p>
+                    </div>
+                    <button class="copy-btn">Copy HTML</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial -->
+        <section class="section">
+            <h2 class="section-title">Testimonial</h2>
+            <div class="material-card">
+                <div class="material-preview">
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">Working with BTL transformed how we approach software development. They didn't just deliver code—they built a system that our team could maintain and extend for years to come.</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">JD</div>
+                            <div>
+                                <div class="testimonial-name">John Doe</div>
+                                <div class="testimonial-role">CTO, TechStartup Inc.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="material-info">
+                    <div class="material-meta">
+                        <h3>Testimonial Card</h3>
+                        <p>Client testimonial with avatar</p>
+                    </div>
+                    <button class="copy-btn">Copy HTML</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="section">
+            <h2 class="section-title">CTA Banner</h2>
+            <div class="material-card">
+                <div class="material-preview">
+                    <div class="cta-banner">
+                        <div class="cta-content">
+                            <h3>Ready to Build Something Great?</h3>
+                            <p>Let's discuss how we can help your team ship faster and build better.</p>
+                        </div>
+                        <a href="#" class="cta-btn">Schedule a Call</a>
+                    </div>
+                </div>
+                <div class="material-info">
+                    <div class="material-meta">
+                        <h3>CTA Banner - Horizontal</h3>
+                        <p>Call-to-action section</p>
+                    </div>
+                    <button class="copy-btn">Copy HTML</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="section">
+            <h2 class="section-title">Stats Section</h2>
+            <div class="material-card">
+                <div class="material-preview">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">50+</div>
+                            <div class="stat-label">Projects Delivered</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">98%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">15+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">24/7</div>
+                            <div class="stat-label">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="material-info">
+                    <div class="material-meta">
+                        <h3>Stats Grid - 4 Column</h3>
+                        <p>Key metrics and achievements</p>
+                    </div>
+                    <button class="copy-btn">Copy HTML</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Theme Toggle Functionality
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('btl-theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+            if (theme === 'light') {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+        }
+
+        // Initialize theme from localStorage or default to dark
+        const savedTheme = localStorage.getItem('btl-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        // Keyboard shortcut: press 't' to toggle theme
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 't' || e.key === 'T') {
+                // Don't toggle if user is typing in an input field
+                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                    toggleTheme();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

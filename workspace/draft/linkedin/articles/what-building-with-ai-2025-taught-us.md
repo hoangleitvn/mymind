@@ -34,7 +34,6 @@ But while investors debated stock prices, builders learned something different. 
 
 Here's what 2025 actually taught those of us building products, leading teams, and shipping code.
 
----
 
 ## The Snowball We Didn't See Coming
 
@@ -54,7 +53,6 @@ At INNOMIZE, we saw this firsthand. Engineers using Copilot, Cursor, Claude, Cha
 
 But 6 months in, we noticed the pattern: more code, less understanding. Faster shipping, slower debugging. The liability was compounding in ways we didn't measure until it became painful.
 
----
 
 ## The Tools vs. Skills Gap
 
@@ -81,7 +79,6 @@ Research from arXiv found that 40% of AI-generated code contains security vulner
 
 The tools work. The humans using them need new skills. 2025 taught us that gap the hard way.
 
----
 
 ## The Build vs. Buy Trap
 
@@ -110,7 +107,6 @@ The teams that got this right in 2025 followed a simple rule: Build what differe
 
 If it doesn't make customers choose you over competitors, don't build it. Auth, payments, analytics, CRM, internal tools. Buy them. Focus your engineering energy on what creates competitive advantage.
 
----
 
 ## The MVP Illusion
 
@@ -134,7 +130,6 @@ I call this the "foundation gap." AI builds the walls fast. But without understa
 
 AI accelerated the first 20% of building. The other 80% still requires understanding, architecture, and foundations that can scale.
 
----
 
 ## What We Changed
 
@@ -164,7 +159,6 @@ When does AI help vs. hurt? How do you review AI code differently? What patterns
 
 This is ongoing. We're not done. But we started.
 
----
 
 ## What Changes in 2026
 
@@ -187,7 +181,6 @@ The codebase is not just the code. It's the team's understanding of the code. If
 **Foundation-first still wins.**
 AI accelerates building. It doesn't replace architecture. The foundations that let you scale, debug, and maintain still matter. Maybe more than ever, because the volume of code is higher.
 
----
 
 ## The Real Lesson
 
@@ -210,7 +203,6 @@ The teams that close those gaps in 2026 will build things that last.
 
 The rest will keep rolling the snowball.
 
----
 
 What's the biggest AI lesson your team learned in 2025?
 

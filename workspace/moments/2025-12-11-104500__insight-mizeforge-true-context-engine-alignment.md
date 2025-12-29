@@ -2,20 +2,20 @@
 id: 20251211-104500
 type: insight
 status: raw
-themes: [product-development, mizeforge, ai-engineering]
+themes: [product-development, mizemind, ai-engineering]
 tags: [vision, product-positioning, context-engineering, validation]
 captured: 2025-12-11T10:45:00+07:00
 source: LinkedIn comment + ChatGPT response
 ---
 
-# MizeForge Aligns with "True Context Engine" Vision
+# Mizemind Aligns with "True Context Engine" Vision
 
 ## Raw Capture
 
 LinkedIn question: "What AI agent do you wish existed?"
 User's joke answer: "I wish no agent should exit" (typo humor)
 
-Then asked ChatGPT the same question. Response described a "True Context Engine" - and it maps remarkably well to what MizeForge is building.
+Then asked ChatGPT the same question. Response described a "True Context Engine" - and it maps remarkably well to what Mizemind is building.
 
 ## ChatGPT Original Response (Verbatim)
 
@@ -68,9 +68,9 @@ Then asked ChatGPT the same question. Response described a "True Context Engine"
 | 7 | Constraint-aware output | Applies tone rules, structure rules, platform rules mathematically |
 | 8 | Lifecycle memory | Knows past decisions, predicts next actions, never asks twice |
 
-## MizeForge Alignment Analysis
+## Mizemind Alignment Analysis
 
-| ChatGPT Vision | MizeForge Current/Planned | Status |
+| ChatGPT Vision | Mizemind Current/Planned | Status |
 |----------------|---------------------------|--------|
 | **Identity-layer memory** | identity-kit (voice, themes, personas, audiences) | ✅ Exists |
 | **Multi-domain stitching** | Skills across content, engagement, research | 🟡 Partial |
@@ -83,7 +83,7 @@ Then asked ChatGPT the same question. Response described a "True Context Engine"
 
 ## Key Insight
 
-MizeForge is building toward this vision through a **different architecture**:
+Mizemind is building toward this vision through a **different architecture**:
 - Not a monolithic "True Context Engine"
 - Instead: **Foundation files + Skills + Workspace state**
 - The "context" lives in files, not in agent memory
@@ -144,7 +144,7 @@ Project A ←→ Project B ←→ Project C
 
 ChatGPT and others already support this with their "Projects" feature. It's proven UX. Not about limiting AI knowledge - about helping humans navigate complexity.
 
-**MizeForge should support:**
+**Mizemind should support:**
 1. Projects as organizational units (clear boundaries)
 2. Cross-project awareness (AI sees everything)
 3. Project linking (explicit relationships)
@@ -152,7 +152,7 @@ ChatGPT and others already support this with their "Projects" feature. It's prov
 
 ## Follow-up
 
-- [ ] Use this as positioning validation for MizeForge
+- [ ] Use this as positioning validation for Mizemind
 - [ ] Identify which gaps are highest priority
 - [ ] Consider "lifecycle memory" as next major feature
 - [ ] Write LinkedIn post about this alignment (authentic, not salesy)

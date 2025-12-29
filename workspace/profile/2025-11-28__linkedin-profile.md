@@ -21,7 +21,6 @@ next_review: 2026-02-28
 | Skills | 5/10 | Medium |
 | Featured | 4/10 | Low |
 
----
 
 ## Headline
 
@@ -60,7 +59,6 @@ Option 1 for clean, scannable impact. Option 2 if targeting founders actively se
 ### A/B Testing Suggestion
 Try Option 1 for 2 weeks, then Option 2. Compare profile views and connection requests.
 
----
 
 ## About Section
 
@@ -114,7 +112,6 @@ If you're building something and need a technical owner (not just a team), let's
 - **Authenticity:** Uses personal perspective and real numbers
 - **Identity-kit alignment:** Matches Founder persona with narrative structure
 
----
 
 ## Experience
 
@@ -140,7 +137,6 @@ Responsibilities:
 This is the embedded CTO model in action: joining a founder's journey as a technical partner, not a vendor.
 ```
 
----
 
 ### INNOMIZE — Founder & CTO (2018 - Present)
 
@@ -162,7 +158,6 @@ Key outcomes:
 Focus areas: Cloud architecture (AWS, Azure), MVP development, team scaling, system integration, embedded technical leadership.
 ```
 
----
 
 ### The Coral Edge — Vice President of Engineering
 
@@ -196,7 +191,6 @@ Key outcomes:
 This role shaped my approach to embedded engineering leadership: ownership over process, outcomes over hours.
 ```
 
----
 
 ### Biscayne Technologies — Director of Engineering
 
@@ -229,7 +223,6 @@ Key outcomes:
 Foundation for my later work: leading distributed teams, delivering accountability-driven results for clients.
 ```
 
----
 
 ### TMA Solutions — Software Developer → Technical Lead (2013 - 2017)
 
@@ -261,7 +254,6 @@ As Technical Lead:
 This was where I learned to lead from the front: build technical credibility, then grow others.
 ```
 
----
 
 ### Guidelines for All Roles
 - Lead with **impact** (what changed because of you)
@@ -269,7 +261,6 @@ This was where I learned to lead from the front: build technical credibility, th
 - Connect to **current positioning** (how it built expertise)
 - Keep to 100-200 words per role
 
----
 
 ## Skills
 
@@ -306,7 +297,6 @@ This was where I learned to lead from the front: build technical credibility, th
 - Endorse connections strategically to encourage reciprocation
 - Focus endorsements on Engineering Leadership first
 
----
 
 ## Featured
 
@@ -347,7 +337,6 @@ This was where I learned to lead from the front: build technical credibility, th
 - Consider a short-form case study showing embedded CTO model in action
 - "Foundation-first" article would strengthen technical positioning
 
----
 
 ## Action Items
 
@@ -373,7 +362,6 @@ This was where I learned to lead from the front: build technical credibility, th
 - [ ] Create "Why I stopped calling it outsourcing" post for Featured
 - [ ] Add INNOMIZE website to Featured section (innomizetech.com)
 
----
 
 ## Next Review
 
@@ -386,7 +374,6 @@ This was where I learned to lead from the front: build technical credibility, th
 - Refresh featured content with top-performing posts
 - Review skill endorsements progress
 
----
 
 ## Change Log
 
@@ -398,6 +385,5 @@ This was where I learned to lead from the front: build technical credibility, th
 | 2025-11-28 | Updated INNOMIZE experience with geographic reach (Vietnam team, US/UK/France/Singapore/Malaysia clients) |
 | 2025-11-28 | Corrected team size to 40+ engineers; Status: implemented (Featured section deferred) |
 
----
 
 *Profile URL: https://www.linkedin.com/in/hoangleitvn/*

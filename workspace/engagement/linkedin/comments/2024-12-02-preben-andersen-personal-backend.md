@@ -58,7 +58,6 @@ Maybe this personal backend is what future employees are evaluated on?
 
 Request for startups: Make it easy for employees to manage their personal backend.
 
----
 
 ## Notable Comments
 
@@ -89,54 +88,42 @@ Your 'personal backend' will be the new CV. Not just what you did, but what you 
 ```yaml
 - id: 1733155560000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-02T15:31:00Z'
   content: |
-Building this right now. Skills, context files, and custom prompts that load automatically based on task type.
+    Building this right now. Skills, context files, and custom prompts that load automatically based on task type.
 
-The compounding effect is real. Every iteration makes the next task faster. The gap between "uses AI" and "has a personal AI stack" will only widen.
+    The compounding effect is real. Every iteration makes the next task faster. The gap between "uses AI" and "has a personal AI stack" will only widen.
   strategy: "Personal Experience - Directly relevant to current work, validates thesis with real implementation, reinforces compounding insight."
-  replies:
-    - id: 1733156100000
-      author: "Preben Andersen"
-      sentiment: "question"
-      content: |
-have you seen any software out that's that can be your personal backend? Doppler and Raycast could be it, but it's limited as of now
-      status: "received"
 
 - id: 1733156100000
   type: "reply"
+  reply_to: 1733155560000
   status: "posted"
-  sentiment: "neutral"
+  timestamp: '2024-12-02T15:40:00Z'
   content: |
-Haven't looked at Doppler or Raycast for this yet, or external memory layers. Still defining my workflow.
+    Haven't looked at Doppler or Raycast for this yet, or external memory layers. Still defining my workflow.
 
-What I'm building is more manual: CLAUDE.md files for project context + custom skills that load per task type + structured prompts. Has issues sometimes, but it works and the pieces compound.
+    What I'm building is more manual: CLAUDE.md files for project context + custom skills that load per task type + structured prompts. Has issues sometimes, but it works and the pieces compound.
 
-Curious what's missing in Raycast/Doppler for you?
+    Curious what's missing in Raycast/Doppler for you?
   strategy: "Conversation continuation - Honest about not exploring those tools yet, shares current manual approach authentically, asks follow-up question to deepen conversation."
-  replies:
-    - id: 1733289600000
-      author: "Preben Andersen"
-      sentiment: "neutral"
-      content: |
-I would like an agent that continuously updates the context surrounding my company; what we are building, who we are contacting, our pitch decks. Everything. This way I could use any AI Product Cursor, Wepost or Canva without having to manually feed in updates.
-      status: "received"
 
 - id: 1733289600000
   type: "reply"
+  reply_to: 1733156100000
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-03T05:00:00Z'
   content: |
-That's the dream - a unified context layer that syncs everywhere.
+    That's the dream - a unified context layer that syncs everywhere.
 
-Right now the friction is real: update your pitch deck, manually feed it to three different tools, hope they remember what you told them last week.
+    Right now the friction is real: update your pitch deck, manually feed it to three different tools, hope they remember what you told them last week.
 
-The hard part is "continuously updates." Static context is solvable. Living context that tracks changes as you work - that's where it gets interesting.
+    The hard part is "continuously updates." Static context is solvable. Living context that tracks changes as you work - that's where it gets interesting.
 
-Would you want it to infer updates automatically or approve before syncing?
+    Would you want it to infer updates automatically or approve before syncing?
   strategy: "Vision validation + question - Validates his vision, names the real friction, distinguishes static vs living context, ends with question to understand his preference on automation vs control."
-  replies: []
 ```
 
 ## Notes

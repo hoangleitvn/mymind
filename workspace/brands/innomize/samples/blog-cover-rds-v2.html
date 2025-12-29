@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Cover - RDS v2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Manrope', system-ui, sans-serif;
+            background: #e8e8e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+        .cover {
+            width: 1920px;
+            height: 1080px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+        .dots {
+            position: absolute;
+            display: flex;
+            gap: 10px;
+            top: 32px;
+            left: 80px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #EA322A;
+        }
+        .dot.light { background: #F5C4C4; }
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+        }
+        .blob.top-right {
+            top: -80px;
+            right: -80px;
+            width: 320px;
+            height: 320px;
+            background: linear-gradient(135deg, #FFE0E0 0%, #FFC4C4 100%);
+        }
+        .blob.top-right-small {
+            top: 60px;
+            right: 280px;
+            width: 80px;
+            height: 80px;
+            background: #EA322A;
+            opacity: 0.15;
+        }
+        .blob.bottom-left {
+            bottom: -120px;
+            left: -100px;
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #FFF0F0 0%, #FFE0E0 100%);
+        }
+        .blob.accent {
+            top: 200px;
+            right: 500px;
+            width: 50px;
+            height: 50px;
+            background: #EA322A;
+            opacity: 0.12;
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 60px 80px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .logo {
+            height: 48px;
+            margin-bottom: 16px;
+        }
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+        .category {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 24px;
+            color: #EA322A;
+            margin-bottom: 60px;
+        }
+        .main-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+            gap: 60px;
+        }
+        .text-content {
+            flex: 1;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .title {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 80px;
+            font-weight: 700;
+            color: #1A1A1A;
+            line-height: 1.0;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 36px;
+        }
+        .subtitle-pill {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFE8E8 0%, #FFD6D6 100%);
+            padding: 14px 28px;
+            border-radius: 6px;
+            margin-bottom: 36px;
+        }
+        .subtitle-pill span {
+            font-family: 'Manrope', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #EA322A;
+            letter-spacing: 1px;
+        }
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #EA322A;
+            color: white;
+            padding: 20px 48px;
+            border-radius: 40px;
+            font-size: 22px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .illustration-area {
+            width: 620px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .service-icon-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            position: relative;
+            z-index: 5;
+        }
+        .service-icon {
+            width: 400px;
+            height: 320px;
+        }
+        .service-label {
+            font-family: 'Manrope', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #232F3E;
+            text-align: center;
+        }
+        .reinvent-badge {
+            background: linear-gradient(135deg, #FF9900 0%, #FFAD33 100%);
+            color: #232F3E;
+            padding: 14px 28px;
+            border-radius: 28px;
+            font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cover" id="cover">
+        <div class="dots">
+            <div class="dot"></div>
+            <div class="dot light"></div>
+            <div class="dot"></div>
+            <div class="dot light"></div>
+            <div class="dot"></div>
+            <div class="dot light"></div>
+        </div>
+        <div class="blob top-right"></div>
+        <div class="blob top-right-small"></div>
+        <div class="blob bottom-left"></div>
+        <div class="blob accent"></div>
+
+        <div class="content">
+            <div class="logo">
+                <img src="../assets/Logo_Horizontal_RGB.png" alt="INNOMIZE">
+            </div>
+            <div class="category">#AWS re:Invent 2025</div>
+
+            <div class="main-area">
+                <div class="text-content">
+                    <h1 class="title">
+                        DATABASE COST<br>
+                        OPTIMIZATION<br>
+                        DEEP DIVE
+                    </h1>
+                    <div class="subtitle-pill">
+                        <span>Save 35-55% on Your RDS Bill</span>
+                    </div>
+                    <div class="cta-button">Read Now</div>
+                </div>
+
+                <div class="illustration-area">
+                    <div class="service-icon-wrapper">
+                        <!-- Cost comparison visualization -->
+                        <svg class="service-icon" viewBox="0 0 400 320" fill="none">
+                            <!-- Before bar (higher cost) -->
+                            <rect x="60" y="50" width="80" height="200" rx="8" fill="#EF4444" opacity="0.15" stroke="#EF4444" stroke-width="2"/>
+                            <rect x="70" y="70" width="60" height="170" rx="4" fill="#EF4444" opacity="0.4"/>
+                            <text x="100" y="280" font-family="Arial" font-size="14" fill="#EF4444" text-anchor="middle" font-weight="600">Before</text>
+
+                            <!-- After bar (lower cost) -->
+                            <rect x="180" y="130" width="80" height="120" rx="8" fill="#10B981" opacity="0.15" stroke="#10B981" stroke-width="2"/>
+                            <rect x="190" y="150" width="60" height="90" rx="4" fill="#10B981" opacity="0.4"/>
+                            <text x="220" y="280" font-family="Arial" font-size="14" fill="#10B981" text-anchor="middle" font-weight="600">After</text>
+
+                            <!-- Savings badge -->
+                            <rect x="280" y="100" width="100" height="80" rx="12" fill="#10B981"/>
+                            <text x="330" y="135" font-family="Arial" font-size="14" fill="white" text-anchor="middle" font-weight="600">SAVE</text>
+                            <text x="330" y="165" font-family="Arial" font-size="28" fill="white" text-anchor="middle" font-weight="bold">55%</text>
+
+                            <!-- Arrow indicating reduction -->
+                            <path d="M140 140L180 160" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M168 148L180 160L172 168" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+                            <!-- Database icons below bars -->
+                            <ellipse cx="100" cy="300" rx="25" ry="10" fill="#3B82F6" opacity="0.3"/>
+                            <ellipse cx="220" cy="300" rx="25" ry="10" fill="#3B82F6" opacity="0.3"/>
+
+                            <!-- Decorative -->
+                            <circle cx="50" cy="300" r="10" fill="#EA322A" opacity="0.2"/>
+                            <circle cx="360" cy="220" r="12" fill="#FF9900" opacity="0.3"/>
+                            <rect x="300" y="200" width="14" height="14" rx="3" fill="#3B82F6" opacity="0.2"/>
+                        </svg>
+
+                        <span class="service-label">Amazon RDS</span>
+                        <div class="reinvent-badge">re:Invent 2025</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

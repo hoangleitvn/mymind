@@ -81,14 +81,14 @@ The real skill is knowing when code is 'clean enough' to move fast without creat
 ```yaml
 - id: 1733149560000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-02T15:06:00Z'
   content: |
-"Refactor what earns" is the key line here.
+    "Refactor what earns" is the key line here.
 
-I've seen teams spend months on architecture that never shipped, and teams with ugly code that captured markets. The difference? Knowing when clean code is an investment vs. a delay.
+    I've seen teams spend months on architecture that never shipped, and teams with ugly code that captured markets. The difference? Knowing when clean code is an investment vs. a delay.
   strategy: "Expert Insight - Highlights key insight, adds real-world observation, aligns with 'ugly but working > perfect but invisible' philosophy."
-  replies: []
 ```
 
 ## Notes

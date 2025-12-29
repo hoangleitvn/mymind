@@ -87,52 +87,45 @@ Real example: Support team searching 47 PDFs for warranty terms (12 min) vs RAG 
 ## Our Engagement
 
 ```yaml
-- id: 1
+- id: 1733386860000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "neutral"
+  timestamp: '2025-12-05T04:21:00Z'
   content: |
-The doc quality is where this gets real. RAG works, but "garbage in, garbage out" doesn't disappear with better retrieval.
+    The doc quality is where this gets real. RAG works, but "garbage in, garbage out" doesn't disappear with better retrieval.
 
-We've hit this: teams excited about RAG, then stuck because their doc store is 47 versions of "final_FINAL_v2.docx" with conflicting info.
+    We've hit this: teams excited about RAG, then stuck because their doc store is 47 versions of "final_FINAL_v2.docx" with conflicting info.
 
-For teams with decent doc discipline, the ROI is immediate. For everyone else, start with the cleanup.
+    For teams with decent doc discipline, the ROI is immediate. For everyone else, start with the cleanup.
   strategy: "Expert Insight - Amplify Sean's critical point about document chaos. Add real-world nuance without dismissing RAG's value. Position as someone who builds these systems."
-  replies:
-    - id: 2
-      author: "Paolo Perrone"
-      content: "Hoang Smart starting point - the RAG lecture covers what actually breaks in production vs what works in demos. What's the most common RAG failure mode you've hit when shipping products?"
 
-- id: 3
+- id: 1733387000000
   type: "reply"
-  reply_to: 2
+  reply_to: 1733386860000
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2025-12-05T04:30:00Z'
   content: |
-Chunking that splits context across boundaries. The answer exists in the docs, but the retrieval pulls half of it from one chunk and misses the other half entirely.
+    Chunking that splits context across boundaries. The answer exists in the docs, but the retrieval pulls half of it from one chunk and misses the other half entirely.
 
-Smaller chunks improve precision but lose context. Larger chunks retrieve more noise. Finding the right balance is more trial and error than science.
+    Smaller chunks improve precision but lose context. Larger chunks retrieve more noise. Finding the right balance is more trial and error than science.
   strategy: "Expert Insight - Answers specific technical question with real production experience"
-  replies:
-    - id: 4
-      author: "Paolo Perrone"
-      content: "Hoang Exactly - and most RAG tutorials pretend chunk size is a hyperparameter you tune once. In reality it's domain-specific and breaks differently across document types. Have you found any reliable heuristics for chunk sizing across your 50+ products, or is it still mostly per-project experimentation?"
 
-- id: 5
+- id: 1733387200000
   type: "reply"
-  reply_to: 4
+  reply_to: 1733387000000
   status: "draft"
-  sentiment: "positive"
+  timestamp: '2025-12-09T02:30:00Z'
   content: |
-Mostly per-project, but a few patterns hold:
+    Mostly per-project, but a few patterns hold:
 
-For structured docs (contracts, SOPs): semantic chunking by section headers works better than fixed token counts. The document already tells you where context boundaries are.
+    For structured docs (contracts, SOPs): semantic chunking by section headers works better than fixed token counts. The document already tells you where context boundaries are.
 
-For unstructured content (emails, chat logs): smaller chunks (300-500 tokens) with overlap. You're fishing for specific facts, not coherent narratives.
+    For unstructured content (emails, chat logs): smaller chunks (300-500 tokens) with overlap. You're fishing for specific facts, not coherent narratives.
 
-The reliable heuristic: start with your retrieval evaluation set before tuning chunk size. Without measuring what actually gets retrieved vs what should, you're optimizing blind.
+    The reliable heuristic: start with your retrieval evaluation set before tuning chunk size. Without measuring what actually gets retrieved vs what should, you're optimizing blind.
 
-We've burned time on "perfect" chunking strategies that scored worse than naive approaches once we tested against real queries.
+    We've burned time on "perfect" chunking strategies that scored worse than naive approaches once we tested against real queries.
   strategy: "Expert Insight - Provides actionable heuristics while being honest about experimentation still being needed. Emphasizes evaluation-first approach."
 ```
 

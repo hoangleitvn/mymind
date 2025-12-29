@@ -43,7 +43,6 @@ Startups need living specs. You write them to guide the coding agent, the coding
 
 The way we manage software, understand software, monitor software, it all has to evolve as our tools to build evolve.
 
----
 
 ## Notable Comments
 
@@ -84,16 +83,16 @@ Lowering the barrier to MVPs is huge, but without living specs the knowledge kee
 ```yaml
 - id: 1733270520000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2025-12-03T02:20:00Z'
   content: |
-This is the foundation gap. AI agents are great at generating code, but they don't build understanding.
+    This is the foundation gap. AI agents are great at generating code, but they don't build understanding.
 
-I've seen teams ship MVPs in days, then spend months debugging because no one knows why the code works the way it does. The "start from scratch" problem compounds fast.
+    I've seen teams ship MVPs in days, then spend months debugging because no one knows why the code works the way it does. The "start from scratch" problem compounds fast.
 
-What's working for us: treat AI-generated specs as first drafts, not artifacts. Someone on the team still needs to own the "why" behind the code.
+    What's working for us: treat AI-generated specs as first drafts, not artifacts. Someone on the team still needs to own the "why" behind the code.
   strategy: "Experience + Practical Addition - Validates her observation with real experience, adds concrete practice ('own the why'), ties to foundation-first philosophy without being preachy."
-  replies: []
 ```
 
 ## Notes

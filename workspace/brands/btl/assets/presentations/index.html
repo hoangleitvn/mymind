@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTL Presentations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Brand colors */
+            --btl-jade: #00a86b;
+            --btl-jade-dark: #008553;
+            --btl-jade-light: #10b981;
+            --btl-charcoal: #1f2937;
+            --btl-slate: #374151;
+            --btl-white: #ffffff;
+
+            /* Dark theme (default) */
+            --bg-base: #111827;
+            --bg-elevated: #1f2937;
+            --bg-surface: #374151;
+            --text-primary: #ffffff;
+            --text-subdued: #9ca3af;
+            --border-color: #4b5563;
+
+            /* Fonts */
+            --font-display: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        [data-theme="light"] {
+            --bg-base: #f9fafb;
+            --bg-elevated: #ffffff;
+            --bg-surface: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-subdued: #64748b;
+            --border-color: #d1d5db;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--bg-elevated);
+            color: var(--text-subdued);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .theme-toggle:hover {
+            color: var(--text-primary);
+            background: var(--bg-surface);
+        }
+
+        [data-theme="light"] .sun-icon { display: none; }
+        [data-theme="light"] .moon-icon { display: block; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-base);
+            color: var(--text-primary);
+            font-size: 16px;
+            line-height: 26px;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--bg-elevated);
+            padding: 24px 40px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--btl-jade);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-subdued);
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 18px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover { color: var(--btl-jade); }
+
+        .header h1 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .intro h2 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .intro p {
+            font-size: 16px;
+            line-height: 26px;
+            color: var(--text-subdued);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .deck-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .deck-card {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .deck-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--btl-jade);
+        }
+
+        .deck-preview {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .deck-preview.overview {
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+        }
+
+        .deck-preview.workshop {
+            background: linear-gradient(135deg, var(--btl-charcoal) 0%, #0f172a 100%);
+        }
+
+        .deck-preview.team {
+            background: linear-gradient(135deg, #374151 0%, var(--btl-charcoal) 100%);
+        }
+
+        .deck-preview.client {
+            background: linear-gradient(135deg, #10b981 0%, #00a86b 100%);
+        }
+
+        .deck-preview.keynote {
+            background: linear-gradient(135deg, #008553 0%, #065f46 100%);
+        }
+
+        .deck-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+
+        .deck-info {
+            padding: 24px;
+        }
+
+        .deck-title {
+            font-family: var(--font-display);
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .deck-description {
+            font-size: 16px;
+            line-height: 26px;
+            color: var(--text-subdued);
+            margin-bottom: 16px;
+        }
+
+        .deck-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            line-height: 18px;
+            font-weight: 500;
+            color: var(--text-subdued);
+        }
+
+        .meta-icon {
+            font-size: 12px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(0, 168, 107, 0.2);
+            color: var(--btl-jade-light);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            line-height: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            .deck-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <a href="../index.html" class="back-btn">← Back</a>
+                <h1>Presentations</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="intro">
+            <h2>Presentation Decks</h2>
+            <p>Interactive HTML slide decks for various occasions. Click any deck to view and present.</p>
+        </div>
+
+        <div class="deck-grid">
+            <a href="company-overview.html" class="deck-card">
+                <div class="deck-preview overview">
+                    <div class="deck-icon">🏢</div>
+                </div>
+                <div class="deck-info">
+                    <span class="tag">Essential</span>
+                    <h3 class="deck-title">Company Overview</h3>
+                    <p class="deck-description">Introduction to Builds That Last - our mission, values, services, and what makes us different.</p>
+                    <div class="deck-meta">
+                        <span class="meta-item"><span class="meta-icon">📑</span> 12 slides</span>
+                        <span class="meta-item"><span class="meta-icon">⏱️</span> ~15 min</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="workshop-deck.html" class="deck-card">
+                <div class="deck-preview workshop">
+                    <div class="deck-icon">🎓</div>
+                </div>
+                <div class="deck-info">
+                    <span class="tag">Training</span>
+                    <h3 class="deck-title">Workshop Deck</h3>
+                    <p class="deck-description">Architecture workshop template with interactive exercises and best practices for building scalable systems.</p>
+                    <div class="deck-meta">
+                        <span class="meta-item"><span class="meta-icon">📑</span> 20 slides</span>
+                        <span class="meta-item"><span class="meta-icon">⏱️</span> ~2 hours</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="team-internal.html" class="deck-card">
+                <div class="deck-preview team">
+                    <div class="deck-icon">👥</div>
+                </div>
+                <div class="deck-info">
+                    <span class="tag">Internal</span>
+                    <h3 class="deck-title">Team Updates</h3>
+                    <p class="deck-description">Weekly/monthly team sync template with project updates, metrics, and announcements.</p>
+                    <div class="deck-meta">
+                        <span class="meta-item"><span class="meta-icon">📑</span> 10 slides</span>
+                        <span class="meta-item"><span class="meta-icon">⏱️</span> ~30 min</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="client-pitch.html" class="deck-card">
+                <div class="deck-preview client">
+                    <div class="deck-icon">🤝</div>
+                </div>
+                <div class="deck-info">
+                    <span class="tag">Sales</span>
+                    <h3 class="deck-title">Client Pitch</h3>
+                    <p class="deck-description">Sales presentation for prospective clients highlighting our approach, case studies, and engagement models.</p>
+                    <div class="deck-meta">
+                        <span class="meta-item"><span class="meta-icon">📑</span> 15 slides</span>
+                        <span class="meta-item"><span class="meta-icon">⏱️</span> ~20 min</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="keynote.html" class="deck-card">
+                <div class="deck-preview keynote">
+                    <div class="deck-icon">🎤</div>
+                </div>
+                <div class="deck-info">
+                    <span class="tag">Speaking</span>
+                    <h3 class="deck-title">Keynote Template</h3>
+                    <p class="deck-description">Conference keynote template for thought leadership talks on software engineering and architecture.</p>
+                    <div class="deck-meta">
+                        <span class="meta-item"><span class="meta-icon">📑</span> 25 slides</span>
+                        <span class="meta-item"><span class="meta-icon">⏱️</span> ~45 min</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme (t)">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M12 18a6 6 0 100-12 6 6 0 000 12zM12 2a1 1 0 011 1v2a1 1 0 01-2 0V3a1 1 0 011-1zm0 16a1 1 0 011 1v2a1 1 0 01-2 0v-2a1 1 0 011-1zm10-6a1 1 0 01-1 1h-2a1 1 0 010-2h2a1 1 0 011 1zM6 12a1 1 0 01-1 1H3a1 1 0 010-2h2a1 1 0 011 1z"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" style="display:none">
+            <path fill="currentColor" d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
+        </svg>
+    </button>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('btl-theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+            if (theme === 'light') {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+        }
+
+        // Initialize theme from localStorage
+        const savedTheme = localStorage.getItem('btl-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        // Keyboard shortcut
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 't' || e.key === 'T') toggleTheme();
+        });
+    </script>
+</body>
+</html>

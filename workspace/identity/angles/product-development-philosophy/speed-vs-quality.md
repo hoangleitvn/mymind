@@ -40,7 +40,6 @@ Speed and quality are not opposites. The correct choice depends on product stage
 
 Direct. Anti-perfectionism. Stage-aware. Mathematical framing.
 
----
 
 ## Related Angles
 

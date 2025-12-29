@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Builds That Last - Icon Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --brand-500: #00a86b;
+      --brand-600: #008553;
+      --brand-700: #007a4c;
+      --brand-100: #d1fae5;
+      --brand-50: #ecfdf5;
+
+      --base-50: #f9fafb;
+      --base-100: #f1f5f9;
+      --base-200: #e5e7eb;
+      --base-300: #d1d5db;
+      --base-400: #9ca3af;
+      --base-500: #6b7280;
+      --base-600: #4b5563;
+      --base-700: #374151;
+      --base-800: #1f2937;
+      --base-900: #111827;
+
+      --bg-primary: white;
+      --bg-secondary: var(--base-50);
+      --bg-card: white;
+      --text-primary: var(--base-800);
+      --text-secondary: var(--base-500);
+      --border-color: var(--base-200);
+
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: var(--base-900);
+      --bg-secondary: var(--base-800);
+      --bg-card: var(--base-800);
+      --text-primary: var(--base-50);
+      --text-secondary: var(--base-400);
+      --border-color: var(--base-700);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Header */
+    .header {
+      background: var(--base-800);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .accent-bar {
+      height: 4px;
+      background: var(--brand-500);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--brand-500);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .logo-badge {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--base-700);
+      color: var(--base-300);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .search-container {
+      flex: 1;
+      max-width: 400px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 16px 10px 44px;
+      background: var(--base-700);
+      border: 1px solid var(--base-600);
+      border-radius: 10px;
+      font-size: 14px;
+      color: white;
+      transition: all 0.2s;
+    }
+
+    .search-input::placeholder {
+      color: var(--base-400);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--brand-500);
+      background: var(--base-800);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--base-400);
+      pointer-events: none;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .size-selector {
+      display: flex;
+      background: var(--base-700);
+      border-radius: 8px;
+      padding: 4px;
+    }
+
+    .size-btn {
+      background: none;
+      border: none;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--base-400);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .size-btn.active {
+      background: var(--brand-500);
+      color: white;
+    }
+
+    .size-btn:hover:not(.active) {
+      color: white;
+    }
+
+    .theme-btn {
+      width: 40px;
+      height: 40px;
+      background: var(--base-700);
+      border: none;
+      border-radius: 8px;
+      color: var(--base-300);
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .theme-btn:hover {
+      background: var(--base-600);
+      color: white;
+    }
+
+    /* Main */
+    .main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .stats-info {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .stats-info strong {
+      color: var(--brand-500);
+    }
+
+    .category-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .category-tab {
+      padding: 8px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .category-tab:hover {
+      border-color: var(--brand-500);
+      color: var(--brand-500);
+    }
+
+    .category-tab.active {
+      background: var(--brand-500);
+      border-color: var(--brand-500);
+      color: white;
+    }
+
+    /* Icon Grid */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 12px;
+    }
+
+    .icon-grid.size-lg {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+
+    .icon-grid.size-sm {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .icon-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .icon-card:hover {
+      border-color: var(--brand-500);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 168, 107, 0.1);
+    }
+
+    .icon-card.copied {
+      border-color: var(--brand-500);
+      background: var(--brand-50);
+    }
+
+    [data-theme="dark"] .icon-card.copied {
+      background: rgba(0, 168, 107, 0.1);
+    }
+
+    .icon-card .icon {
+      color: var(--text-primary);
+      transition: color 0.2s;
+    }
+
+    .icon-card:hover .icon {
+      color: var(--brand-500);
+    }
+
+    .icon-name {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--text-secondary);
+      text-align: center;
+      word-break: break-all;
+      line-height: 1.3;
+    }
+
+    .icon-card .copy-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: var(--brand-500);
+      color: white;
+      font-size: 9px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.2s;
+    }
+
+    .icon-card.copied .copy-badge {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--text-secondary);
+    }
+
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    .empty-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-header:first-child {
+      margin-top: 0;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .section-count {
+      font-size: 12px;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--base-800);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast-icon {
+      color: var(--brand-500);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+
+    .modal-overlay.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      background: var(--bg-card);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 480px;
+      overflow: hidden;
+      transform: scale(0.95);
+      transition: transform 0.3s;
+    }
+
+    .modal-overlay.visible .modal {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      background: var(--bg-secondary);
+      border: none;
+      border-radius: 8px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close:hover {
+      background: var(--border-color);
+      color: var(--text-primary);
+    }
+
+    .modal-body {
+      padding: 24px;
+    }
+
+    .modal-icon-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .preview-box {
+      width: 80px;
+      height: 80px;
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preview-box.dark {
+      background: var(--base-800);
+      color: white;
+    }
+
+    .preview-box.brand {
+      background: var(--brand-500);
+      color: white;
+    }
+
+    .modal-icon-name {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      text-align: center;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .copy-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .copy-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      border-color: var(--brand-500);
+      background: var(--brand-50);
+    }
+
+    [data-theme="dark"] .copy-btn:hover {
+      background: rgba(0, 168, 107, 0.1);
+    }
+
+    .copy-btn-label {
+      font-weight: 500;
+    }
+
+    .copy-btn-code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-container {
+        max-width: none;
+      }
+
+      .header-actions {
+        justify-content: center;
+      }
+
+      .category-tabs {
+        justify-content: center;
+      }
+
+      .icon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="accent-bar"></div>
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-mark">
+          <i data-lucide="blocks" style="width: 20px; height: 20px;"></i>
+        </div>
+        <span class="logo-text">Builds That Last</span>
+        <span class="logo-badge">Lucide Icons</span>
+      </div>
+
+      <div class="search-container">
+        <i data-lucide="search" class="search-icon" style="width: 18px; height: 18px;"></i>
+        <input type="text" class="search-input" id="search-input" placeholder="Search icons...">
+      </div>
+
+      <div class="header-actions">
+        <div class="size-selector">
+          <button class="size-btn" data-size="16">S</button>
+          <button class="size-btn active" data-size="24">M</button>
+          <button class="size-btn" data-size="32">L</button>
+        </div>
+        <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="stats-bar">
+      <div class="stats-info">
+        Showing <strong id="icon-count">0</strong> icons
+      </div>
+      <div class="category-tabs" id="category-tabs"></div>
+    </div>
+
+    <div id="icon-container"></div>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <i data-lucide="check" class="toast-icon" style="width: 18px; height: 18px;"></i>
+    <span id="toast-message">Copied!</span>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <span class="modal-title">Icon Details</span>
+        <button class="modal-close" onclick="closeModal()">
+          <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-icon-preview">
+          <div class="preview-box" id="preview-light"></div>
+          <div class="preview-box dark" id="preview-dark"></div>
+          <div class="preview-box brand" id="preview-brand"></div>
+        </div>
+        <div class="modal-icon-name" id="modal-icon-name"></div>
+        <div class="copy-options">
+          <button class="copy-btn" onclick="copyIconName()">
+            <span class="copy-btn-label">Icon Name</span>
+            <span class="copy-btn-code" id="copy-name"></span>
+          </button>
+          <button class="copy-btn" onclick="copyLucideTag()">
+            <span class="copy-btn-label">Lucide Tag</span>
+            <span class="copy-btn-code" id="copy-tag"></span>
+          </button>
+          <button class="copy-btn" onclick="copySVG()">
+            <span class="copy-btn-label">SVG Code</span>
+            <span class="copy-btn-code">Copy SVG markup</span>
+          </button>
+          <button class="copy-btn" onclick="copyReact()">
+            <span class="copy-btn-label">React Component</span>
+            <span class="copy-btn-code" id="copy-react"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Icon categories with curated icons for BTL brand
+    const iconCategories = {
+      'All': [],
+      'UI Essentials': [
+        'menu', 'x', 'check', 'plus', 'minus', 'chevron-down', 'chevron-up', 'chevron-left', 'chevron-right',
+        'arrow-left', 'arrow-right', 'arrow-up', 'arrow-down', 'external-link', 'link', 'copy', 'clipboard',
+        'search', 'filter', 'settings', 'sliders', 'more-horizontal', 'more-vertical', 'grip-vertical',
+        'eye', 'eye-off', 'lock', 'unlock', 'bell', 'bell-off', 'info', 'alert-circle', 'alert-triangle',
+        'help-circle', 'loader', 'refresh-cw', 'rotate-cw', 'maximize', 'minimize', 'expand', 'shrink'
+      ],
+      'Content': [
+        'file', 'file-text', 'file-plus', 'file-minus', 'file-check', 'file-x', 'files', 'folder',
+        'folder-open', 'folder-plus', 'image', 'images', 'video', 'music', 'headphones', 'mic',
+        'camera', 'pen', 'pencil', 'edit', 'edit-2', 'edit-3', 'type', 'bold', 'italic', 'underline',
+        'strikethrough', 'align-left', 'align-center', 'align-right', 'list', 'list-ordered',
+        'quote', 'heading-1', 'heading-2', 'heading-3', 'text', 'book', 'book-open', 'bookmark',
+        'newspaper', 'rss', 'hash', 'at-sign'
+      ],
+      'Communication': [
+        'mail', 'mail-open', 'inbox', 'send', 'message-circle', 'message-square', 'messages-square',
+        'phone', 'phone-call', 'phone-incoming', 'phone-outgoing', 'video', 'share', 'share-2',
+        'forward', 'reply', 'reply-all', 'corner-up-left', 'corner-up-right', 'megaphone',
+        'radio', 'podcast', 'rss', 'wifi', 'signal', 'bluetooth'
+      ],
+      'Social': [
+        'user', 'users', 'user-plus', 'user-minus', 'user-check', 'user-x', 'contact', 'contact-2',
+        'heart', 'thumbs-up', 'thumbs-down', 'star', 'award', 'trophy', 'medal', 'crown',
+        'flag', 'bookmark', 'share', 'link', 'globe', 'globe-2', 'earth', 'map', 'map-pin',
+        'navigation', 'compass', 'home', 'building', 'building-2', 'store', 'landmark'
+      ],
+      'Development': [
+        'code', 'code-2', 'terminal', 'command', 'git-branch', 'git-commit', 'git-merge',
+        'git-pull-request', 'github', 'gitlab', 'bug', 'test-tube', 'flask', 'beaker',
+        'cpu', 'server', 'database', 'hard-drive', 'cloud', 'cloud-upload', 'cloud-download',
+        'upload', 'download', 'package', 'box', 'boxes', 'blocks', 'puzzle', 'component',
+        'layers', 'layout', 'grid', 'columns', 'rows', 'table', 'table-2', 'kanban',
+        'workflow', 'network', 'binary', 'braces', 'brackets', 'parentheses', 'regex'
+      ],
+      'Business': [
+        'briefcase', 'building', 'building-2', 'factory', 'store', 'wallet', 'credit-card',
+        'banknote', 'coins', 'receipt', 'file-spreadsheet', 'chart-bar', 'chart-line',
+        'chart-pie', 'trending-up', 'trending-down', 'activity', 'target', 'crosshair',
+        'goal', 'flag', 'milestone', 'calendar', 'calendar-check', 'calendar-plus',
+        'clock', 'timer', 'hourglass', 'alarm-clock', 'watch', 'presentation', 'projector',
+        'screen-share', 'cast', 'airplay', 'printer', 'scan', 'qr-code'
+      ],
+      'Actions': [
+        'play', 'pause', 'stop', 'skip-forward', 'skip-back', 'fast-forward', 'rewind',
+        'repeat', 'shuffle', 'volume', 'volume-1', 'volume-2', 'volume-x', 'save',
+        'trash', 'trash-2', 'archive', 'archive-restore', 'undo', 'redo', 'history',
+        'rotate-ccw', 'rotate-cw', 'flip-horizontal', 'flip-vertical', 'move', 'move-horizontal',
+        'move-vertical', 'scissors', 'crop', 'zoom-in', 'zoom-out', 'scan', 'focus'
+      ],
+      'Objects': [
+        'rocket', 'plane', 'car', 'bike', 'ship', 'train', 'bus', 'truck', 'tractor',
+        'anchor', 'compass', 'map', 'globe', 'sun', 'moon', 'cloud', 'cloud-rain', 'snowflake',
+        'wind', 'thermometer', 'umbrella', 'coffee', 'utensils', 'pizza', 'apple',
+        'cake', 'cookie', 'candy', 'ice-cream', 'beer', 'wine', 'glass-water',
+        'lamp', 'lightbulb', 'flashlight', 'candle', 'fire', 'flame', 'zap', 'battery',
+        'plug', 'power', 'key', 'lock', 'shield', 'shield-check', 'sword', 'axe'
+      ],
+      'Arrows': [
+        'arrow-up', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up-left', 'arrow-up-right',
+        'arrow-down-left', 'arrow-down-right', 'arrow-big-up', 'arrow-big-down', 'arrow-big-left',
+        'arrow-big-right', 'chevron-up', 'chevron-down', 'chevron-left', 'chevron-right',
+        'chevrons-up', 'chevrons-down', 'chevrons-left', 'chevrons-right', 'corner-down-left',
+        'corner-down-right', 'corner-left-down', 'corner-left-up', 'corner-right-down',
+        'corner-right-up', 'corner-up-left', 'corner-up-right', 'move-up', 'move-down',
+        'move-left', 'move-right', 'undo-2', 'redo-2', 'iteration-ccw', 'iteration-cw'
+      ]
+    };
+
+    // Flatten all icons for 'All' category
+    iconCategories['All'] = [...new Set(Object.values(iconCategories).flat())];
+
+    let currentCategory = 'All';
+    let currentSize = 24;
+    let currentSearch = '';
+    let selectedIcon = null;
+
+    function init() {
+      renderCategoryTabs();
+      renderIcons();
+      setupEventListeners();
+      lucide.createIcons();
+    }
+
+    function renderCategoryTabs() {
+      const container = document.getElementById('category-tabs');
+      container.innerHTML = Object.keys(iconCategories).map(cat => `
+        <button class="category-tab ${cat === currentCategory ? 'active' : ''}" data-category="${cat}">
+          ${cat}
+        </button>
+      `).join('');
+
+      container.querySelectorAll('.category-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          currentCategory = tab.dataset.category;
+          document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          renderIcons();
+        });
+      });
+    }
+
+    function renderIcons() {
+      const container = document.getElementById('icon-container');
+      let icons = iconCategories[currentCategory];
+
+      if (currentSearch) {
+        icons = icons.filter(icon => icon.toLowerCase().includes(currentSearch.toLowerCase()));
+      }
+
+      document.getElementById('icon-count').textContent = icons.length;
+
+      if (icons.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">🔍</div>
+            <div class="empty-title">No icons found</div>
+            <p>Try a different search term or category</p>
+          </div>
+        `;
+        return;
+      }
+
+      // Group by first letter
+      const grouped = {};
+      icons.forEach(icon => {
+        const letter = icon[0].toUpperCase();
+        if (!grouped[letter]) grouped[letter] = [];
+        grouped[letter].push(icon);
+      });
+
+      container.innerHTML = Object.entries(grouped).map(([letter, iconList]) => `
+        <div class="section-header">
+          <span class="section-title">${letter}</span>
+          <span class="section-count">${iconList.length}</span>
+        </div>
+        <div class="icon-grid ${currentSize === 16 ? 'size-sm' : currentSize === 32 ? 'size-lg' : ''}">
+          ${iconList.map(icon => `
+            <div class="icon-card" data-icon="${icon}" onclick="openIconModal('${icon}')">
+              <i data-lucide="${icon}" class="icon" style="width: ${currentSize}px; height: ${currentSize}px;"></i>
+              <span class="icon-name">${icon}</span>
+              <span class="copy-badge">Copied!</span>
+            </div>
+          `).join('')}
+        </div>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    function setupEventListeners() {
+      // Search
+      document.getElementById('search-input').addEventListener('input', (e) => {
+        currentSearch = e.target.value;
+        renderIcons();
+      });
+
+      // Size selector
+      document.querySelectorAll('.size-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentSize = parseInt(btn.dataset.size);
+          document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderIcons();
+        });
+      });
+    }
+
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById('theme-icon');
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        icon.textContent = '🌙';
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        icon.textContent = '☀️';
+      }
+    }
+
+    function openIconModal(iconName) {
+      selectedIcon = iconName;
+      const modal = document.getElementById('modal');
+
+      // Update previews
+      ['preview-light', 'preview-dark', 'preview-brand'].forEach(id => {
+        document.getElementById(id).innerHTML = `<i data-lucide="${iconName}" style="width: 32px; height: 32px;"></i>`;
+      });
+
+      // Update text
+      document.getElementById('modal-icon-name').textContent = iconName;
+      document.getElementById('copy-name').textContent = iconName;
+      document.getElementById('copy-tag').textContent = `<i data-lucide="${iconName}">`;
+      document.getElementById('copy-react').textContent = `<${toPascalCase(iconName)} />`;
+
+      modal.classList.add('visible');
+      lucide.createIcons();
+    }
+
+    function closeModal(event) {
+      if (event && event.target !== event.currentTarget) return;
+      document.getElementById('modal').classList.remove('visible');
+    }
+
+    function toPascalCase(str) {
+      return str.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('');
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text);
+      showToast(`Copied: ${text}`);
+    }
+
+    function copyIconName() {
+      copyToClipboard(selectedIcon);
+    }
+
+    function copyLucideTag() {
+      copyToClipboard(`<i data-lucide="${selectedIcon}"></i>`);
+    }
+
+    function copySVG() {
+      const svg = document.querySelector(`#preview-light svg`);
+      if (svg) {
+        copyToClipboard(svg.outerHTML);
+      }
+    }
+
+    function copyReact() {
+      copyToClipboard(`import { ${toPascalCase(selectedIcon)} } from 'lucide-react';`);
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = message;
+      toast.classList.add('visible');
+      setTimeout(() => toast.classList.remove('visible'), 2000);
+    }
+
+    // Quick copy on click (without modal)
+    document.addEventListener('dblclick', (e) => {
+      const card = e.target.closest('.icon-card');
+      if (card) {
+        const iconName = card.dataset.icon;
+        navigator.clipboard.writeText(iconName);
+        card.classList.add('copied');
+        showToast(`Copied: ${iconName}`);
+        setTimeout(() => card.classList.remove('copied'), 1500);
+      }
+    });
+
+    init();
+  </script>
+</body>
+</html>

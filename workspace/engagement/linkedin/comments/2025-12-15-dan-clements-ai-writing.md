@@ -1,10 +1,10 @@
 ---
 type: linkedin-engagement
-created: '2025-12-15'
-last_updated: '2025-12-15'
+created: '2025-12-15T00:00:00Z'
+last_updated: '2025-12-15T00:00:00Z'
 
 author:
-  name: "Dan 擔 C."
+  name: "Dan C."
   profile: "people/dan-clements.md"
 
 post:
@@ -22,52 +22,78 @@ post:
     - "Take the stairs, avoid shortcuts"
   hashtags: []
 
-notable_comments:
-  - author: "Christopher Carey"
-    content: "Tools don't erase authenticity, misuse does. A calculator didn't make accountants dishonest."
-    reactions: 1
-    insight: "Tool vs misuse distinction"
-  - author: "Jordan Dea-Mattson"
-    content: "Don't have AI write for you. But do write with AI."
-    reactions: 1
-    insight: "Write WITH AI, not BY AI"
-
-our_engagement:
-  - id: 1
-    type: "comment"
-    reply_to: null
-    status: "posted"
-    timestamp: '2025-12-15'
-    content: |
-I use AI to write. Openly shared why in a recent post.
-
-English isn't my native language. AI removes the barrier between my 15 years of insights and clear communication.
-
-Here is my principal: my judgment, AI's speed.
-
-The question isn't "did you use AI?" It's "does it help someone?"
-    strategy: "Personal experience + Respectful disagreement - references public stance, adds non-native speaker angle Dan may not have considered"
-
-  - id: 2
-    type: "reply"
-    reply_to: "Dan's question: do you feel AI helps you enhance your command of the language? Or is it about speed?"
-    status: "posted"
-    timestamp: '2025-12-15'
-    content: |
-Both.
-
-I don't just prompt and publish. I write a draft, AI restructures, I read and learn from the changes, then iterate. Over time, my first drafts are getting better. The gap shrinks.
-
-Speed now. Better English later. I don't want to become a writer or a professional writer. I just want to leverage AI so I can share more effectively. I can do it without AI, but it's only a matter of time.
-    strategy: "Honest answer to direct question - shows the learning loop, not just outsourcing"
+thread_topic: "AI writing authenticity debate"
+topic_tags: [ai-writing, authenticity, content-creation]
 
 engagement_status: "ongoing"
+response_received: true
+follow_up_needed: false
+follow_up_date: null
 ---
 
-## Post Analysis
+## Original Post
 
-Dan takes strong anti-AI writing stance. Comments add nuance (tool vs misuse, write WITH AI). Directly relevant to my published post on AI writing.
+Stop using AI to write. It makes you sound inauthentic. Your writing is you, it helps personality shine. Take the stairs, avoid shortcuts.
 
-## Comment Strategy
+## Notable Comments
 
-Reference my existing public stance. The non-native English speaker angle adds perspective Dan may not have considered. Reframes the question from "authenticity" to "value delivered."
+```yaml
+- id: 1734220800001
+  author: "Christopher Carey"
+  profile: null
+  sentiment: "neutral"
+  content: |
+    Tools don't erase authenticity, misuse does. A calculator didn't make accountants dishonest.
+  reactions: 1
+  insight: "Tool vs misuse distinction"
+  replies: []
+
+- id: 1734220800002
+  author: "Jordan Dea-Mattson"
+  profile: null
+  sentiment: "positive"
+  content: |
+    Don't have AI write for you. But do write with AI.
+  reactions: 1
+  insight: "Write WITH AI, not BY AI"
+  replies: []
+```
+
+## Our Engagement
+
+```yaml
+- id: 1734220800100
+  type: "comment"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-15T00:00:00Z'
+  content: |
+    I use AI to write. Openly shared why in a recent post.
+
+    English isn't my native language. AI removes the barrier between my 15 years of insights and clear communication.
+
+    Here is my principal: my judgment, AI's speed.
+
+    The question isn't "did you use AI?" It's "does it help someone?"
+  strategy: "Personal experience + Respectful disagreement - references public stance, adds non-native speaker angle Dan may not have considered"
+
+- id: 1734220800101
+  type: "reply"
+  reply_to: "Dan's question about AI helping enhance language vs speed"
+  status: "posted"
+  timestamp: '2025-12-15T00:00:00Z'
+  content: |
+    Both.
+
+    I don't just prompt and publish. I write a draft, AI restructures, I read and learn from the changes, then iterate. Over time, my first drafts are getting better. The gap shrinks.
+
+    Speed now. Better English later. I don't want to become a writer or a professional writer. I just want to leverage AI so I can share more effectively. I can do it without AI, but it's only a matter of time.
+  strategy: "Honest answer to direct question - shows the learning loop, not just outsourcing"
+```
+
+## Notes
+
+- Dan takes strong anti-AI writing stance
+- Comments add nuance (tool vs misuse, write WITH AI)
+- Directly relevant to my published post on AI writing
+- Non-native English speaker angle adds perspective Dan may not have considered

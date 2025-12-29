@@ -26,7 +26,7 @@ post:
 thread_topic: "Persistence as differentiator for success"
 topic_tags: [persistence, success, failure, resilience, entrepreneurship]
 
-engagement_status: "draft"
+engagement_status: "posted"
 response_received: false
 follow_up_needed: false
 follow_up_date: null
@@ -44,7 +44,7 @@ One difference between successful people and most others: How many times they're
   profile: null
   sentiment: "positive"
   content: |
-The people who keep going aren't necessarily more talented, they just understand that failing at attempt at #3 doesn't mean you'll fail at attempt #7. They know that "I can't do this" usually just means "I haven't figured out how to do this yet" Victoria
+    The people who keep going aren't necessarily more talented, they just understand that failing at attempt at #3 doesn't mean you'll fail at attempt #7. They know that "I can't do this" usually just means "I haven't figured out how to do this yet" Victoria
   reactions: 8
   insight: "Good reframe about talent vs persistence mindset"
   replies: []
@@ -54,7 +54,7 @@ The people who keep going aren't necessarily more talented, they just understand
   profile: null
   sentiment: "positive"
   content: |
-It's wild how often the breakthrough shows up right after the setback that made you question everything. Consistency has a quiet power most people underestimate.
+    It's wild how often the breakthrough shows up right after the setback that made you question everything. Consistency has a quiet power most people underestimate.
   reactions: 7
   insight: "Captures the timing paradox of breakthroughs"
   replies: []
@@ -64,7 +64,7 @@ It's wild how often the breakthrough shows up right after the setback that made 
   profile: null
   sentiment: "positive"
   content: |
-Success becomes possible when we treat failure as information instead of defeat. Every repeated effort builds clarity about what works.
+    Success becomes possible when we treat failure as information instead of defeat. Every repeated effort builds clarity about what works.
   reactions: 7
   insight: "Failure as data, not identity - strong reframe"
   replies: []
@@ -74,7 +74,7 @@ Success becomes possible when we treat failure as information instead of defeat.
   profile: null
   sentiment: "positive"
   content: |
-I've learned to treat each "failed" try as data. Once I started using mistakes instead of judging them, persistence stopped feeling heroic and started feeling practical.
+    I've learned to treat each "failed" try as data. Once I started using mistakes instead of judging them, persistence stopped feeling heroic and started feeling practical.
   reactions: 4
   insight: "Practical framing removes emotional weight from persistence"
   replies: []
@@ -85,14 +85,14 @@ I've learned to treat each "failed" try as data. Once I started using mistakes i
 ```yaml
 - id: 1733642400000
   type: "comment"
-  status: "draft"
-  sentiment: "positive"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-08T06:15:00Z'
   content: |
-The people who make it aren't the ones with better ideas. They're the ones who survive their first 10 "this won't work" moments.
+    The people who make it aren't the ones with better ideas. They're the ones who survive their first 10 "this won't work" moments.
 
-What changed for me: treating failure as debugging, not defeat. Find what broke, fix it, try again.
+    What changed for me: treating failure as debugging, not defeat. Find what broke, fix it, try again.
   strategy: "Personal Experience - Short, connects persistence to practical debugging mindset"
-  replies: []
 ```
 
 ## Notes

@@ -1,4 +1,4 @@
-# MizeForge Dashboard Plugin Idea
+# Mizemind Dashboard Plugin Idea
 
 **Date:** 2025-11-28
 **Type:** Product Idea / Content Seed
@@ -22,9 +22,9 @@ Building AI that generates accurate dashboards is hard:
 - Accuracy validation
 - Handling messy real-world data
 
-## MizeForge Opportunity
+## Mizemind Opportunity
 
-MizeForge is built on markdown data. Two potential directions:
+Mizemind is built on markdown data. Two potential directions:
 
 ### 1. Dashboard Plugin
 Turn markdown data into visual dashboards:
@@ -35,7 +35,7 @@ Turn markdown data into visual dashboards:
 
 ### 2. Web Version of Claude Code
 Some people prefer UI over CLI:
-- Web interface for MizeForge workflows
+- Web interface for Mizemind workflows
 - Visual workspace management
 - Easier onboarding for non-technical users
 - Could combine with dashboard capabilities
@@ -44,13 +44,13 @@ Some people prefer UI over CLI:
 
 - Differentiator: Most AI tools are chat-only
 - User need: Visualization > text for pattern recognition
-- MizeForge data is structured (markdown) = easier to model
+- Mizemind data is structured (markdown) = easier to model
 - Personal experience: I've thought about this problem, know how hard execution is
 
 ## Next Steps
 
 - [ ] Research: How Annie handles data modeling
-- [ ] Explore: What MizeForge data would benefit from visualization
+- [ ] Explore: What Mizemind data would benefit from visualization
 - [ ] Prototype: Simple dashboard for content metrics
 - [ ] Validate: Would users pay for this?
 
@@ -59,9 +59,9 @@ Some people prefer UI over CLI:
 This could become content about:
 - "Chat mode has limits" angle
 - "The invisible work behind 'magic' tools"
-- Building in public: MizeForge dashboard feature
+- Building in public: Mizemind dashboard feature
 - Why visualization beats text for certain problems
 
 ---
 
-**Related:** Annie by PandasAI, Claude Code, MizeForge roadmap
+**Related:** Annie by PandasAI, Claude Code, Mizemind roadmap

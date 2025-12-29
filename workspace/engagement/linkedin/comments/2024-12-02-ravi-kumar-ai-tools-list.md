@@ -70,7 +70,6 @@ Learning and research
 14. YouTube Summary with GPT
 15. Pieces for Developers
 
----
 
 ## Notable Comments
 
@@ -91,14 +90,14 @@ We aim to augment you, not replace you
 ```yaml
 - id: 1733154840000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-02T15:19:00Z'
   content: |
-Tools are easy to list. The hard part is knowing when each one adds value vs. adds noise.
+    Tools are easy to list. The hard part is knowing when each one adds value vs. adds noise.
 
-I'd add: pick 2-3 that fit your workflow, get good at them, then expand. Trying all 15 at once leads to tool fatigue, not productivity.
+    I'd add: pick 2-3 that fit your workflow, get good at them, then expand. Trying all 15 at once leads to tool fatigue, not productivity.
   strategy: "Expert Insight - Adds practical wisdom about tool adoption rather than more suggestions. Aligns with 'figure out what works' theme."
-  replies: []
 ```
 
 ## Notes

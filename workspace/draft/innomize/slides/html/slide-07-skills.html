@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #2E3840; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #2E3840;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  padding: 24pt 40pt 0 40pt;
+}
+h2 {
+  font-size: 26pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin: 0 0 4pt 0;
+}
+.highlight {
+  color: #EA322A;
+}
+.source {
+  font-size: 11pt;
+  color: #708999;
+  margin: 0;
+}
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 14pt 40pt 28pt 40pt;
+}
+.two-column {
+  display: flex;
+  gap: 30pt;
+  margin-bottom: 14pt;
+}
+.column {
+  flex: 1;
+}
+h3 {
+  font-size: 15pt;
+  font-weight: bold;
+  margin: 0 0 10pt 0;
+}
+h3.success {
+  color: #4ade80;
+}
+h3.muted {
+  color: #a5a9ad;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  font-size: 12pt;
+  color: #a5a9ad;
+  margin-bottom: 6pt;
+  padding-left: 14pt;
+  position: relative;
+  line-height: 1.3;
+}
+li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 5pt;
+  width: 5pt;
+  height: 5pt;
+  border-radius: 50%;
+  background: #EA322A;
+}
+.emphasis {
+  color: #EA322A;
+  font-weight: bold;
+}
+.takeaway {
+  background: #353f48;
+  border: 1pt solid #4a545d;
+  border-radius: 10pt;
+  padding: 10pt 16pt;
+}
+.takeaway-label {
+  font-size: 10pt;
+  font-weight: bold;
+  color: #EA322A;
+  text-transform: uppercase;
+  letter-spacing: 0.5pt;
+  margin: 0 0 5pt 0;
+}
+.takeaway-text {
+  font-size: 13pt;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.4;
+}
+.takeaway-highlight {
+  color: #EA322A;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h2>Skills That <span class="highlight">Rise in Value</span></h2>
+  <p class="source">McKinsey analysis of 800+ occupations</p>
+</div>
+<div class="body">
+  <div class="two-column">
+    <div class="column">
+      <h3 class="success">Increasing Demand</h3>
+      <ul>
+        <li><b>Problem-solving</b></li>
+        <li><b>Communication</b> and negotiation</li>
+        <li><b>Leadership</b> and collaboration</li>
+        <li>Coaching and empathy</li>
+        <li><span class="emphasis">AI fluency</span> (fastest-growing)</li>
+      </ul>
+    </div>
+    <div class="column">
+      <h3 class="muted">Exposed to Automation</h3>
+      <ul>
+        <li>Routine digital tasks</li>
+        <li>Information processing</li>
+        <li>Rules-based work</li>
+        <li>Data entry and formatting</li>
+      </ul>
+    </div>
+  </div>
+  <div class="takeaway">
+    <p class="takeaway-label">Key Finding</p>
+    <p class="takeaway-text"><span class="takeaway-highlight">72% of skills</span> employers seek are used in BOTH automatable and non-automatable work. The future is skill partnership, not replacement.</p>
+  </div>
+</div>
+</body>
+</html>

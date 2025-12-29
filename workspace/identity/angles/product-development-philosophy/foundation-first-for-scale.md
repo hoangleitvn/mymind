@@ -42,7 +42,6 @@ Ship fast but with bones that won't break at 10x growth. Foundation-first means 
 
 Practical. Outcome-focused. Mathematical (ROI-driven). Experience-backed.
 
----
 
 ## Related Angles
 

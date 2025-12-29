@@ -42,7 +42,6 @@ Successful companies started simple (monolith), evolved as needed (Facebook, Net
 
 Balanced. Strategic (not dogmatic). Experience-driven. Context-aware.
 
----
 
 ## Related Angles
 

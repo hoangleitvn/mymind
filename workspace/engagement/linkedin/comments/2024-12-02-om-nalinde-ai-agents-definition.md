@@ -80,7 +80,6 @@ Main differences vs AI Agents:
 - Multi-agent collaboration instead of single-agent execution.
 - Autonomous distribution and reallocation of tasks.
 
----
 
 ## Notable Comments
 
@@ -101,14 +100,14 @@ The distinction you're drawing here helps teams choose the right approach instea
 ```yaml
 - id: 1733155320000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-02T15:27:00Z'
   content: |
-The naming problem is real. When everything is an "agent," teams buy tools expecting autonomy and get glorified chatbots.
+    The naming problem is real. When everything is an "agent," teams buy tools expecting autonomy and get glorified chatbots.
 
-The memory + tool use distinction is what actually matters in practice. Without state, you're restarting every conversation from scratch.
+    The memory + tool use distinction is what actually matters in practice. Without state, you're restarting every conversation from scratch.
   strategy: "Expert Insight - Adds practical consequence of naming confusion, highlights key technical differentiator (memory + state)."
-  replies: []
 ```
 
 ## Notes

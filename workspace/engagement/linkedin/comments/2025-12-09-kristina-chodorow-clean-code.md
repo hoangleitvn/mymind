@@ -30,7 +30,7 @@ post:
 thread_topic: "Clean code definition and practices"
 topic_tags: [clean-code, code-quality, engineering-practices, testing, scale]
 
-engagement_status: "draft"
+engagement_status: "posted"
 response_received: false
 follow_up_needed: false
 follow_up_date: null
@@ -48,7 +48,7 @@ Most engineers have never worked on a clean code base. Here's what clean code ac
   profile: null
   sentiment: "negative"
   content: |
-I was with you until: > Coverage: as close to 100% code coverage as possible. this requires mocks/fakes of DB libraries and RPCs, and visual tests for frontend changes. This leads to performative and meaningless double-entry bookkeeping code, which wastes development time and effort and makes things much harder to change down the line. 'Don't mock what you don't own', _especially_ a database! Also, lean into the idioms of the language. If you don't like dynamic typing (which it appears you don't) then choose statically typed languages. Don't try to impose your type system proclivities onto languages that have other ways to do things. Nor Linus's. He didn't write your internal billing system and he doesn't know your house coding style, and I suspect he doesn't do much Java or C# in any case. My preferences are here: https://cupid.dev. YMMV of course.
+    I was with you until: > Coverage: as close to 100% code coverage as possible. this requires mocks/fakes of DB libraries and RPCs, and visual tests for frontend changes. This leads to performative and meaningless double-entry bookkeeping code, which wastes development time and effort and makes things much harder to change down the line. 'Don't mock what you don't own', _especially_ a database! Also, lean into the idioms of the language. If you don't like dynamic typing (which it appears you don't) then choose statically typed languages. Don't try to impose your type system proclivities onto languages that have other ways to do things. Nor Linus's. He didn't write your internal billing system and he doesn't know your house coding style, and I suspect he doesn't do much Java or C# in any case. My preferences are here: https://cupid.dev. YMMV of course.
   reactions: 4
   insight: "Creator of CUPID principles pushes back on 100% coverage and mocking. Links to his alternative framework."
   replies: []
@@ -58,7 +58,7 @@ I was with you until: > Coverage: as close to 100% code coverage as possible. th
   profile: null
   sentiment: "neutral"
   content: |
-> Everything follows a style guide, no unsupervised commits until you pass readability in the language. I assume that is enforced automatically in commit hooks / ci-cd not people bike shedding on PR's > Coverage: as close to 100% code coverage as possible. this requires mocks/fakes of DB libraries and RPCs, and visual tests for frontend changes. This unfortunately doesn't say much. Definitely have tests but bugs are exactly the non happy paths :) Otherwise I agree, codebases become legacy codebases because people don't care and/or do not have some decent practices in place. Starting a new greenfield project so there is no legacy code isn't going to solve existing process issues.
+    > Everything follows a style guide, no unsupervised commits until you pass readability in the language. I assume that is enforced automatically in commit hooks / ci-cd not people bike shedding on PR's > Coverage: as close to 100% code coverage as possible. this requires mocks/fakes of DB libraries and RPCs, and visual tests for frontend changes. This unfortunately doesn't say much. Definitely have tests but bugs are exactly the non happy paths :) Otherwise I agree, codebases become legacy codebases because people don't care and/or do not have some decent practices in place. Starting a new greenfield project so there is no legacy code isn't going to solve existing process issues.
   reactions: 1
   insight: "Questions automation vs manual enforcement. Notes that coverage alone doesn't catch edge case bugs."
   replies: []
@@ -68,7 +68,7 @@ I was with you until: > Coverage: as close to 100% code coverage as possible. th
   profile: null
   sentiment: "positive"
   content: |
-This may be the only clean code you'll ever see. 🙂
+    This may be the only clean code you'll ever see.
   reactions: 2
   insight: "Light humor about rarity of clean codebases"
   replies: []
@@ -78,7 +78,7 @@ This may be the only clean code you'll ever see. 🙂
   profile: null
   sentiment: "negative"
   content: |
-I agree with some of this, but this: > * Net-new code goes through a design doc process. yuck... no need for this at all.
+    I agree with some of this, but this: > * Net-new code goes through a design doc process. yuck... no need for this at all.
   reactions: 1
   insight: "Strong pushback on design doc requirement"
   replies: []
@@ -88,7 +88,7 @@ I agree with some of this, but this: > * Net-new code goes through a design doc 
   profile: null
   sentiment: "positive"
   content: |
-Love to see a Style Guide with compliance checks called out. Bravo!
+    Love to see a Style Guide with compliance checks called out. Bravo!
   reactions: 1
   insight: "Appreciates the style guide emphasis"
   replies: []
@@ -99,36 +99,20 @@ Love to see a Style Guide with compliance checks called out. Bravo!
 ```yaml
 - id: 1733710453992
   type: "comment"
-  status: "draft"
-  sentiment: "positive"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-09T02:14:00Z'
   content: |
-This list is real. And most engineers push back on it because they've never operated at scale.
+    This list is real. And most engineers push back on it because they've never operated at scale.
 
-The nuance: which practices you adopt depends on team size and codebase lifetime. A startup shipping MVP doesn't need design docs for every feature. A 50-person team maintaining code for 5+ years probably does.
+    The nuance: which practices you adopt depends on team size and codebase lifetime. A startup shipping MVP doesn't need design docs for every feature. A 50-person team maintaining code for 5+ years probably does.
 
-What worked for us: start with enforced style guides and code review standards. Those alone eliminated 80% of "what is this code doing" questions during incident response.
+    What worked for us: start with enforced style guides and code review standards. Those alone eliminated 80% of "what is this code doing" questions during incident response.
 
-The test coverage debate is interesting. 100% coverage with bad mocks is worse than 70% coverage with real integration tests. The goal is confidence to change code, not a coverage number.
+    The test coverage debate is interesting. 100% coverage with bad mocks is worse than 70% coverage with real integration tests. The goal is confidence to change code, not a coverage number.
+
+    Good reference list to share with junior engineers joining the team.
   strategy: "Insightful Addition - Adds practical nuance about when to apply these standards based on team scale. Engages with the coverage debate constructively."
-  replies:
-    - id: 1733800500000
-      author: "Kristina Chodorow"
-      sentiment: "positive"
-      content: |
-100%, good nuance to add! Fwiw this is a response to my previous post (https://www.linkedin.com/posts/kchodorow_as-a-cto-i-dont-care-if-your-code-looks-activity-7397716977202434048-zWg_) where 200 people ragged on me for not having clean code. Because our 4-person startup definitely doesn't do a lot of this stuff, but I'm still enforcing the standards that make sense for our size/scale!
-      reactions: 0
-    - id: 1733800600000
-      type: "our_reply"
-      status: "draft"
-      sentiment: "positive"
-      content: |
-Just read that thread. The reactions are fascinating. People hear "messy code is fine" and miss the real point: context matters.
-
-A 4-person startup optimizing for speed to market is playing a different game than a 10,000-engineer org maintaining code for decades. Both can be "right" for their situation.
-
-Even at INNOMIZE with small 2-3 person projects, we still enforce naming conventions and formatting. Inconsistency creates noise, especially now that AI writes code 10x faster than before. Without standards, AI-generated code becomes a mess quickly.
-
-The skill is knowing which standards fit your context. Not zero standards, not Google-scale standards. The right ones for your team size and codebase lifetime.
 ```
 
 ## Notes

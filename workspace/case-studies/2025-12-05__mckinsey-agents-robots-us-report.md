@@ -5,13 +5,11 @@
 **Released:** November 25, 2025
 **Researched:** 2025-12-05
 
----
 
 ## Why This Matters
 
 This report is trending because it provides nuanced data that counters both the "AI will take all jobs" panic and the "AI is just hype" dismissal. It frames AI adoption as a partnership model, not a replacement model.
 
----
 
 ## Core Thesis
 
@@ -19,7 +17,6 @@ This report is trending because it provides nuanced data that counters both the 
 
 The future is a "skills partnership" between humans, AI agents, and robots. The report argues that value comes from redesigning workflows around this partnership, not just automating individual tasks.
 
----
 
 ## Key Statistics
 
@@ -34,7 +31,6 @@ The future is a "skills partnership" between humans, AI agents, and robots. The 
 | Skills overlap | 72% of skills needed for both automatable and non-automatable work |
 | AI fluency growth | 7x increase in job postings over 2 years (fastest-growing skill) |
 
----
 
 ## Skills Analysis
 
@@ -58,7 +54,6 @@ The future is a "skills partnership" between humans, AI agents, and robots. The 
 
 This means AI fluency + human judgment work together. It's not a binary replacement.
 
----
 
 ## Job Archetypes
 
@@ -71,7 +66,6 @@ The report classifies ~800 occupations into 7 archetypes:
 | Robot-centric | Physical automation | High |
 | Mixed | Human-agent-robot collaboration | Variable |
 
----
 
 ## The Adoption Gap
 
@@ -89,7 +83,6 @@ Companies that automate tasks without redesigning workflows get faster at the wr
 2. Building human-agent-robot partnerships
 3. Investing in AI fluency across the workforce
 
----
 
 ## Content Angles (For My Positioning)
 
@@ -119,7 +112,6 @@ Value comes from redesigning workflows, not just buying AI tools.
 
 **Angle:** Stop asking "Will AI replace X?" Start asking "How do humans and AI work together on X?"
 
----
 
 ## Quotable Findings
 
@@ -129,7 +121,6 @@ Value comes from redesigning workflows, not just buying AI tools.
 
 > "The AI era is not about replacing the human workforce entirely, but rather shifting the focus of human intelligence from execution to orchestration and judgment."
 
----
 
 ## Related Discussion
 
@@ -139,7 +130,6 @@ Value comes from redesigning workflows, not just buying AI tools.
 
 See: `engagement/linkedin/comments/2025-12-05-steve-nouri-mckinsey-ai-human-skills.md`
 
----
 
 ## Sources
 
@@ -148,7 +138,6 @@ See: `engagement/linkedin/comments/2025-12-05-steve-nouri-mckinsey-ai-human-skil
 - [Robotics and Automation News: McKinsey warns AI and robots could automate 40 percent of US jobs by 2030](https://roboticsandautomationnews.com/2025/11/26/mckinsey-warns-ai-and-robots-could-automate-40-percent-of-us-jobs-by-2030/97003/)
 - [eWeek: AI Could Automate Half of US Jobs](https://www.eweek.com/news/ai-could-automate-half-us-jobs/)
 
----
 
 ## Tags
 

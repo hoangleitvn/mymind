@@ -58,7 +58,6 @@ Which one should we worry about more?
 
 #AIStrategy #SoftwareEngineering #TechLeadership #VibeCoding #StartupFounders
 
----
 
 ## Visual Spec: Cover Image
 
@@ -155,7 +154,6 @@ Background: Gradient from #FFF3E2 (left) to #FFC8B1 (right)
 Text: #2E3840 (Neutral 900)
 Font: Bai Jamjuree Bold for headers, Manrope for subtext
 
----
 
 ## Asset Files Needed
 

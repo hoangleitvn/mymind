@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <!-- Water pattern -->
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0f2fe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bae6fd;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Iceberg above water -->
+    <linearGradient id="iceAbove" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f9fafb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e5e7eb;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Iceberg below water -->
+    <linearGradient id="iceBelow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d1fae5;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#065f46;stop-opacity:0.95" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1000" fill="#1f2937"/>
+
+  <!-- Accent bar top -->
+  <rect x="0" y="0" width="800" height="5" fill="#00a86b"/>
+
+  <!-- Sky area -->
+  <rect x="0" y="5" width="800" height="295" fill="#374151"/>
+
+  <!-- Water surface line -->
+  <rect x="0" y="300" width="800" height="3" fill="#00a86b" opacity="0.6"/>
+
+  <!-- Water area -->
+  <rect x="0" y="303" width="800" height="647" fill="#111827"/>
+
+  <!-- Iceberg - Above water (20%) -->
+  <polygon
+    points="400,120 480,295 320,295"
+    fill="#f9fafb"
+    opacity="0.95"
+  />
+
+  <!-- Iceberg - Below water (80%) - much larger -->
+  <polygon
+    points="320,305 480,305 580,500 620,700 550,850 250,850 180,700 220,500"
+    fill="url(#iceBelow)"
+  />
+
+  <!-- Subtle ice texture lines below water -->
+  <line x1="350" y1="400" x2="450" y2="420" stroke="#00a86b" stroke-width="1" opacity="0.3"/>
+  <line x1="300" y1="550" x2="500" y2="570" stroke="#00a86b" stroke-width="1" opacity="0.25"/>
+  <line x1="280" y1="700" x2="520" y2="710" stroke="#00a86b" stroke-width="1" opacity="0.2"/>
+
+  <!-- 20% Label - Above -->
+  <text x="600" y="220" font-family="Inter, system-ui, sans-serif" font-size="48" font-weight="700" fill="#f9fafb">20%</text>
+  <text x="600" y="255" font-family="Inter, system-ui, sans-serif" font-size="16" fill="#9ca3af">visible</text>
+
+  <!-- Line connecting to iceberg top -->
+  <line x1="580" y1="230" x2="485" y2="230" stroke="#6b7280" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- 80% Label - Below -->
+  <text x="650" y="580" font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="700" fill="#00a86b">80%</text>
+  <text x="650" y="625" font-family="Inter, system-ui, sans-serif" font-size="16" fill="#9ca3af">foundation</text>
+
+  <!-- Line connecting to iceberg below -->
+  <line x1="630" y1="590" x2="550" y2="590" stroke="#00a86b" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+
+  <!-- Above water items -->
+  <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="#9ca3af">
+    <circle cx="120" cy="180" r="4" fill="#f9fafb"/>
+    <text x="135" y="184">Fast demos</text>
+
+    <circle cx="120" cy="210" r="4" fill="#f9fafb"/>
+    <text x="135" y="214">Quick wins</text>
+
+    <circle cx="120" cy="240" r="4" fill="#f9fafb"/>
+    <text x="135" y="244">Visible progress</text>
+  </g>
+
+  <!-- Below water items -->
+  <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="#6b7280">
+    <circle cx="120" cy="400" r="4" fill="#00a86b"/>
+    <text x="135" y="404">Architecture decisions</text>
+
+    <circle cx="120" cy="435" r="4" fill="#00a86b"/>
+    <text x="135" y="439">Documentation</text>
+
+    <circle cx="120" cy="470" r="4" fill="#00a86b"/>
+    <text x="135" y="474">Error handling</text>
+
+    <circle cx="120" cy="505" r="4" fill="#00a86b"/>
+    <text x="135" y="509">Edge cases</text>
+
+    <circle cx="120" cy="540" r="4" fill="#00a86b"/>
+    <text x="135" y="544">Testing</text>
+
+    <circle cx="120" cy="575" r="4" fill="#00a86b"/>
+    <text x="135" y="579">Security</text>
+
+    <circle cx="120" cy="610" r="4" fill="#00a86b"/>
+    <text x="135" y="614">Maintenance</text>
+
+    <circle cx="120" cy="645" r="4" fill="#00a86b"/>
+    <text x="135" y="649">Technical debt</text>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="70" font-family="Poppins, Inter, system-ui, sans-serif" font-size="28" font-weight="700" fill="#f9fafb" text-anchor="middle">THE ENGINEERING ICEBERG</text>
+
+  <!-- Tagline at bottom -->
+  <text x="400" y="920" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#9ca3af" text-anchor="middle">Everyone sees the demo.</text>
+  <text x="400" y="948" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#00a86b" text-anchor="middle">Few see what makes it last.</text>
+
+  <!-- Bottom accent bar -->
+  <rect x="0" y="995" width="800" height="5" fill="#00a86b"/>
+</svg>

@@ -40,7 +40,6 @@ Pareto principle validated across 50+ INNOMIZE projects: 80% of value from 20% o
 
 Direct. Challenging (cut ruthlessly). Outcome-focused. Customer behavior-driven.
 
----
 
 ## Related Angles
 

@@ -4,7 +4,7 @@ captured: 2025-12-17
 stage: forming
 energy: 95
 tags: [design, product, mizeflow, vision, 2030]
-related: [mizeforge-mizemind-naming]
+related: [mizemind-mizemind-naming]
 ---
 
 # Mizeflow Design Concept Completed
@@ -58,5 +58,4 @@ Comprehensive design document for Mizeflow capturing:
 ## Location
 `/flow/DESIGN-CONCEPT.md`
 
----
 *Strategic product documentation - foundation for future development*

@@ -4,7 +4,7 @@ created: '2025-12-12T00:00:00Z'
 last_updated: '2025-12-12T00:00:00Z'
 
 author:
-  name: "Tuomo Kankaanpää"
+  name: "Tuomo Kankaanpaa"
   profile: "people/tuomo-kankaanpaa.md"
 
 post:
@@ -25,7 +25,7 @@ post:
 thread_topic: "AI coding workflow - waiting time reality"
 topic_tags: [ai-development, developer-productivity, ai-workflow, context-switching]
 
-engagement_status: "draft"
+engagement_status: "posted"
 response_received: false
 follow_up_needed: false
 follow_up_date: null
@@ -46,16 +46,16 @@ Post about spending 30% of coding time waiting for AI. (Content not fetched due 
 ```yaml
 - id: 1733961600000
   type: "comment"
-  status: "draft"
-  sentiment: "positive"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-12T00:00:00Z'
   content: |
-Same here. Used to context switch while waiting. Tab to email, Slack, LinkedIn, random reading. Then lose 5-10 minutes getting back into the problem.
+    Same here. Used to context switch while waiting. Tab to email, Slack, LinkedIn, random reading. Then lose 5-10 minutes getting back into the problem.
 
-Now I'm building a focus mode: stay in the IDE, read the AI's thinking as it works, follow along with its process. When it finishes, I'm already mentally there.
+    Now I'm building a focus mode: stay in the IDE, read the AI's thinking as it works, follow along with its process. When it finishes, I'm already mentally there.
 
-Context switching always has a cost. Sometimes staying in "active waiting" beats the illusion of multitasking.
+    Context switching always has a cost. Sometimes staying in "active waiting" beats the illusion of multitasking.
   strategy: "Personal Experience - Share authentic experience and current solution being built"
-  replies: []
 ```
 
 ## Notes

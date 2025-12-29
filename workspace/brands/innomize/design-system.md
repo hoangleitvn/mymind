@@ -21,7 +21,6 @@
 - Commitment - Without commitment, nothing is possible
 - Sharing - The more you share, the more you have
 
----
 
 ## Colors
 
@@ -82,7 +81,6 @@
 | `#4E6E81` (Steel Blue) | `#DAE0E5` (Ice Blue) | Professional sections |
 | `#2E3840` (Charcoal) | `#F8F8F8` (White) | Dark mode, footers |
 
----
 
 ## Typography
 
@@ -121,7 +119,6 @@
 - **Vietnamese support:** Both fonts support Vietnamese characters
 - **Letter spacing:** Normal for body, no modification needed
 
----
 
 ## Spacing
 
@@ -146,7 +143,6 @@
 | **Gutter** | 16-24px | Space between columns |
 | **Container Padding** | 24px | Mobile: 16px |
 
----
 
 ## Borders
 
@@ -168,7 +164,6 @@
 | **Emphasis** | 2px solid #EA322A | Active states, highlights |
 | **Muted** | 1px solid #E5E7E8 | Very subtle separation |
 
----
 
 ## Shadows
 
@@ -179,7 +174,6 @@
 | `lg` | 0 10px 15px rgba(0,0,0,0.1) | Modals, popovers |
 | `xl` | 0 20px 25px rgba(0,0,0,0.1) | Large overlays |
 
----
 
 ## Component Tokens
 
@@ -209,7 +203,6 @@
 | **Secondary** | #DAE0E5 | #4E6E81 |
 | **Neutral** | #E5E7E8 | #535B62 |
 
----
 
 ## Pattern Usage
 
@@ -233,7 +226,6 @@ See `imagery.md` for complete pattern guidelines. Quick reference:
 - **Prefer** gradient fades for natural transitions
 - For text-heavy content, use alternative brand signals (red borders, badges, gradient backgrounds)
 
----
 
 ## Usage Notes
 

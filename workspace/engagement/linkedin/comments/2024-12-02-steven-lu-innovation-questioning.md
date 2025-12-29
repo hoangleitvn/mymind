@@ -44,7 +44,6 @@ For years, people accepted LinkedIn as the center of recruiting, and most new to
 
 Real innovation starts when you slow down enough to understand the problem properly, not when you rush to add something new.
 
----
 
 ## Notable Comments
 
@@ -65,14 +64,14 @@ Questioning the system itself beats stacking features on top of broken foundatio
 ```yaml
 - id: 1733153700000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-02T15:00:00Z'
   content: |
-This is why we say "build 20% that matters."
+    This is why we say "build 20% that matters."
 
-Most teams add features because they can. Few ask if the foundation still holds. The hardest skill in engineering is knowing when to stop adding and start questioning.
+    Most teams add features because they can. Few ask if the foundation still holds. The hardest skill in engineering is knowing when to stop adding and start questioning.
   strategy: "Expert Insight - Connects to foundation-first principle"
-  replies: []
 ```
 
 ## Notes

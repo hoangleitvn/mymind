@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 1: AI Foundations | INNOMIZE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #EA322A;
+            --primary-light: #F76D55;
+            --cream: #FFF3E2;
+            --secondary: #4E6E81;
+            --secondary-light: #708999;
+            --dark: #2E3840;
+            --gray: #7B8187;
+            --gray-light: #A5A9AD;
+            --gray-lighter: #D1D3D5;
+            --bg-light: #F8F8F8;
+            --white: #FFFFFF;
+            --font-display: 'Bai Jamjuree', system-ui, sans-serif;
+            --font-body: 'Manrope', system-ui, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        .slide {
+            min-height: 100vh;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary);
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 14px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .slide.title {
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark) 0%, #1a2530 100%);
+        }
+
+        .slide.title h1 {
+            font-family: var(--font-display);
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 0.9;
+        }
+
+        .slide.title .subtitle {
+            font-size: 28px;
+            color: var(--gray-light);
+            margin-bottom: 48px;
+        }
+
+        .slide.title .meta {
+            font-size: 18px;
+            color: var(--gray);
+        }
+
+        .slide.title .meta span { margin: 0 16px; }
+        .slide.title .meta .divider { color: var(--primary); }
+
+        .slide.section {
+            background: var(--primary);
+            text-align: center;
+        }
+
+        .slide.section::before { background: var(--dark); }
+
+        .slide.section h2 {
+            font-family: var(--font-display);
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .slide.section .section-subtitle {
+            font-size: 24px;
+            color: var(--cream);
+        }
+
+        .slide h2 {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            line-height: 1.1;
+        }
+
+        .slide h3 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .slide p {
+            font-size: 22px;
+            margin-bottom: 20px;
+            max-width: 900px;
+            color: var(--gray-lighter);
+        }
+
+        .slide ul {
+            font-size: 22px;
+            margin-left: 32px;
+            margin-bottom: 24px;
+        }
+
+        .slide ul li {
+            margin-bottom: 14px;
+            color: var(--gray-lighter);
+        }
+
+        .highlight { color: var(--primary); font-weight: 600; }
+        .success { color: #4ade80; }
+        .warning { color: #fbbf24; }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 20px;
+        }
+
+        .column h3 {
+            font-size: 22px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .column ul { font-size: 20px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 18px;
+        }
+
+        th, td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        th {
+            background: var(--secondary);
+            font-weight: 600;
+            font-family: var(--font-display);
+        }
+
+        tr:hover { background: rgba(255,255,255,0.03); }
+
+        .quote {
+            font-size: 28px;
+            font-style: italic;
+            padding: 32px;
+            border-left: 4px solid var(--primary);
+            background: rgba(234, 50, 42, 0.1);
+            margin: 24px 0;
+        }
+
+        .takeaway {
+            background: rgba(78, 110, 129, 0.2);
+            border: 1px solid var(--secondary);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+        }
+
+        .takeaway h4 {
+            color: var(--primary);
+            font-family: var(--font-display);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .takeaway p {
+            font-size: 18px;
+            margin: 0;
+            color: var(--white);
+        }
+
+        .agenda-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--secondary);
+            font-size: 22px;
+        }
+
+        .agenda-item .time {
+            width: 100px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(46, 56, 64, 0.98);
+            border-top: 1px solid var(--secondary);
+            padding: 12px 40px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            z-index: 100;
+        }
+
+        .nav-link {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover { background: var(--secondary); color: var(--white); }
+        .nav-link.active { background: var(--primary); color: var(--white); }
+
+        @media print {
+            .slide { page-break-after: always; }
+            .nav-footer { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide title">
+    <div class="logo">INNOMIZE</div>
+    <h1>AI Foundations</h1>
+    <p class="subtitle">Understanding what AI is and what it's good for</p>
+    <p class="meta">
+        <span>Session 1 of 5</span>
+        <span class="divider">|</span>
+        <span>60 minutes</span>
+    </p>
+    <div class="slide-number">1</div>
+</div>
+
+<!-- Slide 2: Agenda -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Today's Agenda</h2>
+
+    <div class="agenda-item">
+        <span class="time">10 min</span>
+        <span>What is Generative AI?</span>
+    </div>
+    <div class="agenda-item">
+        <span class="time">15 min</span>
+        <span>How AI Actually Works</span>
+    </div>
+    <div class="agenda-item">
+        <span class="time">15 min</span>
+        <span>Generative vs Reasoning Models</span>
+    </div>
+    <div class="agenda-item">
+        <span class="time">15 min</span>
+        <span>What AI Is Best Suited For</span>
+    </div>
+    <div class="agenda-item">
+        <span class="time">10 min</span>
+        <span>Discussion & Questions</span>
+    </div>
+
+    <div class="slide-number">2</div>
+</div>
+
+<!-- Slide 3: What is GenAI -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>What is Generative AI?</h2>
+
+    <p>AI that <span class="highlight">generates new content</span> based on patterns learned from training data.</p>
+
+    <div class="two-column" style="margin-top: 32px;">
+        <div class="column">
+            <h3>What It Can Generate</h3>
+            <ul>
+                <li>Text (articles, code, emails)</li>
+                <li>Images (from descriptions)</li>
+                <li>Audio (voice, music)</li>
+                <li>Video (emerging)</li>
+                <li>Structured data (tables, JSON)</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Popular Tools</h3>
+            <ul>
+                <li><strong>Text:</strong> ChatGPT, Claude, Gemini</li>
+                <li><strong>Code:</strong> Copilot, Cursor, Claude Code</li>
+                <li><strong>Images:</strong> DALL-E, Midjourney</li>
+                <li><strong>Audio:</strong> ElevenLabs, Whisper</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide-number">3</div>
+</div>
+
+<!-- Slide 4: GenAI Capabilities -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>GenAI Capabilities</h2>
+
+    <table>
+        <tr>
+            <th>Capability</th>
+            <th>What It Does</th>
+            <th>Example Use</th>
+        </tr>
+        <tr>
+            <td><strong>Generation</strong></td>
+            <td>Create new content from scratch</td>
+            <td>Write first draft of email, generate code</td>
+        </tr>
+        <tr>
+            <td><strong>Transformation</strong></td>
+            <td>Convert content from one form to another</td>
+            <td>Summarize document, translate language</td>
+        </tr>
+        <tr>
+            <td><strong>Analysis</strong></td>
+            <td>Extract insights from content</td>
+            <td>Identify key points, categorize data</td>
+        </tr>
+        <tr>
+            <td><strong>Conversation</strong></td>
+            <td>Interactive dialogue</td>
+            <td>Q&A, brainstorming, learning</td>
+        </tr>
+        <tr>
+            <td><strong>Reasoning</strong></td>
+            <td>Multi-step problem solving</td>
+            <td>Debug code, plan projects</td>
+        </tr>
+    </table>
+
+    <div class="slide-number">4</div>
+</div>
+
+<!-- Slide 5: Known Issues -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Known Issues & Limitations</h2>
+
+    <div class="two-column">
+        <div class="column">
+            <h3 class="warning">Hallucinations</h3>
+            <p style="font-size: 18px;">AI confidently generates false information. It doesn't know what it doesn't know.</p>
+            <p style="font-size: 16px; color: var(--gray);"><em>Always verify facts, numbers, and references.</em></p>
+        </div>
+        <div class="column">
+            <h3 class="warning">Context Limits</h3>
+            <p style="font-size: 18px;">Each model has a maximum "window" of text it can process. Loses track in long conversations.</p>
+            <p style="font-size: 16px; color: var(--gray);"><em>Break long tasks into smaller sessions.</em></p>
+        </div>
+    </div>
+
+    <div class="two-column" style="margin-top: 24px;">
+        <div class="column">
+            <h3 class="warning">No Real-Time Knowledge</h3>
+            <p style="font-size: 18px;">Training data has a cutoff date. Doesn't know recent events or your company specifics.</p>
+            <p style="font-size: 16px; color: var(--gray);"><em>Provide context. Don't assume AI knows.</em></p>
+        </div>
+        <div class="column">
+            <h3 class="warning">Bias & Inconsistency</h3>
+            <p style="font-size: 18px;">Reflects biases in training data. Same prompt can give different results.</p>
+            <p style="font-size: 16px; color: var(--gray);"><em>Review outputs critically. Test multiple times.</em></p>
+        </div>
+    </div>
+
+    <div class="slide-number">5</div>
+</div>
+
+<!-- Slide 6: AI Adoption vs Creation -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>AI Adoption vs AI/ML Creation</h2>
+
+    <p>Two different paths. Most organizations need <span class="highlight">adoption</span>, not creation.</p>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>AI Adoption</th>
+            <th>AI/ML Creation</th>
+        </tr>
+        <tr>
+            <td><strong>What</strong></td>
+            <td>Use existing AI tools (GPT, Claude, Gemini)</td>
+            <td>Build custom models, train on your data</td>
+        </tr>
+        <tr>
+            <td><strong>Skills needed</strong></td>
+            <td>Workflow design, validation, prompting</td>
+            <td>ML engineering, data science, infrastructure</td>
+        </tr>
+        <tr>
+            <td><strong>Investment</strong></td>
+            <td>Low-medium (subscriptions, training)</td>
+            <td>High (team, compute, data, time)</td>
+        </tr>
+        <tr>
+            <td><strong>Time to value</strong></td>
+            <td>Days to weeks</td>
+            <td>Months to years</td>
+        </tr>
+        <tr>
+            <td><strong>Who needs this</strong></td>
+            <td>Most companies (90%+)</td>
+            <td>Companies with unique data/problems</td>
+        </tr>
+    </table>
+
+    <div class="slide-number">6</div>
+</div>
+
+<!-- Slide 7: Our Focus -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Our Focus: AI Adoption</h2>
+
+    <div class="quote">
+        "We had all the ML talent. Both AI projects still failed. They failed upstream. Product vision was unclear. No validated customer need."
+    </div>
+
+    <p>Building custom models doesn't guarantee success. What matters is:</p>
+
+    <ul>
+        <li><span class="highlight">Workflow</span> — How AI fits into how we work</li>
+        <li><span class="highlight">Skills</span> — Knowing how to use AI effectively</li>
+        <li><span class="highlight">Validation</span> — Trusting and verifying AI output</li>
+        <li><span class="highlight">Boundaries</span> — Knowing what AI should and shouldn't do</li>
+    </ul>
+
+    <p style="margin-top: 24px;">This program is about <span class="success">adoption</span>: using AI tools well.</p>
+
+    <div class="slide-number">7</div>
+</div>
+
+<!-- Slide 8: Section - How AI Works -->
+<div class="slide section">
+    <div class="logo" style="color: var(--dark);">INNOMIZE</div>
+    <h2>Part 1</h2>
+    <p class="section-subtitle">How AI Actually Works</p>
+    <div class="slide-number" style="color: var(--cream);">8</div>
+</div>
+
+<!-- Slide 9: Pattern Matching -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>AI is Pattern Matching, Not Thinking</h2>
+
+    <p>AI was trained on massive amounts of text and images.</p>
+    <p>It learned patterns: "when I see X, Y usually comes next."</p>
+
+    <div class="quote">
+        AI predicts "what comes next" based on patterns it has seen before.
+    </div>
+
+    <p>This is powerful, but it's not understanding. It's sophisticated pattern matching.</p>
+
+    <div class="slide-number">9</div>
+</div>
+
+<!-- Slide 10: What This Means -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>What This Means in Practice</h2>
+
+    <ul>
+        <li><span class="highlight">No memory between sessions</span> — Each conversation starts fresh (unless you build context)</li>
+        <li><span class="highlight">Confident but not always correct</span> — AI doesn't know what it doesn't know</li>
+        <li><span class="highlight">Pattern-dependent</span> — Works well for common patterns, struggles with unusual cases</li>
+        <li><span class="highlight">No real-world knowledge after training</span> — Can't know recent events, your company, your context</li>
+    </ul>
+
+    <div class="takeaway">
+        <h4>Key Insight</h4>
+        <p>AI is a tool that extends your capability. It doesn't replace your judgment.</p>
+    </div>
+
+    <div class="slide-number">10</div>
+</div>
+
+<!-- Slide 11: Section - Generative vs Reasoning -->
+<div class="slide section">
+    <div class="logo" style="color: var(--dark);">INNOMIZE</div>
+    <h2>Part 2</h2>
+    <p class="section-subtitle">Generative vs Reasoning Models</p>
+    <div class="slide-number" style="color: var(--cream);">11</div>
+</div>
+
+<!-- Slide 12: Two Types -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Two Types of AI Models</h2>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>Generative Models</th>
+            <th>Reasoning Models</th>
+        </tr>
+        <tr>
+            <td><strong>Examples</strong></td>
+            <td>GPT-4, Gemini, Claude (standard)</td>
+            <td>Claude with thinking, o1, o3</td>
+        </tr>
+        <tr>
+            <td><strong>Speed</strong></td>
+            <td>Fast</td>
+            <td>Slower (thinking takes time)</td>
+        </tr>
+        <tr>
+            <td><strong>Style</strong></td>
+            <td>Creative, broad</td>
+            <td>Deliberate, logical</td>
+        </tr>
+        <tr>
+            <td><strong>Best for</strong></td>
+            <td>Drafting, brainstorming</td>
+            <td>Complex problems, analysis</td>
+        </tr>
+    </table>
+
+    <div class="slide-number">12</div>
+</div>
+
+<!-- Slide 13: What Each Needs -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>What Each Model Needs From You</h2>
+
+    <div class="two-column">
+        <div class="column">
+            <h3>Generative Models</h3>
+            <p style="font-size: 20px; margin-bottom: 16px;">Need <span class="highlight">HOW</span> — Instructions</p>
+            <ul>
+                <li>Step-by-step guidance</li>
+                <li>Clear format requirements</li>
+                <li>Examples of what you want</li>
+                <li>Specific constraints</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Reasoning Models</h3>
+            <p style="font-size: 20px; margin-bottom: 16px;">Need <span class="highlight">WHAT + WHY</span> — Context</p>
+            <ul>
+                <li>The problem to solve</li>
+                <li>Why it matters</li>
+                <li>Success criteria</li>
+                <li>Constraints and context</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide-number">13</div>
+</div>
+
+<!-- Slide 14: When to Use Which -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>When to Use Which</h2>
+
+    <div class="two-column">
+        <div class="column">
+            <h3 class="success">Generative Models</h3>
+            <ul>
+                <li>Content creation & drafts</li>
+                <li>Brainstorming ideas</li>
+                <li>Translation</li>
+                <li>Simple summarization</li>
+                <li>Formatting & templates</li>
+                <li>Quick explanations</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3 class="warning">Reasoning Models</h3>
+            <ul>
+                <li>Complex analysis</li>
+                <li>Multi-step problems</li>
+                <li>Debugging code</li>
+                <li>Planning & strategy</li>
+                <li>Comparing trade-offs</li>
+                <li>Deep research</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide-number">14</div>
+</div>
+
+<!-- Slide 15: Section - What AI is Best For -->
+<div class="slide section">
+    <div class="logo" style="color: var(--dark);">INNOMIZE</div>
+    <h2>Part 3</h2>
+    <p class="section-subtitle">What AI Is Best Suited For</p>
+    <div class="slide-number" style="color: var(--cream);">15</div>
+</div>
+
+<!-- Slide 16: AI Excels At -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>AI Excels At</h2>
+
+    <div class="two-column">
+        <div class="column">
+            <ul>
+                <li><span class="success">First drafts</span> — Content, code, documents</li>
+                <li><span class="success">Summarization</span> — Long docs to key points</li>
+                <li><span class="success">Translation</span> — Languages, formats</li>
+                <li><span class="success">Brainstorming</span> — Ideas, options, variations</li>
+            </ul>
+        </div>
+        <div class="column">
+            <ul>
+                <li><span class="success">Explanation</span> — Make complex things simple</li>
+                <li><span class="success">Pattern tasks</span> — Formatting, extraction</li>
+                <li><span class="success">Tedious work</span> — Repetitive but clear tasks</li>
+                <li><span class="success">Learning</span> — Explain concepts, answer questions</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="takeaway">
+        <h4>The Pattern</h4>
+        <p>AI is best when the task is clear, the pattern is common, and perfect accuracy isn't required.</p>
+    </div>
+
+    <div class="slide-number">16</div>
+</div>
+
+<!-- Slide 17: AI Struggles With -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>AI Struggles With</h2>
+
+    <ul>
+        <li><span class="warning">Factual accuracy</span> — Especially Vietnam-specific policy and law</li>
+        <li><span class="warning">Nuanced images</span> — The specific vision in your head</li>
+        <li><span class="warning">Long context memory</span> — Loses track in long conversations</li>
+        <li><span class="warning">Vietnamese language nuance</span> — Improving, but not perfect</li>
+        <li><span class="warning">Judgment calls</span> — Decisions requiring domain expertise</li>
+        <li><span class="warning">Knowing what it doesn't know</span> — Will guess confidently</li>
+    </ul>
+
+    <div class="takeaway">
+        <h4>Your Challenge</h4>
+        <p>Vietnam policy/law requires human verification. AI can help search and summarize, but you must validate against official sources.</p>
+    </div>
+
+    <div class="slide-number">17</div>
+</div>
+
+<!-- Slide 18: The Rule -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>The Simple Rule</h2>
+
+    <div class="quote">
+        Use AI for the <span class="highlight">first 80%</span>.<br>
+        Use your expertise for the <span class="highlight">final 20%</span>.
+    </div>
+
+    <p>AI generates the draft. You verify, correct, and finalize.</p>
+    <p>AI saves time on the tedious parts. You add the judgment and accuracy.</p>
+
+    <div class="slide-number">18</div>
+</div>
+
+<!-- Slide 19: For HR/Admin -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>For HR & Admin Teams</h2>
+
+    <div class="two-column">
+        <div class="column">
+            <h3 class="success">Good AI Tasks</h3>
+            <ul>
+                <li>Draft job descriptions</li>
+                <li>Summarize long documents</li>
+                <li>Brainstorm event ideas</li>
+                <li>Reformat content</li>
+                <li>Translate documents</li>
+                <li>Create templates</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3 class="warning">Verify Carefully</h3>
+            <ul>
+                <li>Vietnam labor law references</li>
+                <li>Policy interpretations</li>
+                <li>Specific numbers and dates</li>
+                <li>Legal requirements</li>
+                <li>Company-specific info</li>
+                <li>Employee data accuracy</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide-number">19</div>
+</div>
+
+<!-- Slide 20: For Finance -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>For Finance Team</h2>
+
+    <div class="two-column">
+        <div class="column">
+            <h3 class="success">Good AI Tasks</h3>
+            <ul>
+                <li>Explain financial concepts</li>
+                <li>Draft report structures</li>
+                <li>Summarize long documents</li>
+                <li>Create formula explanations</li>
+                <li>Format data presentations</li>
+                <li>Compare approaches</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3 class="warning">Verify Carefully</h3>
+            <ul>
+                <li>All calculations</li>
+                <li>Tax regulations</li>
+                <li>Specific numbers</li>
+                <li>Compliance requirements</li>
+                <li>Financial projections</li>
+                <li>Audit-related content</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide-number">20</div>
+</div>
+
+<!-- Slide 21: For IT -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>For IT Team</h2>
+
+    <div class="two-column">
+        <div class="column">
+            <h3 class="success">Good AI Tasks</h3>
+            <ul>
+                <li>Code explanation</li>
+                <li>Debugging assistance</li>
+                <li>Documentation drafts</li>
+                <li>Boilerplate code</li>
+                <li>Learning new frameworks</li>
+                <li>Refactoring suggestions</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3 class="warning">Verify Carefully</h3>
+            <ul>
+                <li>Security-related code</li>
+                <li>Business logic accuracy</li>
+                <li>Performance implications</li>
+                <li>Integration points</li>
+                <li>Edge cases</li>
+                <li>Production configurations</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide-number">21</div>
+</div>
+
+<!-- Slide 22: Discussion -->
+<div class="slide section">
+    <div class="logo" style="color: var(--dark);">INNOMIZE</div>
+    <h2>Discussion</h2>
+    <p class="section-subtitle">Your questions and experiences</p>
+    <div class="slide-number" style="color: var(--cream);">22</div>
+</div>
+
+<!-- Slide 23: Discussion Questions -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Let's Discuss</h2>
+
+    <ul style="font-size: 26px;">
+        <li style="margin-bottom: 24px;">What tasks do you currently use AI for?</li>
+        <li style="margin-bottom: 24px;">What frustrations have you experienced?</li>
+        <li style="margin-bottom: 24px;">What would you like AI to help with?</li>
+        <li style="margin-bottom: 24px;">What concerns do you have about using AI?</li>
+    </ul>
+
+    <div class="slide-number">23</div>
+</div>
+
+<!-- Slide 24: Key Takeaways -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Key Takeaways</h2>
+
+    <div class="takeaway">
+        <h4>1. AI is a tool, not a replacement</h4>
+        <p>It extends your capability. It doesn't replace your judgment.</p>
+    </div>
+
+    <div class="takeaway">
+        <h4>2. Match the model to the task</h4>
+        <p>Generative for drafts and creativity. Reasoning for complex analysis.</p>
+    </div>
+
+    <div class="takeaway">
+        <h4>3. AI is best for first drafts and tedious work</h4>
+        <p>Let AI do the 80%. You verify and finalize the 20%.</p>
+    </div>
+
+    <div class="takeaway">
+        <h4>4. Always validate, especially for facts</h4>
+        <p>Vietnam policy, numbers, dates — verify against official sources.</p>
+    </div>
+
+    <div class="slide-number">24</div>
+</div>
+
+<!-- Slide 25: Next Session -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Next Session</h2>
+
+    <h3 style="font-size: 32px; margin-bottom: 24px; color: var(--white);">Session 2: The 5 Skills That Matter</h3>
+
+    <p>We'll learn the human skills that determine AI productivity:</p>
+
+    <ul style="font-size: 24px;">
+        <li>Problem Framing</li>
+        <li>Decomposition</li>
+        <li>Evaluation</li>
+        <li>Correction</li>
+        <li>Systems Thinking</li>
+    </ul>
+
+    <p style="margin-top: 32px; color: var(--gray);">Same time next week.</p>
+
+    <div class="slide-number">25</div>
+</div>
+
+<!-- Slide 26: Thank You -->
+<div class="slide title">
+    <div class="logo">INNOMIZE</div>
+    <h1>Questions?</h1>
+    <p class="subtitle">Thank you for your attention</p>
+    <p class="meta">
+        <span>Session 1: AI Foundations</span>
+    </p>
+    <div class="slide-number">26</div>
+</div>
+
+<!-- Navigation Footer -->
+<nav class="nav-footer">
+    <a href="00-workshop-introduction.html" class="nav-link">Intro</a>
+    <a href="01-session-ai-foundations.html" class="nav-link active">Session 1</a>
+    <a href="02-session-five-skills.html" class="nav-link">Session 2</a>
+    <a href="03-session-workflow-validation.html" class="nav-link">Session 3</a>
+    <a href="04-session-data-privacy.html" class="nav-link">Session 4</a>
+    <a href="05-session-demo-roadmap.html" class="nav-link">Session 5</a>
+</nav>
+
+</body>
+</html>

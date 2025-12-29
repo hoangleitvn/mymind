@@ -55,7 +55,6 @@ In the age of commoditized intelligence, the differentiator isn't the model—it
 
 Someone on X joked that BC now stands for Before ChatGPT. Three years in, maybe we're finally past the hype phase and entering the "figure out what actually works" era.
 
----
 
 ## Notable Comments
 
@@ -96,14 +95,14 @@ ChatGPT is unusable for code tasks. Claude Sonnet 4.5 is pretty nice but about a
 ```yaml
 - id: 1733153940000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-02T15:04:00Z'
   content: |
-Same conclusion here. Consolidated to Claude Code and haven't looked back.
+    Same conclusion here. Consolidated to Claude Code and haven't looked back.
 
-The "figure out what actually works" era is right. Most productivity gains come from how you integrate AI into your workflow, not which model you pick.
+    The "figure out what actually works" era is right. Most productivity gains come from how you integrate AI into your workflow, not which model you pick.
   strategy: "Personal Experience - Validates his experience with workflow integration angle"
-  replies: []
 ```
 
 ## Notes

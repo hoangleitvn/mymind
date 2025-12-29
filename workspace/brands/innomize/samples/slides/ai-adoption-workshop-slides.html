@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Adoption Workshop - INNOMIZE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Light Mode Colors */
+      --primary: #EA322A;
+      --primary-light: #F76D55;
+      --primary-lighter: #FFC8B1;
+      --primary-cream: #FFF3E2;
+      --secondary: #4E6E81;
+      --secondary-light: #93A5B2;
+      --dark: #2E3840;
+      --dark-2: #535B62;
+      --gray: #7B8187;
+      --border: #D1D3D5;
+      --bg-light: #F8F8F8;
+      --bg-slide: #FFFFFF;
+      --white: #FFFFFF;
+      --text-primary: #2E3840;
+      --text-secondary: #535B62;
+      --text-muted: #7B8187;
+      --card-bg: #F8F8F8;
+      --hero-bg: linear-gradient(135deg, #2E3840 0%, #1a2328 100%);
+      --hero-text: #FFFFFF;
+      --insight-bg: #EA322A;
+      --success-bg: #DCFCE7;
+      --success-text: #16A34A;
+      --error-bg: #FEF2F2;
+      --error-border: #FECACA;
+      --error-text: #B91C1C;
+    }
+
+    [data-theme="dark"] {
+      --primary: #EA322A;
+      --primary-light: #F76D55;
+      --primary-lighter: #FF9C82;
+      --primary-cream: rgba(234, 50, 42, 0.2);
+      --secondary: #93A5B2;
+      --secondary-light: #B6C2CB;
+      --dark: #E5E7E8;
+      --dark-2: #A5A9AD;
+      --gray: #7B8187;
+      --border: #3D4750;
+      --bg-light: #1a2328;
+      --bg-slide: #232D34;
+      --white: #232D34;
+      --text-primary: #E5E7E8;
+      --text-secondary: #A5A9AD;
+      --text-muted: #7B8187;
+      --card-bg: #2E3840;
+      --hero-bg: linear-gradient(135deg, #0D1114 0%, #1a2328 100%);
+      --hero-text: #FFFFFF;
+      --insight-bg: #C42820;
+      --success-bg: rgba(22, 163, 74, 0.15);
+      --success-text: #4ADE80;
+      --error-bg: rgba(185, 28, 28, 0.15);
+      --error-border: rgba(185, 28, 28, 0.3);
+      --error-text: #FCA5A5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    html {
+      --font-scale: 1;
+      --zoom-scale: 1;
+    }
+
+    body {
+      font-family: 'Manrope', system-ui, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-primary);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Bai Jamjuree', system-ui, sans-serif;
+      line-height: 0.95;
+    }
+
+    /* Presentation Container */
+    .presentation {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Slides Container */
+    .slides-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      font-size: calc(16px * var(--font-scale));
+    }
+
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      background: var(--bg-slide);
+      padding: 60px 120px 80px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(50px);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .slide-header {
+      flex-shrink: 0;
+    }
+
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transform: scale(var(--zoom-scale));
+      transform-origin: center center;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    .slide.prev {
+      transform: translateX(-50px);
+    }
+
+    /* Unified Controls */
+    .controls {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 100;
+      background: var(--bg-slide);
+      padding: 8px 12px;
+      border-radius: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      border: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    .controls.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ctrl-btn {
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .ctrl-btn:hover {
+      background: var(--card-bg);
+      color: var(--primary);
+    }
+
+    .ctrl-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .ctrl-btn:disabled:hover {
+      background: transparent;
+      color: var(--text-secondary);
+    }
+
+    .ctrl-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .slide-counter {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .ctrl-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+      margin: 0 4px;
+    }
+
+    /* Full logo on title slide - left aligned */
+    .slide-logo-wrapper {
+      margin-bottom: 32px;
+    }
+
+    .slide-logo {
+      height: 44px;
+    }
+
+    /* Theme-based logo switching */
+    .logo-light {
+      display: block;
+    }
+    .logo-dark {
+      display: none;
+    }
+    [data-theme="dark"] .logo-light {
+      display: none;
+    }
+    [data-theme="dark"] .logo-dark {
+      display: block;
+    }
+
+    /* Dark background slides - always show white logo */
+    .slide-title .logo-light,
+    .slide-framework .logo-light,
+    .slide-insight .logo-light {
+      display: none;
+    }
+    .slide-title .logo-dark,
+    .slide-framework .logo-dark,
+    .slide-insight .logo-dark {
+      display: block;
+    }
+
+    /* Icon logo before title */
+    .title-with-icon {
+      display: flex;
+      align-items: center;
+      gap: calc(16px * var(--font-scale));
+    }
+
+    .title-with-icon h2 {
+      margin-bottom: 0;
+    }
+
+    .title-icon {
+      height: calc(44px * var(--font-scale));
+      flex-shrink: 0;
+    }
+
+    /* Icon theme switching */
+    .icon-light {
+      display: block;
+    }
+    .icon-dark {
+      display: none;
+    }
+    [data-theme="dark"] .icon-light {
+      display: none;
+    }
+    [data-theme="dark"] .icon-dark {
+      display: block;
+    }
+
+    /* Dark background slides - always show white icon */
+    .slide-framework .icon-light {
+      display: none;
+    }
+    .slide-framework .icon-dark {
+      display: block;
+    }
+
+    /* Slide Styles */
+
+    /* Slide 1: Title */
+    .slide-title {
+      background: var(--hero-bg);
+      color: var(--hero-text);
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .slide-title .label {
+      font-size: calc(18px * var(--font-scale));
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .slide-title h1 {
+      font-size: calc(72px * var(--font-scale));
+      font-weight: 700;
+      max-width: 1000px;
+      margin-bottom: 28px;
+      color: var(--hero-text);
+    }
+
+    .slide-title h1 span {
+      color: var(--primary);
+    }
+
+    .slide-title .subtitle {
+      font-size: calc(28px * var(--font-scale));
+      color: var(--secondary-light);
+      max-width: 800px;
+      line-height: 1.5;
+    }
+
+
+    /* Slide 2: The Problem */
+    .slide-problem .top-label {
+      font-size: calc(16px * var(--font-scale));
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .slide-problem h2 {
+      font-size: calc(56px * var(--font-scale));
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .problem-flow {
+      display: flex;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .problem-step {
+      flex: 1;
+      padding: 32px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      position: relative;
+    }
+
+    .problem-step.bad {
+      background: var(--error-bg);
+      border: 2px solid var(--error-border);
+    }
+
+    .problem-step .step-num {
+      font-size: calc(14px * var(--font-scale));
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .problem-step h4 {
+      font-size: calc(22px * var(--font-scale));
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .problem-step p {
+      font-size: calc(18px * var(--font-scale));
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .problem-step.bad h4 {
+      color: var(--error-text);
+    }
+
+    .arrow-right {
+      display: flex;
+      align-items: center;
+      color: var(--border);
+      font-size: 24px;
+    }
+
+    /* Slide 3: The Insight */
+    .slide-insight {
+      background: var(--insight-bg);
+      color: white;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .slide-insight .big-number {
+      display: flex;
+      gap: 100px;
+      margin-bottom: 56px;
+    }
+
+    .slide-insight .number-block {
+      text-align: center;
+    }
+
+    .slide-insight .percent {
+      font-family: 'Bai Jamjuree', sans-serif;
+      font-size: calc(160px * var(--font-scale));
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .slide-insight .percent-label {
+      font-size: calc(28px * var(--font-scale));
+      font-weight: 500;
+      opacity: 0.9;
+      margin-top: 12px;
+    }
+
+    .slide-insight .insight-text {
+      font-size: calc(36px * var(--font-scale));
+      max-width: 850px;
+      line-height: 1.5;
+    }
+
+    /* Slide 4: What Goes Wrong */
+    .slide-wrong h2 {
+      font-size: calc(52px * var(--font-scale));
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .wrong-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .wrong-card {
+      padding: 32px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      border-left: 5px solid var(--primary);
+    }
+
+    .wrong-card .team {
+      font-size: calc(15px * var(--font-scale));
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .wrong-card .issue {
+      font-size: calc(22px * var(--font-scale));
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .wrong-card .root-cause {
+      font-size: calc(17px * var(--font-scale));
+      color: var(--secondary);
+      font-style: italic;
+    }
+
+    /* Slide 5: Framework Overview */
+    .slide-framework {
+      background: var(--hero-bg);
+      color: var(--hero-text);
+    }
+
+    .slide-framework .top-label {
+      font-size: calc(16px * var(--font-scale));
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .slide-framework h2 {
+      font-size: calc(56px * var(--font-scale));
+      font-weight: 700;
+      margin-bottom: 0;
+      color: var(--hero-text);
+    }
+
+    .framework-steps {
+      display: flex;
+      gap: 28px;
+    }
+
+    .framework-step {
+      flex: 1;
+      padding: 40px 32px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+
+    .framework-step .step-num {
+      width: 56px;
+      height: 56px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bai Jamjuree', sans-serif;
+      font-weight: 700;
+      font-size: calc(24px * var(--font-scale));
+      margin: 0 auto 20px;
+      color: white;
+    }
+
+    .framework-step h4 {
+      font-size: calc(24px * var(--font-scale));
+      font-weight: 600;
+      margin-bottom: 14px;
+      font-family: 'Manrope', sans-serif;
+      color: var(--hero-text);
+    }
+
+    .framework-step p {
+      font-size: calc(18px * var(--font-scale));
+      color: var(--secondary-light);
+      line-height: 1.5;
+    }
+
+    /* Slide 6-9: Step slides */
+    .slide-step .step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      border-radius: 24px;
+      font-size: calc(18px * var(--font-scale));
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .slide-step h2 {
+      font-size: calc(52px * var(--font-scale));
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0;
+    }
+
+    .slide-step .slide-header {
+      margin-bottom: 36px;
+    }
+
+    .questions-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .question-item {
+      display: flex;
+      gap: 20px;
+      padding: 28px;
+      background: var(--card-bg);
+      border-radius: 14px;
+    }
+
+    .question-item .icon {
+      width: 52px;
+      height: 52px;
+      background: var(--primary-cream);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--primary);
+    }
+
+    .question-item .icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .question-item h4 {
+      font-size: calc(22px * var(--font-scale));
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .question-item p {
+      font-size: calc(17px * var(--font-scale));
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .slide-step .takeaway {
+      margin-top: 28px;
+      padding: 24px 32px;
+      background: var(--dark);
+      color: white;
+      border-radius: 14px;
+      font-size: calc(22px * var(--font-scale));
+      font-weight: 500;
+    }
+
+    [data-theme="dark"] .slide-step .takeaway {
+      background: #0D1114;
+    }
+
+    /* Slide headers for other slides */
+    .slide-problem .slide-header,
+    .slide-wrong .slide-header,
+    .slide-framework .slide-header {
+      margin-bottom: 24px;
+    }
+
+    .slide-problem h2,
+    .slide-wrong h2 {
+      margin-bottom: 0;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      padding: 32px 24px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      text-align: center;
+      border-top: 5px solid var(--primary);
+    }
+
+    .skill-card .skill-num {
+      font-size: calc(15px * var(--font-scale));
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .skill-card h4 {
+      font-size: calc(20px * var(--font-scale));
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .skill-card p {
+      font-size: calc(16px * var(--font-scale));
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Guardrails */
+    .guardrails-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .guardrail-item {
+      display: flex;
+      gap: 20px;
+      padding: 32px;
+      background: var(--card-bg);
+      border-radius: 16px;
+    }
+
+    .guardrail-item .check {
+      width: 44px;
+      height: 44px;
+      background: var(--success-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--success-text);
+    }
+
+    .guardrail-item .check svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .guardrail-item h4 {
+      font-size: calc(22px * var(--font-scale));
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .guardrail-item p {
+      font-size: calc(18px * var(--font-scale));
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Tools */
+    .tools-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .tools-left h3 {
+      font-size: calc(28px * var(--font-scale));
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 28px;
+    }
+
+    .tool-question {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tool-question:last-child {
+      border-bottom: none;
+    }
+
+    .tool-question h4 {
+      font-size: calc(20px * var(--font-scale));
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .tool-question p {
+      font-size: calc(17px * var(--font-scale));
+      color: var(--text-muted);
+    }
+
+    .tools-right {
+      background: var(--primary-cream);
+      padding: 40px;
+      border-radius: 20px;
+    }
+
+    .tools-right h3 {
+      font-size: calc(26px * var(--font-scale));
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .tools-right p {
+      font-size: calc(20px * var(--font-scale));
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .tools-illustration {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-height: 280px;
+    }
+
+    .tools-illustration svg {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+    }
+
+    /* CTA Slide */
+    .slide-cta {
+      justify-content: center;
+    }
+
+    .cta-content {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .cta-left h2 {
+      font-size: calc(52px * var(--font-scale));
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+
+    .cta-left p {
+      font-size: calc(22px * var(--font-scale));
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 40px;
+      background: var(--primary);
+      color: white;
+      border-radius: 10px;
+      font-size: calc(20px * var(--font-scale));
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(234, 50, 42, 0.3);
+    }
+
+    .cta-right {
+      display: grid;
+      gap: 20px;
+    }
+
+    .service-item {
+      display: flex;
+      gap: 20px;
+      padding: 28px;
+      background: var(--card-bg);
+      border-radius: 14px;
+    }
+
+    .service-item .icon {
+      width: 52px;
+      height: 52px;
+      background: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: white;
+    }
+
+    .service-item .icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .service-item h4 {
+      font-size: calc(20px * var(--font-scale));
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .service-item p {
+      font-size: calc(17px * var(--font-scale));
+      color: var(--text-muted);
+    }
+
+    /* Footer for all slides */
+    .slide-footer {
+      position: absolute;
+      bottom: 40px;
+      left: 120px;
+      right: 120px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: calc(16px * var(--font-scale));
+      color: var(--text-muted);
+    }
+
+    .slide-footer.light {
+      color: rgba(255,255,255,0.5);
+    }
+
+    .slide-number {
+      font-weight: 600;
+      font-size: calc(18px * var(--font-scale));
+    }
+
+    /* Zoom indicator */
+    .zoom-indicator {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      min-width: 36px;
+      text-align: center;
+    }
+
+    /* SVG Icons */
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Large screens */
+    @media (min-width: 1600px) {
+      .slide {
+        padding: 100px 160px;
+      }
+      .slide-title h1 {
+        font-size: 72px;
+        max-width: 1100px;
+      }
+      .slide-title .subtitle {
+        font-size: 26px;
+        max-width: 800px;
+      }
+      .slide-problem h2,
+      .slide-framework h2 {
+        font-size: 56px;
+      }
+      .slide-step h2 {
+        font-size: 52px;
+      }
+      .slide-wrong h2 {
+        font-size: 48px;
+      }
+      .slide-insight .percent {
+        font-size: 160px;
+      }
+      .slide-insight .percent-label {
+        font-size: 24px;
+      }
+      .slide-insight .insight-text {
+        font-size: 32px;
+      }
+      .cta-left h2 {
+        font-size: 52px;
+      }
+      .slide-footer {
+        left: 160px;
+        right: 160px;
+        bottom: 48px;
+      }
+      .slide-title .logo {
+        right: 160px;
+        bottom: 100px;
+      }
+    }
+
+    /* Responsive - Tablet */
+    @media (max-width: 1200px) {
+      .slide {
+        padding: 60px 80px;
+      }
+      .slide-title h1 {
+        font-size: 48px;
+      }
+      .slide-problem h2,
+      .slide-framework h2 {
+        font-size: 40px;
+      }
+      .slide-step h2 {
+        font-size: 36px;
+      }
+      .slide-insight .percent {
+        font-size: 100px;
+      }
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Responsive - Mobile */
+    @media (max-width: 768px) {
+      .slide {
+        padding: 40px 32px 100px;
+      }
+      .slide-title h1 {
+        font-size: 32px;
+      }
+      .slide-title .subtitle {
+        font-size: 16px;
+      }
+      .slide-problem h2,
+      .slide-framework h2,
+      .slide-wrong h2 {
+        font-size: 28px;
+        margin-bottom: 24px;
+      }
+      .slide-step h2 {
+        font-size: 26px;
+        margin-bottom: 24px;
+      }
+      .problem-flow {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .arrow-right {
+        transform: rotate(90deg);
+        justify-content: center;
+      }
+      .wrong-grid,
+      .questions-list,
+      .guardrails-grid {
+        grid-template-columns: 1fr;
+      }
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .framework-steps {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .slide-insight .big-number {
+        flex-direction: column;
+        gap: 32px;
+      }
+      .slide-insight .percent {
+        font-size: 72px;
+      }
+      .slide-insight .insight-text {
+        font-size: 18px;
+      }
+      .tools-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .cta-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .cta-left h2 {
+        font-size: 28px;
+      }
+      .slide-footer {
+        left: 32px;
+        right: 32px;
+        bottom: 24px;
+      }
+      .controls {
+        bottom: 16px;
+        right: 16px;
+        padding: 6px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Presentation -->
+  <div class="presentation">
+    <div class="slides-container">
+
+      <!-- Slide 1: Title -->
+      <div class="slide slide-title active" data-slide="1">
+        <div class="slide-logo-wrapper">
+          <img src="../../assets/Logo_Horizontal_RGB.png" alt="INNOMIZE" class="slide-logo logo-light">
+          <img src="../../assets/Fitlogo_Horizontal_White.png" alt="INNOMIZE" class="slide-logo logo-dark">
+        </div>
+        <div class="label">AI Adoption Workshop</div>
+        <h1>AI Adoption Is a <span>Workflow Decision</span>, Not a Tool Decision</h1>
+        <p class="subtitle">Most organizations get this backwards. Here's the framework we use with our clients.</p>
+        <div class="slide-footer light">
+          <span>www.innomizetech.com</span>
+          <span class="slide-number">01</span>
+        </div>
+      </div>
+
+      <!-- Slide 2: The Problem -->
+      <div class="slide slide-problem" data-slide="2">
+        <div class="slide-header">
+          <div class="top-label">The Pattern We Keep Seeing</div>
+          <div class="title-with-icon">
+            <img src="../../assets/Fitlogo_Symsol_RGB.png" alt="" class="title-icon icon-light">
+            <img src="../../assets/Fitlogo_Symsol_White.png" alt="" class="title-icon icon-dark">
+            <h2>Tools First Always Fails</h2>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="problem-flow">
+            <div class="problem-step">
+              <div class="step-num">Step 1</div>
+              <h4>Leader reads about AI</h4>
+              <p>Approves budget for licenses</p>
+            </div>
+            <div class="arrow-right">&rarr;</div>
+            <div class="problem-step">
+              <div class="step-num">Step 2</div>
+              <h4>Team gets access</h4>
+              <p>Initial excitement, experiments</p>
+            </div>
+            <div class="arrow-right">&rarr;</div>
+            <div class="problem-step">
+              <div class="step-num">Step 3</div>
+              <h4>Reality sets in</h4>
+              <p>Inconsistent quality, context lost</p>
+            </div>
+            <div class="arrow-right">&rarr;</div>
+            <div class="problem-step bad">
+              <div class="step-num">6 Months Later</div>
+              <h4>Tool sits underused</h4>
+              <p>Or actively creating problems</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>INNOMIZE AI Adoption Workshop</span>
+          <span class="slide-number">02</span>
+        </div>
+      </div>
+
+      <!-- Slide 3: The Insight -->
+      <div class="slide slide-insight" data-slide="3">
+        <div class="big-number">
+          <div class="number-block">
+            <div class="percent">20%</div>
+            <div class="percent-label">The Tool</div>
+          </div>
+          <div class="number-block">
+            <div class="percent">80%</div>
+            <div class="percent-label">The Workflow</div>
+          </div>
+        </div>
+        <p class="insight-text">AI is a speed multiplier. If your process is broken, AI multiplies the breakage.</p>
+        <div class="slide-footer light">
+          <span>INNOMIZE AI Adoption Workshop</span>
+          <span class="slide-number">03</span>
+        </div>
+      </div>
+
+      <!-- Slide 4: What Goes Wrong -->
+      <div class="slide slide-wrong" data-slide="4">
+        <div class="slide-header">
+          <div class="title-with-icon">
+            <img src="../../assets/Fitlogo_Symsol_RGB.png" alt="" class="title-icon icon-light">
+            <img src="../../assets/Fitlogo_Symsol_White.png" alt="" class="title-icon icon-dark">
+            <h2>What Actually Goes Wrong</h2>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="wrong-grid">
+            <div class="wrong-card">
+              <div class="team">Marketing</div>
+              <div class="issue">Brand voice drifts, content becomes generic</div>
+              <div class="root-cause">Missing: Workflow for maintaining brand voice at scale</div>
+            </div>
+            <div class="wrong-card">
+              <div class="team">Finance</div>
+              <div class="issue">AI misinterprets data, errors slip through</div>
+              <div class="root-cause">Missing: Workflow for validating AI output</div>
+            </div>
+            <div class="wrong-card">
+              <div class="team">Operations</div>
+              <div class="issue">Edge cases multiply, exceptions pile up</div>
+              <div class="root-cause">Missing: Workflow for exception handling</div>
+            </div>
+            <div class="wrong-card">
+              <div class="team">Engineering</div>
+              <div class="issue">Code nobody understands, tech debt accelerates</div>
+              <div class="root-cause">Missing: Workflow for maintaining comprehension</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>INNOMIZE AI Adoption Workshop</span>
+          <span class="slide-number">04</span>
+        </div>
+      </div>
+
+      <!-- Slide 5: Framework Overview -->
+      <div class="slide slide-framework" data-slide="5">
+        <div class="slide-header">
+          <div class="top-label">The Framework</div>
+          <div class="title-with-icon">
+            <img src="../../assets/Fitlogo_Symsol_RGB.png" alt="" class="title-icon icon-light">
+            <img src="../../assets/Fitlogo_Symsol_White.png" alt="" class="title-icon icon-dark">
+            <h2>Workflow First, Tools Last</h2>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="framework-steps">
+            <div class="framework-step">
+              <div class="step-num">1</div>
+              <h4>Map the Workflow</h4>
+              <p>Document every step before AI enters</p>
+            </div>
+            <div class="framework-step">
+              <div class="step-num">2</div>
+              <h4>Define the Skills</h4>
+              <p>Build human capabilities that make AI useful</p>
+            </div>
+            <div class="framework-step">
+              <div class="step-num">3</div>
+              <h4>Add Guardrails</h4>
+              <p>Establish trust before pursuing speed</p>
+            </div>
+            <div class="framework-step">
+              <div class="step-num">4</div>
+              <h4>Pick Tools</h4>
+              <p>Select based on clear requirements</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer light">
+          <span>INNOMIZE AI Adoption Workshop</span>
+          <span class="slide-number">05</span>
+        </div>
+      </div>
+
+      <!-- Slide 6: Step 1 - Workflow -->
+      <div class="slide slide-step" data-slide="6">
+        <div class="slide-header">
+          <div class="step-badge">Step 1</div>
+          <div class="title-with-icon">
+            <img src="../../assets/Fitlogo_Symsol_RGB.png" alt="" class="title-icon icon-light">
+            <img src="../../assets/Fitlogo_Symsol_White.png" alt="" class="title-icon icon-dark">
+            <h2>Start with the Workflow</h2>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="questions-list">
+            <div class="question-item">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <div>
+                <h4>Where does input come from?</h4>
+                <p>Customer request? Internal trigger? Scheduled event?</p>
+              </div>
+            </div>
+            <div class="question-item">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+              </div>
+              <div>
+                <h4>What decisions get made?</h4>
+                <p>Explicit approvals and implicit judgments</p>
+              </div>
+            </div>
+            <div class="question-item">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+              </div>
+              <div>
+                <h4>What does "done" look like?</h4>
+                <p>Format, quality level, required information</p>
+              </div>
+            </div>
+            <div class="question-item">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <h4>Where does validation happen?</h4>
+                <p>Checkpoints where errors get caught</p>
+              </div>
+            </div>
+            <div class="question-item">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <div>
+                <h4>Who owns the final call?</h4>
+                <p>Accountability for the outcome</p>
+              </div>
+            </div>
+          </div>
+          <div class="takeaway">If you cannot draw the workflow, you cannot automate it.</div>
+        </div>
+        <div class="slide-footer">
+          <span>INNOMIZE AI Adoption Workshop</span>
+          <span class="slide-number">06</span>
+        </div>
+      </div>
+
+      <!-- Slide 7: Step 2 - Skills -->
+      <div class="slide slide-step" data-slide="7">
+        <div class="slide-header">
+          <div class="step-badge">Step 2</div>
+          <div class="title-with-icon">
+            <img src="../../assets/Fitlogo_Symsol_RGB.png" alt="" class="title-icon icon-light">
+            <img src="../../assets/Fitlogo_Symsol_White.png" alt="" class="title-icon icon-dark">
+            <h2>Define the Skills</h2>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-num">01</div>
+              <h4>Problem Framing</h4>
+              <p>Turn vague requests into testable objectives</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-num">02</div>
+              <h4>Decomposition</h4>
+              <p>Split work into verifiable steps</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-num">03</div>
+              <h4>Evaluation</h4>
+              <p>Spot wrong fast against clear criteria</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-num">04</div>
+              <h4>Correction</h4>
+              <p>Fix the 20%, don't regenerate</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-num">05</div>
+              <h4>Systems Thinking</h4>
+              <p>Reduce future cost, build assets</p>
+            </div>
+          </div>
+          <div class="takeaway">These five skills determine AI productivity more than tool selection.</div>
+        </div>
+        <div class="slide-footer">
+          <span>INNOMIZE AI Adoption Workshop</span>
+          <span class="slide-number">07</span>
+        </div>
+      </div>
+
+      <!-- Slide 8: Step 3 - Guardrails -->
+      <div class="slide slide-step" data-slide="8">
+        <div class="slide-header">
+          <div class="step-badge">Step 3</div>
+          <div class="title-with-icon">
+            <img src="../../assets/Fitlogo_Symsol_RGB.png" alt="" class="title-icon icon-light">
+            <img src="../../assets/Fitlogo_Symsol_White.png" alt="" class="title-icon icon-dark">
+            <h2>Add Guardrails Before Speed</h2>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="guardrails-grid">
+            <div class="guardrail-item">
+              <div class="check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <div>
+                <h4>Quality Checklists</h4>
+                <p>Define "ready to ship" before AI touches the work</p>
+              </div>
+            </div>
+            <div class="guardrail-item">
+              <div class="check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <div>
+                <h4>Review Gates</h4>
+                <p>Second pair of eyes for high-stakes outputs</p>
+              </div>
+            </div>
+            <div class="guardrail-item">
+              <div class="check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <div>
+                <h4>Source of Truth Rules</h4>
+                <p>When to verify against authoritative sources</p>
+              </div>
+            </div>
+            <div class="guardrail-item">
+              <div class="check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <div>
+                <h4>Data Boundaries</h4>
+                <p>What data never enters a model</p>
+              </div>
+            </div>
+          </div>
+          <div class="takeaway">Guardrails enable speed. Teams with clear guardrails adopt faster because they trust the output.</div>
+        </div>
+        <div class="slide-footer">
+          <span>INNOMIZE AI Adoption Workshop</span>
+          <span class="slide-number">08</span>
+        </div>
+      </div>
+
+      <!-- Slide 9: Step 4 - Tools -->
+      <div class="slide slide-step" data-slide="9">
+        <div class="slide-header">
+          <div class="step-badge">Step 4</div>
+          <div class="title-with-icon">
+            <img src="../../assets/Fitlogo_Symsol_RGB.png" alt="" class="title-icon icon-light">
+            <img src="../../assets/Fitlogo_Symsol_White.png" alt="" class="title-icon icon-dark">
+            <h2>Then Pick Tools</h2>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="tools-content">
+            <div class="tools-left">
+              <h3>Now you know what you need</h3>
+              <div class="tool-question">
+                <h4>Interface type</h4>
+                <p>Chat? Embedded assistant? Automated agent?</p>
+              </div>
+              <div class="tool-question">
+                <h4>Model capability</h4>
+                <p>General knowledge or domain-specific?</p>
+              </div>
+              <div class="tool-question">
+                <h4>Deployment model</h4>
+                <p>Cloud or on-premise? Compliance requirements?</p>
+              </div>
+              <div class="tool-question">
+                <h4>Automation level</h4>
+                <p>Human-in-the-loop or fully automated?</p>
+              </div>
+              <div class="tool-question">
+                <h4>Audit requirements</h4>
+                <p>Logging, version history, traceability?</p>
+              </div>
+            </div>
+            <div class="tools-right">
+              <div class="tools-illustration">
+                <svg viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Without Workflow Section -->
+                  <text x="160" y="20" fill="var(--text-muted)" font-size="14" font-weight="600" text-anchor="middle">WITHOUT WORKFLOW</text>
+
+                  <!-- Chaotic tool boxes -->
+                  <rect x="20" y="35" width="60" height="40" rx="6" fill="var(--border)" opacity="0.5"/>
+                  <text x="50" y="60" fill="var(--text-muted)" font-size="11" text-anchor="middle">Tool A</text>
+                  <text x="70" y="45" fill="var(--error-text)" font-size="14">?</text>
+
+                  <rect x="90" y="40" width="60" height="40" rx="6" fill="var(--border)" opacity="0.5"/>
+                  <text x="120" y="65" fill="var(--text-muted)" font-size="11" text-anchor="middle">Tool B</text>
+                  <text x="140" y="50" fill="var(--error-text)" font-size="14">?</text>
+
+                  <rect x="160" y="35" width="60" height="40" rx="6" fill="var(--border)" opacity="0.5"/>
+                  <text x="190" y="60" fill="var(--text-muted)" font-size="11" text-anchor="middle">Tool C</text>
+                  <text x="210" y="45" fill="var(--error-text)" font-size="14">?</text>
+
+                  <rect x="230" y="42" width="60" height="40" rx="6" fill="var(--border)" opacity="0.5"/>
+                  <text x="260" y="67" fill="var(--text-muted)" font-size="11" text-anchor="middle">Tool D</text>
+                  <text x="280" y="52" fill="var(--error-text)" font-size="14">?</text>
+
+                  <!-- Arrow down with X -->
+                  <path d="M160 85 L160 105" stroke="var(--text-muted)" stroke-width="2" stroke-dasharray="4 2"/>
+                  <circle cx="160" cy="115" r="12" fill="var(--error-bg)" stroke="var(--error-text)" stroke-width="2"/>
+                  <path d="M155 110 L165 120 M165 110 L155 120" stroke="var(--error-text)" stroke-width="2" stroke-linecap="round"/>
+                  <text x="160" y="145" fill="var(--text-muted)" font-size="12" text-anchor="middle">Months of evaluation...</text>
+
+                  <!-- Divider -->
+                  <line x1="40" y1="165" x2="280" y2="165" stroke="var(--border)" stroke-width="1" stroke-dasharray="4 4"/>
+
+                  <!-- With Workflow Section -->
+                  <text x="160" y="190" fill="var(--primary)" font-size="14" font-weight="600" text-anchor="middle">WITH WORKFLOW</text>
+
+                  <!-- Clear flow: Workflow → Requirements → Right Tool -->
+                  <rect x="30" y="205" width="70" height="36" rx="6" fill="var(--primary)" opacity="0.15" stroke="var(--primary)" stroke-width="1.5"/>
+                  <text x="65" y="227" fill="var(--primary)" font-size="11" text-anchor="middle" font-weight="500">Workflow</text>
+
+                  <path d="M105 223 L125 223" stroke="var(--primary)" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+                  <rect x="130" y="205" width="70" height="36" rx="6" fill="var(--primary)" opacity="0.15" stroke="var(--primary)" stroke-width="1.5"/>
+                  <text x="165" y="227" fill="var(--primary)" font-size="11" text-anchor="middle" font-weight="500">Requirements</text>
+
+                  <path d="M205 223 L225 223" stroke="var(--primary)" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+                  <rect x="230" y="205" width="60" height="36" rx="6" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"/>
+                  <text x="260" y="222" fill="white" font-size="10" text-anchor="middle" font-weight="600">Right Tool</text>
+                  <text x="260" y="234" fill="white" font-size="16" text-anchor="middle">✓</text>
+
+                  <!-- Arrow marker definition -->
+                  <defs>
+                    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                      <polygon points="0 0, 8 3, 0 6" fill="var(--primary)"/>
+                    </marker>
+                  </defs>
+
+                  <!-- Result text -->
+                  <text x="160" y="268" fill="var(--text-secondary)" font-size="13" text-anchor="middle" font-weight="500">Days, not months.</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>INNOMIZE AI Adoption Workshop</span>
+          <span class="slide-number">09</span>
+        </div>
+      </div>
+
+      <!-- Slide 10: CTA -->
+      <div class="slide slide-cta" data-slide="10">
+        <div class="slide-body">
+          <div class="cta-content">
+            <div class="cta-left">
+              <div class="slide-logo-wrapper">
+                <img src="../../assets/Logo_Horizontal_RGB.png" alt="INNOMIZE" class="slide-logo logo-light">
+                <img src="../../assets/Fitlogo_Horizontal_White.png" alt="INNOMIZE" class="slide-logo logo-dark">
+              </div>
+              <h2>Let's Talk About Your AI Adoption</h2>
+              <p>We've helped enterprise clients navigate AI adoption across industries. We've seen what works and what doesn't.</p>
+              <a href="#" class="cta-button">
+                Contact INNOMIZE
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+            <div class="cta-right">
+              <div class="service-item">
+                <div class="icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                </div>
+                <div>
+                  <h4>AI Adoption Assessment</h4>
+                  <p>Audit workflows, identify high-value opportunities</p>
+                </div>
+              </div>
+              <div class="service-item">
+                <div class="icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                </div>
+                <div>
+                  <h4>Workflow Design Workshop</h4>
+                  <p>Map processes, design guardrails, create plan</p>
+                </div>
+              </div>
+              <div class="service-item">
+                <div class="icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <div>
+                  <h4>Skills Training</h4>
+                  <p>Build capabilities that make tools effective</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>www.innomizetech.com</span>
+          <span class="slide-number">10</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Unified Controls -->
+  <div class="controls" id="controls">
+    <button class="ctrl-btn" id="prevBtn" onclick="prevSlide()" title="Previous (←)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <span class="slide-counter"><span id="currentSlide">1</span>/<span id="totalSlides">10</span></span>
+    <button class="ctrl-btn" id="nextBtn" onclick="nextSlide()" title="Next (→)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <div class="ctrl-divider"></div>
+    <button class="ctrl-btn" id="zoomOutBtn" onclick="zoomOut()" title="Zoom Out (-)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M8 11h6"/></svg>
+    </button>
+    <span class="zoom-indicator" id="zoomLevel">100%</span>
+    <button class="ctrl-btn" id="zoomInBtn" onclick="zoomIn()" title="Zoom In (+)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg>
+    </button>
+    <div class="ctrl-divider"></div>
+    <button class="ctrl-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle Theme (D)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+    <button class="ctrl-btn" id="fullscreenBtn" onclick="toggleFullscreen()" title="Fullscreen (F)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg>
+    </button>
+  </div>
+
+  <script>
+    // Slide state
+    let currentSlide = 1;
+    const totalSlides = 10;
+    let hideTimeout;
+    let zoomLevel = 100;
+    const zoomStep = 10;
+    const minZoom = 70;
+    const maxZoom = 130;
+    const controls = document.getElementById('controls');
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      updateSlide();
+      setupControlsVisibility();
+
+      // Check for saved theme
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        updateThemeIcon();
+      }
+
+      // Check for saved zoom
+      const savedZoom = localStorage.getItem('zoom');
+      if (savedZoom) {
+        zoomLevel = parseInt(savedZoom);
+        updateZoom();
+      }
+    });
+
+    // Controls auto show/hide
+    function setupControlsVisibility() {
+      showControls();
+
+      document.addEventListener('mousemove', showControls);
+      document.addEventListener('click', showControls);
+      document.addEventListener('touchstart', showControls);
+
+      controls.addEventListener('mouseenter', () => {
+        clearTimeout(hideTimeout);
+        controls.classList.add('visible');
+      });
+
+      controls.addEventListener('mouseleave', () => {
+        startHideTimer();
+      });
+    }
+
+    function showControls() {
+      controls.classList.add('visible');
+      startHideTimer();
+    }
+
+    function startHideTimer() {
+      clearTimeout(hideTimeout);
+      hideTimeout = setTimeout(() => {
+        controls.classList.remove('visible');
+      }, 2500);
+    }
+
+    // Navigation functions
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function goToSlide(n) {
+      currentSlide = n;
+      updateSlide();
+    }
+
+    function updateSlide() {
+      // Update slides
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach((slide, index) => {
+        const slideNum = index + 1;
+        slide.classList.remove('active', 'prev');
+        if (slideNum === currentSlide) {
+          slide.classList.add('active');
+        } else if (slideNum < currentSlide) {
+          slide.classList.add('prev');
+        }
+      });
+
+      // Update counter
+      document.getElementById('currentSlide').textContent = currentSlide;
+
+      // Update button states
+      document.getElementById('prevBtn').disabled = currentSlide === 1;
+      document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+    }
+
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+
+      if (currentTheme === 'dark') {
+        html.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+      updateThemeIcon();
+    }
+
+    function updateThemeIcon() {
+      const btn = document.getElementById('themeBtn');
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      btn.innerHTML = isDark
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+    }
+
+    // Fullscreen toggle
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Zoom functions
+    function zoomIn() {
+      if (zoomLevel < maxZoom) {
+        zoomLevel += zoomStep;
+        updateZoom();
+      }
+    }
+
+    function zoomOut() {
+      if (zoomLevel > minZoom) {
+        zoomLevel -= zoomStep;
+        updateZoom();
+      }
+    }
+
+    function resetZoom() {
+      zoomLevel = 100;
+      updateZoom();
+    }
+
+    function updateZoom() {
+      const scale = zoomLevel / 100;
+      document.documentElement.style.setProperty('--font-scale', scale);
+      document.documentElement.style.setProperty('--zoom-scale', scale);
+      document.getElementById('zoomLevel').textContent = `${zoomLevel}%`;
+      localStorage.setItem('zoom', zoomLevel);
+
+      // Update button states
+      document.getElementById('zoomInBtn').disabled = zoomLevel >= maxZoom;
+      document.getElementById('zoomOutBtn').disabled = zoomLevel <= minZoom;
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      switch(e.key) {
+        case 'ArrowRight':
+        case ' ':
+        case 'PageDown':
+          e.preventDefault();
+          nextSlide();
+          break;
+        case 'ArrowLeft':
+        case 'PageUp':
+          e.preventDefault();
+          prevSlide();
+          break;
+        case 'Home':
+          e.preventDefault();
+          goToSlide(1);
+          break;
+        case 'End':
+          e.preventDefault();
+          goToSlide(totalSlides);
+          break;
+        case 'f':
+        case 'F':
+          toggleFullscreen();
+          break;
+        case 'd':
+        case 'D':
+          toggleTheme();
+          break;
+        case '+':
+        case '=':
+          e.preventDefault();
+          zoomIn();
+          break;
+        case '-':
+        case '_':
+          e.preventDefault();
+          zoomOut();
+          break;
+        case '0':
+          e.preventDefault();
+          resetZoom();
+          break;
+      }
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

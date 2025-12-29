@@ -47,7 +47,7 @@ Major LinkedIn creator (421K followers). Posts about content creation systems, L
 
 ## Why Engage
 
-- In content creation space (relevant to MizeForge)
+- In content creation space (relevant to Mizemind)
 - High visibility for engagement
 - Systems-focused approach aligns with our thinking
 - Good to track as influencer in our space

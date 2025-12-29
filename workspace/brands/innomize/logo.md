@@ -6,7 +6,6 @@
 **Tagline:** Better Solutions - Better Lives
 **Logo Type:** Brandmark + Wordmark combination
 
----
 
 ## Logo Variants
 
@@ -66,7 +65,6 @@ inn
 - Pattern elements
 - Very small sizes
 
----
 
 ## Logo Composition
 
@@ -98,7 +96,6 @@ Minimum clear space around logo: **2x** the height of the symbol
 | Brandmark | 24px | Digital |
 | Favicon | 16px | Browser tabs |
 
----
 
 ## Logo Colors
 
@@ -130,7 +127,6 @@ Minimum clear space around logo: **2x** the height of the symbol
 | All red | Light backgrounds, brand emphasis |
 | All black | B&W printing, fax |
 
----
 
 ## Logo Placement
 
@@ -158,7 +154,6 @@ The logo should be placed on the **left** or **center** of layouts.
 | Photos (light) | Primary with clear space |
 | Photos (dark) | Reversed with clear space |
 
----
 
 ## Logo Misuse
 
@@ -173,7 +168,6 @@ The logo should be placed on the **left** or **center** of layouts.
 - Place on busy backgrounds without clear space
 - Crop or cut off parts of the logo
 
----
 
 ## File Formats
 
@@ -203,7 +197,6 @@ The logo should be placed on the **left** or **center** of layouts.
 | Social media | PNG at 2x resolution |
 | Email signatures | PNG, 200px width max |
 
----
 
 ## Co-Branding
 
@@ -214,7 +207,6 @@ When the INNOMIZE logo appears alongside partner/client logos:
 3. Separate with a vertical divider line if needed
 4. INNOMIZE logo typically appears first (left) or in primary position
 
----
 
 ## Usage Notes
 

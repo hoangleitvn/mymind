@@ -103,7 +103,6 @@ Angle: Security as generation constraint, not review step
 - What this means for DevOps/DevSecOps teams
 - Evaluation framework: what to look for in AI IaC tools
 
----
 
 ## Next Steps
 

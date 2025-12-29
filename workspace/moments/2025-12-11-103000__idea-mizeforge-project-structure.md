@@ -2,16 +2,16 @@
 id: 20251211-103000
 type: idea
 status: raw
-themes: [product-development, mizeforge]
+themes: [product-development, mizemind]
 tags: [feature-request, workspace-structure, project-management, information-architecture]
 captured: 2025-12-11T10:30:00+07:00
 ---
 
-# MizeForge Project-Based Structure
+# Mizemind Project-Based Structure
 
 ## Raw Capture
 
-Thinking about MizeForge supporting projects instead of flat structure. Example: "Builds That Last" is a project containing articles, visual assets, Substack setup, LinkedIn promotion - but currently:
+Thinking about Mizemind supporting projects instead of flat structure. Example: "Builds That Last" is a project containing articles, visual assets, Substack setup, LinkedIn promotion - but currently:
 1. No project plan exists
 2. Flat structure mixes with other work (LinkedIn posts on various themes/angles)
 3. Overlap between project-specific content and general content library
@@ -76,12 +76,12 @@ workspace/
 
 1. Should project content live separately or be tagged within existing structure?
 2. How to handle content that's both project-specific AND reusable?
-3. Should MizeForge have a "project mode" that scopes context?
+3. Should Mizemind have a "project mode" that scopes context?
 4. How do projects relate to the identity-kit themes?
 
 ## Content Potential
 
-- Platform: Internal product thinking / MizeForge roadmap
+- Platform: Internal product thinking / Mizemind roadmap
 - Format: Feature spec, product decision
 - Angle: Real user pain point from dogfooding
 - Related: Current session working on Builds That Last

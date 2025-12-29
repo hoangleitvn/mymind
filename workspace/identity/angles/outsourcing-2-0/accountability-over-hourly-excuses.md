@@ -42,7 +42,6 @@ INNOMIZE founding principle (2018): Accountability not excuses. Traditional outs
 
 Direct. Challenging traditional model. Personal (INNOMIZE founding). Principled (misaligned incentives).
 
----
 
 ## Related Angles
 

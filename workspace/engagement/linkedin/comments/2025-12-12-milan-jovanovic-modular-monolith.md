@@ -40,11 +40,11 @@ I've worked with many different software architectures over the years. One clear
 
 ```yaml
 - id: 1733988000001
-  author: "Pavle Davitković"
+  author: "Pavle Davitkovic"
   profile: null
   sentiment: "positive"
   content: |
-Modular Monolith is future microservice
+    Modular Monolith is future microservice
   reactions: 5
   insight: "Captures the evolution pattern"
   replies: []
@@ -54,7 +54,7 @@ Modular Monolith is future microservice
   profile: null
   sentiment: "question"
   content: |
-Modular monoliths are a topic I keep coming back to. They are very practical to me, a single codebase with clear boundaries that lets teams move fast without the overhead of distributed systems! Do you find this approach scales well in practice, or do you see any limits as projects grow?
+    Modular monoliths are a topic I keep coming back to. They are very practical to me, a single codebase with clear boundaries that lets teams move fast without the overhead of distributed systems! Do you find this approach scales well in practice, or do you see any limits as projects grow?
   reactions: 1
   insight: "Asks about scaling limits - common concern"
   replies: []
@@ -64,7 +64,7 @@ Modular monoliths are a topic I keep coming back to. They are very practical to 
   profile: null
   sentiment: "positive"
   content: |
-I have been working with Modular Monoliths for a few years. I remember taking Milan's course on building Modular Monolith. It's a pretty long course, and I took a lot from it to improve my own projects. And still, this is the best course I have ever watched on software development.
+    I have been working with Modular Monoliths for a few years. I remember taking Milan's course on building Modular Monolith. It's a pretty long course, and I took a lot from it to improve my own projects. And still, this is the best course I have ever watched on software development.
   reactions: 3
   insight: "Testimonial for Milan's course"
   replies: []
@@ -74,7 +74,7 @@ I have been working with Modular Monoliths for a few years. I remember taking Mi
   profile: null
   sentiment: "neutral"
   content: |
-I have a feeling that the world of software architecture lives in waves. Monolith -> SOA -> Microservice, and so on. Next chapter is SOA again. But I like a modular monolith, too.
+    I have a feeling that the world of software architecture lives in waves. Monolith -> SOA -> Microservice, and so on. Next chapter is SOA again. But I like a modular monolith, too.
   reactions: 1
   insight: "Cyclical nature of architecture trends"
   replies: []
@@ -84,7 +84,7 @@ I have a feeling that the world of software architecture lives in waves. Monolit
   profile: null
   sentiment: "positive"
   content: |
-One more win: you can map modules to teams, so people ship fast without stepping on each other while you still keep one simple deployment.
+    One more win: you can map modules to teams, so people ship fast without stepping on each other while you still keep one simple deployment.
   reactions: 2
   insight: "Team organization benefit"
   replies: []
@@ -95,12 +95,12 @@ One more win: you can map modules to teams, so people ship fast without stepping
 ```yaml
 - id: 1733988056000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2025-12-12T06:41:00Z'
   content: |
-Modular monoliths saved us months of infrastructure headaches. Clear module boundaries give you 90% of microservices benefits without the distributed systems tax. The key: enforce boundaries strictly from day one. Retrofitting them later is painful.
+    Modular monoliths saved us months of infrastructure headaches. Clear module boundaries give you 90% of microservices benefits without the distributed systems tax. The key: enforce boundaries strictly from day one. Retrofitting them later is painful.
   strategy: "Personal Experience - Share practical insight from real projects, reinforce the main point with specific lesson learned"
-  replies: []
 ```
 
 ## Notes

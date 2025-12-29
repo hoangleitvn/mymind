@@ -15,7 +15,6 @@ status: pending
 - Simon has a deck to introduce the platform and requirements
 - Key focus: Azure platform adherence to Microsoft standards + Azure DevOps
 
----
 
 ## Pre-Meeting Preparation
 
@@ -50,7 +49,6 @@ Be ready to present:
 - **Timezone overlap** — VN afternoon = UK morning (4-5 hrs overlap)
 - **50+ products shipped** — Proven track record
 
----
 
 ## Materials Checklist
 - [ ] INNOMIZE company deck (tailored to Azure/DevOps focus)
@@ -59,7 +57,6 @@ Be ready to present:
 - [ ] Azure DevOps demo environment (if possible)
 - [ ] Reference contacts (past clients willing to speak)
 
----
 
 ## Post-Meeting Actions
 - [ ] Send follow-up email with summary

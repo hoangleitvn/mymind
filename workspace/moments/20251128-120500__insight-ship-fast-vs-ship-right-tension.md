@@ -3,7 +3,7 @@ id: 20251128-120500
 type: insight
 status: raw
 themes: [founder-mindset, product-development-philosophy, practical-engineering]
-tags: [shipping, mizeforge, perfectionism, balance, values-alignment]
+tags: [shipping, mizemind, perfectionism, balance, values-alignment]
 captured: 2025-11-28T12:05:00+07:00
 ---
 
@@ -11,11 +11,11 @@ captured: 2025-11-28T12:05:00+07:00
 
 ## Raw Capture
 
-It seems I am building more for MizeForge and I haven't released yet. This might not align with the "ship faster" from my identity. I think ship faster is good but ship bad also not good. How do we balance, what should I do.
+It seems I am building more for Mizemind and I haven't released yet. This might not align with the "ship faster" from my identity. I think ship faster is good but ship bad also not good. How do we balance, what should I do.
 
 ## Context
 
-- Building MizeForge (content creation workspace/framework)
+- Building Mizemind (content creation workspace/framework)
 - Haven't released yet — still building
 - Feeling tension between stated principle ("ship early") and current behavior
 - Aware that shipping bad work creates different problems
@@ -37,16 +37,16 @@ Both are true. The question is: **which applies now?**
 
 It means: **Ship the smallest thing that proves or disproves your assumption.**
 
-The question isn't "Is MizeForge perfect?"
+The question isn't "Is Mizemind perfect?"
 The question is: "What's the smallest version that teaches me something?"
 
 ## Questions to Explore
 
-- What assumption am I trying to validate with MizeForge?
+- What assumption am I trying to validate with Mizemind?
 - What's the 20% that delivers 80% of the value?
 - Am I building for users or building for myself?
 - What's the cost of NOT shipping now?
-- What would "ugly but working" look like for MizeForge?
+- What would "ugly but working" look like for Mizemind?
 - Am I avoiding release because it's not ready, or because I'm scared of feedback?
 
 ## Framework: When to Ship vs When to Build
@@ -83,7 +83,7 @@ The question is: "What's the smallest version that teaches me something?"
 
 ## Follow-up
 
-- [ ] Define: What is MizeForge MVP?
+- [ ] Define: What is Mizemind MVP?
 - [ ] List: What's in scope vs out of scope for v1?
 - [ ] Decide: Ship date or ship trigger?
 - [ ] Identify: Who is the first user?

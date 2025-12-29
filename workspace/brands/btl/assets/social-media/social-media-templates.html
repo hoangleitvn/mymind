@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTL Social Media Templates</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        :root {
+            /* BTL Brand Colors (two-color system) */
+            --btl-jade: #00a86b;
+            --btl-jade-dark: #008553;
+            --btl-jade-light: #10b981;
+            --btl-jade-100: #d1fae5;
+            --btl-charcoal: #1f2937;
+            --btl-slate: #374151;
+            --btl-white: #ffffff;
+
+            /* Dark theme (default) */
+            --bg-base: #111827;
+            --bg-elevated: #1f2937;
+            --bg-surface: #374151;
+            --text-primary: #ffffff;
+            --text-subdued: #9ca3af;
+            --border-color: #4b5563;
+
+            /* Font Families */
+            --font-display: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* BTL Social Graphics Typography Scale (1080x1080 base)
+               Token    | Size  | Line Height | Font    | Weight
+               ---------|-------|-------------|---------|--------
+               title    | 72px  | 1.10        | Poppins | 800
+               subtitle | 36px  | 1.25        | Inter   | 500
+               body     | 26px  | 1.35        | Inter   | 400
+               caption  | 18px  | 1.40        | Inter   | 500
+
+               Letter spacing: -0.01em for titles
+               Max 2 weights per template
+            */
+        }
+
+        [data-theme="light"] {
+            --bg-base: #f9fafb;
+            --bg-elevated: #ffffff;
+            --bg-surface: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-subdued: #64748b;
+            --border-color: #d1d5db;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .header {
+            background: var(--bg-elevated);
+            padding: 24px 40px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--btl-jade);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-subdued);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover { color: var(--btl-jade); }
+
+        .header h1 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .platform-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .platform-tab {
+            padding: 10px 20px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-subdued);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .platform-tab:hover, .platform-tab.active {
+            background: var(--btl-jade);
+            color: white;
+            border-color: var(--btl-jade);
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--btl-jade);
+            border-radius: 2px;
+        }
+
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+        }
+
+        .template-card {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .template-preview {
+            padding: 32px;
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a 0%, var(--bg-base) 100%);
+        }
+
+        .template-info {
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .template-meta h3 {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .template-meta p {
+            font-size: 13px;
+            color: var(--text-subdued);
+        }
+
+        .export-btn {
+            background: var(--btl-jade);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .export-btn:hover {
+            background: var(--btl-jade-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ========================================
+           LINKEDIN POST (1080x1080)
+           Typography Scale (at 1/2.7 preview):
+           - Title: 72px -> 27px (Poppins 800)
+           - Subtitle: 36px -> 13px (Inter 500)
+           - Body: 26px -> 10px (Inter 400)
+           - Caption: 18px -> 7px (Inter 500)
+           ======================================== */
+        .linkedin-square {
+            width: 400px;
+            height: 400px;
+            background: var(--btl-charcoal);
+            border-radius: 8px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .linkedin-square::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--btl-jade);
+        }
+
+        .linkedin-square .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .linkedin-square .logo-mark {
+            width: 48px;
+            height: 48px;
+            background: var(--btl-jade);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        .linkedin-square .logo-text {
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
+        .linkedin-square .content {
+            text-align: center;
+        }
+
+        .linkedin-square .headline {
+            font-family: var(--font-display);
+            font-size: 27px;
+            font-weight: 800;
+            line-height: 1.10;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+        }
+
+        .linkedin-square .headline span {
+            color: var(--btl-jade);
+        }
+
+        .linkedin-square .subtext {
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1.25;
+            color: var(--text-subdued);
+        }
+
+        .linkedin-square .footer {
+            text-align: center;
+        }
+
+        .linkedin-square .cta {
+            display: inline-block;
+            background: var(--btl-jade);
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 7px;
+            line-height: 1.40;
+        }
+
+        /* ========================================
+           LINKEDIN ARTICLE COVER (1920x1080)
+           Typography Scale (at 1/4 preview):
+           - Title: 72px -> 18px (Poppins 800)
+           - Subtitle: 36px -> 9px (Inter 500)
+           - Caption: 18px -> 5px (Inter 500)
+           ======================================== */
+        .linkedin-article {
+            width: 480px;
+            height: 270px;
+            background: linear-gradient(135deg, var(--btl-charcoal) 0%, #0f172a 100%);
+            border-radius: 8px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .linkedin-article::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--btl-jade);
+        }
+
+        .linkedin-article .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .linkedin-article .logo-mark {
+            width: 36px;
+            height: 36px;
+            background: var(--btl-jade);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+        .linkedin-article .logo-text {
+            font-family: var(--font-display);
+            font-size: 9px;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
+        .linkedin-article .title {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1.10;
+            letter-spacing: -0.01em;
+            max-width: 80%;
+        }
+
+        .linkedin-article .title span {
+            color: var(--btl-jade);
+        }
+
+        .linkedin-article .author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .linkedin-article .author-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--btl-jade);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 9px;
+            line-height: 1.25;
+        }
+
+        .linkedin-article .author-name {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 9px;
+            line-height: 1.25;
+        }
+
+        .linkedin-article .author-title {
+            font-family: var(--font-body);
+            font-size: 5px;
+            font-weight: 500;
+            line-height: 1.40;
+            color: var(--text-subdued);
+        }
+
+        /* ========================================
+           TWITTER/X POST (1600x900)
+           Typography Scale (at 1/3.3 preview):
+           - Title: 72px -> 22px (Poppins 800)
+           - Subtitle: 36px -> 11px (Inter 500)
+           - Caption: 18px -> 5px (Inter 500)
+           ======================================== */
+        .twitter-card {
+            width: 480px;
+            height: 270px;
+            background: var(--btl-charcoal);
+            border-radius: 8px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .twitter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--btl-jade);
+        }
+
+        .twitter-card .quote {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.10;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+        }
+
+        .twitter-card .quote span {
+            color: var(--btl-jade);
+        }
+
+        .twitter-card .author-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .twitter-card .author-avatar {
+            width: 44px;
+            height: 44px;
+            background: var(--btl-jade);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 1.25;
+        }
+
+        .twitter-card .author-info {
+            text-align: left;
+        }
+
+        .twitter-card .author-name {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 1.25;
+        }
+
+        .twitter-card .author-handle {
+            font-family: var(--font-body);
+            font-size: 5px;
+            font-weight: 500;
+            line-height: 1.40;
+            color: var(--text-subdued);
+        }
+
+        /* ========================================
+           INSTAGRAM STORY (1080x1920)
+           Typography Scale (at 1/4 preview):
+           - Title: 72px -> 18px (Poppins 800)
+           - Subtitle: 36px -> 9px (Inter 500)
+           - Body: 26px -> 7px (Inter 400)
+           - Caption: 18px -> 5px (Inter 500)
+           ======================================== */
+        .instagram-story {
+            width: 270px;
+            height: 480px;
+            background: linear-gradient(180deg, var(--btl-jade) 0%, #065f46 50%, var(--btl-charcoal) 100%);
+            border-radius: 16px;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instagram-story .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .instagram-story .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .instagram-story .logo-text {
+            font-family: var(--font-display);
+            font-size: 9px;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
+        .instagram-story .content {
+            text-align: center;
+        }
+
+        .instagram-story .headline {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1.10;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+        }
+
+        .instagram-story .subtext {
+            font-family: var(--font-body);
+            font-size: 7px;
+            font-weight: 400;
+            line-height: 1.35;
+            opacity: 0.9;
+        }
+
+        .instagram-story .cta {
+            text-align: center;
+        }
+
+        .instagram-story .swipe-up {
+            font-family: var(--font-body);
+            font-size: 5px;
+            font-weight: 500;
+            line-height: 1.40;
+            opacity: 0.8;
+        }
+
+        .instagram-story .arrow {
+            font-size: 24px;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ========================================
+           QUOTE CARD (1080x1080)
+           Typography Scale (at 1/2.7 preview):
+           - Title: 72px -> 27px (Poppins 800)
+           - Subtitle: 36px -> 13px (Inter 500)
+           - Caption: 18px -> 7px (Inter 500)
+           ======================================== */
+        .quote-card {
+            width: 400px;
+            height: 400px;
+            background: var(--btl-charcoal);
+            border-radius: 8px;
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: var(--btl-jade);
+        }
+
+        .quote-card .quote-mark {
+            font-size: 72px;
+            color: var(--btl-jade);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: -20px;
+            font-family: Georgia, serif;
+        }
+
+        .quote-card .quote-text {
+            font-family: var(--font-display);
+            font-size: 27px;
+            font-weight: 800;
+            line-height: 1.10;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+        }
+
+        .quote-card .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .quote-card .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--btl-jade);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 1.25;
+        }
+
+        .quote-card .author-name {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 1.25;
+        }
+
+        .quote-card .author-title {
+            font-family: var(--font-body);
+            font-size: 7px;
+            font-weight: 500;
+            line-height: 1.40;
+            color: var(--text-subdued);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .theme-toggle:hover {
+            background: var(--btl-jade);
+            color: white;
+            border-color: var(--btl-jade);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        [data-theme="light"] .sun-icon { display: none; }
+        [data-theme="light"] .moon-icon { display: block !important; }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            .template-grid { grid-template-columns: 1fr; }
+            .template-preview { padding: 20px; overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme (t)">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M12 18a6 6 0 100-12 6 6 0 000 12zM12 2a1 1 0 011 1v2a1 1 0 01-2 0V3a1 1 0 011-1zm0 16a1 1 0 011 1v2a1 1 0 01-2 0v-2a1 1 0 011-1zm10-6a1 1 0 01-1 1h-2a1 1 0 010-2h2a1 1 0 011 1zM6 12a1 1 0 01-1 1H3a1 1 0 010-2h2a1 1 0 011 1z"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" style="display:none">
+            <path fill="currentColor" d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
+        </svg>
+    </button>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <a href="../index.html" class="back-btn">← Back</a>
+                <h1>Social Media Templates</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="platform-tabs">
+            <button class="platform-tab active">All</button>
+            <button class="platform-tab">LinkedIn</button>
+            <button class="platform-tab">Twitter/X</button>
+            <button class="platform-tab">Instagram</button>
+        </div>
+
+        <!-- LinkedIn Templates -->
+        <section class="section">
+            <h2 class="section-title">LinkedIn</h2>
+            <div class="template-grid">
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="linkedin-square" id="linkedin-post-1">
+                            <div class="logo">
+                                <div class="logo-mark">BTL</div>
+                                <div class="logo-text">Builds That Last</div>
+                            </div>
+                            <div class="content">
+                                <h2 class="headline">Build Software That <span>Lasts</span></h2>
+                                <p class="subtext">Foundations matter. Quality endures.</p>
+                            </div>
+                            <div class="footer">
+                                <span class="cta">Learn More →</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <div class="template-meta">
+                            <h3>LinkedIn Post - Square</h3>
+                            <p>1200 x 1200px</p>
+                        </div>
+                        <button class="export-btn" onclick="exportTemplate('linkedin-post-1', 'btl-linkedin-post')">Export PNG</button>
+                    </div>
+                </div>
+
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="linkedin-article" id="linkedin-article-1">
+                            <div class="logo">
+                                <div class="logo-mark">BTL</div>
+                                <div class="logo-text">Builds That Last</div>
+                            </div>
+                            <h1 class="title">Why <span>Architecture</span> Matters More Than Ever</h1>
+                            <div class="author">
+                                <div class="author-avatar">HL</div>
+                                <div>
+                                    <div class="author-name">Hoang Le</div>
+                                    <div class="author-title">Founder & CTO</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <div class="template-meta">
+                            <h3>LinkedIn Article Cover</h3>
+                            <p>1920 x 1080px</p>
+                        </div>
+                        <button class="export-btn" onclick="exportTemplate('linkedin-article-1', 'btl-linkedin-article')">Export PNG</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Twitter Templates -->
+        <section class="section">
+            <h2 class="section-title">Twitter/X</h2>
+            <div class="template-grid">
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="twitter-card" id="twitter-quote-1">
+                            <p class="quote">"The best code is <span>no code at all</span>. Every line you write is a liability."</p>
+                            <div class="author-line">
+                                <div class="author-avatar">HL</div>
+                                <div class="author-info">
+                                    <div class="author-name">Hoang Le</div>
+                                    <div class="author-handle">@hoangle_btl</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <div class="template-meta">
+                            <h3>Twitter Quote Card</h3>
+                            <p>1600 x 900px</p>
+                        </div>
+                        <button class="export-btn" onclick="exportTemplate('twitter-quote-1', 'btl-twitter-quote')">Export PNG</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram Templates -->
+        <section class="section">
+            <h2 class="section-title">Instagram</h2>
+            <div class="template-grid">
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="instagram-story" id="instagram-story-1">
+                            <div class="logo">
+                                <div class="logo-mark">BTL</div>
+                                <div class="logo-text">Builds That Last</div>
+                            </div>
+                            <div class="content">
+                                <h2 class="headline">Ship Fast, Ship Right</h2>
+                                <p class="subtext">Learn how to balance speed and quality in software development.</p>
+                            </div>
+                            <div class="cta">
+                                <div class="swipe-up">Swipe Up</div>
+                                <div class="arrow">↑</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <div class="template-meta">
+                            <h3>Instagram Story</h3>
+                            <p>1080 x 1920px</p>
+                        </div>
+                        <button class="export-btn" onclick="exportTemplate('instagram-story-1', 'btl-instagram-story')">Export PNG</button>
+                    </div>
+                </div>
+
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="quote-card" id="quote-card-1">
+                            <div class="quote-mark">"</div>
+                            <p class="quote-text">Simplicity is the ultimate sophistication in software architecture.</p>
+                            <div class="quote-author">
+                                <div class="author-avatar">HL</div>
+                                <div>
+                                    <div class="author-name">Hoang Le</div>
+                                    <div class="author-title">Builds That Last</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <div class="template-meta">
+                            <h3>Quote Card - Square</h3>
+                            <p>1080 x 1080px</p>
+                        </div>
+                        <button class="export-btn" onclick="exportTemplate('quote-card-1', 'btl-quote-card')">Export PNG</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        async function exportTemplate(elementId, filename) {
+            const element = document.getElementById(elementId);
+            try {
+                const canvas = await html2canvas(element, {
+                    scale: 3,
+                    backgroundColor: null,
+                    useCORS: true
+                });
+                const link = document.createElement('a');
+                link.download = `${filename}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            } catch (error) {
+                console.error('Export failed:', error);
+                alert('Export failed. Please try again.');
+            }
+        }
+
+        // Platform filter
+        document.querySelectorAll('.platform-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.platform-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        // Theme toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('btl-theme', newTheme);
+        }
+
+        // Initialize theme from localStorage or system preference
+        (function initTheme() {
+            const savedTheme = localStorage.getItem('btl-theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+
+        // Keyboard shortcut (t) for theme toggle
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 't' && !e.ctrlKey && !e.metaKey && !e.altKey &&
+                !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+                toggleTheme();
+            }
+        });
+    </script>
+</body>
+</html>

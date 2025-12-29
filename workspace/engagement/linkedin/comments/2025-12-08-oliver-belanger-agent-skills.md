@@ -1,7 +1,7 @@
 ---
 type: linkedin-engagement
-created: '2025-12-08'
-last_updated: '2025-12-08'
+created: '2025-12-08T00:00:00Z'
+last_updated: '2025-12-08T00:00:00Z'
 
 author:
   name: "Oliver Belanger"
@@ -14,8 +14,8 @@ post:
   reactions: 18
   comments_count: 0
   reposts: 0
-  theme: "ai-workforce"
-  angle: "agent-skills-job-creation"
+  theme: "AI workforce - Agent Skills creating new jobs"
+  angle: "Agent Skills as App Store moment for AI"
   key_points:
     - Anthropic Agent Skills = App Store moment for AI
     - Claude as OS, Skills as apps
@@ -24,36 +24,45 @@ post:
     - Last 30% of value comes from human integration work
   hashtags: []
 
-notable_comments: []
+thread_topic: "Agent Skills and new middleware job opportunities"
+topic_tags: [ai-workforce, agent-skills, claude, anthropic, jobs]
 
-our_engagement:
-  - id: 1
-    type: "comment"
-    reply_to: null
-    status: "draft"
-    timestamp: '2025-12-08'
-    content: |
-Already building this. We're developing skills and plugins for Claude Code right now - content workflows, engagement tracking, context management.
-
-The "middleware" framing is right. The models give you capability. Skills give you repeatability. Someone still needs to wire them to your actual work.
-
-That's where the value is.
-    strategy: "Personal Experience - Show we're actively building in this space. Validates his middleware insight. Positions as builder, not just observer."
-
-engagement_status: "draft"
+engagement_status: "posted"
+response_received: false
+follow_up_needed: false
+follow_up_date: null
 ---
 
-## Post Summary
+## Original Post
 
 Oliver Belanger on Anthropic's Agent Skills creating new $80K-$150K "middleware" jobs. The talent needed: people who can connect AI capabilities to real business workflows. Claude as OS, Skills as apps.
 
-## Why Engage
+## Notable Comments
 
-- Directly relevant to MizeForge (we're building skills/plugins)
+```yaml
+[]
+```
+
+## Our Engagement
+
+```yaml
+- id: 1733644800000
+  type: "comment"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-08T00:00:00Z'
+  content: |
+    Already building this. We're developing skills and plugins for Claude Code right now - content workflows, engagement tracking, context management.
+
+    The "middleware" framing is right. The models give you capability. Skills give you repeatability. Someone still needs to wire them to your actual work.
+
+    That's where the value is.
+  strategy: "Personal Experience - Show we're actively building in this space. Validates his middleware insight. Positions as builder, not just observer."
+```
+
+## Notes
+
+- Directly relevant to Mizemind (we're building skills/plugins)
 - Shows we're active in this space
 - Good visibility in AI/Claude conversation
 - Smaller account but relevant topic
-
-## Comment Strategy
-
-Personal Experience - we're literally building skills for Claude Code right now. Validates his insight while showing we're practitioners, not just observers.

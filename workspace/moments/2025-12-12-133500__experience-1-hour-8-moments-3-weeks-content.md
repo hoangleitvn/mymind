@@ -2,11 +2,11 @@
 id: 20251212-133500
 type: experience
 status: raw
-themes: [content-strategy, mizeforge, productivity]
+themes: [content-strategy, mizemind, productivity]
 tags: [moment-capture, content-system, roi, workflow, case-study]
 captured: 2025-12-12T13:35:00+07:00
 content_ready: true
-use_for: mizeforge-promotion
+use_for: mizemind-promotion
 ---
 
 # 1 Hour, 8 Moments, 3 Weeks of Content
@@ -21,7 +21,7 @@ I spent 1 hour capturing moments. What did I get?
 - ~3,250 words of content
 - Roughly 3 weeks of posting material
 
-This is the value of moment capturing. This is MizeForge in action.
+This is the value of moment capturing. This is Mizemind in action.
 
 ## The Session Breakdown
 
@@ -78,7 +78,7 @@ One moment led to another:
 Identity kit loaded: voice, audience, themes.
 Just generate content, voice is consistent.
 
-## The MizeForge Value Proposition
+## The Mizemind Value Proposition
 
 **Without system:**
 - Ideas lost in random notes
@@ -86,7 +86,7 @@ Just generate content, voice is consistent.
 - Hours to write one post
 - Content feels scattered
 
-**With MizeForge:**
+**With Mizemind:**
 - Ideas captured instantly
 - Voice applied automatically
 - Minutes from idea to draft
@@ -96,7 +96,7 @@ Just generate content, voice is consistent.
 
 **This moment itself is content:**
 
-### For MizeForge Promotion
+### For Mizemind Promotion
 - "I spent 1 hour talking. Got 3 weeks of content."
 - Case study of moment capture ROI
 - Demo of the workflow
@@ -124,7 +124,7 @@ The ideas I had today weren't special. I have ideas like this every day. The dif
 
 ## Follow-up
 
-- [ ] Use this as MizeForge case study
+- [ ] Use this as Mizemind case study
 - [ ] Develop into promotional content for the framework
 - [ ] Document the workflow for others
 - [ ] Track actual posting schedule vs. this output

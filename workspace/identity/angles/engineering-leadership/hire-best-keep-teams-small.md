@@ -42,7 +42,6 @@ Communication paths: 5 engineers → 10 links; 25 engineers → 300 links. Veloc
 
 Direct. Contrarian. Data-backed. Anti-headcount-growth.
 
----
 
 ## Related Angles
 

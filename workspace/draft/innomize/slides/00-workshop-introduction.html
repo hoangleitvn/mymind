@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Adoption Workshop | INNOMIZE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* INNOMIZE Brand Colors */
+            --primary: #EA322A;
+            --primary-light: #F76D55;
+            --primary-lighter: #FF9C82;
+            --primary-lightest: #FFC8B1;
+            --cream: #FFF3E2;
+
+            --secondary: #4E6E81;
+            --secondary-light: #708999;
+            --secondary-lighter: #93A5B2;
+
+            --dark: #2E3840;
+            --dark-2: #535B62;
+            --gray: #7B8187;
+            --gray-light: #A5A9AD;
+            --gray-lighter: #D1D3D5;
+            --bg-light: #F8F8F8;
+            --white: #FFFFFF;
+
+            /* Typography */
+            --font-display: 'Bai Jamjuree', system-ui, sans-serif;
+            --font-body: 'Manrope', system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Slide Base */
+        .slide {
+            min-height: 100vh;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary);
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 14px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        /* Title Slide */
+        .slide.title {
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark) 0%, #1a2530 100%);
+        }
+
+        .slide.title h1 {
+            font-family: var(--font-display);
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--white);
+            line-height: 0.9;
+        }
+
+        .slide.title .subtitle {
+            font-size: 28px;
+            color: var(--gray-light);
+            margin-bottom: 48px;
+            font-weight: 400;
+        }
+
+        .slide.title .meta {
+            font-size: 18px;
+            color: var(--gray);
+        }
+
+        .slide.title .meta span {
+            margin: 0 16px;
+        }
+
+        .slide.title .meta .divider {
+            color: var(--primary);
+        }
+
+        /* Section Slide */
+        .slide.section {
+            background: var(--primary);
+            text-align: center;
+        }
+
+        .slide.section::before {
+            background: var(--dark);
+        }
+
+        .slide.section h2 {
+            font-family: var(--font-display);
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+
+        .slide.section .section-subtitle {
+            font-size: 24px;
+            color: var(--cream);
+            font-weight: 400;
+        }
+
+        /* Content Slide */
+        .slide h2 {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        .slide h3 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .slide p {
+            font-size: 24px;
+            margin-bottom: 20px;
+            max-width: 900px;
+            color: var(--gray-lighter);
+        }
+
+        .slide ul {
+            font-size: 24px;
+            margin-left: 32px;
+            margin-bottom: 30px;
+        }
+
+        .slide ul li {
+            margin-bottom: 16px;
+            color: var(--gray-lighter);
+        }
+
+        .slide .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .slide .success {
+            color: #4ade80;
+        }
+
+        .slide .warning {
+            color: #fbbf24;
+        }
+
+        /* Two Column */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 20px;
+        }
+
+        .column h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .column ul {
+            font-size: 22px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 20px;
+        }
+
+        th, td {
+            padding: 20px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        th {
+            background: var(--secondary);
+            font-weight: 600;
+            color: var(--white);
+            font-family: var(--font-display);
+        }
+
+        tr:hover {
+            background: rgba(255,255,255,0.03);
+        }
+
+        /* Quote */
+        .quote {
+            font-size: 32px;
+            font-style: italic;
+            padding: 40px;
+            border-left: 4px solid var(--primary);
+            background: rgba(234, 50, 42, 0.1);
+            margin: 30px 0;
+            color: var(--white);
+        }
+
+        /* Big Number */
+        .big-number {
+            font-family: var(--font-display);
+            font-size: 120px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        /* Session Card */
+        .session-card {
+            background: rgba(78, 110, 129, 0.2);
+            border: 1px solid var(--secondary);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .session-card h4 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .session-card p {
+            font-size: 16px;
+            color: var(--gray-light);
+            margin: 0;
+        }
+
+        .session-card .session-number {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        /* Takeaway Box */
+        .takeaway {
+            background: rgba(78, 110, 129, 0.2);
+            border: 1px solid var(--secondary);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+        }
+
+        .takeaway h4 {
+            color: var(--primary);
+            font-family: var(--font-display);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .takeaway p {
+            font-size: 20px;
+            margin: 0;
+            color: var(--white);
+        }
+
+        /* Concern Box */
+        .concern-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .concern-box {
+            background: rgba(78, 110, 129, 0.15);
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .concern-box.secondary {
+            border-left-color: var(--secondary);
+        }
+
+        .concern-box h4 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .concern-box p {
+            font-size: 16px;
+            color: var(--gray-light);
+            margin: 0;
+        }
+
+        /* Navigation */
+        .nav-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(46, 56, 64, 0.95);
+            border-top: 1px solid var(--secondary);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            z-index: 100;
+        }
+
+        .nav-link {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .nav-link.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Print styles */
+        @media print {
+            .slide {
+                page-break-after: always;
+                min-height: 100vh;
+            }
+            .nav-footer {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide title">
+    <div class="logo">INNOMIZE</div>
+    <h1>AI Adoption<br>Workshop Series</h1>
+    <p class="subtitle">Building AI capability across teams</p>
+    <p class="meta">
+        <span>5 Sessions</span>
+        <span class="divider">|</span>
+        <span>5 Weeks</span>
+        <span class="divider">|</span>
+        <span>45-60 min each</span>
+    </p>
+    <div class="slide-number">1</div>
+</div>
+
+<!-- Slide 2: Why This Workshop -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Why This Workshop?</h2>
+
+    <p>AI tools are everywhere. But using them effectively requires more than access.</p>
+
+    <div class="quote">
+        "AI adoption is a workflow and skills decision. Tools follow."
+    </div>
+
+    <p>This program builds the foundation for effective AI usage:</p>
+    <ul>
+        <li>Understanding what AI can and cannot do</li>
+        <li>Developing skills that make AI useful</li>
+        <li>Creating workflows with validation</li>
+        <li>Establishing clear data boundaries</li>
+    </ul>
+
+    <div class="slide-number">2</div>
+</div>
+
+<!-- Slide 3: The AI Adoption Gap -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>The AI Adoption Gap</h2>
+    <p style="color: var(--gray-light); font-size: 18px; margin-bottom: 30px;">McKinsey Global Institute, November 2025</p>
+
+    <div class="two-column">
+        <div style="text-align: center;">
+            <div class="big-number">90%</div>
+            <p style="font-size: 22px; color: var(--gray-lighter);">of companies have <span class="highlight">invested</span> in AI</p>
+        </div>
+        <div style="text-align: center;">
+            <div class="big-number" style="color: var(--secondary);">&lt;40%</div>
+            <p style="font-size: 22px; color: var(--gray-lighter);">report <span class="highlight">measurable gains</span></p>
+        </div>
+    </div>
+
+    <div class="takeaway" style="margin-top: 40px;">
+        <h4>The Gap Explained</h4>
+        <p>"Most workflows were designed for a pre-AI world. Applying AI to individual tasks within legacy processes is unlikely to deliver the productivity gains now possible."</p>
+    </div>
+
+    <div class="slide-number">3</div>
+</div>
+
+<!-- Slide 4: The Real Risks -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>The Risks Without Discipline</h2>
+    <p style="color: var(--gray-light); font-size: 18px; margin-bottom: 30px;">What happens when AI is adopted without proper workflow and skills</p>
+
+    <div class="concern-grid">
+        <div class="concern-box">
+            <div class="big-number" style="font-size: 64px;">40%</div>
+            <p style="font-size: 18px; margin-top: 12px;">of AI-generated code contains <strong>security vulnerabilities</strong></p>
+        </div>
+        <div class="concern-box">
+            <div class="big-number" style="font-size: 64px;">36%</div>
+            <p style="font-size: 18px; margin-top: 12px;">of "vibe coders" <strong>skip testing entirely</strong></p>
+        </div>
+        <div class="concern-box secondary">
+            <h4 style="color: var(--warning);">Technical Debt Compounds</h4>
+            <p>Each shortcut accumulates. Each unreviewed function adds debt. The problems snowball.</p>
+        </div>
+        <div class="concern-box secondary">
+            <h4 style="color: var(--warning);">Senior Developer Burnout</h4>
+            <p>"Development hell" when reviewing AI-generated code without architectural integrity.</p>
+        </div>
+    </div>
+
+    <div class="slide-number">4</div>
+</div>
+
+<!-- Slide 5: The Productivity Reality -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>The Productivity Reality</h2>
+
+    <div class="quote" style="margin-bottom: 30px;">
+        "AI changed the work, not the workload."
+    </div>
+
+    <div class="two-column">
+        <div class="column">
+            <h3 style="color: var(--warning);">What People Expect</h3>
+            <ul style="font-size: 20px;">
+                <li>AI makes work 10x faster</li>
+                <li>Therefore: work 10x less</li>
+                <li>Same output, less effort</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3 class="success">What Actually Happens</h3>
+            <ul style="font-size: 20px;">
+                <li>AI makes work 10x faster</li>
+                <li>We tackle 10x more complex problems</li>
+                <li>Workload stays same, <strong>capability expands</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="takeaway" style="margin-top: 30px;">
+        <h4>The Right Question</h4>
+        <p>Don't ask "How much time does AI save?" — Ask "What can we build now that we couldn't before?"</p>
+    </div>
+
+    <div class="slide-number">5</div>
+</div>
+
+<!-- Slide 6: The Skills That Rise -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Skills That Rise in Value</h2>
+    <p style="color: var(--gray-light); font-size: 18px; margin-bottom: 30px;">McKinsey: Skills analysis of 800+ occupations</p>
+
+    <div class="two-column">
+        <div class="column">
+            <h3 class="success">Increasing Demand</h3>
+            <ul style="font-size: 20px;">
+                <li><strong>Problem-solving</strong></li>
+                <li><strong>Communication</strong> and negotiation</li>
+                <li><strong>Leadership</strong> and collaboration</li>
+                <li>Coaching and empathy</li>
+                <li><span class="highlight">AI fluency</span> (fastest-growing skill)</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3 style="color: var(--gray-light);">Exposed to Automation</h3>
+            <ul style="font-size: 20px;">
+                <li>Routine digital tasks</li>
+                <li>Information processing</li>
+                <li>Rules-based work</li>
+                <li>Data entry and formatting</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="takeaway" style="margin-top: 30px;">
+        <h4>Key Finding</h4>
+        <p><span class="highlight">72% of skills</span> employers seek are used in BOTH automatable and non-automatable work. The future is skill partnership, not replacement.</p>
+    </div>
+
+    <div class="slide-number">6</div>
+</div>
+
+<!-- Slide 7: The 4 Concerns -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>The 4 Concerns We Address</h2>
+
+    <div class="concern-grid">
+        <div class="concern-box">
+            <h4>1. Workflow & Skills</h4>
+            <p>If the team doesn't understand what "done" looks like, AI creates mess and bugs. We need workflow before tools.</p>
+        </div>
+        <div class="concern-box">
+            <h4>2. Validation</h4>
+            <p>Without standards and best practices, how do we validate and review AI-assisted work? We need review workflows.</p>
+        </div>
+        <div class="concern-box secondary">
+            <h4>3. Data Privacy</h4>
+            <p>Client project data, internal HR and Finance data — clear boundaries are needed before scaling AI usage.</p>
+        </div>
+        <div class="concern-box secondary">
+            <h4>4. Cost</h4>
+            <p>Tool purchasing decisions should follow skill development. Evaluate ROI before buying.</p>
+        </div>
+    </div>
+
+    <div class="slide-number">7</div>
+</div>
+
+<!-- Slide 8: What Success Looks Like -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>What Success Looks Like</h2>
+
+    <div class="two-column">
+        <div class="column">
+            <h3 class="success">After This Program</h3>
+            <ul>
+                <li>Team understands "done" before starting</li>
+                <li>Clear validation workflows exist</li>
+                <li>Data boundaries are respected</li>
+                <li>Skills developed before tools purchased</li>
+                <li>AI assists without creating debt</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3 class="warning">Without This Program</h3>
+            <ul>
+                <li>AI generates output, errors accumulate</li>
+                <li>Quality is inconsistent</li>
+                <li>Context gets lost between sessions</li>
+                <li>Nobody knows why results vary</li>
+                <li>Validation-debt grows</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide-number">8</div>
+</div>
+
+<!-- Slide 9: Program Overview -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Program Overview</h2>
+
+    <table>
+        <tr>
+            <th>Aspect</th>
+            <th>Detail</th>
+        </tr>
+        <tr>
+            <td><strong>Duration</strong></td>
+            <td>5 sessions over 5 weeks</td>
+        </tr>
+        <tr>
+            <td><strong>Session Length</strong></td>
+            <td>45-60 minutes each</td>
+        </tr>
+        <tr>
+            <td><strong>Audiences</strong></td>
+            <td>HR, Admin, Finance, IT</td>
+        </tr>
+        <tr>
+            <td><strong>Format</strong></td>
+            <td>Sharing session (presentation + discussion + exercises)</td>
+        </tr>
+        <tr>
+            <td><strong>Outcome</strong></td>
+            <td>Team can use AI effectively with clear workflows and validation</td>
+        </tr>
+    </table>
+
+    <div class="slide-number">9</div>
+</div>
+
+<!-- Slide 10: The 5 Sessions -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>The 5 Sessions</h2>
+
+    <div class="two-column">
+        <div>
+            <div class="session-card">
+                <span class="session-number">Session 1</span>
+                <h4>AI Foundations</h4>
+                <p>What AI is, how it works, what it's good for</p>
+            </div>
+            <div class="session-card">
+                <span class="session-number">Session 2</span>
+                <h4>The 5 Skills That Matter</h4>
+                <p>Human skills that determine AI productivity</p>
+            </div>
+            <div class="session-card">
+                <span class="session-number">Session 3</span>
+                <h4>Workflow Design & Validation</h4>
+                <p>Building AI workflows with quality gates</p>
+            </div>
+        </div>
+        <div>
+            <div class="session-card">
+                <span class="session-number">Session 4</span>
+                <h4>Data Privacy & Best Practices</h4>
+                <p>What data never enters AI, practical guidelines</p>
+            </div>
+            <div class="session-card">
+                <span class="session-number">Session 5</span>
+                <h4>Demo & Roadmap</h4>
+                <p>See it in action, plan what's next</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-number">10</div>
+</div>
+
+<!-- Slide 11: Session Details -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>How Each Session Works</h2>
+
+    <div class="two-column">
+        <div class="column">
+            <h3>Structure</h3>
+            <ul>
+                <li><span class="highlight">Presentation</span> — Core concepts (20-30 min)</li>
+                <li><span class="highlight">Discussion</span> — Your questions and experiences (10-15 min)</li>
+                <li><span class="highlight">Exercise</span> — Practice with real examples (10-15 min)</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>After Each Session</h3>
+            <ul>
+                <li>1-page handout with key takeaways</li>
+                <li>Practical exercise for the week</li>
+                <li>Optional: Office hours for questions</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide-number">11</div>
+</div>
+
+<!-- Slide 12: Current State -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Where We Are Today</h2>
+
+    <div class="two-column">
+        <div class="column">
+            <h3>HR & Admin</h3>
+            <p style="font-size: 18px; color: var(--gray-light);">Tools: Gemini, ChatGPT, LMSYS</p>
+            <ul style="font-size: 18px;">
+                <li>Content creation, brainstorming</li>
+                <li>Image generation, summarization</li>
+                <li>Challenges with Vietnamese, Vietnam policy</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>IT</h3>
+            <p style="font-size: 18px; color: var(--gray-light);">Tools: Cursor, Copilot, ChatGPT</p>
+            <ul style="font-size: 18px;">
+                <li>Code generation, explanation</li>
+                <li>Bug fixing, documentation</li>
+                <li>Summarization of long documents</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="takeaway" style="margin-top: 40px;">
+        <h4>Your Question</h4>
+        <p>"What tasks are current AIs best suited for?"</p>
+    </div>
+
+    <div class="slide-number">12</div>
+</div>
+
+<!-- Slide 13: Adoption Phases -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>INNOMIZE Adoption Plan</h2>
+
+    <table>
+        <tr>
+            <th>Phase</th>
+            <th>Timeline</th>
+            <th>Focus</th>
+        </tr>
+        <tr>
+            <td><strong>Foundation</strong></td>
+            <td>Weeks 1-4</td>
+            <td>Complete workshop series, identify pilot workflows</td>
+        </tr>
+        <tr>
+            <td><strong>Pilot</strong></td>
+            <td>Weeks 5-8</td>
+            <td>Apply AI to pilot workflows, weekly check-ins</td>
+        </tr>
+        <tr>
+            <td><strong>Expand</strong></td>
+            <td>Weeks 9-12</td>
+            <td>Roll out to additional workflows, build prompt libraries</td>
+        </tr>
+        <tr>
+            <td><strong>Productize</strong></td>
+            <td>Q2</td>
+            <td>Package learnings into client offering</td>
+        </tr>
+    </table>
+
+    <div class="slide-number">13</div>
+</div>
+
+<!-- Slide 14: Client Offering -->
+<div class="slide">
+    <div class="logo">INNOMIZE</div>
+    <h2>Future: Client Offering</h2>
+
+    <p>Apply internally first. Refine. Then offer to clients.</p>
+
+    <div class="quote">
+        This internal program becomes the "AI Adoption Workshop" — an INNOMIZE service offering.
+    </div>
+
+    <div class="two-column" style="margin-top: 30px;">
+        <div class="column">
+            <h3>Internal Version</h3>
+            <ul style="font-size: 20px;">
+                <li>5 sessions, INNOMIZE-specific</li>
+                <li>INNOMIZE workflows as pilots</li>
+                <li>Internal check-ins</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Client Version</h3>
+            <ul style="font-size: 20px;">
+                <li>3-5 sessions, customized</li>
+                <li>Client workflows as pilots</li>
+                <li>Consulting engagement</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide-number">14</div>
+</div>
+
+<!-- Slide 15: Let's Begin -->
+<div class="slide section">
+    <div class="logo" style="color: var(--dark);">INNOMIZE</div>
+    <h2>Let's Begin</h2>
+    <p class="section-subtitle">Ready to start Session 1: AI Foundations</p>
+    <div class="slide-number" style="color: var(--cream);">15</div>
+</div>
+
+<!-- Navigation Footer -->
+<nav class="nav-footer">
+    <a href="00-workshop-introduction.html" class="nav-link active">Intro</a>
+    <a href="01-session-ai-foundations.html" class="nav-link">Session 1</a>
+    <a href="02-session-five-skills.html" class="nav-link">Session 2</a>
+    <a href="03-session-workflow-validation.html" class="nav-link">Session 3</a>
+    <a href="04-session-data-privacy.html" class="nav-link">Session 4</a>
+    <a href="05-session-demo-roadmap.html" class="nav-link">Session 5</a>
+</nav>
+
+</body>
+</html>

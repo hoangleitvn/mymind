@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #2E3840; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #2E3840;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  padding: 30pt 40pt 0 40pt;
+}
+h2 {
+  font-size: 28pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin: 0;
+}
+.highlight {
+  color: #EA322A;
+}
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24pt 40pt 30pt 40pt;
+}
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16pt;
+}
+.stat-card {
+  background: #353f48;
+  padding: 20pt;
+  border-radius: 10pt;
+  border: 1pt solid #4a545d;
+  width: calc(50% - 8pt);
+  box-sizing: border-box;
+}
+.stat-value {
+  font-size: 36pt;
+  font-weight: bold;
+  color: #EA322A;
+  margin: 0 0 8pt 0;
+}
+.stat-value.warning {
+  color: #fbbf24;
+  font-size: 28pt;
+}
+.stat-label {
+  font-size: 13pt;
+  color: #a5a9ad;
+  margin: 0;
+  line-height: 1.4;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h2>The Risks <span class="highlight">Without Discipline</span></h2>
+</div>
+<div class="body">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <p class="stat-value">40%</p>
+      <p class="stat-label">of AI-generated code contains security vulnerabilities</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-value">36%</p>
+      <p class="stat-label">of "vibe coders" skip testing entirely</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-value warning">!!!</p>
+      <p class="stat-label">Technical debt compounds - each shortcut accumulates into bigger problems</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-value warning">!!!</p>
+      <p class="stat-label">Senior developer burnout from reviewing AI-generated chaos</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

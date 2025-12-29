@@ -78,7 +78,6 @@ How should I structure my "write in public" strategy across platforms?
 
 **Where it thrives:** Dev.to, GitHub, Stack Overflow answers
 
----
 
 ### Essays / Opinion Pieces
 **Purpose:** Perspective, insight, provoke thinking
@@ -100,7 +99,6 @@ How should I structure my "write in public" strategy across platforms?
 
 **Where it thrives:** Substack, LinkedIn, personal blogs
 
----
 
 ### Hybrid Content (Both Technical + Essay)
 Some content blends both — uses technical context to make a broader point.
@@ -164,7 +162,6 @@ Some creators build their own blog/tool instead of using platforms.
 - Migrate to self-hosted once you have subscribers/traffic
 - Or use Substack custom domain (buildsthatlast.com) as middle ground
 
----
 
 ## Current Decision (2025-12-18)
 
@@ -185,7 +182,6 @@ Dev.to (discovery) → BTL Substack (relationship) → Email list (owned)
 - Substack builds owned email relationship
 - Self-hosted deferred until audience established
 
----
 
 ## Initial Thinking
 

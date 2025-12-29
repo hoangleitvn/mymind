@@ -42,7 +42,6 @@ Each form field = 3-5% drop-off. Guest mode activation rates 2-4x higher than si
 
 Direct. Data-driven. Challenge conventional marketing wisdom. User experience first.
 
----
 
 ## Related Angles
 

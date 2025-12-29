@@ -41,7 +41,7 @@ The engineers who get promoted to leadership? They were already leading before a
 
 I've seen this pattern repeatedly: engineers wait for a "leadership role" before demonstrating leadership. They ask for permission to influence, to mentor, to take initiative.
 
-That's backwards. Leadership isn't a title. It's a set of behaviors anyone can practice.
+That's backwards. Leadership is a set of behaviors anyone can practice. Title optional.
 
 The engineers who advance fastest don't wait.
 
@@ -65,7 +65,7 @@ The gap compounds.
 
 In 2 years, one becomes the obvious choice for leadership opportunities. The other is still "great executor, not ready for leadership."
 
-The difference isn't talent. It's whether you practiced leadership behaviors before anyone gave you the title.
+The difference is practice. Did you demonstrate leadership behaviors before anyone gave you the title?
 
 I wrote about the 4 mental shifts from Junior to Management. But this is the enabler: leadership behaviors are available at every level.
 

@@ -25,7 +25,6 @@ next_review: 2026-03-20
 | Start Here Page | Pending | Medium |
 | Principles Page | Pending | Low |
 
----
 
 ## Brand Architecture
 
@@ -34,13 +33,12 @@ Hoang Le (person, account owner @hoangleitvn)
 ├── Builds That Last (newsletter - thought leadership)
 ├── INNOMIZE (company - services)
 └── Mize Studio
-    ├── MizeForge (tools)
+    ├── Mizemind (tools)
     └── MizeStack (infrastructure)
 ```
 
 **Builds That Last** is personal thought leadership, separate from company brands.
 
----
 
 ## Content Architecture
 
@@ -85,7 +83,6 @@ Idea → BTL Substack (full essay)
 
 **BTL exclusivity:** 80% exclusive to BTL, 20% republished on LinkedIn Articles
 
----
 
 ## Bio
 
@@ -109,7 +106,6 @@ Engineering leader & founder. 15+ years building products. Helping founders go f
 - founders, zero to live users
 - engineering leadership, product development
 
----
 
 ## Publication Name
 
@@ -153,7 +149,6 @@ Builds That Last is about building products that endure. Engineering leadership 
 ### Previous Name (Deprecated)
 - **Ship with Clarity** - deprecated due to domain conflict with competitor selling similar frameworks
 
----
 
 ## About Page (Future)
 
@@ -189,7 +184,6 @@ Hi, I'm Hoang.
 
 Subscribe if you want engineering insights that actually ship.
 
----
 
 Most engineering advice sounds good in theory. It falls apart when you're under pressure to deliver.
 
@@ -217,13 +211,11 @@ Each post comes from something I've built, broken, or fixed.
 
 Subscribe to get each post in your inbox.
 
----
 
 ## Profile Photo
 
 Use same professional photo as LinkedIn for consistency across platforms.
 
----
 
 ## Action Items
 
@@ -259,7 +251,6 @@ Use same professional photo as LinkedIn for consistency across platforms.
 - [ ] Evaluate Notes feature for short-form content
 - [ ] Consider podcast/audio versions
 
----
 
 ## Content Strategy
 
@@ -315,7 +306,6 @@ Use same professional photo as LinkedIn for consistency across platforms.
 | 2 | AI Hiring Article | Leadership | Ready |
 | 3 | TBD | - | - |
 
----
 
 ## Start Here Page (Draft)
 
@@ -348,7 +338,6 @@ I'm Hoang Le. 15 years building products. 50+ projects shipped. Currently runnin
 [Read my full story →]
 ```
 
----
 
 ## Principles Page (Draft)
 
@@ -376,7 +365,6 @@ These are the beliefs that guide everything I write.
 [More principles added as I write about them]
 ```
 
----
 
 ## Next Review
 
@@ -389,7 +377,6 @@ These are the beliefs that guide everything I write.
 - Cross-promotion effectiveness with LinkedIn
 - Section subscription distribution
 
----
 
 ## Change Log
 

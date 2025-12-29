@@ -11,9 +11,9 @@ post:
   source: "external"
   url: "https://www.linkedin.com/posts/adamjanes_chatgpt-used-to-feel-like-magic-lately-activity-7403638155989532673-au4y"
   date: '2025-12-08'
-  reactions: null
-  comments_count: null
-  reposts: null
+  reactions: 0
+  comments_count: 0
+  reposts: 0
   theme: "ChatGPT quality decline and LLM market shift"
   angle: "OpenAI losing focus while competitors gain ground"
   key_points:
@@ -55,8 +55,8 @@ follow_up_date: null
   profile: null
   sentiment: "positive"
   content: |
-Multiple commenters confirm preference for Claude (Anthropic) for technical work, validating the broader perception of ChatGPT's decline.
-  reactions: null
+    Multiple commenters confirm preference for Claude (Anthropic) for technical work, validating the broader perception of ChatGPT's decline.
+  reactions: 0
   insight: "Strong consensus on Claude for coding/technical work"
   replies: []
 ```
@@ -66,14 +66,14 @@ Multiple commenters confirm preference for Claude (Anthropic) for technical work
 ```yaml
 - id: 1733620000000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "neutral"
+  timestamp: '2025-12-08T00:00:00Z'
   content: |
-Same experience here. GPT responses lately feel like they lost context mid-conversation. More time prompting, less time building.
+    Same experience here. GPT responses lately feel like they lost context mid-conversation. More time prompting, less time building.
 
-Moved my coding work to Claude. Focus matters, both for the tools and the teams building them.
+    Moved my coding work to Claude. Focus matters, both for the tools and the teams building them.
   strategy: "Personal Experience + Expert Insight - Validate frustration with own experience, share tool switch, close with product insight"
-  replies: []
 ```
 
 ## Notes

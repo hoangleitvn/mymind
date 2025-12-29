@@ -69,21 +69,26 @@ This is how you as a client can regain control of your budget, your timelines, a
 Because you don't need more velocity.
 You need certainty.
 
----
+
+## Notable Comments
+
+```yaml
+[]
+```
 
 ## Our Engagement
 
 ```yaml
 - id: 1733155860000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2024-12-02T15:36:00Z'
   content: |
-This is the shift we made years ago. Velocity-based billing turns every conversation into a negotiation. Outcome-based delivery turns it into partnership.
+    This is the shift we made years ago. Velocity-based billing turns every conversation into a negotiation. Outcome-based delivery turns it into partnership.
 
-The clients who stick around are the ones who stopped asking "how many hours?" and started asking "when is it live and working?"
+    The clients who stick around are the ones who stopped asking "how many hours?" and started asking "when is it live and working?"
   strategy: "Personal Experience - Directly validates thesis from INNOMIZE experience, adds partnership vs. negotiation framing, reinforces outcome focus."
-  replies: []
 ```
 
 ## Notes

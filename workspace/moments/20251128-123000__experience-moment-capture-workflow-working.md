@@ -2,7 +2,7 @@
 id: 20251128-123000
 type: experience
 status: raw
-themes: [product-development-philosophy, practical-engineering, mizeforge]
+themes: [product-development-philosophy, practical-engineering, mizemind]
 tags: [dogfooding, workflow-validation, moment-capture, visual-proof, meta]
 captured: 2025-11-28T12:30:00+07:00
 related_moments: [20251128-120000, 20251128-120500, 20251128-121000, 20251128-122000]
@@ -38,7 +38,7 @@ workspace/
 1. **Workflow works** — Captured 4 meaningful moments without friction
 2. **Design holds** — File structure, naming, frontmatter all followed spec
 3. **AI executes correctly** — Claude follows the skill design without errors
-4. **Dogfooding success** — Using MizeForge to build MizeForge
+4. **Dogfooding success** — Using Mizemind to build Mizemind
 
 ### What Was Captured in This Session
 
@@ -65,7 +65,7 @@ Proof: The moment-capture skill followed the design. AI executed within the stru
 
 **Building the tool while using the tool.**
 
-- MizeForge's moment-capture skill captured insights about MizeForge
+- Mizemind's moment-capture skill captured insights about Mizemind
 - The workflow validated itself through usage
 - Screenshots provide visual proof for future content
 
@@ -85,5 +85,5 @@ Proof: The moment-capture skill followed the design. AI executed within the stru
 
 - [ ] Save screenshot to workspace for future reference
 - [ ] Consider: Weekly moment review workflow
-- [ ] Write: Content about dogfooding MizeForge
+- [ ] Write: Content about dogfooding Mizemind
 - [ ] Add: Screenshot attachment feature to moment-capture skill?

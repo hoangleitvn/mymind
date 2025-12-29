@@ -6,7 +6,7 @@ Voice guidelines and quality rules to ensure authentic, human-sounding content.
 
 These rules help generated content sound human, specific, and authentic—not like generic AI output.
 
-## Core Principles
+## Part 1: Core Principles
 
 1. **Preserve content, change only the voice**
    - Keep ideas, claims, POV, tense, and person (I/you/we)
@@ -23,105 +23,209 @@ These rules help generated content sound human, specific, and authentic—not li
    - Varied sentence length
    - Conversational but professional
 
----
+## Part 2: Banned Words
 
-## Banned Words
+Replace these with short, concrete language.
 
-**Replace these with short, concrete language:**
+### Inflated Importance (High Risk)
+
+- stands/serves as a testament → shows, demonstrates
+- plays a vital/crucial/pivotal role → matters, affects, shapes
+- underscores/highlights its importance → shows, reveals
+- reflects broader → relates to, connects to
+- symbolizing its lasting impact → showing, representing
+- key turning point → major change, shift
+- indelible mark → lasting effect
+- profound heritage → deep history
+- watershed moment → major change
+- impactful → effective, significant
+
+### Overused AI Vocabulary (High Risk)
+
+- Additionally, (starting sentence) → Also, And, Plus
+- align with → match, fit, work with
+- crucial → important, key
+- delve → explore, look at, examine
+- emphasizing → showing, noting
+- enduring → lasting, long-term
+- enhance → improve, boost
+- fostering → building, growing
+- garner → get, gain, earn
+- highlight (verb) → show, point out
+- interplay → connection, relationship
+- intricate/intricacies → complex, detailed
+- landscape (abstract) → space, field, area
+- pivotal → key, major
+- showcase → show, demonstrate
+- tapestry (abstract) → mix, blend, range
+- testament → proof, evidence
+- underscore (verb) → show, emphasize
+- valuable → useful, helpful
+- vibrant → active, lively
+
+### Promotional/Travel Copy (High Risk)
+
+- continues to captivate → keeps attracting
+- groundbreaking → new, major
+- stunning natural beauty → (be specific about what's beautiful)
+- enduring/lasting legacy → long-term effect
+- nestled → located, sits
+- in the heart of → in central, in
+- boasts a → has, features
+- breathtaking → impressive, striking
+- rich cultural heritage → (name specific traditions)
+- must-visit/must-see → worth seeing
+
+### Superficial -ing Fillers (High Risk)
+
+- ensuring... → to make sure...
+- reflecting... → showing...
+- contributing to... → adding to...
+- cultivating... (figurative) → building, growing
+- encompassing... → including, covering
+- essentially/fundamentally is → is
+- valuable insights → useful findings, learnings
+- emphasizing the importance of → (delete or be specific)
+
+### Vague Attribution / Weasel Words (High Risk)
+
+- Industry reports suggest → [Name source] found
+- Observers have cited → [Name who] noted
+- Experts argue → [Name expert] argues
+- Some critics argue → [Name critic] argues
+- has been described as → [Name source] called it
+- according to sources → [Name source] says
+
+### Editorializing (High Risk)
+
+- it's important to note → Note: / (just state it)
+- it is worth mentioning → (just mention it)
+- no discussion would be complete without → (delete, just include it)
+
+### Sycophantic/Collaborative (High Risk)
+
+- I hope this helps → (delete)
+- Of course! → (delete or just answer)
+- Certainly! → (delete or just answer)
+- You're absolutely right! → (delete or just answer)
+- Would you like... → (ask directly)
+- is there anything else → (delete)
 
 ### Marketing/Hype Words
-- delve → explore, examine, look at
-- realm → area, field, domain
+
+- realm → area, field
 - harness → use, apply
-- unlock → discover, access, create
-- paradigm → model, approach, way
-- cutting-edge → new, recent, latest
-- revolutionize → change, improve, transform
-- landscape → space, environment, field
-- potential → possibility, opportunity
+- unlock → discover, access
+- paradigm → model, approach
+- cutting-edge → new, recent
+- revolutionize → change, improve
+- potential → possibility
 - leverage → use, apply
-- synergy → cooperation, combined effect
+- synergy → combined effect
 - innovative → new, creative
-- game-changer → major change, significant improvement
-- groundbreaking → new, major, significant
-- pioneering → early, first, leading
-- trailblazing → leading, first
-- breakthrough → major advance, discovery
-- disruptive → changing, transforming
-- unprecedented → new, unusual, rare
-- state-of-the-art → current, advanced, latest
-- next-gen / next-generation → new, upcoming, latest
-- paradigm-shifting → major change
+- game-changer → major change
+- pioneering → early, first
+- breakthrough → major advance
+- disruptive → changing
+- unprecedented → new, unusual
+- state-of-the-art → current, latest
+- next-gen → new, upcoming
 
 ### Vague Intensifiers
-- meticulously → carefully, thoroughly
-- vibrant → lively, active, energetic
-- unparalleled → unique, exceptional, rare
-- intricate → complex, detailed
-- crucial → important, critical, key
-- pivotal → key, important, critical
-- commendable → good, noteworthy, praiseworthy
+
+- meticulously → carefully
+- unparalleled → unique, rare
+- commendable → good, noteworthy
 
 ### Corporate Jargon
-- showcase → show, demonstrate, display
-- underscore → emphasize, highlight, show
-- foster → encourage, develop, support
-- enhance → improve, increase, strengthen
-- align → match, fit, coordinate
-- boast → has, features, includes
-- garner → gain, get, receive
-- accentuate → emphasize, highlight
-- holistic → complete, comprehensive, whole
+
+- holistic → complete, whole
+- accentuate → emphasize
 
 ### Tech/Startup Buzzwords
-- optimize → improve, refine, adjust
-- scalable → can grow, expandable
-- robust → strong, reliable, solid
-- empower → enable, allow, help
-- streamline → simplify, improve, speed up
-- intelligent / smart → advanced, capable, sophisticated
-- frictionless → easy, smooth, simple
-- elevate → improve, raise, increase
-- adaptive → flexible, adjustable
+
+- optimize → improve, adjust
+- scalable → can grow
+- robust → strong, reliable
+- empower → enable, help
+- streamline → simplify
+- frictionless → easy, smooth
+- elevate → improve, raise
 - effortless → easy, simple
-- data-driven → based on data, uses data
-- insightful → revealing, informative
-- proactive → active, anticipatory
-- mission-critical → essential, vital, critical
-- visionary → forward-thinking, innovative
-- reimagine → rethink, reconsider, redesign
-- agile → flexible, adaptable, quick
-- customizable → adjustable, configurable
-- personalized → custom, tailored
-- intuitive → easy to use, clear, simple
-- leading-edge → advanced, current, latest
-- democratize → make accessible, open up
-- automate → make automatic, mechanize
-- accelerate → speed up, quicken, hasten
-- dynamic → changing, active, flexible
-- reliable → dependable, consistent, trustworthy
-- efficient → effective, productive, economical
-- cloud-native → cloud-based, designed for cloud
-- immersive → engaging, absorbing, involving
-- predictive → forecasting, anticipatory
-- transparent → clear, open, visible
-- proprietary → owned, exclusive, private
-- integrated → combined, unified, connected
-- plug-and-play → ready to use, easy to set up
-- turnkey → complete, ready-made, finished
-- future-proof → lasting, durable, adaptable
-- open-ended → flexible, unlimited, expandable
-- AI-powered → uses AI, AI-based
-- always-on → continuous, constant, 24/7
-- hyper-personalized → highly customized, very tailored
-- results-driven → focused on outcomes, goal-oriented
-- machine-first → designed for automation
+- data-driven → based on data
+- insightful → revealing
+- proactive → active
+- mission-critical → essential
+- visionary → forward-thinking
+- reimagine → rethink
+- agile → flexible, quick
+- democratize → make accessible
+- immersive → engaging
+- future-proof → lasting, durable
+- hyper-personalized → very tailored
 
----
+## Part 3: Banned Structural Patterns
 
-## Banned Expression Patterns
+### A) Rule of Three (AI Overuses Triads)
 
-### A) "In a World Where..." Drama
+**Don't use:**
+- "X, Y, and Z" structure everywhere
+- "adjective, adjective, adjective"
+- "short phrase, short phrase, and short phrase"
+
+**Use instead:**
+- Vary list lengths (2, 4, or 5 items)
+- Use only when three is genuinely the right number
+
+**Example:**
+- AI: "global SEO professionals, marketing experts, and growth hackers"
+- Human: "SEO professionals and marketers"
+
+### B) Negative Parallelism (Most Prominent AI Tell)
+
+**Don't use:**
+- "It's not X, it's Y"
+- "Not only... but..."
+- "Not just about... it's..."
+
+**Use instead:**
+- State directly what it IS
+- Or use "and" instead of "but"
+
+**Example:**
+- AI: "This is not just about speed, it's about quality."
+- Human: "This improves speed and quality."
+
+### C) Present Participle Endings
+
+**Don't use:**
+- Sentences ending with "...emphasizing the importance of..."
+- Trailing -ing clauses that add vague significance
+
+**Use instead:**
+- End sentences with concrete nouns or verbs
+- Delete the trailing significance claim
+
+**Example:**
+- AI: "The company launched new products, emphasizing its commitment to innovation."
+- Human: "The company launched three new products."
+
+### D) "Despite Challenges" Formula
+
+**Don't use:**
+- "Despite its [positive words], [subject] faces challenges..."
+- "Despite these challenges, [positive outlook]"
+- Separate "Challenges" or "Future Outlook" sections
+
+**Use instead:**
+- Integrate trade-offs naturally into the narrative
+- Be specific about actual challenges
+
+**Example:**
+- AI: "Despite its industrial prosperity, the city faces challenges including..."
+- Human: "The city's industrial growth created traffic problems."
+
+### E) "In a World Where..." Drama
 
 **Don't use:**
 - "In a world where [scary change], [virtue] becomes [currency]."
@@ -129,15 +233,13 @@ These rules help generated content sound human, specific, and authentic—not li
 
 **Use instead:**
 - "Today, [specific change]. So [practical implication]."
-- "Because [concrete change], do [specific action] to get [result]."
+- "Because [concrete change], do [specific action]."
 
 **Example:**
-- ❌ "In a world where AI is transforming everything, adaptability becomes the ultimate competitive advantage."
-- ✅ "AI tools change every month. Teams that test new tools quarterly stay ahead."
+- AI: "In a world where AI is transforming everything, adaptability becomes the ultimate competitive advantage."
+- Human: "AI tools change every month. Teams that test new tools quarterly stay ahead."
 
----
-
-### B) "Most People vs. The Few" Split
+### F) "Most People vs. The Few" Split
 
 **Don't use:**
 - "Most people [lazy thing]. The few who win [disciplined thing]."
@@ -148,12 +250,10 @@ These rules help generated content sound human, specific, and authentic—not li
 - "I do [specific practice] to avoid [specific downside]."
 
 **Example:**
-- ❌ "Most engineers ignore code quality. The few who succeed prioritize it relentlessly."
-- ✅ "In our team, code review time dropped from 3 days to 3 hours after we set a 400-line PR limit."
+- AI: "Most engineers ignore code quality. The few who succeed prioritize it relentlessly."
+- Human: "In our team, code review time dropped from 3 days to 3 hours after we set a 400-line PR limit."
 
----
-
-### C) "Stop X, Start Y" Switch
+### G) "Stop X, Start Y" Switch
 
 **Don't use:**
 - "Stop [old habit]. Start [new habit]."
@@ -164,55 +264,145 @@ These rules help generated content sound human, specific, and authentic—not li
 - "Replace [X] with [Y]: [1-3 concrete steps]."
 
 **Example:**
-- ❌ "Stop having unproductive meetings. Start having focused discussions."
-- ✅ "Replace hour-long standups with 15-minute check-ins. Use a timer. End when time's up, even mid-sentence."
+- AI: "Stop having unproductive meetings. Start having focused discussions."
+- Human: "Replace hour-long standups with 15-minute check-ins. Use a timer. End when time's up."
 
----
+### H) False Ranges
 
-## Formatting Rules
+**Don't use:**
+- "from X to Y" where X and Y aren't on a logical scale
+- Meaningless "from... to..." for rhetorical effect
+
+**Use instead:**
+- List items directly without false scale
+- Use actual ranges only for quantities or time
+
+**Example:**
+- AI: "from problem-solving and tool-making to scientific discovery and artistic expression"
+- Human: "problem-solving, tool-making, scientific discovery, and artistic expression"
+
+### I) Elegant Variation (Synonym Cycling)
+
+**Don't use:**
+- Different synonyms for the same thing to avoid repetition
+- "The company... the organization... the firm... the enterprise..."
+
+**Use instead:**
+- Repeat the same term when clarity requires it
+- Use pronouns naturally
+
+**Example:**
+- AI: "The startup... the company... the organization... the firm..."
+- Human: "The startup... It... The startup..."
+
+## Part 4: Formatting Rules
 
 ### Em-Dash Removal
 
 **Don't use em-dashes (—):**
 - Replace with period (.) to start new sentence
 - Or comma (,) to continue sentence
-- Em-dashes are LLM watermarks
+- Em-dashes are AI watermarks
 
 **Example:**
-- ❌ "Code reviews are broken—most teams do them backwards."
-- ✅ "Code reviews are broken. Most teams do them backwards."
-- ✅ "Code reviews are broken, and most teams do them backwards."
+- AI: "Code reviews are broken—most teams do them backwards."
+- Human: "Code reviews are broken. Most teams do them backwards."
 
----
+### Title Case in Headings
 
-### "Not Just X, But Y" Pattern
-
-**Avoid this LLM marker:**
-- "Not just [thing], but [intensified thing]."
+**Don't use:**
+- Capitalizing All Main Words In Headings
 
 **Use instead:**
-- "[Thing]. Even better: [intensified thing]."
-- "[Thing], and [additional thing]."
+- Sentence case: Capitalizing only the first word
 
 **Example:**
-- ❌ "This approach improves not just speed, but overall quality."
-- ✅ "This approach improves speed. It also improves quality."
-- ✅ "This approach improves speed and quality."
+- AI: "The Future Of Artificial Intelligence In Healthcare"
+- Human: "The future of artificial intelligence in healthcare"
 
----
+### Bolded Bullet Points
 
-## Application Guidelines
+**Don't use:**
+- "**Concept:** Explanation of the concept..."
+- Inline bolded headers in every list item
 
-**When generating content:**
+**Use instead:**
+- Plain bullets without inline headers
+- Or use sub-sections if structure is needed
 
-1. **First pass:** Write naturally, focus on ideas
-2. **Second pass:** Remove banned words
-3. **Third pass:** Check for banned patterns
-4. **Fourth pass:** Remove em-dashes and LLM markers
-5. **Final pass:** Read aloud—does it sound human?
+**Example:**
+- AI: "**Scalability:** The system can scale easily..."
+- Human: "The system scales easily..."
 
-**Quality check:**
-- ✅ Would you say this to a colleague?
-- ✅ Is it specific (not vague/abstract)?
-- ✅ Does it avoid clichés and buzzwords?
-- ✅ Can you replace adjectives with concrete examples?
+### Excessive Lists
+
+**Don't use:**
+- Converting everything into bullet points
+- Lists where prose would flow better
+
+**Use instead:**
+- Prose for 2-3 related items
+- Lists only when items are genuinely parallel
+
+## Part 5: Personal Writing Style
+
+Your authentic voice patterns (preserve these):
+
+### Sentence Structure
+- Short, punchy sentences (rarely over 12 words)
+- Intentional fragments: "Both shipped. Both failed."
+- One-liner → expansion pattern
+- Arrow bullets (→) as signature list marker
+
+### Vocabulary
+- "Here's the thing" / "Here's the reality" (your transitions)
+- "That's backwards" (your contrarian marker)
+- Concrete numbers: "68% cheaper", "10 people", "3 weeks"
+- Action verbs: shipped, failed, killed, built
+
+### Tone
+- Confident pragmatist
+- Authority from experience, not credentials
+- Comfortable with failure
+- Anti-dogmatic: "Not always. There are exceptions."
+
+### Openings
+- Bold provocation: "You don't need ML engineers."
+- Observation hook: "The engineers who get promoted? They were already leading."
+- Personal story: "I had this conversation yesterday."
+- Problem statement: "Lambda is too expensive at scale."
+
+### Closings
+- Almost always a question to the reader
+- "What documentation do you require?"
+- "What's blocking your AI projects?"
+- CTA when relevant: "Link in comments"
+- Hashtags (functional, not excessive)
+
+### What You Avoid
+- Inflated importance language
+- -ing filler phrases
+- Elegant variation
+- Promotional tone
+- Vague attribution
+- Emojis (except ✅ ⚠️ used functionally)
+
+## Part 6: Quality Checklist
+
+### Before Publishing
+
+1. [ ] **No banned words** - Scan for AI vocabulary
+2. [ ] **No banned patterns** - Check for "not X, but Y", rule of three, -ing endings
+3. [ ] **No em-dashes** - Replace with periods or commas
+4. [ ] **Specific numbers** - Replace "significant" with actual data
+5. [ ] **Named sources** - Replace "experts say" with named people
+6. [ ] **Real examples** - Include actual stories, projects, conversations
+7. [ ] **Honest caveats** - Include limitations, failures, trade-offs
+8. [ ] **Read aloud** - Does it sound like you talking?
+
+### Scoring Criteria
+
+- 10/10 → Zero AI markers, fully authentic voice
+- 8-9/10 → Minor patterns, authentic overall
+- 5-7/10 → Mixed signals, needs revision
+- 1-4/10 → Heavy AI markers, rewrite needed

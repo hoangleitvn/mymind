@@ -11,9 +11,9 @@ post:
   source: "external"
   url: "https://www.linkedin.com/posts/tahahussain_most-underperformers-on-your-team-are-not-activity-7403475347566178304-vUIu"
   date: '2025-12-08'
-  reactions: null
-  comments_count: null
-  reposts: null
+  reactions: 0
+  comments_count: 0
+  reposts: 0
   theme: "Leadership creating underperformance through low expectations"
   angle: "The Golem Effect - psychological phenomenon where low expectations become self-fulfilling"
   key_points:
@@ -68,14 +68,14 @@ Taha reflects on applying this pattern at Yahoo with an engineer, acknowledging 
 ```yaml
 - id: 1733616000000
   type: "comment"
+  reply_to: null
   status: "posted"
-  sentiment: "positive"
+  timestamp: '2025-12-08T00:00:00Z'
   content: |
-This hit close to home. 10+ years in engineering leadership. Easy to slip into this pattern without realizing it.
+    This hit close to home. 10+ years in engineering leadership. Easy to slip into this pattern without realizing it.
 
-You get what you give.
+    You get what you give.
   strategy: "Personal Experience - Concise, relatable acknowledgment with memorable closing line"
-  replies: []
 ```
 
 ## Notes

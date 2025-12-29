@@ -44,7 +44,7 @@ Your architecture diagrams are lying to you. And even worse, your team is making
   profile: null
   sentiment: "question"
   content: |
-We use both C4 and IcePanel. Do you have any diagrams of MFE using C4?
+    We use both C4 and IcePanel. Do you have any diagrams of MFE using C4?
   reactions: 1
   insight: "Asking about micro-frontends in C4 context"
   replies: []
@@ -54,7 +54,7 @@ We use both C4 and IcePanel. Do you have any diagrams of MFE using C4?
   profile: null
   sentiment: "positive"
   content: |
-Super cool working with you in this Luca. It's full of great tips for those looking to up their architecture storytelling game.
+    Super cool working with you in this Luca. It's full of great tips for those looking to up their architecture storytelling game.
   reactions: 1
   insight: "Collaborator on the project"
   replies: []
@@ -64,7 +64,7 @@ Super cool working with you in this Luca. It's full of great tips for those look
   profile: null
   sentiment: "positive"
   content: |
-Many thanks for partnering with us on this! Excited to see this out in the wild for the holidays.
+    Many thanks for partnering with us on this! Excited to see this out in the wild for the holidays.
   reactions: 1
   insight: "Likely IcePanel team member"
   replies: []
@@ -75,16 +75,17 @@ Many thanks for partnering with us on this! Excited to see this out in the wild 
 ```yaml
 - id: 1733798100000
   type: "comment"
-  status: "draft"
-  sentiment: "positive"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-10T02:55:00Z'
   content: |
-Big fan of C4. We also use UML in some contexts.
+    Big fan of C4. We also use UML in some contexts.
 
-One thing I see: teams create one diagram and expect it to serve everyone. It never does. A CTO/CIO needs solution building blocks, while architects and developers need architecture building blocks. Each persona needs different views of the same system, and C4 solves this with its 4-layered approach.
+    One thing I see: teams create one diagram and expect it to serve everyone. It never does. A CTO/CIO needs solution building blocks, while architects and developers need architecture building blocks. Each persona needs different views of the same system, and C4 solves this with its 4-layered approach.
 
-Another challenge: diagrams often become outdated and inconsistent. So teams are looking into diagram-as-code (Mermaid, PlantUML, etc.). I'm building a foundation that attaches branding and guidelines, then uses AI to speed up generation.
+    Another challenge: diagrams often become outdated and inconsistent. So teams are looking into diagram-as-code (Mermaid, PlantUML, etc.). I'm building a foundation that attaches branding and guidelines, then uses AI to speed up generation.
 
-What's your experience with diagram-as-code approaches? How do you enforce consistency for your teams?
+    What's your experience with diagram-as-code approaches? How do you enforce consistency for your teams?
   strategy: "Expert Insight + Thoughtful Question - Shares practical experience, validates C4 value, opens discussion about diagram-as-code"
 ```
 

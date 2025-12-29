@@ -22,7 +22,6 @@ next_review: 2026-03-13
 | About Page | Pending | Medium |
 | Content Strategy | Active | Medium |
 
----
 
 ## Brand Architecture
 
@@ -36,7 +35,6 @@ INNOMIZE (company)
 
 **INNOMIZE Substack** is company technical content, distinct from personal thought leadership.
 
----
 
 ## Services (Full Scope)
 
@@ -50,7 +48,6 @@ INNOMIZE is not limited to cloud/AWS. Full service offerings:
 
 Industries served: Supply chain, law tech, healthcare, public SaaS, and more.
 
----
 
 ## Current State
 
@@ -62,7 +59,6 @@ Industries served: Supply chain, law tech, healthcare, public SaaS, and more.
 
 **Launched:** ~2 years ago
 
----
 
 ## Bio
 
@@ -88,7 +84,6 @@ Vietnam-based software development & IT consulting team. 6+ years building web, 
 - "Practical" and "shipped" = practitioner credibility
 - Doesn't limit to specific tech stack
 
----
 
 ## Publication Details
 
@@ -111,7 +106,6 @@ Practical software engineering insights from a Vietnam-based development team. W
 - Primary: Technology
 - Secondary: Business
 
----
 
 ## About Page
 
@@ -155,7 +149,6 @@ Founded by Hoang Le. 25+ engineers across web, mobile, cloud, and DevOps.
 **For engineering leadership insights:** [Builds That Last](https://buildsthatlast.substack.com) by Hoang Le (launching 2026)
 ```
 
----
 
 ## Content Strategy
 
@@ -192,7 +185,6 @@ Founded by Hoang Le. 25+ engineers across web, mobile, cloud, and DevOps.
 - Open source contributions
 - Industry trends analysis
 
----
 
 ## Cross-Promotion Strategy
 
@@ -202,7 +194,6 @@ When Builds That Last launches (2026):
 2. **BTL → INNOMIZE:** "For technical deep-dives from my team, check out INNOMIZE"
 3. **Shared subscribers:** Some overlap expected and encouraged
 
----
 
 ## Action Items
 
@@ -213,7 +204,6 @@ When Builds That Last launches (2026):
 - [ ] Cross-link with Builds That Last when launched
 - [ ] Review and update profile photo (company logo vs personal?)
 
----
 
 ## Profile Photo Options
 
@@ -227,7 +217,6 @@ When Builds That Last launches (2026):
 
 **Recommendation:** Keep personal photo. Company newsletters with founder photos perform better.
 
----
 
 ## Metrics to Track
 
@@ -237,7 +226,6 @@ When Builds That Last launches (2026):
 - Growth rate (month-over-month)
 - Top performing content topics
 
----
 
 ## Next Review
 
@@ -249,7 +237,6 @@ When Builds That Last launches (2026):
 - Engagement metrics
 - Coordination with Builds That Last launch
 
----
 
 ## Change Log
 

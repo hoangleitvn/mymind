@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builds That Last - Brand Assets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Brand colors */
+            --btl-jade: #00a86b;
+            --btl-jade-dark: #008553;
+            --btl-jade-light: #10b981;
+            --btl-charcoal: #1f2937;
+            --btl-slate: #374151;
+            --btl-white: #ffffff;
+
+            /* Dark theme (default) */
+            --bg-base: #111827;
+            --bg-elevated: #1f2937;
+            --bg-surface: #374151;
+            --text-primary: #ffffff;
+            --text-subdued: #9ca3af;
+            --border-color: #4b5563;
+
+            /* Fonts */
+            --font-display: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        [data-theme="light"] {
+            --bg-base: #f9fafb;
+            --bg-elevated: #ffffff;
+            --bg-surface: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-subdued: #64748b;
+            --border-color: #d1d5db;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--bg-elevated);
+            color: var(--text-subdued);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .theme-toggle:hover {
+            color: var(--text-primary);
+            background: var(--bg-surface);
+        }
+
+        [data-theme="light"] .sun-icon { display: none; }
+        [data-theme="light"] .moon-icon { display: block; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-base);
+            color: var(--text-primary);
+            font-size: 16px;
+            line-height: 26px;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            background: linear-gradient(180deg, var(--btl-jade) 0%, var(--bg-base) 100%);
+            padding: 80px 40px 120px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--btl-jade);
+        }
+
+        .header-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--btl-jade);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .header-title {
+            font-family: var(--font-display);
+            font-size: 48px;
+            line-height: 56px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .header-subtitle {
+            font-size: 16px;
+            line-height: 26px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section {
+            margin-top: -60px;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 32px;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            padding-top: 60px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 32px;
+            background: var(--btl-jade);
+            border-radius: 2px;
+        }
+
+        .asset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .asset-card {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .asset-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--btl-jade);
+        }
+
+        .asset-preview {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .asset-preview.marketing {
+            background: linear-gradient(135deg, var(--btl-charcoal) 0%, #0f172a 100%);
+        }
+
+        .asset-preview.social {
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+        }
+
+        .asset-preview.logos {
+            background: var(--btl-charcoal);
+        }
+
+        .asset-preview.presentations {
+            background: linear-gradient(135deg, var(--btl-charcoal) 0%, #0f172a 100%);
+        }
+
+        .asset-preview.vouchers {
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+        }
+
+        .preview-icon {
+            width: 64px;
+            height: 64px;
+            opacity: 0.9;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 24px;
+            width: 100%;
+        }
+
+        .preview-item {
+            aspect-ratio: 1;
+            border-radius: 8px;
+        }
+
+        .preview-item:nth-child(1) { background: linear-gradient(135deg, #00a86b 0%, #065f46 100%); }
+        .preview-item:nth-child(2) { background: linear-gradient(135deg, #1f2937 0%, #111827 100%); }
+        .preview-item:nth-child(3) { background: linear-gradient(135deg, #10b981 0%, #00a86b 100%); }
+        .preview-item:nth-child(4) { background: linear-gradient(135deg, #374151 0%, #1f2937 100%); }
+        .preview-item:nth-child(5) { background: linear-gradient(135deg, #008553 0%, #065f46 100%); }
+        .preview-item:nth-child(6) { background: linear-gradient(135deg, #00a86b 0%, #10b981 100%); }
+
+        .asset-info {
+            padding: 24px;
+        }
+
+        .asset-title {
+            font-family: var(--font-display);
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .asset-description {
+            font-size: 16px;
+            line-height: 26px;
+            color: var(--text-subdued);
+            margin-bottom: 16px;
+        }
+
+        .asset-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: var(--bg-surface);
+            padding: 4px 12px;
+            border-radius: 500px;
+            font-size: 12px;
+            line-height: 18px;
+            font-weight: 500;
+            color: var(--text-subdued);
+        }
+
+        .tag.highlight {
+            background: rgba(0, 168, 107, 0.2);
+            color: var(--btl-jade-light);
+        }
+
+        .quick-links {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        .quick-links-title {
+            font-family: var(--font-display);
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--bg-surface);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .quick-link:hover {
+            background: var(--btl-jade);
+            color: white;
+        }
+
+        .quick-link:hover .quick-link-icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .quick-link-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 168, 107, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: background 0.2s ease;
+        }
+
+        .quick-link-text {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 26px;
+        }
+
+        .brand-summary {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        .brand-summary-title {
+            font-family: var(--font-display);
+            font-size: 32px;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .brand-colors {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .color-chip {
+            text-align: center;
+        }
+
+        .color-swatch {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .color-swatch.jade { background: var(--btl-jade); }
+        .color-swatch.jade-dark { background: var(--btl-jade-dark); }
+        .color-swatch.jade-light { background: var(--btl-jade-light); }
+        .color-swatch.charcoal { background: var(--btl-charcoal); }
+        .color-swatch.slate { background: var(--btl-slate); }
+        .color-swatch.white { background: var(--btl-white); }
+
+        .color-name {
+            font-size: 16px;
+            line-height: 26px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .color-hex {
+            font-size: 12px;
+            line-height: 18px;
+            color: var(--text-subdued);
+            font-family: monospace;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .spec-item {
+            background: var(--bg-surface);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .spec-label {
+            font-size: 12px;
+            line-height: 18px;
+            color: var(--text-subdued);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .spec-value {
+            font-size: 16px;
+            line-height: 26px;
+            font-weight: 500;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-subdued);
+            font-size: 12px;
+            line-height: 18px;
+            font-weight: 500;
+        }
+
+        .footer a {
+            color: var(--btl-jade);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 60px 20px 100px;
+            }
+            .header-title {
+                font-size: 40px;
+                line-height: 48px;
+            }
+            .container {
+                padding: 0 20px;
+            }
+            .asset-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">BTL</div>
+        <h1 class="header-title">BTL Brand Assets</h1>
+        <p class="header-subtitle">
+            Marketing materials, social media templates, and brand resources for Builds That Last.
+        </p>
+    </header>
+
+    <main class="container">
+        <!-- Quick Links -->
+        <section class="section">
+            <div class="quick-links">
+                <h2 class="quick-links-title">Quick Access</h2>
+                <div class="quick-links-grid">
+                    <a href="marketing/marketing-materials.html" class="quick-link">
+                        <div class="quick-link-icon">📊</div>
+                        <span class="quick-link-text">Marketing Materials</span>
+                    </a>
+                    <a href="social-media/social-media-templates.html" class="quick-link">
+                        <div class="quick-link-icon">📱</div>
+                        <span class="quick-link-text">Social Media Templates</span>
+                    </a>
+                    <a href="../brand-identity-kit.html" class="quick-link">
+                        <div class="quick-link-icon">🎨</div>
+                        <span class="quick-link-text">Brand Identity Kit</span>
+                    </a>
+                    <a href="vouchers/btl-vouchers.html" class="quick-link">
+                        <div class="quick-link-icon">🎁</div>
+                        <span class="quick-link-text">Voucher Templates</span>
+                    </a>
+                    <a href="presentations/index.html" class="quick-link">
+                        <div class="quick-link-icon">📽️</div>
+                        <span class="quick-link-text">Presentations</span>
+                    </a>
+                    <a href="../icon-library.html" class="quick-link">
+                        <div class="quick-link-icon">✨</div>
+                        <span class="quick-link-text">Icon Library</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Asset Cards -->
+        <section class="section">
+            <h2 class="section-title">Asset Collections</h2>
+            <div class="asset-grid">
+                <a href="marketing/marketing-materials.html" class="asset-card">
+                    <div class="asset-preview marketing">
+                        <div class="preview-grid">
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                            <div class="preview-item"></div>
+                        </div>
+                    </div>
+                    <div class="asset-info">
+                        <h3 class="asset-title">Marketing Materials</h3>
+                        <p class="asset-description">
+                            Hero sections, feature showcases, promotional banners, pricing cards, testimonials, and CTAs.
+                        </p>
+                        <div class="asset-tags">
+                            <span class="tag highlight">NEW</span>
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="social-media/social-media-templates.html" class="asset-card">
+                    <div class="asset-preview social">
+                        <div class="quick-link-icon" style="width: 64px; height: 64px; font-size: 32px; background: rgba(255,255,255,0.2);">📱</div>
+                    </div>
+                    <div class="asset-info">
+                        <h3 class="asset-title">Social Media Templates</h3>
+                        <p class="asset-description">
+                            Platform-optimized templates for LinkedIn, Twitter/X, Instagram posts & stories.
+                        </p>
+                        <div class="asset-tags">
+                            <span class="tag highlight">NEW</span>
+                            <span class="tag">1080x1080</span>
+                            <span class="tag">1920x1080</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="2025-btl-full-logo/" class="asset-card">
+                    <div class="asset-preview logos">
+                        <div class="header-logo" style="width: 64px; height: 64px; font-size: 24px;">BTL</div>
+                    </div>
+                    <div class="asset-info">
+                        <h3 class="asset-title">Logo Files</h3>
+                        <p class="asset-description">
+                            Official BTL logos in PNG, SVG formats. Jade, dark, and white variants.
+                        </p>
+                        <div class="asset-tags">
+                            <span class="tag">PNG</span>
+                            <span class="tag">SVG</span>
+                            <span class="tag">Multiple Sizes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="vouchers/btl-vouchers.html" class="asset-card">
+                    <div class="asset-preview vouchers">
+                        <div class="quick-link-icon" style="width: 64px; height: 64px; font-size: 32px; background: rgba(255,255,255,0.2);">🎁</div>
+                    </div>
+                    <div class="asset-info">
+                        <h3 class="asset-title">Voucher Templates</h3>
+                        <p class="asset-description">
+                            Gift cards, promotional vouchers, workshop passes, and event tickets.
+                        </p>
+                        <div class="asset-tags">
+                            <span class="tag highlight">NEW</span>
+                            <span class="tag">Gift Cards</span>
+                            <span class="tag">Promos</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="presentations/index.html" class="asset-card">
+                    <div class="asset-preview presentations">
+                        <div class="quick-link-icon" style="width: 64px; height: 64px; font-size: 32px; background: rgba(255,255,255,0.2);">📽️</div>
+                    </div>
+                    <div class="asset-info">
+                        <h3 class="asset-title">Presentations</h3>
+                        <p class="asset-description">
+                            Interactive slide decks: Company Overview, Workshop, Team Updates, Client Pitch, and Keynote.
+                        </p>
+                        <div class="asset-tags">
+                            <span class="tag highlight">NEW</span>
+                            <span class="tag">5 Decks</span>
+                            <span class="tag">Interactive</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../brand-identity-kit.html" class="asset-card">
+                    <div class="asset-preview" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%);">
+                        <div class="quick-link-icon" style="width: 64px; height: 64px; font-size: 32px; background: rgba(0, 168, 107, 0.3);">🎨</div>
+                    </div>
+                    <div class="asset-info">
+                        <h3 class="asset-title">Brand Identity Kit</h3>
+                        <p class="asset-description">
+                            Business cards, badges, hiring materials, swag mockups, and complete brand collateral.
+                        </p>
+                        <div class="asset-tags">
+                            <span class="tag">Business Cards</span>
+                            <span class="tag">Badges</span>
+                            <span class="tag">Swag</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Brand Summary -->
+        <section class="section">
+            <div class="brand-summary">
+                <h2 class="brand-summary-title">Brand Quick Reference</h2>
+
+                <h3 style="font-size: 16px; margin-bottom: 16px; color: var(--text-subdued);">Colors</h3>
+                <div class="brand-colors">
+                    <div class="color-chip">
+                        <div class="color-swatch jade"></div>
+                        <div class="color-name">BTL Jade</div>
+                        <div class="color-hex">#00a86b</div>
+                    </div>
+                    <div class="color-chip">
+                        <div class="color-swatch jade-dark"></div>
+                        <div class="color-name">Jade Dark</div>
+                        <div class="color-hex">#008553</div>
+                    </div>
+                    <div class="color-chip">
+                        <div class="color-swatch jade-light"></div>
+                        <div class="color-name">Jade Light</div>
+                        <div class="color-hex">#10b981</div>
+                    </div>
+                    <div class="color-chip">
+                        <div class="color-swatch charcoal"></div>
+                        <div class="color-name">Charcoal</div>
+                        <div class="color-hex">#1f2937</div>
+                    </div>
+                    <div class="color-chip">
+                        <div class="color-swatch slate"></div>
+                        <div class="color-name">Slate</div>
+                        <div class="color-hex">#374151</div>
+                    </div>
+                    <div class="color-chip">
+                        <div class="color-swatch white"></div>
+                        <div class="color-name">White</div>
+                        <div class="color-hex">#ffffff</div>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 16px; margin-bottom: 16px; color: var(--text-subdued);">Key Specs</h3>
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Font Display</div>
+                        <div class="spec-value">Poppins 600-800</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Font Body</div>
+                        <div class="spec-value">Inter 400-700</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Logo Min (Full)</div>
+                        <div class="spec-value">70px digital / 20mm print</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Logo Min (Icon)</div>
+                        <div class="spec-value">21px digital / 6mm print</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Clear Space</div>
+                        <div class="spec-value">Half the height of icon</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Border Radius</div>
+                        <div class="spec-value">8px small, 16px large</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Assets follow official <a href="../brand-identity-kit.html">BTL brand guidelines</a></p>
+        <p style="margin-top: 8px;">Last updated: December 2025</p>
+    </footer>
+
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme (t)">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M12 18a6 6 0 100-12 6 6 0 000 12zM12 2a1 1 0 011 1v2a1 1 0 01-2 0V3a1 1 0 011-1zm0 16a1 1 0 011 1v2a1 1 0 01-2 0v-2a1 1 0 011-1zm10-6a1 1 0 01-1 1h-2a1 1 0 010-2h2a1 1 0 011 1zM6 12a1 1 0 01-1 1H3a1 1 0 010-2h2a1 1 0 011 1z"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" style="display:none">
+            <path fill="currentColor" d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
+        </svg>
+    </button>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('btl-theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+            if (theme === 'light') {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+        }
+
+        // Initialize theme from localStorage
+        const savedTheme = localStorage.getItem('btl-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        // Keyboard shortcut
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 't' || e.key === 'T') toggleTheme();
+        });
+    </script>
+</body>
+</html>

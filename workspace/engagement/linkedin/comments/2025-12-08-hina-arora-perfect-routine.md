@@ -13,7 +13,7 @@ post:
   date: '2025-12-08'
   reactions: 56
   comments_count: 35
-  reposts: null
+  reposts: 0
   theme: "Realistic productivity and self-compassion"
   angle: "Perfect routines vs showing up consistently"
   key_points:
@@ -26,7 +26,7 @@ post:
 thread_topic: "Perfect routine myth vs consistency"
 topic_tags: [productivity, routine, self-compassion, consistency]
 
-engagement_status: "draft"
+engagement_status: "posted"
 response_received: false
 follow_up_needed: false
 follow_up_date: null
@@ -41,7 +41,7 @@ Core message: "Every day doesn't have to be perfect. You don't have to be your b
 ## Notable Comments
 
 ```yaml
-[]
+# No notable comments captured
 ```
 
 ## Our Engagement
@@ -49,14 +49,14 @@ Core message: "Every day doesn't have to be perfect. You don't have to be your b
 ```yaml
 - id: 1733622000000
   type: "comment"
-  status: "draft"
-  sentiment: "positive"
+  reply_to: null
+  status: "posted"
+  timestamp: '2025-12-08T00:00:00Z'
   content: |
-The gap between "ideal routine" and "actual routine" doesn't matter. What matters is you still did it.
+    The gap between "ideal routine" and "actual routine" doesn't matter. What matters is you still did it.
 
-Some people plan the perfect morning and never start. You showed up. That's the momentum that compounds.
+    Some people plan the perfect morning and never start. You showed up. That's the momentum that compounds.
   strategy: "Supportive Agreement - Validates point, reframes gap as irrelevant, emphasizes action over perfection"
-  replies: []
 ```
 
 ## Notes

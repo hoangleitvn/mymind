@@ -67,7 +67,6 @@ But the message he left behind? That one's timeless.
 
 #AWSreInvent #WernerVogels #SoftwareEngineering #RenaissanceDeveloper
 
----
 
 ## Notes
 

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTL - Keynote</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --btl-jade: #00a86b;
+            --btl-jade-light: #10b981;
+            --bg-base: #111827;
+            --bg-elevated: #1f2937;
+            --bg-surface: #374151;
+            --text-primary: #ffffff;
+            --text-subdued: #9ca3af;
+            --font-display: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        [data-theme="light"] {
+            --bg-base: #f8fafc;
+            --bg-elevated: #ffffff;
+            --bg-surface: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-subdued: #64748b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; overflow: hidden; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-base);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .presentation { height: 100vh; display: flex; flex-direction: column; }
+
+        /* Navigation - Spotify Style */
+        .nav {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 6px 12px;
+            border-radius: 500px;
+            backdrop-filter: blur(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        [data-theme="light"] .nav {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .nav-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            color: var(--text-subdued);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover { color: var(--text-primary); background: var(--bg-surface); }
+        .nav-btn:disabled { opacity: 0.2; cursor: not-allowed; }
+        .nav-btn:disabled:hover { background: transparent; color: var(--text-subdued); }
+        .nav-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+        .nav-divider {
+            width: 1px;
+            height: 16px;
+            background: var(--bg-surface);
+            margin: 0 4px;
+        }
+
+        .action-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            color: var(--text-subdued);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover { color: var(--text-primary); background: var(--bg-surface); }
+        .action-btn svg { width: 14px; height: 14px; fill: currentColor; }
+        .action-btn .exit-icon { display: none; }
+        body.is-fullscreen .action-btn .enter-icon { display: none; }
+        body.is-fullscreen .action-btn .exit-icon { display: block; }
+
+        .slide-counter {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-subdued);
+            min-width: 36px;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            background: var(--btl-jade);
+            transition: width 0.3s ease;
+            z-index: 100;
+        }
+
+        /* Auto-hide nav */
+        body.auto-hide .nav { opacity: 0; transform: translateY(10px); }
+        body.auto-hide.nav-visible .nav { opacity: 1; transform: translateY(0); }
+
+        .slides { flex: 1; position: relative; }
+
+        .slide {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .slide.active { opacity: 1; visibility: visible; }
+        .slide-content { max-width: 1100px; width: 100%; }
+
+        /* Title Slide */
+        .slide-title {
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+            text-align: center;
+        }
+
+        .slide-title .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .slide-title .logo-mark {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 28px;
+            color: white;
+        }
+
+        .slide-title h1 {
+            font-family: var(--font-display);
+            font-size: 54px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .slide-title p {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.35;
+            opacity: 0.9;
+            color: white;
+            margin-bottom: 32px;
+        }
+
+        .slide-title .author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .slide-title .author-avatar {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+        }
+
+        .slide-title .author-info { text-align: left; color: white; }
+        .slide-title .author-name { font-weight: 600; font-size: 18px; }
+        .slide-title .author-title { opacity: 0.8; font-size: 14px; }
+
+        /* Big Statement */
+        .slide-statement {
+            background: var(--bg-base);
+            text-align: center;
+        }
+
+        .slide-statement h2 {
+            font-family: var(--font-display);
+            font-size: 54px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+
+        .slide-statement h2 span {
+            color: var(--btl-jade);
+        }
+
+        /* Two-part layout: Header top, Body centered */
+        .slide-content-layout {
+            background: var(--bg-base);
+            align-items: stretch;
+        }
+
+        .slide-content-layout .slide-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .slide-content-layout .slide-header {
+            flex-shrink: 0;
+        }
+
+        .slide-content-layout .slide-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Left-aligned variant */
+        .slide-content-layout.align-left .slide-header {
+            text-align: left;
+        }
+
+        .slide-content-layout.align-left .slide-body {
+            align-items: flex-start;
+        }
+
+        .slide-header {
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .slide-header h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.20;
+        }
+
+        .slide-header h2 span { color: var(--btl-jade); }
+
+        /* Big Number */
+        .big-number-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            text-align: center;
+        }
+
+        .big-number .value {
+            font-family: var(--font-display);
+            font-size: 54px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--btl-jade);
+            margin-bottom: 16px;
+        }
+
+        .big-number .label {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.40;
+            color: var(--text-subdued);
+        }
+
+        /* Quote Slide */
+        .slide-quote {
+            background: var(--bg-base);
+            text-align: center;
+        }
+
+        .slide-quote .quote-mark {
+            font-size: 120px;
+            color: var(--btl-jade);
+            opacity: 0.5;
+            line-height: 1;
+            margin-bottom: -40px;
+            font-family: Georgia, serif;
+        }
+
+        .slide-quote blockquote {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.25;
+            margin: 0 auto 32px;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .slide-quote .attribution {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.40;
+            color: var(--text-subdued);
+        }
+
+        /* Pillars */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .pillar {
+            background: var(--bg-elevated);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="light"] .pillar {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .pillar .icon {
+            width: 72px;
+            height: 72px;
+            background: rgba(0, 168, 107, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 24px;
+        }
+
+        .pillar h3 {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+
+        .pillar p {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.35;
+            color: var(--text-subdued);
+        }
+
+        /* CTA Slide */
+        .slide-cta {
+            background: linear-gradient(135deg, var(--btl-jade) 0%, #065f46 100%);
+            text-align: center;
+        }
+
+        .slide-cta h2 {
+            font-family: var(--font-display);
+            font-size: 54px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .slide-cta p {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.35;
+            opacity: 0.9;
+            margin-bottom: 48px;
+            color: white;
+        }
+
+        .slide-cta .social-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .slide-cta .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .slide-cta .social-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 1024px) {
+            .slide { padding: 40px; }
+            .slide-title h1, .slide-statement h2, .slide-cta h2 { font-size: 48px; }
+            .big-number-grid, .pillars { grid-template-columns: 1fr; }
+            .big-number .value { font-size: 64px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <div class="progress-bar" id="progressBar"></div>
+
+        <div class="slides" id="slides">
+            <!-- Slide 1: Title -->
+            <div class="slide slide-title active" data-slide="1">
+                <div class="slide-content">
+                    <div class="logo">
+                        <div class="logo-mark">BTL</div>
+                    </div>
+                    <h1>The Future of Software Development</h1>
+                    <p>Building for longevity in an AI-first world</p>
+                    <div class="author">
+                        <div class="author-avatar">HL</div>
+                        <div class="author-info">
+                            <div class="author-name">Hoang Le</div>
+                            <div class="author-title">Founder, Builds That Last</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Statement -->
+            <div class="slide slide-statement" data-slide="2">
+                <div class="slide-content">
+                    <h2>The way we build software is <span>fundamentally changing</span></h2>
+                </div>
+            </div>
+
+            <!-- Slide 3: Numbers -->
+            <div class="slide slide-content-layout" data-slide="3">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>The <span>Reality</span></h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="big-number-grid">
+                            <div class="big-number">
+                                <div class="value">70%</div>
+                                <div class="label">of code will be AI-generated by 2027</div>
+                            </div>
+                            <div class="big-number">
+                                <div class="value">3x</div>
+                                <div class="label">faster development with AI tools</div>
+                            </div>
+                            <div class="big-number">
+                                <div class="value">10x</div>
+                                <div class="label">more important: architecture decisions</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Quote -->
+            <div class="slide slide-quote" data-slide="4">
+                <div class="slide-content">
+                    <div class="quote-mark">"</div>
+                    <blockquote>AI writes code faster than ever. But it can't replace the judgment to know what code should be written.</blockquote>
+                    <div class="attribution">— The new role of the software architect</div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Pillars -->
+            <div class="slide slide-content-layout" data-slide="5">
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2>Three <span>Pillars</span> of Lasting Software</h2>
+                    </div>
+                    <div class="slide-body">
+                        <div class="pillars">
+                            <div class="pillar">
+                                <div class="icon">🏗️</div>
+                                <h3>Architecture</h3>
+                                <p>The decisions that shape how your system evolves over years, not months.</p>
+                            </div>
+                            <div class="pillar">
+                                <div class="icon">👥</div>
+                                <h3>Team</h3>
+                                <p>The people and processes that turn ideas into sustainable systems.</p>
+                            </div>
+                            <div class="pillar">
+                                <div class="icon">🔄</div>
+                                <h3>Iteration</h3>
+                                <p>The discipline to ship fast while building foundations that last.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Statement 2 -->
+            <div class="slide slide-statement" data-slide="6">
+                <div class="slide-content">
+                    <h2>The future belongs to those who <span>architect</span>, not just code</h2>
+                </div>
+            </div>
+
+            <!-- Slide 7: CTA -->
+            <div class="slide slide-cta" data-slide="7">
+                <div class="slide-content">
+                    <h2>Thank You</h2>
+                    <p>Let's build something that lasts.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">🌐 buildsthatlast.com</a>
+                        <a href="#" class="social-link">💼 /hoangleitvn</a>
+                        <a href="#" class="social-link">🐦 @hoangleitvn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation - Spotify Style -->
+        <nav class="nav" id="nav">
+            <button class="nav-btn" id="prevBtn" onclick="prevSlide()" title="Previous (←)">
+                <svg viewBox="0 0 16 16"><path d="M11 3L5 8l6 5V3z"/></svg>
+            </button>
+            <span class="slide-counter"><span id="currentSlide">1</span>/<span id="totalSlides">7</span></span>
+            <button class="nav-btn" id="nextBtn" onclick="nextSlide()" title="Next (→)">
+                <svg viewBox="0 0 16 16"><path d="M5 3l6 5-6 5V3z"/></svg>
+            </button>
+            <div class="nav-divider"></div>
+            <button class="action-btn" onclick="toggleTheme()" title="Toggle theme (t)">
+                <svg class="light-icon" viewBox="0 0 16 16"><path d="M8 12a4 4 0 100-8 4 4 0 000 8zm0 1.5a5.5 5.5 0 110-11 5.5 5.5 0 010 11zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 12a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 12zm7-4a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0115 8zM4 8a.75.75 0 01-.75.75H1.75a.75.75 0 010-1.5h1.5A.75.75 0 014 8z"/></svg>
+                <svg class="dark-icon" viewBox="0 0 16 16" style="display:none"><path d="M6.5 0A6.5 6.5 0 000 6.5a6.5 6.5 0 009.5 5.75A7.5 7.5 0 016.5 0z"/></svg>
+            </button>
+            <button class="action-btn" onclick="toggleFullscreen()" title="Fullscreen (f)">
+                <svg class="enter-icon" viewBox="0 0 16 16"><path d="M2 2.5A.5.5 0 012.5 2H5a.5.5 0 010 1H3v2a.5.5 0 01-1 0V2.5zM11 2a.5.5 0 000 1h2v2a.5.5 0 001 0V2.5a.5.5 0 00-.5-.5H11zM2.5 11a.5.5 0 01.5.5V13h2a.5.5 0 010 1H2.5a.5.5 0 01-.5-.5V11.5a.5.5 0 01.5-.5zm11 0a.5.5 0 01.5.5v2a.5.5 0 01-.5.5H11a.5.5 0 010-1h2v-1.5a.5.5 0 01.5-.5z"/></svg>
+                <svg class="exit-icon" viewBox="0 0 16 16"><path d="M5 2.5a.5.5 0 01-1 0V1a.5.5 0 01.5-.5H6a.5.5 0 010 1H5v1zm6-1a.5.5 0 010-1h1.5a.5.5 0 01.5.5V2.5a.5.5 0 01-1 0V2h-1zm-6 11a.5.5 0 011 0V14h1a.5.5 0 010 1H4.5a.5.5 0 01-.5-.5V12.5zm7 0a.5.5 0 011 0v1.5a.5.5 0 01-.5.5H11a.5.5 0 010-1h1v-1z"/></svg>
+            </button>
+        </nav>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 7;
+        let hideNavTimeout;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('progressBar').style.width = (currentSlide / totalSlides * 100) + '%';
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+
+        function nextSlide() { currentSlide++; showSlide(currentSlide); }
+        function prevSlide() { currentSlide--; showSlide(currentSlide); }
+
+        // Theme toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('btl-theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const lightIcon = document.querySelector('.light-icon');
+            const darkIcon = document.querySelector('.dark-icon');
+            if (theme === 'light') {
+                lightIcon.style.display = 'none';
+                darkIcon.style.display = 'block';
+            } else {
+                lightIcon.style.display = 'block';
+                darkIcon.style.display = 'none';
+            }
+        }
+
+        // Fullscreen toggle
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+                document.body.classList.add('is-fullscreen');
+            } else {
+                document.exitFullscreen();
+                document.body.classList.remove('is-fullscreen');
+            }
+        }
+
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) document.body.classList.remove('is-fullscreen');
+        });
+
+        // Auto-hide nav
+        function showNav() {
+            document.body.classList.add('nav-visible');
+            clearTimeout(hideNavTimeout);
+            hideNavTimeout = setTimeout(() => document.body.classList.remove('nav-visible'), 3000);
+        }
+
+        document.body.classList.add('auto-hide');
+        document.addEventListener('mousemove', showNav);
+        document.addEventListener('click', showNav);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            showNav();
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 't' || e.key === 'T') toggleTheme();
+            if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+            if (e.key === 'Escape' && document.fullscreenElement) document.exitFullscreen();
+        });
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('btl-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        showSlide(currentSlide);
+        showNav();
+    </script>
+</body>
+</html>
