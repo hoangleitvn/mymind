@@ -1,15 +1,16 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with this repository.
 
 ## Workspace Purpose
 
-This is a **content creation workspace** for:
-- Brainstorming and ideation for content
-- Writing posts and articles
-- Research and analysis for professional content
-- Strategic thinking and content planning
-- Performance tracking and optimization
+**mymind** - My mind, my brain. Build, grow, learn, share.
+
+This is a personal workspace for:
+- **Build** - Creating content, drafting posts and articles
+- **Grow** - LinkedIn engagement, relationship tracking, audience building
+- **Learn** - Research, analysis, capturing insights
+- **Share** - Publishing, strategic content planning
 
 ## Default Behavior
 
