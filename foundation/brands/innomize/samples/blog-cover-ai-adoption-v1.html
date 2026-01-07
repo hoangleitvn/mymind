@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Adoption Blog Cover</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', system-ui, sans-serif;
+            background: #e8e8e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .cover {
+            width: 1920px;
+            height: 1080px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative dots */
+        .dots {
+            position: absolute;
+            display: flex;
+            gap: 10px;
+        }
+
+        .dots.top-left {
+            top: 32px;
+            left: 80px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #EA322A;
+        }
+
+        .dot.light {
+            background: #F5C4C4;
+        }
+
+        /* Decorative circles/blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .blob.top-right {
+            top: -80px;
+            right: -80px;
+            width: 320px;
+            height: 320px;
+            background: linear-gradient(135deg, #FFE0E0 0%, #FFC4C4 100%);
+        }
+
+        .blob.top-right-small {
+            top: 60px;
+            right: 280px;
+            width: 80px;
+            height: 80px;
+            background: #EA322A;
+            opacity: 0.15;
+        }
+
+        .blob.bottom-left {
+            bottom: -120px;
+            left: -100px;
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #FFF0F0 0%, #FFE0E0 100%);
+        }
+
+        .blob.bottom-right {
+            bottom: 100px;
+            right: 50px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #FFECEC 0%, #FFD6D6 100%);
+        }
+
+        .blob.accent {
+            top: 200px;
+            right: 500px;
+            width: 50px;
+            height: 50px;
+            background: #EA322A;
+            opacity: 0.12;
+        }
+
+        /* Content container */
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 60px 80px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Logo */
+        .logo {
+            height: 48px;
+            margin-bottom: 16px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        /* Category tag */
+        .category {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 24px;
+            color: #EA322A;
+            margin-bottom: 60px;
+        }
+
+        /* Main content area */
+        .main-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+            gap: 60px;
+        }
+
+        .text-content {
+            flex: 1;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Title */
+        .title {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 76px;
+            font-weight: 700;
+            color: #1A1A1A;
+            line-height: 1.0;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 36px;
+        }
+
+        /* Subtitle pill */
+        .subtitle-pill {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFE8E8 0%, #FFD6D6 100%);
+            padding: 14px 28px;
+            border-radius: 6px;
+            margin-bottom: 36px;
+        }
+
+        .subtitle-pill span {
+            font-family: 'Manrope', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #EA322A;
+            letter-spacing: 1px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #EA322A;
+            color: white;
+            padding: 20px 48px;
+            border-radius: 40px;
+            font-size: 22px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Right side illustration area */
+        .illustration-area {
+            width: 600px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        /* Framework visualization */
+        .framework-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Decorative glow behind icon */
+        .icon-glow {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(234, 50, 42, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Framework steps */
+        .framework-step {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            min-width: 280px;
+        }
+
+        .framework-step.active {
+            background: #EA322A;
+        }
+
+        .framework-step.active .step-number,
+        .framework-step.active .step-label {
+            color: white;
+        }
+
+        .step-number {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #EA322A;
+            width: 40px;
+        }
+
+        .step-label {
+            font-family: 'Manrope', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A1A1A;
+        }
+
+        .step-arrow {
+            color: #EA322A;
+            font-size: 24px;
+            margin: 8px 0;
+        }
+
+        /* Key insight badge */
+        .insight-badge {
+            background: linear-gradient(135deg, #1A1A1A 0%, #333333 100%);
+            color: white;
+            padding: 16px 28px;
+            border-radius: 28px;
+            font-weight: 700;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .insight-badge .highlight {
+            color: #EA322A;
+        }
+    </style>
+</head>
+<body>
+    <div class="cover" id="cover">
+        <!-- Decorative dots top-left -->
+        <div class="dots top-left">
+            <div class="dot"></div>
+            <div class="dot light"></div>
+            <div class="dot"></div>
+            <div class="dot light"></div>
+            <div class="dot"></div>
+            <div class="dot light"></div>
+        </div>
+
+        <!-- Decorative blobs -->
+        <div class="blob top-right"></div>
+        <div class="blob top-right-small"></div>
+        <div class="blob bottom-left"></div>
+        <div class="blob bottom-right"></div>
+        <div class="blob accent"></div>
+
+        <!-- Main content -->
+        <div class="content">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="../assets/Logo_Horizontal_RGB.png" alt="INNOMIZE">
+            </div>
+
+            <!-- Category -->
+            <div class="category">#AIAdoptionWorkflow</div>
+
+            <!-- Main area -->
+            <div class="main-area">
+                <div class="text-content">
+                    <h1 class="title">
+                        AI ADOPTION<br>
+                        IS A WORKFLOW<br>
+                        DECISION
+                    </h1>
+
+                    <div class="subtitle-pill">
+                        <span>Not a Tool Decision</span>
+                    </div>
+
+                    <div class="cta-button">Read the Framework</div>
+                </div>
+
+                <!-- Illustration area - 4-step framework -->
+                <div class="illustration-area">
+                    <div class="icon-glow"></div>
+                    <div class="framework-wrapper">
+                        <div class="framework-step active">
+                            <span class="step-number">1</span>
+                            <span class="step-label">WORKFLOW</span>
+                        </div>
+                        <div class="step-arrow">↓</div>
+                        <div class="framework-step">
+                            <span class="step-number">2</span>
+                            <span class="step-label">SKILLS</span>
+                        </div>
+                        <div class="step-arrow">↓</div>
+                        <div class="framework-step">
+                            <span class="step-number">3</span>
+                            <span class="step-label">GUARDRAILS</span>
+                        </div>
+                        <div class="step-arrow">↓</div>
+                        <div class="framework-step">
+                            <span class="step-number">4</span>
+                            <span class="step-label">TOOLS</span>
+                        </div>
+
+                        <div class="insight-badge">
+                            Tool <span class="highlight">20%</span> · Workflow <span class="highlight">80%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

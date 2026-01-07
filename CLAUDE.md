@@ -30,9 +30,9 @@ Keep all generated documents short, structured, and strictly functional. These d
 - **Self-contained documents** with proper context
 - **Citations** when referencing external sources
 
-### Templates
-All reports must reference a template from `docs/templates/`.  
-Save each generated document into `docs/` with a datetime-based filename and consistent structure.
+### Writing Rules
+
+**Central Reference**: @docs/document-management.md — All document formatting, frontmatter, and creation standards.
 
 ## Validation and Non-Agreement Rule
 
@@ -42,20 +42,14 @@ Evaluate claims strictly against facts, evidence, and reasoning.
 If the user is wrong, state the correction directly and factually. 
 If the user is right, explain why using objective justification, not flattery or affirmation.
 
-## Session Logging
+## Current Date
 
-When user requests to "create session log", "record session log", or "save session history":
-1. Create timestamped log: `docs/YYYY-MM-DD__[topic]-session.md`
-2. Use `docs/templates/session-log.md` as base template
-3. Include sections:
-   - **Summary**: 2-3 sentences of what was accomplished
-   - **Actions Completed**: Bulleted list of concrete changes
-   - **Why This Matters**: Problem, solution, benefits
-   - **Pending Tasks**: Remaining work items organized by priority
-   - **Recommendation**: Next steps
-4. Keep output concise and scannable
+Use the date from the `<env>` block as today's date. Do not use your training cutoff date.
 
-## Critical Rules
+For Search/Research Tasks
 
-1. **No `---` section separators** - Never use `---` as horizontal rule or section divider in markdown files. Use blank lines between sections instead. Exception: YAML frontmatter delimiters at start of file are required.
-2. **Concise sections** - Use clear headers and brief content. Avoid redundant separators.
+## Date Awareness
+
+- Current date is provided in the `<env>` block at conversation start
+- Use this year (not training cutoff year) when searching for recent information
+- When referencing "latest", "recent", or "current", base it on the injected date

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Human Skills Visual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Typography Scale - Perfect Fourth (1.33) for Infographics */
+        :root {
+            --font-xs: 14px;
+            --font-sm: 16px;
+            --font-base: 18px;
+            --font-lg: 24px;
+            --font-xl: 32px;
+            --font-2xl: 42px;
+            --font-3xl: 56px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', system-ui, sans-serif;
+            background: #e8e8e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .visual {
+            width: 1080px;
+            height: 1080px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        /* Decorative blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .blob.top-right {
+            top: -60px;
+            right: -60px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #FFE0E0 0%, #FFC4C4 100%);
+        }
+
+        .blob.bottom-left {
+            bottom: -80px;
+            left: -60px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #FFF0F0 0%, #FFE0E0 100%);
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Radial layout container */
+        .radial-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Center human element */
+        .human-center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            z-index: 20;
+        }
+
+        .human-icon {
+            width: 100px;
+            height: 100px;
+            background: #EA322A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(234, 50, 42, 0.25);
+        }
+
+        .human-icon svg {
+            width: 56px;
+            height: 56px;
+            stroke: white;
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .human-label {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: var(--font-lg);
+            font-weight: 700;
+            color: #1A1A1A;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Connecting lines - SVG positioned behind everything */
+        .connections {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+        }
+
+        .connection-line {
+            stroke: #E8E8E8;
+            stroke-width: 2;
+            stroke-dasharray: 8 6;
+        }
+
+        /* Skill cards - positioned in pentagon around center */
+        .skill-card {
+            position: absolute;
+            width: 190px;
+            background: white;
+            border-radius: 16px;
+            padding: 20px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 2px solid #F5F5F5;
+            text-align: center;
+            z-index: 10;
+        }
+
+        /* .skill-card.featured {
+            border-color: #EA322A;
+            box-shadow: 0 8px 32px rgba(234, 50, 42, 0.15);
+        } */
+
+        /* Pentagon positions - tighter around center (540, 540) */
+        /* 01 - Top center */
+        .skill-01 {
+            left: 50%;
+            top: 100px;
+            transform: translateX(-50%);
+        }
+
+        /* 02 - Right upper */
+        .skill-02 {
+            right: 120px;
+            top: 340px;
+        }
+
+        /* 03 - Right lower */
+        .skill-03 {
+            right: 200px;
+            bottom: 180px;
+        }
+
+        /* 04 - Left lower */
+        .skill-04 {
+            left: 200px;
+            bottom: 180px;
+        }
+
+        /* 05 - Left upper */
+        .skill-05 {
+            left: 120px;
+            top: 340px;
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #FFE8E8 0%, #FFD6D6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skill-card.featured .skill-icon {
+            background: #EA322A;
+        }
+
+        .skill-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #EA322A;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .skill-card.featured .skill-icon svg {
+            stroke: white;
+        }
+
+        .skill-number {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: var(--font-xs);
+            font-weight: 700;
+            color: #EA322A;
+        }
+
+        .skill-name {
+            font-family: 'Manrope', sans-serif;
+            font-size: var(--font-base);
+            font-weight: 700;
+            color: #1A1A1A;
+        }
+
+        .skill-desc {
+            font-family: 'Manrope', sans-serif;
+            font-size: var(--font-sm);
+            color: #666666;
+            line-height: 1.4;
+        }
+
+        /* Footer note */
+        .footer-note {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #1A1A1A;
+            border-radius: 12px;
+            z-index: 30;
+        }
+
+        .footer-note span {
+            font-family: 'Manrope', sans-serif;
+            font-size: var(--font-sm);
+            color: white;
+        }
+
+        .footer-note .highlight {
+            color: #EA322A;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="visual" id="visual">
+        <!-- Decorative blobs -->
+        <div class="blob top-right"></div>
+        <div class="blob bottom-left"></div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="radial-container">
+                <!-- Connecting lines SVG -->
+                <svg class="connections" viewBox="0 0 1080 1080" preserveAspectRatio="none">
+                    <!-- Lines from center (540, 540) to each skill card center -->
+                    <line class="connection-line" x1="540" y1="540" x2="540" y2="200"/>
+                    <line class="connection-line" x1="540" y1="540" x2="865" y2="435"/>
+                    <line class="connection-line" x1="540" y1="540" x2="785" y2="800"/>
+                    <line class="connection-line" x1="540" y1="540" x2="295" y2="800"/>
+                    <line class="connection-line" x1="540" y1="540" x2="215" y2="435"/>
+                </svg>
+
+                <!-- Human in center -->
+                <div class="human-center">
+                    <div class="human-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="7" r="4"/>
+                            <path d="M5.5 21a8.5 8.5 0 0 1 13 0"/>
+                        </svg>
+                    </div>
+                    <span class="human-label">Human Skills</span>
+                </div>
+
+                <!-- Skill 01: Problem Framing - Top center -->
+                <div class="skill-card featured skill-01">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="6"/>
+                            <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+                        </svg>
+                    </div>
+                    <span class="skill-number">01</span>
+                    <span class="skill-name">Problem Framing</span>
+                    <span class="skill-desc">Turn vague requests into testable objectives</span>
+                </div>
+
+                <!-- Skill 02: Decomposition - Top right -->
+                <div class="skill-card skill-02">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="7" height="7" rx="1"/>
+                            <rect x="14" y="3" width="7" height="7" rx="1"/>
+                            <rect x="3" y="14" width="7" height="7" rx="1"/>
+                            <rect x="14" y="14" width="7" height="7" rx="1"/>
+                        </svg>
+                    </div>
+                    <span class="skill-number">02</span>
+                    <span class="skill-name">Decomposition</span>
+                    <span class="skill-desc">Split complex work into verifiable steps</span>
+                </div>
+
+                <!-- Skill 03: Evaluation - Bottom right -->
+                <div class="skill-card skill-03">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4"/>
+                            <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                    </div>
+                    <span class="skill-number">03</span>
+                    <span class="skill-name">Evaluation</span>
+                    <span class="skill-desc">Know what good looks like before you see it</span>
+                </div>
+
+                <!-- Skill 04: Correction - Bottom left -->
+                <div class="skill-card skill-04">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                            <path d="m15 5 4 4"/>
+                        </svg>
+                    </div>
+                    <span class="skill-number">04</span>
+                    <span class="skill-name">Correction</span>
+                    <span class="skill-desc">Fix the 20% that's wrong, don't regenerate</span>
+                </div>
+
+                <!-- Skill 05: Systems Thinking - Top left -->
+                <div class="skill-card skill-05">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+                        </svg>
+                    </div>
+                    <span class="skill-number">05</span>
+                    <span class="skill-name">Systems Thinking</span>
+                    <span class="skill-desc">Build assets that compound over time</span>
+                </div>
+
+                <!-- Footer note -->
+                <div class="footer-note">
+                    <span>Same tool. Same access.</span>
+                    <span class="highlight">The difference is these skills.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

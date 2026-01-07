@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serverless vs Containers Decision Tree</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #e8e8e8;
+      font-family: 'Amazon Ember', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    .container {
+      width: 1200px;
+      height: 675px;
+      background: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header {
+      background: #232F3E;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title {
+      color: #FFFFFF;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .badge {
+      background: #FF9900;
+      color: #232F3E;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .main {
+      display: flex;
+      height: calc(100% - 76px - 44px);
+    }
+
+    .sidebar {
+      width: 260px;
+      background: #F8F9FA;
+      padding: 24px;
+      border-right: 1px solid #E0E0E0;
+    }
+
+    .sidebar-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #232F3E;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .option {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #E0E0E0;
+    }
+
+    .option:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .option-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .option-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    .option-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #232F3E;
+    }
+
+    .option-desc {
+      font-size: 11px;
+      color: #666;
+      line-height: 1.4;
+      padding-left: 20px;
+    }
+
+    .tree-area {
+      flex: 1;
+      padding: 24px 32px;
+      position: relative;
+    }
+
+    .footer {
+      height: 44px;
+      background: #F8F9FA;
+      border-top: 1px solid #E0E0E0;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-text {
+      font-size: 11px;
+      color: #888;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #232F3E;
+    }
+
+    .innomize-dot {
+      width: 6px;
+      height: 6px;
+      background: #FF9900;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div id="visual" class="container">
+    <div class="header">
+      <h1 class="title">Serverless vs Containers: Decision Framework</h1>
+      <div class="badge">AWS 2025</div>
+    </div>
+
+    <div class="main">
+      <div class="sidebar">
+        <div class="sidebar-title">Options</div>
+
+        <div class="option">
+          <div class="option-header">
+            <div class="option-dot" style="background: #FF9900;"></div>
+            <div class="option-name">Lambda Standard</div>
+          </div>
+          <div class="option-desc">Sporadic traffic, event-driven, pay-per-use</div>
+        </div>
+
+        <div class="option">
+          <div class="option-header">
+            <div class="option-dot" style="background: #C45500;"></div>
+            <div class="option-name">Lambda Managed</div>
+          </div>
+          <div class="option-desc">Steady traffic, no cold starts, Savings Plans</div>
+        </div>
+
+        <div class="option">
+          <div class="option-header">
+            <div class="option-dot" style="background: #146EB4;"></div>
+            <div class="option-name">ECS</div>
+          </div>
+          <div class="option-desc">Custom runtime, long processes, full control</div>
+        </div>
+
+        <div class="option">
+          <div class="option-header">
+            <div class="option-dot" style="background: #0D47A1;"></div>
+            <div class="option-name">EKS</div>
+          </div>
+          <div class="option-desc">Multi-cloud, K8s ecosystem, portability</div>
+        </div>
+
+        <div style="margin-top: 20px; padding: 12px; background: #FFF8EE; border-radius: 6px; border: 1px solid #FFE0B2;">
+          <div style="font-size: 11px; font-weight: 600; color: #C45500; margin-bottom: 4px;">Pro tip</div>
+          <div style="font-size: 10px; color: #666;">Most production systems use multiple compute models. Mix and match!</div>
+        </div>
+      </div>
+
+      <div class="tree-area">
+        <svg width="100%" height="100%" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#FF9900"/>
+              <stop offset="100%" style="stop-color:#C45500"/>
+            </linearGradient>
+            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#146EB4"/>
+              <stop offset="100%" style="stop-color:#0D47A1"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Start -->
+          <rect x="330" y="10" width="200" height="36" rx="6" fill="#232F3E"/>
+          <text x="430" y="33" text-anchor="middle" fill="#FFF" font-size="13" font-weight="600">Your Workload</text>
+
+          <line x1="430" y1="46" x2="430" y2="66" stroke="#146EB4" stroke-width="2"/>
+
+          <!-- Q1: Traffic steady? -->
+          <rect x="255" y="66" width="350" height="40" rx="6" fill="#FFF" stroke="#146EB4" stroke-width="2"/>
+          <text x="430" y="91" text-anchor="middle" fill="#232F3E" font-size="13" font-weight="600">Is traffic steady and predictable?</text>
+
+          <!-- Q1 Branch -->
+          <line x1="430" y1="106" x2="430" y2="126" stroke="#146EB4" stroke-width="2"/>
+          <line x1="130" y1="126" x2="730" y2="126" stroke="#146EB4" stroke-width="2"/>
+
+          <!-- Q1 NO - Lambda Standard (left branch) -->
+          <line x1="130" y1="126" x2="130" y2="148" stroke="#146EB4" stroke-width="2"/>
+          <rect x="80" y="148" width="100" height="24" rx="12" fill="#FFF3E0"/>
+          <text x="130" y="165" text-anchor="middle" fill="#E65100" font-size="11" font-weight="600">NO</text>
+          <line x1="130" y1="172" x2="130" y2="196" stroke="#146EB4" stroke-width="2"/>
+
+          <rect x="15" y="196" width="230" height="56" rx="8" fill="#FFF8EE" stroke="#FF9900" stroke-width="2"/>
+          <text x="130" y="222" text-anchor="middle" fill="#232F3E" font-size="14" font-weight="700">Lambda Standard</text>
+          <text x="130" y="240" text-anchor="middle" fill="#666" font-size="11">Pay-per-invocation</text>
+
+          <!-- Q1 YES (right branch) -->
+          <line x1="730" y1="126" x2="730" y2="148" stroke="#146EB4" stroke-width="2"/>
+          <rect x="680" y="148" width="100" height="24" rx="12" fill="#E8F5E9"/>
+          <text x="730" y="165" text-anchor="middle" fill="#2E7D32" font-size="11" font-weight="600">YES</text>
+          <line x1="730" y1="172" x2="730" y2="196" stroke="#146EB4" stroke-width="2"/>
+
+          <!-- Q2: Custom runtime? -->
+          <rect x="505" y="196" width="350" height="40" rx="6" fill="#FFF" stroke="#146EB4" stroke-width="2"/>
+          <text x="680" y="221" text-anchor="middle" fill="#232F3E" font-size="13" font-weight="600">Need custom runtime or >15 min?</text>
+
+          <!-- Q2 Branch -->
+          <line x1="680" y1="236" x2="680" y2="256" stroke="#146EB4" stroke-width="2"/>
+          <line x1="520" y1="256" x2="820" y2="256" stroke="#146EB4" stroke-width="2"/>
+
+          <!-- Q2 NO - Lambda Managed (left) -->
+          <line x1="540" y1="256" x2="540" y2="278" stroke="#146EB4" stroke-width="2"/>
+          <rect x="490" y="278" width="100" height="24" rx="12" fill="#E8F5E9"/>
+          <text x="540" y="295" text-anchor="middle" fill="#2E7D32" font-size="11" font-weight="600">NO</text>
+          <line x1="540" y1="302" x2="540" y2="314" stroke="#146EB4" stroke-width="2"/>
+          <line x1="500" y1="314" x2="540" y2="314" stroke="#146EB4" stroke-width="2"/>
+          <line x1="500" y1="314" x2="500" y2="326" stroke="#146EB4" stroke-width="2"/>
+
+          <rect x="400" y="326" width="200" height="56" rx="8" fill="url(#grad1)"/>
+          <text x="500" y="352" text-anchor="middle" fill="#FFF" font-size="14" font-weight="700">Lambda Managed</text>
+          <text x="500" y="370" text-anchor="middle" fill="#FFF" font-size="11" opacity="0.9">Serverless + Savings Plans</text>
+
+          <!-- Q2 YES (right) -->
+          <line x1="800" y1="256" x2="800" y2="278" stroke="#146EB4" stroke-width="2"/>
+          <rect x="750" y="278" width="100" height="24" rx="12" fill="#FFF3E0"/>
+          <text x="800" y="295" text-anchor="middle" fill="#E65100" font-size="11" font-weight="600">YES</text>
+          <line x1="800" y1="302" x2="800" y2="326" stroke="#146EB4" stroke-width="2"/>
+
+          <!-- Q3: Multi-cloud? -->
+          <rect x="660" y="326" width="280" height="40" rx="6" fill="#FFF" stroke="#146EB4" stroke-width="2"/>
+          <text x="800" y="351" text-anchor="middle" fill="#232F3E" font-size="13" font-weight="600">Need multi-cloud portability?</text>
+
+          <!-- Q3 Branch -->
+          <line x1="800" y1="366" x2="800" y2="386" stroke="#146EB4" stroke-width="2"/>
+          <line x1="710" y1="386" x2="890" y2="386" stroke="#146EB4" stroke-width="2"/>
+
+          <!-- Q3 NO - ECS (left) -->
+          <line x1="710" y1="386" x2="710" y2="408" stroke="#146EB4" stroke-width="2"/>
+          <rect x="670" y="408" width="80" height="22" rx="11" fill="#E8F5E9"/>
+          <text x="710" y="423" text-anchor="middle" fill="#2E7D32" font-size="10" font-weight="600">NO</text>
+          <line x1="710" y1="430" x2="710" y2="454" stroke="#146EB4" stroke-width="2"/>
+
+          <!-- ECS box - positioned left -->
+          <rect x="630" y="454" width="160" height="50" rx="8" fill="#EEF4FF" stroke="#146EB4" stroke-width="2"/>
+          <text x="710" y="480" text-anchor="middle" fill="#232F3E" font-size="14" font-weight="700">ECS</text>
+          <text x="710" y="496" text-anchor="middle" fill="#666" font-size="10">Fargate / EC2</text>
+
+          <!-- Q3 YES - EKS (right) -->
+          <line x1="890" y1="386" x2="890" y2="408" stroke="#146EB4" stroke-width="2"/>
+          <rect x="850" y="408" width="80" height="22" rx="11" fill="#FFF3E0"/>
+          <text x="890" y="423" text-anchor="middle" fill="#E65100" font-size="10" font-weight="600">YES</text>
+          <line x1="890" y1="430" x2="890" y2="454" stroke="#146EB4" stroke-width="2"/>
+
+          <!-- EKS box - positioned right -->
+          <rect x="810" y="454" width="160" height="50" rx="8" fill="url(#grad2)"/>
+          <text x="890" y="480" text-anchor="middle" fill="#FFF" font-size="14" font-weight="700">EKS</text>
+          <text x="890" y="496" text-anchor="middle" fill="#FFF" font-size="10" opacity="0.9">Kubernetes</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="footer-text">Updated for AWS re:Invent 2025</span>
+      <div class="footer-brand">
+        <span class="innomize-dot"></span>
+        INNOMIZE
+      </div>
+    </div>
+  </div>
+</body>
+</html>

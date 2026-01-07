@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serverless vs Containers Decision Tree</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #e5e7eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            width: 1080px;
+            height: 1080px;
+            background: #ffffff;
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Accent bar at top */
+        .accent-bar {
+            height: 5px;
+            background: #00a86b;
+            width: 100%;
+        }
+
+        .content {
+            padding: 60px 70px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 50px;
+        }
+
+        .title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 52px;
+            font-weight: 800;
+            color: #1f2937;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .decision-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            flex: 1;
+        }
+
+        .option-card {
+            background: #f9fafb;
+            border-radius: 16px;
+            padding: 32px 28px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 2px solid #e5e7eb;
+        }
+
+        .option-card.serverless {
+            border-color: #00a86b;
+            background: linear-gradient(180deg, #ecfdf5 0%, #f9fafb 100%);
+        }
+
+        .option-card.managed {
+            border-color: #10b981;
+            background: linear-gradient(180deg, #d1fae5 0%, #f9fafb 100%);
+        }
+
+        .option-card.containers {
+            border-color: #9ca3af;
+        }
+
+        .option-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .serverless .option-icon {
+            background: rgba(0, 168, 107, 0.15);
+        }
+
+        .managed .option-icon {
+            background: rgba(16, 185, 129, 0.15);
+        }
+
+        .containers .option-icon {
+            background: rgba(107, 114, 128, 0.15);
+        }
+
+        .option-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .option-subtitle {
+            font-size: 15px;
+            color: #6b7280;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .when-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #00a86b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .criteria-list {
+            list-style: none;
+            flex: 1;
+        }
+
+        .criteria-list li {
+            font-size: 15px;
+            color: #374151;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .criteria-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #00a86b;
+            font-weight: 600;
+        }
+
+        .bottom-section {
+            margin-top: auto;
+            padding-top: 40px;
+        }
+
+        .insight-box {
+            background: #ecfdf5;
+            border-left: 4px solid #00a86b;
+            padding: 24px 28px;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .insight-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #1f2937;
+            line-height: 1.3;
+        }
+
+        .insight-subtext {
+            font-size: 16px;
+            color: #6b7280;
+            margin-top: 8px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .brand {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #00a86b;
+        }
+
+        .handle {
+            font-size: 16px;
+            color: #9ca3af;
+            font-weight: 500;
+        }
+
+        /* Lambda icon SVG */
+        .lambda-icon {
+            color: #00a86b;
+        }
+
+        .managed-icon {
+            color: #10b981;
+        }
+
+        .container-icon {
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="accent-bar"></div>
+        <div class="content">
+            <div class="header">
+                <h1 class="title">Serverless vs Containers</h1>
+                <p class="subtitle">The 2025 Decision Tree</p>
+            </div>
+
+            <div class="decision-grid">
+                <!-- Lambda Standard -->
+                <div class="option-card serverless">
+                    <div class="option-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00a86b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3 class="option-title">Lambda Standard</h3>
+                    <p class="option-subtitle">Pay-per-invocation</p>
+                    <div class="when-label">Choose when</div>
+                    <ul class="criteria-list">
+                        <li>Traffic is spiky or unpredictable</li>
+                        <li>Can't commit to long-term pricing</li>
+                        <li>Cold starts don't matter</li>
+                        <li>Event-driven workloads</li>
+                    </ul>
+                </div>
+
+                <!-- Lambda Managed Instances -->
+                <div class="option-card managed">
+                    <div class="option-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            <circle cx="18" cy="5" r="3" fill="#10b981" stroke="none"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="option-title">Lambda Managed</h3>
+                    <p class="option-subtitle">Serverless DX + container pricing</p>
+                    <div class="when-label">Choose when</div>
+                    <ul class="criteria-list">
+                        <li>Traffic is steady & predictable</li>
+                        <li>Want Savings Plans (72% off)</li>
+                        <li>Cold starts hurt UX</li>
+                        <li>High-volume APIs</li>
+                    </ul>
+                </div>
+
+                <!-- Containers -->
+                <div class="option-card containers">
+                    <div class="option-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="option-title">Containers</h3>
+                    <p class="option-subtitle">ECS / EKS</p>
+                    <div class="when-label">Choose when</div>
+                    <ul class="criteria-list">
+                        <li>Need full control over runtime</li>
+                        <li>Complex dependencies</li>
+                        <li>Custom runtimes required</li>
+                        <li>Multi-cloud portability</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bottom-section">
+                <div class="insight-box">
+                    <p class="insight-text">The best architectures aren't pure. They're pragmatic.</p>
+                    <p class="insight-subtext">Ask "which fits this workload" not "which is better"</p>
+                </div>
+
+                <div class="footer">
+                    <span class="brand">Builds That Last</span>
+                    <span class="handle">@hoangle</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hybrid Architecture Pattern</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #e8e8e8;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .container {
+      width: 1200px;
+      height: 675px;
+      background: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header {
+      background: #232F3E;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title {
+      color: #FFFFFF;
+      font-family: 'Bai Jamjuree', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .badge {
+      background: #FF9900;
+      color: #232F3E;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .main {
+      padding: 28px 40px;
+      height: calc(100% - 64px - 44px);
+    }
+
+    .architecture {
+      display: flex;
+      gap: 24px;
+      height: 100%;
+    }
+
+    /* Left side - Traffic sources */
+    .traffic-sources {
+      width: 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .traffic-box {
+      background: #F8F9FA;
+      border: 2px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .traffic-icon {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .traffic-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #232F3E;
+    }
+
+    /* Center - API Gateway */
+    .gateway-section {
+      width: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .gateway-box {
+      background: linear-gradient(135deg, #8C4FFF 0%, #5A2D82 100%);
+      border-radius: 10px;
+      padding: 20px 16px;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .gateway-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .gateway-label {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .gateway-sublabel {
+      font-size: 10px;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    /* Arrow connectors */
+    .arrows-left {
+      position: absolute;
+      left: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .arrow-line {
+      width: 30px;
+      height: 2px;
+      background: #9E9E9E;
+      position: relative;
+    }
+
+    .arrow-line::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -4px;
+      border: 5px solid transparent;
+      border-left: 6px solid #9E9E9E;
+    }
+
+    /* Right side - Compute options */
+    .compute-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .compute-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1;
+    }
+
+    .route-arrow {
+      width: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .route-line {
+      width: 100%;
+      height: 2px;
+      position: relative;
+    }
+
+    .route-line::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -4px;
+      border: 5px solid transparent;
+      border-left: 6px solid currentColor;
+    }
+
+    .route-label {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 9px;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .compute-box {
+      flex: 1;
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 340px;
+    }
+
+    .compute-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .compute-info {
+      flex: 1;
+    }
+
+    .compute-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #232F3E;
+      margin-bottom: 4px;
+    }
+
+    .compute-desc {
+      font-size: 11px;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    .compute-tag {
+      font-size: 9px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-top: 6px;
+      display: inline-block;
+    }
+
+    /* Use cases panel */
+    .use-cases {
+      width: 200px;
+      background: #F8F9FA;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .use-case-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #232F3E;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .use-case-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px;
+      background: white;
+      border-radius: 6px;
+      border-left: 3px solid;
+    }
+
+    .use-case-icon {
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .use-case-text {
+      font-size: 10px;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    /* Colors */
+    .lambda-managed {
+      background: linear-gradient(135deg, #FF9900 0%, #C45500 100%);
+    }
+
+    .lambda-standard {
+      background: #FFF8EE;
+      border: 2px solid #FF9900;
+    }
+
+    .ecs {
+      background: #EEF4FF;
+      border: 2px solid #146EB4;
+    }
+
+    .route-managed .route-line {
+      background: #FF9900;
+      color: #FF9900;
+    }
+
+    .route-managed .route-label {
+      background: #FFF8EE;
+      color: #C45500;
+    }
+
+    .route-standard .route-line {
+      background: #FF9900;
+      color: #FF9900;
+    }
+
+    .route-standard .route-label {
+      background: #FFF8EE;
+      color: #C45500;
+    }
+
+    .route-ecs .route-line {
+      background: #146EB4;
+      color: #146EB4;
+    }
+
+    .route-ecs .route-label {
+      background: #EEF4FF;
+      color: #146EB4;
+    }
+
+    .footer {
+      height: 44px;
+      background: #F8F9FA;
+      border-top: 1px solid #E0E0E0;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .footer-text {
+      font-size: 11px;
+      color: #888;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #232F3E;
+    }
+
+    .innomize-dot {
+      width: 6px;
+      height: 6px;
+      background: #FF9900;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Hybrid Architecture: Mix Compute Models by Workload</h1>
+      <div class="badge">Best Practice</div>
+    </div>
+
+    <div class="main">
+      <div class="architecture">
+        <!-- Traffic Sources -->
+        <div class="traffic-sources">
+          <div class="traffic-box">
+            <div class="traffic-icon">🌐</div>
+            <div class="traffic-label">Web/Mobile</div>
+          </div>
+          <div class="traffic-box">
+            <div class="traffic-icon">📡</div>
+            <div class="traffic-label">Events</div>
+          </div>
+          <div class="traffic-box">
+            <div class="traffic-icon">⏰</div>
+            <div class="traffic-label">Scheduled</div>
+          </div>
+        </div>
+
+        <!-- API Gateway -->
+        <div class="gateway-section">
+          <div class="arrows-left">
+            <div class="arrow-line"></div>
+            <div class="arrow-line"></div>
+            <div class="arrow-line"></div>
+          </div>
+          <div class="gateway-box">
+            <div class="gateway-icon">🚪</div>
+            <div class="gateway-label">API Gateway</div>
+            <div class="gateway-sublabel">Routes by path</div>
+          </div>
+        </div>
+
+        <!-- Compute Options -->
+        <div class="compute-section">
+          <!-- Lambda Managed -->
+          <div class="compute-row">
+            <div class="route-arrow route-managed">
+              <div class="route-line"></div>
+              <div class="route-label">/api/*</div>
+            </div>
+            <div class="compute-box lambda-managed">
+              <div class="compute-icon-wrapper" style="background: rgba(255,255,255,0.2);">
+                <span style="color: white;">λ</span>
+              </div>
+              <div class="compute-info">
+                <div class="compute-name" style="color: white;">Lambda Managed</div>
+                <div class="compute-desc" style="color: rgba(255,255,255,0.9);">User-facing APIs, consistent latency</div>
+                <div class="compute-tag" style="background: rgba(255,255,255,0.2); color: white;">No cold starts</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lambda Standard -->
+          <div class="compute-row">
+            <div class="route-arrow route-standard">
+              <div class="route-line"></div>
+              <div class="route-label">/events/*</div>
+            </div>
+            <div class="compute-box lambda-standard">
+              <div class="compute-icon-wrapper" style="background: #FF9900;">
+                <span style="color: white;">λ</span>
+              </div>
+              <div class="compute-info">
+                <div class="compute-name">Lambda Standard</div>
+                <div class="compute-desc">Event handlers, async jobs, webhooks</div>
+                <div class="compute-tag" style="background: #FFF3E0; color: #C45500;">Pay per invocation</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ECS -->
+          <div class="compute-row">
+            <div class="route-arrow route-ecs">
+              <div class="route-line"></div>
+              <div class="route-label">/batch/*</div>
+            </div>
+            <div class="compute-box ecs">
+              <div class="compute-icon-wrapper" style="background: #146EB4;">
+                <span style="color: white;">📦</span>
+              </div>
+              <div class="compute-info">
+                <div class="compute-name">ECS Fargate</div>
+                <div class="compute-desc">Long-running jobs, batch processing</div>
+                <div class="compute-tag" style="background: #E3F2FD; color: #146EB4;">>15 min tasks</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Use Cases -->
+        <div class="use-cases">
+          <div class="use-case-title">Pattern Benefits</div>
+
+          <div class="use-case-item" style="border-color: #FF9900;">
+            <div class="use-case-icon">⚡</div>
+            <div class="use-case-text"><strong>Right-size compute</strong> for each workload type</div>
+          </div>
+
+          <div class="use-case-item" style="border-color: #146EB4;">
+            <div class="use-case-icon">💰</div>
+            <div class="use-case-text"><strong>Optimize costs</strong> by matching pricing model to traffic</div>
+          </div>
+
+          <div class="use-case-item" style="border-color: #2E7D32;">
+            <div class="use-case-icon">🎯</div>
+            <div class="use-case-text"><strong>Best UX</strong> for latency-sensitive paths</div>
+          </div>
+
+          <div class="use-case-item" style="border-color: #7B1FA2;">
+            <div class="use-case-icon">🔧</div>
+            <div class="use-case-text"><strong>Flexibility</strong> for long-running processes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="footer-text">Each workload runs on the compute model that fits it best</span>
+      <div class="footer-brand">
+        <span class="innomize-dot"></span>
+        INNOMIZE
+      </div>
+    </div>
+  </div>
+</body>
+</html>

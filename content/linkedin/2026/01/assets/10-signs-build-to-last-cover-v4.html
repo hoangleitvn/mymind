@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 Signs You Build to Last</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #E5E7E8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .cover {
+      width: 1200px;
+      height: 627px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #FFF3E2 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+    }
+
+    /* Left section - Title */
+    .left-section {
+      width: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+      background: linear-gradient(135deg, #EA322A 0%, #F76D55 100%);
+      position: relative;
+    }
+
+    .left-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    /* Typography Scale (1.25 ratio):
+       12px → 15px → 19px → 24px → 30px → 38px → 48px → 60px → 75px
+    */
+
+    .big-number {
+      font-family: 'Bai Jamjuree', sans-serif;
+      font-size: 120px;      /* Decorative - outside scale */
+      font-weight: 700;
+      color: rgba(255,255,255,0.15);
+      line-height: 0.8;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .left-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .title {
+      font-family: 'Bai Jamjuree', sans-serif;
+      font-size: 38px;       /* Level 6: Hero title */
+      font-weight: 700;
+      color: white;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;       /* Level 2: Supporting text */
+      font-weight: 400;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.5;
+    }
+
+    /* Right section - List */
+    .right-section {
+      flex: 1;
+      padding: 28px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Code header */
+    .code-header {
+      position: absolute;
+      top: 32px;
+      left: 380px;
+      display: flex;
+      align-items: center;
+    }
+
+    .code-filename {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 500;
+      color: #7B8187;
+      letter-spacing: 0.01em;
+    }
+
+    .code-filename .comment {
+      color: #EA322A;
+    }
+
+    .signs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 32px;
+    }
+
+    .sign-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .sign-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .sign-number {
+      font-family: 'Bai Jamjuree', sans-serif;
+      font-size: 19px;       /* Level 3: Emphasis numbers */
+      font-weight: 700;
+      color: #EA322A;
+      min-width: 28px;
+    }
+
+    .sign-text {
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;       /* Level 2: Primary content */
+      font-weight: 600;
+      color: #2E3840;
+      line-height: 1.35;
+    }
+
+    .sign-example {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;       /* Level 0: Tertiary/meta */
+      font-weight: 400;
+      color: #93A5B2;
+      margin-left: 36px;
+      line-height: 1.4;
+    }
+
+    /* Profile section */
+    .profile {
+      position: absolute;
+      bottom: 24px;
+      right: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 10;
+    }
+
+    .profile-pic {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #EA322A;
+    }
+
+    .profile-handle {
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;       /* Level 1: Meta info */
+      font-weight: 600;
+      color: #4E6E81;
+    }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <!-- Left section - Title -->
+    <div class="left-section">
+      <div class="big-number">10</div>
+      <div class="left-content">
+        <h1 class="title">Signs You<br>Build to Last</h1>
+        <p class="subtitle">Great engineers leave a trail for those who come after</p>
+      </div>
+    </div>
+
+    <!-- Right section - List -->
+    <div class="right-section">
+      <!-- Code header -->
+      <div class="code-header">
+        <span class="code-filename"><span class="comment">//</span> engineering_checklist.md</span>
+      </div>
+
+      <div class="signs-grid">
+        <div class="sign-item">
+          <div class="sign-header">
+            <span class="sign-number">01</span>
+            <span class="sign-text">You write the README before the code</span>
+          </div>
+          <span class="sign-example">// Clarity before complexity</span>
+        </div>
+
+        <div class="sign-item">
+          <div class="sign-header">
+            <span class="sign-number">06</span>
+            <span class="sign-text">You treat docs as part of the feature</span>
+          </div>
+          <span class="sign-example">// Not an afterthought</span>
+        </div>
+
+        <div class="sign-item">
+          <div class="sign-header">
+            <span class="sign-number">02</span>
+            <span class="sign-text">Your commit messages tell a story</span>
+          </div>
+          <span class="sign-example">// "fix: auth timeout" not "fix bug"</span>
+        </div>
+
+        <div class="sign-item">
+          <div class="sign-header">
+            <span class="sign-number">07</span>
+            <span class="sign-text">You name things for the next person</span>
+          </div>
+          <span class="sign-example">// getUserById() not getData()</span>
+        </div>
+
+        <div class="sign-item">
+          <div class="sign-header">
+            <span class="sign-number">03</span>
+            <span class="sign-text">You document decisions, not just code</span>
+          </div>
+          <span class="sign-example">// ADRs over tribal knowledge</span>
+        </div>
+
+        <div class="sign-item">
+          <div class="sign-header">
+            <span class="sign-number">08</span>
+            <span class="sign-text">You write tests that explain intent</span>
+          </div>
+          <span class="sign-example">// "should reject expired tokens"</span>
+        </div>
+
+        <div class="sign-item">
+          <div class="sign-header">
+            <span class="sign-number">04</span>
+            <span class="sign-text">You explain the "why" behind the "what"</span>
+          </div>
+          <span class="sign-example">// Context over cleverness</span>
+        </div>
+
+        <div class="sign-item">
+          <div class="sign-header">
+            <span class="sign-number">09</span>
+            <span class="sign-text">You leave TODOs with context</span>
+          </div>
+          <span class="sign-example">// TODO(auth): migrate to OAuth2</span>
+        </div>
+
+        <div class="sign-item">
+          <div class="sign-header">
+            <span class="sign-number">05</span>
+            <span class="sign-text">You think about the maintainer in 5 years</span>
+          </div>
+          <span class="sign-example">// Future you will thank you</span>
+        </div>
+
+        <div class="sign-item">
+          <div class="sign-header">
+            <span class="sign-number">10</span>
+            <span class="sign-text">You know speed without context is debt</span>
+          </div>
+          <span class="sign-example">// Fast now, slow forever</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="profile">
+      <img src="../../../../../library/profile/hoangle-profile-v2.jpeg" alt="Hoang Le" class="profile-pic">
+      <span class="profile-handle">@hoangleitvn</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serverless vs Containers - Factors Comparison</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #e8e8e8;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .container {
+      width: 1100px;
+      background: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+    }
+
+    .main {
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: 180px repeat(4, 1fr);
+      gap: 0;
+      border: 2px solid #E0E0E0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .matrix-header {
+      background: #232F3E;
+      color: white;
+      padding: 16px 12px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 13px;
+      border-right: 1px solid #3d4f61;
+    }
+
+    .matrix-header:last-child {
+      border-right: none;
+    }
+
+    .matrix-header.factor-col {
+      background: #1a2330;
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .matrix-header .service-icon {
+      font-size: 20px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .matrix-header .service-sub {
+      font-size: 10px;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+
+    .matrix-row {
+      display: contents;
+    }
+
+    .matrix-cell {
+      padding: 14px 12px;
+      border-bottom: 1px solid #E0E0E0;
+      border-right: 1px solid #E0E0E0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .matrix-cell:last-child {
+      border-right: none;
+    }
+
+    .matrix-row:last-child .matrix-cell {
+      border-bottom: none;
+    }
+
+    .factor-cell {
+      background: #F8F9FA;
+      justify-content: flex-start;
+      gap: 10px;
+      font-weight: 600;
+      color: #232F3E;
+    }
+
+    .factor-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .factor-text {
+      line-height: 1.3;
+    }
+
+    /* Value indicators */
+    .value {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .value-indicator {
+      display: flex;
+      gap: 3px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #E0E0E0;
+    }
+
+    .dot.filled {
+      background: #FF9900;
+    }
+
+    .dot.filled-blue {
+      background: #146EB4;
+    }
+
+    .value-label {
+      font-size: 11px;
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* Special cells */
+    .yes-cell {
+      background: #E8F5E9;
+      color: #2E7D32;
+      font-weight: 600;
+    }
+
+    .no-cell {
+      background: #FFEBEE;
+      color: #C62828;
+      font-weight: 600;
+    }
+
+    .partial-cell {
+      background: #FFF8E1;
+      color: #F57C00;
+      font-weight: 600;
+    }
+
+    .highlight-cell {
+      background: #FFF8EE;
+    }
+
+    .checkmark {
+      color: #2E7D32;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .crossmark {
+      color: #C62828;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="visual" class="container">
+    <div class="main">
+      <div class="matrix">
+        <!-- Header row -->
+        <div class="matrix-header factor-col">Factor</div>
+        <div class="matrix-header">
+          <span class="service-icon">λ</span>
+          Lambda Standard
+          <span class="service-sub">Pay-per-use</span>
+        </div>
+        <div class="matrix-header" style="background: #C45500;">
+          <span class="service-icon">λ</span>
+          Lambda Managed
+          <span class="service-sub">Savings Plans</span>
+        </div>
+        <div class="matrix-header" style="background: #146EB4;">
+          <span class="service-icon">📦</span>
+          ECS
+          <span class="service-sub">Fargate / EC2</span>
+        </div>
+        <div class="matrix-header" style="background: #0D47A1;">
+          <span class="service-icon">☸️</span>
+          EKS
+          <span class="service-sub">Kubernetes</span>
+        </div>
+
+        <!-- Traffic Pattern -->
+        <div class="matrix-row">
+          <div class="matrix-cell factor-cell">
+            <div class="factor-icon" style="background: #E3F2FD; color: #1565C0;">📊</div>
+            <span class="factor-text">Traffic Pattern</span>
+          </div>
+          <div class="matrix-cell highlight-cell">
+            <div class="value">
+              <span class="value-label" style="color: #FF9900; font-weight: 600;">Sporadic</span>
+            </div>
+          </div>
+          <div class="matrix-cell">
+            <div class="value">
+              <span class="value-label">Steady</span>
+            </div>
+          </div>
+          <div class="matrix-cell">
+            <div class="value">
+              <span class="value-label">Steady</span>
+            </div>
+          </div>
+          <div class="matrix-cell">
+            <div class="value">
+              <span class="value-label">Steady</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cold Starts -->
+        <div class="matrix-row">
+          <div class="matrix-cell factor-cell">
+            <div class="factor-icon" style="background: #FFF3E0; color: #E65100;">⏱️</div>
+            <span class="factor-text">Cold Starts</span>
+          </div>
+          <div class="matrix-cell no-cell">
+            <span>Yes ⚠️</span>
+          </div>
+          <div class="matrix-cell yes-cell">
+            <span class="checkmark">✓</span>&nbsp;No
+          </div>
+          <div class="matrix-cell yes-cell">
+            <span class="checkmark">✓</span>&nbsp;No
+          </div>
+          <div class="matrix-cell yes-cell">
+            <span class="checkmark">✓</span>&nbsp;No
+          </div>
+        </div>
+
+        <!-- Runtime Flexibility -->
+        <div class="matrix-row">
+          <div class="matrix-cell factor-cell">
+            <div class="factor-icon" style="background: #F3E5F5; color: #7B1FA2;">🔧</div>
+            <span class="factor-text">Runtime Flexibility</span>
+          </div>
+          <div class="matrix-cell">
+            <div class="value">
+              <div class="value-indicator">
+                <div class="dot filled"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+              <span class="value-label">Limited</span>
+            </div>
+          </div>
+          <div class="matrix-cell">
+            <div class="value">
+              <div class="value-indicator">
+                <div class="dot filled"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+              <span class="value-label">Limited</span>
+            </div>
+          </div>
+          <div class="matrix-cell">
+            <div class="value">
+              <div class="value-indicator">
+                <div class="dot filled-blue"></div>
+                <div class="dot filled-blue"></div>
+                <div class="dot filled-blue"></div>
+              </div>
+              <span class="value-label">Full</span>
+            </div>
+          </div>
+          <div class="matrix-cell">
+            <div class="value">
+              <div class="value-indicator">
+                <div class="dot filled-blue"></div>
+                <div class="dot filled-blue"></div>
+                <div class="dot filled-blue"></div>
+              </div>
+              <span class="value-label">Full</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Operational Overhead -->
+        <div class="matrix-row">
+          <div class="matrix-cell factor-cell">
+            <div class="factor-icon" style="background: #E8F5E9; color: #2E7D32;">👨‍💻</div>
+            <span class="factor-text">Ops Overhead</span>
+          </div>
+          <div class="matrix-cell yes-cell">
+            <div class="value">
+              <div class="value-indicator">
+                <div class="dot filled"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+              <span class="value-label">Minimal</span>
+            </div>
+          </div>
+          <div class="matrix-cell yes-cell">
+            <div class="value">
+              <div class="value-indicator">
+                <div class="dot filled"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+              <span class="value-label">Minimal</span>
+            </div>
+          </div>
+          <div class="matrix-cell partial-cell">
+            <div class="value">
+              <div class="value-indicator">
+                <div class="dot filled-blue"></div>
+                <div class="dot filled-blue"></div>
+                <div class="dot"></div>
+              </div>
+              <span class="value-label">Medium</span>
+            </div>
+          </div>
+          <div class="matrix-cell no-cell">
+            <div class="value">
+              <div class="value-indicator">
+                <div class="dot filled-blue"></div>
+                <div class="dot filled-blue"></div>
+                <div class="dot filled-blue"></div>
+              </div>
+              <span class="value-label">High</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cost at Scale -->
+        <div class="matrix-row">
+          <div class="matrix-cell factor-cell">
+            <div class="factor-icon" style="background: #FFEBEE; color: #C62828;">💰</div>
+            <span class="factor-text">Cost at Scale</span>
+          </div>
+          <div class="matrix-cell no-cell">
+            <div class="value">
+              <span class="value-label">Higher</span>
+            </div>
+          </div>
+          <div class="matrix-cell yes-cell">
+            <div class="value">
+              <span class="value-label" style="color: #2E7D32; font-weight: 600;">Competitive</span>
+            </div>
+          </div>
+          <div class="matrix-cell yes-cell">
+            <div class="value">
+              <span class="value-label" style="color: #2E7D32; font-weight: 600;">Competitive</span>
+            </div>
+          </div>
+          <div class="matrix-cell yes-cell">
+            <div class="value">
+              <span class="value-label" style="color: #2E7D32; font-weight: 600;">Can be lowest</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multi-cloud -->
+        <div class="matrix-row">
+          <div class="matrix-cell factor-cell">
+            <div class="factor-icon" style="background: #E0F7FA; color: #00838F;">☁️</div>
+            <span class="factor-text">Multi-cloud</span>
+          </div>
+          <div class="matrix-cell no-cell">
+            <span class="crossmark">✗</span>
+          </div>
+          <div class="matrix-cell no-cell">
+            <span class="crossmark">✗</span>
+          </div>
+          <div class="matrix-cell no-cell">
+            <span class="crossmark">✗</span>
+          </div>
+          <div class="matrix-cell yes-cell">
+            <span class="checkmark">✓</span>&nbsp;K8s portable
+          </div>
+        </div>
+
+        <!-- Savings Plans -->
+        <div class="matrix-row">
+          <div class="matrix-cell factor-cell">
+            <div class="factor-icon" style="background: #FFF8E1; color: #FF8F00;">💳</div>
+            <span class="factor-text">Savings Plans</span>
+          </div>
+          <div class="matrix-cell no-cell">
+            <span class="crossmark">✗</span>
+          </div>
+          <div class="matrix-cell yes-cell">
+            <span class="checkmark">✓</span>&nbsp;Up to 72%
+          </div>
+          <div class="matrix-cell yes-cell">
+            <span class="checkmark">✓</span>&nbsp;Fargate SP
+          </div>
+          <div class="matrix-cell yes-cell">
+            <span class="checkmark">✓</span>&nbsp;EC2 SP
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

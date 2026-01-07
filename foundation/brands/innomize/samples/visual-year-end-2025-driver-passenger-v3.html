@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Year-End - Driver or Passenger v3</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #1a1a1a;
+            padding: 20px;
+        }
+
+        .quote-card {
+            width: 1080px;
+            height: 1080px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px;
+            position: relative;
+
+            /* Warm gradient background */
+            background: linear-gradient(
+                145deg,
+                #faf8f5 0%,
+                #f5f0e8 30%,
+                #efe8dc 60%,
+                #e8dfd0 100%
+            );
+
+            /* Subtle inner border */
+            box-shadow:
+                inset 0 0 0 1px rgba(0,0,0,0.05),
+                inset 0 0 80px rgba(0,0,0,0.03);
+        }
+
+        /* Decorative corner accents */
+        .quote-card::before,
+        .quote-card::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 2px solid rgba(0,0,0,0.08);
+        }
+
+        .quote-card::before {
+            top: 50px;
+            left: 50px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .quote-card::after {
+            bottom: 50px;
+            right: 50px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .quote-text {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 44px;
+            line-height: 1.6;
+            color: #2a2a2a;
+            text-align: center;
+            margin-bottom: 80px;
+            white-space: nowrap;
+        }
+
+        .highlight {
+            color: #c45a3b;
+            font-weight: 700;
+        }
+
+        .subtext {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 32px;
+            line-height: 1.8;
+            color: #5a5a5a;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .choice {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 36px;
+            font-style: italic;
+            color: #2a2a2a;
+        }
+    </style>
+</head>
+<body>
+    <div class="quote-card" id="visual">
+        <p class="quote-text" style="margin-bottom: 10px;">
+            <span class="highlight">Passengers</span> don't remember the route.
+        </p>
+        <p class="quote-text">
+            <span class="highlight">Drivers</span> do.
+        </p>
+        <p class="subtext">
+            Be intentional with AI.<br>
+            With your career. With your life.
+        </p>
+        <p class="choice">Your choice.</p>
+    </div>
+</body>
+</html>

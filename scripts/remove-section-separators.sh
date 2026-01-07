@@ -91,14 +91,25 @@ while IFS= read -r -d '' file; do
             # Create temp file
             tmp_file=$(mktemp)
 
-            # Process: remove --- that have blank line before them (after frontmatter)
+            # Process: remove --- and the blank line before them (after frontmatter)
             awk '
-                BEGIN { in_frontmatter = 0; frontmatter_end = 0 }
+                BEGIN { in_frontmatter = 0; prev = ""; has_prev = 0 }
                 NR == 1 && /^---$/ { in_frontmatter = 1; print; next }
-                in_frontmatter && /^---$/ { in_frontmatter = 0; frontmatter_end = NR; print; next }
-                # Skip --- that have blank line before (section separators)
-                !in_frontmatter && /^---$/ && prev == "" { next }
-                { prev = $0; print }
+                in_frontmatter && /^---$/ { in_frontmatter = 0; print; next }
+                in_frontmatter { print; next }
+                # Past frontmatter - buffer lines to handle blank + --- pairs
+                {
+                    # If current line is --- and prev was blank, skip both
+                    if (/^---$/ && prev == "") {
+                        has_prev = 0
+                        next
+                    }
+                    # Print buffered line
+                    if (has_prev) print prev
+                    prev = $0
+                    has_prev = 1
+                }
+                END { if (has_prev) print prev }
             ' "$file" > "$tmp_file"
 
             # Replace original

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 Signs You Build to Last - Cover (INNOMIZE)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: #E5E7E8;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .page-title {
+      font-family: 'Bai Jamjuree', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #2E3840;
+    }
+
+    .page-subtitle {
+      font-size: 14px;
+      color: #7B8187;
+    }
+
+    .cover {
+      width: 1200px;
+      height: 627px;
+      background: linear-gradient(135deg, #F8F8F8 0%, #FFF3E2 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    /* Subtle grid pattern */
+    .cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(234, 50, 42, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(234, 50, 42, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* Ambient glow */
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+    }
+
+    .glow-orb-1 {
+      width: 400px;
+      height: 400px;
+      background: #EA322A;
+      top: -150px;
+      right: -100px;
+      opacity: 0.08;
+    }
+
+    .glow-orb-2 {
+      width: 300px;
+      height: 300px;
+      background: #4E6E81;
+      bottom: -100px;
+      left: -50px;
+      opacity: 0.06;
+    }
+
+    /* Content container */
+    .content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 80px;
+    }
+
+    /* Breadcrumb trail */
+    .trail-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    /* Code brackets */
+    .code-bracket {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 48px;
+      font-weight: 500;
+      color: #EA322A;
+      text-shadow: 0 0 20px rgba(234, 50, 42, 0.25);
+    }
+
+    /* Breadcrumb dots */
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .breadcrumb {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #EA322A;
+      box-shadow: 0 0 8px rgba(234, 50, 42, 0.4);
+    }
+
+    .breadcrumb:nth-child(1) { opacity: 0.3; }
+    .breadcrumb:nth-child(2) { opacity: 0.4; }
+    .breadcrumb:nth-child(3) { opacity: 0.5; }
+    .breadcrumb:nth-child(4) { opacity: 0.6; }
+    .breadcrumb:nth-child(5) { opacity: 0.7; }
+    .breadcrumb:nth-child(6) { opacity: 0.85; }
+    .breadcrumb:nth-child(7) { opacity: 1; }
+
+    /* Connecting line */
+    .trail-line {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(234, 50, 42, 0.3), rgba(234, 50, 42, 0.8));
+      border-radius: 1px;
+    }
+
+    /* Lighthouse icon */
+    .lighthouse {
+      position: relative;
+      width: 56px;
+      height: 56px;
+    }
+
+    .lighthouse svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 12px rgba(234, 50, 42, 0.35));
+    }
+
+    /* Title */
+    .title {
+      font-family: 'Bai Jamjuree', sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: #2E3840;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      margin-bottom: 16px;
+    }
+
+    .title-accent {
+      background: linear-gradient(135deg, #EA322A, #F76D55);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Subtitle */
+    .subtitle {
+      font-family: 'Manrope', sans-serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: #7B8187;
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle-highlight {
+      color: #EA322A;
+      font-weight: 500;
+    }
+
+    /* Author tag */
+    .author {
+      position: absolute;
+      bottom: 32px;
+      right: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #7B8187;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .author-dot {
+      width: 6px;
+      height: 6px;
+      background: #EA322A;
+      border-radius: 50%;
+    }
+
+    /* Number badge */
+    .number-badge {
+      position: absolute;
+      top: 32px;
+      left: 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(234, 50, 42, 0.1);
+      border: 1px solid rgba(234, 50, 42, 0.2);
+      border-radius: 20px;
+    }
+
+    .number-badge-text {
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #EA322A;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Instructions */
+    .instructions {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .instructions h2 {
+      font-family: 'Bai Jamjuree', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #2E3840;
+      margin-bottom: 12px;
+    }
+
+    .instructions ul {
+      list-style: none;
+      font-size: 14px;
+      color: #7B8187;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .instructions li {
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .instructions li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #EA322A;
+    }
+
+    .color-ref {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+    }
+
+    .color-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">LinkedIn Post Cover Preview (INNOMIZE Branding)</h1>
+      <p class="page-subtitle">Dimensions: 1200 x 627px</p>
+    </div>
+  </div>
+
+  <div class="cover">
+    <!-- Ambient glow orbs -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <!-- Number badge -->
+    <div class="number-badge">
+      <span class="number-badge-text">10 Signs</span>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+      <!-- Breadcrumb trail visualization -->
+      <div class="trail-container">
+        <span class="code-bracket">{</span>
+
+        <div class="breadcrumbs">
+          <div class="breadcrumb"></div>
+          <div class="breadcrumb"></div>
+          <div class="breadcrumb"></div>
+          <div class="breadcrumb"></div>
+          <div class="breadcrumb"></div>
+          <div class="breadcrumb"></div>
+          <div class="breadcrumb"></div>
+        </div>
+
+        <div class="trail-line"></div>
+
+        <!-- Lighthouse SVG -->
+        <div class="lighthouse">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14 8H10L12 2Z" fill="#EA322A"/>
+            <rect x="9" y="8" width="6" height="12" rx="1" fill="#EA322A"/>
+            <path d="M7 20H17V22H7V20Z" fill="#EA322A"/>
+            <circle cx="12" cy="11" r="2" fill="#FFF3E2" stroke="#EA322A" stroke-width="0.5"/>
+            <!-- Light beams -->
+            <path d="M4 10L8 11" stroke="#4E6E81" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+            <path d="M4 12L8 12" stroke="#4E6E81" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+            <path d="M4 14L8 13" stroke="#4E6E81" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+            <path d="M20 10L16 11" stroke="#4E6E81" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+            <path d="M20 12L16 12" stroke="#4E6E81" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+            <path d="M20 14L16 13" stroke="#4E6E81" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+          </svg>
+        </div>
+
+        <span class="code-bracket">}</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="title">
+        You <span class="title-accent">Build to Last</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="subtitle">
+        Great engineers <span class="subtitle-highlight">leave a trail</span>
+      </p>
+    </div>
+
+    <!-- Author tag -->
+    <div class="author">
+      <span class="author-dot"></span>
+      <span>Hoang Le</span>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <h2>INNOMIZE Brand Elements Used</h2>
+    <ul>
+      <li>Primary: Innomize Red <span class="color-ref"><span class="color-dot" style="background: #EA322A;"></span>#EA322A</span></li>
+      <li>Background: Cream gradient <span class="color-ref"><span class="color-dot" style="background: linear-gradient(135deg, #F8F8F8, #FFF3E2);"></span>#F8F8F8 → #FFF3E2</span></li>
+      <li>Secondary: Steel Blue <span class="color-ref"><span class="color-dot" style="background: #4E6E81;"></span>#4E6E81</span></li>
+      <li>Text: Charcoal <span class="color-ref"><span class="color-dot" style="background: #2E3840;"></span>#2E3840</span></li>
+      <li>Display font: Bai Jamjuree Bold (title)</li>
+      <li>Body font: Manrope (subtitle, badge)</li>
+      <li>Code font: JetBrains Mono (brackets)</li>
+      <li>Light mode with warm cream tones</li>
+    </ul>
+  </div>
+
+  <div class="instructions">
+    <h2>To Export as PNG</h2>
+    <ul>
+      <li>Open in browser and use screenshot tool</li>
+      <li>Or use browser dev tools > Screenshot node</li>
+      <li>Right-click the cover > Inspect > Select element > Screenshot</li>
+      <li>Final size: 1200 x 627px for LinkedIn post image</li>
+    </ul>
+  </div>
+</body>
+</html>

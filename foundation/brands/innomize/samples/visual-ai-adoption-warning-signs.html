@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warning Signs Checklist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Typography Scale - Perfect Fourth (1.33) for Infographics */
+        :root {
+            --font-xs: 14px;
+            --font-sm: 16px;
+            --font-base: 18px;
+            --font-lg: 24px;
+            --font-xl: 32px;
+            --font-2xl: 42px;
+            --font-3xl: 56px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', system-ui, sans-serif;
+            background: #e8e8e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .visual {
+            width: 1200px;
+            height: 675px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        /* Decorative blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .blob.top-right {
+            top: -60px;
+            right: -60px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #FFE0E0 0%, #FFC4C4 100%);
+        }
+
+        .blob.bottom-left {
+            bottom: -80px;
+            left: -60px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #FFF0F0 0%, #FFE0E0 100%);
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 48px 56px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        /* Warning list */
+        .warning-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .warning-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: white;
+            border-radius: 12px;
+            padding: 20px 24px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            border: 2px solid #FFF0F0;
+            transition: all 0.3s ease;
+        }
+
+        .warning-item:hover {
+            border-color: #EA322A;
+        }
+
+        .warning-icon {
+            width: 48px;
+            height: 48px;
+            background: #EA322A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .warning-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2.5;
+        }
+
+        .warning-text {
+            font-family: 'Manrope', sans-serif;
+            font-size: var(--font-base);
+            font-weight: 600;
+            color: #1A1A1A;
+            flex: 1;
+        }
+
+        .warning-checkbox {
+            width: 28px;
+            height: 28px;
+            border: 3px solid #E0E0E0;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        /* Footer note */
+        .footer-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: #1A1A1A;
+            border-radius: 12px;
+            align-self: center;
+        }
+
+        .footer-note span {
+            font-family: 'Manrope', sans-serif;
+            font-size: var(--font-sm);
+            color: white;
+        }
+
+        .footer-note .highlight {
+            color: #EA322A;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="visual" id="visual">
+        <!-- Decorative blobs -->
+        <div class="blob top-right"></div>
+        <div class="blob bottom-left"></div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Warning list -->
+            <div class="warning-list">
+                <div class="warning-item">
+                    <div class="warning-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <span class="warning-text">Quality complaints increase after AI introduction</span>
+                    <div class="warning-checkbox"></div>
+                </div>
+
+                <div class="warning-item">
+                    <div class="warning-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <span class="warning-text">"AI made a mistake" becomes a common excuse</span>
+                    <div class="warning-checkbox"></div>
+                </div>
+
+                <div class="warning-item">
+                    <div class="warning-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <span class="warning-text">Nobody can explain the validation process</span>
+                    <div class="warning-checkbox"></div>
+                </div>
+
+                <div class="warning-item">
+                    <div class="warning-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <span class="warning-text">Tool switching every few months chasing "the best AI"</span>
+                    <div class="warning-checkbox"></div>
+                </div>
+
+                <div class="warning-item">
+                    <div class="warning-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <span class="warning-text">Shadow AI emerges outside approved tools</span>
+                    <div class="warning-checkbox"></div>
+                </div>
+            </div>
+
+            <!-- Footer note -->
+            <div class="footer-note">
+                <span>If you see <span class="highlight">2+ of these</span>, the workflow is the problem, not the tool.</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

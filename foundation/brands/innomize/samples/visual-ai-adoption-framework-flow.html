@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-Step Framework Visual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Typography Scale - Perfect Fourth (1.33) for Infographics */
+        :root {
+            --font-xs: 14px;
+            --font-sm: 16px;
+            --font-base: 18px;
+            --font-lg: 24px;
+            --font-xl: 32px;
+            --font-2xl: 42px;
+            --font-3xl: 56px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', system-ui, sans-serif;
+            background: #e8e8e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .visual {
+            width: 1200px;
+            height: 675px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        /* Decorative blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .blob.top-right {
+            top: -60px;
+            right: -60px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #FFE0E0 0%, #FFC4C4 100%);
+        }
+
+        .blob.bottom-left {
+            bottom: -80px;
+            left: -60px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #FFF0F0 0%, #FFE0E0 100%);
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 40px 48px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Framework flow - horizontal layout */
+        .framework-flow {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .step-box {
+            width: 240px;
+            height: 100%;
+            background: white;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 20px;
+            gap: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 2px solid #F0F0F0;
+            transition: all 0.3s ease;
+        }
+
+        /* .step-box.active {
+            border-color: #EA322A;
+            box-shadow: 0 8px 32px rgba(234, 50, 42, 0.12);
+        } */
+
+        .step-icon {
+            width: 128px;
+            height: 128px;
+            background: linear-gradient(135deg, #FFE8E8 0%, #FFD6D6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step-box.active .step-icon {
+            background: #EA322A;
+        }
+
+        .step-icon svg {
+            width: 64px;
+            height: 64px;
+            stroke: #EA322A;
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .step-box.active .step-icon svg {
+            stroke: white;
+        }
+
+        .step-number {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: var(--font-xs);
+            font-weight: 700;
+            color: #EA322A;
+            background: #FFF0F0;
+            padding: 3px 10px;
+            border-radius: 10px;
+        }
+
+        .step-box.active .step-number {
+            background: rgba(234, 50, 42, 0.1);
+        }
+
+        .step-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+        }
+
+        .step-label {
+            font-family: 'Manrope', sans-serif;
+            font-size: var(--font-lg);
+            font-weight: 700;
+            color: #1A1A1A;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .step-desc {
+            font-family: 'Manrope', sans-serif;
+            font-size: var(--font-sm);
+            color: #666666;
+            line-height: 1.4;
+        }
+
+        /* Arrow - horizontal */
+        .arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #DDDDDD;
+            flex-shrink: 0;
+        }
+
+        .arrow svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Footer bar */
+        .footer-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+            padding: 16px 32px;
+            background: #1A1A1A;
+            border-radius: 12px;
+        }
+
+        .bar-section {
+            height: 10px;
+            border-radius: 5px;
+        }
+
+        .bar-workflow {
+            width: 280px;
+            background: linear-gradient(90deg, #EA322A 0%, #FF6B6B 100%);
+        }
+
+        .bar-tool {
+            width: 70px;
+            background: #555555;
+        }
+
+        .bar-label {
+            font-family: 'Manrope', sans-serif;
+            font-size: var(--font-sm);
+            font-weight: 600;
+        }
+
+        .bar-label.workflow {
+            color: #EA322A;
+        }
+
+        .bar-label.tool {
+            color: #888888;
+        }
+    </style>
+</head>
+<body>
+    <div class="visual" id="visual">
+        <!-- Decorative blobs -->
+        <div class="blob top-right"></div>
+        <div class="blob bottom-left"></div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Framework flow -->
+            <div class="framework-flow">
+                <!-- Step 1: Workflow -->
+                <div class="step">
+                    <div class="step-box active">
+                        <div class="step-icon">
+                            <!-- Flow chart icon -->
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="3" width="6" height="6" rx="1"/>
+                                <rect x="15" y="3" width="6" height="6" rx="1"/>
+                                <rect x="9" y="15" width="6" height="6" rx="1"/>
+                                <path d="M6 9v3h6M18 9v3h-6M12 12v3"/>
+                            </svg>
+                        </div>
+                        <span class="step-number">Step 1</span>
+                        <div class="step-text">
+                            <span class="step-label">Workflow</span>
+                            <span class="step-desc">Map the process first. Define inputs, decisions, and what "done" looks like.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+
+                <!-- Step 2: Skills -->
+                <div class="step">
+                    <div class="step-box">
+                        <div class="step-icon">
+                            <!-- Brain/skills icon -->
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="9"/>
+                                <path d="M12 3c-2 4-2 8 0 12M12 21c2-4 2-8 0-12"/>
+                                <path d="M3 12c4-2 8-2 12 0M21 12c-4 2-8 2-12 0"/>
+                            </svg>
+                        </div>
+                        <span class="step-number">Step 2</span>
+                        <div class="step-text">
+                            <span class="step-label">Skills</span>
+                            <span class="step-desc">Build human judgment: framing, decomposition, evaluation, correction.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+
+                <!-- Step 3: Guardrails -->
+                <div class="step">
+                    <div class="step-box">
+                        <div class="step-icon">
+                            <!-- Shield icon -->
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2l8 4v6c0 5.5-3.8 10.7-8 12-4.2-1.3-8-6.5-8-12V6l8-4z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <span class="step-number">Step 3</span>
+                        <div class="step-text">
+                            <span class="step-label">Guardrails</span>
+                            <span class="step-desc">Design quality gates and ownership rules before pursuing speed.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+
+                <!-- Step 4: Tools -->
+                <div class="step">
+                    <div class="step-box">
+                        <div class="step-icon">
+                            <!-- Tool/wrench icon -->
+                            <svg viewBox="0 0 24 24">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                        </div>
+                        <span class="step-number">Step 4</span>
+                        <div class="step-text">
+                            <span class="step-label">Tools</span>
+                            <span class="step-desc">Now select tools that fit. The choice becomes obvious.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer bar -->
+            <div class="footer-bar">
+                <span class="bar-label workflow">Workflow 80%</span>
+                <div class="bar-section bar-workflow"></div>
+                <div class="bar-section bar-tool"></div>
+                <span class="bar-label tool">Tool 20%</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

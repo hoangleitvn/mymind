@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Year-End - Driver or Passenger v2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #EA322A;
+            --gold: #F5A623;
+            --gold-light: #FFF8E7;
+            --dark: #1A1A1A;
+            --gray-dark: #4A5568;
+            --gray-mid: #718096;
+            --gray-light: #A0AEC0;
+            --gray-bg: #E2E8F0;
+            --fog: #CBD5E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', system-ui, sans-serif;
+            background: #e8e8e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .visual {
+            width: 1200px;
+            height: 675px;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+        }
+
+        /* Left Panel - Passenger */
+        .panel-left {
+            flex: 1;
+            background: linear-gradient(180deg, #CBD5E0 0%, #E2E8F0 100%);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 48px;
+        }
+
+        /* Fog effect */
+        .fog {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.7) 100%);
+        }
+
+        /* Blurry road representation */
+        .road-blur {
+            position: absolute;
+            top: 80px;
+            right: -20px;
+            width: 200px;
+            height: 300px;
+            opacity: 0.3;
+        }
+
+        .road-blur .line {
+            position: absolute;
+            background: var(--gray-mid);
+            border-radius: 4px;
+        }
+
+        .road-blur .line-1 {
+            width: 8px;
+            height: 120px;
+            top: 0;
+            right: 60px;
+            transform: rotate(15deg);
+            filter: blur(4px);
+        }
+
+        .road-blur .line-2 {
+            width: 8px;
+            height: 80px;
+            top: 100px;
+            right: 80px;
+            transform: rotate(20deg);
+            filter: blur(6px);
+        }
+
+        .road-blur .line-3 {
+            width: 8px;
+            height: 60px;
+            top: 160px;
+            right: 100px;
+            transform: rotate(25deg);
+            filter: blur(8px);
+        }
+
+        .panel-left .header {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--gray-dark);
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Question mark icon */
+        .question-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--gray-mid);
+            margin-bottom: 32px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .statement {
+            font-family: 'Manrope', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--gray-dark);
+            margin-bottom: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Cloud bubble */
+        .cloud-bubble {
+            background: rgba(255,255,255,0.9);
+            padding: 16px 24px;
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+            align-self: flex-start;
+        }
+
+        .cloud-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 30px;
+            width: 20px;
+            height: 20px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+        }
+
+        .cloud-bubble p {
+            font-family: 'Manrope', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--gray-mid);
+            font-style: italic;
+        }
+
+        /* Right Panel - Driver */
+        .panel-right {
+            flex: 1;
+            background: linear-gradient(180deg, #F5A623 0%, #FFD666 50%, #FFF8E7 100%);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 48px;
+        }
+
+        /* Clear path lines */
+        .path-clear {
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            width: 200px;
+            height: 280px;
+        }
+
+        .path-clear .waypoint {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .path-clear .dot {
+            width: 16px;
+            height: 16px;
+            background: var(--dark);
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .path-clear .label {
+            font-family: 'Manrope', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .path-clear .waypoint-1 { top: 0; left: 40px; }
+        .path-clear .waypoint-2 { top: 80px; left: 80px; }
+        .path-clear .waypoint-3 { top: 160px; left: 120px; }
+
+        .path-clear .connector {
+            position: absolute;
+            width: 3px;
+            background: var(--dark);
+            opacity: 0.3;
+        }
+
+        .path-clear .conn-1 {
+            height: 60px;
+            top: 20px;
+            left: 47px;
+            transform: rotate(25deg);
+        }
+
+        .path-clear .conn-2 {
+            height: 60px;
+            top: 100px;
+            left: 87px;
+            transform: rotate(25deg);
+        }
+
+        .panel-right .header {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 24px;
+            text-align: right;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Steering wheel icon */
+        .wheel-icon {
+            width: 80px;
+            height: 80px;
+            border: 8px solid var(--dark);
+            border-radius: 50%;
+            position: relative;
+            align-self: flex-end;
+            margin-bottom: 32px;
+            z-index: 2;
+        }
+
+        .wheel-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: var(--dark);
+            border-radius: 50%;
+        }
+
+        .wheel-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 8px;
+            background: var(--dark);
+            border-radius: 4px;
+        }
+
+        .statement-right {
+            font-family: 'Manrope', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--dark);
+            text-align: right;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            margin-bottom: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tag {
+            background: var(--dark);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag .highlight {
+            color: var(--gold);
+        }
+
+        /* Choice arrow */
+        .choice-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            align-self: flex-end;
+            position: relative;
+            z-index: 2;
+        }
+
+        .arrow {
+            width: 40px;
+            height: 40px;
+            background: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .arrow::after {
+            content: '→';
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .choice-text {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* Center divider with Happy New Year */
+        .center-banner {
+            position: absolute;
+            left: 50%;
+            bottom: 40px;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .banner-text {
+            background: var(--red);
+            color: white;
+            padding: 12px 32px;
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(234, 50, 42, 0.3);
+        }
+
+        .banner-year {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* Diagonal divider */
+        .divider-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: white;
+            z-index: 5;
+        }
+    </style>
+</head>
+<body>
+    <div class="visual" id="visual">
+        <!-- Left Panel -->
+        <div class="panel-left">
+            <div class="fog"></div>
+            <div class="road-blur">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
+
+            <div class="header">PASSENGERS</div>
+            <div class="question-icon">?</div>
+            <div class="statement">don't remember<br>the route.</div>
+
+            <div class="cloud-bubble">
+                <p>vibe & wonder<br>where the year went</p>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider-line"></div>
+
+        <!-- Right Panel -->
+        <div class="panel-right">
+            <div class="path-clear">
+                <div class="connector conn-1"></div>
+                <div class="connector conn-2"></div>
+                <div class="waypoint waypoint-1">
+                    <div class="dot"></div>
+                    <span class="label">AI</span>
+                </div>
+                <div class="waypoint waypoint-2">
+                    <div class="dot"></div>
+                    <span class="label">Career</span>
+                </div>
+                <div class="waypoint waypoint-3">
+                    <div class="dot"></div>
+                    <span class="label">Life</span>
+                </div>
+            </div>
+
+            <div class="header">DRIVERS</div>
+            <div class="wheel-icon"></div>
+            <div class="statement-right">do.</div>
+
+            <div class="tags">
+                <div class="tag">Be intentional <span class="highlight">with AI</span></div>
+                <div class="tag">With your <span class="highlight">career</span></div>
+                <div class="tag">With your <span class="highlight">life</span></div>
+            </div>
+
+            <div class="choice-box">
+                <div class="arrow"></div>
+                <span class="choice-text">YOUR CHOICE</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

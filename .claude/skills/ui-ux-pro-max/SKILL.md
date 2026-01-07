@@ -35,8 +35,6 @@ sudo apt update && sudo apt install python3
 winget install Python.Python.3.12
 ```
 
----
-
 ## How to Use This Skill
 
 When user requests UI/UX work (design, build, create, implement, review, fix, improve), follow this workflow:
@@ -79,8 +77,6 @@ python3 .claude/skills/ui-ux-pro-max/scripts/search.py "<keyword>" --stack html-
 
 Available stacks: `html-tailwind`, `react`, `nextjs`, `vue`, `svelte`, `swiftui`, `react-native`, `flutter`
 
----
-
 ## Search Reference
 
 ### Available Domains
@@ -108,8 +104,6 @@ Available stacks: `html-tailwind`, `react`, `nextjs`, `vue`, `svelte`, `swiftui`
 | `swiftui`       | Views, State, Navigation, Animation            |
 | `react-native`  | Components, Navigation, Lists                  |
 | `flutter`       | Widgets, State, Layout, Theming                |
-
----
 
 ## Example Workflow
 
@@ -143,8 +137,6 @@ python3 .claude/skills/ui-ux-pro-max/scripts/search.py "layout responsive" --sta
 
 **Then:** Synthesize all search results and implement the design.
 
----
-
 ## Tips for Better Results
 
 1. **Be specific with keywords** - "healthcare SaaS dashboard" > "app"
@@ -153,8 +145,6 @@ python3 .claude/skills/ui-ux-pro-max/scripts/search.py "layout responsive" --sta
 4. **Always check UX** - Search "animation", "z-index", "accessibility" for common issues
 5. **Use stack flag** - Get implementation-specific best practices
 6. **Iterate** - If first search doesn't match, try different keywords
-
----
 
 ## Common Rules for Professional UI
 
@@ -193,8 +183,6 @@ These are frequently overlooked issues that make UI look unprofessional:
 | **Floating navbar**      | Add `top-4 left-4 right-4` spacing  | Stick navbar to `top-0 left-0 right-0` |
 | **Content padding**      | Account for fixed navbar height     | Let content hide behind fixed elements |
 | **Consistent max-width** | Use same `max-w-6xl` or `max-w-7xl` | Mix different container widths         |
-
----
 
 ## Pre-Delivery Checklist
 

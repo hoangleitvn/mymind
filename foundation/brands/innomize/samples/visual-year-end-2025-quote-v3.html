@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Year-End Reflection Quote v3 - AI Adoption Steps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-xs: 14px;
+            --font-sm: 16px;
+            --font-base: 18px;
+            --font-lg: 24px;
+            --font-xl: 32px;
+            --font-2xl: 42px;
+            --font-3xl: 56px;
+            --red: #EA322A;
+            --red-light: #FFE8E8;
+            --dark: #1A1A1A;
+            --gray: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', system-ui, sans-serif;
+            background: #e8e8e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .visual {
+            width: 1080px;
+            height: 1080px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        /* Decorative blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .blob.top-right {
+            top: -80px;
+            right: -60px;
+            width: 220px;
+            height: 220px;
+            background: linear-gradient(135deg, #FFF0F0 0%, #FFE0E0 100%);
+        }
+
+        .blob.bottom-left {
+            bottom: -100px;
+            left: -80px;
+            width: 260px;
+            height: 260px;
+            background: linear-gradient(135deg, #FFE0E0 0%, #FFC4C4 100%);
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 48px 60px;
+            text-align: center;
+        }
+
+        /* Year badge */
+        .year-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: var(--dark);
+            border-radius: 100px;
+            margin-bottom: 36px;
+        }
+
+        .year-badge span {
+            font-family: 'Manrope', sans-serif;
+            font-size: var(--font-sm);
+            font-weight: 600;
+            color: white;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .year-badge .highlight {
+            color: var(--red);
+        }
+
+        /* Steps container */
+        .steps-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-number {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .step-number.primary {
+            color: var(--red);
+        }
+
+        .step-number.secondary {
+            color: #CCCCCC;
+        }
+
+        .step-label {
+            font-family: 'Manrope', sans-serif;
+            font-size: var(--font-base);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .step.primary .step-label {
+            color: var(--dark);
+        }
+
+        .step.secondary .step-label {
+            color: var(--gray);
+        }
+
+        .step-arrow {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 32px;
+            color: #E0E0E0;
+            margin-top: -20px;
+        }
+
+        /* Subquote */
+        .subquote {
+            font-family: 'Manrope', sans-serif;
+            font-size: var(--font-lg);
+            font-weight: 500;
+            color: var(--gray);
+            line-height: 1.5;
+            margin-bottom: 32px;
+        }
+
+        /* Divider */
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--red);
+            border-radius: 2px;
+            margin-bottom: 32px;
+        }
+
+        /* New Year message */
+        .new-year {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .new-year-label {
+            font-family: 'Manrope', sans-serif;
+            font-size: var(--font-sm);
+            font-weight: 600;
+            color: var(--gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .new-year-number {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: var(--font-3xl);
+            font-weight: 700;
+            color: var(--red);
+            letter-spacing: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="visual" id="visual">
+        <!-- Decorative blobs -->
+        <div class="blob top-right"></div>
+        <div class="blob bottom-left"></div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Year badge -->
+            <div class="year-badge">
+                <span>What <span class="highlight">2025</span> taught me</span>
+            </div>
+
+            <!-- Steps -->
+            <div class="steps-container">
+                <div class="step primary">
+                    <span class="step-number primary">1</span>
+                    <span class="step-label">Workflow</span>
+                </div>
+                <span class="step-arrow">→</span>
+                <div class="step secondary">
+                    <span class="step-number secondary">2</span>
+                    <span class="step-label">Skills</span>
+                </div>
+                <span class="step-arrow">→</span>
+                <div class="step secondary">
+                    <span class="step-number secondary">3</span>
+                    <span class="step-label">Guardrails</span>
+                </div>
+                <span class="step-arrow">→</span>
+                <div class="step secondary">
+                    <span class="step-number secondary">4</span>
+                    <span class="step-label">Tools</span>
+                </div>
+            </div>
+
+            <!-- Subquote -->
+            <div class="subquote">
+                The approach you choose determines your outcome.
+            </div>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- New Year -->
+            <div class="new-year">
+                <span class="new-year-label">Happy New Year</span>
+                <span class="new-year-number">2026</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
