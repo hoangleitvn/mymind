@@ -9,7 +9,7 @@ persona: founder
 audiences: [startup-founders, entrepreneurs, technical-founders]
 key_message: "Wanting more time is the symptom, not the problem. The real question is what you're spending time on that isn't essential."
 hook_type: story
-source_moment: 20251128-120000__question-time-management-balance.md
+source_moment: moments/2025-11/20251128-120000__question-time-management-balance.md
 target_hashtags: [FounderLife, WorkLifeBalance, StartupFounders, TimeManagement, FounderMindset]
 optimal_post_time: Saturday-Sunday, 9-11am
 scheduled_date: 2025-12-06 (Saturday)

@@ -85,7 +85,21 @@ AI just made it faster to accumulate code nobody owns mentally. The debt compoun
 
 The teams I see doing well treat AI output as a first draft, not a finished product. Review it like you would any PR from a junior dev.
   strategy: "Add Angle - reframe the issue as speed of debt accumulation, not AI itself"
-  replies: []
+  replies:
+    - id: 1736300000000
+      author: "Andrea Laforgia"
+      sentiment: "dismissive"
+      content: |
+As Hoang Le "It's accepting code you don't understand"
+
+Nonsense. Nobody adopts AI agents that way.
+      reactions: 0
+      our_response:
+        status: "posted"
+        content: |
+Different experiences then. I've seen teams ship AI-generated code with minimal review - it's common enough that "vibe coding" became a term for it.
+
+If that's not happening in your circles, that's genuinely good to hear.
 ```
 
 ## Notes
@@ -95,3 +109,9 @@ The teams I see doing well treat AI output as a first draft, not a finished prod
 - Aligns with my "vibe coding" concerns and foundation-first thinking
 - The 2008 housing crisis analogy is memorable but slightly hyperbolic
 - Joseph Muoio's comment about human-in-the-loop is the balanced take
+- Andrea Laforgia: dismissive pattern across multiple threads (also on Andrew Ng post), not worth further engagement
+  - His core argument: "blind adoption" is a straw man, nobody actually does it, bad engineering existed before AI
+  - What he gets right: bad practices did exist pre-AI, "blindly" is rhetorical shorthand, personal responsibility matters
+  - Where he's wrong: "nobody adopts blindly" is empirically false (vibe coding exists), scale changes the equation (10x faster accumulation), conflates "nobody should" with "nobody does"
+  - Rhetorical pattern: opens with "Nonsense", labels all criticism as straw man, links to his own posts as authority, makes sweeping claims
+  - Bottom line: arguing semantics (agency exists) while ignoring empirical reality (poor judgment happens at scale). Not worth engaging.

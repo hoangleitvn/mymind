@@ -24,17 +24,17 @@ And I keep seeing the same pattern.
 
 Teams ship fast. Then they slow down. Not because the engineers got lazy. Because the foundation was never there.
 
-Right now, I lead teams that maintain systems 20+ years old. No documentation. No standards. The original developers left years ago. When we ask stakeholders about business logic, they say "read the code."
+At INNOMIZE, we used to maintain systems 20+ years old. No documentation. No standards. The original developers left years ago. When we ask stakeholders about business logic, they say "read the code."
 
-So my teams do. Line by line. Sometimes decompiling binary files just to understand what's inside. Debugging at runtime because that's the only way to see how things actually work.
+So my teams, sometimes decompiling binary files just to understand what's inside. Debugging at runtime because that's the only way to see how things actually work. Previous teams deployed code to AWS without committing the code to source control, and it gone.
 
 This is what engineering looks like for most of us. Not the AI demos. Not the apps shipped in a weekend. The behind-the-scenes work of understanding systems well enough to keep them running and make them better.
 
-I've been thinking about why nobody talks about this part.
+I've been thinking about why nobody talks about this part. Everyone is talking about greenfields or one-prompt with good Frontend and spend more time on "vibe coding".
 
 ## Why I Started Writing This
 
-You'll see posts about vibe coding, AI-augmented development, shipping apps in hours. **Everyone can build now.** **Engineering teams are obsolete.**
+You'll see posts about vibe coding, AI-augmented development, shipping apps in hours. **Everyone can build now.**, **Engineering teams are obsolete.**
 
 I'm not saying AI isn't real. I use these tools every day. The productivity gains are real.
 
@@ -46,11 +46,11 @@ The teams that chase speed without foundation always hit a wall. The teams that 
 
 I'm living this right now.
 
-I have a team working on a project that I believed could become a foundation. Something we could bootstrap and reuse across many projects. I shared my ideas, the references, the vision. The team executed and built it.
+I have a team working on a project that I believed could become a foundation. Something we could bootstrap and reuse across many projects. I shared my ideas, the references, the vision, feature list. The team executed and built it.
 
 A few months later, I looked at the results. And I saw the gaps.
 
-Lack of architecture. Missing best practices. No standards. The code was messy. Not because the team was bad. Because I hadn't given them enough clarity upfront.
+Lack of architecture. Missing best practices. No standards. The code was messy. Not because the team was bad. Because I hadn't given them enough clarity upfront. Because we don't have a proper review process in place. We believe team understand our intent, our goals.
 
 So now I'm fixing it. Not by rewriting everything. By building the foundation that should have been there from the start. Writing documentation. Defining standards. Creating references that both AI agents and humans can understand.
 
@@ -62,15 +62,19 @@ The industry is obsessed with speed. I think we're missing something more import
 
 > The demo works. The demo always works. It's what comes after that separates software that lasts from software that collapses.
 
+> In fact, bugs often show up during Demo period for real projects.
+
 ## The Iceberg Problem
 
-I call it the iceberg problem.
+This is the iceberg problem.
 
 What you see is 20% above the water. The shiny demos. The fast shipping. The **everyone can build apps now** narrative. Vibe coding, agentic AI, context engineering, apps built in hours.
 
-What you don't see is the 80% below. The maintenance. The technical debt. Engineers connecting systems that were never meant to work together. Data inconsistencies that accumulated over years. Teams spending days just to understand what the previous developer was thinking.
+What you don't see is the 80% below. The maintenance. The technical debt. Engineers connecting systems that were never meant to work together. Data inconsistencies that accumulated over years. Teams spending days just to understand what the previous developer was thinking. Edge-case or abnormal behaviors from external system that could harm your system.
 
 That 80% is where my teams and I spend most of our time. And I think it's where the real lessons are.
+
+Build MVP could be 20%, yes, people said build 20% what matters. But we often ignore what are trade offs, risks when we do the rest of 80%?
 
 ## The Speed Trap
 
@@ -135,6 +139,8 @@ The 10% that humans still handle? That's the leverage zone. Architecture decisio
 It speeds up what you already have. Good foundation? AI makes you faster at building good software. Bad foundation? AI makes you faster at building bad software.
 
 This is the paradox nobody wants to talk about.
+
+> AI is typing. Engineering is thinking.
 
 ## What I Learned the Hard Way
 

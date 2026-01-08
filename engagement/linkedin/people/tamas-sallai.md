@@ -2,7 +2,7 @@
 type: linkedin-person
 created: '2026-01-07T01:40:00Z'
 last_updated: '2026-01-07T01:40:00Z'
-last_interaction: '2026-01-07'
+last_interaction: '2026-01-08'
 
 profile:
   name: "Tamás Sallai"
@@ -32,11 +32,17 @@ engagement_history:
     topic: "Serverless architecture reconsidered"
     status: "posted"
     file: "comments/2026/01/07/2026-01-07__tamas-sallai-serverless-doubts.md"
+  - date: '2026-01-08'
+    type: "reply"
+    post_url: "https://www.linkedin.com/posts/sallait_im-changing-my-mind-about-serverless-i-activity-7413693917641986048-8gUg"
+    topic: "Reply to his complexity concerns"
+    status: "posted"
+    file: "comments/2026/01/07/2026-01-07__tamas-sallai-serverless-doubts.md"
 
 tags: [aws, serverless, terraform, cloud-architect, hungary]
 
-next_action: "Read his article on serverless doubts, follow up if he replies"
-next_action_date: '2026-01-10'
+next_action: "Monitor for reply - conversation active"
+next_action_date: '2026-01-11'
 ---
 
 ## About

@@ -27,10 +27,10 @@ post:
 thread_topic: "Serverless architecture doubts"
 topic_tags: [serverless, aws, architecture, cloud]
 
-engagement_status: "posted"
-response_received: false
-follow_up_needed: true
-follow_up_date: '2026-01-10'
+engagement_status: "conversation"
+response_received: true
+follow_up_needed: false
+follow_up_date: null
 ---
 
 ## Original Post
@@ -51,12 +51,37 @@ I'm changing my mind about serverless I keep track of an "ideal architecture", o
   status: "posted"
   sentiment: "positive"
   content: |
-Same journey here. Serverless was my default for years. Still is for many workloads.
+    Same journey here. Serverless was my default for years. Still is for many workloads.
 
-What changed my thinking: the "Lambda is expensive at scale" argument got weaker. Lambda Managed Instances now has Savings Plans and no cold starts. The economics shifted.
+    What changed my thinking: the "Lambda is expensive at scale" argument got weaker. Lambda Managed Instances now has Savings Plans and no cold starts. The economics shifted.
 
-Curious what drove your reconsideration. Cost? Complexity? Something else?
+    Curious what drove your reconsideration. Cost? Complexity? Something else?
   strategy: "Add Context - share parallel experience while genuinely asking what changed for him"
+  replies:
+    - author: "Tamás Sallai"
+      date: "2026-01-08"
+      content: |
+        For me it's mostly complexity. A serverless architecture is hard to develop: things are asynchronous, it's near-impossible to test locally (Lambda runs on my laptop, but most of the things it calls won't), pairs best with DynamoDB that has no schema, has eventually consistent secondary indices (though with the managed instances it might be changing as that could potentially handle a long-running connection to a database), just to name a few things.
+
+        Then I compare it with a local development that starts in seconds, everything is in-process, the full request runs in a transaction, and I generally don't have to worry about how much data I request.
+
+        That's my reasoning so far.
+
+- id: 1736323200000
+  type: "reply"
+  status: "posted"
+  sentiment: "positive"
+  content: |
+    Valid points. The dev and testing friction applies to any cloud architecture though, not just serverless. You're validating cloud services, not just business logic.
+
+    It depends on what you're building. A monolith or modular app can run on a single Lambda. With managed instances, cold starts aren't the issue anymore.
+
+    Serverless is a compute model: offload infrastructure management, focus on app code. For most apps, CDN + API Gateway + Lambda + DynamoDB/RDS + S3 is enough.
+
+    When you add async (SQS, event-driven patterns), complexity grows. At that point, K8s might fit better since you're effectively building microservices anyway.
+
+    Simple first. Always.
+  strategy: "Add Context - acknowledge his points, share nuanced perspective on when serverless fits"
   replies: []
 ```
 

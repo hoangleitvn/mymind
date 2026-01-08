@@ -16,10 +16,8 @@ word_count: 260
 ---
 
 Vibe coding can build a prototype in 2 days.
-
 It can also break your app when real users show up.
-
-Here's what nobody tells you about shipping fast with AI:
+Here's what nobody tells you about shipping fast with AI.
 
 𝗪𝗵𝗲𝗻 𝘃𝗶𝗯𝗲 𝗰𝗼𝗱𝗶𝗻𝗴 𝘄𝗼𝗿𝗸𝘀:
 → Hackathons and demos

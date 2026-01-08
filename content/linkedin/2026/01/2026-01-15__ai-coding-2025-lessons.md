@@ -15,7 +15,7 @@ optimal_post_time: Wednesday, 8-10am
 word_count: 320
 ---
 
-What 4 months of building with AI actually taught me.
+After months of working with AI actually taught me.
 
 Not the hype. Not the theory. What I learned shipping real work.
 

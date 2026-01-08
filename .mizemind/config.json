@@ -1,5 +1,6 @@
 {
-  "default_workspace": "/Users/hoangle/Documents/MizeStudio/products/mizemind/development/mizemind-hl",
+  "version": "1.2.0-alpha",
+  "default_workspace": "~/Documents/mymind",
   "content_organization": {
     "content": { "grouping": "by-month", "date_prefix": true },
     "engagement": { "grouping": "by-day", "date_prefix": true },

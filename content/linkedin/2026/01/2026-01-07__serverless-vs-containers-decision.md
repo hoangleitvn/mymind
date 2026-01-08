@@ -1,7 +1,7 @@
 ---
 title: "Serverless vs Containers: The Decision Just Got Harder"
 type: linkedin-post
-status: scheduled
+status: published
 created: 2026-01-05
 scheduled_date: 2026-01-07
 topic: architecture-decisions

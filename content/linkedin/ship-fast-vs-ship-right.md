@@ -9,7 +9,7 @@ persona: founder
 audiences: [startup-founders, technical-founders, entrepreneurs]
 key_message: "Ship fast doesn't mean ship anything. It means ship the smallest thing that proves or disproves your assumption."
 hook_type: contrarian
-source_moment: 20251128-120500__insight-ship-fast-vs-ship-right-tension.md
+source_moment: moments/2025-11/20251128-120500__insight-ship-fast-vs-ship-right-tension.md
 target_hashtags: [StartupFounders, ShipFast, FounderMindset, ProductDevelopment, BuildInPublic]
 optimal_post_time: Saturday-Sunday, 9-11am
 word_count: 230

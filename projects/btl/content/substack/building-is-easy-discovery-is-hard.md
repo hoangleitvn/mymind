@@ -62,23 +62,21 @@ They go straight from idea to code. From problem to solution. From "wouldn't it 
 
 Then they wonder why their product looks like everything else on Product Hunt.
 
-
 ## The Same Tools Problem
 
 Here's an interesting pattern I've noticed.
 
 When everyone uses the same AI tools with the same prompts, you get the same outputs.
 
-Think about it. If you prompt Claude to "build a task management app with user authentication and team features," you'll get something that looks remarkably similar to what everyone else gets with the same prompt.
+Think about it. If you prompt Claude to "build a task management app with user authentication and team features" you'll get something that looks remarkably similar to what everyone else gets with the same prompt.
 
 The design patterns are the same. The user flows are the same. The feature set is the same.
 
 AI generates from patterns. When founders skip discovery and go straight to prompting, their products converge toward the average of everything AI has seen before.
 
-This is why vibe-coded products often feel generic. They're optimized for "what's possible to build" rather than "what users actually need."
+This is why vibe-coded products often feel generic. They're optimized for "what's possible to build" rather than "what users actually need"
 
 The differentiation isn't in the building. It's in the discovery work that happens before you touch code.
-
 
 ## What Discovery Actually Looks Like
 

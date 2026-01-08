@@ -59,6 +59,9 @@ Option 1 for clean, scannable impact. Option 2 if targeting founders actively se
 ### A/B Testing Suggestion
 Try Option 1 for 2 weeks, then Option 2. Compare profile views and connection requests.
 
+## Cover Image
+
+The current cover image at `library/profile/linkedin-banner-v22-larger-text-4x.png`
 
 ## About Section
 

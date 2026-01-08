@@ -9,7 +9,7 @@ persona: tech-leader
 audiences: [CTOs, technical-founders, engineering-managers, tech-leads]
 key_message: "When architecture is right, AI follows patterns without constant rework. That's the validation signal."
 hook_type: pattern-interrupt
-source_moment: 20251128-122000__insight-architect-mindset-plugin-architecture-validation.md
+source_moment: moments/2025-11/20251128-122000__insight-architect-mindset-plugin-architecture-validation.md
 target_hashtags: [SoftwareArchitecture, AIEngineering, TechLeadership, SystemDesign, FoundationFirst]
 optimal_post_time: Tuesday-Thursday, 8-10am
 word_count: 220
