@@ -6,6 +6,7 @@ last_updated: '2026-01-06T10:15:00Z'
 author:
   name: "Philipp Schmid"
   profile: "people/philipp-schmid.md"
+  linkedin_url: "https://de.linkedin.com/in/philipp-schmid-a6a2bb196"
 
 post:
   source: "external"

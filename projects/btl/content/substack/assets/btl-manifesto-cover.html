@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Manifesto Cover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* BTL Design System
+       Colors: Jade (#00a86b) + Charcoal (#1f2937)
+       Fonts: Poppins (headings), Inter (body)
+       Signature: 5px jade accent bar at top
+    */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .page-info {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .page-info h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 4px;
+    }
+
+    .page-info p {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    /* Substack Cover: 1456 x 1048 px */
+    .cover-container {
+      width: 1456px;
+      height: 1048px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    .cover {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      position: relative;
+      padding: 80px 100px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Signature BTL element: 5px jade accent bar */
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: #00a86b;
+    }
+
+    /* Subtle background pattern */
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(circle at 80% 20%, rgba(0, 168, 107, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(0, 168, 107, 0.05) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    /* BTL Badge */
+    .badge {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+
+    .badge-logo {
+      width: 56px;
+      height: 56px;
+      background: #00a86b;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .badge-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #f9fafb;
+      letter-spacing: 0.5px;
+    }
+
+    /* Main content */
+    .content {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 88px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 48px;
+    }
+
+    .title .highlight {
+      color: #00a86b;
+    }
+
+    /* Tagline with left accent bar */
+    .tagline-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .tagline-bar {
+      width: 5px;
+      height: 80px;
+      background: #00a86b;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 28px;
+      font-weight: 500;
+      color: #d1d5db;
+      line-height: 1.5;
+    }
+
+    .tagline strong {
+      color: #f9fafb;
+      font-weight: 600;
+    }
+
+    .tagline .jade {
+      color: #00a86b;
+      font-weight: 600;
+    }
+
+    /* Author section */
+    .author {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-top: 40px;
+      border-top: 1px solid #374151;
+    }
+
+    .author-avatar {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #065f46 0%, #1f2937 100%);
+      border-radius: 50%;
+      border: 3px solid #00a86b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .author-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .author-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #6b7280;
+    }
+
+    /* Design system compliance note */
+    .compliance {
+      margin-top: 32px;
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 12px;
+      max-width: 1456px;
+      width: 100%;
+    }
+
+    .compliance h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .compliance-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #374151;
+    }
+
+    .compliance-item .check {
+      color: #00a86b;
+      font-weight: bold;
+    }
+
+    .color-swatch {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-info">
+    <h1>BTL Manifesto Cover</h1>
+    <p>Substack dimensions: 1456 × 1048px</p>
+  </div>
+
+  <div class="cover-container">
+    <div class="cover">
+      <div class="accent-bar"></div>
+
+      <div class="badge">
+        <div class="badge-logo">BTL</div>
+        <div class="badge-text">Builds That Last</div>
+      </div>
+
+      <div class="content">
+        <h1 class="title">
+          Why Foundation<br>
+          Comes Before<br>
+          <span class="highlight">Speed</span>
+        </h1>
+
+        <div class="tagline-container">
+          <div class="tagline-bar"></div>
+          <p class="tagline">
+            <strong>Everyone ships fast.</strong><br>
+            Few <span class="jade">build to last</span>.
+          </p>
+        </div>
+      </div>
+
+      <div class="author">
+        <div class="author-avatar">HL</div>
+        <div class="author-info">
+          <span class="author-name">Hoang Le</span>
+          <span class="author-title">Engineering Leader & Founder</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="compliance">
+    <h2>BTL Design System Compliance</h2>
+    <div class="compliance-grid">
+      <div class="compliance-item">
+        <span class="check">✓</span>
+        <span class="color-swatch" style="background: #00a86b;"></span>
+        Jade Green #00a86b
+      </div>
+      <div class="compliance-item">
+        <span class="check">✓</span>
+        <span class="color-swatch" style="background: #1f2937;"></span>
+        Charcoal #1f2937
+      </div>
+      <div class="compliance-item">
+        <span class="check">✓</span>
+        Poppins 800 (title)
+      </div>
+      <div class="compliance-item">
+        <span class="check">✓</span>
+        Inter 500/600 (body)
+      </div>
+      <div class="compliance-item">
+        <span class="check">✓</span>
+        5px accent bar (top)
+      </div>
+      <div class="compliance-item">
+        <span class="check">✓</span>
+        5px quote bar (left)
+      </div>
+      <div class="compliance-item">
+        <span class="check">✓</span>
+        No forbidden colors
+      </div>
+      <div class="compliance-item">
+        <span class="check">✓</span>
+        Tagline base-300 contrast
+      </div>
+    </div>
+  </div>
+</body>
+</html>

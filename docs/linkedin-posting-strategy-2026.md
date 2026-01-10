@@ -4,7 +4,7 @@ type: guide
 status: active
 author: hoangle
 created: 2026-01-05
-updated: 2026-01-05
+updated: 2026-01-08
 ---
 
 # LinkedIn Posting Strategy 2026
@@ -41,7 +41,55 @@ Based on 2025 performance analysis across 86 published posts.
 ### Best Posting Days
 - **Wednesday**: 1,072 avg impressions
 - **Saturday**: 1,753 avg impressions
-- Posting time: 8-10am performs best
+
+### Posting Time (Updated Jan 2026)
+- **Post time**: 3-4pm Vietnam (EU morning: 8-9am GMT/CET)
+- **Engagement workflow**:
+  - 2:30-3pm: 30min pre-post engagement
+  - 3-4pm: Publish post
+  - 4-5pm: 30-60min post engagement (EU active)
+  - 8-10pm: Evening engagement (US East morning)
+
+**Why this change**: Primary audience is EU/US founders. 3-4pm Vietnam catches EU morning. Evening engagement catches US East morning.
+
+## Engagement Ladder
+
+### Comment → Connection → DM Sequence
+
+| Step | Action | Timing | Criteria |
+|------|--------|--------|----------|
+| 1 | **Comment** | Day 0 | Add value, not promo |
+| 2 | **Wait for reply** | Day 0-1 | Shows mutual interest |
+| 3 | **Send connection** | Day 1-2 | Only if they replied or liked your comment |
+| 4 | **Wait for accept** | Day 2-5 | Don't rush |
+| 5 | **DM (optional)** | Day 5-7 | Only if genuine reason, not pitch |
+
+### Connection Request Rules
+
+**Send connection when:**
+- They replied to your comment (warm signal)
+- They liked your comment
+- You've commented on 2-3 of their posts
+- Clear shared interest (same niche, similar problems)
+
+**Don't send connection when:**
+- No response to your comment
+- First-time interaction only
+- Influencer with 50K+ followers (unlikely to accept)
+
+### DM Rules
+
+**DM when:**
+- They accepted connection + genuine reason to reach out
+- Sharing something relevant to continue conversation
+- Offering value, not asking for anything
+
+**DM template:**
+```
+Hey [Name], enjoyed your post on [topic].
+[One specific thing that resonated].
+[Optional: share related resource or ask genuine question]
+```
 
 ## What Didn't Work
 
@@ -127,3 +175,4 @@ Key metrics to watch:
 | Date | Author | Change |
 |------|--------|--------|
 | 2026-01-05 | @hoangle | Initial strategy based on 2025 analysis |
+| 2026-01-08 | @hoangle | Updated posting time to 3-4pm Vietnam (EU morning), added engagement workflow |

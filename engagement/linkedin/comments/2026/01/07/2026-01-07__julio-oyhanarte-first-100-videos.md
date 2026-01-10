@@ -6,6 +6,7 @@ last_updated: '2026-01-07T04:03:00Z'
 author:
   name: "Julio Oyhanarte"
   profile: "people/julio-oyhanarte.md"
+  linkedin_url: "https://www.linkedin.com/in/oyhanarte"
 
 post:
   source: "external"

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      width: 1080px;
+      height: 1350px;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .title {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #888;
+      font-weight: 400;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-bottom: 40px;
+      padding: 30px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border-radius: 16px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: #ff6b6b;
+    }
+
+    .stat-number.green {
+      color: #51cf66;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #888;
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .arrow {
+      font-size: 36px;
+      color: #ff6b6b;
+      display: flex;
+      align-items: center;
+    }
+
+    .main-content {
+      display: flex;
+      gap: 30px;
+      flex: 1;
+    }
+
+    .column {
+      flex: 1;
+      padding: 30px;
+      border-radius: 16px;
+    }
+
+    .cant-buy {
+      background: linear-gradient(180deg, #1e3a5f 0%, #0d1b2a 100%);
+      border: 1px solid #2d4a6f;
+    }
+
+    .can-buy {
+      background: linear-gradient(180deg, #2d2d2d 0%, #1a1a1a 100%);
+      border: 1px solid #3d3d3d;
+    }
+
+    .column-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+    }
+
+    .cant-buy .column-title {
+      color: #4dabf7;
+    }
+
+    .can-buy .column-title {
+      color: #868e96;
+    }
+
+    .category {
+      margin-bottom: 20px;
+    }
+
+    .category-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #4dabf7;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .item {
+      font-size: 16px;
+      color: #e0e0e0;
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .item::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #4dabf7;
+    }
+
+    .can-buy .item::before {
+      color: #868e96;
+    }
+
+    .can-buy .item {
+      color: #a0a0a0;
+    }
+
+    .buy-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .buy-tag {
+      background: #3d3d3d;
+      color: #a0a0a0;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .tagline {
+      font-size: 24px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .tagline-sub {
+      font-size: 18px;
+      color: #888;
+    }
+
+    .highlight {
+      color: #4dabf7;
+    }
+
+    .highlight-red {
+      color: #ff6b6b;
+    }
+
+    .brand {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">The Real Build vs Buy Debate</div>
+    <div class="subtitle">What AI changes about developer value</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-number">200K</div>
+      <div class="stat-label">StackOverflow Questions<br>Monthly (2014)</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stat">
+      <div class="stat-number">4K</div>
+      <div class="stat-label">StackOverflow Questions<br>Monthly (2025)</div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="column cant-buy">
+      <div class="column-title">What You Can't Buy</div>
+
+      <div class="category">
+        <div class="category-name">Judgment</div>
+        <div class="item">Debugging intuition</div>
+        <div class="item">Knowing when AI is wrong</div>
+        <div class="item">Which answers to ignore</div>
+      </div>
+
+      <div class="category">
+        <div class="category-name">Experience</div>
+        <div class="item">Pattern recognition from failures</div>
+        <div class="item">What breaks at scale</div>
+        <div class="item">Mental models from shipping</div>
+      </div>
+
+      <div class="category">
+        <div class="category-name">Taste</div>
+        <div class="item">Knowing what "good" looks like</div>
+        <div class="item">Architectural trade-off sense</div>
+        <div class="item">When to stop optimizing</div>
+      </div>
+
+      <div class="category">
+        <div class="category-name">Context</div>
+        <div class="item">Reading others' code with intent</div>
+        <div class="item">How pieces connect</div>
+        <div class="item">What questions matter</div>
+      </div>
+    </div>
+
+    <div class="column can-buy">
+      <div class="column-title">What You Can Buy</div>
+
+      <div class="buy-items">
+        <div class="buy-tag">AI Tools</div>
+        <div class="buy-tag">Courses</div>
+        <div class="buy-tag">Frameworks</div>
+        <div class="buy-tag">Certifications</div>
+        <div class="buy-tag">Copilots</div>
+        <div class="buy-tag">Subscriptions</div>
+      </div>
+
+      <div style="margin-top: 60px; padding: 30px; background: rgba(255,107,107,0.1); border-radius: 12px; border: 1px solid rgba(255,107,107,0.3);">
+        <div style="font-size: 18px; color: #ff6b6b; font-weight: 600; margin-bottom: 12px;">The Uncomfortable Truth</div>
+        <div style="font-size: 15px; color: #ccc; line-height: 1.6;">
+          We trained AI on human knowledge.<br><br>
+          Now humans are sharing less.<br><br>
+          If that continues, <span class="highlight-red">models plateau</span>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="tagline">One list keeps <span class="highlight-red">shrinking</span>. One keeps <span class="highlight">growing</span>.</div>
+    <div class="tagline-sub">The developers who matter built their own.</div>
+    <div class="brand">@hoangle • INNOMIZE</div>
+  </div>
+</body>
+</html>

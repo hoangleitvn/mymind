@@ -1,7 +1,7 @@
 ---
 type: linkedin-person
 created: '2025-12-08'
-last_updated: '2025-12-08'
+last_updated: '2026-01-09'
 
 profile:
   name: "Matt Watson"
@@ -17,7 +17,7 @@ relationship:
   connection_status: "not_connected"
   priority: "medium"
   first_contact: '2025-12-08'
-  last_interaction: '2025-12-08'
+  last_interaction: '2026-01-09'
 
 themes:
   - software-development
@@ -25,6 +25,10 @@ themes:
   - startup
 
 engagements:
+  - date: '2026-01-09'
+    type: "comment"
+    file: "comments/2026/01/2026-01-09__matt-watson-tailwind-gtm.md"
+    outcome: "posted"
   - date: '2025-12-08'
     type: "comment"
     file: "comments/2025-12-08-matt-watson-claude-openai-irony.md"

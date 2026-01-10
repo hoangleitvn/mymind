@@ -2,9 +2,9 @@
 title: "Builds That Last: Why Foundation Comes Before Speed"
 subtitle: "A manifesto for modern engineering in the AI era"
 type: substack-article
-status: ready
+status: final
 created: 2025-12-10
-updated: 2025-12-20
+updated: 2026-01-09
 publication: Builds That Last
 section: foundation
 article_type: manifesto/founding-article
@@ -26,11 +26,11 @@ Teams ship fast. Then they slow down. Not because the engineers got lazy. Becaus
 
 At INNOMIZE, we used to maintain systems 20+ years old. No documentation. No standards. The original developers left years ago. When we ask stakeholders about business logic, they say "read the code."
 
-So my teams, sometimes decompiling binary files just to understand what's inside. Debugging at runtime because that's the only way to see how things actually work. Previous teams deployed code to AWS without committing the code to source control, and it gone.
+So my teams, sometimes decompiling binary files just to understand what's inside. Debugging at runtime because that's the only way to see how things actually work. Previous teams deployed code to AWS without committing the code to source control, and it was gone.
 
 This is what engineering looks like for most of us. Not the AI demos. Not the apps shipped in a weekend. The behind-the-scenes work of understanding systems well enough to keep them running and make them better.
 
-I've been thinking about why nobody talks about this part. Everyone is talking about greenfields or one-prompt with good Frontend and spend more time on "vibe coding".
+I've been thinking about why nobody talks about this part. Everyone is talking about greenfield projects, one-prompt demos, and "vibe coding."
 
 ## Why I Started Writing This
 
@@ -62,8 +62,6 @@ The industry is obsessed with speed. I think we're missing something more import
 
 > The demo works. The demo always works. It's what comes after that separates software that lasts from software that collapses.
 
-> In fact, bugs often show up during Demo period for real projects.
-
 ## The Iceberg Problem
 
 This is the iceberg problem.
@@ -74,7 +72,7 @@ What you don't see is the 80% below. The maintenance. The technical debt. Engine
 
 That 80% is where my teams and I spend most of our time. And I think it's where the real lessons are.
 
-Build MVP could be 20%, yes, people said build 20% what matters. But we often ignore what are trade offs, risks when we do the rest of 80%?
+People say "build the 20% that matters." But what about the trade-offs and risks that come with the other 80%? Nobody talks about that part.
 
 ## The Speed Trap
 

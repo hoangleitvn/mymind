@@ -54,3 +54,12 @@ For Search/Research Tasks
 - Current date is provided in the `<env>` block at conversation start
 - Use this year (not training cutoff year) when searching for recent information
 - When referencing "latest", "recent", or "current", base it on the injected date
+
+## Critical Rules
+- **Use `/commit` for git commits** - Always use the `/commit` command or `git-manager` agent instead of manual `git commit` commands. This ensures consistent commit message formatting.
+- **NEVER commit or push without explicit user request** - Do not run `git commit`, `git push`, or `/commit` unless the user explicitly asks. Wait for user to say "commit", "push", or similar before touching git.
+- NEVER run any export visuals (i.e. svg to png, html to png). Wait for user to say "export", or similar before exporting.
+
+### Writing Rules
+
+**Central Reference**: @docs/document-management.md — All document formatting, frontmatter, and creation standards.

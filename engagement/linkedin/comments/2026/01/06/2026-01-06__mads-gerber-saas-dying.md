@@ -6,6 +6,7 @@ last_updated: '2026-01-06'
 author:
   name: "Mads Gerber"
   profile: "people/mads-gerber.md"
+  linkedin_url: "https://www.linkedin.com/in/madsgerber/"
 
 post:
   source: "external"

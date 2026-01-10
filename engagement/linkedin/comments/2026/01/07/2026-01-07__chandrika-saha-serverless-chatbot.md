@@ -6,6 +6,7 @@ last_updated: '2026-01-07T04:45:00Z'
 author:
   name: "Chandrika S."
   profile: "people/chandrika-saha.md"
+  linkedin_url: "https://ca.linkedin.com/in/chandrika-saha-cse"
 
 post:
   source: "external"

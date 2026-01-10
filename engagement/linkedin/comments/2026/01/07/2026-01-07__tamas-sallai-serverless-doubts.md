@@ -6,6 +6,7 @@ last_updated: '2026-01-07T01:40:00Z'
 author:
   name: "Tamás Sallai"
   profile: "people/tamas-sallai.md"
+  linkedin_url: "https://hu.linkedin.com/in/sallait"
 
 post:
   source: "external"

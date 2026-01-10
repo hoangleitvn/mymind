@@ -1,7 +1,7 @@
 ---
 type: linkedin-engagement
 created: '2026-01-06T11:00:00Z'
-last_updated: '2026-01-06T11:00:00Z'
+last_updated: '2026-01-08T02:30:00Z'
 
 author:
   name: "Naveed Khan"
@@ -26,8 +26,8 @@ post:
 thread_topic: "Timeless value of experience and judgment in tech"
 topic_tags: [experience, judgment, career, ai-era, leadership]
 
-engagement_status: "posted"
-response_received: false
+engagement_status: "conversation"
+response_received: true
 follow_up_needed: false
 follow_up_date: null
 ---
@@ -64,7 +64,21 @@ Knowing when to ship vs when to refine. When to build vs when to buy. When the A
 
 20 years of context can't be prompted.
   strategy: "amplify - Extends his judgment point to AI-assisted development reality"
-  replies: []
+  replies:
+    - id: 1736307000000
+      author: "Naveed Khan"
+      sentiment: "positive"
+      content: |
+Well said. AI can give you a technically correct answer that is strategically disastrous. The ability to spot a confidently wrong suggestion is the difference between a junior output and a senior result.
+      reactions: null
+    - id: 1736307600000
+      type: "our_reply"
+      status: "posted"
+      sentiment: "positive"
+      content: |
+"Technically correct but strategically disastrous" - that's the phrase. Seen it happen with architecture decisions where AI suggests patterns that work in isolation but break at scale.
+
+The junior-to-senior gap is exactly that: knowing which correct answers to ignore.
 ```
 
 ## Notes
@@ -72,3 +86,5 @@ Knowing when to ship vs when to refine. When to build vs when to buy. When the A
 - Strong resonance with our "judgment over tools" perspective
 - Extended his point to AI era without contradicting
 - "20 years of context can't be prompted" ties back to his experience thesis
+- Naveed replied with "technically correct but strategically disastrous" framing - excellent phrase
+- Conversation developing well, good alignment on judgment theme

@@ -6,6 +6,7 @@ last_updated: '2026-01-07T03:37:00Z'
 author:
   name: "Peter F."
   profile: "people/peter-fraedrich.md"
+  linkedin_url: "https://www.linkedin.com/in/peterfraedrich"
 
 post:
   source: "external"

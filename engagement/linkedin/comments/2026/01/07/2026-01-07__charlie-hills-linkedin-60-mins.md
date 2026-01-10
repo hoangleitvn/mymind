@@ -6,6 +6,7 @@ last_updated: '2026-01-07T04:35:00Z'
 author:
   name: "Charlie Hills"
   profile: "people/charlie-hills.md"
+  linkedin_url: "https://www.linkedin.com/in/charlie-hills"
 
 post:
   source: "external"

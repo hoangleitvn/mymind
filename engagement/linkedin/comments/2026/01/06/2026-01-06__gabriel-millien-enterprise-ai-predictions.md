@@ -6,6 +6,7 @@ last_updated: '2026-01-06T14:05:00Z'
 author:
   name: "Gabriel Millien"
   profile: "people/gabriel-millien.md"
+  linkedin_url: "https://www.linkedin.com/in/gabriel-millien"
 
 post:
   source: "external"

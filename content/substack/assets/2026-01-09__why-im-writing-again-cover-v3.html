@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 1456px;
+      height: 1048px;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Right accent panel */
+    .accent-panel {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 320px;
+      height: 100%;
+      background: linear-gradient(180deg, #065f46 0%, #134E4A 100%);
+    }
+
+    /* BTL watermark on right panel */
+    .watermark {
+      position: absolute;
+      right: 160px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      font-family: 'Poppins', sans-serif;
+      font-size: 140px;
+      font-weight: 900;
+      color: rgba(0, 168, 107, 0.15);
+      letter-spacing: -4px;
+    }
+
+    /* Pen icon - abstract */
+    .pen-container {
+      position: absolute;
+      right: 100px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .pen {
+      width: 80px;
+      height: 280px;
+      position: relative;
+    }
+
+    /* Pen body */
+    .pen-body {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 200px;
+      background: linear-gradient(180deg, #f9fafb 0%, #d1d5db 100%);
+      border-radius: 4px 4px 0 0;
+    }
+
+    /* Pen grip */
+    .pen-grip {
+      position: absolute;
+      top: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 40px;
+      background: linear-gradient(180deg, #374151 0%, #1f2937 100%);
+      border-radius: 2px;
+    }
+
+    /* Pen tip */
+    .pen-tip {
+      position: absolute;
+      top: 240px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-top: 40px solid #00a86b;
+    }
+
+    /* Writing lines emanating from pen */
+    .writing-lines {
+      position: absolute;
+      right: 220px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      opacity: 0.3;
+    }
+
+    .writing-line {
+      height: 3px;
+      background: #00a86b;
+      border-radius: 2px;
+    }
+
+    .writing-line:nth-child(1) { width: 120px; }
+    .writing-line:nth-child(2) { width: 180px; margin-left: -30px; }
+    .writing-line:nth-child(3) { width: 140px; margin-left: -10px; }
+    .writing-line:nth-child(4) { width: 160px; margin-left: -40px; }
+    .writing-line:nth-child(5) { width: 100px; }
+
+    /* BTL badge */
+    .badge {
+      position: absolute;
+      top: 80px;
+      left: 100px;
+      padding: 12px 28px;
+      background: rgba(6, 95, 70, 0.5);
+      border: 1.5px solid #00a86b;
+      border-radius: 24px;
+    }
+
+    .badge-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #00a86b;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Main content */
+    .content {
+      position: relative;
+      z-index: 10;
+      padding-left: 100px;
+      max-width: 900px;
+    }
+
+    .title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 88px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin-bottom: 50px;
+    }
+
+    .title em {
+      font-style: italic;
+      color: #00a86b;
+    }
+
+    /* Quote section */
+    .quote-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .quote-bar {
+      width: 5px;
+      height: 70px;
+      background: #00a86b;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .quote-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: #9ca3af;
+      line-height: 1.5;
+    }
+
+    .quote-text strong {
+      color: #f9fafb;
+      font-weight: 600;
+    }
+
+    /* Author line */
+    .author {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: #6b7280;
+      letter-spacing: 1px;
+    }
+
+    /* Top accent bar */
+    .top-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(100% - 320px);
+      height: 5px;
+      background: #00a86b;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-accent"></div>
+  <div class="accent-panel"></div>
+  <div class="watermark">BTL</div>
+
+  <!-- Pen illustration -->
+  <div class="pen-container">
+    <div class="pen">
+      <div class="pen-body"></div>
+      <div class="pen-grip"></div>
+      <div class="pen-tip"></div>
+    </div>
+  </div>
+
+  <!-- Writing lines -->
+  <div class="writing-lines">
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+    <div class="writing-line"></div>
+  </div>
+
+  <!-- Badge -->
+  <div class="badge">
+    <span class="badge-text">Builds That Last</span>
+  </div>
+
+  <!-- Main content -->
+  <div class="content">
+    <h1 class="title">Why I'm<br/><em>Writing Again</em></h1>
+
+    <div class="quote-section">
+      <div class="quote-bar"></div>
+      <p class="quote-text">
+        After 15 years of building,<br/>
+        <strong>the lessons in my head aren't useful</strong><br/>
+        until I write them down.
+      </p>
+    </div>
+
+    <p class="author">HOANG LE</p>
+  </div>
+</body>
+</html>

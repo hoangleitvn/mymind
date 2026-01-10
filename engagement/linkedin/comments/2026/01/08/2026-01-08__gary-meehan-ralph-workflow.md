@@ -6,6 +6,7 @@ last_updated: '2026-01-08T02:10:00Z'
 author:
   name: "Gary Meehan"
   profile: "people/gary-meehan.md"
+  linkedin_url: "https://ie.linkedin.com/in/gary-meehan"
 
 post:
   source: "external"

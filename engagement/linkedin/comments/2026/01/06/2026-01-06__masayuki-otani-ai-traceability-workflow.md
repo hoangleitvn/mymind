@@ -6,6 +6,7 @@ last_updated: '2026-01-06T22:24:00Z'
 author:
   name: "Dr Masayuki Otani"
   profile: "people/masayuki-otani.md"
+  linkedin_url: "https://linkedin.com/in/dr-masayuki-otani-52170a140"
 
 post:
   source: "external"

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 1456px;
+      height: 1048px;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle grid pattern */
+    .grid-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Floating elements - abstract shapes representing thoughts/ideas */
+    .floating {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+    }
+
+    .floating-1 {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, #e94560, #ff6b6b);
+      top: -80px;
+      right: 100px;
+    }
+
+    .floating-2 {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #4ecdc4, #44a08d);
+      bottom: 80px;
+      left: -60px;
+    }
+
+    .floating-3 {
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, #f39c12, #e74c3c);
+      top: 200px;
+      left: 150px;
+      opacity: 0.1;
+    }
+
+    .floating-4 {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #9b59b6, #3498db);
+      bottom: 200px;
+      right: 200px;
+      opacity: 0.12;
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 60px;
+      max-width: 1100px;
+    }
+
+    .pre-title {
+      font-family: 'Arial', sans-serif;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #e94560;
+      margin-bottom: 30px;
+    }
+
+    .title {
+      font-size: 92px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 50px;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+
+    .subtitle {
+      font-family: 'Arial', sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .divider {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #e94560, #ff6b6b);
+      margin: 40px auto;
+      border-radius: 2px;
+    }
+
+    .author {
+      font-family: 'Arial', sans-serif;
+      font-size: 20px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Pen/writing icon made with CSS */
+    .writing-icon {
+      position: absolute;
+      bottom: 60px;
+      right: 80px;
+      opacity: 0.08;
+      font-size: 200px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-pattern"></div>
+  <div class="floating floating-1"></div>
+  <div class="floating floating-2"></div>
+  <div class="floating floating-3"></div>
+  <div class="floating floating-4"></div>
+
+  <div class="content">
+    <div class="pre-title">A Personal Reflection</div>
+    <h1 class="title">Why I'm Writing Again</h1>
+    <div class="subtitle">After 15 years of building, I realized the lessons in my head aren't useful until I write them down.</div>
+    <div class="divider"></div>
+    <div class="author">Hoang Le</div>
+  </div>
+
+  <div class="writing-icon">&#9998;</div>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 100%);
+      color: #ffffff;
+      width: 1080px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px;
+    }
+
+    .well-container {
+      position: relative;
+      width: 400px;
+      height: 500px;
+      margin-bottom: 60px;
+    }
+
+    /* Well structure */
+    .well-roof {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 280px;
+      height: 60px;
+      background: linear-gradient(180deg, #4a4a5a 0%, #3a3a4a 100%);
+      clip-path: polygon(10% 100%, 50% 0%, 90% 100%);
+    }
+
+    .well-post-left, .well-post-right {
+      position: absolute;
+      top: 50px;
+      width: 20px;
+      height: 200px;
+      background: linear-gradient(90deg, #5a5a6a 0%, #4a4a5a 100%);
+      border-radius: 4px;
+    }
+
+    .well-post-left {
+      left: 80px;
+    }
+
+    .well-post-right {
+      right: 80px;
+    }
+
+    .well-body {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 280px;
+      background: linear-gradient(180deg, #3d3d4d 0%, #2d2d3d 50%, #1d1d2d 100%);
+      border-radius: 20px 20px 40px 40px;
+      overflow: hidden;
+      border: 3px solid #4a4a5a;
+    }
+
+    /* Water that's draining */
+    .water {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 25%;
+      background: linear-gradient(180deg, rgba(77, 171, 247, 0.6) 0%, rgba(34, 102, 153, 0.8) 100%);
+      animation: drain 3s ease-in-out infinite alternate;
+    }
+
+    .water::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 10px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255,255,255,0.3) 25%,
+        rgba(255,255,255,0.3) 75%,
+        transparent 100%
+      );
+    }
+
+    /* Water level marks */
+    .water-marks {
+      position: absolute;
+      top: 20px;
+      right: 15px;
+      height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mark {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: #666;
+    }
+
+    .mark-line {
+      width: 20px;
+      height: 2px;
+      background: #444;
+    }
+
+    .mark.old {
+      color: #4dabf7;
+      opacity: 0.5;
+    }
+
+    .mark.old .mark-line {
+      background: #4dabf7;
+      opacity: 0.5;
+    }
+
+    /* Drip animation */
+    .drip {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 12px;
+      background: #4dabf7;
+      border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+      opacity: 0.6;
+      animation: drip 2s ease-in infinite;
+    }
+
+    @keyframes drip {
+      0% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
+      100% { transform: translateX(-50%) translateY(60px); opacity: 0; }
+    }
+
+    @keyframes drain {
+      0% { height: 28%; }
+      100% { height: 22%; }
+    }
+
+    /* Text content */
+    .main-text {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .headline {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 0%, #b0b0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtext {
+      font-size: 24px;
+      color: #888;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .highlight {
+      color: #4dabf7;
+    }
+
+    .stats {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+      padding: 30px 50px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    .stat-value.old {
+      color: #4dabf7;
+    }
+
+    .stat-value.new {
+      color: #ff6b6b;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #666;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .arrow {
+      font-size: 28px;
+      color: #ff6b6b;
+    }
+
+    .brand {
+      position: absolute;
+      bottom: 40px;
+      font-size: 14px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="well-container">
+    <div class="well-roof"></div>
+    <div class="well-post-left"></div>
+    <div class="well-post-right"></div>
+    <div class="well-body">
+      <div class="water-marks">
+        <div class="mark old"><div class="mark-line"></div>2014</div>
+        <div class="mark old"><div class="mark-line"></div></div>
+        <div class="mark old"><div class="mark-line"></div></div>
+        <div class="mark"><div class="mark-line"></div></div>
+        <div class="mark"><div class="mark-line"></div>2025</div>
+      </div>
+      <div class="water"></div>
+    </div>
+    <div class="drip"></div>
+  </div>
+
+  <div class="main-text">
+    <div class="headline">The Knowledge Well<br>Is Running Dry</div>
+    <div class="subtext">We trained AI on human knowledge.<br>Now humans stopped <span class="highlight">sharing</span>.</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value old">200K</div>
+      <div class="stat-label">Questions/mo<br>2014</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stat">
+      <div class="stat-value new">4K</div>
+      <div class="stat-label">Questions/mo<br>2025</div>
+    </div>
+  </div>
+
+  <div class="brand">@hoangle</div>
+</body>
+</html>

@@ -6,6 +6,7 @@ last_updated: '2026-01-06T12:30:00Z'
 author:
   name: "Kristiyan Nikolov"
   profile: "people/kristiyan-nikolov.md"
+  linkedin_url: "https://linkedin.com/in/obla4niq-princ"
 
 post:
   source: "external"

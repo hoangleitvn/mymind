@@ -6,6 +6,7 @@ last_updated: '2026-01-06T10:30:00Z'
 author:
   name: "Yasser Bashir"
   profile: "people/yasser-bashir.md"
+  linkedin_url: "https://www.linkedin.com/in/yasserbashir/"
 
 post:
   source: "external"

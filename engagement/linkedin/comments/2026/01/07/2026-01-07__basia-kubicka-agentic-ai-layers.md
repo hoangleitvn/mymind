@@ -6,6 +6,7 @@ last_updated: '2026-01-07T03:30:00Z'
 author:
   name: "Basia Kubicka"
   profile: "people/basia-kubicka.md"
+  linkedin_url: "https://www.linkedin.com/in/basiakubicka"
 
 post:
   source: "external"

@@ -6,6 +6,7 @@ last_updated: '2026-01-06T15:37:00Z'
 author:
   name: "Kristina Chodorow"
   profile: "people/kristina-chodorow.md"
+  linkedin_url: "https://www.linkedin.com/in/kchodorow"
 
 post:
   source: "external"

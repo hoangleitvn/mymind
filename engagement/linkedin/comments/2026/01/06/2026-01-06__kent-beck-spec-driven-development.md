@@ -6,6 +6,7 @@ last_updated: '2026-01-06T10:15:00+07:00'
 author:
   name: "Kent Beck"
   profile: "people/kent-beck.md"
+  linkedin_url: "https://www.linkedin.com/in/kentbeck"
 
 post:
   source: "external"

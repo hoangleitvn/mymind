@@ -6,6 +6,7 @@ last_updated: '2026-01-06T14:20:00Z'
 author:
   name: "James W. Niu"
   profile: "people/james-niu.md"
+  linkedin_url: "https://www.linkedin.com/in/jameswnarch"
 
 post:
   source: "external"

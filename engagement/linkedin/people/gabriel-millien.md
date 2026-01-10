@@ -1,16 +1,16 @@
 ---
 type: linkedin-person
 created: '2026-01-06T14:05:00Z'
-last_updated: '2026-01-06T14:05:00Z'
-last_interaction: '2026-01-06'
+last_updated: '2026-01-09T08:20:00Z'
+last_interaction: '2026-01-09'
 
 profile:
   name: "Gabriel Millien"
   linkedin_url: "https://www.linkedin.com/in/gabriel-millien"
   headline: null
   location: null
-  followers: 59157
-  posts: 645
+  followers: 60050
+  posts: 652
   articles: null
 
 relationship:
@@ -27,6 +27,12 @@ themes:
   - organizational-change
 
 engagement_history:
+  - date: '2026-01-09'
+    type: "comment"
+    post_url: "https://www.linkedin.com/posts/gabriel-millien_you-cant-outsmart-bad-data-not-with-agents-activity-7415127664237375489-B3or"
+    topic: "Data quality foundations for AI"
+    status: "posted"
+    file: "comments/2026/01/09/2026-01-09__gabriel-millien-bad-data-ai.md"
   - date: '2026-01-06'
     type: "comment"
     post_url: "https://www.linkedin.com/posts/gabriel-millien_my-2026-predictions-on-enterprise-ai-transformation-ugcPost-7414194697566515200-i2Ox"
@@ -36,8 +42,8 @@ engagement_history:
 
 tags: [enterprise-ai, transformation, leadership, practitioner, predictions]
 
-next_action: "Post comment, monitor for response"
-next_action_date: '2026-01-06'
+next_action: null
+next_action_date: null
 ---
 
 ## About
@@ -55,9 +61,9 @@ Posts practical predictions and observations from working inside enterprise AI p
 
 ## Engagement Notes
 
-- First engagement on 2026 predictions post
-- Highlighted point #4 (agents expose broken workflows) with hands-on experience
-- Connected to point #5 (clean definitions)
+- First engagement on 2026 predictions post (draft)
+- Second engagement on data quality foundations post
+- Consistent theme: boring foundational work matters more than flashy AI
 
 ## Relationship Goals
 

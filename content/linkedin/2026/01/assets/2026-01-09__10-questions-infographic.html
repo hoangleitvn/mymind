@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 Questions Before Building Anything</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #111827;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 1080px;
+      height: 1080px;
+      background: #111827;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* BTL Signature: Top accent bar */
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #00a86b 0%, #065f46 100%);
+    }
+
+    /* Subtle grid pattern */
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(0, 168, 107, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 168, 107, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* BTL Badge */
+    .btl-badge {
+      display: inline-block;
+      padding: 6px 18px;
+      background: rgba(0, 168, 107, 0.1);
+      border: 1px solid rgba(0, 168, 107, 0.25);
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #00a86b;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 54px;
+      font-weight: 800;
+      color: #f9fafb;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+    }
+
+    .header .subtitle {
+      font-size: 21px;
+      color: #9ca3af;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .phases {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .phase {
+      background: #1f2937;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #374151;
+      position: relative;
+    }
+
+    /* Green accent on left edge of each phase card */
+    .phase::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 16px;
+      bottom: 16px;
+      width: 3px;
+      background: #00a86b;
+      border-radius: 2px;
+    }
+
+    .phase.full-width {
+      grid-column: span 2;
+    }
+
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-left: 12px;
+    }
+
+    .phase-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      background: linear-gradient(135deg, #00a86b 0%, #065f46 100%);
+    }
+
+    .phase-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .questions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-left: 12px;
+    }
+
+    .question {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .question-number {
+      width: 26px;
+      height: 26px;
+      min-width: 26px;
+      border-radius: 50%;
+      background: rgba(0, 168, 107, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #00a86b;
+    }
+
+    .question-content {
+      flex: 1;
+    }
+
+    .question-text {
+      font-size: 18px;
+      font-weight: 600;
+      color: #f9fafb;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .question-insight {
+      font-size: 16px;
+      color: #6b7280;
+      line-height: 1.4;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .question-insight::before {
+      content: '→';
+      color: #00a86b;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #374151;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .author-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .author-title {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .cta {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #00a86b;
+    }
+
+    .tagline {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #00a86b;
+      margin-top: 4px;
+    }
+
+    /* Decorative jade glow */
+    .decoration {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 168, 107, 0.08) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .decoration-1 {
+      top: -100px;
+      right: -100px;
+    }
+
+    .decoration-2 {
+      bottom: -100px;
+      left: -100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="accent-bar"></div>
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+
+    <div class="header">
+      <h1>10 Questions Before<br>Building Anything</h1>
+      <p class="subtitle">Most problems aren't technical. They're clarity problems.</p>
+    </div>
+
+    <div class="phases">
+      <!-- Phase 1: Should I Build At All? -->
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-title">Should I Build At All?</div>
+        </div>
+        <div class="questions">
+          <div class="question">
+            <div class="question-number">1</div>
+            <div class="question-content">
+              <div class="question-text">What problem am I solving?</div>
+              <div class="question-insight">Solutions without problems are expensive</div>
+            </div>
+          </div>
+          <div class="question">
+            <div class="question-number">2</div>
+            <div class="question-content">
+              <div class="question-text">Who is this for?</div>
+              <div class="question-insight">"Everyone" means no one</div>
+            </div>
+          </div>
+          <div class="question">
+            <div class="question-number">3</div>
+            <div class="question-content">
+              <div class="question-text">What if I don't build this?</div>
+              <div class="question-insight">Sometimes nothing bad happens</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2: Should I Build From Scratch? -->
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-title">Build From Scratch?</div>
+        </div>
+        <div class="questions">
+          <div class="question">
+            <div class="question-number">4</div>
+            <div class="question-content">
+              <div class="question-text">What already exists?</div>
+              <div class="question-insight">Best code is code you don't write</div>
+            </div>
+          </div>
+          <div class="question">
+            <div class="question-number">5</div>
+            <div class="question-content">
+              <div class="question-text">Why did the reference choose this?</div>
+              <div class="question-insight">Copying outputs without inputs fails</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3: Right Scope -->
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-title">What's The Right Scope?</div>
+        </div>
+        <div class="questions">
+          <div class="question">
+            <div class="question-number">6</div>
+            <div class="question-content">
+              <div class="question-text">What's the simplest version?</div>
+              <div class="question-insight">Start minimum, expand with evidence</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 4: Validate -->
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-title">How Do I Validate?</div>
+        </div>
+        <div class="questions">
+          <div class="question">
+            <div class="question-number">7</div>
+            <div class="question-content">
+              <div class="question-text">How will I know it works?</div>
+              <div class="question-insight">No criteria = no improvement</div>
+            </div>
+          </div>
+          <div class="question">
+            <div class="question-number">8</div>
+            <div class="question-content">
+              <div class="question-text">What can break?</div>
+              <div class="question-insight">Think failure before it finds you</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 5: After Shipping -->
+      <div class="phase full-width">
+        <div class="phase-header">
+          <div class="phase-title">What Happens After I Ship?</div>
+        </div>
+        <div class="questions" style="flex-direction: row; gap: 48px;">
+          <div class="question" style="flex: 1;">
+            <div class="question-number">9</div>
+            <div class="question-content">
+              <div class="question-text">Who will maintain this?</div>
+              <div class="question-insight">Building is easy. Owning is hard.</div>
+            </div>
+          </div>
+          <div class="question" style="flex: 1;">
+            <div class="question-number">10</div>
+            <div class="question-content">
+              <div class="question-text">How will others understand this?</div>
+              <div class="question-insight">You won't be here forever.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-left">
+        <div class="avatar">
+          <img src="/Users/hoangle/Documents/mymind/foundation/brands/btl/assets/hoangle-profile-v2.jpeg" alt="Hoang Le">
+        </div>
+        <div class="author-info">
+          <div class="author-name">Hoang Le</div>
+          <div class="author-title">@hoangleitvn1</div>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="cta">First 5 → Should you build?</div>
+        <div class="tagline">Last 5 → Will it last?</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

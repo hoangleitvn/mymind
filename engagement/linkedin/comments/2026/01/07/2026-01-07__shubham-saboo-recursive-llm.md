@@ -6,6 +6,7 @@ last_updated: '2026-01-07T04:30:00Z'
 author:
   name: "Shubham Saboo"
   profile: "people/shubham-saboo.md"
+  linkedin_url: "https://www.linkedin.com/in/shubhamsaboo"
 
 post:
   source: "external"
