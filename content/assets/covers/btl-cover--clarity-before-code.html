@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200, height=630">
+  <title>BTL Cover: Clarity Before Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=Public+Sans:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background: #1f2937;
+    }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      margin: 0 auto;
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1200px;
+      height: 630px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <svg class="main-svg" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Background gradient with noise (BTL design system) -->
+    <defs>
+      <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#374151"/>
+        <stop offset="15%" stop-color="#2d3748"/>
+        <stop offset="35%" stop-color="#1f2937"/>
+        <stop offset="55%" stop-color="#1a202c"/>
+        <stop offset="75%" stop-color="#141b24"/>
+        <stop offset="100%" stop-color="#111827"/>
+      </linearGradient>
+      <filter id="noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.06"/>
+        </feComponentTransfer>
+        <feBlend in="SourceGraphic" mode="overlay"/>
+      </filter>
+    </defs>
+    <rect width="1200" height="630" fill="url(#bgGradient)" filter="url(#noise)"/>
+
+    <!-- ============================================ -->
+    <!-- TEXT CONTENT (upper portion, centered) -->
+    <!-- ============================================ -->
+
+    <!-- Headline -->
+    <text x="600" y="190" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="64" font-weight="700" letter-spacing="-0.02em">
+      Clarity Before Code
+    </text>
+
+    <!-- Waterline divider (centered, dashed) -->
+    <line x1="360" y1="222" x2="840" y2="222" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3" opacity="0.4"/>
+
+    <!-- Sub-headline -->
+    <text x="600" y="265" text-anchor="middle" fill="#9ca3af" font-family="Public Sans" font-size="28" font-weight="400">
+      10 Questions That Save Weeks
+    </text>
+
+    <!-- ============================================ -->
+    <!-- ILLUSTRATION: Question mark with ripple rings -->
+    <!-- Concept: clarity radiates outward from good questions -->
+    <!-- ============================================ -->
+
+    <g transform="translate(600, 440)">
+
+      <!-- Outer ripple rings (dashed, fading outward) -->
+      <circle cx="0" cy="0" r="120" fill="none" stroke="#00a86b" stroke-width="1" stroke-dasharray="4 3" opacity="0.08"/>
+      <circle cx="0" cy="0" r="95" fill="none" stroke="#00a86b" stroke-width="1" stroke-dasharray="4 3" opacity="0.12"/>
+      <circle cx="0" cy="0" r="70" fill="none" stroke="#00a86b" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.18"/>
+
+      <!-- Inner solid ring -->
+      <circle cx="0" cy="0" r="44" fill="none" stroke="#00a86b" stroke-width="2" opacity="0.35"/>
+
+      <!-- Question mark (centered, jade green) -->
+      <text x="0" y="18" text-anchor="middle" fill="#00a86b" font-family="IBM Plex Sans" font-size="56" font-weight="700" opacity="0.9">?</text>
+
+      <!-- Small code brackets at the outer ring edges (code comes after clarity) -->
+      <!-- Left bracket -->
+      <text x="-135" y="6" text-anchor="middle" fill="#9ca3af" font-family="JetBrains Mono, monospace" font-size="20" opacity="0.2">{</text>
+      <!-- Right bracket -->
+      <text x="135" y="6" text-anchor="middle" fill="#9ca3af" font-family="JetBrains Mono, monospace" font-size="20" opacity="0.2">}</text>
+
+    </g>
+
+  </svg>
+
+</body>
+</html>
