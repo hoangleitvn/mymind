@@ -1,16 +1,16 @@
 ---
 type: linkedin-person
 created: '2025-12-08T11:30:00Z'
-last_updated: '2025-12-08T11:30:00Z'
-last_interaction: '2025-12-08'
+last_updated: '2026-01-13T08:17:00Z'
+last_interaction: '2026-01-13'
 
 profile:
   name: "Daniil Shykhov"
   linkedin_url: "https://ua.linkedin.com/in/daniil-shykhov"
   headline: null
   location: "Ukraine"
-  followers: 20212
-  posts: 597
+  followers: 22415
+  posts: 623
 
 relationship:
   status: "new"
@@ -41,6 +41,13 @@ engagement_history:
     type: "reply_drafted"
     context: "Drafted reply about LeetCode (one answer) vs real-world (contextual tradeoffs)"
     file: "comments/2025-12-08-daniil-shykhov-leetcode-hiring.md"
+
+  - date: '2026-01-13'
+    type: "comment"
+    post_url: "https://www.linkedin.com/posts/daniil-shykhov_i-gave-up-coding-for-6-months-it-was-the-activity-7416746106937573376-ASAo"
+    topic: "Giving up coding for leadership"
+    status: "posted"
+    file: "comments/2026/01/13/2026-01-13__daniil-shykhov-giving-up-coding.md"
 
 tags: [tech-lead, hiring, ukraine, newsletter, engineering-leadership]
 

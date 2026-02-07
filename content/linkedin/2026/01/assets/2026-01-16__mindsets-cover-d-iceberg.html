@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200, height=1200">
+  <title>Mindset Iceberg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /*
+      BTL Design System Colors:
+      - brand-400: #10b981 (dark theme text accents)
+      - brand-500: #00a86b (brand identity, accent bars)
+      - base-50: #f9fafb (primary text dark theme)
+      - base-200: #e5e7eb (secondary text dark theme)
+      - base-400: #9ca3af (muted text dark theme)
+      - base-500: #6b7280 (secondary text light theme)
+      - base-600: #4b5563 (borders dark theme)
+      - base-700: #374151 (surfaces dark theme)
+      - base-800: #1f2937 (charcoal - base)
+      - base-900: #111827 (deep background)
+    */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background: #1f2937;
+    }
+
+    body {
+      width: 1200px;
+      height: 1200px;
+      margin: 0 auto;
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      position: relative;
+      overflow: hidden;
+      /* Solid fallback - gradient now in SVG with noise to prevent banding */
+      background: #1f2937;
+    }
+
+    /* Main SVG */
+    .main-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1200px;
+      height: 1200px;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- All content in SVG -->
+  <svg class="main-svg" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Background gradient with noise to prevent banding -->
+    <defs>
+      <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#374151"/>
+        <stop offset="15%" stop-color="#2d3748"/>
+        <stop offset="35%" stop-color="#1f2937"/>
+        <stop offset="55%" stop-color="#1a202c"/>
+        <stop offset="75%" stop-color="#141b24"/>
+        <stop offset="100%" stop-color="#111827"/>
+      </linearGradient>
+      <filter id="noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.06"/>
+        </feComponentTransfer>
+        <feBlend in="SourceGraphic" mode="overlay"/>
+      </filter>
+    </defs>
+    <rect width="1200" height="1200" fill="url(#bgGradient)" filter="url(#noise)"/>
+
+    <!-- TOP TITLE - BTL: base-50 + brand-400, sized for 1200px canvas -->
+    <text x="600" y="100" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="56" font-weight="700" letter-spacing="-0.02em">
+      What people <tspan fill="#10b981">see</tspan>:
+    </text>
+
+    <!-- ABOVE WATER LABELS - BTL: base-300, Public Sans for body -->
+    <!-- Results - pointing to peak -->
+    <text x="600" y="175" text-anchor="middle" fill="#d1d5db" font-family="Public Sans" font-size="30" font-weight="500">Results</text>
+    <line x1="600" y1="190" x2="600" y2="230" stroke="#6b7280" stroke-width="2"/>
+    <circle cx="600" cy="230" r="5" fill="#6b7280"/>
+
+    <!-- Title - left side -->
+    <text x="280" y="300" fill="#d1d5db" font-family="Public Sans" font-size="28" font-weight="500">Title</text>
+    <line x1="340" y1="295" x2="540" y2="275" stroke="#6b7280" stroke-width="1.5"/>
+    <circle cx="540" cy="275" r="4" fill="#6b7280"/>
+
+    <!-- Recognition - right side -->
+    <text x="850" y="300" fill="#d1d5db" font-family="Public Sans" font-size="28" font-weight="500">Recognition</text>
+    <line x1="840" y1="295" x2="660" y2="275" stroke="#6b7280" stroke-width="1.5"/>
+    <circle cx="660" cy="275" r="4" fill="#6b7280"/>
+
+    <!-- ICEBERG - Centered -->
+    <g transform="translate(600, 230) scale(0.82)">
+      <!-- ABOVE WATER - Light/white facets (base-50 to base-300) -->
+      <polygon points="0,0 -45,75 45,75" fill="#ffffff"/>
+      <polygon points="0,0 45,75 70,50" fill="#d1d5db"/>
+      <polygon points="0,0 -65,55 -45,75" fill="#d1d5db"/>
+
+      <polygon points="-45,75 -110,170 -25,155" fill="#f9fafb"/>
+      <polygon points="-45,75 -25,155 45,75" fill="#f3f4f6"/>
+      <polygon points="45,75 -25,155 55,160" fill="#d1d5db"/>
+      <polygon points="45,75 55,160 95,125" fill="#f9fafb"/>
+      <polygon points="70,50 45,75 95,125" fill="#f3f4f6"/>
+      <polygon points="-65,55 -110,170 -45,75" fill="#d1d5db"/>
+
+      <polygon points="-110,170 -150,245 -65,235" fill="#f3f4f6"/>
+      <polygon points="-110,170 -65,235 -25,155" fill="#d1d5db"/>
+      <polygon points="-25,155 -65,235 35,240" fill="#d1d5db"/>
+      <polygon points="-25,155 35,240 55,160" fill="#f3f4f6"/>
+      <polygon points="55,160 35,240 110,235" fill="#d1d5db"/>
+      <polygon points="55,160 110,235 130,185" fill="#d1d5db"/>
+      <polygon points="95,125 55,160 130,185" fill="#f9fafb"/>
+
+      <!-- BELOW WATER - Teal/jade depth layers -->
+      <polygon points="-150,245 -200,360 -120,340" fill="#0f766e"/>
+      <polygon points="-150,245 -120,340 -65,235" fill="#115e59"/>
+      <polygon points="-65,235 -120,340 15,350" fill="#0f766e"/>
+      <polygon points="-65,235 15,350 35,240" fill="#134e4a"/>
+      <polygon points="35,240 15,350 95,355" fill="#115e59"/>
+      <polygon points="35,240 95,355 110,235" fill="#0f766e"/>
+      <polygon points="110,235 95,355 170,340" fill="#134e4a"/>
+      <polygon points="110,235 170,340 155,290" fill="#115e59"/>
+      <polygon points="130,185 110,235 155,290" fill="#0f766e"/>
+
+      <polygon points="-200,360 -230,490 -140,465" fill="#0d5c57"/>
+      <polygon points="-200,360 -140,465 -120,340" fill="#0f766e"/>
+      <polygon points="-120,340 -140,465 5,475" fill="#115e59"/>
+      <polygon points="-120,340 5,475 15,350" fill="#0d5c57"/>
+      <polygon points="15,350 5,475 85,485" fill="#0f766e"/>
+      <polygon points="15,350 85,485 95,355" fill="#134e4a"/>
+      <polygon points="95,355 85,485 155,470" fill="#115e59"/>
+      <polygon points="95,355 155,470 170,340" fill="#0d5c57"/>
+      <polygon points="170,340 155,470 210,440" fill="#0f766e"/>
+
+      <polygon points="-230,490 -195,630 -125,595" fill="#0a4744"/>
+      <polygon points="-230,490 -125,595 -140,465" fill="#0d5c57"/>
+      <polygon points="-140,465 -125,595 5,605" fill="#0f766e"/>
+      <polygon points="-140,465 5,605 5,475" fill="#0a4744"/>
+      <polygon points="5,475 5,605 85,615" fill="#0d5c57"/>
+      <polygon points="5,475 85,615 85,485" fill="#115e59"/>
+      <polygon points="85,485 85,615 145,600" fill="#0a4744"/>
+      <polygon points="85,485 145,600 155,470" fill="#0d5c57"/>
+      <polygon points="155,470 145,600 185,570" fill="#0f766e"/>
+      <polygon points="155,470 185,570 210,440" fill="#0a4744"/>
+
+      <polygon points="-195,630 -130,740 -75,695" fill="#065f46"/>
+      <polygon points="-195,630 -75,695 -125,595" fill="#0a4744"/>
+      <polygon points="-125,595 -75,695 25,715" fill="#0d5c57"/>
+      <polygon points="-125,595 25,715 5,605" fill="#0a4744"/>
+      <polygon points="5,605 25,715 75,725" fill="#065f46"/>
+      <polygon points="5,605 75,725 85,615" fill="#0d5c57"/>
+      <polygon points="85,615 75,725 125,705" fill="#0a4744"/>
+      <polygon points="85,615 125,705 145,600" fill="#065f46"/>
+      <polygon points="145,600 125,705 165,675" fill="#0d5c57"/>
+      <polygon points="145,600 165,675 185,570" fill="#0a4744"/>
+
+      <polygon points="-130,740 -35,810 25,715" fill="#064e3b"/>
+      <polygon points="-75,695 25,715 -35,810" fill="#065f46"/>
+      <polygon points="25,715 -35,810 45,820" fill="#0a4744"/>
+      <polygon points="25,715 45,820 75,725" fill="#064e3b"/>
+      <polygon points="75,725 45,820 95,800" fill="#065f46"/>
+      <polygon points="75,725 95,800 125,705" fill="#0a4744"/>
+      <polygon points="-35,810 5,870 45,820" fill="#064e3b"/>
+    </g>
+
+    <!-- BELOW WATER SECTION TITLE - BTL: base-50 + brand-400 -->
+    <text x="80" y="510" fill="#f9fafb" font-family="IBM Plex Sans" font-size="48" font-weight="700" letter-spacing="-0.01em">
+      What <tspan fill="#10b981">creates it</tspan>:
+    </text>
+
+    <!-- BELOW WATER LABELS - BTL: base-300, base-600 -->
+    <!-- Left side labels -->
+    <circle cx="424" cy="570" r="4" fill="#4b5563"/>
+    <line x1="424" y1="570" x2="300" y2="605" stroke="#4b5563" stroke-width="1.5"/>
+    <text x="80" y="612" fill="#d1d5db" font-family="Public Sans" font-size="28" font-weight="500">Ownership</text>
+
+    <circle cx="421" cy="650" r="4" fill="#4b5563"/>
+    <line x1="421" y1="650" x2="300" y2="700" stroke="#4b5563" stroke-width="1.5"/>
+    <text x="80" y="707" fill="#d1d5db" font-family="Public Sans" font-size="28" font-weight="500">Discipline</text>
+
+    <circle cx="440" cy="740" r="4" fill="#4b5563"/>
+    <line x1="440" y1="740" x2="300" y2="795" stroke="#4b5563" stroke-width="1.5"/>
+    <text x="80" y="802" fill="#d1d5db" font-family="Public Sans" font-size="28" font-weight="500">Action bias</text>
+
+    <!-- Right side labels -->
+    <circle cx="757" cy="570" r="4" fill="#4b5563"/>
+    <line x1="757" y1="570" x2="900" y2="605" stroke="#4b5563" stroke-width="1.5"/>
+    <text x="910" y="612" fill="#d1d5db" font-family="Public Sans" font-size="28" font-weight="500">Growth mindset</text>
+
+    <circle cx="765" cy="650" r="4" fill="#4b5563"/>
+    <line x1="765" y1="650" x2="900" y2="700" stroke="#4b5563" stroke-width="1.5"/>
+    <text x="910" y="707" fill="#d1d5db" font-family="Public Sans" font-size="28" font-weight="500">Self-accountability</text>
+
+    <circle cx="752" cy="740" r="4" fill="#4b5563"/>
+    <line x1="752" y1="740" x2="900" y2="795" stroke="#4b5563" stroke-width="1.5"/>
+    <text x="910" y="802" fill="#d1d5db" font-family="Public Sans" font-size="28" font-weight="500">Continuous learning</text>
+
+    <!-- FOOTER with profile picture -->
+    <line x1="80" y1="1100" x2="1120" y2="1100" stroke="#374151" stroke-width="1"/>
+
+    <!-- Profile picture - circular with BTL brand-500 border -->
+    <defs>
+      <clipPath id="circleClip">
+        <circle cx="120" cy="1150" r="35"/>
+      </clipPath>
+    </defs>
+    <image
+      href="../../../../../library/profile/hoangle-profile-v2.jpeg"
+      x="85" y="1115"
+      width="70" height="70"
+      clip-path="url(#circleClip)"
+      preserveAspectRatio="xMidYMid slice"
+    />
+    <circle cx="120" cy="1150" r="35" fill="none" stroke="#00a86b" stroke-width="2"/>
+
+    <!-- BTL typography: IBM Plex Sans for name, Public Sans for subtitle -->
+    <text x="175" y="1142" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">
+      Hoang Le
+    </text>
+    <text x="175" y="1172" fill="#9ca3af" font-family="Public Sans" font-size="22" font-weight="400">
+      Builds That Last
+    </text>
+
+    <text x="1120" y="1155" text-anchor="end" fill="#d1d5db" font-family="Public Sans" font-size="26" font-weight="400">
+      Be the leader before the title.
+    </text>
+
+  </svg>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200, height=627">
+  <title>AWS Cost Optimization Series - Cover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 1200px;
+      height: 627px;
+      overflow: hidden;
+      font-family: 'Manrope', system-ui, sans-serif;
+    }
+
+    .cover {
+      width: 1200px;
+      height: 627px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #F8F8F8 50%, #FFF3E2 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 48px 64px;
+    }
+
+    /* Subtle corner accent */
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle at top right, rgba(234, 50, 42, 0.08) 0%, transparent 70%);
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle at bottom left, rgba(78, 110, 129, 0.06) 0%, transparent 70%);
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .series-badge {
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #4E6E81;
+      background: #DAE0E5;
+      padding: 8px 20px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+
+    .headline-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .headline-number {
+      font-family: 'Bai Jamjuree', sans-serif;
+      font-size: 140px;
+      font-weight: 700;
+      color: #EA322A;
+      line-height: 0.9;
+      letter-spacing: -4px;
+    }
+
+    .headline-context {
+      font-family: 'Manrope', sans-serif;
+      font-size: 32px;
+      font-weight: 500;
+      color: #2E3840;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-family: 'Manrope', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #708999;
+      margin-bottom: 40px;
+    }
+
+    .three-parts {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 0;
+    }
+
+    .part {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .part-number {
+      font-family: 'Bai Jamjuree', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFFFFF;
+      background: #EA322A;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .part-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #535B62;
+    }
+
+    .brand {
+      position: absolute;
+      bottom: 32px;
+      right: 48px;
+      z-index: 1;
+    }
+
+    .brand img {
+      height: 36px;
+      width: auto;
+    }
+
+    /* Bottom accent line */
+    .accent-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #EA322A 0%, #F76D55 50%, #FF9C82 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <div class="content">
+      <div class="series-badge">3-Part Series</div>
+
+      <div class="headline-container">
+        <div class="headline-number">$8,000</div>
+        <div class="headline-context">saved per month</div>
+      </div>
+
+      <div class="subtitle">AWS Cost Optimization: The Complete Guide</div>
+
+      <div class="three-parts">
+        <div class="part">
+          <span class="part-number">1</span>
+          <span class="part-label">Hidden Costs</span>
+        </div>
+        <div class="part">
+          <span class="part-number">2</span>
+          <span class="part-label">Strategies</span>
+        </div>
+        <div class="part">
+          <span class="part-number">3</span>
+          <span class="part-label">Playbook</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="brand">
+      <img src="../../../foundation/brands/innomize/assets/Fitlogo_Horizontal_RGB.png" alt="INNOMIZE">
+    </div>
+
+    <div class="accent-line"></div>
+  </div>
+</body>
+</html>

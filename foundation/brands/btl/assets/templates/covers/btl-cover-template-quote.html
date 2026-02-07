@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Cover: Quote</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /*
+      BTL Cover Template: Quote
+      =========================
+      Design System: v2.2 | Philosophy: v1.2
+
+      Usage: Inspirational quotes, key insights, memorable statements
+
+      Principles:
+      - P1. Depth Over Surface: Quote mark suggests more content beneath
+      - P2. Clarity Over Cleverness: Clear hierarchy, readable typography
+      - P3. Restraint Over Abundance: Minimal elements, each earns its place
+      - P4. Grounded Over Floating: Accent bar anchors, bottom-weighted
+      - P5. Timeless Over Trendy: Classic editorial quote layout
+
+      Pragmatic: Noise texture on gradient (solves banding, adds materiality)
+
+      Typography (1200px canvas):
+      - Quote mark: 200px (decorative anchor)
+      - Quote text: 56px (headline scale)
+      - Attribution: 28px (body scale)
+      - Footer: 28px name, 22px subtitle, 26px tagline
+    */
+    :root {
+      --brand-400: #10b981;
+      --brand-500: #00a86b;
+      --base-50: #f9fafb;
+      --base-300: #d1d5db;
+      --base-400: #9ca3af;
+      --base-700: #374151;
+      --base-800: #1f2937;
+      --base-900: #111827;
+      --canvas-width: 1200px;
+      --canvas-height: 1200px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+    }
+
+    .canvas {
+      width: var(--canvas-width);
+      height: var(--canvas-height);
+      background: var(--base-800);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .canvas-svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="canvas">
+    <svg class="canvas-svg" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Background with gradient + noise (Pragmatic Principles) -->
+      <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#374151"/>
+          <stop offset="15%" stop-color="#2d3748"/>
+          <stop offset="35%" stop-color="#1f2937"/>
+          <stop offset="55%" stop-color="#1a202c"/>
+          <stop offset="75%" stop-color="#141b24"/>
+          <stop offset="100%" stop-color="#111827"/>
+        </linearGradient>
+        <!-- Noise filter: solves banding, adds material quality (P1, P4) -->
+        <filter id="noise">
+          <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/>
+          <feColorMatrix type="saturate" values="0"/>
+          <feComponentTransfer>
+            <feFuncA type="linear" slope="0.06"/>
+          </feComponentTransfer>
+          <feBlend in="SourceGraphic" mode="overlay"/>
+        </filter>
+        <!-- Profile clip -->
+        <clipPath id="circleClip">
+          <circle cx="120" cy="1130" r="35"/>
+        </clipPath>
+      </defs>
+      <rect width="1200" height="1200" fill="url(#bgGradient)" filter="url(#noise)"/>
+
+      <!-- Accent Bar - BTL Signature -->
+      <rect x="0" y="0" width="8" height="1200" fill="#00a86b"/>
+
+      <!-- Quote Mark - Decorative Anchor -->
+      <text x="64" y="280" fill="#00a86b" font-family="IBM Plex Sans" font-size="200" font-weight="700" opacity="0.25">"</text>
+
+      <!-- EDIT: Quote Text -->
+      <text x="80" y="420" fill="#f9fafb" font-family="IBM Plex Sans" font-size="56" font-weight="600" letter-spacing="-0.02em">
+        <tspan x="80" dy="0">Your quote text goes here.</tspan>
+        <tspan x="80" dy="80">Second line if needed.</tspan>
+        <tspan x="80" dy="80">Third line if needed.</tspan>
+      </text>
+      <!-- Highlight: <tspan fill="#10b981">word</tspan> -->
+
+      <!-- Divider -->
+      <rect x="80" y="720" width="100" height="4" fill="#00a86b" rx="2"/>
+
+      <!-- EDIT: Attribution -->
+      <text x="80" y="780" fill="#9ca3af" font-family="Public Sans" font-size="28" font-weight="400">
+        On [topic], [context]
+      </text>
+
+      <!-- Footer Line -->
+      <line x1="80" y1="1080" x2="1120" y2="1080" stroke="#374151" stroke-width="1"/>
+
+      <!-- EDIT: Profile Picture -->
+      <image
+        href="../../../assets/hoangleitvn.jpeg"
+        x="85" y="1095" width="70" height="70"
+        clip-path="url(#circleClip)"
+        preserveAspectRatio="xMidYMid slice"
+      />
+      <circle cx="120" cy="1130" r="35" fill="none" stroke="#00a86b" stroke-width="2"/>
+
+      <!-- Footer Text -->
+      <text x="175" y="1122" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">Hoang Le</text>
+      <text x="175" y="1152" fill="#9ca3af" font-family="Public Sans" font-size="22" font-weight="400">Builds That Last</text>
+
+      <!-- Tagline -->
+      <text x="1120" y="1135" text-anchor="end" fill="#d1d5db" font-family="Public Sans" font-size="26" font-weight="400">
+        Everyone ships fast. Few build to last.
+      </text>
+
+    </svg>
+  </div>
+
+</body>
+</html>

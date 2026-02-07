@@ -1,0 +1,25 @@
+<svg width="240" height="48" viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- BTL Primary - Dark (For Dark Backgrounds, Lighter Gradients) -->
+  <defs>
+    <linearGradient id="tip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="40%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <style>@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&amp;display=swap');</style>
+  </defs>
+  <g transform="translate(0, -1)">
+    <path d="M24 6L32 14H16L24 6Z" fill="url(#tip)"/>
+    <line x1="8" y1="16" x2="40" y2="16" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3"/>
+    <line x1="8" y1="17" x2="40" y2="17" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+    <path d="M8 18L24 44L40 18H8Z" fill="url(#body)"/>
+  </g>
+  <text x="56" y="32" font-family="'IBM Plex Sans', system-ui, sans-serif" font-weight="600" font-size="24" letter-spacing="0">
+    <tspan fill="#34d399">Builds</tspan>
+    <tspan fill="#f9fafb"> That Last</tspan>
+  </text>
+</svg>

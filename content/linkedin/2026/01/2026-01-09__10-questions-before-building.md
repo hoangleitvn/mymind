@@ -13,6 +13,17 @@ hook_type: bold-statement
 target_hashtags: [Engineering, ProductDevelopment, Leadership, TechLeadership]
 optimal_post_time: Friday, 3-4pm Vietnam
 word_count: 285
+performance_metrics:
+  impressions: 237
+  members_reached: 109
+  profile_views: 2
+  followers: 1
+  reactions: 7
+  comments: 3
+  reposts: 0
+  saves: 1
+  sends_on_linkedin: 0
+  collected_at: 2026-01-19
 ---
 
 Before you build anything, ask these 10 questions.

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 Hidden AWS Costs - Landscape</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Innomize dark palette - WCAG AAA */
+            --primary: #EA322A;
+            --secondary: #4E6E81;
+            --dark: #2E3840;
+            --dark-2: #3A454E;
+            --white: #FFFFFF;
+            --text-secondary: #D4D8DC;
+            --accent: #FFCC66;
+            --accent-bg: rgba(255, 204, 102, 0.15);
+        }
+
+        body {
+            font-family: 'Manrope', system-ui, sans-serif;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 10px; /* Reduced from 40px */
+        }
+
+        .infographic {
+            width: 1920px;
+            height: 1080px;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            background: var(--dark);
+            padding: 32px 56px; /* Reduced vertical padding */
+            text-align: center;
+        }
+
+        .header-title {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+
+        .header-title .highlight {
+            color: var(--accent);
+        }
+
+        /* Grid content */
+        .content {
+            flex: 1;
+            padding: 20px; /* Reduced vertical padding */
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 20px; /* Reduced from 24px */
+        }
+
+        .cost-card {
+            background: #F8F9FA;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #E5E7EB;
+        }
+
+        .cost-card.high-impact {
+            background: #FFF5F5;
+            border-color: #FED7D7;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center; /* Centered vertically */
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .card-number {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+            min-width: 32px;
+        }
+
+        .cost-card.high-impact .card-number {
+            color: var(--primary);
+        }
+
+        .card-icon {
+            width: 28px;
+            height: 28px;
+            fill: var(--dark);
+            flex-shrink: 0;
+        }
+
+        .cost-card.high-impact .card-icon {
+            fill: var(--primary);
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.2;
+            flex: 1;
+        }
+
+        .card-description {
+            font-size: 18px;
+            color: #3D4852; /* WCAG AAA: 7:1+ on #F8F9FA */
+            line-height: 1.5;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .card-fix {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            margin-top: auto;
+            min-height: 70px;
+        }
+
+        .fix-icon-wrapper {
+            background: var(--accent-bg);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: -2px;
+        }
+
+        .fix-icon-svg {
+            width: 20px;
+            height: 20px;
+            fill: #996600; /* WCAG AAA: darker for contrast on accent-bg */
+        }
+        
+        .fix-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark-2);
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            padding: 24px 56px; /* Reduced vertical padding */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 80px; /* Ensure visibility */
+        }
+
+        .footer-logo {
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .footer-logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .footer-message {
+            font-size: 20px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-align: right;
+            max-width: 900px;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic" id="infographic">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="header-title">
+                <span class="highlight">12 Hidden AWS Costs</span> Draining Your Budget
+            </h1>
+        </div>
+
+        <!-- Grid content -->
+        <div class="content">
+            <!-- Row 1 -->
+            <div class="cost-card">
+                <div class="card-header">
+                    <span class="card-number">1.</span>
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    <span class="card-title">Data Egress Fees</span>
+                </div>
+                <p class="card-description">Moving data out of AWS regions or to the internet incurs high GB charges.</p>
+                <div class="card-fix">
+                    <div class="fix-icon-wrapper">
+                        <svg class="fix-icon-svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.93 12.37 7 10.79 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.79-.93 3.37-2.15 4.1z"/></svg>
+                    </div>
+                    <div class="fix-text">Use CloudFront & VPC Endpoints.</div>
+                </div>
+            </div>
+
+            <div class="cost-card">
+                <div class="card-header">
+                    <span class="card-number">2.</span>
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M18 10.48V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4.48l4 3.98v-11l-4 3.98zm-2-.79V18H4V6h12v3.69z"/></svg>
+                    <span class="card-title">Unattached Elastic IPs</span>
+                </div>
+                <p class="card-description">Static IPs not associated with a running instance are billed hourly.</p>
+                <div class="card-fix">
+                    <div class="fix-icon-wrapper">
+                        <svg class="fix-icon-svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.93 12.37 7 10.79 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.79-.93 3.37-2.15 4.1z"/></svg>
+                    </div>
+                    <div class="fix-text">Release idle EIPs immediately.</div>
+                </div>
+            </div>
+
+            <div class="cost-card">
+                <div class="card-header">
+                    <span class="card-number">3.</span>
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <span class="card-title">Old EBS Snapshots</span>
+                </div>
+                <p class="card-description">Outdated backups accumulate storage costs indefinitely.</p>
+                <div class="card-fix">
+                    <div class="fix-icon-wrapper">
+                        <svg class="fix-icon-svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.93 12.37 7 10.79 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.79-.93 3.37-2.15 4.1z"/></svg>
+                    </div>
+                    <div class="fix-text">Automate deletion via Data Lifecycle Manager.</div>
+                </div>
+            </div>
+
+            <div class="cost-card">
+                <div class="card-header">
+                    <span class="card-number">4.</span>
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                    <span class="card-title">Stopped EC2 Instances</span>
+                </div>
+                <p class="card-description">Attached EBS volumes still generate charges even when instance is stopped.</p>
+                <div class="card-fix">
+                    <div class="fix-icon-wrapper">
+                        <svg class="fix-icon-svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.93 12.37 7 10.79 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.79-.93 3.37-2.15 4.1z"/></svg>
+                    </div>
+                    <div class="fix-text">Terminate unused instances & delete storage.</div>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="cost-card">
+                <div class="card-header">
+                    <span class="card-number">5.</span>
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14h-2v-4H6v-2h4V7h2v4h4v2h-4v4z"/></svg>
+                    <span class="card-title">Unused ELBs</span>
+                </div>
+                <p class="card-description">Idle Load Balancers with no traffic still have hourly and processing fees.</p>
+                <div class="card-fix">
+                    <div class="fix-icon-wrapper">
+                        <svg class="fix-icon-svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.93 12.37 7 10.79 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.79-.93 3.37-2.15 4.1z"/></svg>
+                    </div>
+                    <div class="fix-text">Audit and delete inactive ELBs.</div>
+                </div>
+            </div>
+
+            <div class="cost-card">
+                <div class="card-header">
+                    <span class="card-number">6.</span>
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    <span class="card-title">Cross-Region Replication</span>
+                </div>
+                <p class="card-description">Data transfer + storage costs in both regions for replicated data.</p>
+                <div class="card-fix">
+                    <div class="fix-icon-wrapper">
+                        <svg class="fix-icon-svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.93 12.37 7 10.79 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.79-.93 3.37-2.15 4.1z"/></svg>
+                    </div>
+                    <div class="fix-text">Replicate only business-critical data.</div>
+                </div>
+            </div>
+
+            <div class="cost-card">
+                <div class="card-header">
+                    <span class="card-number">7.</span>
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    <span class="card-title">NAT Gateway Charges</span>
+                </div>
+                <p class="card-description">High data processing fees for traffic routed to the internet.</p>
+                <div class="card-fix">
+                    <div class="fix-icon-wrapper">
+                        <svg class="fix-icon-svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.93 12.37 7 10.79 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.79-.93 3.37-2.15 4.1z"/></svg>
+                    </div>
+                    <div class="fix-text">Use VPC Gateway Endpoints for S3/DynamoDB.</div>
+                </div>
+            </div>
+
+            <div class="cost-card">
+                <div class="card-header">
+                    <span class="card-number">8.</span>
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.44zm-9.79 6.84a2 2 0 0 0 2.83 0l5.66-8.49-8.49 5.66a2 2 0 0 0 0 2.83z"/></svg>
+                    <span class="card-title">Over-provisioned EBS IOPS</span>
+                </div>
+                <p class="card-description">Paying for high-performance storage tiers (io2) that aren't utilized.</p>
+                <div class="card-fix">
+                    <div class="fix-icon-wrapper">
+                        <svg class="fix-icon-svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.93 12.37 7 10.79 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.79-.93 3.37-2.15 4.1z"/></svg>
+                    </div>
+                    <div class="fix-text">Right-size to gp3, monitor metrics first.</div>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="cost-card">
+                <div class="card-header">
+                    <span class="card-number">9.</span>
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M4 14h4v-2H4v2zm0 4h4v-2H4v2zm0-8h4V8H4v2zm0-4h4V4H4v2zm6 12h10v-2H10v2zm0-4h10v-2H10v2zm0-4h10V8H10v2zm0-4h10V4H10v2z"/></svg>
+                    <span class="card-title">API Request Costs (S3)</span>
+                </div>
+                <p class="card-description">High frequency of GET/PUT requests can add up significantly.</p>
+                <div class="card-fix">
+                    <div class="fix-icon-wrapper">
+                        <svg class="fix-icon-svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.93 12.37 7 10.79 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.79-.93 3.37-2.15 4.1z"/></svg>
+                    </div>
+                    <div class="fix-text">Optimize app logic, reduce redundant calls.</div>
+                </div>
+            </div>
+
+            <div class="cost-card">
+                <div class="card-header">
+                    <span class="card-number">10.</span>
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    <span class="card-title">CloudWatch Logs</span>
+                </div>
+                <p class="card-description">Excessive ingestion and long retention periods bloat storage costs.</p>
+                <div class="card-fix">
+                    <div class="fix-icon-wrapper">
+                        <svg class="fix-icon-svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.93 12.37 7 10.79 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.79-.93 3.37-2.15 4.1z"/></svg>
+                    </div>
+                    <div class="fix-text">Set aggressive retention policies & adjust levels.</div>
+                </div>
+            </div>
+
+            <div class="cost-card">
+                <div class="card-header">
+                    <span class="card-number">11.</span>
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+                    <span class="card-title">Incomplete S3 Uploads</span>
+                </div>
+                <p class="card-description">Failed multipart uploads occupy storage space and are billed.</p>
+                <div class="card-fix">
+                    <div class="fix-icon-wrapper">
+                        <svg class="fix-icon-svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.93 12.37 7 10.79 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.79-.93 3.37-2.15 4.1z"/></svg>
+                    </div>
+                    <div class="fix-text">Use Lifecycle rules to abort incomplete uploads.</div>
+                </div>
+            </div>
+
+            <div class="cost-card">
+                <div class="card-header">
+                    <span class="card-number">12.</span>
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v-1h1v1h2v2h-2v1h-1v-1zm0-3H9V7h2v6zm4-8v2h-2V5h2z"/></svg>
+                    <span class="card-title">DynamoDB Capacity Misconfig</span>
+                </div>
+                <p class="card-description">Using provisioned capacity for spiky, unpredictable workloads.</p>
+                <div class="card-fix">
+                    <div class="fix-icon-wrapper">
+                        <svg class="fix-icon-svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.93 12.37 7 10.79 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.79-.93 3.37-2.15 4.1z"/></svg>
+                    </div>
+                    <div class="fix-text">Switch to On-Demand for variable traffic.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-logo">
+                <img src="../../../../foundation/brands/innomize/assets/Fitlogo_Horizontal_White.png" alt="INNOMIZE">
+            </div>
+            <p class="footer-message">Don't let these overlooked charges surprise your finance team. Save this for your next audit.</p>
+        </div>
+    </div>
+</body>
+</html>

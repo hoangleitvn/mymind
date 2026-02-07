@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn BTL Company Page Cover - 1128×191</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&family=Public+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Public Sans', system-ui, sans-serif;
+      background: #0a0a0a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      gap: 56px;
+    }
+
+    h1 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .label {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #00a86b;
+      letter-spacing: 0.02em;
+    }
+
+    .description {
+      font-size: 13px;
+      color: #9ca3af;
+      max-width: 900px;
+      line-height: 1.6;
+    }
+
+    .cover-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* === BASE COVER (LinkedIn Company Page: 1128×191) === */
+    .cover {
+      width: 1128px;
+      height: 191px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #111827 0%, #1a2332 60%, #1f2937 100%);
+    }
+
+    /* Safe zone indicator (150px left/right margins for mobile cropping) */
+    .safe-zone {
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      left: 150px;
+      right: 150px;
+      border: 1px dashed #ef4444;
+      opacity: 0.3;
+      z-index: 20;
+      pointer-events: none;
+      display: none; /* Toggle on for debugging */
+    }
+
+    /* Grid overlay across entire cover */
+    .cover-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(to right, #374151 1px, transparent 1px),
+        linear-gradient(to bottom, #374151 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.35;
+      z-index: 1;
+    }
+
+    /* Jade accent bar at top */
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: #00a86b;
+      z-index: 10;
+    }
+
+    /* Full-cover waterline (at 27% = 52px for 20/80 ratio) */
+    .waterline {
+      position: absolute;
+      top: 52px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        #00a86b 0px,
+        #00a86b 8px,
+        transparent 8px,
+        transparent 14px
+      );
+      opacity: 0.4;
+      z-index: 3;
+    }
+
+    /* === CONTENT (Shifted right to match personal profile positioning) === */
+    /* Same 35% offset as personal profile to account for logo/profile area */
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 35%;
+      transform: translateY(-50%);
+      text-align: left;
+      z-index: 5;
+    }
+
+    .tagline {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .tagline-white { color: #ffffff; }
+    .tagline-jade { color: #00a86b; }
+
+    .highlight {
+      color: #10b981; /* brand-400: Dark theme text accents */
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: #00a86b;
+      opacity: 0.4;
+      margin: 10px 0;
+    }
+
+    .subtitle {
+      font-family: 'Public Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #d1d5db; /* base-300: Better contrast for AAA */
+      letter-spacing: 0.01em;
+    }
+
+    /* === TECHNICAL ICEBERG (Right Side - smaller for 191px height) === */
+    .iceberg-technical {
+      position: absolute;
+      right: 20px;
+      top: 0;
+      bottom: 0;
+      width: 200px;
+      z-index: 2;
+    }
+
+    /* Dimension labels */
+    .dim-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7px;
+      fill: #9ca3af; /* base-400: Muted text (dark theme) */
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>LinkedIn BTL Company Page Cover (1128×191)</h1>
+
+  <!-- LINKEDIN BTL COMPANY PAGE COVER -->
+  <div class="cover-container">
+    <span class="label">LinkedIn Company Page Cover - BTL</span>
+    <p class="description">
+      1128×191 LinkedIn Company Page dimensions. ~6:1 aspect ratio.
+      24px grid, simplified iceberg. No logo overlap (logo sits below cover).
+      Safe zone: 150px left/right margins for mobile cropping.
+    </p>
+    <div class="cover">
+      <!-- Safe zone indicator (toggle display:block for debugging) -->
+      <div class="safe-zone"></div>
+
+      <!-- Grid overlay (full cover) -->
+      <div class="cover-grid"></div>
+
+      <!-- Full-cover waterline -->
+      <div class="waterline"></div>
+
+      <!-- Technical Iceberg SVG (Right Side) - scaled for 191px height -->
+      <svg class="iceberg-technical" viewBox="0 0 200 191" fill="none" preserveAspectRatio="xMaxYMid meet">
+
+        <!-- Iceberg outline (margins: 14px top/bottom, waterline at 52px) -->
+        <path d="M100 14 L140 42 L160 42 L170 177 L30 177 L40 42 L60 42 Z"
+              fill="none" stroke="#374151" stroke-width="1"/>
+
+        <!-- Visible portion (20%: 14px to 52px) -->
+        <path d="M100 14 L140 42 L160 42 L160 52 L40 52 L40 42 L60 42 Z"
+              fill="#00a86b" fill-opacity="0.08" stroke="#00a86b" stroke-width="0.75"/>
+
+        <!-- Foundation portion (80%: 52px to 177px) -->
+        <path d="M40 52 L160 52 L170 177 L30 177 Z"
+              fill="#00a86b" fill-opacity="0.03" stroke="#00a86b" stroke-width="0.75" stroke-opacity="0.3"/>
+
+        <!-- Dimension line (left side) -->
+        <line x1="20" y1="14" x2="20" y2="177" stroke="#9ca3af" stroke-width="0.75"/>
+        <line x1="17" y1="14" x2="23" y2="14" stroke="#9ca3af" stroke-width="0.75"/>
+        <line x1="17" y1="52" x2="23" y2="52" stroke="#9ca3af" stroke-width="0.75"/>
+        <line x1="17" y1="177" x2="23" y2="177" stroke="#9ca3af" stroke-width="0.75"/>
+
+        <!-- Dimension: 20% (right side) -->
+        <text x="178" y="36" class="dim-label" text-anchor="start">20%</text>
+
+        <!-- Dimension: 80% (right side) -->
+        <text x="178" y="120" class="dim-label" text-anchor="start">80%</text>
+
+        <!-- Labels -->
+        <text x="100" y="38" text-anchor="middle" class="dim-label" fill="#10b981">SURFACE</text>
+        <text x="100" y="120" text-anchor="middle" class="dim-label" fill="#9ca3af">FOUNDATION</text>
+
+        <!-- Center axis -->
+        <line x1="100" y1="4" x2="100" y2="187" stroke="#374151" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.5"/>
+      </svg>
+
+      <!-- Content (Center-Left) -->
+      <div class="content">
+        <div class="tagline">
+          <span class="tagline-white">Everyone ships <span class="highlight">fast</span>.</span><br>
+          <span class="tagline-white">Few build to <span class="highlight">last</span>.</span>
+        </div>
+        <div class="divider"></div>
+        <div class="subtitle">Foundation-first engineering leadership</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

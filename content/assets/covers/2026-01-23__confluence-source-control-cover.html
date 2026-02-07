@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confluence Source Control Cover</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .cover {
+      width: 1200px;
+      height: 627px;
+      background: #f9fafb;
+      position: relative;
+      overflow: hidden;
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+
+    /* Top accent bar */
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: #00a86b;
+    }
+
+    /* Main content container */
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
+      padding: 64px 80px;
+    }
+
+    /* Title */
+    .title {
+      font-size: 64px;
+      font-weight: 600;
+      color: #1f2937;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    /* Waterline */
+    .waterline {
+      width: 120px;
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        #00a86b 0px,
+        #00a86b 4px,
+        transparent 4px,
+        transparent 7px
+      );
+      margin-bottom: 32px;
+    }
+
+    /* Terminal block */
+    .terminal {
+      background: #1f2937;
+      border-radius: 8px;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .terminal-prompt {
+      color: #00a86b;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .terminal-command {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      font-weight: 400;
+      color: #f9fafb;
+    }
+
+    .terminal-flag {
+      color: #10b981;
+    }
+
+    .terminal-value {
+      color: #fbbf24;
+    }
+
+    /* Subtitle */
+    .subtitle {
+      font-family: 'Public Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: #6b7280;
+      margin-top: 32px;
+      max-width: 600px;
+      line-height: 1.5;
+    }
+
+    /* Decorative grid pattern (subtle) */
+    .grid-pattern {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 300px;
+      opacity: 0.03;
+      background-image:
+        linear-gradient(#1f2937 1px, transparent 1px),
+        linear-gradient(90deg, #1f2937 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Right side visual - document to code transformation */
+    .visual-side {
+      position: absolute;
+      right: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .doc-icon {
+      width: 80px;
+      height: 100px;
+      background: #fff;
+      border: 2px solid #e5e7eb;
+      border-radius: 4px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+      gap: 6px;
+    }
+
+    .doc-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(135deg, #e5e7eb 50%, #f9fafb 50%);
+      border-bottom-left-radius: 4px;
+    }
+
+    .doc-line {
+      height: 4px;
+      background: #e5e7eb;
+      border-radius: 2px;
+    }
+
+    .doc-line:nth-child(1) { width: 70%; }
+    .doc-line:nth-child(2) { width: 100%; }
+    .doc-line:nth-child(3) { width: 85%; }
+    .doc-line:nth-child(4) { width: 60%; }
+
+    .arrow-down {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #00a86b;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+      margin: 8px 0;
+    }
+
+    .code-icon {
+      width: 80px;
+      height: 60px;
+      background: #1f2937;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      gap: 4px;
+    }
+
+    .code-line {
+      height: 3px;
+      border-radius: 2px;
+    }
+
+    .code-line:nth-child(1) { width: 40%; background: #00a86b; }
+    .code-line:nth-child(2) { width: 80%; background: #6b7280; margin-left: 12px; }
+    .code-line:nth-child(3) { width: 60%; background: #6b7280; margin-left: 12px; }
+    .code-line:nth-child(4) { width: 50%; background: #10b981; }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <div class="accent-bar"></div>
+    <div class="grid-pattern"></div>
+
+    <div class="content">
+      <h1 class="title">Docs as Code</h1>
+      <div class="waterline"></div>
+
+      <div class="terminal">
+        <span class="terminal-prompt">$</span>
+        <span class="terminal-command">confluence sync <span class="terminal-flag">--space</span> <span class="terminal-value">PROJ</span></span>
+      </div>
+
+      <p class="subtitle">AI-assisted documentation through source control</p>
+    </div>
+
+    <div class="visual-side">
+      <div class="doc-icon">
+        <div class="doc-line"></div>
+        <div class="doc-line"></div>
+        <div class="doc-line"></div>
+        <div class="doc-line"></div>
+      </div>
+      <div class="arrow-down"></div>
+      <div class="code-icon">
+        <div class="code-line"></div>
+        <div class="code-line"></div>
+        <div class="code-line"></div>
+        <div class="code-line"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

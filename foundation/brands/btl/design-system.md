@@ -1,7 +1,9 @@
 ---
 brand: Builds That Last
 created: 2025-12-26
+updated: 2026-01-14
 status: active
+version: 2.2
 ---
 
 # Builds That Last - Design System
@@ -59,26 +61,64 @@ The design should feel:
 
 | Role | Family | Weights | Fallback |
 |------|--------|---------|----------|
-| **Heading** | Poppins | 600, 700, 800 | Inter, system-ui, sans-serif |
-| **Body** | Inter | 400, 500, 600 | system-ui, sans-serif |
+| **Heading** | IBM Plex Sans | 500, 600, 700 | system-ui, sans-serif |
+| **Body** | Public Sans | 400, 500, 600 | system-ui, sans-serif |
 | **Code** | JetBrains Mono | 400, 500 | monospace |
 
-**Rule:** Headings use Poppins. Everything else uses Inter. Never mix.
+**Rule:** Headings use IBM Plex Sans. Body uses Public Sans. Code uses JetBrains Mono. Never mix.
+
+### CSS Variables
+
+```css
+:root {
+  --font-brand: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", Arial, sans-serif;
+
+  --font-body: "Public Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", Arial, sans-serif;
+
+  --font-code: "JetBrains Mono", ui-monospace, Menlo, Monaco, "Cascadia Mono",
+    "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace",
+    "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+}
+```
+
+### Mental Model
+
+| Font | Character | Purpose |
+|------|-----------|---------|
+| IBM Plex Sans | Authority | Structure and hierarchy |
+| Public Sans | Endurance | Clarity and readability |
+| JetBrains Mono | Precision | Technical truth |
+
+*Typography is infrastructure. If it becomes noticeable, the system has failed.*
+
+**Why these fonts:**
+- **IBM Plex Sans**: Blueprint/documentation aesthetic, engineering credibility
+- **Public Sans**: Government-grade clarity (USWDS origin), neutral and invisible
+- **JetBrains Mono**: Developer-native, industry standard
+
+**Selection criteria:**
+- Not AI-common (avoids Inter, Poppins, Open Sans, Geist)
+- Communicates: Engineering credibility, Operational maturity, Long-term thinking
+- Typography disappears into clarity while signaling intent
 
 ### Web Scale (Desktop ≥1024px)
 
 | Token | Size | Line Height | Font | Weight |
 |-------|------|-------------|------|--------|
-| display | 48px | 56px (1.17) | Poppins | 800 |
-| h1 | 40px | 48px (1.20) | Poppins | 700 |
-| h2 | 32px | 40px (1.25) | Poppins | 700 |
-| h3 | 24px | 32px (1.33) | Poppins | 600 |
-| h4 | 20px | 28px (1.40) | Poppins | 600 |
-| body | 16px | 26px (1.63) | Inter | 400 |
-| body-sm | 14px | 22px (1.57) | Inter | 400 |
-| caption | 12px | 18px (1.50) | Inter | 500 |
-| label | 14px | 20px (1.43) | Inter | 500 |
-| button | 14px | 20px (1.43) | Inter | 600 |
+| display | 48px | 56px (1.17) | IBM Plex Sans | 700 |
+| h1 | 40px | 48px (1.20) | IBM Plex Sans | 700 |
+| h2 | 32px | 40px (1.25) | IBM Plex Sans | 600 |
+| h3 | 24px | 32px (1.33) | IBM Plex Sans | 600 |
+| h4 | 20px | 28px (1.40) | IBM Plex Sans | 500 |
+| body | 16px | 26px (1.63) | Public Sans | 400 |
+| body-sm | 14px | 22px (1.57) | Public Sans | 400 |
+| caption | 12px | 18px (1.50) | Public Sans | 500 |
+| label | 14px | 20px (1.43) | Public Sans | 500 |
+| button | 14px | 20px (1.43) | Public Sans | 600 |
 
 ### Tablet Scale (768–1023px)
 
@@ -108,39 +148,103 @@ The design should feel:
 
 | Token | Size | Line Height | Font | Weight |
 |-------|------|-------------|------|--------|
-| title | 54px | 1.15 | Poppins | 800 |
-| section | 40px | 1.20 | Poppins | 700 |
-| subsection | 30px | 1.25 | Poppins | 600 |
-| body | 24px | 1.35 | Inter | 400 |
-| caption | 18px | 1.40 | Inter | 500 |
+| title | 54px | 1.15 | IBM Plex Sans | 700 |
+| section | 40px | 1.20 | IBM Plex Sans | 700 |
+| subsection | 30px | 1.25 | IBM Plex Sans | 600 |
+| body | 24px | 1.35 | Public Sans | 400 |
+| caption | 18px | 1.40 | Public Sans | 500 |
 
 ### Social Graphics Scale (1080×1080)
 
 | Token | Size | Line Height | Font | Weight |
 |-------|------|-------------|------|--------|
-| title | 72px | 1.10 | Poppins | 800 |
-| subtitle | 36px | 1.25 | Inter | 500 |
-| body | 26px | 1.35 | Inter | 400 |
-| caption | 18px | 1.40 | Inter | 500 |
+| title | 72px | 1.10 | IBM Plex Sans | 700 |
+| subtitle | 36px | 1.25 | Public Sans | 500 |
+| body | 26px | 1.35 | Public Sans | 400 |
+| caption | 18px | 1.40 | Public Sans | 500 |
 
 ### Letter Spacing
 
-| Context | Tracking |
-|---------|----------|
-| Display/H1 | -0.01em (tighter) |
-| H2–H4 | 0 (default) |
-| Body text | 0 (default) |
-| ALL CAPS | +0.05em (wider) |
-| Small text (<14px) | +0.01em (slightly wider) |
+| Context | Tracking | Reasoning |
+|---------|----------|-----------|
+| Display (48px+) | -0.02em | Tighter for impact |
+| H1-H2 (32-40px) | -0.01em | Standard headline tightening |
+| H3-H4 (20-24px) | 0 | Default |
+| Body text | 0 | Default for readability |
+| ALL CAPS | +0.05em | Required for legibility |
+| Monospace/metadata | +0.10em | Technical spec feel |
+| Small text (<14px) | +0.01em | Slightly wider for readability |
 
 ### Typography Rules
 
 1. **Max 2 weights per component.** Don't mix 400, 500, 600, 700 in one card.
-2. **Line length 45-75 characters.** Use `max-width: 65ch` for body text.
+2. **Line length 45-75 characters.** Use `max-width: 75ch` for body text.
 3. **Headlines tight, body loose.** Headlines: 1.1-1.25 line height. Body: 1.5-1.6.
-4. **No decorative fonts.** Poppins and Inter only.
+4. **No decorative fonts.** IBM Plex Sans, Public Sans, and JetBrains Mono only.
+
+### The "f(x)" Asset Scale (Graphical Assets)
+For social covers and banners, font sizes are derived from the canvas height (**H**) to maintain mathematical rhythm.
+
+| Token | Size Formula | Example (1080p) | Font | Weight |
+|-------|--------------|-----------------|------|--------|
+| **Headline** | H / 9 | 120px | IBM Plex Sans | 700 |
+| **Sub-headline** | H / 18 | 60px | Public Sans | 400 |
+| **Metadata/Label** | H / 36 | 30px | JetBrains Mono | 500 |
+
+## Spacing
+
+### 8px Grid System
+
+All spacing uses an 8px base unit for consistent rhythm and alignment.
+
+| Token | Value | Use Case |
+|-------|-------|----------|
+| `space-1` | 4px | Tight inline spacing, icon gaps |
+| `space-2` | 8px | Related element spacing, small gaps |
+| `space-3` | 16px | Component internal padding |
+| `space-4` | 24px | Section spacing, card padding |
+| `space-5` | 32px | Section dividers, major gaps |
+| `space-6` | 48px | Component internal padding (large) |
+| `space-8` | 64px | **Hero/infographic margins** |
+| `space-12` | 96px | Page-level padding |
+
+### Margin Guidelines by Context
+
+| Context | Margin Token | Pixels | Rationale |
+|---------|--------------|--------|-----------|
+| **Social graphics (1080px)** | space-8 | 64px | 5.9% of width, industry standard |
+| **Infographics (portrait)** | space-8 | 64px | Maximizes content area |
+| **Web page sections** | space-12 | 96px | Generous desktop breathing room |
+| **Card internal padding** | space-6 | 48px | Balanced content density |
+| **Mobile margins** | space-4 | 24px | Touch-friendly, compact |
+
+**Rule:** Social graphics and infographics use `space-8` (64px) margins. This is within the 5-10% industry standard range and maximizes usable content area.
 
 ## Components
+
+### The Waterline (Functional Divider)
+The dashed line is a structural boundary between "Surface" and "Foundation".
+
+**Primary Line:**
+- Stroke width: 2px
+- Dash pattern: `4 3` (4px dash, 3px gap, scales proportionally)
+- Color (light): `#1f2937` (Charcoal)
+- Color (dark): `#f9fafb` (White)
+
+**Glow Line (optional accent):**
+- Stroke width: 1px, solid (no dash)
+- Position: 1px below primary line
+- Color (light): `#00a86b` at 30% opacity
+- Color (dark): `#10b981` at 40% opacity
+
+**Usage:**
+- Must stretch the full width of the text container
+- Always separates the Headline from the Sub-headline or Metadata
+
+### Buttons & Shapes
+- **Corner Radius**: Strictly 8px for standard buttons.
+- **Forbidden**: Never use "Pill" (fully rounded) shapes; they lack engineering precision.
+- **Depth**: Use hard shadows only (4px offset, 0 blur) to maintain clarity.
 
 ### Accent Bar
 
@@ -199,6 +303,12 @@ Position: Top edge of container
 2. **Never use `#00a86b` as text on white.** Use `#007a4c` for WCAG compliance.
 3. **The accent bar is the signature.** Use it consistently on cards and headers.
 4. **Less is more.** Two colors, clean typography, generous whitespace.
+
+## Asset "Code Review" Checklist
+Before exporting, every asset must pass:
+1. **The Crop Test**: Is all text within the center 1:1 safe zone?
+2. **The Ratio Test**: Is the Headline exactly 2x the size of the sub-headline?
+3. **The Blueprint Test**: Does it look like an engineering document or a marketing flyer?
 
 ## Text on Brand Backgrounds
 
@@ -281,3 +391,13 @@ background: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%); /* �
 | `logo-text.svg` | Text logo (light bg) |
 | `logo-text-dark.svg` | Text logo (dark bg) |
 | `color-system-v2.svg` | Color system diagram |
+
+## Related Documents
+
+| Document | Purpose |
+|----------|---------|
+| `logo.md` | Logo specifications, usage rules |
+| `design-philosophy/principles.md` | Core design principles (P1-P5) |
+| `design-philosophy/guidelines.md` | Context-specific guidelines |
+| `design-philosophy/rules.md` | Hard limits and requirements |
+| `branding/typography-spec.md` | Typography reference (detailed CSS) |

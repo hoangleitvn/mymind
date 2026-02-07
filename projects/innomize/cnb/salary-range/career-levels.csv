@@ -1,0 +1,18 @@
+level,function,job_level_vn,job_level_en,experience_years
+1,Management,Board of Director,Board of Director,15+
+2,Management,Giám Đốc,Director,10-15
+3,Management,Phó Giám đốc,Deputy Director,10-15
+4.1,Management,Trưởng Phòng Cấp cao,Senior Manager,11+
+4.2,Management,Trưởng Phòng Cấp cao,Senior Manager,-
+5.1,Management,Trưởng Phòng,Manager,10-12
+5.2,Management,Trưởng Phòng,Manager,-
+6.1,Management,Trưởng Nhóm,Lead,8.5-10
+6.2,Management,Trưởng Nhóm,Lead,7.5-8.5
+7.1,Execution,Chuyên viên,Senior/Specialist,6.5-8
+7.2,Execution,Chuyên viên,Senior/Specialist,5.5-6.5
+7.3,Execution,Chuyên viên,Senior/Specialist,4.5-5.5
+8.1,Execution,Nhân viên,Executive,3.5-4.5
+8.2,Execution,Nhân viên,Executive,2.5-3.5
+8.3,Execution,Nhân viên,Executive,2-2.5
+9,Execution,Nhân viên,Junior,0-2
+10,Execution,Thực tập sinh,Internship,0

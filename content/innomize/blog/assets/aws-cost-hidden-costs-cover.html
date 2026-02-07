@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 Hidden AWS Costs Blog Cover</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', system-ui, sans-serif;
+            background: #e8e8e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .cover {
+            width: 1920px;
+            height: 1080px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative dots */
+        .dots {
+            position: absolute;
+            display: flex;
+            gap: 10px;
+        }
+
+        .dots.top-left {
+            top: 32px;
+            left: 80px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #FF9900;
+        }
+
+        .dot.light {
+            background: #FFE0B2;
+        }
+
+        /* Decorative circles/blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .blob.top-right {
+            top: -80px;
+            right: -80px;
+            width: 320px;
+            height: 320px;
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+        }
+
+        .blob.top-right-small {
+            top: 60px;
+            right: 280px;
+            width: 80px;
+            height: 80px;
+            background: #FF9900;
+            opacity: 0.15;
+        }
+
+        .blob.bottom-left {
+            bottom: -120px;
+            left: -100px;
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+        }
+
+        .blob.bottom-right {
+            bottom: 100px;
+            right: 50px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+        }
+
+        .blob.accent {
+            top: 200px;
+            right: 500px;
+            width: 50px;
+            height: 50px;
+            background: #D32F2F;
+            opacity: 0.12;
+        }
+
+        /* Content container */
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 60px 80px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Logo */
+        .logo {
+            height: 48px;
+            margin-bottom: 16px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        /* Category tag */
+        .category {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 24px;
+            color: #C45500;
+            margin-bottom: 60px;
+        }
+
+        /* Main content area */
+        .main-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+            gap: 60px;
+        }
+
+        .text-content {
+            flex: 1;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Title */
+        .title {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: #1A1A1A;
+            line-height: 1.05;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 36px;
+        }
+
+        .title .highlight {
+            color: #C45500;
+        }
+
+        .title .number {
+            color: #D32F2F;
+            font-size: 90px;
+        }
+
+        /* Subtitle pill */
+        .subtitle-pill {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            padding: 14px 28px;
+            border-radius: 6px;
+            margin-bottom: 36px;
+        }
+
+        .subtitle-pill span {
+            font-family: 'Manrope', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #C45500;
+            letter-spacing: 1px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #232F3E;
+            color: white;
+            padding: 20px 48px;
+            border-radius: 40px;
+            font-size: 22px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Right side illustration area */
+        .illustration-area {
+            width: 650px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        /* Decorative glow behind icon */
+        .icon-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(211, 47, 47, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cover" id="cover">
+        <!-- Decorative dots top-left -->
+        <div class="dots top-left">
+            <div class="dot"></div>
+            <div class="dot light"></div>
+            <div class="dot"></div>
+            <div class="dot light"></div>
+            <div class="dot"></div>
+            <div class="dot light"></div>
+        </div>
+
+        <!-- Decorative blobs -->
+        <div class="blob top-right"></div>
+        <div class="blob top-right-small"></div>
+        <div class="blob bottom-left"></div>
+        <div class="blob bottom-right"></div>
+        <div class="blob accent"></div>
+
+        <!-- Main content -->
+        <div class="content">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="../../../../foundation/brands/innomize/assets/Logo_Horizontal_RGB.png" alt="INNOMIZE">
+            </div>
+
+            <!-- Category -->
+            <div class="category">#AWSCosts #CloudOptimization</div>
+
+            <!-- Main area -->
+            <div class="main-area">
+                <div class="text-content">
+                    <h1 class="title">
+                        <span class="number">12</span> HIDDEN<br>
+                        <span class="highlight">AWS COSTS</span><br>
+                        THAT SILENTLY<br>
+                        DRAIN YOUR BUDGET
+                    </h1>
+
+                    <div class="subtitle-pill">
+                        <span>What Most Teams Miss</span>
+                    </div>
+
+                    <div class="cta-button">Read the Full Guide</div>
+                </div>
+
+                <!-- Illustration area - Cost leak visualization -->
+                <div class="illustration-area">
+                    <div class="icon-glow"></div>
+                    <svg width="550" height="480" viewBox="0 0 550 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Central bill/invoice -->
+                        <rect x="150" y="40" width="250" height="320" rx="12" fill="white" stroke="#E0E0E0" stroke-width="2"/>
+
+                        <!-- Bill header -->
+                        <rect x="150" y="40" width="250" height="60" rx="12" fill="#232F3E"/>
+                        <rect x="150" y="88" width="250" height="12" fill="#232F3E"/>
+                        <text x="275" y="80" text-anchor="middle" font-family="Manrope, sans-serif" font-size="22" font-weight="700" fill="white">AWS BILL</text>
+
+                        <!-- Bill lines -->
+                        <rect x="170" y="120" width="120" height="12" rx="4" fill="#E0E0E0"/>
+                        <rect x="320" y="120" width="60" height="12" rx="4" fill="#E0E0E0"/>
+
+                        <rect x="170" y="150" width="100" height="12" rx="4" fill="#E0E0E0"/>
+                        <rect x="320" y="150" width="60" height="12" rx="4" fill="#E0E0E0"/>
+
+                        <rect x="170" y="180" width="140" height="12" rx="4" fill="#E0E0E0"/>
+                        <rect x="320" y="180" width="60" height="12" rx="4" fill="#E0E0E0"/>
+
+                        <!-- Hidden costs section (highlighted) -->
+                        <rect x="165" y="210" width="220" height="100" rx="8" fill="#FFF3E0" stroke="#FF9900" stroke-width="2" stroke-dasharray="6 4"/>
+
+                        <text x="180" y="235" font-family="Manrope, sans-serif" font-size="14" font-weight="600" fill="#C45500">HIDDEN COSTS</text>
+
+                        <rect x="180" y="250" width="80" height="10" rx="3" fill="#FFCC80"/>
+                        <rect x="280" y="250" width="40" height="10" rx="3" fill="#D32F2F"/>
+
+                        <rect x="180" y="270" width="100" height="10" rx="3" fill="#FFCC80"/>
+                        <rect x="280" y="270" width="50" height="10" rx="3" fill="#D32F2F"/>
+
+                        <rect x="180" y="290" width="60" height="10" rx="3" fill="#FFCC80"/>
+                        <rect x="280" y="290" width="35" height="10" rx="3" fill="#D32F2F"/>
+
+                        <!-- Total line -->
+                        <line x1="170" y1="330" x2="380" y2="330" stroke="#1A1A1A" stroke-width="2"/>
+                        <text x="180" y="350" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="#1A1A1A">TOTAL</text>
+                        <text x="370" y="350" text-anchor="end" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="#D32F2F">$$$</text>
+
+                        <!-- Magnifying glass -->
+                        <circle cx="420" cy="260" r="60" fill="none" stroke="#FF9900" stroke-width="4"/>
+                        <line x1="460" y1="300" x2="510" y2="350" stroke="#FF9900" stroke-width="8" stroke-linecap="round"/>
+                        <circle cx="420" cy="260" r="45" fill="rgba(255, 153, 0, 0.1)"/>
+
+                        <!-- Exclamation marks / alerts -->
+                        <g transform="translate(80, 140)">
+                            <circle cx="20" cy="20" r="20" fill="#D32F2F"/>
+                            <text x="20" y="28" text-anchor="middle" font-family="Manrope, sans-serif" font-size="24" font-weight="700" fill="white">!</text>
+                        </g>
+
+                        <g transform="translate(60, 280)">
+                            <circle cx="15" cy="15" r="15" fill="#FF9900"/>
+                            <text x="15" y="22" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="700" fill="white">!</text>
+                        </g>
+
+                        <g transform="translate(440, 120)">
+                            <circle cx="18" cy="18" r="18" fill="#D32F2F"/>
+                            <text x="18" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="22" font-weight="700" fill="white">!</text>
+                        </g>
+
+                        <!-- Dollar leak symbols -->
+                        <g transform="translate(50, 200)">
+                            <text font-family="Manrope, sans-serif" font-size="28" font-weight="700" fill="#D32F2F" opacity="0.7">$</text>
+                        </g>
+                        <g transform="translate(480, 180)">
+                            <text font-family="Manrope, sans-serif" font-size="24" font-weight="700" fill="#D32F2F" opacity="0.5">$</text>
+                        </g>
+                        <g transform="translate(100, 350)">
+                            <text font-family="Manrope, sans-serif" font-size="32" font-weight="700" fill="#D32F2F" opacity="0.6">$</text>
+                        </g>
+                        <g transform="translate(460, 380)">
+                            <text font-family="Manrope, sans-serif" font-size="26" font-weight="700" fill="#D32F2F" opacity="0.5">$</text>
+                        </g>
+
+                        <!-- Arrow pointing to hidden section -->
+                        <path d="M 100 260 Q 130 260 140 250" stroke="#FF9900" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#FF9900"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

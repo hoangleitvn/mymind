@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 2: Pattern 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --jade-500: #00a86b;
+            --charcoal-700: #374151;
+            --charcoal-900: #111827;
+            --width: 1080px;
+            --height: 1350px;
+        }
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Inter', sans-serif; }
+        .canvas {
+            width: var(--width);
+            height: var(--height);
+            background: var(--charcoal-900);
+            position: relative;
+            overflow: hidden;
+        }
+        .bg-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) contrast(1.1);
+            z-index: 1;
+        }
+        .tint-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--charcoal-900);
+            opacity: 0.93;
+            z-index: 2;
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 64px;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 48px;
+        }
+        .category {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            color: var(--jade-500);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .pattern-num {
+            font-family: 'Poppins', sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+            color: white;
+            background: var(--jade-500);
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .title-section {
+            margin-bottom: 48px;
+        }
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 72px;
+            line-height: 1.1;
+            color: white;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+        .example-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .example-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+        .example-box {
+            background: rgba(0,0,0,0.4);
+            border-left: 4px solid var(--jade-500);
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 48px;
+        }
+        .example-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 35px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+        .example-text .highlight {
+            color: var(--jade-500);
+            font-weight: 500;
+        }
+        .example-text .strike {
+            color: #ef4444;
+            text-decoration: line-through;
+            opacity: 0.8;
+        }
+        .rule-section {
+            background: rgba(0, 168, 107, 0.1);
+            border: 1px solid rgba(0, 168, 107, 0.3);
+            border-radius: 12px;
+            padding: 32px;
+        }
+        .rule-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            color: var(--jade-500);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+        .rule-text {
+            font-size: 30px;
+            font-weight: 500;
+            color: white;
+            line-height: 1.4;
+        }
+        .ui-corner {
+            position: absolute;
+            width: 40px; height: 40px;
+            border: 2px solid rgba(255,255,255,0.2);
+            z-index: 5;
+        }
+        .tl { top: 48px; left: 48px; border-right: 0; border-bottom: 0; }
+        .tr { top: 48px; right: 48px; border-left: 0; border-bottom: 0; }
+        .bl { bottom: 48px; left: 48px; border-right: 0; border-top: 0; }
+        .br { bottom: 48px; right: 48px; border-left: 0; border-top: 0; }
+    </style>
+</head>
+<body>
+    <div class="canvas">
+        <div class="bg-layer"></div>
+        <div class="tint-layer"></div>
+        <div class="ui-corner tl"></div>
+        <div class="ui-corner tr"></div>
+        <div class="ui-corner bl"></div>
+        <div class="ui-corner br"></div>
+
+        <div class="content">
+            <div class="header">
+                <div class="category">Knowledge Gaps · 1 of 5</div>
+                <div class="pattern-num">1</div>
+            </div>
+
+            <div class="title-section">
+                <h1>Confident About<br>Fake Things</h1>
+            </div>
+
+            <div class="example-section">
+                <div class="example-label">Example</div>
+                <div class="example-box">
+                    <div class="example-text">
+                        AI suggests<br>
+                        <span class="strike">pandas.DataFrame.to_smartsheet()</span><br><br>
+                        <span class="highlight">Never existed.</span>
+                    </div>
+                </div>
+
+                <div class="rule-section">
+                    <div class="rule-label">→ Rule</div>
+                    <div class="rule-text">"Never use unfamiliar methods without showing docs first."</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

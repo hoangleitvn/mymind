@@ -15,9 +15,9 @@ target_hashtags: [AIAgents, OpenStandard, AIEngineering, SoftwareDevelopment]
 optimal_post_time: Tuesday-Thursday, 8-10am
 ---
 
-Agent skills are becoming an open standard.
+Claude Code, Codex, Antigravity now supports Agent Skills.
 
-Build once. Run everywhere.
+Skills now is Open Standard. Build once. Run everywhere.
 
 Most people are still building for one platform. They write prompts for ChatGPT. Or Claude. Or Gemini. Then they start over when they switch.
 
@@ -59,7 +59,11 @@ But the system you build? That's what AI amplifies.
 
 No workflow, no amplification. No matter which AI wins.
 
-P/S. One thing I'd love to see: a standard directory for all AI platforms. No more `.claude/`, `.cursor/`, `.codex/` cluttering my workspace. One folder. All platforms read it. Unless platform-specific config is truly needed.
+P/S. One thing I'd love to see: a standard directory for all AI platforms. 
+No more `.claude/`, `.cursor/`, `.codex/`, `.agent/` cluttering my workspace. 
+One folder. 
+All platforms read it.
+Unless platform-specific config is truly needed.
 
 That's the dream.
 

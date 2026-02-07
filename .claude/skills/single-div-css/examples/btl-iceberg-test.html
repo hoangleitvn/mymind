@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Iceberg - Single Div Test</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&family=Public+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* BTL Brand Colors */
+      --btl-brand: #00a86b;
+      --btl-brand-100: #d1fae5;
+      --btl-brand-400: #10b981;
+      --btl-brand-600: #008553;
+      --btl-brand-800: #065f46;
+
+      /* BTL Base Colors */
+      --btl-charcoal: #1f2937;
+      --btl-base-50: #f9fafb;
+      --btl-base-100: #f1f5f9;
+      --btl-base-200: #e5e7eb;
+      --btl-base-500: #6b7280;
+      --btl-base-700: #374151;
+      --btl-base-900: #111827;
+
+      /* Typography */
+      --font-heading: "IBM Plex Sans", system-ui, sans-serif;
+      --font-body: "Public Sans", system-ui, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--btl-base-50);
+      font-family: var(--font-body);
+      padding: 40px;
+      gap: 24px;
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--btl-charcoal);
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--btl-base-500);
+      margin-bottom: 20px;
+    }
+
+    /* ============================================
+       THE SINGLE DIV ICEBERG
+       ============================================ */
+    .iceberg {
+      /* Container dimensions */
+      width: 280px;
+      height: 400px;
+      position: relative;
+
+      /* Background layers (bottom to top) */
+      background:
+        /* Layer 6: Stars in deep water (subtle) */
+        radial-gradient(circle at 20% 70%, rgba(255,255,255,0.1) 1px, transparent 1px),
+        radial-gradient(circle at 60% 80%, rgba(255,255,255,0.08) 1px, transparent 1px),
+        radial-gradient(circle at 80% 65%, rgba(255,255,255,0.1) 1px, transparent 1px),
+
+        /* Layer 5: Ice shape - tip (above waterline, bright white) */
+        linear-gradient(170deg,
+          transparent 0%, transparent 17%,
+          white 17%, white 19%,
+          transparent 19%
+        ),
+        linear-gradient(190deg,
+          transparent 0%, transparent 17%,
+          white 17%, white 21%,
+          transparent 21%
+        ),
+
+        /* Layer 4: Ice shape - body (below waterline, translucent) */
+        linear-gradient(175deg,
+          transparent 0%, transparent 31%,
+          rgba(209,250,229,0.85) 31%, rgba(209,250,229,0.7) 45%,
+          transparent 45%
+        ),
+        linear-gradient(185deg,
+          transparent 0%, transparent 31%,
+          rgba(209,250,229,0.8) 31%, rgba(209,250,229,0.5) 55%,
+          transparent 55%
+        ),
+
+        /* Layer 3: Deep ice extension */
+        radial-gradient(ellipse 35% 30% at 50% 65%,
+          rgba(209,250,229,0.4) 0%,
+          rgba(6,95,70,0.2) 70%,
+          transparent 100%
+        ),
+
+        /* Layer 2: Waterline (the BTL signature element) */
+        linear-gradient(to bottom,
+          transparent 0%, transparent 29%,
+          var(--btl-brand) 29%, var(--btl-brand) 30.5%,
+          transparent 30.5%
+        ),
+
+        /* Layer 1: Sky and ocean split */
+        linear-gradient(to bottom,
+          var(--btl-base-100) 0%,
+          var(--btl-base-50) 20%,
+          #e0f2fe 29%,
+          transparent 30%
+        ),
+
+        /* Layer 0: Deep ocean base */
+        linear-gradient(to bottom,
+          transparent 30%,
+          #0c4a6e 30%,
+          #0c4a6e 50%,
+          var(--btl-base-900) 100%
+        );
+
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Pseudo-element: Additional ice details and labels */
+    .iceberg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+      background:
+        /* "20%" label area indicator */
+        radial-gradient(circle at 85% 15%,
+          var(--btl-brand) 4px,
+          transparent 4px
+        ),
+        /* Connecting line to 20% */
+        linear-gradient(to right,
+          transparent 60%,
+          var(--btl-brand-400) 60%, var(--btl-brand-400) 61%,
+          transparent 61%
+        ),
+
+        /* "80%" label area indicator */
+        radial-gradient(circle at 85% 60%,
+          var(--btl-brand-100) 4px,
+          transparent 4px
+        ),
+        /* Connecting line to 80% */
+        linear-gradient(to right,
+          transparent 60%,
+          rgba(209,250,229,0.5) 60%, rgba(209,250,229,0.5) 61%,
+          transparent 61%
+        ),
+
+        /* Ice surface shine */
+        linear-gradient(135deg,
+          transparent 0%, transparent 15%,
+          rgba(255,255,255,0.4) 15%, rgba(255,255,255,0.2) 20%,
+          transparent 20%
+        ),
+
+        /* Underwater light rays */
+        linear-gradient(170deg,
+          transparent 35%,
+          rgba(56,189,248,0.1) 40%,
+          transparent 45%
+        ),
+        linear-gradient(190deg,
+          transparent 40%,
+          rgba(56,189,248,0.08) 45%,
+          transparent 50%
+        );
+
+      background-size:
+        100% 100%,
+        100% 3%,
+        100% 100%,
+        100% 3%,
+        100% 100%,
+        100% 100%,
+        100% 100%;
+
+      background-position:
+        0 0,
+        0 15%,
+        0 0,
+        0 60%,
+        0 0,
+        0 0,
+        0 0;
+
+      background-repeat: no-repeat;
+    }
+
+    /* Pseudo-element: Wave animation overlay */
+    .iceberg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+      background:
+        /* Animated wave lines at waterline */
+        repeating-linear-gradient(
+          90deg,
+          transparent 0px,
+          transparent 8px,
+          rgba(255,255,255,0.15) 8px,
+          rgba(255,255,255,0.15) 12px
+        );
+
+      background-size: 100% 3px;
+      background-position: 0 29.5%;
+      background-repeat: no-repeat;
+
+      animation: waveMove 3s ease-in-out infinite;
+    }
+
+    @keyframes waveMove {
+      0%, 100% {
+        background-position: 0 29.5%;
+      }
+      50% {
+        background-position: 10px 29.5%;
+      }
+    }
+
+    /* Labels using CSS (positioned outside the div) */
+    .label-container {
+      position: relative;
+      width: 280px;
+    }
+
+    .label {
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--btl-base-500);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .label-20 {
+      position: absolute;
+      top: 50px;
+      right: -80px;
+      color: var(--btl-brand-600);
+    }
+
+    .label-80 {
+      position: absolute;
+      top: 230px;
+      right: -80px;
+      color: var(--btl-base-200);
+    }
+
+    /* Info text */
+    .info {
+      margin-top: 16px;
+      text-align: center;
+      max-width: 320px;
+    }
+
+    .info p {
+      font-size: 14px;
+      color: var(--btl-base-500);
+      line-height: 1.6;
+    }
+
+    .info strong {
+      color: var(--btl-charcoal);
+    }
+
+    /* Accent bar */
+    .accent-bar {
+      width: 280px;
+      height: 4px;
+      background: var(--btl-brand);
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="accent-bar"></div>
+  <h1>Builds That Last</h1>
+  <p class="subtitle">The 20/80 Principle - Single Div CSS Art</p>
+
+  <div class="label-container">
+    <div class="iceberg"></div>
+    <span class="label label-20">20% Visible</span>
+    <span class="label label-80">80% Foundation</span>
+  </div>
+
+  <div class="info">
+    <p>
+      <strong>Everyone ships fast. Few build to last.</strong><br>
+      This iceberg is rendered using a single <code>&lt;div&gt;</code> element
+      with CSS gradients, pseudo-elements, and animations.
+    </p>
+  </div>
+</body>
+</html>

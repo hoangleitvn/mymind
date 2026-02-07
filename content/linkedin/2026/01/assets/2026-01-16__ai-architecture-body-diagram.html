@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Architecture - Body Metaphor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-400: #10b981;
+      --brand-500: #00a86b;
+      --charcoal-800: #1f2937;
+      --charcoal-900: #111827;
+      --base-50: #f9fafb;
+      --base-300: #d1d5db;
+      --base-400: #9ca3af;
+      --base-700: #374151;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Public Sans", sans-serif;
+    }
+
+    .canvas {
+      width: 1200px;
+      height: 1200px;
+      background: linear-gradient(145deg, var(--charcoal-800) 0%, var(--charcoal-900) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--brand-500);
+    }
+
+    .title {
+      position: absolute;
+      top: 60px;
+      left: 80px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--base-50);
+    }
+
+    .title .highlight {
+      color: var(--brand-400);
+    }
+
+    .subtitle {
+      position: absolute;
+      top: 115px;
+      left: 80px;
+      font-family: "Public Sans", sans-serif;
+      font-size: 20px;
+      color: var(--base-400);
+    }
+
+    .diagram {
+      position: absolute;
+      top: 160px;
+      left: 0;
+      right: 0;
+      bottom: 140px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .diagram svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .footer {
+      position: absolute;
+      left: 64px;
+      right: 64px;
+      bottom: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--base-700);
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .author-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--brand-500);
+      object-fit: cover;
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .author-name {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--base-50);
+    }
+
+    .author-brand {
+      font-family: "Public Sans", sans-serif;
+      font-size: 15px;
+      color: var(--base-400);
+    }
+
+    .tagline {
+      font-family: "Public Sans", sans-serif;
+      font-size: 18px;
+      color: var(--base-300);
+    }
+
+    .tagline .highlight {
+      color: var(--brand-400);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="canvas">
+    <div class="accent-bar"></div>
+
+    <h1 class="title">The <span class="highlight">Anatomy</span> of AI</h1>
+    <p class="subtitle">Understanding AI architecture through the human body</p>
+
+    <div class="diagram">
+      <!--
+        PROPORTIONS REFERENCE (H = head unit = 90px)
+        =============================================
+        Body total   = 7.5H = 675px (y=45 to y=720)
+        Leg          = 4H   = 360px
+        Arm          = 3.5H = 315px (shoulder to fingertip)
+        Trunk        = 3H   = 270px (shoulder to groin)
+        Shoulders    = 2H   = 180px width
+        Hand         = 0.9H = 81px length
+        Neck         = 0.9H = 81px (same as hand)
+        Foot length  = 1.5H = 135px (= forearm length)
+        Forearm      = 1.75H= 157px
+        Upper arm    = 1.75H= 157px
+
+        VERTICAL LAYOUT (center X=500):
+        - Head top:     y = 45
+        - Chin:         y = 135 (head = 1H = 90px)
+        - Shoulder:     y = 180 (neck = ~0.5H)
+        - Groin:        y = 450 (trunk = 3H = 270px from y=180)
+        - Knee:         y = 630 (thigh = 2H = 180px)
+        - Feet bottom:  y = 720 (lower leg = 1H + ankle)
+
+        Note: Total leg = 4H, but positioned for visual balance
+      -->
+      <svg viewBox="0 0 1000 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- AGENT: Aura outline around entire figure -->
+        <ellipse cx="500" cy="400" rx="155" ry="360"
+                 fill="none" stroke="#00a86b" stroke-width="2" stroke-dasharray="10 5" opacity="0.4"/>
+
+        <!-- Human figure -->
+        <g id="human-body" fill="#4b5563">
+
+          <!-- HEAD: y=45-135 (1H=90px), width ~0.7H -->
+          <ellipse cx="500" cy="90" rx="32" ry="45"/>
+
+          <!-- NECK: y=135-180 (~0.5H=45px) -->
+          <path d="M484 133
+                   L482 165
+                   C482 175, 490 180, 500 180
+                   C510 180, 518 175, 518 165
+                   L516 133"/>
+
+          <!-- SHOULDERS + UPPER CHEST: y=180-240 -->
+          <!-- Shoulders = 2H = 180px, so x: 410-590 -->
+          <path d="M482 180
+                   C455 182, 430 190, 410 205
+                   L405 240
+                   L595 240
+                   L590 205
+                   C570 190, 545 182, 518 180
+                   Z"/>
+
+          <!-- TORSO: y=240-360 (chest to waist) -->
+          <path d="M405 240
+                   L400 280
+                   C395 320, 430 360, 460 360
+                   L540 360
+                   C570 360, 605 320, 600 280
+                   L595 240
+                   Z"/>
+
+          <!-- LOWER TORSO + HIPS: y=360-450 (waist to groin) -->
+          <path d="M460 360
+                   C440 375, 432 410, 438 450
+                   L562 450
+                   C568 410, 560 375, 540 360
+                   Z"/>
+
+          <!-- LEFT ARM: total 3.5H = 315px -->
+          <!-- Upper arm: 1.75H = 157px, y=205 to y=362 -->
+          <path d="M410 205
+                   C380 215, 355 270, 345 330
+                   L340 362
+                   L362 367
+                   L370 335
+                   C380 280, 395 230, 420 215
+                   Z"/>
+          <!-- Forearm: 1.75H = 157px, y=362 to y=519 -->
+          <path d="M340 362
+                   C330 410, 305 470, 290 510
+                   L288 530
+                   L312 535
+                   L318 515
+                   C333 475, 352 415, 362 367
+                   Z"/>
+          <!-- Left hand: ~0.75H -->
+          <ellipse cx="300" cy="555" rx="24" ry="30"/>
+
+          <!-- RIGHT ARM: total 3.5H = 315px -->
+          <!-- Upper arm: 1.75H = 157px -->
+          <path d="M590 205
+                   C620 215, 645 270, 655 330
+                   L660 362
+                   L638 367
+                   L630 335
+                   C620 280, 605 230, 580 215
+                   Z"/>
+          <!-- Forearm: 1.75H = 157px -->
+          <path d="M660 362
+                   C670 410, 695 470, 710 510
+                   L712 530
+                   L688 535
+                   L682 515
+                   C667 475, 648 415, 638 367
+                   Z"/>
+          <!-- Right hand: ~0.75H -->
+          <ellipse cx="700" cy="555" rx="24" ry="30"/>
+
+          <!-- LEFT LEG: total 4H = 360px, y=450-810 but clipped -->
+          <!-- Thigh: 2H = 180px, y=450-630 -->
+          <path d="M438 450
+                   C432 490, 425 560, 422 610
+                   L420 630
+                   L465 630
+                   L468 610
+                   C470 560, 478 490, 488 450
+                   Z"/>
+          <!-- Lower leg: 2H = 180px, y=630-760 (compressed for frame) -->
+          <path d="M420 630
+                   C418 670, 415 710, 418 740
+                   L422 760
+                   L460 760
+                   L463 740
+                   C465 710, 465 670, 465 630
+                   Z"/>
+          <!-- Foot: length ~1.5H but scaled for view -->
+          <ellipse cx="441" cy="768" rx="35" ry="12"/>
+
+          <!-- RIGHT LEG: total 4H = 360px -->
+          <!-- Thigh: 2H = 180px -->
+          <path d="M562 450
+                   C568 490, 575 560, 578 610
+                   L580 630
+                   L535 630
+                   L532 610
+                   C530 560, 522 490, 512 450
+                   Z"/>
+          <!-- Lower leg: 2H = 180px -->
+          <path d="M580 630
+                   C582 670, 585 710, 582 740
+                   L578 760
+                   L540 760
+                   L537 740
+                   C535 710, 535 670, 535 630
+                   Z"/>
+          <!-- Foot -->
+          <ellipse cx="559" cy="768" rx="35" ry="12"/>
+
+        </g>
+
+        <!-- Body detail lines -->
+        <g stroke="#374151" stroke-width="1" fill="none" opacity="0.4">
+          <!-- Collar bones -->
+          <path d="M440 195 Q500 205 560 195"/>
+          <!-- Chest line -->
+          <line x1="500" y1="210" x2="500" y2="300"/>
+          <!-- Navel -->
+          <circle cx="500" cy="360" r="5" fill="#374151"/>
+        </g>
+
+        <!-- HIGHLIGHTS -->
+
+        <!-- Brain highlight (LLM) -->
+        <ellipse cx="500" cy="90" rx="40" ry="52" fill="none" stroke="#10b981" stroke-width="3" filter="url(#glow)"/>
+
+        <!-- Left hand highlight (Tools) -->
+        <ellipse cx="300" cy="555" rx="34" ry="40" fill="none" stroke="#10b981" stroke-width="2"/>
+
+        <!-- Right hand highlight (Skills - brighter) -->
+        <ellipse cx="700" cy="555" rx="34" ry="40" fill="none" stroke="#10b981" stroke-width="3" filter="url(#glow)"/>
+        <ellipse cx="700" cy="555" rx="45" ry="52" fill="none" stroke="#10b981" stroke-width="1" opacity="0.3"/>
+
+        <!-- MCP: Handshake connection to external world -->
+        <g id="mcp-connection">
+          <!-- Dashed line from left hand outward -->
+          <path d="M268 555 C210 545, 160 515, 130 490" stroke="#00a86b" stroke-width="2" stroke-dasharray="8 4" fill="none"/>
+
+          <!-- Connection hub -->
+          <circle cx="130" cy="490" r="14" fill="#00a86b" opacity="0.8"/>
+          <circle cx="130" cy="490" r="8" fill="#10b981"/>
+
+          <!-- External service nodes -->
+          <circle cx="80" cy="450" r="18" fill="none" stroke="#00a86b" stroke-width="2"/>
+          <circle cx="60" cy="495" r="18" fill="none" stroke="#00a86b" stroke-width="2"/>
+          <circle cx="80" cy="540" r="18" fill="none" stroke="#00a86b" stroke-width="2"/>
+
+          <!-- Connection lines -->
+          <line x1="130" y1="490" x2="95" y2="460" stroke="#00a86b" stroke-width="2"/>
+          <line x1="130" y1="490" x2="78" y2="495" stroke="#00a86b" stroke-width="2"/>
+          <line x1="130" y1="490" x2="95" y2="530" stroke="#00a86b" stroke-width="2"/>
+        </g>
+
+        <!-- LABELS -->
+
+        <!-- LLM → Head -->
+        <g id="label-llm">
+          <line x1="360" y1="90" x2="455" y2="90" stroke="#00a86b" stroke-width="2"/>
+          <circle cx="458" cy="90" r="5" fill="#00a86b"/>
+          <text x="350" y="80" text-anchor="end" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="28" font-weight="600">LLM</text>
+          <text x="350" y="110" text-anchor="end" fill="#d1d5db" font-family="Public Sans, sans-serif" font-size="18">The brain that reasons</text>
+        </g>
+
+        <!-- Agent → Body outline -->
+        <g id="label-agent">
+          <line x1="780" y1="220" x2="655" y2="220" stroke="#00a86b" stroke-width="2"/>
+          <circle cx="652" cy="220" r="5" fill="#00a86b"/>
+          <text x="790" y="210" text-anchor="start" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="28" font-weight="600">AGENT</text>
+          <text x="790" y="240" text-anchor="start" fill="#d1d5db" font-family="Public Sans, sans-serif" font-size="18">The whole person</text>
+        </g>
+
+        <!-- Tools → Left hand -->
+        <g id="label-tools">
+          <line x1="300" y1="610" x2="300" y2="650" stroke="#00a86b" stroke-width="2"/>
+          <circle cx="300" cy="607" r="5" fill="#00a86b"/>
+          <text x="300" y="685" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="28" font-weight="600">TOOLS</text>
+          <text x="300" y="715" text-anchor="middle" fill="#d1d5db" font-family="Public Sans, sans-serif" font-size="18">Hands that execute</text>
+        </g>
+
+        <!-- Skills → Right hand -->
+        <g id="label-skills">
+          <line x1="700" y1="610" x2="700" y2="650" stroke="#00a86b" stroke-width="2"/>
+          <circle cx="700" cy="607" r="5" fill="#00a86b"/>
+          <text x="700" y="685" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="28" font-weight="600">SKILLS</text>
+          <text x="700" y="715" text-anchor="middle" fill="#d1d5db" font-family="Public Sans, sans-serif" font-size="18">Specialized hands</text>
+        </g>
+
+        <!-- MCP → Connection hub -->
+        <g id="label-mcp">
+          <line x1="130" y1="410" x2="130" y2="470" stroke="#00a86b" stroke-width="2"/>
+          <circle cx="130" cy="473" r="5" fill="#00a86b"/>
+          <text x="130" y="390" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="28" font-weight="600">MCP</text>
+          <text x="130" y="365" text-anchor="middle" fill="#d1d5db" font-family="Public Sans, sans-serif" font-size="18">The handshake</text>
+        </g>
+
+      </svg>
+    </div>
+
+    <footer class="footer">
+      <div class="author">
+        <img src="../../../../../foundation/brands/btl/assets/hoangleitvn.jpeg" alt="Hoang Le" class="author-avatar">
+        <div class="author-info">
+          <span class="author-name">Hoang Le</span>
+          <span class="author-brand">Building with AI daily</span>
+        </div>
+      </div>
+      <span class="tagline">
+        Most upgrade the <span class="highlight">brain</span>. Few complete the <span class="highlight">body</span>.
+      </span>
+    </footer>
+  </div>
+
+</body>
+</html>

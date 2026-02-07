@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Infographic: Matrix Comparison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /*
+      BTL Infographic Template: Matrix
+      =================================
+      Design System: v2.2 | Philosophy: v1.2
+
+      Usage: Feature comparisons, tier comparisons, option matrices
+
+      Principles Applied:
+      - P1. Depth Over Surface: Matrix reveals complete picture
+      - P2. Clarity Over Cleverness: Clear grid, obvious indicators
+      - P3. Restraint Over Abundance: Max 3 columns, 6 rows
+      - P4. Grounded Over Floating: Header row anchors
+      - P5. Timeless Over Trendy: Classic comparison table
+
+      Layout: 1200x1200 (LinkedIn square)
+      Max: 3 options (columns), 6 criteria (rows)
+
+      Typography:
+      - Title: 44px IBM Plex Sans 700
+      - Column headers: 24px IBM Plex Sans 600
+      - Row labels: 22px Public Sans 500
+      - Values: 20px JetBrains Mono 500
+    */
+    :root {
+      --brand-400: #10b981;
+      --brand-500: #00a86b;
+      --base-50: #f9fafb;
+      --base-300: #d1d5db;
+      --base-400: #9ca3af;
+      --base-500: #6b7280;
+      --base-700: #374151;
+      --base-800: #1f2937;
+      --base-900: #111827;
+      --canvas-width: 1200px;
+      --canvas-height: 1200px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: "Public Sans", system-ui, sans-serif;
+    }
+
+    .canvas {
+      width: var(--canvas-width);
+      height: var(--canvas-height);
+      background: var(--base-800);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .canvas-svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="canvas">
+    <svg class="canvas-svg" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Definitions -->
+      <defs>
+        <clipPath id="circleClip">
+          <circle cx="99" cy="1098" r="35"/>
+        </clipPath>
+      </defs>
+
+      <!-- Background -->
+      <rect width="1200" height="1200" fill="#1f2937"/>
+
+      <!-- Accent Bar -->
+      <rect x="0" y="0" width="1200" height="6" fill="#00a86b"/>
+
+      <!-- EDIT: Title -->
+      <text x="600" y="90" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="44" font-weight="700" letter-spacing="-0.02em">
+        Development Approaches
+      </text>
+
+      <!-- Subtitle -->
+      <text x="600" y="130" text-anchor="middle" fill="#9ca3af" font-family="Public Sans" font-size="20" font-weight="400">
+        Comparing speed-first vs foundation-first development
+      </text>
+
+      <!-- ========================================== -->
+      <!-- MATRIX TABLE                              -->
+      <!-- ========================================== -->
+
+      <!-- Table dimensions (validated grid) -->
+      <!-- Content width: 1072px (1200 - 64*2) -->
+      <!-- Columns: Criteria (268px) | Option A (268px) | Option B (268px) | Option C (268px) -->
+      <!-- X positions: 64, 332, 600, 868, 1136 -->
+      <!-- Row height: 80px, text vertically centered -->
+
+      <!-- Header Row Background -->
+      <rect x="64" y="180" width="268" height="72" fill="#111827"/>
+      <rect x="332" y="180" width="268" height="72" fill="#374151"/>
+      <rect x="600" y="180" width="268" height="72" fill="#374151"/>
+      <rect x="868" y="180" width="268" height="72" fill="#008553"/>
+
+      <!-- Header Labels -->
+      <text x="198" y="224" text-anchor="middle" fill="#9ca3af" font-family="JetBrains Mono" font-size="18" font-weight="500" letter-spacing="0.05em">
+        CRITERIA
+      </text>
+      <text x="466" y="224" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="24" font-weight="600">
+        Speed-First
+      </text>
+      <text x="734" y="224" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="24" font-weight="600">
+        Balanced
+      </text>
+      <text x="1002" y="224" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans" font-size="24" font-weight="600">
+        Foundation
+      </text>
+
+      <!-- Row dividers (72px header + 6 rows * 80px = 732) -->
+      <line x1="64" y1="252" x2="1136" y2="252" stroke="#374151" stroke-width="1"/>
+      <line x1="64" y1="332" x2="1136" y2="332" stroke="#374151" stroke-width="1"/>
+      <line x1="64" y1="412" x2="1136" y2="412" stroke="#374151" stroke-width="1"/>
+      <line x1="64" y1="492" x2="1136" y2="492" stroke="#374151" stroke-width="1"/>
+      <line x1="64" y1="572" x2="1136" y2="572" stroke="#374151" stroke-width="1"/>
+      <line x1="64" y1="652" x2="1136" y2="652" stroke="#374151" stroke-width="1"/>
+      <line x1="64" y1="732" x2="1136" y2="732" stroke="#374151" stroke-width="1"/>
+
+      <!-- Column dividers -->
+      <line x1="332" y1="180" x2="332" y2="732" stroke="#374151" stroke-width="1"/>
+      <line x1="600" y1="180" x2="600" y2="732" stroke="#374151" stroke-width="1"/>
+      <line x1="868" y1="180" x2="868" y2="732" stroke="#374151" stroke-width="1"/>
+
+      <!-- ========================================== -->
+      <!-- ROW 1: Time to first release              -->
+      <!-- Row y: 252-332, center: 292                -->
+      <!-- ========================================== -->
+      <text x="84" y="300" fill="#d1d5db" font-family="Public Sans" font-size="20" font-weight="500">
+        Time to first release
+      </text>
+      <text x="466" y="300" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        1-2 weeks
+      </text>
+      <text x="734" y="300" text-anchor="middle" fill="#d1d5db" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        3-4 weeks
+      </text>
+      <text x="1002" y="300" text-anchor="middle" fill="#d1d5db" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        4-6 weeks
+      </text>
+
+      <!-- ========================================== -->
+      <!-- ROW 2: Test coverage                      -->
+      <!-- Row y: 332-412, center: 372                -->
+      <!-- ========================================== -->
+      <text x="84" y="380" fill="#d1d5db" font-family="Public Sans" font-size="20" font-weight="500">
+        Test coverage
+      </text>
+      <!-- Em dash for "none" - using base-400 for AA contrast -->
+      <text x="466" y="380" text-anchor="middle" fill="#9ca3af" font-family="JetBrains Mono" font-size="24" font-weight="500">
+        —
+      </text>
+      <text x="734" y="380" text-anchor="middle" fill="#d1d5db" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        60-70%
+      </text>
+      <text x="1002" y="380" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        90%+
+      </text>
+
+      <!-- ========================================== -->
+      <!-- ROW 3: Documentation                      -->
+      <!-- Row y: 412-492, center: 452                -->
+      <!-- ========================================== -->
+      <text x="84" y="460" fill="#d1d5db" font-family="Public Sans" font-size="20" font-weight="500">
+        Documentation
+      </text>
+      <text x="466" y="460" text-anchor="middle" fill="#9ca3af" font-family="JetBrains Mono" font-size="24" font-weight="500">
+        —
+      </text>
+      <text x="734" y="460" text-anchor="middle" fill="#d1d5db" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        Basic
+      </text>
+      <text x="1002" y="460" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        Complete
+      </text>
+
+      <!-- ========================================== -->
+      <!-- ROW 4: Onboarding time                    -->
+      <!-- Row y: 492-572, center: 532                -->
+      <!-- ========================================== -->
+      <text x="84" y="540" fill="#d1d5db" font-family="Public Sans" font-size="20" font-weight="500">
+        New dev onboarding
+      </text>
+      <text x="466" y="540" text-anchor="middle" fill="#d1d5db" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        2-3 weeks
+      </text>
+      <text x="734" y="540" text-anchor="middle" fill="#d1d5db" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        1 week
+      </text>
+      <text x="1002" y="540" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        2-3 days
+      </text>
+
+      <!-- ========================================== -->
+      <!-- ROW 5: Refactor frequency                 -->
+      <!-- Row y: 572-652, center: 612                -->
+      <!-- ========================================== -->
+      <text x="84" y="620" fill="#d1d5db" font-family="Public Sans" font-size="20" font-weight="500">
+        Major refactors needed
+      </text>
+      <text x="466" y="620" text-anchor="middle" fill="#d1d5db" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        Every 6 mo
+      </text>
+      <text x="734" y="620" text-anchor="middle" fill="#d1d5db" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        Yearly
+      </text>
+      <text x="1002" y="620" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        Rarely
+      </text>
+
+      <!-- ========================================== -->
+      <!-- ROW 6: Long-term velocity                 -->
+      <!-- Row y: 652-732, center: 692                -->
+      <!-- ========================================== -->
+      <text x="84" y="700" fill="#d1d5db" font-family="Public Sans" font-size="20" font-weight="500">
+        Velocity at 12 months
+      </text>
+      <text x="466" y="700" text-anchor="middle" fill="#d1d5db" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        Declining
+      </text>
+      <text x="734" y="700" text-anchor="middle" fill="#d1d5db" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        Stable
+      </text>
+      <text x="1002" y="700" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="20" font-weight="500">
+        Increasing
+      </text>
+
+      <!-- Highlight column border for recommended -->
+      <rect x="868" y="180" width="268" height="552" fill="none" stroke="#00a86b" stroke-width="3" rx="4"/>
+
+      <!-- Recommended badge (18px min font, contrast on brand-600) -->
+      <rect x="942" y="152" width="128" height="28" rx="4" fill="#008553"/>
+      <text x="1006" y="172" text-anchor="middle" fill="#ffffff" font-family="JetBrains Mono" font-size="14" font-weight="600" letter-spacing="0.05em">
+        RECOMMENDED
+      </text>
+
+      <!-- ========================================== -->
+      <!-- BOTTOM: Insight                           -->
+      <!-- Table ends at y=732, gap=48px, insight at 780 -->
+      <!-- ========================================== -->
+
+      <!-- Waterline -->
+      <line x1="64" y1="780" x2="1136" y2="780" stroke="#00a86b" stroke-width="2" stroke-dasharray="8 6" opacity="0.6"/>
+
+      <!-- Insight box (height adjusted for content) -->
+      <rect x="64" y="816" width="1072" height="152" rx="8" fill="#111827"/>
+      <rect x="64" y="816" width="8" height="152" fill="#00a86b"/>
+
+      <text x="96" y="856" fill="#9ca3af" font-family="JetBrains Mono" font-size="16" font-weight="500" letter-spacing="0.1em">
+        THE TRADEOFF
+      </text>
+
+      <text x="96" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">
+        <tspan x="96" y="900">Speed-first wins the first sprint.</tspan>
+        <tspan x="96" dy="40">Foundation-first wins the year.</tspan>
+      </text>
+
+      <!-- ========================================== -->
+      <!-- FOOTER (Standard BTL Cover Footer)        -->
+      <!-- ========================================== -->
+
+      <!-- Footer Line -->
+      <line x1="64" y1="1048" x2="1136" y2="1048" stroke="#374151" stroke-width="1"/>
+
+      <!-- Profile Picture -->
+      <image
+        href="../../../assets/hoangleitvn.jpeg"
+        x="64" y="1063" width="70" height="70"
+        clip-path="url(#circleClip)"
+        preserveAspectRatio="xMidYMid slice"
+      />
+      <circle cx="99" cy="1098" r="35" fill="none" stroke="#00a86b" stroke-width="2"/>
+
+      <!-- Footer Text -->
+      <text x="154" y="1090" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">Hoang Le</text>
+      <text x="154" y="1120" fill="#9ca3af" font-family="Public Sans" font-size="22" font-weight="400">Builds That Last</text>
+
+      <!-- Tagline -->
+      <text x="1136" y="1105" text-anchor="end" font-family="Public Sans" font-size="26" font-weight="400">
+        <tspan fill="#d1d5db">Everyone ships </tspan><tspan fill="#10b981">fast</tspan><tspan fill="#d1d5db">. Few build to </tspan><tspan fill="#10b981">last</tspan><tspan fill="#d1d5db">.</tspan>
+      </text>
+
+    </svg>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+level,title,code,min_salary_vnd,max_salary_vnd
+4.1,Senior Solution Architect 2,DV1.1,102262500,127500000
+4.2,Senior Solution Architect 1,DV1.2,75000000,101250000
+5.1,Solution Architect 2,DV2.1,65000000,117000000
+5.2,Solution Architect 1,DV2.2,65000000,91000000
+6.1,Technical Lead 2,DV3.1,74235000,94500000
+6.2,Technical Lead 1,DV3.2,52500000,73500000
+7.1,Sr. Software Engineer 3,DV4.1,49490000,63000000
+7.2,Sr. Software Engineer 2,DV4.2,42420000,49000000
+7.3,Sr. Software Engineer 1,DV4.3,35000000,42000000
+8.1,Software Engineer 3,DV5.1,28280000,36000000
+8.2,Software Engineer 2,DV5.2,24240000,28000000
+8.3,Software Engineer 1,DV5.2,20000000,24000000
+9,Junior Developer,DV6,12000000,21600000
+10,Intern/Fresher,DV7,5000000,9000000

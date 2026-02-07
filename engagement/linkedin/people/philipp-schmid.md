@@ -1,8 +1,8 @@
 ---
 type: linkedin-person
 created: '2026-01-06T10:15:00Z'
-last_updated: '2026-01-06T10:15:00Z'
-last_interaction: '2026-01-06'
+last_updated: '2026-01-14T08:30:00Z'
+last_interaction: '2026-01-14'
 
 profile:
   name: "Philipp Schmid"
@@ -33,6 +33,12 @@ engagement_history:
     topic: "Agent Harness infrastructure for 2026"
     status: "draft"
     file: "comments/2026-01-06__philipp-schmid-agent-harness.md"
+  - date: '2026-01-14'
+    type: "comment"
+    post_url: "https://www.linkedin.com/posts/philipp-schmid-a6a2bb196_agent-skills-in-antigravitygoogle-now-available-activity-7417110946982166528-Ek2c"
+    topic: "Agent Skills portability in Antigravity.Google"
+    status: "posted"
+    file: "comments/2026/01/14/2026-01-14__philipp-schmid-agent-skills-antigravity.md"
 
 tags: [ai-ml, infrastructure, hugging-face-alumni, aws, thought-leader, agent-architecture]
 

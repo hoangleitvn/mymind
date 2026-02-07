@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTL Cover: Title Focus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+          BTL Cover Template: Title
+          =========================
+          Design System: v2.2 | Philosophy: v1.2
+
+          Usage: Article covers, manifesto headers, title-focused content
+
+          Principles:
+          - P1. Depth Over Surface: Background schematic suggests more beneath
+          - P2. Clarity Over Cleverness: Bold title, clear hierarchy
+          - P3. Restraint Over Abundance: Title dominates, minimal elements
+          - P4. Grounded Over Floating: Bottom-weighted content, accent bar
+          - P5. Timeless Over Trendy: Classic editorial typography
+
+          Typography (1456x1048 canvas):
+          - Eyebrow: 24px (JetBrains Mono - technical)
+          - Headline: 100px (IBM Plex Sans - impact)
+          - Subhead: 32px (Public Sans - readable)
+        */
+        :root {
+            --jade-500: #00a86b;
+            --charcoal-800: #1f2937;
+            --charcoal-900: #111827;
+            --white: #ffffff;
+            --width: 1456px;
+            --height: 1048px;
+            --padding: 96px;
+        }
+
+        body {
+            margin: 0;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        .canvas {
+            width: var(--width);
+            height: var(--height);
+            background: linear-gradient(135deg, var(--charcoal-800) 0%, var(--charcoal-900) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: var(--padding);
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        .accent-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--jade-500);
+        }
+
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 1;
+        }
+
+        /* Large Background Graphic (Faded) */
+        .schematic-bg {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 900px;
+            height: 900px;
+            z-index: 1;
+            opacity: 0.15;
+            transform: rotate(-15deg);
+        }
+
+        .content {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+        }
+
+        /* Eyebrow */
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--jade-500);
+            font-size: 24px;
+            letter-spacing: 0.1em;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--jade-500);
+        }
+
+        /* Headline - Split for impact */
+        h1 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 700;
+            font-size: 100px;
+            line-height: 1.05;
+            color: var(--white);
+            margin-bottom: 48px;
+            letter-spacing: -0.02em;
+        }
+
+        .highlight-box {
+            background: var(--jade-500);
+            color: var(--white);
+            padding: 0 24px;
+            display: inline-block;
+        }
+
+        /* The Waterline */
+        .waterline {
+            width: 100%;
+            height: 2px;
+            background-image: linear-gradient(90deg, var(--jade-500) 50%, transparent 50%);
+            background-size: 24px 2px;
+            margin-bottom: 48px;
+            opacity: 0.5;
+        }
+
+        /* Subhead */
+        .subhead {
+            font-size: 32px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 900px;
+        }
+
+        /* Logo Bottom Right */
+        .logo-container {
+            position: absolute;
+            top: var(--padding);
+            right: var(--padding);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="canvas">
+        <div class="accent-bar"></div>
+        <div class="grid-bg"></div>
+
+        <!-- Faded Background Iceberg -->
+        <div class="schematic-bg">
+            <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none">
+                 <path d="M50 10 L80 90 H20 L50 10Z" stroke="white" stroke-width="0.5" />
+                 <path d="M50 20 L70 80 H30 L50 20Z" stroke="white" stroke-width="0.5" />
+                 <line x1="0" y1="40" x2="100" y2="40" stroke="white" stroke-width="0.5" stroke-dasharray="2 2" />
+            </svg>
+        </div>
+
+        <div class="logo-container">
+             <img src="../../../assets/logos/exports/btl-frame-rounded-dark.svg" alt="BTL Logo" width="80">
+        </div>
+
+        <div class="content">
+            <div class="eyebrow">MANIFESTO 001</div>
+            
+            <h1>
+                WHY FOUNDATION<br>
+                COMES BEFORE<br>
+                <span class="highlight-box">SPEED</span>
+            </h1>
+
+            <div class="waterline"></div>
+
+            <div class="subhead">
+                Everyone ships fast. Few build to last. <br>
+                A manifesto for modern engineering in the AI era.
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

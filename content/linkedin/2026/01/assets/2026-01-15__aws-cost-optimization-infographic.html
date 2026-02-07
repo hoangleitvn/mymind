@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 AWS Cost Optimization Strategies Infographic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', system-ui, sans-serif;
+            background: #e8e8e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .infographic {
+            width: 1080px;
+            height: 1200px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            padding: 40px 48px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .header-tag {
+            display: inline-block;
+            background: #232F3E;
+            color: #FF9900;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #1A1A1A;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .header h1 .highlight {
+            color: #FF9900;
+        }
+
+        .header .subtitle {
+            font-size: 20px;
+            color: #6B7280;
+            font-weight: 500;
+        }
+
+        /* Strategies Grid */
+        .strategies {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .strategy-card {
+            background: #F9FAFB;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #FF9900;
+            position: relative;
+        }
+
+        .strategy-card.recommended {
+            background: #FFF7ED;
+            border-left-color: #FF9900;
+            box-shadow: 0 0 0 2px #FF9900;
+        }
+
+        .strategy-card.recommended::after {
+            content: 'START HERE';
+            position: absolute;
+            top: -10px;
+            right: 16px;
+            background: #FF9900;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .strategy-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: #232F3E;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .strategy-title {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 8px;
+        }
+
+        .strategy-savings {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            color: #C45500;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .strategy-desc {
+            font-size: 16px;
+            color: #4B5563;
+            line-height: 1.45;
+        }
+
+        /* Bottom Section */
+        .bottom-section {
+            background: #232F3E;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .bottom-section h2 {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .result-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255, 153, 0, 0.15);
+            border: 2px solid #FF9900;
+            border-radius: 12px;
+            padding: 20px 32px;
+        }
+
+        .result-strategies {
+            text-align: left;
+        }
+
+        .result-strategies span {
+            display: block;
+            color: #FF9900;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .result-strategies small {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+        }
+
+        .result-arrow {
+            color: #FF9900;
+            font-size: 32px;
+        }
+
+        .result-savings {
+            text-align: left;
+        }
+
+        .result-savings span {
+            display: block;
+            color: white;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .result-savings small {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            height: 32px;
+        }
+
+        .footer-logo img {
+            height: 100%;
+        }
+
+        .footer-cta {
+            font-size: 16px;
+            color: #6B7280;
+        }
+
+        .footer-cta strong {
+            color: #FF9900;
+        }
+
+        /* Decorative elements */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .blob-1 {
+            top: -60px;
+            right: -60px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+        }
+
+        .blob-2 {
+            bottom: 150px;
+            left: -80px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic" id="infographic">
+        <!-- Decorative blobs -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="header-tag">AWS COST OPTIMIZATION</div>
+            <h1>6 Strategies That <span class="highlight">Actually Work</span></h1>
+            <p class="subtitle">Ranked by impact and ease of implementation</p>
+        </div>
+
+        <!-- Strategies Grid -->
+        <div class="strategies">
+            <div class="strategy-card recommended">
+                <div class="strategy-number">1</div>
+                <h3 class="strategy-title">Right-sizing</h3>
+                <div class="strategy-savings">20-40% savings</div>
+                <p class="strategy-desc">Match instance sizes to actual workload. m5.xlarge → m5.large = $140/month saved per instance.</p>
+            </div>
+
+            <div class="strategy-card recommended">
+                <div class="strategy-number">2</div>
+                <h3 class="strategy-title">Savings Plans</h3>
+                <div class="strategy-savings">30-72% discount</div>
+                <p class="strategy-desc">Commit to usage for discounts. More flexible than Reserved Instances. Start at 50% baseline.</p>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-number">3</div>
+                <h3 class="strategy-title">Auto-scaling</h3>
+                <div class="strategy-savings">20-60% savings</div>
+                <p class="strategy-desc">Scale down when demand drops. Running 24/7 at peak = 60% waste during off-peak.</p>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-number">4</div>
+                <h3 class="strategy-title">Spot Instances</h3>
+                <div class="strategy-savings">60-90% savings</div>
+                <p class="strategy-desc">Spare AWS capacity at steep discounts. Best for batch jobs, CI/CD, dev environments.</p>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-number">5</div>
+                <h3 class="strategy-title">Storage Tiering</h3>
+                <div class="strategy-savings">40-80% savings</div>
+                <p class="strategy-desc">S3 Standard vs Deep Archive = 23x price difference. Set lifecycle policies once.</p>
+            </div>
+
+            <div class="strategy-card">
+                <div class="strategy-number">6</div>
+                <h3 class="strategy-title">Serverless</h3>
+                <div class="strategy-savings">varies</div>
+                <p class="strategy-desc">Cuts 50-80% for sporadic workloads. Can double costs for steady high-volume.</p>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <h2>WHERE TO START</h2>
+            <div class="result-box">
+                <div class="result-strategies">
+                    <span>Right-sizing + Savings Plans</span>
+                    <small>Low effort, low risk</small>
+                </div>
+                <div class="result-arrow">→</div>
+                <div class="result-savings">
+                    <span>30-50%</span>
+                    <small>savings for most teams</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-logo">
+                <img src="../../../../../foundation/brands/innomize/assets/Logo_Horizontal_RGB.png" alt="INNOMIZE">
+            </div>
+            <div class="footer-cta">
+                Full guide with decision frameworks → <strong>Link in comments</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

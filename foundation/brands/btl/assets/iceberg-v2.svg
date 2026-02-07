@@ -1,0 +1,95 @@
+<svg viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    BTL Iceberg v2 - Organic Natural Shape
+    Inspired by real iceberg silhouettes
+    20% above water, 80% below
+    Waterline at y=56
+  -->
+
+  <!-- ========================================== -->
+  <!-- ABOVE WATER - Small mountain peak -->
+  <!-- ========================================== -->
+
+  <!-- Simple triangular peak with slight asymmetry -->
+  <path d="M100 10 L70 56 L130 56 Z" fill="#ffffff"/>
+  <path d="M100 10 L130 56 L145 50 L120 30 Z" fill="#e5e7eb"/>
+  <path d="M100 10 L55 50 L70 56 Z" fill="#f3f4f6"/>
+
+  <!-- ========================================== -->
+  <!-- WATERLINE -->
+  <!-- ========================================== -->
+  <line x1="10" y1="58" x2="190" y2="58" stroke="#f9fafb" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+
+  <!-- ========================================== -->
+  <!-- BELOW WATER - Large organic mass -->
+  <!-- ========================================== -->
+
+  <!--
+    Key insight: Real icebergs have irregular, bulging shapes underwater.
+    Not perfectly triangular - more like an upside-down mountain with bumps.
+  -->
+
+  <!-- Main underwater body - organic blob shape -->
+  <path d="
+    M55 56
+    C35 70, 20 100, 15 130
+    C10 160, 5 190, 20 220
+    C35 250, 70 270, 100 272
+    C130 270, 165 250, 180 220
+    C195 190, 190 160, 185 130
+    C180 100, 165 70, 145 56
+    Z
+  " fill="#0f766e"/>
+
+  <!-- Depth shading layers - left side darker -->
+  <path d="
+    M55 56
+    C35 70, 20 100, 15 130
+    C10 160, 5 190, 20 220
+    C35 250, 70 270, 100 272
+    L100 56
+    Z
+  " fill="#0d5c57"/>
+
+  <!-- Deep shadow on left -->
+  <path d="
+    M55 56
+    C40 75, 25 110, 20 145
+    C15 180, 25 230, 55 255
+    L100 200
+    L100 56
+    Z
+  " fill="#0a4744"/>
+
+  <!-- Deepest area - bottom center -->
+  <path d="
+    M40 200
+    C50 240, 80 265, 100 272
+    C120 265, 150 240, 160 200
+    L100 220
+    Z
+  " fill="#065f46"/>
+
+  <!-- Bottom point accent -->
+  <path d="
+    M70 245
+    C85 265, 100 272, 100 272
+    C100 272, 115 265, 130 245
+    L100 260
+    Z
+  " fill="#064e3b"/>
+
+  <!-- Highlight on right side -->
+  <path d="
+    M145 56
+    C160 75, 175 110, 180 145
+    C185 175, 175 210, 155 235
+    L130 180
+    L130 56
+    Z
+  " fill="#115e59"/>
+
+  <!-- Surface reflection hint -->
+  <ellipse cx="100" cy="62" rx="50" ry="6" fill="#0f766e" opacity="0.3"/>
+
+</svg>

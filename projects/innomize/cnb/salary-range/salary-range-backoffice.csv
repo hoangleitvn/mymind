@@ -1,0 +1,11 @@
+level,title,code,min_salary_vnd,max_salary_vnd
+1,BOD/CEO/CFO/CSO/CPO,BOD1,130000000,221000000
+2,Finance Director/HR Director,HQ1,65000000,110500000
+3,Deputy Finance Director/Deputy HR Director,HQ2,50000000,85000000
+4.1,Senior Finance Manager/Senior HR Manager,HQ3,40000000,68000000
+5.1,Finance Manager/HR Manager,HQ4,35000000,59500000
+6.1,Finance Lead/HR Lead,HQ5,22500000,38250000
+7.1,Senior Accountant/Senior C&B/Senior Recruiter,HQ6,15000000,25500000
+8.1,Accountant/C&B Executive/Recruiter,HQ7,10000000,17000000
+9,Junior Accountant/Junior C&B/Junior Recruiter,HQ8,7000000,11900000
+10,Intern,HQ9,4000000,6800000

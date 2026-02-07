@@ -1,39 +1,46 @@
 ---
 type: linkedin-person
 created: '2025-12-08'
-last_updated: '2025-12-08'
+last_updated: '2026-01-16'
+last_interaction: '2026-01-16'
 
 profile:
   name: "Santiago Valdarrama"
   linkedin_url: "https://linkedin.com/in/svpino"
   headline: "ML Engineer / Content Creator"
   location: null
-  followers: 120067
-  posts: null
+  followers: 120821
+  posts: 2846
   articles: null
 
 relationship:
-  status: "new"
+  status: "target"
   connection_status: "not_connected"
-  priority: "medium"
+  priority: "high"
   first_contact: '2025-12-08'
-  last_interaction: '2025-12-08'
 
 themes:
   - learning-by-doing
   - software-development
   - content-creation
+  - ai-coding
 
-engagements:
+engagement_history:
   - date: '2025-12-08'
     type: "comment"
     file: "comments/2025-12-08-santiago-valdarrama-build-not-tutorials.md"
-    outcome: "draft"
+    status: "draft"
+  - date: '2026-01-16'
+    type: "comment"
+    post_url: "https://www.linkedin.com/posts/svpino_i-was-working-with-a-team-right-before-the-activity-7417924598299807744-B7vn"
+    topic: "AI coding requires engineering foundations"
+    status: "posted"
+    file: "comments/2026/01/16/2026-01-16__santiago-valdarrama-ai-foundation.md"
 
-tags: [ml-engineer, content-creator, learning, building]
+tags: [ml-engineer, content-creator, learning, building, ai-coding]
 
-next_action: null
-next_action_date: null
+next_action: "Monitor for reply. Consider connection request if engaged."
+next_action_date: '2026-01-19'
 ---
 
 ## About

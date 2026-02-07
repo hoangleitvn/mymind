@@ -1,0 +1,15 @@
+level,title,code,min_salary_vnd,max_salary_vnd
+4.1,Sr. Infrastructure Architect 2,IF1.1,102262500,127500000
+4.2,Sr. Infrastructure Architect 1,IF1.2,75000000,101250000
+5.1,Infrastructure Architect 2,IF2.1,88627500,110500000
+5.2,Infrastructure Architect 1,IF2.2,65000000,87750000
+6.1,DevOps Lead 2,IF3.1,71583750,89250000
+6.2,DevOps Lead 1,IF3.2,52500000,70875000
+7.1,Sr. DevOps Engineer 3,IF4.1,47722500,59500000
+7.2,Sr. DevOps Engineer 2,IF4.2,41536250,47250000
+7.3,Sr. DevOps Engineer 1,IF4.3,35000000,41125000
+8.1,DevOps Engineer 3,IF5.1,27270000,34000000
+8.2,DevOps Engineer 2,IF5.2,23500000,27000000
+8.3,DevOps Engineer 1,IF5.3,20000000,23500000
+9,Jr. DevOps,IF6,12000000,21000000
+10,Intern/Fresher,IF7,5000000,9000000

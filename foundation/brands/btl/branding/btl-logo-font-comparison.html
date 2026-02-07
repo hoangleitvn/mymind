@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Typography System Comparison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Epilogue:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --jade-500: #00a86b;
+      --jade-600: #008553;
+      --jade-700: #007a4c;
+      --charcoal: #1f2937;
+      --gray-50: #f9fafb;
+      --gray-100: #f1f5f9;
+      --gray-200: #e5e7eb;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-900: #111827;
+      --warning-bg: #fef3c7;
+      --warning-border: #f59e0b;
+      --warning-text: #92400e;
+      --error-bg: #fef2f2;
+      --error-border: #ef4444;
+      --error-text: #991b1b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Public Sans', sans-serif;
+      background: var(--gray-50);
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 48px 32px;
+    }
+
+    /* Header */
+    header {
+      border-top: 5px solid var(--jade-500);
+      background: white;
+      padding: 32px;
+      margin-bottom: 32px;
+      border-radius: 8px;
+    }
+
+    h1 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--gray-500);
+      font-size: 16px;
+    }
+
+    .meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--gray-500);
+      margin-top: 16px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Section */
+    section {
+      background: white;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .section-header {
+      border-top: 4px solid var(--jade-500);
+      padding: 24px 32px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .section-header h2 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--charcoal);
+    }
+
+    .section-header p {
+      color: var(--gray-500);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    /* Warning Box */
+    .warning-box {
+      background: var(--error-bg);
+      border-left: 4px solid var(--error-border);
+      padding: 16px 24px;
+      margin: 24px 32px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .warning-box h4 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--error-text);
+      margin-bottom: 8px;
+    }
+
+    .warning-box p {
+      font-size: 14px;
+      color: var(--error-text);
+    }
+
+    .warning-box code {
+      background: rgba(239, 68, 68, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+    }
+
+    /* Font Comparison Grid */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--gray-200);
+    }
+
+    .font-card {
+      background: white;
+      padding: 24px;
+    }
+
+    .font-card.current {
+      background: var(--error-bg);
+    }
+
+    .font-card.avoid {
+      background: var(--error-bg);
+    }
+
+    .font-card.caution {
+      background: var(--warning-bg);
+    }
+
+    .font-card.recommended {
+      background: #ecfdf5;
+    }
+
+    .font-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .font-name {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--charcoal);
+    }
+
+    .font-score {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--gray-500);
+    }
+
+    .badge {
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge.current {
+      background: var(--error-border);
+      color: white;
+    }
+
+    .badge.avoid {
+      background: var(--error-border);
+      color: white;
+    }
+
+    .badge.caution {
+      background: var(--warning-border);
+      color: white;
+    }
+
+    .badge.recommended {
+      background: var(--jade-500);
+      color: white;
+    }
+
+    .badge.alt {
+      background: #6366f1;
+      color: white;
+    }
+
+    .badge.viable {
+      background: var(--gray-500);
+      color: white;
+    }
+
+    .font-description {
+      font-size: 12px;
+      color: var(--gray-500);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    /* Logo Preview */
+    .logo-preview {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px;
+      background: var(--gray-50);
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .logo-preview.dark {
+      background: var(--charcoal);
+    }
+
+    .iceberg-icon {
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text .builds {
+      color: var(--jade-500);
+    }
+
+    .logo-text .that-last {
+      color: var(--charcoal);
+    }
+
+    .dark .logo-text .builds {
+      color: #34d399;
+    }
+
+    .dark .logo-text .that-last {
+      color: #f9fafb;
+    }
+
+    /* Heading Preview */
+    .heading-preview {
+      padding: 20px;
+      background: var(--gray-50);
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .heading-preview h3 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .heading-preview h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--gray-600);
+    }
+
+    /* Body Preview */
+    .body-preview {
+      padding: 20px;
+      background: var(--gray-50);
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .body-preview p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-600);
+    }
+
+    .body-preview .vn {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--gray-200);
+      font-size: 14px;
+      color: var(--gray-500);
+    }
+
+    /* Font-specific classes */
+    .font-poppins { font-family: 'Poppins', sans-serif; }
+    .font-inter { font-family: 'Inter', sans-serif; }
+    .font-ibm { font-family: 'IBM Plex Sans', sans-serif; }
+    .font-ibm-mono { font-family: 'IBM Plex Mono', monospace; }
+    .font-space { font-family: 'Space Grotesk', sans-serif; }
+    .font-source { font-family: 'Source Sans 3', sans-serif; }
+    .font-public { font-family: 'Public Sans', sans-serif; }
+    .font-libre { font-family: 'Libre Franklin', sans-serif; }
+    .font-sora { font-family: 'Sora', sans-serif; }
+    .font-epilogue { font-family: 'Epilogue', sans-serif; }
+    .font-jetbrains { font-family: 'JetBrains Mono', monospace; }
+    .font-bai { font-family: 'Bai Jamjuree', sans-serif; }
+    .font-manrope { font-family: 'Manrope', sans-serif; }
+    .font-dm { font-family: 'DM Sans', sans-serif; }
+    .font-open { font-family: 'Open Sans', sans-serif; }
+
+    /* Characteristics */
+    .characteristics {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .char-tag {
+      font-size: 10px;
+      padding: 3px 6px;
+      background: var(--gray-100);
+      border-radius: 4px;
+      color: var(--gray-600);
+    }
+
+    /* Strategic Options */
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+      padding: 32px;
+    }
+
+    .option-card {
+      border: 2px solid var(--gray-200);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .option-card.recommended {
+      border-color: var(--jade-500);
+    }
+
+    .option-header {
+      padding: 20px 24px;
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .option-card.recommended .option-header {
+      background: #ecfdf5;
+    }
+
+    .option-header h3 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .option-header p {
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-top: 4px;
+    }
+
+    .option-body {
+      padding: 24px;
+    }
+
+    .option-stack {
+      margin-bottom: 20px;
+    }
+
+    .option-stack-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 13px;
+    }
+
+    .option-stack-row:last-child {
+      border-bottom: none;
+    }
+
+    .option-stack-label {
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+
+    .option-stack-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--charcoal);
+    }
+
+    .option-preview {
+      background: var(--gray-50);
+      border-radius: 8px;
+      padding: 24px;
+      margin-top: 16px;
+    }
+
+    .option-preview-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .option-preview-logo .logo-text {
+      font-size: 28px;
+    }
+
+    .option-preview h4 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .option-preview p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--gray-600);
+    }
+
+    .option-preview code {
+      font-size: 12px;
+      background: var(--gray-200);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .pros-cons {
+      margin-top: 16px;
+      font-size: 12px;
+    }
+
+    .pros-cons dt {
+      font-weight: 600;
+      color: var(--gray-500);
+      margin-top: 8px;
+    }
+
+    .pros-cons dd {
+      color: var(--gray-600);
+      margin-left: 0;
+    }
+
+    /* License Table */
+    .license-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .license-table th,
+    .license-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .license-table th {
+      background: var(--gray-50);
+      font-weight: 600;
+      color: var(--charcoal);
+      font-size: 12px;
+    }
+
+    .license-table td:first-child {
+      font-weight: 500;
+    }
+
+    .license-table .check {
+      color: var(--jade-500);
+    }
+
+    /* Evaluation Table */
+    .eval-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .eval-table th,
+    .eval-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .eval-table th {
+      background: var(--gray-50);
+      font-weight: 600;
+      color: var(--charcoal);
+      font-size: 12px;
+    }
+
+    .eval-table td:first-child {
+      font-weight: 500;
+    }
+
+    .eval-table tr.avoid {
+      background: var(--error-bg);
+    }
+
+    .eval-table tr.caution {
+      background: var(--warning-bg);
+    }
+
+    .eval-table tr.recommended {
+      background: #ecfdf5;
+    }
+
+    .score {
+      display: inline-flex;
+      gap: 2px;
+    }
+
+    .score-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gray-200);
+    }
+
+    .score-dot.filled {
+      background: var(--jade-500);
+    }
+
+    /* Notes */
+    .notes {
+      padding: 24px 32px;
+      background: #ecfdf5;
+      border-left: 4px solid var(--jade-500);
+    }
+
+    .notes h4 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: #065f46;
+      margin-bottom: 8px;
+    }
+
+    .notes p {
+      font-size: 14px;
+      color: #047857;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 32px;
+      color: var(--gray-500);
+      font-size: 12px;
+    }
+
+    /* Dark mode section */
+    .dark-section {
+      background: var(--charcoal);
+      padding: 32px;
+    }
+
+    .dark-section h3 {
+      color: #f9fafb;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .dark-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .dark-card {
+      background: var(--gray-900);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .dark-card .font-name {
+      color: #f9fafb;
+      margin-bottom: 16px;
+    }
+
+    /* Table of Contents */
+    .toc {
+      padding: 24px 32px;
+      background: var(--gray-50);
+    }
+
+    .toc h3 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 8px;
+    }
+
+    .toc a {
+      font-size: 13px;
+      color: var(--jade-600);
+      text-decoration: none;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <h1>BTL Typography System Comparison</h1>
+      <p class="subtitle">Complete font evaluation: 15 fonts across Logo, Headings, Body, and Code</p>
+      <p class="meta">VERSION 3.0 | 2026-01-12 | PHASE 0: TYPOGRAPHY EVALUATION</p>
+    </header>
+
+    <!-- Table of Contents -->
+    <section>
+      <div class="toc">
+        <h3>Quick Navigation</h3>
+        <div class="toc-grid">
+          <a href="#logo-fonts">1. Logo Fonts (8 options)</a>
+          <a href="#heading-fonts">2. Heading Fonts (8 options)</a>
+          <a href="#body-fonts">3. Body Fonts (8 options)</a>
+          <a href="#code-fonts">4. Code Fonts (2 options)</a>
+          <a href="#strategic-options">5. Strategic Options (4 systems)</a>
+          <a href="#dark-mode">6. Dark Mode Preview</a>
+          <a href="#evaluation">7. Evaluation Matrix</a>
+          <a href="#licenses">8. License Information</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Font Warning -->
+    <section>
+      <div class="warning-box">
+        <h4>Avoiding AI-Common Font Patterns</h4>
+        <p>Based on <code>ai-frontend-issue.md</code>, we're avoiding: <strong>Inter</strong> (overused in AI starters), <strong>Open Sans</strong> (web default), <strong>Poppins</strong> (common in AI scaffolds), <strong>Geist</strong> (Vercel template smell), and default <strong>font-sans</strong> stacks. Typography is a primary brand lever - same fonts = same feel.</p>
+      </div>
+    </section>
+
+    <!-- ==================== LOGO FONTS ==================== -->
+    <section id="logo-fonts">
+      <div class="section-header">
+        <h2>1. Logo Font Candidates</h2>
+        <p>8 options for the "Builds That Last" wordmark</p>
+      </div>
+
+      <div class="comparison-grid">
+
+        <!-- Poppins (Current - Avoid) -->
+        <div class="font-card avoid">
+          <div class="font-label">
+            <span class="font-name">Poppins</span>
+            <span class="font-score">13/25</span>
+            <span class="badge current">Current</span>
+            <span class="badge avoid">AI-Common</span>
+          </div>
+          <p class="font-description">Geometric sans-serif. Widely used in AI-generated starters and Tailwind templates.</p>
+          <div class="logo-preview">
+            <svg class="iceberg-icon" width="32" height="38" viewBox="0 0 48 57">
+              <defs>
+                <linearGradient id="tip-grad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#10b981"/>
+                  <stop offset="100%" stop-color="#00a86b"/>
+                </linearGradient>
+                <linearGradient id="body-grad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#00a86b"/>
+                  <stop offset="40%" stop-color="#065f46"/>
+                  <stop offset="100%" stop-color="#022c22"/>
+                </linearGradient>
+              </defs>
+              <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-grad)"/>
+              <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+              <path d="M8 18L24 44L40 18H8Z" fill="url(#body-grad)"/>
+            </svg>
+            <span class="logo-text font-poppins"><span class="builds">Builds</span><span class="that-last"> That Last</span></span>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Geometric</span>
+            <span class="char-tag">Rounded</span>
+            <span class="char-tag">Overused</span>
+          </div>
+        </div>
+
+        <!-- IBM Plex Sans (Recommended) -->
+        <div class="font-card recommended">
+          <div class="font-label">
+            <span class="font-name">IBM Plex Sans</span>
+            <span class="font-score">23/25</span>
+            <span class="badge recommended">Recommended</span>
+          </div>
+          <p class="font-description">Designed for technical documentation. Perfect "blueprint" aesthetic that matches BTL philosophy.</p>
+          <div class="logo-preview">
+            <svg class="iceberg-icon" width="32" height="38" viewBox="0 0 48 57">
+              <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-grad)"/>
+              <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+              <path d="M8 18L24 44L40 18H8Z" fill="url(#body-grad)"/>
+            </svg>
+            <span class="logo-text font-ibm"><span class="builds">Builds</span><span class="that-last"> That Last</span></span>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Technical</span>
+            <span class="char-tag">Documentation</span>
+            <span class="char-tag">Serious</span>
+          </div>
+        </div>
+
+        <!-- Space Grotesk -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">Space Grotesk</span>
+            <span class="font-score">21/25</span>
+            <span class="badge alt">Alternative</span>
+          </div>
+          <p class="font-description">Geometric with technical, engineering feel. Strong character without being trendy.</p>
+          <div class="logo-preview">
+            <svg class="iceberg-icon" width="32" height="38" viewBox="0 0 48 57">
+              <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-grad)"/>
+              <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+              <path d="M8 18L24 44L40 18H8Z" fill="url(#body-grad)"/>
+            </svg>
+            <span class="logo-text font-space"><span class="builds">Builds</span><span class="that-last"> That Last</span></span>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Engineering</span>
+            <span class="char-tag">Geometric</span>
+            <span class="char-tag">Distinctive</span>
+          </div>
+        </div>
+
+        <!-- Bai Jamjuree -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">Bai Jamjuree</span>
+            <span class="font-score">18/25</span>
+            <span class="badge viable">Viable</span>
+          </div>
+          <p class="font-description">Thai-inspired geometric. Squared letterforms with strong character. Good for dense headings.</p>
+          <div class="logo-preview">
+            <svg class="iceberg-icon" width="32" height="38" viewBox="0 0 48 57">
+              <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-grad)"/>
+              <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+              <path d="M8 18L24 44L40 18H8Z" fill="url(#body-grad)"/>
+            </svg>
+            <span class="logo-text font-bai"><span class="builds">Builds</span><span class="that-last"> That Last</span></span>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Thai-inspired</span>
+            <span class="char-tag">Squared</span>
+            <span class="char-tag">Dense</span>
+          </div>
+        </div>
+
+        <!-- Sora -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">Sora</span>
+            <span class="font-score">17/25</span>
+            <span class="badge viable">Viable</span>
+          </div>
+          <p class="font-description">Japanese-inspired precision. Geometric with careful attention to detail.</p>
+          <div class="logo-preview">
+            <svg class="iceberg-icon" width="32" height="38" viewBox="0 0 48 57">
+              <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-grad)"/>
+              <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+              <path d="M8 18L24 44L40 18H8Z" fill="url(#body-grad)"/>
+            </svg>
+            <span class="logo-text font-sora"><span class="builds">Builds</span><span class="that-last"> That Last</span></span>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Precise</span>
+            <span class="char-tag">Japanese</span>
+            <span class="char-tag">Modern</span>
+          </div>
+        </div>
+
+        <!-- Epilogue -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">Epilogue</span>
+            <span class="font-score">17/25</span>
+            <span class="badge viable">Viable</span>
+          </div>
+          <p class="font-description">Contemporary with subtle character. Distinctive without being trendy.</p>
+          <div class="logo-preview">
+            <svg class="iceberg-icon" width="32" height="38" viewBox="0 0 48 57">
+              <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-grad)"/>
+              <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+              <path d="M8 18L24 44L40 18H8Z" fill="url(#body-grad)"/>
+            </svg>
+            <span class="logo-text font-epilogue"><span class="builds">Builds</span><span class="that-last"> That Last</span></span>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Contemporary</span>
+            <span class="char-tag">Unique</span>
+            <span class="char-tag">Clean</span>
+          </div>
+        </div>
+
+        <!-- DM Sans -->
+        <div class="font-card caution">
+          <div class="font-label">
+            <span class="font-name">DM Sans</span>
+            <span class="font-score">17/25</span>
+            <span class="badge caution">Trending</span>
+          </div>
+          <p class="font-description">Geometric, clean. Increasingly popular in design systems. Risk of becoming overused.</p>
+          <div class="logo-preview">
+            <svg class="iceberg-icon" width="32" height="38" viewBox="0 0 48 57">
+              <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-grad)"/>
+              <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+              <path d="M8 18L24 44L40 18H8Z" fill="url(#body-grad)"/>
+            </svg>
+            <span class="logo-text font-dm"><span class="builds">Builds</span><span class="that-last"> That Last</span></span>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Geometric</span>
+            <span class="char-tag">Clean</span>
+            <span class="char-tag">Trending</span>
+          </div>
+        </div>
+
+        <!-- Manrope -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">Manrope</span>
+            <span class="font-score">18/25</span>
+            <span class="badge viable">Viable</span>
+          </div>
+          <p class="font-description">Modern geometric sans. Variable font with good weight range. Lighter feel.</p>
+          <div class="logo-preview">
+            <svg class="iceberg-icon" width="32" height="38" viewBox="0 0 48 57">
+              <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-grad)"/>
+              <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+              <path d="M8 18L24 44L40 18H8Z" fill="url(#body-grad)"/>
+            </svg>
+            <span class="logo-text font-manrope"><span class="builds">Builds</span><span class="that-last"> That Last</span></span>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Modern</span>
+            <span class="char-tag">Variable</span>
+            <span class="char-tag">Light</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== HEADING FONTS ==================== -->
+    <section id="heading-fonts">
+      <div class="section-header">
+        <h2>2. Heading Font Candidates</h2>
+        <p>8 options for section titles and subheadings</p>
+      </div>
+
+      <div class="comparison-grid">
+
+        <!-- Poppins (Current - Avoid) -->
+        <div class="font-card avoid">
+          <div class="font-label">
+            <span class="font-name">Poppins</span>
+            <span class="font-score">13/25</span>
+            <span class="badge current">Current</span>
+            <span class="badge avoid">AI-Common</span>
+          </div>
+          <p class="font-description">Common in AI starters. Friendly but lacks technical authority.</p>
+          <div class="heading-preview font-poppins">
+            <h3>Why Foundation Matters</h3>
+            <h4>Building for the Long Term</h4>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Friendly</span>
+            <span class="char-tag">Overused</span>
+          </div>
+        </div>
+
+        <!-- IBM Plex Sans -->
+        <div class="font-card recommended">
+          <div class="font-label">
+            <span class="font-name">IBM Plex Sans</span>
+            <span class="font-score">23/25</span>
+            <span class="badge recommended">Recommended</span>
+          </div>
+          <p class="font-description">Documentation authority. Unifies with logo for consistent brand feel.</p>
+          <div class="heading-preview font-ibm">
+            <h3>Why Foundation Matters</h3>
+            <h4>Building for the Long Term</h4>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Technical</span>
+            <span class="char-tag">Authoritative</span>
+          </div>
+        </div>
+
+        <!-- Space Grotesk -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">Space Grotesk</span>
+            <span class="font-score">21/25</span>
+            <span class="badge alt">Alternative</span>
+          </div>
+          <p class="font-description">Strong engineering character. Creates clear hierarchy contrast with body.</p>
+          <div class="heading-preview font-space">
+            <h3>Why Foundation Matters</h3>
+            <h4>Building for the Long Term</h4>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Engineering</span>
+            <span class="char-tag">Bold</span>
+          </div>
+        </div>
+
+        <!-- Bai Jamjuree -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">Bai Jamjuree</span>
+            <span class="font-score">18/25</span>
+            <span class="badge viable">Viable</span>
+          </div>
+          <p class="font-description">Works well at 90% line height. Strong, dense headings.</p>
+          <div class="heading-preview font-bai" style="line-height: 0.9;">
+            <h3>Why Foundation Matters</h3>
+            <h4>Building for the Long Term</h4>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Dense</span>
+            <span class="char-tag">Strong</span>
+          </div>
+        </div>
+
+        <!-- Sora -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">Sora</span>
+            <span class="font-score">17/25</span>
+            <span class="badge viable">Viable</span>
+          </div>
+          <p class="font-description">Precise and modern. Good weight distribution for headings.</p>
+          <div class="heading-preview font-sora">
+            <h3>Why Foundation Matters</h3>
+            <h4>Building for the Long Term</h4>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Modern</span>
+            <span class="char-tag">Precise</span>
+          </div>
+        </div>
+
+        <!-- Epilogue -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">Epilogue</span>
+            <span class="font-score">17/25</span>
+            <span class="badge viable">Viable</span>
+          </div>
+          <p class="font-description">Distinctive without being loud. Good for professional content.</p>
+          <div class="heading-preview font-epilogue">
+            <h3>Why Foundation Matters</h3>
+            <h4>Building for the Long Term</h4>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Professional</span>
+            <span class="char-tag">Distinctive</span>
+          </div>
+        </div>
+
+        <!-- DM Sans -->
+        <div class="font-card caution">
+          <div class="font-label">
+            <span class="font-name">DM Sans</span>
+            <span class="font-score">17/25</span>
+            <span class="badge caution">Trending</span>
+          </div>
+          <p class="font-description">Clean geometric. Good for headings but increasingly common.</p>
+          <div class="heading-preview font-dm">
+            <h3>Why Foundation Matters</h3>
+            <h4>Building for the Long Term</h4>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Clean</span>
+            <span class="char-tag">Trending</span>
+          </div>
+        </div>
+
+        <!-- Manrope -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">Manrope</span>
+            <span class="font-score">18/25</span>
+            <span class="badge viable">Viable</span>
+          </div>
+          <p class="font-description">Modern, lighter feel. Good for softer brand tones.</p>
+          <div class="heading-preview font-manrope">
+            <h3>Why Foundation Matters</h3>
+            <h4>Building for the Long Term</h4>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Modern</span>
+            <span class="char-tag">Light</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== BODY FONTS ==================== -->
+    <section id="body-fonts">
+      <div class="section-header">
+        <h2>3. Body Font Candidates</h2>
+        <p>8 options for paragraph text (includes Vietnamese test)</p>
+      </div>
+
+      <div class="comparison-grid">
+
+        <!-- Inter (Current - Avoid) -->
+        <div class="font-card avoid">
+          <div class="font-label">
+            <span class="font-name">Inter</span>
+            <span class="font-score">14/25</span>
+            <span class="badge current">Current</span>
+            <span class="badge avoid">AI-Common #1</span>
+          </div>
+          <p class="font-description">The most overused font in AI-generated apps. Clean but signals "AI-scaffolded".</p>
+          <div class="body-preview font-inter">
+            <p>Everyone ships fast. Few build to last. In the race to launch, most builders skip the foundation.</p>
+            <p class="vn">Tiếng Việt: Xây dựng nền tảng vững chắc trước khi tăng tốc độ.</p>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Clean</span>
+            <span class="char-tag">Generic</span>
+            <span class="char-tag">Overused</span>
+          </div>
+        </div>
+
+        <!-- Open Sans (Avoid) -->
+        <div class="font-card avoid">
+          <div class="font-label">
+            <span class="font-name">Open Sans</span>
+            <span class="font-score">15/25</span>
+            <span class="badge avoid">Avoid</span>
+          </div>
+          <p class="font-description">Web default since 2011. Signals "no typography decision made".</p>
+          <div class="body-preview font-open">
+            <p>Everyone ships fast. Few build to last. In the race to launch, most builders skip the foundation.</p>
+            <p class="vn">Tiếng Việt: Xây dựng nền tảng vững chắc trước khi tăng tốc độ.</p>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Default</span>
+            <span class="char-tag">Neutral</span>
+            <span class="char-tag">Overused</span>
+          </div>
+        </div>
+
+        <!-- Public Sans -->
+        <div class="font-card recommended">
+          <div class="font-label">
+            <span class="font-name">Public Sans</span>
+            <span class="font-score">23/25</span>
+            <span class="badge recommended">Recommended</span>
+          </div>
+          <p class="font-description">US Web Design System font. Serious, government-grade readability. Rarely seen in AI apps.</p>
+          <div class="body-preview font-public">
+            <p>Everyone ships fast. Few build to last. In the race to launch, most builders skip the foundation.</p>
+            <p class="vn">Tiếng Việt: Xây dựng nền tảng vững chắc trước khi tăng tốc độ.</p>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Government</span>
+            <span class="char-tag">Serious</span>
+            <span class="char-tag">Underused</span>
+          </div>
+        </div>
+
+        <!-- Source Sans 3 -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">Source Sans 3</span>
+            <span class="font-score">19/25</span>
+            <span class="badge alt">Alternative</span>
+          </div>
+          <p class="font-description">Adobe's open-source workhorse. Excellent for technical content and documentation.</p>
+          <div class="body-preview font-source">
+            <p>Everyone ships fast. Few build to last. In the race to launch, most builders skip the foundation.</p>
+            <p class="vn">Tiếng Việt: Xây dựng nền tảng vững chắc trước khi tăng tốc độ.</p>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Adobe</span>
+            <span class="char-tag">Technical</span>
+            <span class="char-tag">Readable</span>
+          </div>
+        </div>
+
+        <!-- IBM Plex Sans -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">IBM Plex Sans</span>
+            <span class="font-score">23/25</span>
+            <span class="badge viable">Unified</span>
+          </div>
+          <p class="font-description">Can unify entire system. Technical documentation feel throughout.</p>
+          <div class="body-preview font-ibm">
+            <p>Everyone ships fast. Few build to last. In the race to launch, most builders skip the foundation.</p>
+            <p class="vn">Tiếng Việt: Xây dựng nền tảng vững chắc trước khi tăng tốc độ.</p>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Unified</span>
+            <span class="char-tag">Documentation</span>
+          </div>
+        </div>
+
+        <!-- Manrope -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">Manrope</span>
+            <span class="font-score">18/25</span>
+            <span class="badge viable">Viable</span>
+          </div>
+          <p class="font-description">Variable font, excellent readability. Lighter, airier feel.</p>
+          <div class="body-preview font-manrope">
+            <p>Everyone ships fast. Few build to last. In the race to launch, most builders skip the foundation.</p>
+            <p class="vn">Tiếng Việt: Xây dựng nền tảng vững chắc trước khi tăng tốc độ.</p>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Variable</span>
+            <span class="char-tag">Light</span>
+            <span class="char-tag">Modern</span>
+          </div>
+        </div>
+
+        <!-- Libre Franklin -->
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">Libre Franklin</span>
+            <span class="font-score">18/25</span>
+            <span class="badge viable">Viable</span>
+          </div>
+          <p class="font-description">Classic American gothic. Substantial and traditional, rarely in modern AI starters.</p>
+          <div class="body-preview font-libre">
+            <p>Everyone ships fast. Few build to last. In the race to launch, most builders skip the foundation.</p>
+            <p class="vn">Tiếng Việt: Xây dựng nền tảng vững chắc trước khi tăng tốc độ.</p>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Classic</span>
+            <span class="char-tag">Substantial</span>
+            <span class="char-tag">Traditional</span>
+          </div>
+        </div>
+
+        <!-- DM Sans -->
+        <div class="font-card caution">
+          <div class="font-label">
+            <span class="font-name">DM Sans</span>
+            <span class="font-score">17/25</span>
+            <span class="badge caution">Trending</span>
+          </div>
+          <p class="font-description">Clean geometric. Good readability but becoming common in design systems.</p>
+          <div class="body-preview font-dm">
+            <p>Everyone ships fast. Few build to last. In the race to launch, most builders skip the foundation.</p>
+            <p class="vn">Tiếng Việt: Xây dựng nền tảng vững chắc trước khi tăng tốc độ.</p>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Clean</span>
+            <span class="char-tag">Geometric</span>
+            <span class="char-tag">Trending</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== CODE FONTS ==================== -->
+    <section id="code-fonts">
+      <div class="section-header">
+        <h2>4. Code/Mono Font</h2>
+        <p>2 options for code snippets and technical text</p>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="font-card recommended">
+          <div class="font-label">
+            <span class="font-name">JetBrains Mono</span>
+            <span class="badge recommended">Keep</span>
+          </div>
+          <p class="font-description">Distinctive ligatures and developer-focused design. Not AI-common.</p>
+          <div class="body-preview font-jetbrains">
+            <p style="font-size: 14px;">const buildFoundation = () => {<br>&nbsp;&nbsp;return "quality over speed";<br>}</p>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Ligatures</span>
+            <span class="char-tag">Developer</span>
+          </div>
+        </div>
+
+        <div class="font-card">
+          <div class="font-label">
+            <span class="font-name">IBM Plex Mono</span>
+            <span class="badge alt">Alternative</span>
+          </div>
+          <p class="font-description">Unifies with IBM Plex family. Clean, technical aesthetic.</p>
+          <div class="body-preview font-ibm-mono">
+            <p style="font-size: 14px;">const buildFoundation = () => {<br>&nbsp;&nbsp;return "quality over speed";<br>}</p>
+          </div>
+          <div class="characteristics">
+            <span class="char-tag">Unified</span>
+            <span class="char-tag">Technical</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== STRATEGIC OPTIONS ==================== -->
+    <section id="strategic-options">
+      <div class="section-header">
+        <h2>5. Strategic Options</h2>
+        <p>4 complete typography systems to choose from</p>
+      </div>
+
+      <div class="option-grid">
+
+        <!-- Option A: IBM Plex Unified -->
+        <div class="option-card">
+          <div class="option-header">
+            <h3>Option A: IBM Plex Unified</h3>
+            <p>Single font family, maximum consistency</p>
+          </div>
+          <div class="option-body">
+            <div class="option-stack">
+              <div class="option-stack-row">
+                <span class="option-stack-label">Logo</span>
+                <span class="option-stack-value">IBM Plex Sans 700</span>
+              </div>
+              <div class="option-stack-row">
+                <span class="option-stack-label">Headings</span>
+                <span class="option-stack-value">IBM Plex Sans 600, 700</span>
+              </div>
+              <div class="option-stack-row">
+                <span class="option-stack-label">Body</span>
+                <span class="option-stack-value">IBM Plex Sans 400, 500</span>
+              </div>
+              <div class="option-stack-row">
+                <span class="option-stack-label">Code</span>
+                <span class="option-stack-value">IBM Plex Mono 500</span>
+              </div>
+            </div>
+            <div class="option-preview">
+              <div class="option-preview-logo">
+                <svg width="32" height="38" viewBox="0 0 48 57">
+                  <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-grad)"/>
+                  <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+                  <path d="M8 18L24 44L40 18H8Z" fill="url(#body-grad)"/>
+                </svg>
+                <span class="logo-text font-ibm"><span class="builds">Builds</span><span class="that-last"> That Last</span></span>
+              </div>
+              <h4 class="font-ibm" style="font-weight: 600;">Why Foundation Matters</h4>
+              <p class="font-ibm">Everyone ships fast. Few build to last. Quality is the shortcut.</p>
+              <p style="margin-top: 12px;"><code class="font-ibm-mono">buildFoundation()</code></p>
+            </div>
+            <dl class="pros-cons">
+              <dt>Pros</dt>
+              <dd>One family, true documentation aesthetic, fast loading</dd>
+              <dt>Cons</dt>
+              <dd>Less hierarchy contrast between heading/body</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Option B: Space Grotesk + Source Sans -->
+        <div class="option-card">
+          <div class="option-header">
+            <h3>Option B: Space + Source</h3>
+            <p>Maximum distinction, engineering feel</p>
+          </div>
+          <div class="option-body">
+            <div class="option-stack">
+              <div class="option-stack-row">
+                <span class="option-stack-label">Logo</span>
+                <span class="option-stack-value">Space Grotesk 700</span>
+              </div>
+              <div class="option-stack-row">
+                <span class="option-stack-label">Headings</span>
+                <span class="option-stack-value">Space Grotesk 600, 700</span>
+              </div>
+              <div class="option-stack-row">
+                <span class="option-stack-label">Body</span>
+                <span class="option-stack-value">Source Sans 3 400, 500</span>
+              </div>
+              <div class="option-stack-row">
+                <span class="option-stack-label">Code</span>
+                <span class="option-stack-value">JetBrains Mono 500</span>
+              </div>
+            </div>
+            <div class="option-preview">
+              <div class="option-preview-logo">
+                <svg width="32" height="38" viewBox="0 0 48 57">
+                  <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-grad)"/>
+                  <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+                  <path d="M8 18L24 44L40 18H8Z" fill="url(#body-grad)"/>
+                </svg>
+                <span class="logo-text font-space"><span class="builds">Builds</span><span class="that-last"> That Last</span></span>
+              </div>
+              <h4 class="font-space" style="font-weight: 600;">Why Foundation Matters</h4>
+              <p class="font-source">Everyone ships fast. Few build to last. Quality is the shortcut.</p>
+              <p style="margin-top: 12px;"><code class="font-jetbrains">buildFoundation()</code></p>
+            </div>
+            <dl class="pros-cons">
+              <dt>Pros</dt>
+              <dd>Distinctive headings, clear hierarchy, engineering vibe</dd>
+              <dt>Cons</dt>
+              <dd>Two font families to load</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Option C: IBM Plex + Public Sans (Recommended) -->
+        <div class="option-card recommended">
+          <div class="option-header">
+            <h3>Option C: IBM Plex + Public Sans <span class="badge recommended">Recommended</span></h3>
+            <p>Best balance of unity and hierarchy</p>
+          </div>
+          <div class="option-body">
+            <div class="option-stack">
+              <div class="option-stack-row">
+                <span class="option-stack-label">Logo</span>
+                <span class="option-stack-value">IBM Plex Sans 700</span>
+              </div>
+              <div class="option-stack-row">
+                <span class="option-stack-label">Headings</span>
+                <span class="option-stack-value">IBM Plex Sans 600, 700</span>
+              </div>
+              <div class="option-stack-row">
+                <span class="option-stack-label">Body</span>
+                <span class="option-stack-value">Public Sans 400, 500</span>
+              </div>
+              <div class="option-stack-row">
+                <span class="option-stack-label">Code</span>
+                <span class="option-stack-value">JetBrains Mono 500</span>
+              </div>
+            </div>
+            <div class="option-preview">
+              <div class="option-preview-logo">
+                <svg width="32" height="38" viewBox="0 0 48 57">
+                  <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-grad)"/>
+                  <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+                  <path d="M8 18L24 44L40 18H8Z" fill="url(#body-grad)"/>
+                </svg>
+                <span class="logo-text font-ibm"><span class="builds">Builds</span><span class="that-last"> That Last</span></span>
+              </div>
+              <h4 class="font-ibm" style="font-weight: 600;">Why Foundation Matters</h4>
+              <p class="font-public">Everyone ships fast. Few build to last. Quality is the shortcut.</p>
+              <p style="margin-top: 12px;"><code class="font-jetbrains">buildFoundation()</code></p>
+            </div>
+            <dl class="pros-cons">
+              <dt>Pros</dt>
+              <dd>Logo/heading unity, serious body, government-grade readability, very underused</dd>
+              <dt>Cons</dt>
+              <dd>Public Sans less known (but that's differentiation)</dd>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Option D: Bai Jamjuree + Manrope (INNOMIZE-style) -->
+        <div class="option-card">
+          <div class="option-header">
+            <h3>Option D: Bai Jamjuree + Manrope</h3>
+            <p>INNOMIZE-style system</p>
+          </div>
+          <div class="option-body">
+            <div class="option-stack">
+              <div class="option-stack-row">
+                <span class="option-stack-label">Logo</span>
+                <span class="option-stack-value">Bai Jamjuree 700</span>
+              </div>
+              <div class="option-stack-row">
+                <span class="option-stack-label">Headings</span>
+                <span class="option-stack-value">Bai Jamjuree 600, 700</span>
+              </div>
+              <div class="option-stack-row">
+                <span class="option-stack-label">Body</span>
+                <span class="option-stack-value">Manrope 400, 500</span>
+              </div>
+              <div class="option-stack-row">
+                <span class="option-stack-label">Code</span>
+                <span class="option-stack-value">JetBrains Mono 500</span>
+              </div>
+            </div>
+            <div class="option-preview">
+              <div class="option-preview-logo">
+                <svg width="32" height="38" viewBox="0 0 48 57">
+                  <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-grad)"/>
+                  <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+                  <path d="M8 18L24 44L40 18H8Z" fill="url(#body-grad)"/>
+                </svg>
+                <span class="logo-text font-bai"><span class="builds">Builds</span><span class="that-last"> That Last</span></span>
+              </div>
+              <h4 class="font-bai" style="font-weight: 600; line-height: 0.9;">Why Foundation Matters</h4>
+              <p class="font-manrope">Everyone ships fast. Few build to last. Quality is the shortcut.</p>
+              <p style="margin-top: 12px;"><code class="font-jetbrains">buildFoundation()</code></p>
+            </div>
+            <dl class="pros-cons">
+              <dt>Pros</dt>
+              <dd>Distinctive, dense headings, excellent readability, not AI-common</dd>
+              <dt>Cons</dt>
+              <dd>May blur distinction with INNOMIZE brand if using same fonts</dd>
+            </dl>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== DARK MODE ==================== -->
+    <section id="dark-mode">
+      <div class="section-header">
+        <h2>6. Dark Mode Preview</h2>
+        <p>All 4 strategic options on dark backgrounds</p>
+      </div>
+
+      <div class="dark-section">
+        <div class="dark-grid">
+          <div class="dark-card">
+            <p style="font-size: 11px; color: #9ca3af; font-family: 'JetBrains Mono', monospace; margin-bottom: 12px;">Option A: IBM Plex Unified</p>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <svg width="28" height="34" viewBox="0 0 48 57">
+                <defs>
+                  <linearGradient id="tip-dark" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#6ee7b7"/>
+                    <stop offset="100%" stop-color="#34d399"/>
+                  </linearGradient>
+                  <linearGradient id="body-dark" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#10b981"/>
+                    <stop offset="40%" stop-color="#059669"/>
+                    <stop offset="100%" stop-color="#047857"/>
+                  </linearGradient>
+                </defs>
+                <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-dark)"/>
+                <line x1="8" y1="16" x2="40" y2="16" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3"/>
+                <path d="M8 18L24 44L40 18H8Z" fill="url(#body-dark)"/>
+              </svg>
+              <span class="logo-text font-ibm" style="font-size: 20px;">
+                <span style="color: #34d399;">Builds</span>
+                <span style="color: #f9fafb;"> That Last</span>
+              </span>
+            </div>
+            <h4 class="font-ibm" style="font-weight: 600; font-size: 16px; color: #f9fafb; margin-bottom: 8px;">Why Foundation Matters</h4>
+            <p class="font-ibm" style="font-size: 13px; color: #d1d5db; line-height: 1.5;">Everyone ships fast. Few build to last.</p>
+          </div>
+
+          <div class="dark-card">
+            <p style="font-size: 11px; color: #9ca3af; font-family: 'JetBrains Mono', monospace; margin-bottom: 12px;">Option B: Space + Source</p>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <svg width="28" height="34" viewBox="0 0 48 57">
+                <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-dark)"/>
+                <line x1="8" y1="16" x2="40" y2="16" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3"/>
+                <path d="M8 18L24 44L40 18H8Z" fill="url(#body-dark)"/>
+              </svg>
+              <span class="logo-text font-space" style="font-size: 20px;">
+                <span style="color: #34d399;">Builds</span>
+                <span style="color: #f9fafb;"> That Last</span>
+              </span>
+            </div>
+            <h4 class="font-space" style="font-weight: 600; font-size: 16px; color: #f9fafb; margin-bottom: 8px;">Why Foundation Matters</h4>
+            <p class="font-source" style="font-size: 13px; color: #d1d5db; line-height: 1.5;">Everyone ships fast. Few build to last.</p>
+          </div>
+
+          <div class="dark-card" style="border: 1px solid #34d399;">
+            <p style="font-size: 11px; color: #34d399; font-family: 'JetBrains Mono', monospace; margin-bottom: 12px;">Option C: IBM Plex + Public (Recommended)</p>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <svg width="28" height="34" viewBox="0 0 48 57">
+                <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-dark)"/>
+                <line x1="8" y1="16" x2="40" y2="16" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3"/>
+                <path d="M8 18L24 44L40 18H8Z" fill="url(#body-dark)"/>
+              </svg>
+              <span class="logo-text font-ibm" style="font-size: 20px;">
+                <span style="color: #34d399;">Builds</span>
+                <span style="color: #f9fafb;"> That Last</span>
+              </span>
+            </div>
+            <h4 class="font-ibm" style="font-weight: 600; font-size: 16px; color: #f9fafb; margin-bottom: 8px;">Why Foundation Matters</h4>
+            <p class="font-public" style="font-size: 13px; color: #d1d5db; line-height: 1.5;">Everyone ships fast. Few build to last.</p>
+          </div>
+
+          <div class="dark-card">
+            <p style="font-size: 11px; color: #9ca3af; font-family: 'JetBrains Mono', monospace; margin-bottom: 12px;">Option D: Bai Jamjuree + Manrope</p>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <svg width="28" height="34" viewBox="0 0 48 57">
+                <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-dark)"/>
+                <line x1="8" y1="16" x2="40" y2="16" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3"/>
+                <path d="M8 18L24 44L40 18H8Z" fill="url(#body-dark)"/>
+              </svg>
+              <span class="logo-text font-bai" style="font-size: 20px;">
+                <span style="color: #34d399;">Builds</span>
+                <span style="color: #f9fafb;"> That Last</span>
+              </span>
+            </div>
+            <h4 class="font-bai" style="font-weight: 600; font-size: 16px; color: #f9fafb; margin-bottom: 8px; line-height: 0.9;">Why Foundation Matters</h4>
+            <p class="font-manrope" style="font-size: 13px; color: #d1d5db; line-height: 1.5;">Everyone ships fast. Few build to last.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EVALUATION MATRIX ==================== -->
+    <section id="evaluation">
+      <div class="section-header">
+        <h2>7. Complete Evaluation Matrix</h2>
+        <p>All 15 fonts scored against BTL brand criteria (sorted by score)</p>
+      </div>
+
+      <table class="eval-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Font</th>
+            <th>Role</th>
+            <th>Technical</th>
+            <th>Grounded</th>
+            <th>Timeless</th>
+            <th>Readable</th>
+            <th>Distinctive</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="recommended">
+            <td>1</td>
+            <td>IBM Plex Sans</td>
+            <td>Logo/Heading/Body</td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><strong>23/25</strong></td>
+            <td><span class="badge recommended">Recommended</span></td>
+          </tr>
+          <tr class="recommended">
+            <td>1</td>
+            <td>Public Sans</td>
+            <td>Body</td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><strong>23/25</strong></td>
+            <td><span class="badge recommended">Recommended</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Space Grotesk</td>
+            <td>Logo/Heading</td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td>21/25</td>
+            <td><span class="badge alt">Alternative</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Source Sans 3</td>
+            <td>Body</td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td>19/25</td>
+            <td><span class="badge alt">Alternative</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Bai Jamjuree</td>
+            <td>Logo/Heading</td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td>18/25</td>
+            <td><span class="badge viable">Viable</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Manrope</td>
+            <td>Body</td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td>18/25</td>
+            <td><span class="badge viable">Viable</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Libre Franklin</td>
+            <td>Body</td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td>18/25</td>
+            <td><span class="badge viable">Viable</span></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Sora</td>
+            <td>Logo/Heading</td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td>17/25</td>
+            <td><span class="badge viable">Viable</span></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Epilogue</td>
+            <td>Logo/Heading</td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td>17/25</td>
+            <td><span class="badge viable">Viable</span></td>
+          </tr>
+          <tr class="caution">
+            <td>8</td>
+            <td>DM Sans</td>
+            <td>Body</td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td>17/25</td>
+            <td><span class="badge caution">Trending</span></td>
+          </tr>
+          <tr class="avoid">
+            <td>11</td>
+            <td>Open Sans</td>
+            <td>Body</td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td>15/25</td>
+            <td><span class="badge avoid">Avoid</span></td>
+          </tr>
+          <tr class="avoid">
+            <td>12</td>
+            <td>Inter</td>
+            <td>Body</td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td>14/25</td>
+            <td><span class="badge avoid">AI-Common</span></td>
+          </tr>
+          <tr class="avoid">
+            <td>13</td>
+            <td>Poppins</td>
+            <td>Logo/Heading</td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span></span></td>
+            <td><span class="score"><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span></span></td>
+            <td>13/25</td>
+            <td><span class="badge avoid">AI-Common</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ==================== LICENSE INFO ==================== -->
+    <section id="licenses">
+      <div class="section-header">
+        <h2>8. License Information</h2>
+        <p>All fonts are free for commercial use</p>
+      </div>
+
+      <table class="license-table">
+        <thead>
+          <tr>
+            <th>Font</th>
+            <th>License</th>
+            <th>Commercial</th>
+            <th>Self-Host</th>
+            <th>Modify</th>
+            <th>Attribution</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>IBM Plex Sans</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts / IBM</td>
+          </tr>
+          <tr>
+            <td>IBM Plex Mono</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts / IBM</td>
+          </tr>
+          <tr>
+            <td>Public Sans</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts / USWDS</td>
+          </tr>
+          <tr>
+            <td>Space Grotesk</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts</td>
+          </tr>
+          <tr>
+            <td>Source Sans 3</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts / Adobe</td>
+          </tr>
+          <tr>
+            <td>JetBrains Mono</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts / JetBrains</td>
+          </tr>
+          <tr>
+            <td>Bai Jamjuree</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts</td>
+          </tr>
+          <tr>
+            <td>Manrope</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts</td>
+          </tr>
+          <tr>
+            <td>DM Sans</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts</td>
+          </tr>
+          <tr>
+            <td>Open Sans</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts</td>
+          </tr>
+          <tr>
+            <td>Sora</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts</td>
+          </tr>
+          <tr>
+            <td>Epilogue</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts</td>
+          </tr>
+          <tr>
+            <td>Libre Franklin</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts</td>
+          </tr>
+          <tr>
+            <td>Poppins</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts</td>
+          </tr>
+          <tr>
+            <td>Inter</td>
+            <td>OFL 1.1</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td>No</td>
+            <td>Google Fonts</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="padding: 24px 32px; background: var(--gray-50); font-size: 13px; color: var(--gray-600);">
+        <strong>OFL 1.1 (SIL Open Font License)</strong> permits:
+        <ul style="margin: 8px 0 0 20px; line-height: 1.8;">
+          <li>Free commercial use in any project</li>
+          <li>Modification and redistribution</li>
+          <li>Self-hosting (no CDN dependency required)</li>
+          <li>Embedding in apps, PDFs, and documents</li>
+          <li>No attribution required in final products</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Final Recommendation -->
+    <section>
+      <div class="notes">
+        <h4>Final Recommendation: Option C (IBM Plex Sans + Public Sans)</h4>
+        <p><strong>Logo & Headings:</strong> IBM Plex Sans 600, 700 — Technical documentation aesthetic, perfect for BTL's engineering focus.<br>
+        <strong>Body:</strong> Public Sans 400, 500 — Government-grade readability, extremely underused in AI starters, serious feel.<br>
+        <strong>Code:</strong> JetBrains Mono 500 — Keep current, distinctive and developer-focused.<br><br>
+        This combination scores highest (46/50 combined) while avoiding all AI-common font patterns. All fonts are OFL 1.1 licensed and can be self-hosted.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Builds That Last | Typography System Evaluation v3.0 | 2026-01-12 | 15 Fonts Evaluated</p>
+    </footer>
+
+  </div>
+</body>
+</html>

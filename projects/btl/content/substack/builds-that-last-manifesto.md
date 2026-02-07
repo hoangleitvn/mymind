@@ -1,6 +1,6 @@
 ---
 title: "Builds That Last: Why Foundation Comes Before Speed"
-subtitle: "A manifesto for modern engineering in the AI era"
+subtitle: "Everyone ships fast. Few build to last. A practical guide to foundation-first engineering in an age obsessed with speed."
 type: substack-article
 status: final
 created: 2025-12-10
@@ -34,7 +34,7 @@ I've been thinking about why nobody talks about this part. Everyone is talking a
 
 ## Why I Started Writing This
 
-You'll see posts about vibe coding, AI-augmented development, shipping apps in hours. **Everyone can build now.**, **Engineering teams are obsolete.**
+You'll see posts about vibe coding, AI-augmented development, shipping apps in hours. **Everyone can build now.** **Engineering teams are obsolete.**
 
 I'm not saying AI isn't real. I use these tools every day. The productivity gains are real.
 

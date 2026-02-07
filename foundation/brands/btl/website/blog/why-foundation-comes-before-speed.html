@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Foundation Comes Before Speed | Builds That Last</title>
+  <meta name="description" content="Everyone ships fast. Few build to last. This is the manifesto for modern engineering in the AI era.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Why Foundation Comes Before Speed">
+  <meta property="og:description" content="The demo works. The demo always works. It's what comes after that separates software that lasts from software that collapses.">
+  <meta property="og:type" content="article">
+
+  <!-- Fonts: IBM Plex Sans (headlines), Public Sans (body), JetBrains Mono (code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/sections.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='16,4 24,12 8,12' fill='%2310b981'/><line x1='6' y1='12' x2='26' y2='12' stroke='%231f2937' stroke-width='1' stroke-dasharray='3,2'/><polygon points='16,28 6,12 26,12' fill='%2300a86b'/></svg>">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="sr-only">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="20,6 30,16 10,16" fill="#10b981"/>
+          <line x1="8" y1="16" x2="32" y2="16" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <polygon points="20,34 6,16 34,16" fill="#00a86b"/>
+        </svg>
+        <span class="logo-text">Builds That Last</span>
+      </a>
+
+      <nav class="header-nav">
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#philosophy" class="nav-link">Philosophy</a>
+        <a href="../blogs.html" class="nav-link active">Blog</a>
+        <a href="../index.html#subscribe" class="nav-link">Subscribe</a>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Blog Article (Unified Flow) -->
+    <article class="blog-article">
+      <div class="container">
+        <!-- Main Content Column -->
+        <div class="blog-article-main">
+          <!-- Article Header -->
+          <header class="blog-article-hero">
+            <nav class="breadcrumb">
+              <a href="../index.html">Home</a>
+              <span class="breadcrumb-separator">/</span>
+              <a href="../blogs.html">Blog</a>
+              <span class="breadcrumb-separator">/</span>
+              <span class="breadcrumb-current">Foundation</span>
+            </nav>
+            <h1 class="blog-article-title">Why Foundation Comes Before Speed</h1>
+            <p class="blog-article-subtitle">A manifesto for modern engineering in the AI era</p>
+            <div class="blog-article-meta">
+              <span class="blog-article-date">January 10, 2026</span>
+              <span class="blog-card-tag">Foundation</span>
+              <span class="text-muted">12 min read</span>
+            </div>
+          </header>
+
+          <!-- Article Content -->
+          <div class="blog-article-content">
+          <p>I've been building and leading engineering teams for 15 years. Over 50 projects. Startups, enterprises, legacy systems, greenfield builds. Some still live. Some failed. Some never shipped. Some are still in development.</p>
+
+          <p>And I keep seeing the same pattern.</p>
+
+          <p><strong>Teams ship fast. Then they slow down.</strong> Not because the engineers got lazy. Because the foundation was never there.</p>
+
+          <p>At INNOMIZE, we used to maintain systems 20+ years old. No documentation. No standards. The original developers left years ago. When we ask stakeholders about business logic, they say "read the code."</p>
+
+          <p>So my teams, sometimes decompiling binary files just to understand what's inside. Debugging at runtime because that's the only way to see how things actually work. Previous teams deployed code to AWS without committing the code to source control, and it was gone.</p>
+
+          <p>This is what engineering looks like for most of us. Not the AI demos. Not the apps shipped in a weekend. The behind-the-scenes work of understanding systems well enough to keep them running and make them better.</p>
+
+          <h2 id="iceberg-problem">The Iceberg Problem</h2>
+
+          <p>This is the iceberg problem.</p>
+
+          <p>What you see is <strong>20% above the water</strong>. The shiny demos. The fast shipping. The "everyone can build apps now" narrative. Vibe coding, agentic AI, context engineering, apps built in hours.</p>
+
+          <p>What you don't see is the <strong>80% below</strong>. The maintenance. The technical debt. Engineers connecting systems that were never meant to work together. Data inconsistencies that accumulated over years. Teams spending days just to understand what the previous developer was thinking.</p>
+
+          <p>That 80% is where my teams and I spend most of our time. And I think it's where the real lessons are.</p>
+
+          <blockquote>
+            "The demo works. The demo always works. It's what comes after that separates software that lasts from software that collapses."
+          </blockquote>
+
+          <h2 id="speed-trap">The Speed Trap</h2>
+
+          <p>I see this pattern repeat across projects.</p>
+
+          <p>A team starts fast. AI tools, modern stack, motivated engineers. The first version ships in weeks. Everyone celebrates.</p>
+
+          <p>Then users show up. Edge cases appear. The payment flow breaks. The data sync fails silently. Features that worked in demo crash under real load.</p>
+
+          <p>Suddenly the team that was "moving fast" is spending months fixing things. Not building new features. Just paying back the debt from shipping without foundation.</p>
+
+          <p>Leadership gets frustrated. "Why is the team slow now?"</p>
+
+          <p>The team isn't slow. They're doing the work that should have been done upfront.</p>
+
+          <blockquote>
+            Speed without foundation creates the illusion of progress. Then reality catches up.
+          </blockquote>
+
+          <h2 id="maintenance-costs">Maintenance Costs More Than Building</h2>
+
+          <p>Here's something most people don't think about until it's too late.</p>
+
+          <p><strong>Maintaining software costs more than building it from scratch.</strong></p>
+
+          <p>Think about repairing a house. You don't just fix the broken part. You investigate the structure. You remove old materials. You work around things that can't be changed. Then you build the new thing. The investigation and removal often cost more than the construction itself.</p>
+
+          <p>Software is the same.</p>
+
+          <p>When you inherit a system without documentation, without standards, without clarity, every change becomes an archaeology project. You spend more time understanding than building. More time removing than adding.</p>
+
+          <blockquote>
+            The time you "save" by skipping foundation gets paid back with interest during maintenance. Every shortcut in building becomes a tax on every future change.
+          </blockquote>
+
+          <h2 id="ai-paradox">The AI Paradox</h2>
+
+          <p>Here's something interesting I've noticed.</p>
+
+          <p><strong>AI makes code generation 10x faster.</strong> That's real. I've seen it in my own work.</p>
+
+          <p><strong>But AI also increases cognitive load by 30-40%.</strong></p>
+
+          <p>Wait, what?</p>
+
+          <p>Think about it. When AI generates code, someone still needs to verify it's secure, check for edge cases, understand the logic before shipping, and maintain it when something breaks.</p>
+
+          <p>AI doesn't eliminate this work. It just changes who's responsible for catching problems.</p>
+
+          <p>I read that Anthropic's CEO said 90% of their internal code is now AI-generated. But the follow-up quote was more interesting: "We're not replacing engineers."</p>
+
+          <p>The 10% that humans still handle? That's the leverage zone. Architecture decisions. Debugging complex problems. Understanding <em>why</em> something should work a certain way, not just <em>what</em> it should do.</p>
+
+          <blockquote>
+            AI is a turbo, not a robot. It speeds up what you already have. Good foundation? AI makes you faster at building good software. Bad foundation? AI makes you faster at building bad software.
+          </blockquote>
+
+          <h2 id="for-engineers">What This Means for Engineers</h2>
+
+          <p>If you're an engineer reading this, here's what I want you to take away:</p>
+
+          <p><strong>The fundamentals matter more than ever.</strong></p>
+
+          <p>Everyone has access to AI now. The differentiator isn't who can prompt better. It's who understands what they're building deeply enough to know when AI is helping and when it's hurting.</p>
+
+          <p><strong>Own your code.</strong></p>
+
+          <p>"The AI wrote it" isn't an excuse when something breaks at 2am. You shipped it. You're responsible for it. Read the code. Understand the logic. Then ship with confidence.</p>
+
+          <p><strong>Be curious.</strong></p>
+
+          <p>The engineers I see thriving with AI aren't the ones accepting every suggestion. They're the ones asking "why did it do that?" and "what would happen if...?" Curiosity is your edge.</p>
+
+          <h2 id="for-leaders">What This Means for Leaders</h2>
+
+          <p>If you're a founder or engineering leader, here's what I want you to hear:</p>
+
+          <p><strong>You're only seeing 20% of what your team deals with.</strong></p>
+
+          <p>The demos work. The sprint reports look fine. But your team might be drowning in the 80% you don't see. The legacy code. The missing documentation. The tribal knowledge that walks out the door when someone leaves.</p>
+
+          <p>Talk to your team. Ask about their pain points. Not in a status meeting. In a real conversation.</p>
+
+          <p><strong>Remove friction before adding speed.</strong></p>
+
+          <p>This is counterintuitive. When you want to go faster, the instinct is to add more. More tools, more people, more pressure.</p>
+
+          <p>Usually, the answer is to remove things. Remove blockers. Remove unnecessary process. Remove the friction that's slowing your team down.</p>
+
+          <p>Foundation first. Then speed follows naturally.</p>
+
+          <h2 id="why-writing">Why I'm Writing This</h2>
+
+          <p>Most engineering advice sounds good in theory. It falls apart when you're shipping under pressure.</p>
+
+          <p>I've spent 15 years learning what actually works. Not from books or Medium posts. From building things that had to work.</p>
+
+          <p>I'm calling this publication <strong>Builds That Last</strong> because that's what's missing in the conversation.</p>
+
+          <p>Everyone's focused on shipping fast. But fast to where? Fast toward what?</p>
+
+          <p>Building things that last means knowing what you're building and why. It means understanding the system well enough to change it confidently. It means creating something that your future self (or the engineer who inherits your code) can actually maintain.</p>
+
+          <blockquote>
+            In the AI era, shipping is easy. Building to last is what matters.
+          </blockquote>
+
+          <p>Welcome to Builds That Last.</p>
+
+          <hr class="waterline">
+
+          <!-- Author Box -->
+          <div class="blog-author-box">
+            <div class="blog-author-info">
+              <h4>Hoang Le</h4>
+              <p>Engineering leader with 15+ years building and maintaining software systems. Founder of INNOMIZE. Writing about what actually works in engineering.</p>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <nav class="blog-nav">
+            <div class="blog-nav-item">
+              <!-- Empty for first article -->
+            </div>
+            <div class="blog-nav-item next">
+              <div class="blog-nav-label">Next Article</div>
+              <a href="the-speed-trap.html" class="blog-nav-title">The Speed Trap</a>
+            </div>
+          </nav>
+        </div>
+        </div><!-- /.blog-article-main -->
+
+        <!-- Sidebar TOC -->
+        <nav class="blog-toc">
+          <div class="blog-toc-title">In this article</div>
+          <ol class="blog-toc-list">
+            <li><a href="#iceberg-problem">The Iceberg Problem</a></li>
+            <li><a href="#speed-trap">The Speed Trap</a></li>
+            <li><a href="#maintenance-costs">Maintenance Costs More Than Building</a></li>
+            <li><a href="#ai-paradox">The AI Paradox</a></li>
+            <li><a href="#for-engineers">What This Means for Engineers</a></li>
+            <li><a href="#for-leaders">What This Means for Leaders</a></li>
+            <li><a href="#why-writing">Why I'm Writing This</a></li>
+          </ol>
+        </nav>
+      </div>
+    </article>
+
+    <!-- Subscribe Section -->
+    <section class="subscribe">
+      <div class="container">
+        <h2>Enjoyed this article?</h2>
+        <p>Get more engineering insights delivered to your inbox. No spam, just substance.</p>
+        <a href="https://buildthatlast.substack.com" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Subscribe on Substack</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="20,6 30,16 10,16" fill="#10b981"/>
+              <line x1="8" y1="16" x2="32" y2="16" stroke="#f9fafb" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polygon points="20,34 6,16 34,16" fill="#00a86b"/>
+            </svg>
+            <span class="logo-text" style="color: white;">Builds That Last</span>
+          </a>
+          <p>Engineering insights for founders and tech leaders who build for the long term.</p>
+        </div>
+
+        <nav class="footer-nav">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#philosophy">Philosophy</a></li>
+            <li><a href="../blogs.html">Blog</a></li>
+            <li><a href="../index.html#subscribe">Subscribe</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-nav">
+          <h4>Content</h4>
+          <ul>
+            <li><a href="https://buildthatlast.substack.com" target="_blank" rel="noopener">Substack</a></li>
+            <li><a href="https://linkedin.com/in/hoangleitvn" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-nav">
+          <h4>More</h4>
+          <ul>
+            <li><a href="https://innomize.com" target="_blank" rel="noopener">INNOMIZE</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">2026 Builds That Last. All rights reserved.</p>
+
+        <div class="footer-social">
+          <a href="https://linkedin.com/in/hoangleitvn" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="https://buildthatlast.substack.com" target="_blank" rel="noopener" aria-label="Substack">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- BTL Submark - White (Mono, No Frame) -->
+  <g transform="translate(0, -1)">
+    <path d="M24 6L32 14H16L24 6Z" fill="#ffffff"/>
+    <line x1="8" y1="16" x2="40" y2="16" stroke="#ffffff" stroke-width="2" stroke-dasharray="4 3"/>
+    <line x1="8" y1="17" x2="40" y2="17" stroke="#ffffff" stroke-width="1" stroke-opacity="0.3"/>
+    <path d="M8 18L24 44L40 18H8Z" fill="#ffffff"/>
+  </g>
+</svg>

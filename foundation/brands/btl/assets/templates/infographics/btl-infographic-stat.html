@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Infographic: Single Statistic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /*
+      BTL Infographic Template: Single Statistic
+      ===========================================
+      Design System: v2.2 | Philosophy: v1.2
+
+      Usage: Hero metric, key data point, impactful number
+
+      Principles Applied:
+      - P1. Depth Over Surface: Number implies research beneath
+      - P2. Clarity Over Cleverness: One number, impossible to miss
+      - P3. Restraint Over Abundance: Single metric focus
+      - P4. Grounded Over Floating: Source anchors credibility
+      - P5. Timeless Over Trendy: Classic data visualization
+
+      Layout: 1200x1200 (LinkedIn square)
+
+      Typography:
+      - Metric: 200px JetBrains Mono 700 (hero)
+      - Context: 32px Public Sans 400
+      - Headline: 44px IBM Plex Sans 600
+      - Source: 18px JetBrains Mono 400
+    */
+    :root {
+      --brand-400: #10b981;
+      --brand-500: #00a86b;
+      --base-50: #f9fafb;
+      --base-300: #d1d5db;
+      --base-400: #9ca3af;
+      --base-700: #374151;
+      --base-800: #1f2937;
+      --base-900: #111827;
+      --canvas-width: 1200px;
+      --canvas-height: 1200px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: "Public Sans", system-ui, sans-serif;
+    }
+
+    .canvas {
+      width: var(--canvas-width);
+      height: var(--canvas-height);
+      background: var(--base-800);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .canvas-svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="canvas">
+    <svg class="canvas-svg" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Definitions -->
+      <defs>
+        <clipPath id="circleClip">
+          <circle cx="99" cy="1098" r="35"/>
+        </clipPath>
+      </defs>
+
+      <!-- Background -->
+      <rect width="1200" height="1200" fill="#1f2937"/>
+
+      <!-- Accent Bar -->
+      <rect x="0" y="0" width="1200" height="6" fill="#00a86b"/>
+
+      <!-- EDIT: Context Label (above metric) -->
+      <text x="600" y="280" text-anchor="middle" fill="#9ca3af" font-family="Public Sans" font-size="32" font-weight="400" letter-spacing="0.02em">
+        of engineering time is spent on
+      </text>
+
+      <!-- EDIT: Hero Metric -->
+      <text x="600" y="480" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="200" font-weight="700" letter-spacing="-0.02em">
+        42%
+      </text>
+
+      <!-- EDIT: What the metric means -->
+      <text x="600" y="600" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="44" font-weight="600" letter-spacing="-0.01em">
+        maintaining legacy code
+      </text>
+
+      <!-- Supporting context -->
+      <text x="600" fill="#d1d5db" font-family="Public Sans" font-size="26" font-weight="400" text-anchor="middle">
+        <tspan x="600" y="700">The hidden cost of shipping fast</tspan>
+        <tspan x="600" dy="40">without building foundations.</tspan>
+      </text>
+
+      <!-- Waterline divider -->
+      <line x1="400" y1="820" x2="800" y2="820" stroke="#00a86b" stroke-width="2" stroke-dasharray="8 6" opacity="0.6"/>
+
+      <!-- Source attribution -->
+      <text x="600" y="880" text-anchor="middle" fill="#6b7280" font-family="JetBrains Mono" font-size="18" font-weight="400" letter-spacing="0.02em">
+        Source: Stripe Developer Coefficient Report
+      </text>
+
+      <!-- ========================================== -->
+      <!-- FOOTER (Standard BTL Cover Footer)        -->
+      <!-- ========================================== -->
+
+      <line x1="64" y1="1048" x2="1136" y2="1048" stroke="#374151" stroke-width="1"/>
+
+      <image
+        href="../../../assets/hoangleitvn.jpeg"
+        x="64" y="1063" width="70" height="70"
+        clip-path="url(#circleClip)"
+        preserveAspectRatio="xMidYMid slice"
+      />
+      <circle cx="99" cy="1098" r="35" fill="none" stroke="#00a86b" stroke-width="2"/>
+
+      <text x="154" y="1090" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">Hoang Le</text>
+      <text x="154" y="1120" fill="#9ca3af" font-family="Public Sans" font-size="22" font-weight="400">Builds That Last</text>
+
+      <text x="1136" y="1105" text-anchor="end" font-family="Public Sans" font-size="26" font-weight="400">
+        <tspan fill="#d1d5db">Everyone ships </tspan><tspan fill="#10b981">fast</tspan><tspan fill="#d1d5db">. Few build to </tspan><tspan fill="#10b981">last</tspan><tspan fill="#d1d5db">.</tspan>
+      </text>
+
+    </svg>
+  </div>
+
+</body>
+</html>

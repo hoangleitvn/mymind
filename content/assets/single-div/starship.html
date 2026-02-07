@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starship - Single Div CSS Art</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #0a0a1a 0%, #1a1a3a 50%, #0f0f2f 100%);
+      overflow: hidden;
+    }
+
+    /* ============================================
+       STARSHIP - SINGLE DIV CSS ART
+       ============================================ */
+    .starship {
+      position: relative;
+      width: 300px;
+      height: 400px;
+
+      background:
+        /* === SHIP BODY === */
+
+        /* Cockpit window (top) */
+        radial-gradient(ellipse 25% 12% at 50% 18%,
+          #87ceeb 0%, #5fa8d3 60%,
+          transparent 61%
+        ),
+
+        /* Cockpit frame */
+        radial-gradient(ellipse 30% 15% at 50% 18%,
+          #4a5568 0%, #2d3748 80%,
+          transparent 81%
+        ),
+
+        /* Main hull - metallic gradient */
+        linear-gradient(to bottom,
+          transparent 10%,
+          #718096 10%, #a0aec0 15%,
+          #e2e8f0 20%, #cbd5e0 30%,
+          #a0aec0 40%, #718096 50%,
+          #4a5568 60%, #2d3748 70%,
+          transparent 70%
+        ),
+
+        /* Hull side panels (left) */
+        linear-gradient(100deg,
+          transparent 20%,
+          rgba(45,55,72,0.8) 20%, rgba(45,55,72,0.8) 35%,
+          transparent 35%
+        ),
+
+        /* Hull side panels (right) */
+        linear-gradient(80deg,
+          transparent 65%,
+          rgba(45,55,72,0.8) 65%, rgba(45,55,72,0.8) 80%,
+          transparent 80%
+        ),
+
+        /* Hull highlight stripe */
+        linear-gradient(to bottom,
+          transparent 35%,
+          #00a86b 35%, #00a86b 37%,
+          transparent 37%
+        ),
+
+        /* === WINGS === */
+
+        /* Left wing */
+        linear-gradient(155deg,
+          transparent 0%, transparent 42%,
+          #4a5568 42%, #2d3748 48%,
+          transparent 48%
+        ),
+
+        /* Right wing */
+        linear-gradient(205deg,
+          transparent 0%, transparent 42%,
+          #4a5568 42%, #2d3748 48%,
+          transparent 48%
+        ),
+
+        /* Wing tips (left) */
+        radial-gradient(circle at 15% 52%,
+          #ef4444 4px, #dc2626 6px,
+          transparent 7px
+        ),
+
+        /* Wing tips (right) */
+        radial-gradient(circle at 85% 52%,
+          #ef4444 4px, #dc2626 6px,
+          transparent 7px
+        ),
+
+        /* === ENGINES === */
+
+        /* Engine housing (center) */
+        radial-gradient(ellipse 20% 8% at 50% 72%,
+          #1f2937 0%, #111827 80%,
+          transparent 81%
+        ),
+
+        /* Engine housing (left) */
+        radial-gradient(ellipse 12% 6% at 35% 70%,
+          #1f2937 0%, #111827 80%,
+          transparent 81%
+        ),
+
+        /* Engine housing (right) */
+        radial-gradient(ellipse 12% 6% at 65% 70%,
+          #1f2937 0%, #111827 80%,
+          transparent 81%
+        ),
+
+        /* === STARS BACKGROUND === */
+        radial-gradient(circle at 10% 20%, white 1px, transparent 1px),
+        radial-gradient(circle at 90% 15%, white 1.5px, transparent 1.5px),
+        radial-gradient(circle at 5% 80%, white 1px, transparent 1px),
+        radial-gradient(circle at 95% 75%, white 1px, transparent 1px),
+        radial-gradient(circle at 20% 90%, white 1.5px, transparent 1.5px),
+        radial-gradient(circle at 80% 85%, white 1px, transparent 1px),
+        radial-gradient(circle at 15% 50%, white 0.5px, transparent 0.5px),
+        radial-gradient(circle at 85% 45%, white 0.5px, transparent 0.5px),
+        radial-gradient(circle at 50% 5%, white 1px, transparent 1px),
+        radial-gradient(circle at 30% 10%, white 0.5px, transparent 0.5px),
+        radial-gradient(circle at 70% 95%, white 1px, transparent 1px);
+
+      /* Ship hull shape using clip-path */
+      filter: drop-shadow(0 0 20px rgba(0, 168, 107, 0.3));
+    }
+
+    /* Pseudo-element 1: Engine flames and additional details */
+    .starship::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+      background:
+        /* Main engine flame (center) */
+        radial-gradient(ellipse 15% 25% at 50% 78%,
+          white 0%,
+          #fef08a 20%,
+          #fb923c 40%,
+          #ea580c 60%,
+          #dc2626 80%,
+          transparent 100%
+        ),
+
+        /* Left engine flame */
+        radial-gradient(ellipse 10% 18% at 35% 76%,
+          white 0%,
+          #fef08a 25%,
+          #fb923c 50%,
+          #ea580c 75%,
+          transparent 100%
+        ),
+
+        /* Right engine flame */
+        radial-gradient(ellipse 10% 18% at 65% 76%,
+          white 0%,
+          #fef08a 25%,
+          #fb923c 50%,
+          #ea580c 75%,
+          transparent 100%
+        ),
+
+        /* Engine glow */
+        radial-gradient(ellipse 40% 15% at 50% 75%,
+          rgba(251, 146, 60, 0.4) 0%,
+          rgba(234, 88, 12, 0.2) 50%,
+          transparent 100%
+        ),
+
+        /* Hull detail lines */
+        linear-gradient(to bottom,
+          transparent 25%,
+          rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.1) 25.5%,
+          transparent 25.5%,
+          transparent 45%,
+          rgba(255,255,255,0.1) 45%, rgba(255,255,255,0.1) 45.5%,
+          transparent 45.5%
+        ),
+
+        /* Cockpit reflection */
+        linear-gradient(135deg,
+          transparent 15%,
+          rgba(255,255,255,0.3) 16%, rgba(255,255,255,0.1) 18%,
+          transparent 19%
+        );
+
+      animation: flameFlicker 0.15s ease-in-out infinite alternate;
+    }
+
+    /* Pseudo-element 2: Motion trails and ambient effects */
+    .starship::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+      background:
+        /* Speed lines (left) */
+        linear-gradient(175deg,
+          transparent 0%, transparent 60%,
+          rgba(255,255,255,0.1) 60%, rgba(255,255,255,0.05) 62%,
+          transparent 62%
+        ),
+        linear-gradient(175deg,
+          transparent 0%, transparent 65%,
+          rgba(255,255,255,0.08) 65%, rgba(255,255,255,0.03) 67%,
+          transparent 67%
+        ),
+
+        /* Speed lines (right) */
+        linear-gradient(185deg,
+          transparent 0%, transparent 60%,
+          rgba(255,255,255,0.1) 60%, rgba(255,255,255,0.05) 62%,
+          transparent 62%
+        ),
+        linear-gradient(185deg,
+          transparent 0%, transparent 65%,
+          rgba(255,255,255,0.08) 65%, rgba(255,255,255,0.03) 67%,
+          transparent 67%
+        ),
+
+        /* Ambient engine particles */
+        radial-gradient(circle at 45% 82%, rgba(251,146,60,0.6) 2px, transparent 2px),
+        radial-gradient(circle at 55% 84%, rgba(251,146,60,0.5) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 50% 86%, rgba(251,146,60,0.4) 2px, transparent 2px),
+        radial-gradient(circle at 35% 80%, rgba(251,146,60,0.5) 1px, transparent 1px),
+        radial-gradient(circle at 65% 81%, rgba(251,146,60,0.5) 1px, transparent 1px),
+
+        /* Nose cone highlight */
+        radial-gradient(ellipse 8% 5% at 50% 12%,
+          rgba(255,255,255,0.4) 0%,
+          transparent 100%
+        );
+
+      animation: particleMove 0.3s ease-in-out infinite;
+    }
+
+    /* Animations */
+    @keyframes flameFlicker {
+      0% {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+      100% {
+        opacity: 0.9;
+        transform: scaleY(1.05);
+      }
+    }
+
+    @keyframes particleMove {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Floating animation for the whole ship */
+    .starship {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Title */
+    .title {
+      position: fixed;
+      bottom: 30px;
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="starship"></div>
+  <p class="title">Starship — Single Div CSS Art</p>
+</body>
+</html>

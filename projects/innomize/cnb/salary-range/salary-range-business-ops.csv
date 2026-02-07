@@ -1,0 +1,10 @@
+level,title,code,min_salary_vnd,max_salary_vnd
+2,Account Director/Business Director,BO1,65000000,113750000
+3,Deputy Account Director/Deputy Business Director,BO2,45000000,76500000
+4.1,Account Manager/Business Development Manager,BO3,40000000,68000000
+5.1,Account Manager/Business Development Manager,BO4,35000000,59500000
+6.1,Account Lead/Business Development Lead,BO5,22000000,37400000
+7.1,Senior Account Executive/Senior Business Development,BO6,15000000,25500000
+8.1,Account Executive/Business Development Executive,BO7,10000000,17000000
+9,Junior Account/Junior Business Development,BO8,7000000,11900000
+10,Intern,BO9,4000000,6800000

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 Cloud Cost Mistakes</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700;800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Public Sans', system-ui, sans-serif;
+      background: #111827;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 1920px;
+      height: 1080px;
+      background: #f8f6f1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header {
+      background: #1f2937;
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .header h1 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: #f9fafb;
+      font-size: 42px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .header h1 span {
+      color: #10b981;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      padding: 32px 40px;
+    }
+
+    /* Panel styles */
+    .panel {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-header {
+      background: #0d9488;
+      padding: 16px 24px;
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .panel-header-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .panel-header h2 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .panel-content {
+      background: #ffffff;
+      border: 2px solid #e5e7eb;
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Mistake items */
+    .mistake {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .mistake:last-child {
+      border-bottom: none;
+    }
+
+    .mistake-icon {
+      width: 48px;
+      height: 48px;
+      background: #fef3c7;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+      border: 2px solid #fcd34d;
+    }
+
+    .mistake-icon.teal {
+      background: #ccfbf1;
+      border-color: #5eead4;
+    }
+
+    .mistake-icon.coral {
+      background: #fee2e2;
+      border-color: #fca5a5;
+    }
+
+    .mistake-icon.blue {
+      background: #dbeafe;
+      border-color: #93c5fd;
+    }
+
+    .mistake-icon.purple {
+      background: #ede9fe;
+      border-color: #c4b5fd;
+    }
+
+    .mistake-text {
+      flex: 1;
+    }
+
+    .mistake-label {
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: #1f2937;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .mistake-label span {
+      font-weight: 400;
+      color: #6b7280;
+    }
+
+    /* Step items */
+    .step {
+      background: #fef7ed;
+      border: 2px solid #fed7aa;
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      gap: 14px;
+    }
+
+    .step-icon {
+      width: 44px;
+      height: 44px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+      border: 2px solid #fdba74;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-title {
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: #1f2937;
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .step-details {
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .step-details span {
+      color: #0d9488;
+    }
+
+    /* Footer CTA */
+    .footer-cta {
+      background: #0d9488;
+      padding: 14px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-cta-text {
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-question {
+      color: #ffffff;
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    /* Custom icon badges */
+    .icon-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #1f2937;
+      line-height: 1.1;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Maximize AWS Savings: 30 Minutes to Recover <span>$500-$2,000/Month</span></h1>
+    </div>
+
+    <div class="main">
+      <!-- Left Panel: 10 Mistakes -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-header-icon">💰</div>
+          <h2>10 Mistakes: "I Thought It Was Free"</h2>
+        </div>
+        <div class="panel-content">
+          <div class="mistake">
+            <div class="mistake-icon">🐷</div>
+            <div class="mistake-text">
+              <div class="mistake-label">Free tier expired. <span>Nobody checked.</span></div>
+            </div>
+          </div>
+
+          <div class="mistake">
+            <div class="mistake-icon coral">🔔</div>
+            <div class="mistake-text">
+              <div class="mistake-label">No billing alerts <span>→ Runaway script. Bill arrives Monday.</span></div>
+            </div>
+          </div>
+
+          <div class="mistake">
+            <div class="mistake-icon teal"><div class="icon-badge">$32<br>/mo</div></div>
+            <div class="mistake-text">
+              <div class="mistake-label">NAT Gateway by default <span>→ Often unnecessary.</span></div>
+            </div>
+          </div>
+
+          <div class="mistake">
+            <div class="mistake-icon blue"><div class="icon-badge">PROD<br>DEV</div></div>
+            <div class="mistake-text">
+              <div class="mistake-label">Same config everywhere <span>→ Prod-sized instances in dev. 24/7.</span></div>
+            </div>
+          </div>
+
+          <div class="mistake">
+            <div class="mistake-icon purple">🌐</div>
+            <div class="mistake-text">
+              <div class="mistake-label">Data transfer blind spot <span>→ Cross-region costs.</span></div>
+            </div>
+          </div>
+
+          <div class="mistake">
+            <div class="mistake-icon coral">📅</div>
+            <div class="mistake-text">
+              <div class="mistake-label">Dev/test never stops <span>→ Friday spin-up. Monday still running.</span></div>
+            </div>
+          </div>
+
+          <div class="mistake">
+            <div class="mistake-icon teal"><div class="icon-badge">15%<br>CPU</div></div>
+            <div class="mistake-text">
+              <div class="mistake-label">Overprovisioned "to be safe" <span>→ m5.2xlarge at 15% CPU. Forever.</span></div>
+            </div>
+          </div>
+
+          <div class="mistake">
+            <div class="mistake-icon"><div class="icon-badge">100%<br>ON-DEM</div></div>
+            <div class="mistake-text">
+              <div class="mistake-label">100% on-demand <span>→ 60% is predictable. Paying 30% extra.</span></div>
+            </div>
+          </div>
+
+          <div class="mistake">
+            <div class="mistake-icon blue">📁</div>
+            <div class="mistake-text">
+              <div class="mistake-label">S3 request charges <span>→ Millions of small files. API costs explode.</span></div>
+            </div>
+          </div>
+
+          <div class="mistake">
+            <div class="mistake-icon purple">🔍</div>
+            <div class="mistake-text">
+              <div class="mistake-label">No cost visibility <span>→ Engineers build. Finance panics. Nobody connects.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel: 5 Steps -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-header-icon">⏱️</div>
+          <h2>Find Them in 30 Minutes: A Monthly Checklist</h2>
+        </div>
+        <div class="panel-content">
+          <div class="step">
+            <div class="step-icon">⏰</div>
+            <div class="step-content">
+              <div class="step-title">Step 1: EC2 Right-Sizing (5 min)</div>
+              <div class="step-details">
+                → Cost Explorer → Right Sizing Recommendations<br>
+                → Look for instances below <span>40% average CPU</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-icon">⏰</div>
+            <div class="step-content">
+              <div class="step-title">Step 2: Zombie Resources (10 min)</div>
+              <div class="step-details">
+                → Unattached EBS volumes (filter: "available")<br>
+                → Unused Elastic IPs (<span>$3.60/month each</span>)<br>
+                → Snapshots older than 90 days
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-icon">⏰</div>
+            <div class="step-content">
+              <div class="step-title">Step 3: Data Transfer (5 min)</div>
+              <div class="step-details">
+                → Cost Explorer → filter "Data Transfer"<br>
+                → Cross-region and NAT Gateway charges
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-icon">⏰</div>
+            <div class="step-content">
+              <div class="step-title">Step 4: Savings Plans (5 min)</div>
+              <div class="step-details">
+                → Cost Explorer → Savings Plans → Recommendations<br>
+                → Start with 50% of baseline. <span>20-30% savings.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-icon">⏰</div>
+            <div class="step-content">
+              <div class="step-title">Step 5: Storage Lifecycle (5 min)</div>
+              <div class="step-details">
+                → S3 buckets without lifecycle policies<br>
+                → Move cold data to <span>S3-IA or Glacier</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-cta">
+      <div class="footer-cta-text">🗓️ Run this monthly. Set a calendar reminder.</div>
+      <div class="footer-question">Which of these 10 hit home for your team?</div>
+    </div>
+  </div>
+</body>
+</html>

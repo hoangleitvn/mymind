@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Cover: Script Quote</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /*
+      BTL Cover Template: Script Quote
+      =================================
+      Design System: v2.2 | Philosophy: v1.2
+
+      Usage: Wisdom quotes, lessons learned, reflections
+
+      Font: Kalam - more casual handwriting feel
+
+      Canvas: 1200x1200 (LinkedIn square)
+    */
+
+    :root {
+      --brand-400: #10b981;
+      --brand-500: #00a86b;
+      --charcoal-800: #1f2937;
+      --charcoal-900: #111827;
+      --base-50: #f9fafb;
+      --base-100: #f1f5f9;
+      --base-300: #d1d5db;
+      --base-400: #9ca3af;
+      --base-700: #374151;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Public Sans", sans-serif;
+    }
+
+    .canvas {
+      width: 1200px;
+      height: 1200px;
+      background: var(--charcoal-900);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Accent bar */
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--brand-500);
+    }
+
+    /* Notebook lines effect */
+    .notebook-lines {
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        transparent 0px,
+        transparent 47px,
+        rgba(55, 65, 81, 0.3) 47px,
+        rgba(55, 65, 81, 0.3) 48px
+      );
+      background-position: 0 100px;
+    }
+
+    /* Left margin line */
+    .margin-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 100px;
+      width: 2px;
+      background: rgba(0, 168, 107, 0.2);
+    }
+
+    /* Content area */
+    .content {
+      position: absolute;
+      left: 140px;
+      top: 150px;
+      right: 80px;
+      bottom: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 5;
+    }
+
+    /* Category label */
+    .category {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--brand-500);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    /* Quote text - handwriting style */
+    .quote-text {
+      font-family: "Kalam", cursive;
+      font-size: 56px;
+      font-weight: 400;
+      color: var(--base-50);
+      line-height: 1.5;
+      margin-bottom: 48px;
+    }
+
+    .quote-text .highlight {
+      color: var(--brand-400);
+      font-weight: 700;
+    }
+
+    .quote-text .underline {
+      text-decoration: underline;
+      text-decoration-color: var(--brand-500);
+      text-decoration-thickness: 3px;
+      text-underline-offset: 8px;
+    }
+
+    /* Arrow annotation */
+    .annotation {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .annotation-arrow {
+      width: 60px;
+      height: 30px;
+    }
+
+    .annotation-text {
+      font-family: "Kalam", cursive;
+      font-size: 28px;
+      color: var(--brand-400);
+    }
+
+    /* Signature */
+    .signature {
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .signature-line {
+      width: 40px;
+      height: 2px;
+      background: var(--base-400);
+    }
+
+    .signature-name {
+      font-family: "Kalam", cursive;
+      font-size: 32px;
+      color: var(--base-300);
+    }
+
+    /* Footer */
+    .footer {
+      position: absolute;
+      left: 64px;
+      right: 64px;
+      bottom: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--base-700);
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .author-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--brand-500);
+      object-fit: cover;
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .author-name {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--base-50);
+    }
+
+    .author-brand {
+      font-family: "Public Sans", sans-serif;
+      font-size: 15px;
+      color: var(--base-400);
+    }
+
+    .tagline {
+      font-family: "Public Sans", sans-serif;
+      font-size: 18px;
+      color: var(--base-300);
+    }
+
+    .tagline .highlight {
+      color: var(--brand-400);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="canvas">
+    <div class="accent-bar"></div>
+    <div class="notebook-lines"></div>
+    <div class="margin-line"></div>
+
+    <!-- Content -->
+    <div class="content">
+      <span class="category">Lesson Learned</span>
+
+      <p class="quote-text">
+        The best code I ever wrote<br>
+        was the code I <span class="highlight underline">didn't write</span>.<br>
+        <br>
+        Simplicity isn't lazy.<br>
+        It's <span class="highlight">discipline</span>.
+      </p>
+
+      <!-- Hand-drawn arrow annotation -->
+      <div class="annotation">
+        <svg class="annotation-arrow" viewBox="0 0 60 30" fill="none">
+          <path d="M5 20 Q 20 5, 40 15 L 55 10" stroke="#10b981" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M50 5 L 55 10 L 48 14" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span class="annotation-text">this is the key</span>
+      </div>
+
+      <!-- Signature -->
+      <div class="signature">
+        <span class="signature-line"></span>
+        <span class="signature-name">Hoang</span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="author">
+        <img src="../../hoangleitvn.jpeg" alt="Hoang Le" class="author-avatar">
+        <div class="author-info">
+          <span class="author-name">Hoang Le</span>
+          <span class="author-brand">Builds That Last</span>
+        </div>
+      </div>
+      <span class="tagline">
+        Everyone ships <span class="highlight">fast</span>. Few build to <span class="highlight">last</span>.
+      </span>
+    </footer>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Coding: Speed vs Velocity - BTL Infographic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --width: 1080px;
+      --height: 1350px;
+      --padding: 64px; /* space-8: Hero margins */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Public Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* === INFOGRAPHIC (1080×1350 LinkedIn portrait) === */
+    .infographic {
+      width: var(--width);
+      height: var(--height);
+      position: relative;
+      overflow: hidden;
+      background: #111827;
+    }
+
+    /* Top accent bar - BTL signature */
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: #00a86b;
+      z-index: 10;
+    }
+
+    /* === HEADER === */
+    .header {
+      position: absolute;
+      top: 72px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 5;
+      padding: 0 64px; /* space-8: Hero margins */
+    }
+
+    .header-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      font-weight: 500;
+      color: #00a86b;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 24px; /* 8px grid: space-4 */
+    }
+
+    .header-title {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      color: #f9fafb;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px; /* 8px grid: space-4 */
+    }
+
+    .header-subtitle {
+      font-family: 'Public Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: #9ca3af;
+      line-height: 1.4;
+    }
+
+    /* === COMPARISON SECTION === */
+    .comparison {
+      position: absolute;
+      top: 340px;
+      left: 64px; /* space-8: Hero margins */
+      right: 64px;
+      display: flex;
+      gap: 40px;
+    }
+
+    .column {
+      flex: 1;
+      padding: 48px;
+      border-radius: 8px;
+    }
+
+    .column.speed {
+      background: rgba(75, 85, 99, 0.15);
+      border: 1px solid #374151;
+    }
+
+    .column.velocity {
+      background: rgba(0, 168, 107, 0.08);
+      border: 1px solid rgba(0, 168, 107, 0.3);
+    }
+
+    .column-header {
+      margin-bottom: 40px;
+    }
+
+    .column-title {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .column.speed .column-title {
+      color: #9ca3af;
+    }
+
+    .column.velocity .column-title {
+      color: #10b981;
+    }
+
+    .column-subtitle {
+      font-family: 'Public Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: #6b7280;
+    }
+
+    .column-items {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .item-marker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 500;
+      width: 28px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .column.speed .item-marker {
+      color: #6b7280; /* base-500: 3.4:1 contrast, passes for large text (18px) */
+    }
+
+    .column.velocity .item-marker {
+      color: #00a86b;
+    }
+
+    .item-content {
+      flex: 1;
+    }
+
+    .item-title {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 8px; /* 8px grid: space-2 */
+    }
+
+    .column.speed .item-title {
+      color: #d1d5db;
+    }
+
+    .column.velocity .item-title {
+      color: #e5e7eb;
+    }
+
+    .item-desc {
+      font-family: 'Public Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .column.speed .item-desc {
+      color: #6b7280;
+    }
+
+    .column.velocity .item-desc {
+      color: #9ca3af;
+    }
+
+    /* === SECTION DIVIDER (Pattern 4) === */
+    .section-divider {
+      position: absolute;
+      top: 1000px;
+      left: 64px; /* space-8: Hero margins */
+      right: 64px;
+      text-align: center;
+    }
+
+    .divider-symbol {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px; /* 8px grid: space-4 */
+      margin-bottom: 32px; /* 8px grid: space-5 */
+    }
+
+    .divider-line {
+      width: 100px;
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        #00a86b 0px,
+        #00a86b 4px,
+        transparent 4px,
+        transparent 7px
+      );
+    }
+
+    .divider-text {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: #f9fafb;
+      margin-bottom: 16px; /* 8px grid: space-3 */
+    }
+
+    .divider-text .highlight {
+      color: #10b981;
+    }
+
+    .divider-subtext {
+      font-family: 'Public Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #6b7280;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* === FOOTER === */
+    .footer {
+      position: absolute;
+      bottom: 56px;
+      left: 64px; /* space-8: Hero margins */
+      right: 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid #374151;
+    }
+
+    .tagline {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .tagline .jade {
+      color: #10b981;
+    }
+
+    .attribution {
+      display: flex;
+      align-items: center;
+      gap: 16px; /* 8px grid: space-3 */
+    }
+
+    .profile-photo-wrapper {
+      width: 56px; /* 8px grid: 7×8 */
+      height: 56px;
+      border-radius: 50%;
+      padding: 2px;
+      background: linear-gradient(135deg, #065f46 0%, #1f2937 100%);
+      flex-shrink: 0;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .attribution-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .attribution-name {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .attribution-handle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px; /* Increased from 14px per rules.md 18px caption min */
+      font-weight: 500;
+      color: #9ca3af; /* base-400: 5.8:1 contrast, passes AA */
+      letter-spacing: 0.02em;
+    }
+
+    .attribution-handle .brand {
+      color: #00a86b;
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic">
+    <!-- Top accent bar -->
+    <div class="accent-bar"></div>
+
+    <!-- Header -->
+    <div class="header">
+      <p class="header-label">AI Coding Reality Check</p>
+      <h1 class="header-title">Speed vs Velocity</h1>
+      <p class="header-subtitle">What they post vs. what actually compounds</p>
+    </div>
+
+    <!-- Comparison columns -->
+    <div class="comparison">
+
+      <!-- Speed column (what they post) -->
+      <div class="column speed">
+        <div class="column-header">
+          <h2 class="column-title">Speed</h2>
+          <p class="column-subtitle">Initial burst</p>
+        </div>
+        <div class="column-items">
+          <div class="item">
+            <span class="item-marker">—</span>
+            <div class="item-content">
+              <div class="item-title">"10x productivity"</div>
+              <div class="item-desc">Hype without sustained proof</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="item-marker">—</span>
+            <div class="item-content">
+              <div class="item-title">"1 year → 1 hour"</div>
+              <div class="item-desc">Viral demos, not production code</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="item-marker">—</span>
+            <div class="item-content">
+              <div class="item-title">Accept first output</div>
+              <div class="item-desc">Skip review, ship fast, fix later</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="item-marker">—</span>
+            <div class="item-content">
+              <div class="item-title">Trust AI blindly</div>
+              <div class="item-desc">No validation, no constraints</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Velocity column (what actually works) -->
+      <div class="column velocity">
+        <div class="column-header">
+          <h2 class="column-title">Velocity</h2>
+          <p class="column-subtitle">Sustainable pace</p>
+        </div>
+        <div class="column-items">
+          <div class="item">
+            <span class="item-marker">→</span>
+            <div class="item-content">
+              <div class="item-title">1.5-2x reality</div>
+              <div class="item-desc">Compounding gains over time</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="item-marker">→</span>
+            <div class="item-content">
+              <div class="item-title">CLAUDE.md files</div>
+              <div class="item-desc">Mistakes become rules</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="item-marker">→</span>
+            <div class="item-content">
+              <div class="item-title">Validation habits</div>
+              <div class="item-desc">"Not flawless, needs attention"</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="item-marker">→</span>
+            <div class="item-content">
+              <div class="item-title">Foundation first</div>
+              <div class="item-desc">Tests, types, patterns before AI</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Section Divider (Pattern 4) -->
+    <div class="section-divider">
+      <div class="divider-symbol">
+        <div class="divider-line"></div>
+        <!-- BTL Symbol - Compact (24px for divider per symbol-usage.md) -->
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <g transform="translate(0, -1.33)">
+            <path d="M32 8 L42.67 18.67 H21.33 Z" fill="#10b981"/>
+            <path d="M10.67 24 L32 58.67 L53.33 24 Z" fill="#00a86b"/>
+          </g>
+        </svg>
+        <div class="divider-line"></div>
+      </div>
+      <p class="divider-text">Foundation converts <span class="highlight">Speed → Velocity</span></p>
+      <p class="divider-subtext">Skip foundation → chase speed. Invest in it → gain velocity.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="tagline">Foundation first. <span class="jade">Speed follows.</span></p>
+      <div class="attribution">
+        <!-- Profile Photo with Jade-to-Charcoal gradient border (per design-system.md) -->
+        <div class="profile-photo-wrapper">
+          <img class="profile-photo" src="../../../../../foundation/brands/btl/assets/hoangleitvn.jpeg" alt="Hoang Le" />
+        </div>
+        <div class="attribution-info">
+          <span class="attribution-name">Hoang Le</span>
+          <span class="attribution-handle">@hoangleitvn · <span class="brand">Builds That Last</span></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

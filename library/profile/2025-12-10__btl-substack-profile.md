@@ -1,9 +1,9 @@
 ---
 platform: substack
 created: 2025-12-10
-updated: 2025-12-20
-status: launching
-positioning: Engineering leader writing about building things that last
+updated: 2026-01-10
+status: launched
+positioning: Everyone ships fast. Few build to last.
 url: buildsthatlast.substack.com
 custom_domain: buildsthatlast.com (pending)
 next_review: 2026-03-20
@@ -13,15 +13,16 @@ next_review: 2026-03-20
 
 ## Summary
 
-**Status:** Launching December 2025
+**Status:** Launched January 2026
 
 | Section | Status | Priority |
 |---------|--------|----------|
-| Bio | Done | High |
+| Bio | Updated | High |
 | Profile Photo | Done | High |
 | Publication Name | Done | High |
-| About Page | Ready | High |
+| About Page | Updated | High |
 | Sections | Defined | High |
+| Manifesto | Published | High |
 | Start Here Page | Pending | Medium |
 | Principles Page | Pending | Low |
 
@@ -89,22 +90,23 @@ Idea → BTL Substack (full essay)
 ### Recommended
 
 ```
-Engineering leader & founder. 15+ years building products. Helping founders go from zero to live users. Writing about engineering leadership, product development, and builds that last.
+Engineering leader & founder. 15 years building systems that outlast the hype. 50+ shipped projects. Writing about foundation-first engineering, technical leadership, and the 80% nobody talks about.
 ```
 
-**Character count:** ~180
+**Character count:** ~195
 
 ### Why This Works
 - Clean and scannable
-- Positions as practitioner, not guru
-- "Builds that last" ties to publication name and core principle
-- Works for broader audience (not just founders seeking CTOs)
+- Positions as practitioner with depth
+- "Outlast the hype" aligns with foundation-first philosophy
+- "80% nobody talks about" references the iceberg principle
+- Works for broader audience (engineers and founders)
 
 ### Keywords Included
 - engineering leader, founder
-- building products
-- founders, zero to live users
-- engineering leadership, product development
+- building systems
+- foundation-first engineering
+- technical leadership
 
 
 ## Publication Name
@@ -119,10 +121,10 @@ Engineering leader & founder. 15+ years building products. Helping founders go f
 
 **Backup Domain:** theshippingpractice.com (to purchase)
 
-**Short description:** Building and shipping products with clarity. Engineering leadership, product development, and things that last.
+**Short description:** Everyone ships fast. Few build to last. Engineering leadership for the long game.
 
 **Publication introduction:**
-Builds That Last is about building products that endure. Engineering leadership lessons, product development principles, and honest takes on architecture, teams, and execution from 15 years shipping 50+ projects. Each post comes from something I've built, broken, or fixed. Subscribe if you're an engineer becoming a leader, a founder building a technical team, or anyone tired of advice that doesn't ship.
+Everyone ships fast. Few build to last. A practical guide to foundation-first engineering in an age obsessed with speed. Engineering leadership for the long game—foundation-first thinking, technical depth, and the 80% that determines whether systems survive or crumble.
 
 **Character count:** ~480
 
@@ -180,36 +182,35 @@ Builds That Last is about building products that endure. Engineering leadership 
 
 ### Recommended Structure
 
-Hi, I'm Hoang.
+**Everyone ships fast. Few build to last.**
 
-Subscribe if you want engineering insights that actually ship.
+Engineering leadership for the long game. Foundation-first thinking, technical depth, and the 80% that determines whether systems survive or crumble.
 
+---
 
-Most engineering advice sounds good in theory. It falls apart when you're under pressure to deliver.
+**Why "Builds That Last"?**
 
-I've spent 15 years learning what actually lasts.
+Most engineering advice optimizes for speed. Ship fast. Move fast. Break things.
 
-50+ projects shipped across startups and enterprise. Supply chain, law tech, healthcare, public SaaS. Teams scaled from 0 to 40+ engineers. Clients across US, UK, France, Singapore, and Malaysia.
+But speed is the visible 20%. The other 80%—architecture decisions, maintainability, team clarity—that's what determines whether your system is still running in two years or buried in technical debt.
 
-This newsletter is for engineers and founders who want to build things that last. Not things that break.
+This newsletter is for engineers and leaders who care about that 80%.
 
-**What you'll get:**
-- Engineering leadership lessons from real projects
-- Product development principles that work when things go wrong
-- Honest takes on architecture, teams, and shipping
+**What you'll find here:**
+- Foundation-first engineering principles
+- Technical leadership without the fluff
+- Hard-earned lessons from real projects (not theory)
 
-Each post comes from something I've built, broken, or fixed.
+**What you won't find:**
+- Quick hacks that fall apart under pressure
+- Frameworks without tradeoffs
+- Advice that sounds good but doesn't ship
 
-**Who this is for:**
-- Engineers becoming leaders
-- Founders building technical teams
-- Anyone tired of advice that doesn't ship
+---
 
-**Who this is NOT for:**
-- People looking for quick hacks
-- Those who want theory without tradeoffs
+**Hoang Le** — Engineering leader & founder. 15 years building systems that outlast the hype. 50+ shipped projects. Teams scaled to 40+ engineers across multiple countries.
 
-Subscribe to get each post in your inbox.
+Writing about what actually works when you're under pressure to deliver.
 
 
 ## Profile Photo
@@ -232,7 +233,7 @@ Use same professional photo as LinkedIn for consistency across platforms.
 
 ### Launch (Priority: High)
 
-- [ ] Publish manifesto as Post #1 (Section: Foundation)
+- [x] Publish manifesto as Post #1 (Section: Foundation)
 - [ ] Publish AI hiring article as Post #2 (Section: Leadership)
 - [ ] Post LinkedIn teaser for manifesto
 - [ ] Post LinkedIn teaser for AI hiring article
@@ -302,7 +303,7 @@ Use same professional photo as LinkedIn for consistency across platforms.
 
 | Order | Post | Section | Status |
 |-------|------|---------|--------|
-| 1 | Builds That Last Manifesto | Foundation | Ready |
+| 1 | Why Foundation Comes Before Speed | Foundation | Published |
 | 2 | AI Hiring Article | Leadership | Ready |
 | 3 | TBD | - | - |
 
@@ -389,4 +390,8 @@ These are the beliefs that guide everything I write.
 | 2025-12-20 | Added content architecture: sections, pages, post types |
 | 2025-12-20 | Added Start Here and Principles page drafts |
 | 2025-12-20 | Updated status to "launching", aligned with platform strategy |
+| 2026-01-10 | Published manifesto. Updated status to "launched" |
+| 2026-01-10 | Rewrote About page with 20/80 philosophy alignment |
+| 2026-01-10 | Updated bio to emphasize foundation-first positioning |
+| 2026-01-10 | Aligned short description and publication intro with brand
 

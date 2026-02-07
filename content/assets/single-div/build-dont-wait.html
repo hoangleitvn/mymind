@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build, Don't Wait - Single Div CSS Art</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --btl-brand: #00a86b;
+      --btl-brand-dark: #065f46;
+      --btl-charcoal: #1f2937;
+      --btl-base-50: #f9fafb;
+      --btl-base-100: #f1f5f9;
+      --btl-base-200: #e5e7eb;
+      --btl-base-500: #6b7280;
+      --brick: #c2410c;
+      --brick-light: #ea580c;
+      --brick-dark: #9a3412;
+      --mortar: #d6d3d1;
+      --sky: #e0f2fe;
+      --ground: #a3a3a3;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--btl-base-50);
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      gap: 24px;
+      padding: 40px;
+    }
+
+    /* ============================================
+       BUILD DON'T WAIT - SINGLE DIV CSS ART
+       Scene: Person actively building a brick house
+       ============================================ */
+    .build-scene {
+      position: relative;
+      width: 500px;
+      height: 400px;
+
+      background:
+        /* ========== SKY ========== */
+        linear-gradient(to bottom,
+          #bae6fd 0%,
+          var(--sky) 60%,
+          transparent 60%
+        ),
+
+        /* Sun */
+        radial-gradient(circle at 85% 15%,
+          #fef08a 0%, #fde047 30%,
+          transparent 31%
+        ),
+
+        /* Clouds */
+        radial-gradient(ellipse 12% 6% at 20% 12%, white 100%, transparent 100%),
+        radial-gradient(ellipse 10% 5% at 25% 15%, rgba(255,255,255,0.8) 100%, transparent 100%),
+        radial-gradient(ellipse 8% 4% at 60% 18%, white 100%, transparent 100%),
+
+        /* ========== HOUSE IN PROGRESS ========== */
+
+        /* Completed brick rows (bottom 4 rows) */
+        /* Row 1 - ground level */
+        repeating-linear-gradient(to right,
+          var(--brick) 0px, var(--brick) 28px,
+          var(--mortar) 28px, var(--mortar) 30px
+        ),
+        /* Row 2 */
+        repeating-linear-gradient(to right,
+          var(--mortar) 0px, var(--mortar) 14px,
+          var(--brick-light) 14px, var(--brick-light) 42px,
+          var(--mortar) 42px, var(--mortar) 44px
+        ),
+        /* Row 3 */
+        repeating-linear-gradient(to right,
+          var(--brick) 0px, var(--brick) 28px,
+          var(--mortar) 28px, var(--mortar) 30px
+        ),
+        /* Row 4 */
+        repeating-linear-gradient(to right,
+          var(--mortar) 0px, var(--mortar) 14px,
+          var(--brick-light) 14px, var(--brick-light) 42px,
+          var(--mortar) 42px, var(--mortar) 44px
+        ),
+        /* Row 5 - partial */
+        repeating-linear-gradient(to right,
+          var(--brick) 0px, var(--brick) 28px,
+          var(--mortar) 28px, var(--mortar) 30px
+        ),
+
+        /* Door opening */
+        linear-gradient(to bottom,
+          transparent 55%,
+          var(--btl-charcoal) 55%, var(--btl-charcoal) 85%,
+          transparent 85%
+        ),
+
+        /* Window opening */
+        linear-gradient(to bottom,
+          transparent 58%,
+          #7dd3fc 58%, #7dd3fc 68%,
+          transparent 68%
+        ),
+
+        /* ========== BUILDER FIGURE ========== */
+
+        /* Hard hat */
+        radial-gradient(ellipse 6% 4% at 62% 48%,
+          #fde047 100%,
+          transparent 100%
+        ),
+
+        /* Head */
+        radial-gradient(circle at 62% 51%,
+          #fcd5b5 100%,
+          transparent 100%
+        ),
+
+        /* Body/torso */
+        radial-gradient(ellipse 5% 8% at 62% 60%,
+          var(--btl-brand) 100%,
+          transparent 100%
+        ),
+
+        /* Arm reaching up (placing brick) */
+        linear-gradient(140deg,
+          transparent 43%,
+          #fcd5b5 43%, #fcd5b5 45%,
+          transparent 45%
+        ),
+
+        /* Hand */
+        radial-gradient(circle at 52% 44%,
+          #fcd5b5 3px,
+          transparent 3px
+        ),
+
+        /* ========== BRICK BEING PLACED ========== */
+        /* The active brick - in motion */
+        linear-gradient(to right,
+          transparent 47%,
+          var(--brick) 47%, var(--brick) 57%,
+          transparent 57%
+        ),
+
+        /* ========== SCAFFOLD/LADDER ========== */
+        /* Vertical posts */
+        linear-gradient(to right,
+          transparent 70%, #92400e 70%, #92400e 71.5%, transparent 71.5%,
+          transparent 78%, #92400e 78%, #92400e 79.5%, transparent 79.5%
+        ),
+        /* Horizontal rungs */
+        linear-gradient(to bottom,
+          transparent 50%, #a16207 50%, #a16207 51.5%, transparent 51.5%,
+          transparent 60%, #a16207 60%, #a16207 61.5%, transparent 61.5%,
+          transparent 70%, #a16207 70%, #a16207 71.5%, transparent 71.5%
+        ),
+
+        /* ========== GROUND ========== */
+        linear-gradient(to bottom,
+          transparent 85%,
+          var(--ground) 85%, var(--ground) 87%,
+          #78716c 87%
+        ),
+
+        /* Ground texture */
+        repeating-linear-gradient(to right,
+          transparent 0px, transparent 20px,
+          rgba(0,0,0,0.05) 20px, rgba(0,0,0,0.05) 22px
+        ),
+
+        /* ========== UNUSED BRICKS ON GROUND ========== */
+        /* Brick pile - waiting to be used */
+        linear-gradient(to right,
+          transparent 8%,
+          var(--brick-dark) 8%, var(--brick-dark) 14%,
+          var(--mortar) 14%, var(--mortar) 14.5%,
+          var(--brick) 14.5%, var(--brick) 20%,
+          transparent 20%
+        ),
+        linear-gradient(to right,
+          transparent 10%,
+          var(--brick) 10%, var(--brick) 18%,
+          transparent 18%
+        ),
+
+        /* ========== TROWEL TOOL ========== */
+        linear-gradient(45deg,
+          transparent 88%,
+          #71717a 88%, #71717a 90%,
+          #a1a1aa 90%, #a1a1aa 92%,
+          transparent 92%
+        );
+
+      background-size:
+        /* Sky, sun, clouds */
+        100% 100%, 80px 80px, 100% 100%, 100% 100%, 100% 100%,
+        /* Brick rows */
+        140px 18px, 140px 18px, 140px 18px, 140px 18px, 100px 18px,
+        /* Door & window */
+        30px 100%, 25px 100%,
+        /* Builder */
+        100% 100%, 14px 14px, 100% 100%, 100% 60%, 100% 100%,
+        /* Active brick */
+        100% 12px,
+        /* Scaffold */
+        100% 60%, 12% 100%,
+        /* Ground */
+        100% 100%, 100% 15%,
+        /* Brick pile */
+        100% 20px, 100% 18px,
+        /* Trowel */
+        40px 40px;
+
+      background-position:
+        /* Sky, sun, clouds */
+        0 0, 85% 8%, 0 0, 0 0, 0 0,
+        /* Brick rows - stacked from bottom */
+        15% 82%, 15% 78%, 15% 74%, 15% 70%, 15% 66%,
+        /* Door & window */
+        28% 0, 38% 0,
+        /* Builder */
+        0 0, 62% 51%, 0 0, 0 0, 0 0,
+        /* Active brick */
+        0 64%,
+        /* Scaffold */
+        0 45%, 73% 45%,
+        /* Ground */
+        0 0, 0 85%,
+        /* Brick pile */
+        0 90%, 0 88%,
+        /* Trowel */
+        88% 88%;
+
+      background-repeat:
+        /* Sky, sun, clouds */
+        no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+        /* Brick rows */
+        repeat-x, repeat-x, repeat-x, repeat-x, repeat-x,
+        /* Door & window */
+        no-repeat, no-repeat,
+        /* Builder */
+        no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+        /* Active brick */
+        no-repeat,
+        /* Scaffold */
+        no-repeat, no-repeat,
+        /* Ground */
+        no-repeat, repeat-x,
+        /* Brick pile */
+        no-repeat, no-repeat,
+        /* Trowel */
+        no-repeat;
+
+      border-radius: 16px;
+      box-shadow:
+        0 25px 50px -12px rgba(0, 0, 0, 0.15),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    /* Pseudo-element 1: Motion lines & details */
+    .build-scene::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+      background:
+        /* Motion lines around active brick */
+        linear-gradient(160deg,
+          transparent 40%,
+          rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.05) 41%,
+          transparent 41%
+        ),
+        linear-gradient(155deg,
+          transparent 42%,
+          rgba(0,0,0,0.08) 42%, rgba(0,0,0,0.03) 43%,
+          transparent 43%
+        ),
+
+        /* Sweat drops (effort) */
+        radial-gradient(circle at 65% 46%,
+          rgba(125,211,252,0.6) 2px, transparent 2px
+        ),
+        radial-gradient(circle at 67% 48%,
+          rgba(125,211,252,0.4) 1.5px, transparent 1.5px
+        ),
+
+        /* Mortar bucket */
+        radial-gradient(ellipse 4% 3% at 55% 88%,
+          #a1a1aa 100%, transparent 100%
+        ),
+        linear-gradient(to bottom,
+          transparent 86%,
+          #71717a 86%, #71717a 91%,
+          transparent 91%
+        ),
+
+        /* Mortar in bucket */
+        radial-gradient(ellipse 3% 1.5% at 55% 87%,
+          var(--mortar) 100%, transparent 100%
+        ),
+
+        /* Progress indicator - measuring tape */
+        linear-gradient(to bottom,
+          transparent 62%,
+          #fde047 62%, #fde047 63%,
+          transparent 63%
+        ),
+        repeating-linear-gradient(to right,
+          transparent 0px, transparent 8px,
+          #1f2937 8px, #1f2937 9px
+        ),
+
+        /* House blueprint outline (faded, showing the vision) */
+        linear-gradient(to bottom,
+          transparent 38%,
+          rgba(59,130,246,0.15) 38%, rgba(59,130,246,0.15) 40%,
+          transparent 40%
+        ),
+        linear-gradient(to right,
+          transparent 13%,
+          rgba(59,130,246,0.15) 13%, rgba(59,130,246,0.15) 14%,
+          transparent 14%,
+          transparent 45%,
+          rgba(59,130,246,0.15) 45%, rgba(59,130,246,0.15) 46%,
+          transparent 46%
+        ),
+        /* Roof outline */
+        linear-gradient(135deg,
+          transparent 30%,
+          rgba(59,130,246,0.15) 30%, rgba(59,130,246,0.15) 31%,
+          transparent 31%
+        ),
+        linear-gradient(225deg,
+          transparent 30%,
+          rgba(59,130,246,0.15) 30%, rgba(59,130,246,0.15) 31%,
+          transparent 31%
+        );
+
+      background-size:
+        100% 100%, 100% 100%,
+        100% 100%, 100% 100%,
+        100% 100%, 8% 100%, 100% 100%,
+        40% 100%, 40% 100%,
+        100% 100%, 100% 50%,
+        50% 50%, 50% 50%;
+
+      background-position:
+        0 0, 0 0,
+        0 0, 0 0,
+        0 0, 53% 0, 0 0,
+        15% 0, 15% 62%,
+        0 0, 15% 38%,
+        0 0, 50% 0;
+
+      background-repeat: no-repeat;
+      border-radius: 16px;
+      pointer-events: none;
+    }
+
+    /* Pseudo-element 2: Animation overlay */
+    .build-scene::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+      background:
+        /* Glowing effect on active brick */
+        radial-gradient(ellipse 15% 8% at 52% 64%,
+          rgba(0, 168, 107, 0.3) 0%,
+          rgba(0, 168, 107, 0.1) 50%,
+          transparent 100%
+        ),
+
+        /* Dust particles from construction */
+        radial-gradient(circle at 45% 70%, rgba(168,162,158,0.4) 1px, transparent 1px),
+        radial-gradient(circle at 48% 72%, rgba(168,162,158,0.3) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 42% 68%, rgba(168,162,158,0.5) 1px, transparent 1px),
+
+        /* Sun rays */
+        linear-gradient(200deg,
+          transparent 10%,
+          rgba(254,240,138,0.1) 10%, rgba(254,240,138,0.05) 20%,
+          transparent 20%
+        );
+
+      border-radius: 16px;
+      pointer-events: none;
+      animation: buildPulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes buildPulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+        transform: translateY(-1px);
+      }
+    }
+
+    /* Text elements */
+    .quote {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--btl-charcoal);
+      text-align: center;
+      max-width: 400px;
+      line-height: 1.5;
+    }
+
+    .quote em {
+      color: var(--btl-brand);
+      font-style: normal;
+    }
+
+    .subtitle {
+      font-size: 11px;
+      color: var(--btl-base-500);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    /* Accent bar */
+    .accent-bar {
+      width: 60px;
+      height: 4px;
+      background: var(--btl-brand);
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="build-scene"></div>
+  <div class="accent-bar"></div>
+  <p class="quote">No one builds a house by <em>waiting</em> for bricks to fall.</p>
+  <p class="subtitle">Single Div CSS Art</p>
+</body>
+</html>

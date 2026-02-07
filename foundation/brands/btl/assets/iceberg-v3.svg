@@ -1,0 +1,91 @@
+<svg viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    BTL Iceberg v3 - Low-poly Natural Shape
+    Asymmetric, organic-looking facets
+    Inspired by real iceberg photographs
+    20% above water, 80% below
+    Waterline at y=56
+  -->
+
+  <!-- ========================================== -->
+  <!-- ABOVE WATER - Asymmetric peak -->
+  <!-- ========================================== -->
+
+  <!-- Main peak - off-center, natural looking -->
+  <polygon points="95,12 65,56 110,56" fill="#ffffff"/>
+  <polygon points="95,12 110,56 135,48" fill="#e5e7eb"/>
+  <polygon points="95,12 50,45 65,56" fill="#f3f4f6"/>
+  <polygon points="135,48 110,56 145,56" fill="#d1d5db"/>
+  <polygon points="50,45 40,56 65,56" fill="#d1d5db"/>
+
+  <!-- ========================================== -->
+  <!-- WATERLINE -->
+  <!-- ========================================== -->
+  <line x1="8" y1="58" x2="192" y2="58" stroke="#f9fafb" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+
+  <!-- ========================================== -->
+  <!-- BELOW WATER - Irregular bulging mass -->
+  <!-- ========================================== -->
+
+  <!-- Row 1: Just below surface - slight expansion -->
+  <polygon points="40,56 25,85 55,90" fill="#0f766e"/>
+  <polygon points="40,56 55,90 65,56" fill="#115e59"/>
+  <polygon points="65,56 55,90 95,95" fill="#0f766e"/>
+  <polygon points="65,56 95,95 110,56" fill="#134e4a"/>
+  <polygon points="110,56 95,95 130,88" fill="#115e59"/>
+  <polygon points="110,56 130,88 145,56" fill="#0f766e"/>
+  <polygon points="145,56 130,88 165,80" fill="#134e4a"/>
+
+  <!-- Row 2: Bulging outward - irregular -->
+  <polygon points="25,85 12,130 45,135" fill="#0d5c57"/>
+  <polygon points="25,85 45,135 55,90" fill="#0f766e"/>
+  <polygon points="55,90 45,135 85,140" fill="#115e59"/>
+  <polygon points="55,90 85,140 95,95" fill="#0d5c57"/>
+  <polygon points="95,95 85,140 125,138" fill="#0f766e"/>
+  <polygon points="95,95 125,138 130,88" fill="#134e4a"/>
+  <polygon points="130,88 125,138 160,132" fill="#0d5c57"/>
+  <polygon points="130,88 160,132 165,80" fill="#0f766e"/>
+  <polygon points="165,80 160,132 185,120" fill="#115e59"/>
+
+  <!-- Row 3: Maximum width - asymmetric bulge -->
+  <polygon points="12,130 8,180 40,185" fill="#0a4744"/>
+  <polygon points="12,130 40,185 45,135" fill="#0d5c57"/>
+  <polygon points="45,135 40,185 80,190" fill="#0f766e"/>
+  <polygon points="45,135 80,190 85,140" fill="#0a4744"/>
+  <polygon points="85,140 80,190 115,192" fill="#0d5c57"/>
+  <polygon points="85,140 115,192 125,138" fill="#0f766e"/>
+  <polygon points="125,138 115,192 155,188" fill="#0a4744"/>
+  <polygon points="125,138 155,188 160,132" fill="#0d5c57"/>
+  <polygon points="160,132 155,188 188,175" fill="#0f766e"/>
+  <polygon points="160,132 188,175 185,120" fill="#0a4744"/>
+
+  <!-- Row 4: Starting to taper - still wide -->
+  <polygon points="8,180 18,228 48,230" fill="#065f46"/>
+  <polygon points="8,180 48,230 40,185" fill="#0a4744"/>
+  <polygon points="40,185 48,230 88,235" fill="#0d5c57"/>
+  <polygon points="40,185 88,235 80,190" fill="#065f46"/>
+  <polygon points="80,190 88,235 120,236" fill="#0a4744"/>
+  <polygon points="80,190 120,236 115,192" fill="#0d5c57"/>
+  <polygon points="115,192 120,236 152,232" fill="#065f46"/>
+  <polygon points="115,192 152,232 155,188" fill="#0a4744"/>
+  <polygon points="155,188 152,232 180,222" fill="#0d5c57"/>
+  <polygon points="155,188 180,222 188,175" fill="#065f46"/>
+
+  <!-- Row 5: Tapering toward bottom -->
+  <polygon points="18,228 35,260 62,258" fill="#064e3b"/>
+  <polygon points="18,228 62,258 48,230" fill="#065f46"/>
+  <polygon points="48,230 62,258 100,262" fill="#0a4744"/>
+  <polygon points="48,230 100,262 88,235" fill="#064e3b"/>
+  <polygon points="88,235 100,262 138,258" fill="#065f46"/>
+  <polygon points="88,235 138,258 120,236" fill="#0a4744"/>
+  <polygon points="120,236 138,258 165,255" fill="#064e3b"/>
+  <polygon points="120,236 165,255 152,232" fill="#065f46"/>
+  <polygon points="152,232 165,255 180,222" fill="#0a4744"/>
+
+  <!-- Row 6: Bottom point -->
+  <polygon points="35,260 100,275 62,258" fill="#053d32"/>
+  <polygon points="62,258 100,275 100,262" fill="#064e3b"/>
+  <polygon points="100,262 100,275 138,258" fill="#064e3b"/>
+  <polygon points="138,258 100,275 165,255" fill="#053d32"/>
+
+</svg>

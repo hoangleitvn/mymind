@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mindsets That Kill Growth - Single Div Art</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* BTL Brand */
+      --btl-brand: #00a86b;
+      --btl-brand-dark: #065f46;
+      --btl-charcoal: #1f2937;
+      --btl-base-50: #f9fafb;
+      --btl-base-100: #f1f5f9;
+      --btl-base-500: #6b7280;
+      --btl-base-900: #111827;
+
+      /* Accent colors for this piece */
+      --stuck-color: #dc2626;
+      --growth-color: #00a86b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--btl-base-50);
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    /* ============================================
+       MINDSET TRANSFORMATION - SINGLE DIV
+       Shows: Chains breaking → Growth emerging
+       ============================================ */
+    .mindset-art {
+      position: relative;
+      width: 400px;
+      height: 400px;
+
+      background:
+        /* === HEAD/MIND SILHOUETTE === */
+
+        /* Head outline - main shape */
+        radial-gradient(ellipse 38% 45% at 50% 42%,
+          var(--btl-charcoal) 98%,
+          transparent 99%
+        ),
+
+        /* Head inner - split down middle */
+        /* Left side (stuck - darker) */
+        radial-gradient(ellipse 35% 42% at 50% 42%,
+          var(--btl-base-900) 48%,
+          transparent 49%
+        ),
+
+        /* Right side (growth - lighter gradient) */
+        linear-gradient(to right,
+          transparent 50%,
+          var(--btl-brand-dark) 50%
+        ),
+
+        /* Mask for head shape on right */
+        radial-gradient(ellipse 35% 42% at 50% 42%,
+          transparent 98%,
+          var(--btl-base-50) 99%
+        ),
+
+        /* === LEFT SIDE: CHAINS (Stuck Mindset) === */
+
+        /* Chain link 1 */
+        radial-gradient(ellipse 8% 5% at 25% 35%,
+          transparent 60%,
+          #4b5563 60%, #4b5563 80%,
+          transparent 81%
+        ),
+        radial-gradient(ellipse 8% 5% at 25% 35%,
+          var(--btl-base-900) 50%,
+          transparent 51%
+        ),
+
+        /* Chain link 2 */
+        radial-gradient(ellipse 8% 5% at 22% 45%,
+          transparent 60%,
+          #4b5563 60%, #4b5563 80%,
+          transparent 81%
+        ),
+        radial-gradient(ellipse 8% 5% at 22% 45%,
+          var(--btl-base-900) 50%,
+          transparent 51%
+        ),
+
+        /* Chain link 3 */
+        radial-gradient(ellipse 8% 5% at 25% 55%,
+          transparent 60%,
+          #4b5563 60%, #4b5563 80%,
+          transparent 81%
+        ),
+        radial-gradient(ellipse 8% 5% at 25% 55%,
+          var(--btl-base-900) 50%,
+          transparent 51%
+        ),
+
+        /* Chain connector lines */
+        linear-gradient(165deg,
+          transparent 32%,
+          #4b5563 32%, #4b5563 33%,
+          transparent 33%
+        ),
+
+        /* X marks (stuck thoughts) */
+        linear-gradient(45deg,
+          transparent 48%, var(--stuck-color) 48%, var(--stuck-color) 52%, transparent 52%
+        ),
+        linear-gradient(-45deg,
+          transparent 48%, var(--stuck-color) 48%, var(--stuck-color) 52%, transparent 52%
+        ),
+
+        /* === RIGHT SIDE: GROWTH (Growth Mindset) === */
+
+        /* Sprouting plant stem */
+        linear-gradient(to bottom,
+          transparent 25%,
+          var(--growth-color) 25%, var(--growth-color) 27%,
+          transparent 27%
+        ),
+
+        /* Plant leaves */
+        radial-gradient(ellipse 12% 8% at 72% 32%,
+          var(--growth-color) 80%,
+          transparent 81%
+        ),
+        radial-gradient(ellipse 10% 7% at 78% 38%,
+          var(--btl-brand) 80%,
+          transparent 81%
+        ),
+        radial-gradient(ellipse 8% 6% at 70% 42%,
+          var(--growth-color) 80%,
+          transparent 81%
+        ),
+
+        /* Light rays / energy emanating */
+        linear-gradient(30deg,
+          transparent 55%,
+          rgba(0,168,107,0.3) 55%, rgba(0,168,107,0.1) 60%,
+          transparent 60%
+        ),
+        linear-gradient(60deg,
+          transparent 52%,
+          rgba(0,168,107,0.3) 52%, rgba(0,168,107,0.1) 58%,
+          transparent 58%
+        ),
+        linear-gradient(15deg,
+          transparent 58%,
+          rgba(0,168,107,0.2) 58%, rgba(0,168,107,0.05) 65%,
+          transparent 65%
+        ),
+
+        /* Sparkle/stars (growth indicators) */
+        radial-gradient(circle at 80% 25%,
+          white 2px, transparent 2px
+        ),
+        radial-gradient(circle at 88% 35%,
+          rgba(255,255,255,0.8) 1.5px, transparent 1.5px
+        ),
+        radial-gradient(circle at 75% 20%,
+          rgba(255,255,255,0.6) 1px, transparent 1px
+        ),
+
+        /* === DIVIDING LINE (The transformation) === */
+
+        /* Crack/break line down middle */
+        linear-gradient(to right,
+          transparent 49%,
+          var(--btl-base-50) 49%, var(--btl-base-50) 49.5%,
+          transparent 49.5%,
+          transparent 50.5%,
+          var(--btl-base-50) 50.5%, var(--btl-base-50) 51%,
+          transparent 51%
+        ),
+
+        /* === ARROWS AT BOTTOM === */
+
+        /* Left arrow (HAVE→DO→BE - crossed out) */
+        linear-gradient(to right,
+          transparent 15%,
+          var(--stuck-color) 15%, var(--stuck-color) 35%,
+          transparent 35%
+        ),
+
+        /* Right arrow (BE→DO→HAVE - highlighted) */
+        linear-gradient(to right,
+          transparent 65%,
+          var(--growth-color) 65%, var(--growth-color) 85%,
+          transparent 85%
+        ),
+
+        /* Arrow heads */
+        linear-gradient(135deg,
+          transparent 80%,
+          var(--stuck-color) 80%
+        ),
+        linear-gradient(-135deg,
+          transparent 80%,
+          var(--growth-color) 80%
+        );
+
+      background-size:
+        /* Head */
+        100% 100%,
+        100% 100%,
+        100% 70%,
+        100% 100%,
+        /* Chains */
+        100% 100%, 100% 100%,
+        100% 100%, 100% 100%,
+        100% 100%, 100% 100%,
+        100% 100%,
+        /* X marks */
+        15% 15%, 15% 15%,
+        /* Plant */
+        4% 30%,
+        100% 100%, 100% 100%, 100% 100%,
+        /* Rays */
+        100% 100%, 100% 100%, 100% 100%,
+        /* Stars */
+        100% 100%, 100% 100%, 100% 100%,
+        /* Divider */
+        100% 70%,
+        /* Arrows */
+        100% 4%, 100% 4%,
+        15% 15%, 15% 15%;
+
+      background-position:
+        /* Head */
+        center, center, 0 0, center,
+        /* Chains */
+        0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0,
+        /* X marks */
+        20% 40%, 20% 40%,
+        /* Plant */
+        70% 25%,
+        0 0, 0 0, 0 0,
+        /* Rays */
+        0 0, 0 0, 0 0,
+        /* Stars */
+        0 0, 0 0, 0 0,
+        /* Divider */
+        0 15%,
+        /* Arrows */
+        0 88%, 0 88%,
+        32% 85%, 82% 85%;
+
+      background-repeat: no-repeat;
+      border-radius: 16px;
+      box-shadow:
+        0 25px 50px -12px rgba(0, 0, 0, 0.15),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Pseudo-element 1: Labels and text indicators */
+    .mindset-art::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+      background:
+        /* "STUCK" indicator - left side */
+        radial-gradient(ellipse 20% 6% at 25% 80%,
+          rgba(220, 38, 38, 0.15) 100%,
+          transparent 100%
+        ),
+
+        /* "GROWTH" indicator - right side */
+        radial-gradient(ellipse 20% 6% at 75% 80%,
+          rgba(0, 168, 107, 0.15) 100%,
+          transparent 100%
+        ),
+
+        /* Brain pattern lines - left (tangled) */
+        repeating-linear-gradient(
+          60deg,
+          transparent 0px, transparent 8px,
+          rgba(75, 85, 99, 0.1) 8px, rgba(75, 85, 99, 0.1) 10px
+        ),
+
+        /* Brain pattern lines - right (organized) */
+        repeating-linear-gradient(
+          90deg,
+          transparent 0px, transparent 12px,
+          rgba(0, 168, 107, 0.08) 12px, rgba(0, 168, 107, 0.08) 14px
+        ),
+
+        /* Weight/anchor on left */
+        radial-gradient(circle at 25% 65%,
+          #374151 8px, transparent 8px
+        ),
+        linear-gradient(to bottom,
+          transparent 52%,
+          #374151 52%, #374151 53%,
+          transparent 53%
+        ),
+
+        /* Upward arrow on right */
+        linear-gradient(to bottom,
+          transparent 48%,
+          var(--growth-color) 48%, var(--growth-color) 60%,
+          transparent 60%
+        ),
+        linear-gradient(45deg,
+          transparent 70%,
+          var(--growth-color) 70%, var(--growth-color) 73%,
+          transparent 73%
+        ),
+        linear-gradient(-45deg,
+          transparent 70%,
+          var(--growth-color) 70%, var(--growth-color) 73%,
+          transparent 73%
+        );
+
+      background-size:
+        100% 100%, 100% 100%,
+        50% 40%, 50% 40%,
+        100% 100%, 3% 15%,
+        3% 15%, 10% 10%, 10% 10%;
+
+      background-position:
+        0 0, 0 0,
+        0 30%, 50% 30%,
+        0 0, 25% 53%,
+        75% 50%, 73% 47%, 77% 47%;
+
+      background-repeat: no-repeat, no-repeat, repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+
+      border-radius: 16px;
+      pointer-events: none;
+    }
+
+    /* Pseudo-element 2: Animated elements */
+    .mindset-art::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+      background:
+        /* Pulsing glow on growth side */
+        radial-gradient(circle at 75% 40%,
+          rgba(0, 168, 107, 0.2) 0%,
+          rgba(0, 168, 107, 0.1) 20%,
+          transparent 40%
+        ),
+
+        /* Breaking effect in middle */
+        radial-gradient(circle at 50% 50%,
+          rgba(255, 255, 255, 0.3) 0%,
+          transparent 15%
+        ),
+
+        /* Particle effects rising on right */
+        radial-gradient(circle at 70% 35%,
+          rgba(0, 168, 107, 0.6) 2px, transparent 2px
+        ),
+        radial-gradient(circle at 78% 30%,
+          rgba(0, 168, 107, 0.4) 1.5px, transparent 1.5px
+        ),
+        radial-gradient(circle at 72% 28%,
+          rgba(0, 168, 107, 0.5) 1px, transparent 1px
+        );
+
+      border-radius: 16px;
+      pointer-events: none;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    /* Labels outside the div */
+    .labels {
+      display: flex;
+      justify-content: space-between;
+      width: 400px;
+      padding: 0 20px;
+    }
+
+    .label {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .label-stuck {
+      color: var(--stuck-color);
+    }
+
+    .label-growth {
+      color: var(--growth-color);
+    }
+
+    /* Bottom text */
+    .formula {
+      display: flex;
+      gap: 48px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .formula-stuck {
+      color: var(--btl-base-500);
+      text-decoration: line-through;
+    }
+
+    .formula-growth {
+      color: var(--growth-color);
+    }
+
+    .title {
+      font-size: 11px;
+      color: var(--btl-base-500);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="mindset-art"></div>
+    <div class="labels">
+      <span class="label label-stuck">Stuck</span>
+      <span class="label label-growth">Growth</span>
+    </div>
+    <div class="formula">
+      <span class="formula-stuck">HAVE → DO → BE</span>
+      <span class="formula-growth">BE → DO → HAVE</span>
+    </div>
+    <p class="title">Single Div CSS Art</p>
+  </div>
+</body>
+</html>

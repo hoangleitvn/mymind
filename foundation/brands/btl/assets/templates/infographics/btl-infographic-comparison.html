@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Infographic: Comparison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /*
+      BTL Infographic Template: Comparison
+      =====================================
+      Design System: v2.2 | Philosophy: v1.2
+
+      Usage: Side-by-side comparisons, before/after, vs layouts
+
+      Principles Applied:
+      - P1. Depth Over Surface: Left side shows surface, right shows foundation
+      - P2. Clarity Over Cleverness: Clear labels, no ambiguity
+      - P3. Restraint Over Abundance: Two columns, minimal decoration
+      - P4. Grounded Over Floating: Bottom-weighted, accent bar anchors
+      - P5. Timeless Over Trendy: Classic comparison layout
+
+      Layout: 1200x1200 (LinkedIn square)
+      Margins: 64px (space-8, 5.3% of width)
+
+      Typography:
+      - Title: 48px IBM Plex Sans 700
+      - Column headers: 32px IBM Plex Sans 600
+      - Items: 28px Public Sans 400
+      - Footer: 22px Public Sans 400
+    */
+    :root {
+      /* Brand Colors */
+      --brand-400: #10b981;
+      --brand-500: #00a86b;
+      --brand-600: #008553;
+      --base-50: #f9fafb;
+      --base-300: #d1d5db;
+      --base-400: #9ca3af;
+      --base-500: #6b7280;
+      --base-700: #374151;
+      --base-800: #1f2937;
+      --base-900: #111827;
+
+      /* Canvas */
+      --canvas-width: 1200px;
+      --canvas-height: 1200px;
+      --margin: 64px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: "Public Sans", system-ui, sans-serif;
+    }
+
+    .canvas {
+      width: var(--canvas-width);
+      height: var(--canvas-height);
+      background: var(--base-800);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .canvas-svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="canvas">
+    <svg class="canvas-svg" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Definitions -->
+      <defs>
+        <clipPath id="circleClip">
+          <circle cx="99" cy="1098" r="35"/>
+        </clipPath>
+      </defs>
+
+      <!-- Background -->
+      <rect width="1200" height="1200" fill="#1f2937"/>
+
+      <!-- Accent Bar - Top (P4: Grounded) -->
+      <rect x="0" y="0" width="1200" height="6" fill="#00a86b"/>
+
+      <!-- EDIT: Title -->
+      <text x="600" y="120" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="48" font-weight="700" letter-spacing="-0.02em">
+        Speed vs Foundation
+      </text>
+
+      <!-- Subtitle -->
+      <text x="600" y="165" text-anchor="middle" fill="#9ca3af" font-family="Public Sans" font-size="24" font-weight="400">
+        What gets celebrated vs what actually matters
+      </text>
+
+      <!-- Divider line under title -->
+      <line x1="64" y1="200" x2="1136" y2="200" stroke="#374151" stroke-width="1"/>
+
+      <!-- ========================================== -->
+      <!-- LEFT COLUMN: Surface / Speed / Before     -->
+      <!-- ========================================== -->
+
+      <!-- Left Column Header -->
+      <rect x="64" y="240" width="520" height="64" rx="4" fill="#374151"/>
+      <text x="324" y="282" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">
+        WHAT GETS SHIPPED
+      </text>
+
+      <!-- Left Column Items -->
+      <g fill="#d1d5db" font-family="Public Sans" font-size="26" font-weight="400">
+        <!-- Item 1 -->
+        <circle cx="90" cy="365" r="6" fill="#6b7280"/>
+        <text x="115" y="373">Fast feature releases</text>
+
+        <!-- Item 2 -->
+        <circle cx="90" cy="425" r="6" fill="#6b7280"/>
+        <text x="115" y="433">Quick demos</text>
+
+        <!-- Item 3 -->
+        <circle cx="90" cy="485" r="6" fill="#6b7280"/>
+        <text x="115" y="493">Visible progress</text>
+
+        <!-- Item 4 -->
+        <circle cx="90" cy="545" r="6" fill="#6b7280"/>
+        <text x="115" y="553">Sprint velocity</text>
+
+        <!-- Item 5 -->
+        <circle cx="90" cy="605" r="6" fill="#6b7280"/>
+        <text x="115" y="613">Lines of code</text>
+      </g>
+
+      <!-- Left Column Result -->
+      <rect x="64" y="670" width="520" height="80" rx="4" fill="rgba(107, 114, 128, 0.2)"/>
+      <text x="324" y="700" text-anchor="middle" fill="#9ca3af" font-family="JetBrains Mono" font-size="18" font-weight="500" letter-spacing="0.1em">
+        RESULT
+      </text>
+      <text x="324" y="735" text-anchor="middle" fill="#d1d5db" font-family="IBM Plex Sans" font-size="26" font-weight="600">
+        Technical debt compounds
+      </text>
+
+      <!-- ========================================== -->
+      <!-- CENTER: Waterline Divider                 -->
+      <!-- ========================================== -->
+
+      <!-- Vertical divider -->
+      <line x1="600" y1="240" x2="600" y2="760" stroke="#374151" stroke-width="2" stroke-dasharray="8 6"/>
+
+      <!-- VS Badge -->
+      <circle cx="600" cy="500" r="32" fill="#1f2937" stroke="#374151" stroke-width="2"/>
+      <text x="600" y="508" text-anchor="middle" fill="#9ca3af" font-family="JetBrains Mono" font-size="18" font-weight="500">VS</text>
+
+      <!-- ========================================== -->
+      <!-- RIGHT COLUMN: Foundation / Depth / After  -->
+      <!-- ========================================== -->
+
+      <!-- Right Column Header (Highlighted) -->
+      <rect x="616" y="240" width="520" height="64" rx="4" fill="#00a86b"/>
+      <text x="876" y="282" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans" font-size="28" font-weight="600">
+        WHAT ACTUALLY MATTERS
+      </text>
+
+      <!-- Right Column Items -->
+      <g fill="#f9fafb" font-family="Public Sans" font-size="26" font-weight="400">
+        <!-- Item 1 -->
+        <circle cx="642" cy="365" r="6" fill="#10b981"/>
+        <text x="667" y="373">Clear architecture</text>
+
+        <!-- Item 2 -->
+        <circle cx="642" cy="425" r="6" fill="#10b981"/>
+        <text x="667" y="433">Comprehensive tests</text>
+
+        <!-- Item 3 -->
+        <circle cx="642" cy="485" r="6" fill="#10b981"/>
+        <text x="667" y="493">Documentation</text>
+
+        <!-- Item 4 -->
+        <circle cx="642" cy="545" r="6" fill="#10b981"/>
+        <text x="667" y="553">Error handling</text>
+
+        <!-- Item 5 -->
+        <circle cx="642" cy="605" r="6" fill="#10b981"/>
+        <text x="667" y="613">Maintainable code</text>
+      </g>
+
+      <!-- Right Column Result (Highlighted) -->
+      <rect x="616" y="670" width="520" height="80" rx="4" fill="rgba(0, 168, 107, 0.15)"/>
+      <text x="876" y="700" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="18" font-weight="500" letter-spacing="0.1em">
+        RESULT
+      </text>
+      <text x="876" y="735" text-anchor="middle" fill="#10b981" font-family="IBM Plex Sans" font-size="26" font-weight="600">
+        Sustainable velocity
+      </text>
+
+      <!-- ========================================== -->
+      <!-- BOTTOM: Key Insight                       -->
+      <!-- ========================================== -->
+
+      <!-- Waterline (horizontal) -->
+      <line x1="64" y1="820" x2="1136" y2="820" stroke="#00a86b" stroke-width="2" stroke-dasharray="8 6" opacity="0.6"/>
+
+      <!-- Key insight box -->
+      <rect x="64" y="860" width="1072" height="120" rx="8" fill="#111827"/>
+      <rect x="64" y="860" width="8" height="120" fill="#00a86b"/>
+
+      <text x="96" y="895" fill="#9ca3af" font-family="JetBrains Mono" font-size="16" font-weight="500" letter-spacing="0.1em">
+        THE INSIGHT
+      </text>
+      <text x="96" fill="#f9fafb" font-family="IBM Plex Sans" font-size="32" font-weight="600">
+        <tspan x="96" y="940">Everyone ships fast.</tspan>
+        <tspan x="96" dy="40" fill="#10b981">Few build to last.</tspan>
+      </text>
+
+      <!-- ========================================== -->
+      <!-- FOOTER (Standard BTL Cover Footer)        -->
+      <!-- ========================================== -->
+
+      <!-- Footer Line -->
+      <line x1="64" y1="1048" x2="1136" y2="1048" stroke="#374151" stroke-width="1"/>
+
+      <!-- Profile Picture -->
+      <image
+        href="../../../assets/hoangleitvn.jpeg"
+        x="64" y="1063" width="70" height="70"
+        clip-path="url(#circleClip)"
+        preserveAspectRatio="xMidYMid slice"
+      />
+      <circle cx="99" cy="1098" r="35" fill="none" stroke="#00a86b" stroke-width="2"/>
+
+      <!-- Footer Text -->
+      <text x="154" y="1090" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">Hoang Le</text>
+      <text x="154" y="1120" fill="#9ca3af" font-family="Public Sans" font-size="22" font-weight="400">Builds That Last</text>
+
+      <!-- Tagline -->
+      <text x="1136" y="1105" text-anchor="end" font-family="Public Sans" font-size="26" font-weight="400">
+        <tspan fill="#d1d5db">Everyone ships </tspan><tspan fill="#10b981">fast</tspan><tspan fill="#d1d5db">. Few build to </tspan><tspan fill="#10b981">last</tspan><tspan fill="#d1d5db">.</tspan>
+      </text>
+
+    </svg>
+  </div>
+
+</body>
+</html>

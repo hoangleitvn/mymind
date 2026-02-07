@@ -3,7 +3,7 @@ title: BTL Content Calendar Q1 2026
 type: plan
 status: active
 created: 2026-01-09
-updated: 2026-01-10
+updated: 2026-01-23
 ---
 
 # BTL Content Calendar - Q1 2026
@@ -56,7 +56,7 @@ PHASE 4: SYSTEMS (Issues 9-12)      → "Here's how we build"
 | #1 | Jan 11 | **Why Foundation Comes Before Speed** | Establish | Foundation |
 | #2 | Jan 18 | **Building Is Easy. Discovery Is Hard.** | Establish | Building |
 | #3 | Jan 25 | **The 80% Nobody Talks About** | Prove | Foundation |
-| #4 | Feb 1 | **The AI Paradox: Why More Tools Won't Save You** | Prove | Systems |
+| #4 | Feb 1 | **The Accountability Shift: What Software 2.0 Actually Demands** | Prove | Systems |
 
 ### February: Equip
 
@@ -108,8 +108,11 @@ PHASE 4: SYSTEMS (Issues 9-12)      → "Here's how we build"
 - [x] #1 Manifesto (2,500 words) - Jan 11
 - [x] #2 Discovery (1,850 words) - Jan 18
 
+### In Development
+- [ ] #3 The 80% Nobody Talks About → Due Jan 25 (outline ready)
+  - Outline: `projects/btl/content/substack/outlines/2026-01-23__the-80-percent-outline.md`
+
 ### To Develop (2 weeks ahead)
-- [ ] #3 The 80% Nobody Talks About → Due Jan 22
 - [ ] #4 The AI Paradox → Due Jan 29
 - [ ] #5 10 Questions Expanded → Due Feb 5
 - [ ] #6 Your Team Doesn't Need Faster Coding → Due Feb 12

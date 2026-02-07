@@ -22,7 +22,7 @@ But here's what nobody wants to admit:
 
 Millions of software systems were built without AI. By humans. And they're still running.
 
-I maintain legacy projects 20+ years old:
+We maintain legacy projects 20+ years old:
 - No documentation
 - No standards
 - No one who can explain the business logic
@@ -88,96 +88,10 @@ Foundation first. AI second.
 
 What's your experience with AI on legacy systems?
 
-#SoftwareEngineering #AIEngineering #TechLeadership #EngineeringCulture #ProductDevelopment
+---
 
+Enjoy this? ♻️ Repost it to your network and follow Hoang Le for more.
 
-## User's original draft before refinement
+Want to build software that lasts?
 
-
-Vibe Coding. AI Augmented Development. Vibe Engineering. Context Engineering. Agentic AI. AI Dev Team.
-
-And lot of things people are discussing about.
-
-But the fact is.
-
-AI exists before but LLM or GenAI is new
-Million of software built without AI - it built by human
-
-Legacy projects 20+ year old:
-No documents
-No standard
-No one can understand or explain it
-Even some lost of codebase (just combined files)
-We debug system in runtime but nocode with hope to see how does it works
-and a lot of things
-
-Asking stakeholder about the business logic
-They said, read the code
-But the code is messy, outdated
-
-They said, team is slow
-
-But they are:
-Decompile combined file to get the code
-Read a single line of code to understand
-Connect with different isolated components and run integration
-Fix data inconsistency issues
- If you ever maintain a legacy system 20+ years you will understand
-
-Build from scratch is easy, maintain it is challenging
-Dev likes new project, avoid working on old project
-
-We have projects build with AI, some prompting, some with agents, some human read a single line of code to understand and make change
-
-People started vibe coding -> ship app in days -> monetize -> continue the dev cycle
-People ships app faster than ever before
-AI generate 10x times than ever, but increase 30-40% cognitive load (security, verification debt)
-Beautiful one shot prompt good UX, functional app. But what happen next if changes needed?
-Everyone can create apps -> consultant firms like us has nothing todo.
-
-Demo is just demo
-Demo could works for today but broken during live users at 2am
-
-AI as a tool that speed up (turpo) not a replacer (robot can write code). AI/LLM is an upgraded version of a computer with brain.
-
-What is missing
-
-Foundation
-
-To use AI better
-
-Build and fix foundation
-
-Design
-Standard
-Best practices
-Rules
-Process (dev -> test -> validation -> etc.)
-
-Without a solid foundation, AI is just painter not engineer who built the first brick of the system.
-
-
-What you see is 20% on the watter
-But 80% left, we, engineering (developer, engineerings) are driving the engineering, fixing systems
-
-Yeah, this is all I talk about AI assisted development, I still see values of AI in different areas
-Since we are also building this.
-
-So this is about the Shipping with Clarity
-
-Message To Engineer
-
-Learn fundamentals
-Don't skip basic
-You learn about when buying
-Build with clarity
-Own your code
-If you don't understand, don't ship it
-Be curious
-Be human
-
-Message To Leader / Founder
-
-Don't see 20% on the water, talk to your team, understand their pain point, help them unlock it
-Don't add tool with hope can 10x your engineer speed -> buy tool is easy, but how to train your team use tool with better results talk more time that you think
-Remove friction, build foundation -> then speed will come
+Join Builds That Last on Substack for practical insights on foundation-first engineering.

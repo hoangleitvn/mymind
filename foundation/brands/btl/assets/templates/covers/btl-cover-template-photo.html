@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTL Cover: Human Context</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+          BTL Cover Template: Photo
+          =========================
+          Design System: v2.2 | Philosophy: v1.2
+
+          Usage: Human context, atmospheric visuals, emotional impact
+
+          Principles:
+          - P1. Depth Over Surface: Photo suggests human story beneath
+          - P2. Clarity Over Cleverness: Bold title over image
+          - P3. Restraint Over Abundance: Photo + text, minimal UI
+          - P4. Grounded Over Floating: Heavy tint grounds content
+          - P5. Timeless Over Trendy: Classic photo essay layout
+
+          Photography Rules:
+          - Grayscale + contrast(1.1) for consistency
+          - Heavy tint (85% opacity) for text readability
+          - UI corners for technical aesthetic
+
+          Typography (1456x1048 canvas):
+          - Eyebrow: 20px (JetBrains Mono - technical)
+          - Headline: 96px (IBM Plex Sans - impact)
+          - Quote: 32px (Public Sans italic - readable)
+        */
+        :root {
+            --jade-500: #00a86b;
+            --charcoal-800: #1f2937;
+            --charcoal-900: #111827;
+            --width: 1456px;
+            --height: 1048px;
+            --padding: 96px;
+        }
+
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Public Sans', sans-serif; }
+
+        .canvas {
+            width: var(--width);
+            height: var(--height);
+            background: var(--charcoal-900);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Background Image Layer */
+        .bg-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* Placeholder for Engineer/Architect Photo */
+            background-image: url('../../../assets/hoangleitvn.jpeg'); 
+            background-size: cover;
+            background-position: 50% 80%;
+            /* BTL Rules: Grayscale + Desaturate */
+            filter: grayscale(100%) contrast(1.1);
+            z-index: 1;
+        }
+
+        /* The Tint Overlay - Heavy Charcoal */
+        .tint-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--charcoal-900);
+            opacity: 0.85; /* 85% opacity per rules */
+            z-index: 2;
+        }
+
+        /* Content Layer */
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        h1 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 700;
+            font-size: 96px;
+            line-height: 1;
+            color: white;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+        
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--jade-500);
+            font-size: 20px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            display: inline-block;
+            border-bottom: 2px solid var(--jade-500);
+            padding-bottom: 8px;
+        }
+
+        /* Quote Style Subhead */
+        .quote {
+            font-size: 32px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.9);
+            font-style: italic;
+            margin-bottom: 48px;
+        }
+
+        /* Engineering Reticle UI Elements */
+        .ui-corner {
+            position: absolute;
+            width: 40px; height: 40px;
+            border: 2px solid rgba(255,255,255,0.3);
+            z-index: 5;
+        }
+        .tl { top: 48px; left: 48px; border-right: 0; border-bottom: 0; }
+        .tr { top: 48px; right: 48px; border-left: 0; border-bottom: 0; }
+        .bl { bottom: 48px; left: 48px; border-right: 0; border-top: 0; }
+        .br { bottom: 48px; right: 48px; border-left: 0; border-top: 0; }
+
+        .logo-mark {
+            width: 64px; height: 64px;
+            margin: 0 auto;
+            display: block;
+            margin-top: 64px;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas">
+        <div class="bg-layer"></div>
+        <div class="tint-layer"></div>
+        
+        <!-- UI Corners -->
+        <div class="ui-corner tl"></div>
+        <div class="ui-corner tr"></div>
+        <div class="ui-corner bl"></div>
+        <div class="ui-corner br"></div>
+
+        <div class="content">
+            <div class="eyebrow">The 80/20 Rule</div>
+            <h1>THE ICEBERG<br>PROBLEM</h1>
+            <div class="quote">
+                "The demo always works.<br>It's what comes after that matters."
+            </div>
+        </div>
+    </div>
+</body>
+</html>

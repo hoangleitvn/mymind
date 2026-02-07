@@ -12,6 +12,20 @@ format: product-launch
 target_hashtags: [OpenSource, npm, JavaScript, NewYear, LunarNewYear]
 published_date: "2026-01-01T10:58:24Z"
 post_url: https://www.linkedin.com/feed/update/urn:li:activity:7412447094772252673/
+performance_metrics:
+  impressions: 341
+  members_reached: 121
+  profile_views: 2
+  followers: 0
+  reactions: 6
+  comments: 0
+  reposts: 0
+  saves: 0
+  sends_on_linkedin: 0
+  video_views: 107
+  video_watch_time: "23m 33s"
+  video_avg_watch_time: "13s"
+  collected_at: 2026-01-19
 ---
 
 🎆 Just shipped my first npm package of 2026!

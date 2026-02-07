@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTL Canonical Cover</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /*
+          BTL Canonical Cover System
+          ==========================
+          Version: 1.0
+
+          The cover is infrastructure, not illustration.
+          It signals that the article is worth reading.
+
+          USAGE:
+          1. Edit headline (2 lines max, ~720px max width)
+          2. Edit sub-headline (optional)
+          3. Choose concept visual layer (see below)
+          4. Export at 1200×630
+
+          CONCEPT VISUAL LAYERS (choose one):
+          - .visual-iceberg-schematic (default)
+          - .visual-iceberg-pattern
+          - .visual-discovery-grid
+          - .visual-none (pure typography)
+
+          Toggle by adding/removing 'hidden' class
+        */
+
+        :root {
+            --width: 1200px;
+            --height: 630px;
+            --safe-zone: 64px;
+
+            /* Colors: Two-color palette only */
+            --charcoal: #111827;
+            --charcoal-light: #1f2937;
+            --white: #f9fafb;
+            --white-muted: rgba(249, 250, 251, 0.6);
+            --jade: #00a86b;
+            --jade-light: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Public Sans', system-ui, sans-serif;
+        }
+
+        .hidden { display: none !important; }
+
+        /* =============================================
+           CANVAS: 1200×630, dark-first
+           ============================================= */
+        .canvas {
+            width: var(--width);
+            height: var(--height);
+            background: var(--charcoal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* =============================================
+           SAFE ZONE: 64px margin, content lives here
+           ============================================= */
+        .safe-zone {
+            position: absolute;
+            top: var(--safe-zone);
+            left: var(--safe-zone);
+            right: var(--safe-zone);
+            bottom: var(--safe-zone);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Bottom-weighted */
+        }
+
+        /* =============================================
+           CONTENT: Left-aligned, bottom-weighted
+           ============================================= */
+        .content {
+            max-width: 720px;
+        }
+
+        /* Metadata (optional) */
+        .metadata {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--jade-light);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        /* Headline: IBM Plex Sans 700 */
+        .headline {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        /* Waterline divider (optional) */
+        .waterline {
+            width: 200px;
+            height: 2px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--white-muted) 0px,
+                var(--white-muted) 4px,
+                transparent 4px,
+                transparent 7px
+            );
+            margin-bottom: 20px;
+        }
+
+        /* Sub-headline: Public Sans 400 */
+        .subheadline {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.4;
+            color: var(--white-muted);
+        }
+
+        /* =============================================
+           BRAND ANCHOR: Bottom-right, 48-64px
+           ============================================= */
+        .brand-anchor {
+            position: absolute;
+            bottom: var(--safe-zone);
+            right: var(--safe-zone);
+        }
+
+        .brand-anchor svg {
+            width: 56px;
+            height: 56px;
+        }
+
+        /* =============================================
+           CONCEPT VISUAL LAYERS
+           Choose one, hide others with .hidden class
+           ============================================= */
+
+        /* Layer: Schematic iceberg watermark */
+        .visual-iceberg-schematic {
+            position: absolute;
+            top: 50%;
+            right: 80px;
+            transform: translateY(-50%);
+            opacity: 0.06;
+        }
+
+        .visual-iceberg-schematic svg {
+            width: 400px;
+            height: 400px;
+        }
+
+        /* Layer: Pattern-clean iceberg (cropped) */
+        .visual-iceberg-pattern {
+            position: absolute;
+            bottom: -60px;
+            right: -40px;
+            opacity: 0.08;
+        }
+
+        .visual-iceberg-pattern svg {
+            width: 320px;
+            height: 320px;
+        }
+
+        /* Layer: Discovery grid */
+        .visual-discovery-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.04;
+            background-image:
+                linear-gradient(var(--white) 1px, transparent 1px),
+                linear-gradient(90deg, var(--white) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .visual-discovery-grid::after {
+            content: '';
+            position: absolute;
+            top: 180px;
+            left: 480px;
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--jade);
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="canvas">
+
+    <!-- CONCEPT VISUAL LAYER: Choose one, hide others -->
+
+    <!-- Option 1: Schematic iceberg watermark (default) -->
+    <div class="visual-iceberg-schematic">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 8 L85 92 H15 L50 8Z" stroke="white" stroke-width="0.5"/>
+            <path d="M50 16 L75 84 H25 L50 16Z" stroke="white" stroke-width="0.3"/>
+            <line x1="5" y1="32" x2="95" y2="32" stroke="white" stroke-width="0.5" stroke-dasharray="2 2"/>
+        </svg>
+    </div>
+
+    <!-- Option 2: Pattern-clean iceberg (cropped) -->
+    <div class="visual-iceberg-pattern hidden">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 5 L90 95 H10 L50 5Z" fill="white"/>
+        </svg>
+    </div>
+
+    <!-- Option 3: Discovery grid -->
+    <div class="visual-discovery-grid hidden"></div>
+
+    <!-- Option 4: Pure typography = hide all visual layers -->
+
+    <!-- CONTENT -->
+    <div class="safe-zone">
+        <div class="content">
+            <!-- Metadata (optional) -->
+            <div class="metadata">Manifesto</div>
+
+            <!-- Headline: 2 lines max -->
+            <h1 class="headline">
+                Why Foundation<br>
+                Comes Before Speed
+            </h1>
+
+            <!-- Waterline (optional) -->
+            <div class="waterline"></div>
+
+            <!-- Sub-headline (optional) -->
+            <p class="subheadline">
+                Everyone ships fast. Few build to last.
+            </p>
+        </div>
+    </div>
+
+    <!-- BRAND ANCHOR: Bottom-right -->
+    <div class="brand-anchor">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="tip" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#10b981"/>
+                    <stop offset="100%" stop-color="#00a86b"/>
+                </linearGradient>
+                <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#00a86b"/>
+                    <stop offset="40%" stop-color="#065f46"/>
+                    <stop offset="100%" stop-color="#022c22"/>
+                </linearGradient>
+            </defs>
+            <rect width="48" height="48" rx="8" fill="#ffffff"/>
+            <g transform="translate(0, -1)">
+                <path d="M24 6L32 14H16L24 6Z" fill="url(#tip)"/>
+                <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+                <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+                <path d="M8 18L24 44L40 18H8Z" fill="url(#body)"/>
+            </g>
+        </svg>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Manifesto - Substack Cover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Brand Colors */
+      --jade-400: #10b981;
+      --jade-500: #00a86b;
+      --jade-800: #065f46;
+      --charcoal-800: #1f2937;
+      --charcoal-900: #111827;
+      --base-50: #f9fafb;
+
+      /* Dimensions: 14:10 ratio */
+      --width: 1456px;
+      --height: 1040px;
+      --padding: 80px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .canvas {
+      width: var(--width);
+      height: var(--height);
+      background: linear-gradient(135deg, var(--charcoal-800) 0%, var(--charcoal-900) 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Accent Bar */
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--jade-500);
+      z-index: 10;
+    }
+
+    /* Engineering Grid */
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 1;
+    }
+
+    /* Metadata - Top Left */
+    .meta-top-left {
+      position: absolute;
+      top: var(--padding);
+      left: var(--padding);
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--jade-500);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .meta-top-left::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--jade-500);
+    }
+
+    /* Content Container */
+    .content {
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    /* Symbol Container */
+    .symbol-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Tagline */
+    .tagline {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--base-50);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .tagline .accent {
+      color: var(--jade-400);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="accent-bar"></div>
+    <div class="grid-bg"></div>
+
+    <!-- Metadata -->
+    <div class="meta-top-left">Manifesto</div>
+
+    <!-- Content -->
+    <div class="content">
+      <!-- The Symbol Pattern -->
+      <div class="symbol-container">
+        <img src="../../../foundation/brands/btl/branding/logos/01_Vector_Master/symbols/btl-symbol-pattern.svg"
+             alt="BTL Iceberg Symbol"
+             width="520"
+             height="800">
+      </div>
+
+      <!-- Tagline -->
+      <p class="tagline">Everyone ships <span class="accent">fast</span>. Few build to <span class="accent">last</span>.</p>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200, height=630">
+  <title>BTL Cover: The Accountability Shift</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=Public+Sans:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background: #1f2937;
+    }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      margin: 0 auto;
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1200px;
+      height: 630px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <svg class="main-svg" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Background gradient with noise (from BTL design system) -->
+    <defs>
+      <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#374151"/>
+        <stop offset="15%" stop-color="#2d3748"/>
+        <stop offset="35%" stop-color="#1f2937"/>
+        <stop offset="55%" stop-color="#1a202c"/>
+        <stop offset="75%" stop-color="#141b24"/>
+        <stop offset="100%" stop-color="#111827"/>
+      </linearGradient>
+      <filter id="noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.06"/>
+        </feComponentTransfer>
+        <feBlend in="SourceGraphic" mode="overlay"/>
+      </filter>
+    </defs>
+    <rect width="1200" height="630" fill="url(#bgGradient)" filter="url(#noise)"/>
+
+    <!-- ============================================ -->
+    <!-- TEXT CONTENT (centered) -->
+    <!-- ============================================ -->
+
+    <!-- Headline -->
+    <text x="600" y="180" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="64" font-weight="700" letter-spacing="-0.02em">
+      The Accountability
+    </text>
+    <text x="600" y="255" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="64" font-weight="700" letter-spacing="-0.02em">
+      Shift
+    </text>
+
+    <!-- Waterline divider (centered, dashed) -->
+    <line x1="360" y1="290" x2="840" y2="290" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3" opacity="0.4"/>
+
+    <!-- Sub-headline -->
+    <text x="600" y="340" text-anchor="middle" fill="#9ca3af" font-family="Public Sans" font-size="28" font-weight="400">
+      What Software 2.0 Actually Demands
+    </text>
+
+    <!-- Illustration: typing → thinking → question -->
+    <g transform="translate(600, 450)">
+
+      <!-- Left: Typing icon + label -->
+      <g transform="translate(-150, 0)">
+        <!-- Keyboard/typing icon -->
+        <rect x="-24" y="-20" width="48" height="32" rx="4" fill="none" stroke="#9ca3af" stroke-width="2"/>
+        <rect x="-18" y="-14" width="8" height="6" rx="1" fill="#9ca3af" opacity="0.6"/>
+        <rect x="-6" y="-14" width="8" height="6" rx="1" fill="#9ca3af" opacity="0.6"/>
+        <rect x="6" y="-14" width="8" height="6" rx="1" fill="#9ca3af" opacity="0.6"/>
+        <rect x="-14" y="-4" width="24" height="6" rx="1" fill="#9ca3af" opacity="0.6"/>
+        <!-- Label -->
+        <text x="0" y="38" text-anchor="middle" fill="#9ca3af" font-family="Public Sans" font-size="18" font-weight="400">typing</text>
+      </g>
+
+      <!-- Arrow (centered) -->
+      <g transform="translate(0, 0)">
+        <line x1="-40" y1="0" x2="40" y2="0" stroke="#6b7280" stroke-width="2"/>
+        <path d="M35 -6L47 0L35 6" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+
+      <!-- Right: Brain icon + label -->
+      <g transform="translate(150, 0)">
+        <!-- Brain icon (simplified) -->
+        <path d="M-12 -16C-20 -16 -24 -10 -24 -4C-24 0 -22 4 -18 6C-18 12 -14 18 -6 18C-2 18 0 16 0 16C0 16 2 18 6 18C14 18 18 12 18 6C22 4 24 0 24 -4C24 -10 20 -16 12 -16C8 -16 4 -14 0 -10C-4 -14 -8 -16 -12 -16Z" fill="none" stroke="#10b981" stroke-width="2"/>
+        <path d="M0 -10C0 -10 0 16 0 16" stroke="#10b981" stroke-width="1.5" opacity="0.5"/>
+        <path d="M-12 -4C-8 -4 -4 -2 0 2" stroke="#10b981" stroke-width="1.5" opacity="0.5"/>
+        <path d="M12 -4C8 -4 4 -2 0 2" stroke="#10b981" stroke-width="1.5" opacity="0.5"/>
+        <!-- Label -->
+        <text x="0" y="44" text-anchor="middle" fill="#10b981" font-family="Public Sans" font-size="18" font-weight="400">thinking</text>
+      </g>
+
+      <!-- Question: Who owns the outcome? -->
+      <text x="0" y="115" text-anchor="middle" fill="#9ca3af" font-family="Public Sans" font-size="20" font-weight="400">Who owns the outcome?</text>
+
+    </g>
+
+  </svg>
+
+</body>
+</html>

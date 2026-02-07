@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XTND Partnership Investment Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #f8fafc;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+
+        .section {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title .badge {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .badge-green { background: #065f46; color: #6ee7b7; }
+        .badge-yellow { background: #854d0e; color: #fde047; }
+        .badge-red { background: #991b1b; color: #fca5a5; }
+
+        /* Scenario Chart */
+        .scenario-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .scenario-row {
+            display: grid;
+            grid-template-columns: 200px 1fr 120px;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .scenario-label {
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+
+        .scenario-label small {
+            display: block;
+            color: #64748b;
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        .bar-container {
+            position: relative;
+            height: 40px;
+            background: #334155;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .bar-investment {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+            border-radius: 8px 0 0 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+            min-width: 50px;
+        }
+
+        .bar-return {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #059669, #10b981);
+            display: flex;
+            align-items: center;
+            padding-left: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .bar-equity {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #7c3aed, #8b5cf6);
+            display: flex;
+            align-items: center;
+            padding-left: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .bar-loss {
+            background: linear-gradient(90deg, #991b1b, #dc2626);
+        }
+
+        .profit-value {
+            font-size: 16px;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .profit-positive { color: #4ade80; }
+        .profit-negative { color: #f87171; }
+
+        .roi-badge {
+            font-size: 11px;
+            color: #94a3b8;
+            display: block;
+        }
+
+        /* Cap Problem Chart */
+        .cap-chart {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .cap-axis {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        .cap-track {
+            position: relative;
+            height: 60px;
+            background: linear-gradient(90deg, #1e3a5f 0%, #1e3a5f 37.5%, #3b1d1d 37.5%, #3b1d1d 100%);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .cap-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #0ea5e9, #06b6d4);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .cap-lost {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #dc2626,
+                #dc2626 10px,
+                #b91c1c 10px,
+                #b91c1c 20px
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .cap-line {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: #fbbf24;
+            z-index: 10;
+        }
+
+        .cap-line::after {
+            content: 'CAP $225K';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            font-weight: 600;
+            color: #fbbf24;
+            white-space: nowrap;
+        }
+
+        .cap-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+        }
+
+        .cap-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .cap-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        .cap-dot-earned { background: linear-gradient(135deg, #0ea5e9, #06b6d4); }
+        .cap-dot-lost { background: linear-gradient(135deg, #dc2626, #ef4444); }
+
+        /* Break-even Chart */
+        .breakeven-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 200px;
+            padding: 20px 0;
+            border-bottom: 2px solid #334155;
+            position: relative;
+        }
+
+        .breakeven-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            border-top: 2px dashed #fbbf24;
+            z-index: 1;
+        }
+
+        .breakeven-line::after {
+            content: 'BREAK-EVEN';
+            position: absolute;
+            right: 0;
+            top: -20px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #fbbf24;
+        }
+
+        .breakeven-bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .breakeven-bar {
+            width: 80px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .breakeven-bar-invest {
+            background: linear-gradient(180deg, #dc2626, #991b1b);
+        }
+
+        .breakeven-bar-needed {
+            background: linear-gradient(180deg, #0ea5e9, #0369a1);
+        }
+
+        .breakeven-bar-forecast {
+            background: linear-gradient(180deg, #10b981, #047857);
+            opacity: 0.3;
+            border: 2px dashed #10b981;
+        }
+
+        .breakeven-label {
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: center;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 40px 0 20px;
+        }
+
+        .timeline-track {
+            height: 8px;
+            background: #334155;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .timeline-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .timeline-fill-discount {
+            background: linear-gradient(90deg, #dc2626, #f87171);
+            width: 16.67%;
+        }
+
+        .timeline-fill-earning {
+            background: linear-gradient(90deg, #10b981, #34d399);
+            left: 16.67%;
+            width: 44.44%;
+        }
+
+        .timeline-fill-capped {
+            background: repeating-linear-gradient(
+                45deg,
+                #64748b,
+                #64748b 5px,
+                #475569 5px,
+                #475569 10px
+            );
+            left: 61.11%;
+            width: 38.89%;
+        }
+
+        .timeline-markers {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        .timeline-marker {
+            text-align: center;
+        }
+
+        .timeline-marker-active {
+            color: #f8fafc;
+            font-weight: 600;
+        }
+
+        .timeline-events {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+        }
+
+        .timeline-event {
+            position: absolute;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .timeline-event-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin: 0 auto 6px;
+            border: 3px solid #1e293b;
+        }
+
+        .timeline-event-label {
+            font-size: 10px;
+            white-space: nowrap;
+        }
+
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .summary-card {
+            background: #334155;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .summary-card-label {
+            font-size: 11px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .summary-card-value {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .summary-card-sub {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        .text-green { color: #4ade80; }
+        .text-red { color: #f87171; }
+        .text-yellow { color: #fbbf24; }
+        .text-blue { color: #38bdf8; }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            gap: 24px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        .legend-investment { background: linear-gradient(135deg, #dc2626, #ef4444); }
+        .legend-cash { background: linear-gradient(135deg, #059669, #10b981); }
+        .legend-equity { background: linear-gradient(135deg, #7c3aed, #8b5cf6); }
+        .legend-lost { background: repeating-linear-gradient(45deg, #dc2626, #dc2626 3px, #b91c1c 3px, #b91c1c 6px); }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            font-size: 11px;
+            color: #64748b;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>XTND Partnership Investment Analysis</h1>
+        <p class="subtitle">Based on XTND 3-Year Revenue Forecast: $10.49M Platform Revenue (Subscription/ARR)</p>
+
+        <!-- Summary Cards -->
+        <div class="summary-grid">
+            <div class="summary-card">
+                <div class="summary-card-label">Your Investment</div>
+                <div class="summary-card-value text-red">$63K</div>
+                <div class="summary-card-sub">6-month discount</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-card-label">Max Cash Return</div>
+                <div class="summary-card-value text-green">$225K</div>
+                <div class="summary-card-sub">Revenue share cap</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-card-label">Break-Even</div>
+                <div class="summary-card-value text-yellow">16%</div>
+                <div class="summary-card-sub">of forecast needed</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-card-label">Expected Profit</div>
+                <div class="summary-card-value text-green">+$254K</div>
+                <div class="summary-card-sub">if forecast hit (w/ equity)</div>
+            </div>
+        </div>
+
+        <!-- Scenario Comparison -->
+        <div class="section" style="margin-top: 24px;">
+            <div class="section-title">
+                Profit by Scenario
+                <span class="badge badge-green">Investment vs Return</span>
+            </div>
+
+            <div class="scenario-chart">
+                <!-- Scale reference -->
+                <div style="display: flex; justify-content: space-between; font-size: 10px; color: #64748b; padding-left: 220px; margin-bottom: -8px;">
+                    <span>$0</span>
+                    <span>$100K</span>
+                    <span>$200K</span>
+                    <span>$300K</span>
+                    <span>$400K</span>
+                </div>
+
+                <!-- 150% Forecast -->
+                <div class="scenario-row">
+                    <div class="scenario-label">
+                        150% of Forecast
+                        <small>Optimistic scenario</small>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-investment" style="width: 15.8%;">-$63K</div>
+                        <div class="bar-return" style="left: 15.8%; width: 40.4%;">$225K (capped)</div>
+                        <div class="bar-equity" style="left: 56.2%; width: 34.6%;">+$139K equity</div>
+                    </div>
+                    <div class="profit-value profit-positive">
+                        +$301K
+                        <span class="roi-badge">477% ROI</span>
+                    </div>
+                </div>
+
+                <!-- 100% Forecast -->
+                <div class="scenario-row">
+                    <div class="scenario-label">
+                        100% of Forecast
+                        <small>Base case (XTND projection)</small>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-investment" style="width: 15.8%;">-$63K</div>
+                        <div class="bar-return" style="left: 15.8%; width: 40.4%;">$225K (capped)</div>
+                        <div class="bar-equity" style="left: 56.2%; width: 23.1%;">+$92K equity</div>
+                    </div>
+                    <div class="profit-value profit-positive">
+                        +$254K
+                        <span class="roi-badge">402% ROI</span>
+                    </div>
+                </div>
+
+                <!-- 50% Forecast -->
+                <div class="scenario-row">
+                    <div class="scenario-label">
+                        50% of Forecast
+                        <small>Conservative scenario</small>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-investment" style="width: 15.8%;">-$63K</div>
+                        <div class="bar-return" style="left: 15.8%; width: 34.4%;">$192K</div>
+                        <div class="bar-equity" style="left: 50.2%; width: 11.5%;">+$46K</div>
+                    </div>
+                    <div class="profit-value profit-positive">
+                        +$175K
+                        <span class="roi-badge">277% ROI</span>
+                    </div>
+                </div>
+
+                <!-- 25% Forecast -->
+                <div class="scenario-row">
+                    <div class="scenario-label">
+                        25% of Forecast
+                        <small>Pessimistic scenario</small>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-investment" style="width: 15.8%;">-$63K</div>
+                        <div class="bar-return" style="left: 15.8%; width: 17.2%;">$96K</div>
+                        <div class="bar-equity" style="left: 33%; width: 5.8%;">+$23K</div>
+                    </div>
+                    <div class="profit-value profit-positive">
+                        +$56K
+                        <span class="roi-badge">89% ROI</span>
+                    </div>
+                </div>
+
+                <!-- 12-Month Extended -->
+                <div class="scenario-row">
+                    <div class="scenario-label">
+                        12-Month Build
+                        <small>Extended + cap adjustment</small>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-investment" style="width: 34%;">-$136K</div>
+                        <div class="bar-return" style="left: 34%; width: 68.7%;">$384K (new cap $407K)</div>
+                        <div class="bar-equity" style="left: 102.7%; width: 0%;"></div>
+                    </div>
+                    <div class="profit-value profit-positive">
+                        +$340K
+                        <span class="roi-badge">250% ROI</span>
+                    </div>
+                </div>
+
+                <!-- Failure -->
+                <div class="scenario-row">
+                    <div class="scenario-label">
+                        Platform Fails
+                        <small>&lt;$500K platform revenue</small>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-investment" style="width: 15.8%;">-$63K</div>
+                        <div class="bar-return bar-loss" style="left: 15.8%; width: 7.5%;">$30K</div>
+                    </div>
+                    <div class="profit-value profit-negative">
+                        -$33K
+                        <span class="roi-badge">-53% ROI</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color legend-investment"></div>
+                    Investment (Discount Given)
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-cash"></div>
+                    Cash Return (Revenue Share)
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-equity"></div>
+                    Equity Value (Est. 0.3% post-dilution)
+                </div>
+            </div>
+        </div>
+
+        <!-- The Cap Problem -->
+        <div class="section">
+            <div class="section-title">
+                The $225K Cap Problem
+                <span class="badge badge-yellow">If XTND Hits Forecast</span>
+            </div>
+
+            <p style="font-size: 13px; color: #94a3b8; margin-bottom: 20px;">
+                Your 6% share of $6.4M platform revenue = $384K. But you're capped at $225K.
+            </p>
+
+            <div class="cap-chart">
+                <div class="cap-axis">
+                    <span>$0</span>
+                    <span>$100K</span>
+                    <span>$200K</span>
+                    <span>$300K</span>
+                    <span>$384K</span>
+                </div>
+                <div class="cap-track">
+                    <div class="cap-fill" style="width: 58.6%;">You Receive: $225K</div>
+                    <div class="cap-lost" style="left: 58.6%; width: 41.4%;">Lost: $159K</div>
+                    <div class="cap-line" style="left: 58.6%;"></div>
+                </div>
+                <div class="cap-labels">
+                    <div class="cap-label">
+                        <div class="cap-dot cap-dot-earned"></div>
+                        Revenue share received
+                    </div>
+                    <div class="cap-label">
+                        <div class="cap-dot cap-dot-lost"></div>
+                        Left on table due to cap
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #334155; border-radius: 8px; padding: 16px; margin-top: 20px;">
+                <div style="font-size: 12px; color: #fbbf24; font-weight: 600; margin-bottom: 8px;">⚠️ Cap Hit Timeline</div>
+                <div style="font-size: 13px; color: #e2e8f0;">
+                    At forecast revenue, you hit the $225K cap around <strong>Month 22 (March 2028)</strong>.
+                    The remaining 14 months of the 36-month term generate $0 additional share.
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section">
+            <div class="section-title">
+                36-Month Revenue Share Timeline
+                <span class="badge badge-green">Based on 100% Forecast</span>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-events">
+                    <div class="timeline-event" style="left: 0%;">
+                        <div class="timeline-event-dot" style="background: #dc2626;"></div>
+                        <div class="timeline-event-label text-red">Build Start<br>Jan 2026</div>
+                    </div>
+                    <div class="timeline-event" style="left: 13.9%;">
+                        <div class="timeline-event-dot" style="background: #10b981;"></div>
+                        <div class="timeline-event-label text-green">Share Starts<br>Jun 2026</div>
+                    </div>
+                    <div class="timeline-event" style="left: 61.1%;">
+                        <div class="timeline-event-dot" style="background: #fbbf24;"></div>
+                        <div class="timeline-event-label text-yellow">Cap Hit<br>Mar 2028</div>
+                    </div>
+                    <div class="timeline-event" style="left: 100%;">
+                        <div class="timeline-event-dot" style="background: #64748b;"></div>
+                        <div class="timeline-event-label" style="color: #64748b;">Term Ends<br>May 2029</div>
+                    </div>
+                </div>
+
+                <div class="timeline-track" style="margin-top: 60px;">
+                    <div class="timeline-fill timeline-fill-discount"></div>
+                    <div class="timeline-fill timeline-fill-earning"></div>
+                    <div class="timeline-fill timeline-fill-capped"></div>
+                </div>
+
+                <div class="timeline-markers">
+                    <div class="timeline-marker timeline-marker-active">Jan 2026</div>
+                    <div class="timeline-marker">Jun 2026</div>
+                    <div class="timeline-marker">Jan 2027</div>
+                    <div class="timeline-marker">Jun 2027</div>
+                    <div class="timeline-marker">Jan 2028</div>
+                    <div class="timeline-marker timeline-marker-active" style="color: #fbbf24;">Mar 2028</div>
+                    <div class="timeline-marker">Jan 2029</div>
+                    <div class="timeline-marker">May 2029</div>
+                </div>
+            </div>
+
+            <div class="legend" style="margin-top: 24px;">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: linear-gradient(135deg, #dc2626, #f87171);"></div>
+                    Discount Period (M1-6): -$63K investment
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: linear-gradient(135deg, #10b981, #34d399);"></div>
+                    Earning Period: $225K earned
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: repeating-linear-gradient(45deg, #64748b, #64748b 3px, #475569 3px, #475569 6px);"></div>
+                    Capped (no additional share)
+                </div>
+            </div>
+        </div>
+
+        <!-- Break-Even Analysis -->
+        <div class="section">
+            <div class="section-title">
+                Break-Even Analysis
+                <span class="badge badge-green">Low Threshold</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;">
+                <div>
+                    <div style="font-size: 48px; font-weight: 700; color: #fbbf24;">16%</div>
+                    <div style="font-size: 13px; color: #94a3b8; margin-top: 4px;">of forecast needed</div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 8px;">$1.05M platform revenue</div>
+                </div>
+                <div>
+                    <div style="font-size: 48px; font-weight: 700; color: #4ade80;">100%</div>
+                    <div style="font-size: 13px; color: #94a3b8; margin-top: 4px;">forecast projection</div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 8px;">$6.4M platform revenue</div>
+                </div>
+                <div>
+                    <div style="font-size: 48px; font-weight: 700; color: #38bdf8;">6x</div>
+                    <div style="font-size: 13px; color: #94a3b8; margin-top: 4px;">safety margin</div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 8px;">forecast vs break-even</div>
+                </div>
+            </div>
+
+            <div style="background: #0f172a; border-radius: 8px; padding: 20px; margin-top: 24px;">
+                <div style="display: flex; align-items: center; gap: 40px;">
+                    <div style="flex: 1;">
+                        <div style="height: 24px; background: #334155; border-radius: 4px; position: relative; overflow: hidden;">
+                            <div style="position: absolute; left: 0; top: 0; height: 100%; width: 16%; background: linear-gradient(90deg, #fbbf24, #f59e0b); border-radius: 4px;"></div>
+                            <div style="position: absolute; left: 16%; top: 0; height: 100%; width: 84%; background: linear-gradient(90deg, #10b981, #059669); border-radius: 0 4px 4px 0; opacity: 0.3;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 11px; color: #64748b;">
+                            <span>0%</span>
+                            <span style="color: #fbbf24;">16% Break-even</span>
+                            <span>50%</span>
+                            <span style="color: #4ade80;">100% Forecast</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Risk Summary -->
+        <div class="section">
+            <div class="section-title">
+                Risk / Reward Summary
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 12px; padding: 20px;">
+                    <div style="font-size: 14px; font-weight: 600; color: #f87171; margin-bottom: 12px;">⚠️ Downside Risks</div>
+                    <ul style="font-size: 13px; color: #e2e8f0; line-height: 1.8; padding-left: 16px;">
+                        <li>Max loss: <strong>-$63K</strong> (if platform fails completely)</li>
+                        <li>Equity forfeited if terminated before 48-month vest</li>
+                        <li>Equity issuance requires priced round (may never happen)</li>
+                        <li>No audit rights to verify revenue calculations</li>
+                        <li>Extension rates undefined ("good faith")</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 20px;">
+                    <div style="font-size: 14px; font-weight: 600; color: #4ade80; margin-bottom: 12px;">✓ Upside Factors</div>
+                    <ul style="font-size: 13px; color: #e2e8f0; line-height: 1.8; padding-left: 16px;">
+                        <li>Break-even at just <strong>16%</strong> of forecast</li>
+                        <li>Expected profit: <strong>+$254K</strong> (402% ROI)</li>
+                        <li>Extended build increases cap via 2.5x formula</li>
+                        <li>0.5% equity provides additional upside</li>
+                        <li>10-year relationship = execution confidence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            XTND Partnership Analysis · Generated January 2026 · Based on XTND 3-Year Revenue Forecast
+        </div>
+    </div>
+</body>
+</html>

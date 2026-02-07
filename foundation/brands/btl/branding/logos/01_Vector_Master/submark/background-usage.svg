@@ -1,0 +1,193 @@
+<svg width="880" height="520" viewBox="0 0 880 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- BTL Submark - Background Usage Reference -->
+  <!-- Per submark-spec.md: 48×48 canvas, rx=8 (17%), icon 32×38, centered with translate(0,-1) -->
+
+  <defs>
+    <!-- Dark icon gradients (for light frames) - per spec -->
+    <linearGradient id="tip-dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#00a86b"/>
+    </linearGradient>
+    <linearGradient id="body-dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00a86b"/>
+      <stop offset="40%" stop-color="#065f46"/>
+      <stop offset="100%" stop-color="#022c22"/>
+    </linearGradient>
+
+    <!-- Light icon gradients (for dark frames) -->
+    <linearGradient id="tip-light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="body-light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="50%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#065f46"/>
+    </linearGradient>
+
+    <!-- White icon gradients (for jade frames) -->
+    <linearGradient id="tip-white" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ecfdf5"/>
+    </linearGradient>
+    <linearGradient id="body-white" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d1fae5"/>
+      <stop offset="40%" stop-color="#065f46"/>
+      <stop offset="100%" stop-color="#022c22"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="880" height="520" fill="#f9fafb"/>
+
+  <!-- Title -->
+  <text x="440" y="36" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="20" font-weight="700" fill="#1f2937" text-anchor="middle">BTL Submark - Background Usage</text>
+  <text x="440" y="56" font-family="Public Sans, system-ui, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">WCAG 1.4.11 Compliant | 48×48 base | rx=8 (17%) | Icon 67%w × 80%h</text>
+
+  <!-- Row 1: Primary Options -->
+  <text x="48" y="100" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="600" fill="#1f2937">Primary Options</text>
+
+  <!-- Option 1: White Frame - using nested SVG with viewBox -->
+  <g transform="translate(48, 116)">
+    <svg width="120" height="120" viewBox="0 0 48 48">
+      <rect width="48" height="48" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="0.4"/>
+      <g transform="translate(0, -1)">
+        <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-dark)"/>
+        <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+        <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+        <path d="M8 18L24 44L40 18H8Z" fill="url(#body-dark)"/>
+      </g>
+    </svg>
+    <text x="60" y="140" font-family="Public Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="#1f2937" text-anchor="middle">White</text>
+    <text x="60" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#6b7280" text-anchor="middle">#ffffff</text>
+    <text x="60" y="168" font-family="Public Sans, system-ui, sans-serif" font-size="10" fill="#059669" text-anchor="middle">Light mode</text>
+  </g>
+
+  <!-- Option 2: Charcoal Frame -->
+  <g transform="translate(208, 116)">
+    <svg width="120" height="120" viewBox="0 0 48 48">
+      <rect width="48" height="48" rx="8" fill="#1f2937"/>
+      <g transform="translate(0, -1)">
+        <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-light)"/>
+        <line x1="8" y1="16" x2="40" y2="16" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3"/>
+        <line x1="8" y1="17" x2="40" y2="17" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+        <path d="M8 18L24 44L40 18H8Z" fill="url(#body-light)"/>
+      </g>
+    </svg>
+    <text x="60" y="140" font-family="Public Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="#1f2937" text-anchor="middle">Charcoal</text>
+    <text x="60" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#6b7280" text-anchor="middle">#1f2937</text>
+    <text x="60" y="168" font-family="Public Sans, system-ui, sans-serif" font-size="10" fill="#059669" text-anchor="middle">Dark mode</text>
+  </g>
+
+  <!-- Option 3: Jade Frame -->
+  <g transform="translate(368, 116)">
+    <svg width="120" height="120" viewBox="0 0 48 48">
+      <rect width="48" height="48" rx="8" fill="#00a86b"/>
+      <g transform="translate(0, -1)">
+        <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-white)"/>
+        <line x1="8" y1="16" x2="40" y2="16" stroke="#ffffff" stroke-width="2" stroke-dasharray="4 3"/>
+        <line x1="8" y1="17" x2="40" y2="17" stroke="#022c22" stroke-width="1" stroke-opacity="0.3"/>
+        <path d="M8 18L24 44L40 18H8Z" fill="url(#body-white)"/>
+      </g>
+    </svg>
+    <text x="60" y="140" font-family="Public Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="#1f2937" text-anchor="middle">Jade</text>
+    <text x="60" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#6b7280" text-anchor="middle">#00a86b</text>
+    <text x="60" y="168" font-family="Public Sans, system-ui, sans-serif" font-size="10" fill="#059669" text-anchor="middle">Brand-forward</text>
+  </g>
+
+  <!-- Row 2: Alternative Options -->
+  <text x="48" y="320" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="600" fill="#1f2937">Alternative Options</text>
+
+  <!-- Option 4: Off-white Frame -->
+  <g transform="translate(48, 336)">
+    <svg width="120" height="120" viewBox="0 0 48 48">
+      <rect width="48" height="48" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="0.4"/>
+      <g transform="translate(0, -1)">
+        <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-dark)"/>
+        <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+        <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+        <path d="M8 18L24 44L40 18H8Z" fill="url(#body-dark)"/>
+      </g>
+    </svg>
+    <text x="60" y="140" font-family="Public Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="#1f2937" text-anchor="middle">Off-white</text>
+    <text x="60" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#6b7280" text-anchor="middle">#f9fafb</text>
+    <text x="60" y="168" font-family="Public Sans, system-ui, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Softer light</text>
+  </g>
+
+  <!-- Option 5: Deep Jade Frame -->
+  <g transform="translate(208, 336)">
+    <svg width="120" height="120" viewBox="0 0 48 48">
+      <rect width="48" height="48" rx="8" fill="#065f46"/>
+      <g transform="translate(0, -1)">
+        <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-white)"/>
+        <line x1="8" y1="16" x2="40" y2="16" stroke="#ffffff" stroke-width="2" stroke-dasharray="4 3"/>
+        <line x1="8" y1="17" x2="40" y2="17" stroke="#022c22" stroke-width="1" stroke-opacity="0.3"/>
+        <path d="M8 18L24 44L40 18H8Z" fill="url(#body-white)"/>
+      </g>
+    </svg>
+    <text x="60" y="140" font-family="Public Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="#1f2937" text-anchor="middle">Deep Jade</text>
+    <text x="60" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#6b7280" text-anchor="middle">#065f46</text>
+    <text x="60" y="168" font-family="Public Sans, system-ui, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Moodier brand</text>
+  </g>
+
+  <!-- Option 6: Light Jade Frame -->
+  <g transform="translate(368, 336)">
+    <svg width="120" height="120" viewBox="0 0 48 48">
+      <rect width="48" height="48" rx="8" fill="#d1fae5"/>
+      <g transform="translate(0, -1)">
+        <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-dark)"/>
+        <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+        <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+        <path d="M8 18L24 44L40 18H8Z" fill="url(#body-dark)"/>
+      </g>
+    </svg>
+    <text x="60" y="140" font-family="Public Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="#1f2937" text-anchor="middle">Light Jade</text>
+    <text x="60" y="154" font-family="JetBrains Mono, monospace" font-size="10" fill="#6b7280" text-anchor="middle">#d1fae5</text>
+    <text x="60" y="168" font-family="Public Sans, system-ui, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Subtle brand</text>
+  </g>
+
+  <!-- Info Panel -->
+  <g transform="translate(540, 116)">
+    <rect width="292" height="180" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+
+    <text x="16" y="28" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">Icon Color Rules</text>
+
+    <g transform="translate(16, 44)">
+      <rect width="16" height="16" rx="3" fill="#ffffff" stroke="#d1d5db"/>
+      <text x="24" y="12" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#374151">Light frames → Dark jade icon</text>
+    </g>
+
+    <g transform="translate(16, 68)">
+      <rect width="16" height="16" rx="3" fill="#1f2937"/>
+      <text x="24" y="12" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#374151">Dark frames → Light jade icon</text>
+    </g>
+
+    <g transform="translate(16, 92)">
+      <rect width="16" height="16" rx="3" fill="#00a86b"/>
+      <text x="24" y="12" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#374151">Jade frames → White tip icon</text>
+    </g>
+
+    <line x1="16" y1="116" x2="276" y2="116" stroke="#e5e7eb" stroke-width="1"/>
+
+    <text x="16" y="136" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">Spec Reference</text>
+    <text x="16" y="156" font-family="JetBrains Mono, monospace" font-size="10" fill="#6b7280">Canvas: 48×48  |  rx: 8 (17%)</text>
+    <text x="16" y="172" font-family="JetBrains Mono, monospace" font-size="10" fill="#6b7280">Icon: 32×38 (67%w × 80%h)</text>
+  </g>
+
+  <!-- Contrast Panel -->
+  <g transform="translate(540, 316)">
+    <rect width="292" height="140" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+
+    <text x="16" y="28" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">WCAG 1.4.11 Contrast (≥3:1)</text>
+
+    <text x="16" y="52" font-family="JetBrains Mono, monospace" font-size="10" fill="#374151">White     #ffffff  → body  8.5:1 ✓</text>
+    <text x="16" y="68" font-family="JetBrains Mono, monospace" font-size="10" fill="#374151">Charcoal  #1f2937  → tip  10.8:1 ✓</text>
+    <text x="16" y="84" font-family="JetBrains Mono, monospace" font-size="10" fill="#374151">Jade      #00a86b  → body  3.4:1 ✓</text>
+    <text x="16" y="100" font-family="JetBrains Mono, monospace" font-size="10" fill="#374151">Off-white #f9fafb  → body  8.2:1 ✓</text>
+    <text x="16" y="116" font-family="JetBrains Mono, monospace" font-size="10" fill="#374151">Deep Jade #065f46  → tip   7.5:1 ✓</text>
+    <text x="16" y="132" font-family="JetBrains Mono, monospace" font-size="10" fill="#374151">Lt. Jade  #d1fae5  → body  4.2:1 ✓</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="440" y="500" font-family="Public Sans, system-ui, sans-serif" font-size="10" fill="#9ca3af" text-anchor="middle">Builds That Last - Brand Guidelines | Display: 120×120 (2.5× scale from 48×48 base)</text>
+</svg>

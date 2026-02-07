@@ -1,16 +1,16 @@
 ---
 type: linkedin-person
 created: 2025-12-27
-last_updated: 2025-12-27
-last_interaction: 2025-12-27
+last_updated: 2026-01-13
+last_interaction: 2026-01-13
 
 profile:
   name: Ethan Mollick
   linkedin_url: https://www.linkedin.com/in/emollick
   headline: Professor at Wharton, Author of Co-Intelligence
   location: Philadelphia, USA
-  followers: 352560
-  posts: 2064
+  followers: 356623
+  posts: 2086
   articles: null
 
 relationship:
@@ -32,6 +32,13 @@ engagement_history:
     topic: Everyone falling behind on AI
     status: draft
     file: comments/2025-12-27-ethan-mollick-falling-behind-ai.md
+
+  - date: 2026-01-13
+    type: comment
+    post_url: https://www.linkedin.com/posts/emollick_the-sheer-volume-of-llm-written-comment-shaped-activity-7416657108307259392-DLny
+    topic: LLM-generated comment spam
+    status: posted
+    file: comments/2026/01/13/2026-01-13__ethan-mollick-llm-comments.md
 
 tags: [wharton, professor, ai-adoption, author, thought-leader, high-reach]
 

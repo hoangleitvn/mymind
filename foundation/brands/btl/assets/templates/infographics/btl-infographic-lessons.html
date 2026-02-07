@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Infographic: Lessons/Takeaways</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /*
+      BTL Infographic Template: Lessons/Takeaways
+      ============================================
+      Design System: v2.2 | Philosophy: v1.2
+
+      Usage: Key lessons, takeaways, insights from experience
+
+      Structure:
+      1. Title with highlighted word + icon
+      2. Subtitle
+      3. Key message banner
+      4. Section header
+      5. 3 lessons with icons
+      6. Quote block
+      7. CTA question
+      8. Footer
+
+      Principles Applied:
+      - P1. Depth Over Surface: Lessons imply deeper experience
+      - P2. Clarity Over Cleverness: Clear structure, scannable
+      - P3. Restraint Over Abundance: Max 3 lessons
+      - P4. Grounded Over Floating: Left-aligned, structured
+      - P5. Timeless Over Trendy: Classic editorial layout
+
+      Layout: 1200x1500 (Portrait for more content)
+    */
+    :root {
+      --brand-400: #10b981;
+      --brand-500: #00a86b;
+      --brand-600: #008553;
+      --base-50: #f9fafb;
+      --base-100: #f1f5f9;
+      --base-300: #d1d5db;
+      --base-400: #9ca3af;
+      --base-500: #6b7280;
+      --base-700: #374151;
+      --base-800: #1f2937;
+      --base-900: #111827;
+      --canvas-width: 1200px;
+      --canvas-height: 1500px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: "Public Sans", system-ui, sans-serif;
+    }
+
+    .canvas {
+      width: var(--canvas-width);
+      height: var(--canvas-height);
+      background: var(--base-800);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .canvas-svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="canvas">
+    <svg class="canvas-svg" viewBox="0 0 1200 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Definitions -->
+      <defs>
+        <clipPath id="circleClip">
+          <circle cx="99" cy="1398" r="35"/>
+        </clipPath>
+
+        <!-- Icons as symbols -->
+        <symbol id="icon-brain" viewBox="0 0 48 48">
+          <circle cx="24" cy="20" r="14" stroke="currentColor" stroke-width="2.5" fill="none"/>
+          <path d="M16 20C16 16 20 14 24 14C28 14 32 16 32 20" stroke="currentColor" stroke-width="2.5" fill="none"/>
+          <path d="M18 24C18 26 20 28 24 28C28 28 30 26 30 24" stroke="currentColor" stroke-width="2.5" fill="none"/>
+          <line x1="24" y1="34" x2="24" y2="42" stroke="currentColor" stroke-width="2.5"/>
+          <line x1="18" y1="42" x2="30" y2="42" stroke="currentColor" stroke-width="2.5"/>
+        </symbol>
+
+        <symbol id="icon-target" viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2.5" fill="none"/>
+          <circle cx="24" cy="24" r="12" stroke="currentColor" stroke-width="2.5" fill="none"/>
+          <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="2.5" fill="none"/>
+          <circle cx="24" cy="24" r="2" fill="currentColor"/>
+        </symbol>
+
+        <symbol id="icon-megaphone" viewBox="0 0 48 48">
+          <path d="M8 20V28L20 32V16L8 20Z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+          <path d="M20 16L36 8V40L20 32" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+          <line x1="36" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="2.5"/>
+          <line x1="36" y1="16" x2="42" y2="12" stroke="currentColor" stroke-width="2.5"/>
+          <line x1="36" y1="32" x2="42" y2="36" stroke="currentColor" stroke-width="2.5"/>
+        </symbol>
+
+        <symbol id="icon-laptop" viewBox="0 0 48 48">
+          <rect x="8" y="8" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/>
+          <line x1="4" y1="36" x2="44" y2="36" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M4 36L8 32H40L44 36" stroke="currentColor" stroke-width="2.5" fill="none"/>
+          <!-- Lightbulb on screen -->
+          <circle cx="24" cy="18" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+          <line x1="24" y1="22" x2="24" y2="26" stroke="currentColor" stroke-width="2"/>
+          <line x1="22" y1="26" x2="26" y2="26" stroke="currentColor" stroke-width="2"/>
+        </symbol>
+      </defs>
+
+      <!-- Background -->
+      <rect width="1200" height="1500" fill="#1f2937"/>
+
+      <!-- Accent Bar -->
+      <rect x="0" y="0" width="1200" height="6" fill="#00a86b"/>
+
+      <!-- ========================================== -->
+      <!-- HEADER: Title + Icon                      -->
+      <!-- ========================================== -->
+
+      <!-- Title -->
+      <text x="64" y="120" fill="#f9fafb" font-family="IBM Plex Sans" font-size="56" font-weight="700" letter-spacing="-0.02em">
+        <tspan>Building My </tspan><tspan fill="#10b981">Own Tool</tspan>
+      </text>
+
+      <!-- Icon (top right) -->
+      <g transform="translate(1040, 60)">
+        <use href="#icon-laptop" width="80" height="80" color="#10b981"/>
+      </g>
+
+      <!-- Subtitle -->
+      <text x="64" y="170" fill="#9ca3af" font-family="Public Sans" font-size="28" font-weight="400">
+        What I Learned Using My Own Creation Daily
+      </text>
+
+      <!-- ========================================== -->
+      <!-- KEY MESSAGE BANNER                        -->
+      <!-- ========================================== -->
+
+      <rect x="64" y="210" width="1072" height="72" rx="8" fill="#00a86b"/>
+      <text x="600" y="256" text-anchor="middle" fill="#ffffff" font-family="IBM Plex Sans" font-size="28" font-weight="600" font-style="italic">
+        Using it changed everything I built.
+      </text>
+
+      <!-- ========================================== -->
+      <!-- KEY LESSONS SECTION                       -->
+      <!-- ========================================== -->
+
+      <!-- Section Header -->
+      <text x="64" y="360" fill="#f9fafb" font-family="IBM Plex Sans" font-size="32" font-weight="700">
+        Key Lessons
+      </text>
+      <line x1="64" y1="380" x2="280" y2="380" stroke="#00a86b" stroke-width="3"/>
+
+      <!-- Lesson 1 -->
+      <g transform="translate(64, 420)">
+        <!-- Icon container -->
+        <rect x="0" y="0" width="80" height="80" rx="12" fill="#111827" stroke="#374151" stroke-width="1"/>
+        <use href="#icon-brain" x="16" y="16" width="48" height="48" color="#10b981"/>
+
+        <!-- Text -->
+        <text x="104" y="30" fill="#f9fafb" font-family="IBM Plex Sans" font-size="26" font-weight="600">
+          Context is Everything
+        </text>
+        <text x="104" y="62" fill="#9ca3af" font-family="Public Sans" font-size="20" font-weight="400">
+          It remembers my voice, audience, and writing rules.
+        </text>
+      </g>
+
+      <!-- Lesson 2 -->
+      <g transform="translate(64, 540)">
+        <rect x="0" y="0" width="80" height="80" rx="12" fill="#111827" stroke="#374151" stroke-width="1"/>
+        <use href="#icon-target" x="16" y="16" width="48" height="48" color="#10b981"/>
+
+        <text x="104" y="30" fill="#f9fafb" font-family="IBM Plex Sans" font-size="26" font-weight="600">
+          Constraints Boost Creativity
+        </text>
+        <text x="104" y="62" fill="#9ca3af" font-family="Public Sans" font-size="20" font-weight="400">
+          Clear guidelines mean more focus on ideas.
+        </text>
+      </g>
+
+      <!-- Lesson 3 -->
+      <g transform="translate(64, 660)">
+        <rect x="0" y="0" width="80" height="80" rx="12" fill="#111827" stroke="#374151" stroke-width="1"/>
+        <use href="#icon-megaphone" x="16" y="16" width="48" height="48" color="#10b981"/>
+
+        <text x="104" y="30" fill="#f9fafb" font-family="IBM Plex Sans" font-size="26" font-weight="600">
+          Building in Public Keeps You Honest
+        </text>
+        <text x="104" y="62" fill="#9ca3af" font-family="Public Sans" font-size="20" font-weight="400">
+          As the user, I can't ignore bad UX.
+        </text>
+      </g>
+
+      <!-- ========================================== -->
+      <!-- QUOTE BLOCK                               -->
+      <!-- ========================================== -->
+
+      <g transform="translate(64, 820)">
+        <!-- Quote background -->
+        <rect x="0" y="0" width="1072" height="160" rx="8" fill="#111827"/>
+        <rect x="0" y="0" width="8" height="160" fill="#00a86b"/>
+
+        <!-- Large quote mark (opening) -->
+        <text x="32" y="50" fill="#00a86b" font-family="IBM Plex Sans" font-size="80" font-weight="700" opacity="0.4">
+          "
+        </text>
+
+        <!-- Quote text -->
+        <text x="536" y="80" text-anchor="middle" fill="#10b981" font-family="IBM Plex Sans" font-size="28" font-weight="500" font-style="italic">
+          "Remove the friction between having something
+        </text>
+        <text x="536" y="120" text-anchor="middle" fill="#10b981" font-family="IBM Plex Sans" font-size="28" font-weight="500" font-style="italic">
+          to say and saying it."
+        </text>
+
+        <!-- Large quote mark (closing) -->
+        <text x="1020" y="150" fill="#00a86b" font-family="IBM Plex Sans" font-size="80" font-weight="700" opacity="0.4">
+          "
+        </text>
+      </g>
+
+      <!-- ========================================== -->
+      <!-- CTA QUESTION                              -->
+      <!-- ========================================== -->
+
+      <text x="600" y="1080" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="32" font-weight="600">
+        What tools have you built that you use daily?
+      </text>
+
+      <!-- Waterline -->
+      <line x1="300" y1="1120" x2="900" y2="1120" stroke="#00a86b" stroke-width="2" stroke-dasharray="8 6" opacity="0.5"/>
+
+      <!-- ========================================== -->
+      <!-- INSIGHT BOX (Optional)                    -->
+      <!-- ========================================== -->
+
+      <rect x="64" y="1160" width="1072" height="100" rx="8" fill="rgba(0, 168, 107, 0.1)"/>
+      <rect x="64" y="1160" width="8" height="100" fill="#00a86b"/>
+
+      <text x="96" y="1200" fill="#9ca3af" font-family="JetBrains Mono" font-size="16" font-weight="500" letter-spacing="0.1em">
+        THE TAKEAWAY
+      </text>
+      <text x="96" y="1240" fill="#f9fafb" font-family="IBM Plex Sans" font-size="26" font-weight="500">
+        Dogfooding isn't optional. It's how you build things that actually work.
+      </text>
+
+      <!-- ========================================== -->
+      <!-- FOOTER (Standard BTL Cover Footer)        -->
+      <!-- y adjusted for 1500px height              -->
+      <!-- ========================================== -->
+
+      <line x1="64" y1="1348" x2="1136" y2="1348" stroke="#374151" stroke-width="1"/>
+
+      <image
+        href="../../../assets/hoangleitvn.jpeg"
+        x="64" y="1363" width="70" height="70"
+        clip-path="url(#circleClip)"
+        preserveAspectRatio="xMidYMid slice"
+      />
+      <circle cx="99" cy="1398" r="35" fill="none" stroke="#00a86b" stroke-width="2"/>
+
+      <text x="154" y="1390" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">Hoang Le</text>
+      <text x="154" y="1420" fill="#9ca3af" font-family="Public Sans" font-size="22" font-weight="400">Builds That Last</text>
+
+      <text x="1136" y="1405" text-anchor="end" font-family="Public Sans" font-size="26" font-weight="400">
+        <tspan fill="#d1d5db">Everyone ships </tspan><tspan fill="#10b981">fast</tspan><tspan fill="#d1d5db">. Few build to </tspan><tspan fill="#10b981">last</tspan><tspan fill="#d1d5db">.</tspan>
+      </text>
+
+    </svg>
+  </div>
+
+</body>
+</html>

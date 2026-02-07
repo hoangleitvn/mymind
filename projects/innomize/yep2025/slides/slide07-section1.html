@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #EA322A; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #EA322A; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+}
+.accent-line {
+  width: 80pt; height: 4pt;
+  background: #FFFFFF;
+  margin-bottom: 25pt;
+  border-radius: 2pt;
+}
+h1 {
+  color: #FFFFFF; font-size: 42pt; font-weight: 700;
+  margin: 0 0 10pt 0; text-align: center;
+}
+.subtitle {
+  color: #FFC8B1; font-size: 20pt; font-weight: 400;
+  margin: 0 0 40pt 0; text-align: center;
+}
+.pillars {
+  display: flex; gap: 20pt;
+}
+.pillar {
+  padding: 12pt 30pt;
+  border: 2pt solid #FFFFFF;
+  border-radius: 6pt;
+}
+.pillar.active {
+  background: #FFFFFF;
+}
+.pillar p {
+  color: #FFFFFF; font-size: 16pt; font-weight: 700;
+  margin: 0; text-align: center;
+}
+.pillar.active p {
+  color: #EA322A;
+}
+.pillar.dimmed {
+  border-color: #FFC8B1;
+  opacity: 0.5;
+}
+.pillar.dimmed p {
+  color: #FFC8B1;
+}
+</style>
+</head>
+<body>
+<div class="accent-line"></div>
+<h1>Part 1: Builder Mindset</h1>
+<p class="subtitle">OWN & BUILD</p>
+<div class="pillars">
+  <div class="pillar active"><p>OWN</p></div>
+  <div class="pillar active"><p>BUILD</p></div>
+  <div class="pillar dimmed"><p>LEAD</p></div>
+</div>
+</body>
+</html>

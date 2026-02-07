@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
+
+      /* Display: H/9 = 120px */
+      .display { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 120px; fill: #f9fafb; letter-spacing: -0.02em; }
+      /* Metadata: H/36 = 30px */
+      .metadata { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.1em; }
+
+      /* Layer labels */
+      .layer-label { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 36px; fill: #f9fafb; }
+      .layer-meta { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 20px; fill: #6b7280; letter-spacing: 0.1em; }
+      .layer-detail { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 24px; fill: #9ca3af; }
+
+      /* Technical annotations */
+      .annotation { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 18px; fill: #4b5563; letter-spacing: 0.1em; }
+      .dimension { font-family: 'JetBrains Mono', monospace; font-weight: 400; font-size: 16px; fill: #374151; }
+    </style>
+  </defs>
+
+  <!-- Background: Deep charcoal -->
+  <rect width="1080" height="1080" fill="#111827"/>
+
+  <!-- Accent Bar: BTL Signature (5px) -->
+  <rect x="0" y="0" width="1080" height="5" fill="#00a86b"/>
+
+  <!-- ==================== HEADER ZONE ==================== -->
+  <!-- Top-left metadata block -->
+  <g transform="translate(80, 80)">
+    <text x="0" y="0" class="metadata" fill="#00a86b">ARCHITECTURE</text>
+    <text x="0" y="40" class="metadata" fill="#4b5563">DURABILITY SPEC</text>
+  </g>
+
+  <!-- Waterline separator -->
+  <line x1="80" y1="160" x2="1000" y2="160" stroke="#374151" stroke-width="2" stroke-dasharray="8,8"/>
+
+  <!-- ==================== MAIN TITLE (Bottom-weighted in top section) ==================== -->
+  <g transform="translate(80, 280)">
+    <text x="0" y="0" class="display">Foundation</text>
+    <text x="0" y="100" class="display">Stack</text>
+  </g>
+
+  <!-- Right-aligned velocity/stability legend -->
+  <g transform="translate(700, 200)">
+    <text x="0" y="0" class="annotation">VELOCITY</text>
+    <line x1="0" y1="20" x2="80" y2="20" stroke="#10b981" stroke-width="3"/>
+    <line x1="90" y1="20" x2="140" y2="20" stroke="#6b7280" stroke-width="3"/>
+
+    <text x="200" y="0" class="annotation">STABILITY</text>
+    <rect x="200" y="10" width="60" height="16" rx="2" fill="#10b981"/>
+    <rect x="270" y="10" width="40" height="16" rx="2" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+  </g>
+
+  <!-- ==================== THE STACK (Bottom-weighted, geometric) ==================== -->
+
+  <!-- Dimension line left side -->
+  <g transform="translate(50, 440)">
+    <line x1="0" y1="0" x2="0" y2="520" stroke="#374151" stroke-width="1"/>
+    <line x1="-8" y1="0" x2="8" y2="0" stroke="#374151" stroke-width="1"/>
+    <line x1="-8" y1="520" x2="8" y2="520" stroke="#374151" stroke-width="1"/>
+    <text x="-10" y="260" class="dimension" text-anchor="end" transform="rotate(-90, -10, 260)">DURABILITY</text>
+  </g>
+
+  <!-- LAYER 3: APPLICATION (Top - thinnest, fastest) -->
+  <g transform="translate(80, 440)">
+    <!-- Block: thin, light stroke -->
+    <rect x="0" y="0" width="520" height="100" rx="8" fill="none" stroke="#4b5563" stroke-width="2"/>
+
+    <!-- Content -->
+    <text x="32" y="45" class="layer-label">Application</text>
+    <text x="32" y="80" class="layer-detail">UI, Features, Components</text>
+
+    <!-- Velocity indicator -->
+    <g transform="translate(560, 10)">
+      <text x="0" y="15" class="annotation">VELOCITY</text>
+      <rect x="0" y="25" width="180" height="30" rx="4" fill="#1f2937"/>
+      <rect x="4" y="29" width="150" height="22" rx="2" fill="#10b981"/>
+      <text x="190" y="48" class="annotation" fill="#10b981">FAST</text>
+    </g>
+
+    <!-- Stability indicator -->
+    <g transform="translate(780, 10)">
+      <text x="0" y="15" class="annotation">STABILITY</text>
+      <rect x="0" y="25" width="180" height="30" rx="4" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+      <rect x="4" y="29" width="45" height="22" rx="2" fill="#f59e0b" opacity="0.8"/>
+      <text x="190" y="48" class="layer-meta" fill="#f59e0b">25%</text>
+    </g>
+  </g>
+
+  <!-- Connector line -->
+  <line x1="340" y1="540" x2="340" y2="580" stroke="#4b5563" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- LAYER 2: LOGIC & DATA (Middle - medium) -->
+  <g transform="translate(80, 590)">
+    <!-- Block: medium weight, jade stroke -->
+    <rect x="0" y="0" width="520" height="140" rx="8" fill="#1f2937" stroke="#00a86b" stroke-width="2"/>
+    <rect x="0" y="0" width="520" height="4" rx="2" fill="#00a86b"/>
+
+    <!-- Content -->
+    <text x="32" y="50" class="layer-label">Logic &amp; Data</text>
+    <text x="32" y="90" class="layer-detail">Business Rules, APIs, State</text>
+    <text x="32" y="120" class="layer-detail" fill="#6b7280">Services, Schemas, Validation</text>
+
+    <!-- Velocity indicator -->
+    <g transform="translate(560, 35)">
+      <text x="0" y="15" class="annotation">VELOCITY</text>
+      <rect x="0" y="25" width="180" height="30" rx="4" fill="#1f2937"/>
+      <rect x="4" y="29" width="80" height="22" rx="2" fill="#9ca3af"/>
+      <text x="190" y="48" class="annotation" fill="#9ca3af">MOD</text>
+    </g>
+
+    <!-- Stability indicator -->
+    <g transform="translate(780, 35)">
+      <text x="0" y="15" class="annotation">STABILITY</text>
+      <rect x="0" y="25" width="180" height="30" rx="4" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+      <rect x="4" y="29" width="108" height="22" rx="2" fill="#00a86b"/>
+      <text x="190" y="48" class="layer-meta" fill="#00a86b">60%</text>
+    </g>
+  </g>
+
+  <!-- Connector line (jade) -->
+  <line x1="340" y1="730" x2="340" y2="770" stroke="#00a86b" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- LAYER 1: INFRASTRUCTURE (Bottom - thickest, most stable, GROUNDED) -->
+  <g transform="translate(80, 780)">
+    <!-- Block: thick, solid jade fill - the bedrock -->
+    <rect x="0" y="0" width="520" height="180" rx="8" fill="#065f46"/>
+
+    <!-- Content -->
+    <text x="32" y="55" class="layer-label" fill="#ffffff">Infrastructure</text>
+    <text x="32" y="100" class="layer-detail" fill="rgba(255,255,255,0.8)">Platform, Database, Auth</text>
+    <text x="32" y="135" class="layer-detail" fill="rgba(255,255,255,0.6)">Cloud, Security, Core Protocols</text>
+    <text x="32" y="165" class="layer-meta" fill="rgba(255,255,255,0.4)">THE BEDROCK</text>
+
+    <!-- Velocity indicator -->
+    <g transform="translate(560, 55)">
+      <text x="0" y="15" class="annotation">VELOCITY</text>
+      <rect x="0" y="25" width="180" height="30" rx="4" fill="#1f2937"/>
+      <rect x="4" y="29" width="30" height="22" rx="2" fill="#6b7280"/>
+      <text x="190" y="48" class="annotation" fill="#6b7280">SLOW</text>
+    </g>
+
+    <!-- Stability indicator -->
+    <g transform="translate(780, 55)">
+      <text x="0" y="15" class="annotation">STABILITY</text>
+      <rect x="0" y="25" width="180" height="30" rx="4" fill="#1f2937" stroke="#065f46" stroke-width="2"/>
+      <rect x="4" y="29" width="171" height="22" rx="2" fill="#10b981"/>
+      <text x="190" y="48" class="layer-meta" fill="#10b981">95%</text>
+    </g>
+  </g>
+
+  <!-- ==================== WATERLINE SEPARATOR ==================== -->
+  <line x1="80" y1="1000" x2="1000" y2="1000" stroke="#00a86b" stroke-width="3"/>
+
+  <!-- ==================== FOOTER: TAGLINE ==================== -->
+  <g transform="translate(80, 1045)">
+    <text x="0" y="0" class="metadata" fill="#00a86b">BUILDS THAT LAST</text>
+  </g>
+
+  <g transform="translate(1000, 1045)">
+    <text x="0" y="0" class="annotation" fill="#4b5563" text-anchor="end">v1.0</text>
+  </g>
+
+</svg>

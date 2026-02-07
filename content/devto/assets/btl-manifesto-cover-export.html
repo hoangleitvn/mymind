@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BTL Manifesto Cover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 1000px;
+      height: 420px;
+      overflow: hidden;
+      background: #1f2937;
+    }
+
+    body {
+      display: block;
+    }
+
+    .cover {
+      width: 1000px;
+      height: 420px;
+      background: #1f2937;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: #00a86b;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px;
+      max-width: 800px;
+    }
+
+    .title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: #f9fafb;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 32px;
+    }
+
+    .waterline {
+      width: 100%;
+      max-width: 600px;
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        #4b5563 0px,
+        #4b5563 8px,
+        transparent 8px,
+        transparent 16px
+      );
+      margin-bottom: 28px;
+    }
+
+    .tagline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 500;
+      color: #00a86b;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <div class="accent-bar"></div>
+    <div class="content">
+      <h1 class="title">The Builds That Last Manifesto</h1>
+      <div class="waterline"></div>
+      <p class="tagline">Everyone ships fast. Few build to last.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -16,6 +16,17 @@ target_hashtags: [Engineering, TechLeadership, SoftwareDevelopment, Architecture
 optimal_post_time: Tuesday-Thursday, 8-10am
 published_date: "2026-01-06T01:00:07Z"
 post_url: https://www.linkedin.com/feed/update/urn:li:activity:7414108472507564033/
+performance_metrics:
+  impressions: 769
+  members_reached: 369
+  profile_views: 2
+  followers: 0
+  reactions: 13
+  comments: 13
+  reposts: 1
+  saves: 3
+  sends_on_linkedin: 0
+  collected_at: 2026-01-19
 ---
 
 The best engineers I know aren't the fastest coders.

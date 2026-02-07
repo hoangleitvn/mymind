@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Manifesto: Foundation First - Waterline Cover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Brand Colors */
+      --jade-400: #10b981;
+      --jade-500: #00a86b;
+      --jade-700: #007a4c;
+      --jade-800: #065f46;
+      --charcoal-700: #374151;
+      --charcoal-800: #1f2937;
+      --charcoal-900: #111827;
+      --base-50: #f9fafb;
+      --base-400: #9ca3af;
+      --base-500: #6b7280;
+
+      /* Dimensions */
+      --width: 1080px;
+      --height: 1350px;
+      --padding: 64px; /* space-8 */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Public Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .canvas {
+      width: var(--width);
+      height: var(--height);
+      position: relative;
+      overflow: hidden;
+      background: var(--charcoal-900);
+    }
+
+    /* === TOP ZONE (20% - Surface) === */
+    .surface-zone {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 20%;
+      background: linear-gradient(180deg,
+        rgba(0, 168, 107, 0.12) 0%,
+        rgba(0, 168, 107, 0.04) 100%
+      );
+      z-index: 1;
+    }
+
+    /* === ENGINEERING GRID === */
+    .grid-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: 2;
+    }
+
+    /* === ACCENT BAR === */
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--jade-500);
+      z-index: 10;
+    }
+
+    /* === WATERLINE === */
+    .waterline {
+      position: absolute;
+      top: 20%;
+      left: 0;
+      right: 0;
+      z-index: 5;
+    }
+
+    .waterline-main {
+      width: 100%;
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        var(--base-50) 0px,
+        var(--base-50) 8px,
+        transparent 8px,
+        transparent 14px
+      );
+    }
+
+    .waterline-glow {
+      width: 100%;
+      height: 1px;
+      margin-top: 2px;
+      background: var(--jade-400);
+      opacity: 0.4;
+      filter: blur(1px);
+    }
+
+    .waterline-labels {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px var(--padding);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .label-surface {
+      color: var(--jade-500);
+    }
+
+    .label-foundation {
+      color: var(--base-400);
+    }
+
+    /* === PERCENT INDICATORS === */
+    .percent-indicators {
+      position: absolute;
+      right: var(--padding);
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      z-index: 4;
+    }
+
+    .percent-surface {
+      position: absolute;
+      top: 10%;
+      right: 0;
+      text-align: right;
+    }
+
+    .percent-foundation {
+      position: absolute;
+      top: 55%;
+      right: 0;
+      text-align: right;
+    }
+
+    .percent-number {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .percent-surface .percent-number {
+      color: var(--jade-400);
+    }
+
+    .percent-foundation .percent-number {
+      color: var(--base-500);
+    }
+
+    .percent-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .percent-surface .percent-label {
+      color: var(--jade-500);
+    }
+
+    .percent-foundation .percent-label {
+      color: var(--base-500);
+    }
+
+    /* === MAIN CONTENT === */
+    .content {
+      position: absolute;
+      top: 28%;
+      left: var(--padding);
+      right: 140px; /* Space for percent indicators */
+      z-index: 6;
+    }
+
+    .meta-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--jade-500);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .meta-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--jade-500);
+    }
+
+    .title {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 80px;
+      font-weight: 700;
+      color: var(--base-50);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .title-highlight {
+      color: var(--jade-400);
+    }
+
+    .subtitle {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 48px;
+      font-weight: 600;
+      color: var(--jade-400);
+      line-height: 1.2;
+      margin-bottom: 48px;
+    }
+
+    .tagline {
+      font-family: 'Public Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--base-400);
+      line-height: 1.5;
+      max-width: 600px;
+    }
+
+    /* === VISUAL ELEMENT (Mini Iceberg) === */
+    .iceberg-mini {
+      position: absolute;
+      bottom: 220px;
+      right: var(--padding);
+      width: 200px;
+      height: 320px;
+      z-index: 4;
+      opacity: 0.6;
+    }
+
+    /* === FOOTER === */
+    .footer {
+      position: absolute;
+      bottom: 56px;
+      left: var(--padding);
+      right: var(--padding);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid var(--charcoal-700);
+      z-index: 6;
+    }
+
+    .brand-tagline {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--base-50);
+    }
+
+    .brand-tagline .jade {
+      color: var(--jade-400);
+    }
+
+    .attribution {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .profile-photo-wrapper {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--jade-800) 0%, var(--charcoal-800) 100%);
+      flex-shrink: 0;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .attribution-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .attribution-name {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--base-50);
+    }
+
+    .attribution-handle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--base-400);
+      letter-spacing: 0.02em;
+    }
+
+    .attribution-handle .brand {
+      color: var(--jade-500);
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <!-- Accent Bar -->
+    <div class="accent-bar"></div>
+
+    <!-- Surface Zone (Top 20%) -->
+    <div class="surface-zone"></div>
+
+    <!-- Engineering Grid -->
+    <div class="grid-bg"></div>
+
+    <!-- Waterline -->
+    <div class="waterline">
+      <div class="waterline-main"></div>
+      <div class="waterline-glow"></div>
+      <div class="waterline-labels">
+        <span class="label-surface">Surface</span>
+        <span class="label-foundation">Foundation</span>
+      </div>
+    </div>
+
+    <!-- Percent Indicators -->
+    <div class="percent-indicators">
+      <div class="percent-surface">
+        <div class="percent-number">20%</div>
+        <div class="percent-label">Visible</div>
+      </div>
+      <div class="percent-foundation">
+        <div class="percent-number">80%</div>
+        <div class="percent-label">Hidden</div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <div class="meta-label">Manifesto</div>
+      <h1 class="title">Foundation<br>First.</h1>
+      <h2 class="subtitle">Speed Follows.</h2>
+      <p class="tagline">Everyone ships fast. Few build to last.</p>
+    </div>
+
+    <!-- Mini Iceberg Visual -->
+    <div class="iceberg-mini">
+      <svg width="200" height="320" viewBox="0 0 200 320" fill="none">
+        <!-- Waterline reference -->
+        <line x1="0" y1="64" x2="200" y2="64" stroke="#00a86b" stroke-width="1" stroke-dasharray="6 4" opacity="0.3"/>
+
+        <!-- Tip (20%) -->
+        <path d="M100 10 L140 64 L60 64 Z"
+              stroke="rgba(255,255,255,0.3)"
+              stroke-width="1.5"
+              fill="rgba(16, 185, 129, 0.1)"/>
+        <circle cx="100" cy="10" r="3" fill="#10b981" opacity="0.6"/>
+
+        <!-- Body (80%) -->
+        <path d="M60 64 L30 300 L170 310 L140 64 Z"
+              stroke="rgba(255,255,255,0.15)"
+              stroke-width="1"
+              fill="rgba(31, 41, 55, 0.3)"/>
+
+        <!-- Internal structure lines -->
+        <line x1="60" y1="64" x2="170" y2="310" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <line x1="140" y1="64" x2="30" y2="300" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <line x1="100" y1="64" x2="100" y2="305" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+        <!-- Bottom nodes -->
+        <circle cx="30" cy="300" r="3" fill="#00a86b" opacity="0.4"/>
+        <circle cx="170" cy="310" r="3" fill="#00a86b" opacity="0.4"/>
+        <circle cx="100" cy="305" r="3" fill="#00a86b" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="brand-tagline">Build to <span class="jade">last.</span></p>
+      <div class="attribution">
+        <div class="profile-photo-wrapper">
+          <img class="profile-photo" src="../../foundation/brands/btl/assets/hoangleitvn.jpeg" alt="Hoang Le" />
+        </div>
+        <div class="attribution-info">
+          <span class="attribution-name">Hoang Le</span>
+          <span class="attribution-handle">@hoangleitvn · <span class="brand">Builds That Last</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

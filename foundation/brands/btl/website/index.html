@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Builds That Last | Engineering Insights for the Long Term</title>
+  <meta name="description" content="Everyone ships fast. Few build to last. Engineering insights for founders and tech leaders who build for the long term.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Builds That Last">
+  <meta property="og:description" content="Everyone ships fast. Few build to last. Engineering insights for founders and tech leaders.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://buildsthatl.ast">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Builds That Last">
+  <meta name="twitter:description" content="Everyone ships fast. Few build to last.">
+
+  <!-- Fonts: IBM Plex Sans (headlines), Public Sans (body), JetBrains Mono (code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='16,4 24,12 8,12' fill='%2310b981'/><line x1='6' y1='12' x2='26' y2='12' stroke='%231f2937' stroke-width='1' stroke-dasharray='3,2'/><polygon points='16,28 6,12 26,12' fill='%2300a86b'/></svg>">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="sr-only">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="logo">
+        <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="20,6 30,16 10,16" fill="#10b981"/>
+          <line x1="8" y1="16" x2="32" y2="16" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <polygon points="20,34 6,16 34,16" fill="#00a86b"/>
+        </svg>
+        <span class="logo-text">Builds That Last</span>
+      </a>
+
+      <nav class="header-nav">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#philosophy" class="nav-link">Philosophy</a>
+        <a href="blogs.html" class="nav-link">Blog</a>
+        <a href="#subscribe" class="nav-link">Subscribe</a>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <svg class="hero-mark" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="tipGrad" x1="40" y1="0" x2="40" y2="32" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#10b981"/>
+                <stop offset="100%" stop-color="#00a86b"/>
+              </linearGradient>
+              <linearGradient id="bodyGrad" x1="40" y1="32" x2="40" y2="100" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00a86b"/>
+                <stop offset="40%" stop-color="#065f46"/>
+                <stop offset="100%" stop-color="#022c22"/>
+              </linearGradient>
+            </defs>
+            <polygon points="40,0 70,32 10,32" fill="url(#tipGrad)"/>
+            <line x1="6" y1="32" x2="74" y2="32" stroke="#f9fafb" stroke-width="2" stroke-dasharray="8,6"/>
+            <polygon points="40,100 0,32 80,32" fill="url(#bodyGrad)"/>
+          </svg>
+
+          <h1 class="hero-tagline">Everyone ships fast.<br>Few build to last.</h1>
+          <p class="hero-subtitle">Engineering insights for founders and tech leaders who build for the long term. No frameworks copied. No theory without proof.</p>
+
+          <div class="hero-cta">
+            <a href="#manifesto" class="btn btn-primary btn-lg">Read the Manifesto</a>
+            <a href="#subscribe" class="btn btn-secondary btn-lg" style="border-color: rgba(255,255,255,0.3); color: white;">Subscribe</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-visual">
+            <svg class="about-mark" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="aboutTip" x1="100" y1="0" x2="100" y2="80" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#10b981"/>
+                  <stop offset="100%" stop-color="#00a86b"/>
+                </linearGradient>
+                <linearGradient id="aboutBody" x1="100" y1="80" x2="100" y2="240" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#00a86b"/>
+                  <stop offset="40%" stop-color="#065f46"/>
+                  <stop offset="100%" stop-color="#022c22"/>
+                </linearGradient>
+              </defs>
+              <polygon points="100,0 175,80 25,80" fill="url(#aboutTip)"/>
+              <line x1="15" y1="80" x2="185" y2="80" stroke="#1f2937" stroke-width="2" stroke-dasharray="8,6"/>
+              <polygon points="100,240 0,80 200,80" fill="url(#aboutBody)"/>
+              <!-- Labels -->
+              <text x="100" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#065f46" font-weight="500">20%</text>
+              <text x="100" y="160" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#d1fae5" font-weight="500">80%</text>
+            </svg>
+          </div>
+
+          <div class="about-content">
+            <div class="section-label">About</div>
+            <h2>What is Builds That Last?</h2>
+            <p>I've been building and leading engineering teams for 15 years. Over 50 projects. Startups, enterprises, legacy systems, greenfield builds. Some still live. Some failed. Some never shipped.</p>
+            <p>And I keep seeing the same pattern. Teams ship fast. Then they slow down. Not because the engineers got lazy. Because the foundation was never there.</p>
+            <p>This publication is for engineers and founders who want to build things that last, not things that break. Real lessons from real projects. What works, what fails, and why foundation matters more than ever in the AI era.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="philosophy">
+      <div class="container">
+        <div class="philosophy-intro">
+          <div class="section-label">Philosophy</div>
+          <h2>Five Principles</h2>
+          <p>These principles guide how we think about building software that lasts. They're not rules to follow blindly, but lenses to see through.</p>
+        </div>
+
+        <hr class="waterline">
+
+        <div class="principles-grid">
+          <article class="principle-card">
+            <span class="principle-number">01</span>
+            <h3 class="principle-title">Depth Over Surface</h3>
+            <p class="principle-desc">What you see should suggest what's beneath. The demo works, but what comes after separates software that lasts from software that collapses.</p>
+          </article>
+
+          <article class="principle-card">
+            <span class="principle-number">02</span>
+            <h3 class="principle-title">Clarity Over Cleverness</h3>
+            <p class="principle-desc">Understanding beats impressiveness. Code that humans can maintain is worth more than code that machines can generate.</p>
+          </article>
+
+          <article class="principle-card">
+            <span class="principle-number">03</span>
+            <h3 class="principle-title">Restraint Over Abundance</h3>
+            <p class="principle-desc">Less, but intentional. Every feature, every abstraction, every dependency should earn its place in the system.</p>
+          </article>
+
+          <article class="principle-card">
+            <span class="principle-number">04</span>
+            <h3 class="principle-title">Grounded Over Floating</h3>
+            <p class="principle-desc">Weight and stability over lightness. Systems need foundations that anchor them when reality gets complicated.</p>
+          </article>
+
+          <article class="principle-card">
+            <span class="principle-number">05</span>
+            <h3 class="principle-title">Timeless Over Trendy</h3>
+            <p class="principle-desc">Built to last, not built for now. The fundamentals matter more than ever when tools change every quarter.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Manifesto Section -->
+    <section id="manifesto" class="manifesto">
+      <div class="container">
+        <div class="manifesto-card">
+          <span class="manifesto-label">Featured Article</span>
+          <h2 class="manifesto-title">Why Foundation Comes Before Speed</h2>
+
+          <p class="manifesto-excerpt">What you see is 20% above the water. The shiny demos. The fast shipping. What you don't see is the 80% below. The maintenance. The technical debt. Engineers connecting systems that were never meant to work together.</p>
+
+          <blockquote class="manifesto-quote">
+            "The demo works. The demo always works. It's what comes after that separates software that lasts from software that collapses."
+          </blockquote>
+
+          <p class="manifesto-excerpt">This is the iceberg problem. People say "build the 20% that matters." But what about the trade-offs and risks that come with the other 80%? Nobody talks about that part.</p>
+
+          <a href="https://buildthatlast.substack.com" class="btn btn-primary" target="_blank" rel="noopener">Read the Full Manifesto</a>
+
+          <div class="manifesto-meta">
+            <div class="manifesto-author">
+              <div>
+                <div class="manifesto-author-name">Hoang Le</div>
+                <div class="manifesto-author-role">Engineering Leader, 15+ years</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section id="subscribe" class="subscribe">
+      <div class="container">
+        <h2>Join the Newsletter</h2>
+        <p>Engineering insights delivered weekly. No spam, just substance. Real lessons from real projects.</p>
+        <a href="https://buildthatlast.substack.com" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Subscribe on Substack</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="20,6 30,16 10,16" fill="#10b981"/>
+              <line x1="8" y1="16" x2="32" y2="16" stroke="#f9fafb" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polygon points="20,34 6,16 34,16" fill="#00a86b"/>
+            </svg>
+            <span class="logo-text" style="color: white;">Builds That Last</span>
+          </a>
+          <p>Engineering insights for founders and tech leaders who build for the long term.</p>
+        </div>
+
+        <nav class="footer-nav">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="blogs.html">Blog</a></li>
+            <li><a href="#subscribe">Subscribe</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-nav">
+          <h4>Content</h4>
+          <ul>
+            <li><a href="https://buildthatlast.substack.com" target="_blank" rel="noopener">Substack</a></li>
+            <li><a href="https://linkedin.com/in/hoangleitvn" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-nav">
+          <h4>More</h4>
+          <ul>
+            <li><a href="https://innomize.com" target="_blank" rel="noopener">INNOMIZE</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">2026 Builds That Last. All rights reserved.</p>
+
+        <div class="footer-social">
+          <a href="https://linkedin.com/in/hoangleitvn" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="https://buildthatlast.substack.com" target="_blank" rel="noopener" aria-label="Substack">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+</body>
+</html>

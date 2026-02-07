@@ -15,6 +15,17 @@ optimal_post_time: Wednesday, 8-10am
 word_count: 270
 published_date: "2026-01-06T00:54:35Z"
 post_url: https://www.linkedin.com/feed/update/urn:li:activity:7414469467486736385/
+performance_metrics:
+  impressions: 382
+  members_reached: 152
+  profile_views: 3
+  followers: 0
+  reactions: 10
+  comments: 10
+  reposts: 1
+  saves: 1
+  sends_on_linkedin: 0
+  collected_at: 2026-01-19
 ---
 
 "Serverless is expensive at scale" is dead.

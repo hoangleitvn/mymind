@@ -1,0 +1,75 @@
+<svg viewBox="0 0 240 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    BTL Iceberg - Classic "Tip of the Iceberg" Shape
+    Proportions: 20% above water (small tip), 80% below (massive expansion)
+    Waterline at y=64
+
+    Key: The tip is SMALL. The underwater mass is DRAMATICALLY LARGER.
+  -->
+
+  <!-- ========================================== -->
+  <!-- ABOVE WATER - 20% (small pointed tip) -->
+  <!-- ========================================== -->
+
+  <!-- Peak - simple mountain shape, narrow -->
+  <polygon points="120,8 95,64 145,64" fill="#ffffff"/>
+  <!-- Left face shadow -->
+  <polygon points="120,8 80,64 95,64" fill="#e5e7eb"/>
+  <!-- Right face highlight -->
+  <polygon points="120,8 145,64 155,64" fill="#f3f4f6"/>
+  <!-- Small side extensions -->
+  <polygon points="80,64 70,64 85,50" fill="#d1d5db"/>
+  <polygon points="155,64 170,64 150,50" fill="#d1d5db"/>
+
+  <!-- ========================================== -->
+  <!-- WATERLINE -->
+  <!-- ========================================== -->
+  <line x1="20" y1="66" x2="220" y2="66" stroke="#f9fafb" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+
+  <!-- ========================================== -->
+  <!-- BELOW WATER - 80% (massive expanding mass) -->
+  <!-- ========================================== -->
+
+  <!-- Layer 1: Just below surface - starts expanding -->
+  <polygon points="70,64 40,110 90,105" fill="#0f766e"/>
+  <polygon points="70,64 90,105 120,64" fill="#115e59"/>
+  <polygon points="120,64 90,105 150,105" fill="#0f766e"/>
+  <polygon points="120,64 150,105 170,64" fill="#134e4a"/>
+  <polygon points="170,64 150,105 200,110" fill="#115e59"/>
+
+  <!-- Layer 2: Mid-upper - continues expanding -->
+  <polygon points="40,110 15,170 70,160" fill="#0d5c57"/>
+  <polygon points="40,110 70,160 90,105" fill="#0f766e"/>
+  <polygon points="90,105 70,160 120,165" fill="#115e59"/>
+  <polygon points="90,105 120,165 150,105" fill="#0d5c57"/>
+  <polygon points="150,105 120,165 170,160" fill="#0f766e"/>
+  <polygon points="150,105 170,160 200,110" fill="#134e4a"/>
+  <polygon points="200,110 170,160 225,170" fill="#0d5c57"/>
+
+  <!-- Layer 3: Mid-depth - widest point -->
+  <polygon points="15,170 5,235 55,225" fill="#0a4744"/>
+  <polygon points="15,170 55,225 70,160" fill="#0d5c57"/>
+  <polygon points="70,160 55,225 120,230" fill="#0f766e"/>
+  <polygon points="70,160 120,230 120,165" fill="#0a4744"/>
+  <polygon points="120,165 120,230 185,225" fill="#0d5c57"/>
+  <polygon points="120,165 185,225 170,160" fill="#0f766e"/>
+  <polygon points="170,160 185,225 235,235" fill="#0a4744"/>
+  <polygon points="170,160 235,235 225,170" fill="#0d5c57"/>
+
+  <!-- Layer 4: Lower - starts tapering -->
+  <polygon points="5,235 25,290 75,275" fill="#065f46"/>
+  <polygon points="5,235 75,275 55,225" fill="#0a4744"/>
+  <polygon points="55,225 75,275 120,280" fill="#0d5c57"/>
+  <polygon points="55,225 120,280 120,230" fill="#065f46"/>
+  <polygon points="120,230 120,280 165,275" fill="#0a4744"/>
+  <polygon points="120,230 165,275 185,225" fill="#0d5c57"/>
+  <polygon points="185,225 165,275 215,290" fill="#065f46"/>
+  <polygon points="185,225 215,290 235,235" fill="#0a4744"/>
+
+  <!-- Layer 5: Bottom point - tapers to base -->
+  <polygon points="25,290 120,312 75,275" fill="#064e3b"/>
+  <polygon points="75,275 120,312 120,280" fill="#065f46"/>
+  <polygon points="120,280 120,312 165,275" fill="#065f46"/>
+  <polygon points="165,275 120,312 215,290" fill="#064e3b"/>
+
+</svg>

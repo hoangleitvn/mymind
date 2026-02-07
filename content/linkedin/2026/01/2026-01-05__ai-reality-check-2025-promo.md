@@ -11,6 +11,17 @@ article_url: https://innomizetech.com/blog/the-ai-reality-check-what-2025-taught
 hook_type: data-driven
 published_date: "2026-01-05T03:17:27Z"
 post_url: https://www.linkedin.com/feed/update/urn:li:activity:7413780479503593473/
+performance_metrics:
+  impressions: 277
+  members_reached: 86
+  profile_views: 0
+  followers: 0
+  reactions: 6
+  comments: 3
+  reposts: 1
+  saves: 0
+  sends_on_linkedin: 0
+  collected_at: 2026-01-19
 ---
 
 Everyone adopted AI in 2025.

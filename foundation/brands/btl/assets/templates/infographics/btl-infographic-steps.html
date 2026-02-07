@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Infographic: Steps/Process</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /*
+      BTL Infographic Template: Steps/Process
+      ========================================
+      Design System: v2.2 | Philosophy: v1.2
+
+      Usage: How-to guides, step-by-step processes, educational content
+
+      Principles Applied:
+      - P1. Depth Over Surface: Each step suggests deeper knowledge
+      - P2. Clarity Over Cleverness: Numbered steps, clear progression
+      - P3. Restraint Over Abundance: Max 5 steps, minimal decoration
+      - P4. Grounded Over Floating: Numbers anchor each step
+      - P5. Timeless Over Trendy: Classic numbered list layout
+
+      Layout: 1200x1200 (LinkedIn square)
+      Max: 5 steps for readability
+
+      Typography:
+      - Title: 44px IBM Plex Sans 700
+      - Step number: 48px JetBrains Mono 700
+      - Step title: 28px IBM Plex Sans 600
+      - Step description: 20px Public Sans 400
+    */
+    :root {
+      --brand-400: #10b981;
+      --brand-500: #00a86b;
+      --brand-600: #008553;
+      --base-50: #f9fafb;
+      --base-300: #d1d5db;
+      --base-400: #9ca3af;
+      --base-700: #374151;
+      --base-800: #1f2937;
+      --base-900: #111827;
+      --canvas-width: 1200px;
+      --canvas-height: 1200px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: "Public Sans", system-ui, sans-serif;
+    }
+
+    .canvas {
+      width: var(--canvas-width);
+      height: var(--canvas-height);
+      background: var(--base-800);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .canvas-svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="canvas">
+    <svg class="canvas-svg" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Definitions -->
+      <defs>
+        <clipPath id="circleClip">
+          <circle cx="99" cy="1098" r="35"/>
+        </clipPath>
+      </defs>
+
+      <!-- Background -->
+      <rect width="1200" height="1200" fill="#1f2937"/>
+
+      <!-- Accent Bar -->
+      <rect x="0" y="0" width="1200" height="6" fill="#00a86b"/>
+
+      <!-- EDIT: Title -->
+      <text x="600" y="90" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="44" font-weight="700" letter-spacing="-0.02em">
+        How to Build Lasting Systems
+      </text>
+
+      <!-- Subtitle -->
+      <text x="600" y="135" text-anchor="middle" fill="#9ca3af" font-family="Public Sans" font-size="22" font-weight="400">
+        5 steps from quick fix to sustainable architecture
+      </text>
+
+      <!-- Divider -->
+      <line x1="64" y1="172" x2="1136" y2="172" stroke="#374151" stroke-width="1"/>
+
+      <!-- ========================================== -->
+      <!-- STEP 1                                    -->
+      <!-- Step row: 160px height, y starts at 200   -->
+      <!-- ========================================== -->
+      <g transform="translate(64, 200)">
+        <!-- Step number circle -->
+        <circle cx="40" cy="48" r="40" fill="#111827" stroke="#00a86b" stroke-width="2"/>
+        <text x="40" y="60" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="32" font-weight="700">1</text>
+
+        <!-- Step content -->
+        <text x="100" y="35" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">
+          Understand the problem first
+        </text>
+        <text x="100" y="70" fill="#d1d5db" font-family="Public Sans" font-size="20" font-weight="400">
+          Don't jump to solutions. Map the actual requirements.
+        </text>
+
+        <!-- Connector line to next step -->
+        <line x1="40" y1="96" x2="40" y2="160" stroke="#374151" stroke-width="2" stroke-dasharray="4 4"/>
+      </g>
+
+      <!-- ========================================== -->
+      <!-- STEP 2                                    -->
+      <!-- ========================================== -->
+      <g transform="translate(64, 360)">
+        <circle cx="40" cy="48" r="40" fill="#111827" stroke="#00a86b" stroke-width="2"/>
+        <text x="40" y="60" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="32" font-weight="700">2</text>
+
+        <text x="100" y="35" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">
+          Design before you build
+        </text>
+        <text x="100" y="70" fill="#d1d5db" font-family="Public Sans" font-size="20" font-weight="400">
+          Sketch the architecture. Identify dependencies and risks.
+        </text>
+
+        <line x1="40" y1="96" x2="40" y2="160" stroke="#374151" stroke-width="2" stroke-dasharray="4 4"/>
+      </g>
+
+      <!-- ========================================== -->
+      <!-- STEP 3                                    -->
+      <!-- ========================================== -->
+      <g transform="translate(64, 520)">
+        <circle cx="40" cy="48" r="40" fill="#111827" stroke="#00a86b" stroke-width="2"/>
+        <text x="40" y="60" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="32" font-weight="700">3</text>
+
+        <text x="100" y="35" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">
+          Build the foundation layer
+        </text>
+        <text x="100" y="70" fill="#d1d5db" font-family="Public Sans" font-size="20" font-weight="400">
+          Core abstractions, error handling, logging, tests.
+        </text>
+
+        <line x1="40" y1="96" x2="40" y2="160" stroke="#374151" stroke-width="2" stroke-dasharray="4 4"/>
+      </g>
+
+      <!-- ========================================== -->
+      <!-- STEP 4                                    -->
+      <!-- ========================================== -->
+      <g transform="translate(64, 680)">
+        <circle cx="40" cy="48" r="40" fill="#111827" stroke="#00a86b" stroke-width="2"/>
+        <text x="40" y="60" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="32" font-weight="700">4</text>
+
+        <text x="100" y="35" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">
+          Add features incrementally
+        </text>
+        <text x="100" y="70" fill="#d1d5db" font-family="Public Sans" font-size="20" font-weight="400">
+          Each feature builds on the foundation, not around it.
+        </text>
+
+        <line x1="40" y1="96" x2="40" y2="160" stroke="#374151" stroke-width="2" stroke-dasharray="4 4"/>
+      </g>
+
+      <!-- ========================================== -->
+      <!-- STEP 5 (Final - highlighted)              -->
+      <!-- ========================================== -->
+      <g transform="translate(64, 840)">
+        <!-- Highlighted background -->
+        <rect x="-16" y="0" width="1088" height="96" rx="8" fill="rgba(0, 168, 107, 0.1)"/>
+
+        <circle cx="40" cy="48" r="40" fill="#00a86b"/>
+        <text x="40" y="60" text-anchor="middle" fill="#ffffff" font-family="JetBrains Mono" font-size="32" font-weight="700">5</text>
+
+        <text x="100" y="35" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">
+          Document and maintain
+        </text>
+        <text x="100" y="70" fill="#d1d5db" font-family="Public Sans" font-size="20" font-weight="400">
+          Future you will thank present you. Write it down.
+        </text>
+      </g>
+
+      <!-- ========================================== -->
+      <!-- FOOTER (Standard BTL Cover Footer)        -->
+      <!-- ========================================== -->
+
+      <!-- Footer Line -->
+      <line x1="64" y1="1048" x2="1136" y2="1048" stroke="#374151" stroke-width="1"/>
+
+      <!-- Profile Picture -->
+      <image
+        href="../../../assets/hoangleitvn.jpeg"
+        x="64" y="1063" width="70" height="70"
+        clip-path="url(#circleClip)"
+        preserveAspectRatio="xMidYMid slice"
+      />
+      <circle cx="99" cy="1098" r="35" fill="none" stroke="#00a86b" stroke-width="2"/>
+
+      <!-- Footer Text -->
+      <text x="154" y="1090" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">Hoang Le</text>
+      <text x="154" y="1120" fill="#9ca3af" font-family="Public Sans" font-size="22" font-weight="400">Builds That Last</text>
+
+      <!-- Tagline -->
+      <text x="1136" y="1105" text-anchor="end" font-family="Public Sans" font-size="26" font-weight="400">
+        <tspan fill="#d1d5db">Everyone ships </tspan><tspan fill="#10b981">fast</tspan><tspan fill="#d1d5db">. Few build to </tspan><tspan fill="#10b981">last</tspan><tspan fill="#d1d5db">.</tspan>
+      </text>
+
+    </svg>
+  </div>
+
+</body>
+</html>

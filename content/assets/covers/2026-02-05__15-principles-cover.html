@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15 Principles I Build By - Cover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&family=JetBrains+Mono:wght@500&family=Public+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #374151;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .cover {
+      width: 1200px;
+      height: 627px;
+      background: #1f2937;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Top accent bar */
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: #00a86b;
+    }
+
+    /* Content container */
+    .content {
+      position: absolute;
+      left: 64px;
+      right: 64px;
+      bottom: 64px;
+      top: 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Number highlight */
+    .number {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-size: 180px;
+      font-weight: 700;
+      color: #00a86b;
+      opacity: 0.12;
+      position: absolute;
+      right: 64px;
+      top: 50%;
+      transform: translateY(-50%);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    /* Title */
+    .title {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      color: #f9fafb;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      max-width: 800px;
+    }
+
+    /* Subtitle */
+    .subtitle {
+      font-family: "Public Sans", system-ui, sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: #9ca3af;
+      margin-bottom: 24px;
+    }
+
+    /* Waterline */
+    .waterline {
+      width: 400px;
+      height: 2px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .waterline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        #f9fafb 0px,
+        #f9fafb 4px,
+        transparent 4px,
+        transparent 7px
+      );
+    }
+
+    .waterline::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(0, 168, 107, 0.3);
+    }
+
+    /* Categories */
+    .categories {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: #00a86b;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .categories span {
+      opacity: 0.5;
+      margin: 0 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <div class="accent-bar"></div>
+    <div class="number">15</div>
+    <div class="content">
+      <h1 class="title">15 Principles I Build By</h1>
+      <p class="subtitle">After 15 Years in Engineering</p>
+      <div class="waterline"></div>
+      <p class="categories">
+        Clarity<span>·</span>Structure<span>·</span>Context<span>·</span>Outcomes<span>·</span>Teams
+      </p>
+    </div>
+  </div>
+</body>
+</html>

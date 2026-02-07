@@ -5,6 +5,13 @@ status: published
 created: 2026-01-08
 published_date: "2026-01-08T07:03:32.943Z"
 post_url: "https://www.linkedin.com/feed/update/urn:li:share:7414924707650691072/"
+performance_metrics:
+  impressions: 3637
+  reactions: 5
+  comments: 3
+  reposts: 2
+  collected_at: 2026-01-19
+  note: "Partial stats - share URL format analytics unavailable"
 topic: AI impact on developer knowledge sources
 theme: ai-engineering
 persona: tech-leader

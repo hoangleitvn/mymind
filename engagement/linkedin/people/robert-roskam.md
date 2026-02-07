@@ -1,8 +1,8 @@
 ---
 type: linkedin-person
 created: 2025-12-27
-last_updated: 2025-12-27
-last_interaction: 2025-12-27
+last_updated: 2026-02-05
+last_interaction: 2026-02-05
 
 profile:
   name: Robert Roskam
@@ -25,6 +25,20 @@ themes:
   - devops
 
 engagement_history:
+  - date: 2026-02-05
+    type: comment
+    post_url: https://www.linkedin.com/posts/robertroskam_the-best-engineering-managers-arent-the-activity-7424814351959818240-X3yh
+    topic: Engineering managers - clarity over intelligence
+    status: posted
+    file: comments/2026/02/05/2026-02-05__robert-roskam-engineering-managers-clarity.md
+
+  - date: 2026-01-20
+    type: comment
+    post_url: https://www.linkedin.com/posts/robertroskam_over-the-weekend-claude-code-repeatedly-activity-7419140383407931392-XCJy
+    topic: LLM memory limitations and context drift
+    status: posted
+    file: comments/2026/01/20/2026-01-20__robert-roskam-claude-code-memory-drift.md
+
   - date: 2025-12-27
     type: comment
     post_url: https://www.linkedin.com/posts/robertroskam_containers-are-showing-their-age-i-wonder-activity-7410681127020949504-YP1S
@@ -41,9 +55,8 @@ engagement_history:
 
 tags: [infrastructure, containers, wasm, devops, technical-creator]
 
-last_interaction: 2025-12-29
-next_action: Post comment, monitor for response
-next_action_date: 2025-12-29
+next_action: Monitor for response on engineering managers clarity comment
+next_action_date: 2026-02-07
 ---
 
 ## About

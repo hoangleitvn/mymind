@@ -52,5 +52,3 @@ Look for people who challenge you, ask better questions, and make your product s
 That’s how good work becomes great work.
 
 #Outsourcing2_0 #TechPartnership #ProductMindset #ModernEngineering
-likeinsightful
-7

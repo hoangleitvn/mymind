@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200, height=1200">
+  <title>BE → DO → HAVE Framework</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 1200px;
+      height: 1200px;
+      background: #f9fafb;
+      font-family: "Public Sans", system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .header {
+      text-align: center;
+    }
+
+    .header h1 {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+
+    .header .subtitle {
+      font-size: 24px;
+      color: #6b7280;
+      font-weight: 400;
+    }
+
+    .framework {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .wrong-way, .right-way {
+      padding: 40px 48px;
+      border-radius: 16px;
+    }
+
+    .wrong-way {
+      background: #fef2f2;
+      border: 2px solid #fecaca;
+    }
+
+    .right-way {
+      background: #ecfdf5;
+      border: 2px solid #00a86b;
+    }
+
+    .label {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .wrong-way .label {
+      color: #dc2626;
+    }
+
+    .right-way .label {
+      color: #00a86b;
+    }
+
+    .formula {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .wrong-way .formula {
+      color: #991b1b;
+      text-decoration: line-through;
+      text-decoration-thickness: 4px;
+    }
+
+    .right-way .formula {
+      color: #1f2937;
+    }
+
+    .arrow {
+      color: #9ca3af;
+    }
+
+    .right-way .arrow {
+      color: #00a86b;
+    }
+
+    .example {
+      font-size: 22px;
+      color: #6b7280;
+      font-style: italic;
+    }
+
+    .wrong-way .example {
+      color: #9ca3af;
+    }
+
+    .right-way .example {
+      color: #374151;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .footer-line {
+      width: 40px;
+      height: 4px;
+      background: #00a86b;
+      border-radius: 2px;
+    }
+
+    .footer-text {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>The Mindset Shift</h1>
+      <div class="subtitle">Why some people stay stuck for years</div>
+    </div>
+
+    <div class="framework">
+      <div class="wrong-way">
+        <div class="label">Most people think</div>
+        <div class="formula">
+          HAVE <span class="arrow">→</span> DO <span class="arrow">→</span> BE
+        </div>
+        <div class="example">"When I have the title, I'll do leadership work, then I'll be a leader."</div>
+      </div>
+
+      <div class="right-way">
+        <div class="label">Reality</div>
+        <div class="formula">
+          BE <span class="arrow">→</span> DO <span class="arrow">→</span> HAVE
+        </div>
+        <div class="example">"Be the leader now. Do the work without the title. Have the results follow."</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-line"></div>
+      <div class="footer-text">BUILDS THAT LAST</div>
+    </div>
+  </div>
+</body>
+</html>

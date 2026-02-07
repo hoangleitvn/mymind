@@ -1,8 +1,8 @@
 ---
 type: linkedin-person
 created: '2026-01-06T14:05:00Z'
-last_updated: '2026-01-09T08:20:00Z'
-last_interaction: '2026-01-09'
+last_updated: '2026-01-15T14:05:00Z'
+last_interaction: '2026-01-15'
 
 profile:
   name: "Gabriel Millien"
@@ -27,6 +27,12 @@ themes:
   - organizational-change
 
 engagement_history:
+  - date: '2026-01-15'
+    type: "comment"
+    post_url: "https://www.linkedin.com/posts/gabriel-millien_most-people-are-collecting-ai-tools-very-activity-7417407750973968384-r4fz"
+    topic: "AI capability building vs tool collecting"
+    status: "draft"
+    file: "comments/2026/01/15/2026-01-15__gabriel-millien-ai-capability-vs-tools.md"
   - date: '2026-01-09'
     type: "comment"
     post_url: "https://www.linkedin.com/posts/gabriel-millien_you-cant-outsmart-bad-data-not-with-agents-activity-7415127664237375489-B3or"

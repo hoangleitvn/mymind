@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter/X Cover - 1500×500</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&family=Public+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Public Sans', system-ui, sans-serif;
+      background: #0a0a0a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      gap: 56px;
+    }
+
+    h1 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .label {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #00a86b;
+      letter-spacing: 0.02em;
+    }
+
+    .description {
+      font-size: 13px;
+      color: #9ca3af;
+      max-width: 900px;
+      line-height: 1.6;
+    }
+
+    .cover-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* === BASE COVER (LinkedIn: 1500×500) === */
+    .cover {
+      width: 1500px;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #111827 0%, #1a2332 60%, #1f2937 100%);
+    }
+
+    /* Safe zone indicator (bottom-left 430×172px for profile picture) */
+    .safe-zone {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 430px;
+      height: 172px;
+      border: 2px dashed #ef4444;
+      opacity: 0.3;
+      z-index: 20;
+      pointer-events: none;
+      display: none; /* Toggle on for debugging */
+    }
+
+    /* Grid overlay across entire cover */
+    .cover-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(to right, #374151 1px, transparent 1px),
+        linear-gradient(to bottom, #374151 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.35;
+      z-index: 1;
+    }
+
+    /* Jade accent bar at top */
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: #00a86b;
+      z-index: 10;
+    }
+
+    /* Full-cover waterline (at 27% = 135px for 20/80 ratio) */
+    .waterline {
+      position: absolute;
+      top: 135px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        #00a86b 0px,
+        #00a86b 8px,
+        transparent 8px,
+        transparent 14px
+      );
+      opacity: 0.4;
+      z-index: 3;
+    }
+
+    /* === LOGOS (Above Waterline, Centered vertically in top area) === */
+    /* Waterline at 135px, logo 48px tall: (135-48)/2 = 43.5px ≈ 44px */
+    .logos {
+      position: absolute;
+      top: 44px;
+      left: 48px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 5;
+    }
+
+    /* BTL Submark (self-contained SVG with frame) */
+    .btl-submark {
+      width: 48px;
+      height: 48px;
+    }
+
+    .logo-divider {
+      width: 1px;
+      height: 32px;
+      background: #374151;
+    }
+
+    /* Innomize Submark (raw logo, no frame) */
+    .innomize-submark {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    /* === CONTENT (Left-aligned, shifted right to balance illustration) === */
+    .content {
+      position: absolute;
+      top: 50%;
+      left: calc(35%);
+      transform: translateY(-50%);
+      text-align: left;
+      z-index: 5;
+    }
+
+    .tagline {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 700;
+      font-size: 50px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .tagline-white { color: #ffffff; }
+    .tagline-jade { color: #00a86b; }
+
+    .highlight {
+      color: #10b981; /* brand-400: Dark theme text accents */
+    }
+
+    .divider {
+      width: 72px;
+      height: 2px;
+      background: #00a86b;
+      opacity: 0.4;
+      margin: 18px 0;
+    }
+
+    .subtitle {
+      font-family: 'Public Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: #d1d5db; /* base-300: Better contrast for AAA */
+      letter-spacing: 0.01em;
+    }
+
+    /* === TECHNICAL ICEBERG (Right Side) === */
+    .iceberg-technical {
+      position: absolute;
+      right: 40px;
+      top: 0;
+      bottom: 0;
+      width: 480px;
+      z-index: 2;
+    }
+
+    /* Dimension labels */
+    .dim-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      fill: #9ca3af; /* base-400: Muted text (dark theme) */
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Twitter/X Cover (1500×500)</h1>
+
+  <!-- TWITTER COVER -->
+  <div class="cover-container">
+    <span class="label">Twitter/X Header - BTL + Innomize</span>
+    <p class="description">
+      1500×500 Twitter dimensions. Content centered to avoid corner overlaps.
+      24px grid, iceberg schematic, logos above waterline.
+    </p>
+    <div class="cover">
+      <!-- Safe zone indicator (toggle display:block for debugging) -->
+      <div class="safe-zone"></div>
+
+      <!-- Grid overlay (full cover) -->
+      <div class="cover-grid"></div>
+
+      <!-- Full-cover waterline -->
+      <div class="waterline"></div>
+
+      <!-- Technical Iceberg SVG (Right Side) - scaled for 500px height -->
+      <svg class="iceberg-technical" viewBox="0 0 480 500" fill="none" preserveAspectRatio="xMaxYMid meet">
+
+        <!-- Iceberg outline (margins: 35px top/bottom, waterline at 135px) -->
+        <path d="M240 35 L320 111 L360 111 L380 465 L100 465 L120 111 L160 111 Z"
+              fill="none" stroke="#374151" stroke-width="1.5"/>
+
+        <!-- Visible portion (20%: 35px to 135px) -->
+        <path d="M240 35 L320 111 L360 111 L360 135 L120 135 L120 111 L160 111 Z"
+              fill="#00a86b" fill-opacity="0.08" stroke="#00a86b" stroke-width="1"/>
+
+        <!-- Foundation portion (80%: 135px to 465px) -->
+        <path d="M120 135 L360 135 L380 465 L100 465 Z"
+              fill="#00a86b" fill-opacity="0.03" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+
+        <!-- Dimension line (left side, full height) -->
+        <line x1="80" y1="35" x2="80" y2="465" stroke="#9ca3af" stroke-width="1"/>
+        <line x1="75" y1="35" x2="85" y2="35" stroke="#9ca3af" stroke-width="1"/>
+        <line x1="75" y1="135" x2="85" y2="135" stroke="#9ca3af" stroke-width="1"/>
+        <line x1="75" y1="465" x2="85" y2="465" stroke="#9ca3af" stroke-width="1"/>
+
+        <!-- Dimension: 20% (right side) -->
+        <text x="400" y="90" class="dim-label" text-anchor="start">20%</text>
+
+        <!-- Dimension: 80% (right side) -->
+        <text x="400" y="310" class="dim-label" text-anchor="start">80%</text>
+
+        <!-- Labels -->
+        <text x="240" y="95" text-anchor="middle" class="dim-label" fill="#10b981">SURFACE</text>
+        <text x="240" y="310" text-anchor="middle" class="dim-label" fill="#9ca3af">FOUNDATION</text>
+
+        <!-- Center axis -->
+        <line x1="240" y1="15" x2="240" y2="485" stroke="#374151" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.5"/>
+
+        <!-- Durability label (vertical, aligned with dimension line, centered) -->
+        <g transform="translate(55, 250) rotate(-90)">
+          <text x="0" y="0" class="dim-label" fill="#9ca3af" letter-spacing="0.1em" text-anchor="middle">DURABILITY →</text>
+        </g>
+      </svg>
+
+      <!-- Logos -->
+      <div class="logos">
+        <img src="../../foundation/brands/btl/assets/btl-submark-rounded-light.svg" alt="BTL" class="btl-submark">
+        <div class="logo-divider"></div>
+        <img src="../../foundation/brands/innomize/assets/Fitlogo_Symsol_White.png" alt="Innomize" class="innomize-submark">
+      </div>
+
+      <!-- Content (Center-Left) -->
+      <div class="content">
+        <div class="tagline">
+          <span class="tagline-white">Everyone ships <span class="highlight">fast</span>.</span><br>
+          <span class="tagline-white">Few build to <span class="highlight">last</span>.</span>
+        </div>
+        <div class="divider"></div>
+        <div class="subtitle">Building Teams That Build Things That Last</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

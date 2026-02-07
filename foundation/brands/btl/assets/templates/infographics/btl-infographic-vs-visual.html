@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Infographic: VS Visual Comparison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /*
+      BTL Infographic Template: VS Visual Comparison
+      ===============================================
+      Design System: v2.2 | Philosophy: v1.2
+
+      Usage: Mindset comparisons, approach contrasts with visual scenes
+
+      Structure:
+      - Split screen (left=bad, right=good)
+      - Visual illustration for each side
+      - Bullet points with indicators
+      - Bottom tagline
+
+      Principles Applied:
+      - P1. Depth Over Surface: Visuals suggest deeper stories
+      - P2. Clarity Over Cleverness: Clear good/bad distinction
+      - P3. Restraint Over Abundance: 4 points per side max
+      - P4. Grounded Over Floating: Split anchors comparison
+      - P5. Timeless Over Trendy: Classic editorial comparison
+
+      Layout: 1200x1200 (LinkedIn square)
+    */
+    :root {
+      --brand-400: #10b981;
+      --brand-500: #00a86b;
+      --base-50: #f9fafb;
+      --base-300: #d1d5db;
+      --base-400: #9ca3af;
+      --base-500: #6b7280;
+      --base-700: #374151;
+      --base-800: #1f2937;
+      --base-900: #111827;
+      --canvas-width: 1200px;
+      --canvas-height: 1200px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: "Public Sans", system-ui, sans-serif;
+    }
+
+    .canvas {
+      width: var(--canvas-width);
+      height: var(--canvas-height);
+      background: var(--base-800);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .canvas-svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="canvas">
+    <svg class="canvas-svg" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Definitions -->
+      <defs>
+        <clipPath id="circleClip">
+          <circle cx="99" cy="1098" r="35"/>
+        </clipPath>
+
+        <!-- Gradient for left side (muted) -->
+        <linearGradient id="leftBg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1a1a1a"/>
+          <stop offset="100%" stop-color="#111827"/>
+        </linearGradient>
+
+        <!-- Gradient for right side (subtle jade) -->
+        <linearGradient id="rightBg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#111827"/>
+          <stop offset="100%" stop-color="#0d3328"/>
+        </linearGradient>
+      </defs>
+
+      <!-- ========================================== -->
+      <!-- SPLIT BACKGROUND                          -->
+      <!-- ========================================== -->
+
+      <!-- Left side (muted/bad) -->
+      <rect x="0" y="0" width="600" height="1200" fill="url(#leftBg)"/>
+
+      <!-- Right side (jade tint/good) -->
+      <rect x="600" y="0" width="600" height="1200" fill="url(#rightBg)"/>
+
+      <!-- Center divider -->
+      <line x1="600" y1="0" x2="600" y2="1200" stroke="#374151" stroke-width="2"/>
+
+      <!-- Accent Bar (spans both) -->
+      <rect x="0" y="0" width="600" height="6" fill="#6b7280"/>
+      <rect x="600" y="0" width="600" height="6" fill="#00a86b"/>
+
+      <!-- ========================================== -->
+      <!-- VS BADGE (Center)                         -->
+      <!-- ========================================== -->
+
+      <circle cx="600" cy="420" r="40" fill="#1f2937" stroke="#374151" stroke-width="3"/>
+      <text x="600" y="430" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="700">
+        VS
+      </text>
+
+      <!-- ========================================== -->
+      <!-- LEFT SIDE: Not Thinking Architecturally   -->
+      <!-- ========================================== -->
+
+      <!-- Header -->
+      <text x="300" y="70" text-anchor="middle" fill="#9ca3af" font-family="IBM Plex Sans" font-size="32" font-weight="700">
+        Not Thinking
+      </text>
+      <text x="300" y="110" text-anchor="middle" fill="#6b7280" font-family="IBM Plex Sans" font-size="24" font-weight="500">
+        Architecturally
+      </text>
+
+      <!-- Visual Scene: Chaotic developer -->
+      <g transform="translate(100, 160)">
+        <!-- Desk -->
+        <rect x="50" y="200" width="300" height="8" fill="#374151"/>
+        <rect x="60" y="208" width="8" height="60" fill="#374151"/>
+        <rect x="332" y="208" width="8" height="60" fill="#374151"/>
+
+        <!-- Monitor with messy code -->
+        <rect x="120" y="100" width="160" height="100" rx="4" fill="#111827" stroke="#374151" stroke-width="2"/>
+        <rect x="190" y="200" width="20" height="20" fill="#374151"/>
+
+        <!-- Messy code lines -->
+        <line x1="135" y1="120" x2="200" y2="120" stroke="#6b7280" stroke-width="2"/>
+        <line x1="135" y1="135" x2="260" y2="135" stroke="#6b7280" stroke-width="2"/>
+        <line x1="145" y1="150" x2="220" y2="150" stroke="#6b7280" stroke-width="2"/>
+        <line x1="135" y1="165" x2="190" y2="165" stroke="#6b7280" stroke-width="2"/>
+        <line x1="155" y1="180" x2="250" y2="180" stroke="#6b7280" stroke-width="2"/>
+
+        <!-- Tangled mess above (spaghetti) -->
+        <path d="M200 60 Q150 30 180 10 Q220 -10 250 20 Q280 50 240 40 Q200 30 220 60"
+              stroke="#6b7280" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M180 50 Q140 70 160 90 Q180 110 150 80"
+              stroke="#6b7280" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <text x="280" y="30" fill="#6b7280" font-family="JetBrains Mono" font-size="10" transform="rotate(-15 280 30)">
+          COPY PASTE
+        </text>
+
+        <!-- Question marks -->
+        <text x="100" y="80" fill="#6b7280" font-family="IBM Plex Sans" font-size="24" font-weight="700">?</text>
+        <text x="300" y="100" fill="#6b7280" font-family="IBM Plex Sans" font-size="20" font-weight="700">??</text>
+
+        <!-- Person silhouette (stressed) -->
+        <circle cx="200" cy="250" r="25" fill="#374151"/>
+        <rect x="180" y="275" width="40" height="50" rx="4" fill="#374151"/>
+      </g>
+
+      <!-- Bullet points (bad) -->
+      <g transform="translate(40, 500)" fill="#9ca3af" font-family="Public Sans" font-size="22" font-weight="400">
+        <!-- X icon -->
+        <text x="0" y="0" fill="#6b7280" font-family="IBM Plex Sans" font-size="20" font-weight="700">✗</text>
+        <text x="35" y="0">Copy-Pasted Spaghetti</text>
+
+        <text x="0" y="50" fill="#6b7280" font-family="IBM Plex Sans" font-size="20" font-weight="700">✗</text>
+        <text x="35" y="50">Unplanned Dependencies</text>
+
+        <text x="0" y="100" fill="#6b7280" font-family="IBM Plex Sans" font-size="20" font-weight="700">✗</text>
+        <text x="35" y="100">Short-Term Fixes</text>
+
+        <text x="0" y="150" fill="#6b7280" font-family="IBM Plex Sans" font-size="20" font-weight="700">✗</text>
+        <text x="35" y="150">"It Works" Mentality</text>
+      </g>
+
+      <!-- ========================================== -->
+      <!-- RIGHT SIDE: Thinking Architecturally      -->
+      <!-- ========================================== -->
+
+      <!-- Header -->
+      <text x="900" y="70" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="32" font-weight="700">
+        Thinking
+      </text>
+      <text x="900" y="110" text-anchor="middle" fill="#10b981" font-family="IBM Plex Sans" font-size="24" font-weight="500">
+        Architecturally
+      </text>
+
+      <!-- Lightbulb icon -->
+      <g transform="translate(1050, 50)">
+        <circle cx="0" cy="0" r="20" stroke="#10b981" stroke-width="2" fill="none"/>
+        <line x1="0" y1="-30" x2="0" y2="-40" stroke="#10b981" stroke-width="2"/>
+        <line x1="-20" y1="-20" x2="-28" y2="-28" stroke="#10b981" stroke-width="2"/>
+        <line x1="20" y1="-20" x2="28" y2="-28" stroke="#10b981" stroke-width="2"/>
+      </g>
+
+      <!-- Visual Scene: Organized architecture -->
+      <g transform="translate(680, 160)">
+        <!-- Whiteboard -->
+        <rect x="20" y="40" width="280" height="200" rx="4" fill="#111827" stroke="#10b981" stroke-width="2"/>
+
+        <!-- Architecture diagram on whiteboard -->
+        <!-- API box -->
+        <rect x="130" y="60" width="60" height="30" rx="4" fill="none" stroke="#10b981" stroke-width="2"/>
+        <text x="160" y="80" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="10">API</text>
+
+        <!-- Module boxes -->
+        <rect x="50" y="120" width="60" height="25" rx="4" fill="none" stroke="#10b981" stroke-width="2"/>
+        <text x="80" y="137" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="9">Module A</text>
+
+        <rect x="210" y="120" width="60" height="25" rx="4" fill="none" stroke="#10b981" stroke-width="2"/>
+        <text x="240" y="137" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="9">Module B</text>
+
+        <!-- Component box -->
+        <rect x="130" y="170" width="60" height="25" rx="4" fill="none" stroke="#10b981" stroke-width="2"/>
+        <text x="160" y="187" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="9">Component</text>
+
+        <!-- Database -->
+        <ellipse cx="80" cy="210" rx="25" ry="10" stroke="#10b981" stroke-width="2" fill="none"/>
+        <path d="M55 210 L55 225 Q80 240 105 225 L105 210" stroke="#10b981" stroke-width="2" fill="none"/>
+        <text x="80" y="250" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="9">Database</text>
+
+        <!-- Connection lines -->
+        <line x1="160" y1="90" x2="80" y2="120" stroke="#10b981" stroke-width="1.5"/>
+        <line x1="160" y1="90" x2="240" y2="120" stroke="#10b981" stroke-width="1.5"/>
+        <line x1="80" y1="145" x2="130" y2="170" stroke="#10b981" stroke-width="1.5"/>
+        <line x1="240" y1="145" x2="190" y2="170" stroke="#10b981" stroke-width="1.5"/>
+        <line x1="130" y1="195" x2="105" y2="210" stroke="#10b981" stroke-width="1.5"/>
+
+        <!-- Whiteboard stand -->
+        <line x1="160" y1="240" x2="160" y2="280" stroke="#374151" stroke-width="4"/>
+        <line x1="120" y1="280" x2="200" y2="280" stroke="#374151" stroke-width="4"/>
+
+        <!-- Person silhouette (confident, pointing) -->
+        <circle cx="320" cy="200" r="25" fill="#10b981" opacity="0.3"/>
+        <circle cx="320" cy="200" r="25" fill="none" stroke="#10b981" stroke-width="2"/>
+        <rect x="300" y="225" width="40" height="55" rx="4" fill="none" stroke="#10b981" stroke-width="2"/>
+        <!-- Pointing arm -->
+        <line x1="300" y1="240" x2="260" y2="180" stroke="#10b981" stroke-width="2"/>
+      </g>
+
+      <!-- Bullet points (good) -->
+      <g transform="translate(640, 500)" fill="#f9fafb" font-family="Public Sans" font-size="22" font-weight="400">
+        <!-- Check icon -->
+        <text x="0" y="0" fill="#10b981" font-family="IBM Plex Sans" font-size="20" font-weight="700">✓</text>
+        <text x="35" y="0">Modular Components</text>
+
+        <text x="0" y="50" fill="#10b981" font-family="IBM Plex Sans" font-size="20" font-weight="700">✓</text>
+        <text x="35" y="50">Intentional Boundaries</text>
+
+        <text x="0" y="100" fill="#10b981" font-family="IBM Plex Sans" font-size="20" font-weight="700">✓</text>
+        <text x="35" y="100">Future-Proof Design</text>
+
+        <text x="0" y="150" fill="#10b981" font-family="IBM Plex Sans" font-size="20" font-weight="700">✓</text>
+        <text x="35" y="150">"Is it Scalable?" Mindset</text>
+      </g>
+
+      <!-- ========================================== -->
+      <!-- BOTTOM TAGLINE                            -->
+      <!-- ========================================== -->
+
+      <rect x="0" y="720" width="1200" height="80" fill="#111827"/>
+      <text x="600" y="770" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="32" font-weight="600">
+        Every Developer Makes <tspan fill="#10b981">Architecture</tspan> Decisions Daily.
+      </text>
+
+      <!-- ========================================== -->
+      <!-- INSIGHT BOX                               -->
+      <!-- ========================================== -->
+
+      <rect x="64" y="840" width="1072" height="100" rx="8" fill="rgba(0, 168, 107, 0.1)"/>
+      <rect x="64" y="840" width="8" height="100" fill="#00a86b"/>
+
+      <text x="96" y="880" fill="#9ca3af" font-family="JetBrains Mono" font-size="16" font-weight="500" letter-spacing="0.1em">
+        THE QUESTION
+      </text>
+      <text x="96" y="920" fill="#f9fafb" font-family="IBM Plex Sans" font-size="26" font-weight="500">
+        Which side are you on? It's a choice you make with every commit.
+      </text>
+
+      <!-- ========================================== -->
+      <!-- FOOTER (Standard BTL Cover Footer)        -->
+      <!-- ========================================== -->
+
+      <line x1="64" y1="1048" x2="1136" y2="1048" stroke="#374151" stroke-width="1"/>
+
+      <image
+        href="../../../assets/hoangleitvn.jpeg"
+        x="64" y="1063" width="70" height="70"
+        clip-path="url(#circleClip)"
+        preserveAspectRatio="xMidYMid slice"
+      />
+      <circle cx="99" cy="1098" r="35" fill="none" stroke="#00a86b" stroke-width="2"/>
+
+      <text x="154" y="1090" fill="#f9fafb" font-family="IBM Plex Sans" font-size="28" font-weight="600">Hoang Le</text>
+      <text x="154" y="1120" fill="#9ca3af" font-family="Public Sans" font-size="22" font-weight="400">Builds That Last</text>
+
+      <text x="1136" y="1105" text-anchor="end" font-family="Public Sans" font-size="26" font-weight="400">
+        <tspan fill="#d1d5db">Everyone ships </tspan><tspan fill="#10b981">fast</tspan><tspan fill="#d1d5db">. Few build to </tspan><tspan fill="#10b981">last</tspan><tspan fill="#d1d5db">.</tspan>
+      </text>
+
+    </svg>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 14: CTA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --jade-500: #00a86b;
+            --charcoal-900: #111827;
+            --width: 1080px;
+            --height: 1350px;
+        }
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Inter', sans-serif; }
+        .canvas {
+            width: var(--width);
+            height: var(--height);
+            background: var(--charcoal-900);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .bg-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) contrast(1.1);
+            z-index: 1;
+        }
+        .tint-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--charcoal-900);
+            opacity: 0.88;
+            z-index: 2;
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 64px;
+        }
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--jade-500);
+            font-size: 30px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            display: inline-block;
+            border-bottom: 2px solid var(--jade-500);
+            padding-bottom: 8px;
+        }
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 100px;
+            line-height: 1.1;
+            color: white;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        .subtitle {
+            font-size: 35px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 56px;
+            line-height: 1.4;
+        }
+        .cta-box {
+            background: rgba(0, 168, 107, 0.1);
+            border: 2px solid var(--jade-500);
+            border-radius: 12px;
+            padding: 40px 48px;
+            margin-bottom: 48px;
+        }
+        .cta-text {
+            font-size: 30px;
+            color: white;
+            margin-bottom: 16px;
+        }
+        .cta-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 40px;
+            font-weight: 500;
+            color: var(--jade-500);
+            background: rgba(0, 168, 107, 0.15);
+            padding: 12px 32px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        .quote {
+            font-size: 35px;
+            color: rgba(255,255,255,0.7);
+            font-style: italic;
+            line-height: 1.5;
+        }
+        .ui-corner {
+            position: absolute;
+            width: 40px; height: 40px;
+            border: 2px solid rgba(255,255,255,0.3);
+            z-index: 5;
+        }
+        .tl { top: 48px; left: 48px; border-right: 0; border-bottom: 0; }
+        .tr { top: 48px; right: 48px; border-left: 0; border-bottom: 0; }
+        .bl { bottom: 48px; left: 48px; border-right: 0; border-top: 0; }
+        .br { bottom: 48px; right: 48px; border-left: 0; border-top: 0; }
+        .author {
+            position: absolute;
+            bottom: 64px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            border: 3px solid var(--jade-500);
+            object-fit: cover;
+        }
+        .author-info { text-align: center; }
+        .author-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+        .author-desc {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas">
+        <div class="bg-layer"></div>
+        <div class="tint-layer"></div>
+        <div class="ui-corner tl"></div>
+        <div class="ui-corner tr"></div>
+        <div class="ui-corner bl"></div>
+        <div class="ui-corner br"></div>
+
+        <div class="content">
+            <h1>12 Patterns.<br>10 Rules.</h1>
+            <div class="subtitle">Codified in my CLAUDE.md file.</div>
+
+            <div class="cta-box">
+                <div class="cta-text">Want the template? Comment:</div>
+                <div class="cta-code">"CLAUDE"</div>
+            </div>
+        </div>
+
+        <div class="author">
+            <img src="../../../../../../foundation/brands/btl/assets/hoangleitvn.jpeg" alt="Hoang Le" class="avatar">
+            <div class="author-info">
+                <div class="author-name">Hoang Le</div>
+                <div class="author-desc">Building with AI daily</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

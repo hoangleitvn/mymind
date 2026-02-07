@@ -8,11 +8,6 @@ persona: tech-leader
 audiences: [engineering-managers, senior-engineers, tech-leads]
 ---
 
-# The Tool Chasing Paradox
-
-
-## LinkedIn Post
-
 Buying a tool takes seconds.
 Learning how to use it takes weeks.
 Mastering it takes months.
@@ -40,7 +35,7 @@ It never does. Because the gap is workflow, not features.
 
 Here's what actually happens:
 
-**Tool-first teams:**
+Tool-first teams:
 → Buy Cursor, Copilot, or the latest AI IDE
 → Use it like a fancy autocomplete
 → Get 10-20% productivity gain
@@ -48,7 +43,7 @@ Here's what actually happens:
 → Blame the tool
 → Switch tools
 
-**Workflow-first teams:**
+Workflow-first teams:
 → Map how work actually gets done
 → Identify where AI creates leverage
 → Design validation checkpoints

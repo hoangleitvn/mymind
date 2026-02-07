@@ -8,6 +8,18 @@ persona: tech-leader
 themes: [AI adoption, workflow, engineering, productivity]
 published_date: "2026-01-04T05:58:27Z"
 post_url: https://www.linkedin.com/feed/update/urn:li:activity:7413458773698314242/
+performance_metrics:
+  impressions: 234
+  members_reached: 100
+  profile_views: 1
+  followers: 0
+  reactions: 5
+  comments: 0
+  reposts: 0
+  saves: 1
+  sends_on_linkedin: 0
+  link_clicks: 3
+  collected_at: 2026-01-19
 ---
 
 Bookmark this on AI-assisted development that actually works.

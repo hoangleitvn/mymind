@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTL Cover: Profile Author</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+          BTL Cover Template: Profile
+          ===========================
+          Design System: v2.2 | Philosophy: v1.2
+
+          Usage: Author introductions, personal stories, behind-the-scenes
+
+          Principles:
+          - P1. Depth Over Surface: Photo suggests real person, real experience
+          - P2. Clarity Over Cleverness: Clear author name, title, message
+          - P3. Restraint Over Abundance: Split layout, each side focused
+          - P4. Grounded Over Floating: Photo anchors, accent bar grounds
+          - P5. Timeless Over Trendy: Classic editorial portrait layout
+
+          Photography Rules:
+          - Grayscale + contrast(1.2) for consistency
+          - Dark overlay (60% opacity) for text readability
+          - Scanline grid for technical aesthetic
+
+          Typography (1456x1048 canvas):
+          - Headline: 80px (IBM Plex Sans - impact)
+          - Subhead: 24px (Public Sans - readable)
+          - Author meta: 18px (JetBrains Mono - technical)
+        */
+        :root {
+            --jade-500: #00a86b;
+            --charcoal-800: #1f2937;
+            --charcoal-900: #111827;
+            --width: 1456px;
+            --height: 1048px;
+            --padding: 80px;
+        }
+
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Public Sans', sans-serif; }
+
+        .canvas {
+            width: var(--width);
+            height: var(--height);
+            background: var(--charcoal-900);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+        }
+
+        /* Left Side: Text (60%) */
+        .left-col {
+            width: 55%;
+            padding: var(--padding);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 5;
+            position: relative;
+        }
+
+        /* Right Side: Photo (45%) */
+        .right-col {
+            width: 45%;
+            height: 100%;
+            position: relative;
+            background: #000;
+        }
+
+        /* Image Styling - BTL Rules: Grayscale + Tint */
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.2);
+            opacity: 0.8;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--charcoal-900);
+            opacity: 0.6; /* Tint */
+            mix-blend-mode: multiply;
+        }
+        
+        /* The "Scanline" grid over image */
+        .grid-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(0, 168, 107, 0.1) 1px, transparent 1px);
+            background-size: 100% 32px;
+            z-index: 2;
+        }
+
+        /* Content */
+        h1 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 700;
+            font-size: 80px;
+            line-height: 1.1;
+            color: white;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+        
+        .subhead {
+            font-size: 24px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 48px;
+            border-left: 4px solid var(--jade-500);
+            padding-left: 24px;
+        }
+
+        .author-meta {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--jade-500);
+            font-size: 18px;
+            margin-top: auto;
+        }
+
+        /* Brand Logo Overlay on Image */
+        .logo-mark {
+            position: absolute;
+            bottom: var(--padding);
+            right: var(--padding);
+            width: 80px;
+            height: 80px;
+            z-index: 10;
+        }
+        
+        .accent-bar {
+            position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: var(--jade-500); z-index: 10;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="canvas">
+        <div class="accent-bar"></div>
+        
+        <div class="left-col">
+            <div style="font-family: 'JetBrains Mono'; color: rgba(255,255,255,0.4); margin-bottom: 24px;">/ AUTHOR_NOTE</div>
+            <h1>THE UNSEEN<br>WORK OF<br>ENGINEERING</h1>
+            <div class="subhead">
+                Why I spent 15 years learning that<br>
+                foundation matters more than speed.
+            </div>
+            <div class="author-meta">
+                HOANG LE<br>
+                Builds That Last
+            </div>
+        </div>
+
+        <div class="right-col">
+            <!-- Using relative path to library/profile image -->
+            <img src="../../../assets/hoangleitvn.jpeg" class="profile-img" alt="Hoang Le">
+            <div class="overlay"></div>
+            <div class="grid-overlay"></div>
+        </div>
+    </div>
+</body>
+</html>

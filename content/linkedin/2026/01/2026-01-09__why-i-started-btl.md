@@ -1,7 +1,7 @@
 ---
 title: "Why I Started Builds That Last"
 type: linkedin-article
-status: draft
+status: published
 created: 2026-01-09
 theme: personal-journey
 persona: founder
@@ -9,15 +9,16 @@ audiences: [engineers, tech-leaders, founders]
 key_message: "After 15 years of building, I realized the lessons in my head aren't useful until I write them down."
 word_count: 1350
 publish_with: builds-that-last-manifesto
+article_url: https://www.linkedin.com/pulse/why-i-started-builds-last-hoang-le-dnrnc
 ---
 
 # Why I Started Builds That Last
 
-For years, I told myself I'd write "when I have time."
+For years, I told myself I'd write "when I have time".
 
 I never had time. There was always another project, another client, another problem to solve.
 
-But something shifted recently. I realized the lessons I've accumulated over 15 years aren't useful sitting in my head. They're useful when they help someone else avoid the mistakes I made.
+But something shifted recently. I realized the lessons I've accumulated over 15+ years aren't useful sitting in my head. They're useful when they help someone else avoid the mistakes I made.
 
 So I'm writing.
 

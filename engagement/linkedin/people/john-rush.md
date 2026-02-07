@@ -1,16 +1,16 @@
 ---
 type: linkedin-person
 created: '2025-12-05T04:45:00Z'
-last_updated: '2025-12-05T04:45:00Z'
-last_interaction: '2025-12-05'
+last_updated: '2026-01-14T06:45:00Z'
+last_interaction: '2026-01-14'
 
 profile:
   name: "John Rush"
   linkedin_url: "https://no.linkedin.com/in/johnrushx"
   headline: null
   location: "Norway"
-  followers: 45166
-  posts: 1232
+  followers: 46323
+  posts: 1272
   articles: 5
 
 relationship:
@@ -27,6 +27,12 @@ themes:
   - solo-development
 
 engagement_history:
+  - date: '2026-01-14'
+    type: "comment"
+    post_url: "https://www.linkedin.com/posts/johnrushx_if-only-someone-told-me-this-before-my-1st-activity-7417067977507893248-Dmv3"
+    topic: "20 startup lessons - fullstack devs and lean teams"
+    status: "posted"
+    file: "comments/2026/01/14/2026-01-14__john-rush-startup-lessons-v2.md"
   - date: '2025-12-05'
     type: "comment"
     post_url: "https://www.linkedin.com/feed/update/urn:li:activity:7402179899869818881"
@@ -36,8 +42,8 @@ engagement_history:
 
 tags: [serial-founder, bootstrapper, norway, anti-outsourcing, anti-scrum, 45k-followers]
 
-next_action: "Monitor for response to our comment"
-next_action_date: '2025-12-07'
+next_action: "Check for response to comment, consider connection request if engaged"
+next_action_date: '2026-01-17'
 ---
 
 ## About

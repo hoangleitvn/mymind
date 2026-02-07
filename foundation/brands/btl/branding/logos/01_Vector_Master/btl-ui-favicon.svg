@@ -1,0 +1,8 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- BTL Favicon - 16px (Simplified for small size, no waterline detail) -->
+  <g transform="translate(0, -0.33)">
+    <path d="M8 2L11 5H5L8 2Z" fill="#00a86b"/>
+    <line x1="3" y1="5.5" x2="13" y2="5.5" stroke="#1f2937" stroke-width="0.67" stroke-dasharray="1.33 1"/>
+    <path d="M3 6L8 14L13 6H3Z" fill="#065f46"/>
+  </g>
+</svg>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verification Debt Infographic</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* BTL Brand Colors */
+      --brand-500: #00a86b;
+      --brand-600: #008553;
+      --brand-700: #007a4c;
+
+      /* BTL Base Colors */
+      --base-50: #f9fafb;
+      --base-100: #f1f5f9;
+      --base-200: #e5e7eb;
+      --base-300: #d1d5db;
+      --base-500: #6b7280;
+      --base-700: #374151;
+      --base-800: #1f2937;
+
+      /* BTL Spacing (8px grid) */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 16px;
+      --space-4: 24px;
+      --space-5: 32px;
+      --space-6: 48px;
+      --space-8: 64px;
+
+      /* BTL Typography */
+      --font-heading: "IBM Plex Sans", system-ui, sans-serif;
+      --font-body: "Public Sans", system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.5;
+      background: #d0d0d0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* 1200 x 675 (16:9) */
+    .infographic {
+      width: 1200px;
+      height: 675px;
+      background: #ffffff;
+      padding: var(--space-4) var(--space-5);
+      color: var(--base-800);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: var(--space-2);
+    }
+
+    .header h1 {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--base-800);
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-2);
+    }
+
+    .header h1 span {
+      color: var(--brand-700);
+    }
+
+    .subtitle {
+      background: var(--base-50);
+      border-left: 4px solid var(--brand-500);
+      padding: var(--space-2) var(--space-3);
+      display: inline-block;
+      text-align: left;
+    }
+
+    .subtitle p {
+      font-size: 15px;
+      color: var(--base-800);
+      line-height: 1.5;
+    }
+
+    .subtitle p strong {
+      color: var(--base-800);
+      font-weight: 700;
+    }
+
+    /* Main Content Grid */
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 0.55fr 1.45fr;
+      gap: var(--space-3);
+      flex: 1;
+      margin-bottom: var(--space-1);
+    }
+
+    /* Software Box */
+    .software-box {
+      background: var(--base-50);
+      padding: var(--space-3);
+      border-top: 4px solid var(--brand-500);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .software-box h3 {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--base-800);
+      margin-bottom: 2px;
+    }
+
+    .software-box .subtitle-tag {
+      font-size: 13px;
+      color: var(--base-700);
+      margin-bottom: var(--space-2);
+      display: block;
+      font-weight: 500;
+    }
+
+    .software-box ul {
+      list-style: none;
+      font-size: 14px;
+      color: var(--base-800);
+      line-height: 1.5;
+    }
+
+    .software-box ul li {
+      margin-bottom: 4px;
+      padding-left: var(--space-3);
+      position: relative;
+    }
+
+    .software-box ul li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--brand-500);
+      font-weight: 600;
+    }
+
+    .software-box .footer-note {
+      margin-top: auto;
+      padding-top: var(--space-2);
+      border-top: 1px solid var(--base-300);
+      font-size: 13px;
+      color: var(--base-700);
+      font-weight: 500;
+    }
+
+    .software-box .footer-note strong {
+      color: var(--base-800);
+      font-weight: 700;
+    }
+
+    /* Center Column - Verification Debt */
+    .center-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+    }
+
+    .missing-tests {
+      background: var(--base-800);
+      padding: var(--space-2) var(--space-3);
+      text-align: center;
+      width: 100%;
+    }
+
+    .missing-tests span {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+    }
+
+    .arrow-down {
+      font-size: 24px;
+      color: var(--base-800);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .debt-badge {
+      background: linear-gradient(135deg, var(--brand-500) 0%, #065f46 100%);
+      padding: var(--space-2) var(--space-3);
+      text-align: center;
+      width: 100%;
+    }
+
+    .debt-badge h4 {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .debt-badge p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+    }
+
+    .debt-note {
+      background: var(--base-100);
+      border: 1px solid var(--base-300);
+      padding: var(--space-2) var(--space-3);
+      text-align: center;
+      width: 100%;
+    }
+
+    .debt-note p {
+      font-size: 12px;
+      color: var(--base-800);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    .debt-note p strong {
+      color: var(--base-800);
+      font-weight: 700;
+    }
+
+    /* Pyramid Section */
+    .pyramid-section {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .pyramid-title {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--base-800);
+      margin-bottom: var(--space-2);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+
+    .pyramid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      width: 100%;
+      flex: 1;
+    }
+
+    .pyramid-layer {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .layer-left {
+      flex: 1;
+      text-align: right;
+      padding-right: var(--space-2);
+    }
+
+    .layer-right {
+      flex: 1;
+      text-align: left;
+      padding-left: var(--space-2);
+    }
+
+    .layer-left .detail {
+      font-size: 12px;
+      color: var(--base-700);
+      font-weight: 500;
+    }
+
+    .layer-right .status {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .pyramid-shape {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 600;
+      color: #ffffff;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%);
+      padding: 16px 16px;
+    }
+
+    /* Pyramid layers - darker at top (harder), lighter at bottom (easier) */
+    .layer-1 .pyramid-shape { width: 100px; background: var(--base-800); }
+    .layer-2 .pyramid-shape { width: 140px; background: var(--base-700); }
+    .layer-3 .pyramid-shape { width: 180px; background: var(--base-500); }
+    .layer-4 .pyramid-shape { width: 220px; background: var(--brand-600); }
+    .layer-5 .pyramid-shape { width: 260px; background: var(--brand-500); }
+
+    .status.hard { color: #b91c1c; }
+    .status.partial { color: var(--brand-600); }
+    .status.verifiable { color: var(--brand-500); }
+
+    /* Workflow Section */
+    .workflow-section {
+      background: var(--base-50);
+      border-top: 4px solid var(--brand-500);
+      padding: var(--space-2) var(--space-3);
+    }
+
+    .workflow-title {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--base-800);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-2);
+    }
+
+    .workflow-steps {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .workflow-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 var(--space-2);
+    }
+
+    .workflow-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--base-500);
+      width: 24px;
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      background: var(--base-800);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      margin-bottom: var(--space-1);
+    }
+
+    .step-title {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--base-800);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 2px;
+    }
+
+    .step-desc {
+      font-size: 12px;
+      color: var(--base-800);
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--base-800);
+      margin: 0 calc(-1 * var(--space-5)) calc(-1 * var(--space-4));
+      padding: var(--space-2) var(--space-5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .footer-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--brand-500);
+    }
+
+    .footer-name {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .footer-text {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 500;
+      color: #ffffff;
+      letter-spacing: 0.01em;
+    }
+
+    .footer-text span {
+      color: var(--brand-500);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic">
+    <!-- Header -->
+    <div class="header">
+      <h1><span>VERIFICATION DEBT:</span> The AI Bottleneck in Software 2.0</h1>
+      <div class="subtitle">
+        <p>If you can verify the output, AI can practice it. Code is verifiable, so AI is progressing fast.
+        <strong>But most teams have been underinvesting in verification for years.</strong></p>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Software 1.0 -->
+      <div class="software-box">
+        <h3>Software 1.0</h3>
+        <span class="subtitle-tag">Human-Driven, Test-Optional</span>
+        <ul>
+          <li>Working software > Documentation</li>
+          <li>Unit tests optional (Startups/SMEs)</li>
+          <li>Integration tests? Maybe. E2E? Rare.</li>
+          <li>Verification = Does it work?</li>
+        </ul>
+        <div class="footer-note">Fine when <strong>YOU</strong> wrote the code.</div>
+      </div>
+
+      <!-- Center - Verification Debt -->
+      <div class="center-column">
+        <div class="missing-tests">
+          <span>Missing Tests</span>
+        </div>
+        <div class="arrow-down">↓</div>
+        <div class="debt-badge">
+          <h4>Verification Debt</h4>
+          <p>Compounds Faster than Technical Debt</p>
+        </div>
+        <div class="debt-note">
+          <p>Every missing test is a layer<br>where AI <strong>CAN'T</strong> self-correct.</p>
+        </div>
+      </div>
+
+      <!-- Pyramid -->
+      <div class="pyramid-section">
+        <div class="pyramid-title">Verification Pyramid</div>
+        <div class="pyramid">
+          <div class="pyramid-layer layer-1">
+            <div class="layer-left"><span class="detail">Human judgment</span></div>
+            <div class="pyramid-shape">Business Value</div>
+            <div class="layer-right"><span class="status hard">Very Hard</span></div>
+          </div>
+          <div class="pyramid-layer layer-2">
+            <div class="layer-left"><span class="detail">Specs + constraints</span></div>
+            <div class="pyramid-shape">Architecture</div>
+            <div class="layer-right"><span class="status hard">Hard to Score</span></div>
+          </div>
+          <div class="pyramid-layer layer-3">
+            <div class="layer-left"><span class="detail">Integration / E2E tests</span></div>
+            <div class="pyramid-shape">Software Quality</div>
+            <div class="layer-right"><span class="status partial">Partial</span></div>
+          </div>
+          <div class="pyramid-layer layer-4">
+            <div class="layer-left"><span class="detail">Unit tests</span></div>
+            <div class="pyramid-shape">Functionality</div>
+            <div class="layer-right"><span class="status verifiable">Verifiable</span></div>
+          </div>
+          <div class="pyramid-layer layer-5">
+            <div class="layer-left"><span class="detail">Linters, formatters</span></div>
+            <div class="pyramid-shape">Syntax & Code</div>
+            <div class="layer-right"><span class="status verifiable">100% Verifiable</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workflow Section -->
+    <div class="workflow-section">
+      <div class="workflow-title">My Workflow: Spec-Driven & Zero-Trust</div>
+      <div class="workflow-steps">
+        <div class="workflow-step">
+          <div class="step-number">1</div>
+          <div class="step-title">Spec First</div>
+          <div class="step-desc">Writing forces clarity. Find edge cases before AI touches code.</div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+          <div class="step-number">2</div>
+          <div class="step-title">Review</div>
+          <div class="step-desc">Ask as different roles. Ask questions. Correct & simplify.</div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+          <div class="step-number">3</div>
+          <div class="step-title">Plan</div>
+          <div class="step-desc">Break into small tasks. Clear requirements & definition of done.</div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+          <div class="step-number">4</div>
+          <div class="step-title">Execute</div>
+          <div class="step-desc">One task at a time. Verify outputs. Zero-trust everything.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-author">
+        <img src="../../../../../foundation/brands/btl/assets/hoangleitvn.jpeg" alt="Hoang Le" class="footer-avatar">
+        <span class="footer-name">Hoang Le</span>
+      </div>
+      <div class="footer-text">AI handles the typing. <span>Thinking & judgment is still on you.</span></div>
+    </div>
+  </div>
+</body>
+</html>

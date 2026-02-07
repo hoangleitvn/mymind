@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Cover Editor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <style>
+    /*
+      BTL Cover Editor
+      ================
+      Design System: v2.2
+
+      Features:
+      - Theme switching (light/dark)
+      - PNG export with scale options (1x-4x)
+      - Multiple cover sizes (LinkedIn, Substack, Twitter)
+      - Editable content fields
+
+      BTL Colors:
+      - Jade (Brand): #00a86b
+      - Jade Light: #10b981
+      - Charcoal: #1f2937
+      - Base-900: #111827
+    */
+
+    /* ========================================== */
+    /* THEME VARIABLES                           */
+    /* ========================================== */
+
+    :root {
+      /* Brand colors (constant) */
+      --brand-400: #10b981;
+      --brand-500: #00a86b;
+      --brand-600: #008553;
+
+      /* UI colors */
+      --ui-bg: #0a0a0a;
+      --ui-surface: #1a1a1a;
+      --ui-border: #333;
+      --ui-text: #f9fafb;
+      --ui-muted: #9ca3af;
+    }
+
+    /* Dark theme (default) */
+    [data-theme="dark"] {
+      --canvas-bg: #1f2937;
+      --canvas-bg-alt: #111827;
+      --text-primary: #f9fafb;
+      --text-secondary: #d1d5db;
+      --text-muted: #9ca3af;
+      --border-color: #374151;
+    }
+
+    /* Light theme */
+    [data-theme="light"] {
+      --canvas-bg: #f9fafb;
+      --canvas-bg-alt: #f1f5f9;
+      --text-primary: #111827;
+      --text-secondary: #374151;
+      --text-muted: #6b7280;
+      --border-color: #d1d5db;
+    }
+
+    /* ========================================== */
+    /* BASE STYLES                               */
+    /* ========================================== */
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--ui-bg);
+      min-height: 100vh;
+      font-family: "Public Sans", system-ui, sans-serif;
+      color: var(--ui-text);
+    }
+
+    /* ========================================== */
+    /* LAYOUT                                    */
+    /* ========================================== */
+
+    .editor-container {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      min-height: 100vh;
+    }
+
+    /* ========================================== */
+    /* SIDEBAR / CONTROLS                        */
+    /* ========================================== */
+
+    .sidebar {
+      background: var(--ui-surface);
+      border-right: 1px solid var(--ui-border);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      overflow-y: auto;
+    }
+
+    .sidebar h1 {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--brand-400);
+      margin-bottom: 4px;
+    }
+
+    .sidebar .subtitle {
+      font-size: 13px;
+      color: var(--ui-muted);
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .control-group label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ui-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .control-group input,
+    .control-group select,
+    .control-group textarea {
+      background: var(--ui-bg);
+      border: 1px solid var(--ui-border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-family: "Public Sans", sans-serif;
+      font-size: 14px;
+      color: var(--ui-text);
+      width: 100%;
+    }
+
+    .control-group textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .control-group input:focus,
+    .control-group select:focus,
+    .control-group textarea:focus {
+      outline: none;
+      border-color: var(--brand-500);
+    }
+
+    /* Button styles */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--brand-500);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-600);
+    }
+
+    .btn-secondary {
+      background: var(--ui-bg);
+      color: var(--ui-text);
+      border: 1px solid var(--ui-border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--brand-500);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-group .btn {
+      flex: 1;
+    }
+
+    /* Theme toggle */
+    .theme-toggle {
+      display: flex;
+      background: var(--ui-bg);
+      border-radius: 6px;
+      padding: 4px;
+    }
+
+    .theme-toggle button {
+      flex: 1;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 4px;
+      font-family: "Public Sans", sans-serif;
+      font-size: 13px;
+      color: var(--ui-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .theme-toggle button.active {
+      background: var(--brand-500);
+      color: white;
+    }
+
+    /* Export options */
+    .export-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .export-options .btn {
+      font-size: 12px;
+      padding: 8px 12px;
+    }
+
+    /* ========================================== */
+    /* PREVIEW AREA                              */
+    /* ========================================== */
+
+    .preview-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      overflow: auto;
+    }
+
+    .preview-info {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--ui-muted);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    /* ========================================== */
+    /* COVER CANVAS                              */
+    /* ========================================== */
+
+    .cover-canvas {
+      background: var(--canvas-bg);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Size presets */
+    .cover-canvas[data-size="linkedin"] {
+      width: 1200px;
+      height: 1200px;
+    }
+
+    .cover-canvas[data-size="linkedin-banner"] {
+      width: 1584px;
+      height: 396px;
+    }
+
+    .cover-canvas[data-size="substack"] {
+      width: 1456px;
+      height: 1048px;
+    }
+
+    .cover-canvas[data-size="twitter"] {
+      width: 1500px;
+      height: 500px;
+    }
+
+    /* Accent bar */
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--brand-500);
+      z-index: 10;
+    }
+
+    /* Content area */
+    .cover-content {
+      position: absolute;
+      left: 64px;
+      top: 64px;
+      right: 64px;
+      bottom: 160px;
+      display: flex;
+      flex-direction: column;
+      z-index: 5;
+    }
+
+    /* Metadata label */
+    .cover-metadata {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--brand-500);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    /* Headline */
+    .cover-headline {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .cover-headline .highlight {
+      color: var(--brand-400);
+    }
+
+    /* Waterline divider */
+    .waterline {
+      width: 320px;
+      height: 2px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--brand-500) 0px,
+        var(--brand-500) 8px,
+        transparent 8px,
+        transparent 16px
+      );
+      margin: 24px 0;
+    }
+
+    /* Subheadline */
+    .cover-subheadline {
+      font-family: "Public Sans", sans-serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.4;
+      max-width: 700px;
+    }
+
+    /* Iceberg graphic */
+    .iceberg-graphic {
+      position: absolute;
+      right: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.15;
+      z-index: 2;
+    }
+
+    .iceberg-graphic svg {
+      width: 320px;
+      height: 400px;
+    }
+
+    [data-theme="light"] .iceberg-graphic {
+      opacity: 0.1;
+    }
+
+    /* ========================================== */
+    /* FOOTER                                    */
+    /* ========================================== */
+
+    .cover-footer {
+      position: absolute;
+      left: 64px;
+      right: 64px;
+      bottom: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+
+    .cover-footer::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    .footer-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .author-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--brand-500);
+      object-fit: cover;
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .author-name {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .author-brand {
+      font-family: "Public Sans", sans-serif;
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .footer-tagline {
+      font-family: "Public Sans", sans-serif;
+      font-size: 20px;
+      color: var(--text-secondary);
+    }
+
+    .footer-tagline .highlight {
+      color: var(--brand-400);
+    }
+
+    /* ========================================== */
+    /* RESPONSIVE SCALING                        */
+    /* ========================================== */
+
+    @media (max-width: 1600px) {
+      .cover-canvas {
+        transform: scale(0.7);
+        transform-origin: top center;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .cover-canvas {
+        transform: scale(0.5);
+      }
+    }
+
+    /* ========================================== */
+    /* EXPORT STATUS                             */
+    /* ========================================== */
+
+    .export-status {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--brand-500);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .export-status.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="editor-container">
+    <!-- Sidebar Controls -->
+    <aside class="sidebar">
+      <div>
+        <h1>BTL Cover Editor</h1>
+        <p class="subtitle">Design System v2.2</p>
+      </div>
+
+      <!-- Theme Toggle -->
+      <div class="control-group">
+        <label>Theme</label>
+        <div class="theme-toggle">
+          <button id="btn-dark" class="active" onclick="setTheme('dark')">Dark</button>
+          <button id="btn-light" onclick="setTheme('light')">Light</button>
+        </div>
+      </div>
+
+      <!-- Size Preset -->
+      <div class="control-group">
+        <label>Canvas Size</label>
+        <select id="size-select" onchange="setSize(this.value)">
+          <option value="linkedin">LinkedIn Post (1200x1200)</option>
+          <option value="linkedin-banner">LinkedIn Banner (1584x396)</option>
+          <option value="substack" selected>Substack (1456x1048)</option>
+          <option value="twitter">Twitter Header (1500x500)</option>
+        </select>
+      </div>
+
+      <!-- Content Fields -->
+      <div class="control-group">
+        <label>Metadata Label</label>
+        <input type="text" id="input-metadata" value="BTL MANIFESTO" oninput="updateContent()">
+      </div>
+
+      <div class="control-group">
+        <label>Headline</label>
+        <textarea id="input-headline" oninput="updateContent()">Foundation First</textarea>
+        <p class="subtitle">Use [text] for highlight color</p>
+      </div>
+
+      <div class="control-group">
+        <label>Subheadline</label>
+        <textarea id="input-subheadline" oninput="updateContent()">Everyone ships fast. Few build to last.</textarea>
+      </div>
+
+      <!-- Show/Hide Elements -->
+      <div class="control-group">
+        <label>Elements</label>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label style="display: flex; align-items: center; gap: 8px; text-transform: none; letter-spacing: normal;">
+            <input type="checkbox" id="show-waterline" checked onchange="toggleElement('waterline', this.checked)">
+            <span>Show waterline</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; text-transform: none; letter-spacing: normal;">
+            <input type="checkbox" id="show-iceberg" checked onchange="toggleElement('iceberg', this.checked)">
+            <span>Show iceberg</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; text-transform: none; letter-spacing: normal;">
+            <input type="checkbox" id="show-footer" checked onchange="toggleElement('footer', this.checked)">
+            <span>Show footer</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Export -->
+      <div class="control-group">
+        <label>Export PNG</label>
+        <div class="export-options">
+          <button class="btn btn-secondary" onclick="exportPNG(1)">1x</button>
+          <button class="btn btn-secondary" onclick="exportPNG(2)">2x</button>
+          <button class="btn btn-primary" onclick="exportPNG(3)">3x (Recommended)</button>
+          <button class="btn btn-secondary" onclick="exportPNG(4)">4x</button>
+        </div>
+      </div>
+
+      <div class="control-group" style="margin-top: auto;">
+        <p class="subtitle">
+          Fonts: IBM Plex Sans, Public Sans, JetBrains Mono<br>
+          Colors: Jade #00a86b, Charcoal #1f2937
+        </p>
+      </div>
+    </aside>
+
+    <!-- Preview Area -->
+    <main class="preview-area">
+      <div class="preview-info" id="preview-info">
+        SUBSTACK COVER · 1456×1048 · DARK THEME
+      </div>
+
+      <!-- Cover Canvas -->
+      <div class="cover-canvas" id="cover-canvas" data-size="substack">
+        <!-- Accent Bar -->
+        <div class="accent-bar"></div>
+
+        <!-- Iceberg Graphic -->
+        <div class="iceberg-graphic" id="iceberg">
+          <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Above water (visible tip) -->
+            <polygon
+              points="200,40 270,100 130,100"
+              fill="currentColor"
+              style="color: var(--brand-500);"
+              opacity="0.8"
+            />
+            <!-- Waterline -->
+            <line
+              x1="80" y1="100"
+              x2="320" y2="100"
+              stroke="currentColor"
+              style="color: var(--brand-500);"
+              stroke-width="2"
+              stroke-dasharray="8 8"
+            />
+            <!-- Below water (foundation) -->
+            <polygon
+              points="130,100 270,100 320,180 340,280 300,380 100,380 60,280 80,180"
+              fill="currentColor"
+              style="color: var(--brand-500);"
+              opacity="0.4"
+            />
+            <!-- Depth layers -->
+            <line x1="110" y1="160" x2="290" y2="160" stroke="currentColor" style="color: var(--brand-500);" stroke-width="1" opacity="0.3"/>
+            <line x1="90" y1="230" x2="310" y2="230" stroke="currentColor" style="color: var(--brand-500);" stroke-width="1" opacity="0.3"/>
+            <line x1="80" y1="310" x2="320" y2="310" stroke="currentColor" style="color: var(--brand-500);" stroke-width="1" opacity="0.3"/>
+          </svg>
+        </div>
+
+        <!-- Content -->
+        <div class="cover-content">
+          <span class="cover-metadata" id="cover-metadata">BTL MANIFESTO</span>
+          <h1 class="cover-headline" id="cover-headline">Foundation First</h1>
+          <div class="waterline" id="waterline"></div>
+          <p class="cover-subheadline" id="cover-subheadline">Everyone ships fast. Few build to last.</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="cover-footer" id="footer">
+          <div class="footer-author">
+            <img src="../hoangleitvn.jpeg" alt="Hoang Le" class="author-avatar" crossorigin="anonymous">
+            <div class="author-info">
+              <span class="author-name">Hoang Le</span>
+              <span class="author-brand">Builds That Last</span>
+            </div>
+          </div>
+          <span class="footer-tagline">
+            Everyone ships <span class="highlight">fast</span>. Few build to <span class="highlight">last</span>.
+          </span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <!-- Export Status Toast -->
+  <div class="export-status" id="export-status">Exported successfully!</div>
+
+  <script>
+    // ==========================================
+    // THEME MANAGEMENT
+    // ==========================================
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('btl-theme', theme);
+
+      // Update toggle buttons
+      document.getElementById('btn-dark').classList.toggle('active', theme === 'dark');
+      document.getElementById('btn-light').classList.toggle('active', theme === 'light');
+
+      updatePreviewInfo();
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('btl-theme') || 'dark';
+    setTheme(savedTheme);
+
+    // ==========================================
+    // SIZE MANAGEMENT
+    // ==========================================
+
+    const sizeLabels = {
+      'linkedin': 'LINKEDIN POST · 1200×1200',
+      'linkedin-banner': 'LINKEDIN BANNER · 1584×396',
+      'substack': 'SUBSTACK COVER · 1456×1048',
+      'twitter': 'TWITTER HEADER · 1500×500'
+    };
+
+    function setSize(size) {
+      document.getElementById('cover-canvas').setAttribute('data-size', size);
+      updatePreviewInfo();
+    }
+
+    function updatePreviewInfo() {
+      const size = document.getElementById('cover-canvas').getAttribute('data-size');
+      const theme = document.documentElement.getAttribute('data-theme').toUpperCase();
+      document.getElementById('preview-info').textContent = `${sizeLabels[size]} · ${theme} THEME`;
+    }
+
+    // ==========================================
+    // CONTENT UPDATES
+    // ==========================================
+
+    function updateContent() {
+      const metadata = document.getElementById('input-metadata').value;
+      const headline = document.getElementById('input-headline').value;
+      const subheadline = document.getElementById('input-subheadline').value;
+
+      document.getElementById('cover-metadata').textContent = metadata;
+
+      // Parse headline for [highlight] syntax
+      const headlineHtml = headline.replace(/\[([^\]]+)\]/g, '<span class="highlight">$1</span>');
+      document.getElementById('cover-headline').innerHTML = headlineHtml;
+
+      document.getElementById('cover-subheadline').textContent = subheadline;
+    }
+
+    // ==========================================
+    // ELEMENT TOGGLES
+    // ==========================================
+
+    function toggleElement(elementId, show) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.style.display = show ? '' : 'none';
+      }
+    }
+
+    // ==========================================
+    // PNG EXPORT
+    // ==========================================
+
+    async function exportPNG(scale) {
+      const canvas = document.getElementById('cover-canvas');
+      const size = canvas.getAttribute('data-size');
+      const theme = document.documentElement.getAttribute('data-theme');
+
+      // Show status
+      showStatus('Exporting...');
+
+      try {
+        // Reset any CSS transforms for accurate capture
+        const originalTransform = canvas.style.transform;
+        canvas.style.transform = 'none';
+
+        const result = await html2canvas(canvas, {
+          scale: scale,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: null,
+          logging: false
+        });
+
+        // Restore transform
+        canvas.style.transform = originalTransform;
+
+        // Generate filename
+        const timestamp = new Date().toISOString().slice(0, 10);
+        const filename = `btl-cover-${size}-${theme}-${scale}x-${timestamp}.png`;
+
+        // Download
+        const link = document.createElement('a');
+        link.download = filename;
+        link.href = result.toDataURL('image/png');
+        link.click();
+
+        showStatus(`Exported: ${filename}`);
+      } catch (error) {
+        console.error('Export failed:', error);
+        showStatus('Export failed. Check console.');
+      }
+    }
+
+    function showStatus(message) {
+      const status = document.getElementById('export-status');
+      status.textContent = message;
+      status.classList.add('show');
+
+      setTimeout(() => {
+        status.classList.remove('show');
+      }, 3000);
+    }
+
+    // ==========================================
+    // INITIALIZATION
+    // ==========================================
+
+    // Set initial size from dropdown
+    setSize(document.getElementById('size-select').value);
+  </script>
+
+</body>
+</html>

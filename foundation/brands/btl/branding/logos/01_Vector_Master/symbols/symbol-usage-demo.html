@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Symbol Usage Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      background: #0a0a0a;
+      min-height: 100vh;
+      padding: 40px;
+      color: #f9fafb;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #f9fafb;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #6b7280;
+      margin-bottom: 48px;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      max-width: 1200px;
+    }
+
+    .demo-card {
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .demo-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid #374151;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .demo-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tag-footer { background: rgba(0, 168, 107, 0.15); color: #10b981; }
+    .tag-hero { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+    .tag-background { background: rgba(75, 85, 99, 0.3); color: #9ca3af; }
+    .tag-accent { background: rgba(0, 168, 107, 0.1); color: #00a86b; }
+
+    .demo-preview {
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .demo-footer {
+      padding: 16px 24px;
+      background: #0d1117;
+      border-top: 1px solid #374151;
+    }
+
+    .demo-use {
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.5;
+    }
+
+    .demo-use strong {
+      color: #d1d5db;
+    }
+
+    /* === DEMO 1: Footer Attribution === */
+    .footer-demo {
+      background: #1f2937;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 32px;
+    }
+
+    .footer-attribution {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 24px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 6px;
+    }
+
+    .footer-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .footer-text .brand {
+      color: #00a86b;
+    }
+
+    /* === DEMO 2: Hero Visual === */
+    .hero-demo {
+      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      padding: 0 40px;
+    }
+
+    .hero-symbol {
+      flex-shrink: 0;
+    }
+
+    .hero-content {
+      text-align: left;
+    }
+
+    .hero-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #00a86b;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #f9fafb;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .hero-title .jade {
+      color: #10b981;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    /* === DEMO 3: Background Watermark === */
+    .bg-demo {
+      background: #111827;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bg-watermark {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%) rotate(-12deg);
+      opacity: 0.08;
+    }
+
+    .bg-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 60px;
+    }
+
+    .bg-quote {
+      font-size: 22px;
+      font-weight: 500;
+      color: #e5e7eb;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .bg-quote .highlight {
+      color: #10b981;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* === DEMO 4: Section Divider === */
+    .divider-demo {
+      background: #111827;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .divider-section {
+      text-align: center;
+      padding: 20px 40px;
+      width: 100%;
+    }
+
+    .divider-section.top {
+      background: rgba(75, 85, 99, 0.1);
+    }
+
+    .divider-section.bottom {
+      background: rgba(0, 168, 107, 0.05);
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .top .section-label { color: #6b7280; }
+    .bottom .section-label { color: #10b981; }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .top .section-title { color: #9ca3af; }
+    .bottom .section-title { color: #e5e7eb; }
+
+    .divider-symbol {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .divider-line {
+      width: 60px;
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        #00a86b 0px,
+        #00a86b 4px,
+        transparent 4px,
+        transparent 7px
+      );
+    }
+
+    /* === DEMO 5: Card Corner Accent === */
+    .corner-demo {
+      background: #111827;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .accent-card {
+      background: rgba(0, 168, 107, 0.04);
+      border: 1px solid rgba(0, 168, 107, 0.2);
+      border-radius: 8px;
+      padding: 32px;
+      width: 100%;
+      max-width: 320px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .corner-symbol {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      opacity: 0.15;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #f9fafb;
+      margin-bottom: 8px;
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: #9ca3af;
+      line-height: 1.5;
+    }
+
+    /* === DEMO 6: Pattern with Labels === */
+    .pattern-demo {
+      background: linear-gradient(180deg, #0d1117 0%, #111827 100%);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 0 32px;
+    }
+
+    .pattern-labels {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .pattern-label {
+      text-align: right;
+    }
+
+    .label-percent {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .label-percent.tip { color: #10b981; }
+    .label-percent.body { color: #6b7280; }
+
+    .label-text {
+      font-size: 14px;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>BTL Symbol Usage Approaches</h1>
+  <p class="subtitle">Six ways to integrate the iceberg symbol into infographics and visuals</p>
+
+  <div class="demo-grid">
+
+    <!-- Demo 1: Footer Attribution -->
+    <div class="demo-card">
+      <div class="demo-header">
+        <span class="demo-title">1. Footer Attribution</span>
+        <span class="demo-tag tag-footer">Compact</span>
+      </div>
+      <div class="demo-preview">
+        <div class="footer-demo">
+          <div class="footer-attribution">
+            <!-- Inline: btl-symbol-compact.svg -->
+            <svg width="32" height="32" viewBox="0 0 64 64" fill="none">
+              <g transform="translate(0, -1.33)">
+                <path d="M32 8 L42.67 18.67 H21.33 Z" fill="#10b981"/>
+                <path d="M10.67 24 L32 58.67 L53.33 24 Z" fill="#00a86b"/>
+              </g>
+            </svg>
+            <span class="footer-text">@hoangleitvn · <span class="brand">Builds That Last</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="demo-footer">
+        <p class="demo-use"><strong>Use:</strong> btl-symbol-compact.svg at 32-48px. Bottom of every infographic for consistent branding.</p>
+      </div>
+    </div>
+
+    <!-- Demo 2: Hero Visual -->
+    <div class="demo-card">
+      <div class="demo-header">
+        <span class="demo-title">2. Hero Visual Element</span>
+        <span class="demo-tag tag-hero">Pattern</span>
+      </div>
+      <div class="demo-preview">
+        <div class="hero-demo">
+          <!-- Inline: btl-symbol-pattern-clean.svg (scaled) -->
+          <svg class="hero-symbol" width="100" height="200" viewBox="0 0 200 400" fill="none">
+            <path d="M100 20 L160 88 H40 Z" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1.5"/>
+            <line x1="20" y1="96" x2="180" y2="96" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3"/>
+            <line x1="20" y1="97" x2="180" y2="97" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+            <path d="M40 104 L160 104 L180 380 L20 380 Z" fill="rgba(0, 168, 107, 0.06)" stroke="rgba(0, 168, 107, 0.25)" stroke-width="1"/>
+            <line x1="70" y1="140" x2="50" y2="350" stroke="rgba(0, 168, 107, 0.1)" stroke-width="1"/>
+            <line x1="100" y1="104" x2="100" y2="380" stroke="rgba(0, 168, 107, 0.1)" stroke-width="1"/>
+            <line x1="130" y1="140" x2="150" y2="350" stroke="rgba(0, 168, 107, 0.1)" stroke-width="1"/>
+          </svg>
+          <div class="hero-content">
+            <p class="hero-label">Foundation First</p>
+            <h2 class="hero-title">Speed vs <span class="jade">Velocity</span></h2>
+            <p class="hero-subtitle">What they post vs. what compounds</p>
+          </div>
+        </div>
+      </div>
+      <div class="demo-footer">
+        <p class="demo-use"><strong>Use:</strong> btl-symbol-pattern-clean.svg as primary visual. Reinforces 20/80 message alongside headline.</p>
+      </div>
+    </div>
+
+    <!-- Demo 3: Background Watermark -->
+    <div class="demo-card">
+      <div class="demo-header">
+        <span class="demo-title">3. Background Watermark</span>
+        <span class="demo-tag tag-background">Schematic</span>
+      </div>
+      <div class="demo-preview">
+        <div class="bg-demo">
+          <!-- Inline: btl-symbol-schematic.svg (large, faded) -->
+          <svg class="bg-watermark" width="200" height="200" viewBox="0 0 100 100" fill="none">
+            <path d="M50 10 L80 90 H20 Z" fill="none" stroke="#f9fafb" stroke-width="0.5"/>
+            <path d="M50 20 L70 80 H30 Z" fill="none" stroke="#f9fafb" stroke-width="0.5"/>
+            <line x1="0" y1="40" x2="100" y2="40" stroke="#f9fafb" stroke-width="0.5" stroke-dasharray="2 2"/>
+          </svg>
+          <div class="bg-content">
+            <p class="bg-quote">"The teams that skip foundation chase speed. The teams that invest in it gain <span class="highlight">velocity</span>."</p>
+          </div>
+        </div>
+      </div>
+      <div class="demo-footer">
+        <p class="demo-use"><strong>Use:</strong> btl-symbol-schematic.svg at 8-12% opacity. Subtle texture without competing with content.</p>
+      </div>
+    </div>
+
+    <!-- Demo 4: Section Divider -->
+    <div class="demo-card">
+      <div class="demo-header">
+        <span class="demo-title">4. Section Divider</span>
+        <span class="demo-tag tag-accent">Compact</span>
+      </div>
+      <div class="demo-preview">
+        <div class="divider-demo">
+          <div class="divider-section top">
+            <p class="section-label">What They Post</p>
+            <p class="section-title">Speed</p>
+          </div>
+          <div class="divider-symbol">
+            <div class="divider-line"></div>
+            <!-- Inline: btl-symbol-compact.svg (tiny) -->
+            <svg width="24" height="24" viewBox="0 0 64 64" fill="none">
+              <g transform="translate(0, -1.33)">
+                <path d="M32 8 L42.67 18.67 H21.33 Z" fill="#10b981"/>
+                <path d="M10.67 24 L32 58.67 L53.33 24 Z" fill="#00a86b"/>
+              </g>
+            </svg>
+            <div class="divider-line"></div>
+          </div>
+          <div class="divider-section bottom">
+            <p class="section-label">What Compounds</p>
+            <p class="section-title">Velocity</p>
+          </div>
+        </div>
+      </div>
+      <div class="demo-footer">
+        <p class="demo-use"><strong>Use:</strong> btl-symbol-compact.svg at 20-28px between sections. Visual anchor that connects concepts.</p>
+      </div>
+    </div>
+
+    <!-- Demo 5: Card Corner Accent -->
+    <div class="demo-card">
+      <div class="demo-header">
+        <span class="demo-title">5. Card Corner Accent</span>
+        <span class="demo-tag tag-accent">Pattern</span>
+      </div>
+      <div class="demo-preview">
+        <div class="corner-demo">
+          <div class="accent-card">
+            <!-- Inline: btl-symbol-pattern-clean.svg (corner) -->
+            <svg class="corner-symbol" width="80" height="160" viewBox="0 0 200 400" fill="none">
+              <path d="M100 20 L160 88 H40 Z" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1.5"/>
+              <line x1="20" y1="96" x2="180" y2="96" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3"/>
+              <path d="M40 104 L160 104 L180 380 L20 380 Z" fill="rgba(0, 168, 107, 0.06)" stroke="rgba(0, 168, 107, 0.25)" stroke-width="1"/>
+            </svg>
+            <div class="card-content">
+              <h3 class="card-title">Foundation First</h3>
+              <p class="card-text">Tests, types, and patterns before AI. Context compounds. Mistakes become rules.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-footer">
+        <p class="demo-use"><strong>Use:</strong> btl-symbol-pattern-clean.svg at 10-20% opacity in card corners. Decorative without distraction.</p>
+      </div>
+    </div>
+
+    <!-- Demo 6: Pattern with Labels -->
+    <div class="demo-card">
+      <div class="demo-header">
+        <span class="demo-title">6. Labeled Diagram</span>
+        <span class="demo-tag tag-hero">Pattern + Labels</span>
+      </div>
+      <div class="demo-preview">
+        <div class="pattern-demo">
+          <div class="pattern-labels">
+            <div class="pattern-label">
+              <p class="label-percent tip">20%</p>
+              <p class="label-text">Visible results</p>
+            </div>
+            <div class="pattern-label">
+              <p class="label-percent body">80%</p>
+              <p class="label-text">Foundation work</p>
+            </div>
+          </div>
+          <!-- Inline: btl-symbol-pattern.svg (with built-in labels hidden, using external) -->
+          <svg width="100" height="200" viewBox="0 0 200 400" fill="none">
+            <path d="M100 20 L160 88 H40 Z" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1.5"/>
+            <line x1="20" y1="96" x2="180" y2="96" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3"/>
+            <line x1="20" y1="97" x2="180" y2="97" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+            <path d="M40 104 L160 104 L180 380 L20 380 Z" fill="rgba(0, 168, 107, 0.06)" stroke="rgba(0, 168, 107, 0.25)" stroke-width="1"/>
+            <line x1="70" y1="140" x2="50" y2="350" stroke="rgba(0, 168, 107, 0.1)" stroke-width="1"/>
+            <line x1="100" y1="104" x2="100" y2="380" stroke="rgba(0, 168, 107, 0.1)" stroke-width="1"/>
+            <line x1="130" y1="140" x2="150" y2="350" stroke="rgba(0, 168, 107, 0.1)" stroke-width="1"/>
+          </svg>
+        </div>
+      </div>
+      <div class="demo-footer">
+        <p class="demo-use"><strong>Use:</strong> btl-symbol-pattern-clean.svg with custom labels. Full educational diagram showing the iceberg metaphor.</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

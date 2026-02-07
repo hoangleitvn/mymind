@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200, height=630">
+  <title>BTL Cover: Building Is Easy, Discovery Is Hard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=Public+Sans:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background: #1f2937;
+    }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      margin: 0 auto;
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1200px;
+      height: 630px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <svg class="main-svg" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Background gradient with noise (from BTL design system) -->
+    <defs>
+      <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#374151"/>
+        <stop offset="15%" stop-color="#2d3748"/>
+        <stop offset="35%" stop-color="#1f2937"/>
+        <stop offset="55%" stop-color="#1a202c"/>
+        <stop offset="75%" stop-color="#141b24"/>
+        <stop offset="100%" stop-color="#111827"/>
+      </linearGradient>
+      <filter id="noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.06"/>
+        </feComponentTransfer>
+        <feBlend in="SourceGraphic" mode="overlay"/>
+      </filter>
+      <!-- Fade gradient for grid lines -->
+      <linearGradient id="gridFade" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#00a86b" stop-opacity="0.25"/>
+        <stop offset="50%" stop-color="#00a86b" stop-opacity="0.12"/>
+        <stop offset="100%" stop-color="#00a86b" stop-opacity="0.03"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="630" fill="url(#bgGradient)" filter="url(#noise)"/>
+
+    <!-- ============================================ -->
+    <!-- TEXT CONTENT (upper portion, centered) -->
+    <!-- ============================================ -->
+
+    <!-- Headline -->
+    <text x="600" y="180" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="64" font-weight="700" letter-spacing="-0.02em">
+      Building Is Easy,
+    </text>
+    <text x="600" y="255" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="64" font-weight="700" letter-spacing="-0.02em">
+      Discovery Is Hard
+    </text>
+
+    <!-- Waterline divider (centered, dashed) -->
+    <line x1="360" y1="290" x2="840" y2="290" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3" opacity="0.4"/>
+
+    <!-- Sub-headline -->
+    <text x="600" y="340" text-anchor="middle" fill="#9ca3af" font-family="Public Sans" font-size="28" font-weight="400">
+      What Outlasts Initial Success
+    </text>
+
+    <!-- ============================================ -->
+    <!-- VISUAL LAYER (bottom portion) -->
+    <!-- ============================================ -->
+
+    <!-- 3D Perspective Grid - Full width, immersive effect -->
+    <!-- Vanishing point at center (600, 380), extends to edges -->
+    <g opacity="1">
+      <!-- Horizontal lines - parallel, with gaps/disconnects, fading toward horizon -->
+      <!-- Row 1 (closest to horizon) -->
+      <line x1="0" y1="400" x2="280" y2="400" stroke="#00a86b" stroke-width="1" opacity="0.06"/>
+      <line x1="320" y1="400" x2="580" y2="400" stroke="#00a86b" stroke-width="1" opacity="0.08"/>
+      <line x1="620" y1="400" x2="880" y2="400" stroke="#00a86b" stroke-width="1" opacity="0.08"/>
+      <line x1="920" y1="400" x2="1200" y2="400" stroke="#00a86b" stroke-width="1" opacity="0.06"/>
+
+      <!-- Row 2 -->
+      <line x1="0" y1="440" x2="350" y2="440" stroke="#00a86b" stroke-width="1" opacity="0.08"/>
+      <line x1="400" y1="440" x2="800" y2="440" stroke="#00a86b" stroke-width="1" opacity="0.10"/>
+      <line x1="850" y1="440" x2="1200" y2="440" stroke="#00a86b" stroke-width="1" opacity="0.08"/>
+
+      <!-- Row 3 -->
+      <line x1="0" y1="480" x2="200" y2="480" stroke="#00a86b" stroke-width="1" opacity="0.10"/>
+      <line x1="250" y1="480" x2="520" y2="480" stroke="#00a86b" stroke-width="1" opacity="0.12"/>
+      <line x1="560" y1="480" x2="640" y2="480" stroke="#00a86b" stroke-width="1" opacity="0.15"/>
+      <line x1="680" y1="480" x2="950" y2="480" stroke="#00a86b" stroke-width="1" opacity="0.12"/>
+      <line x1="1000" y1="480" x2="1200" y2="480" stroke="#00a86b" stroke-width="1" opacity="0.10"/>
+
+      <!-- Row 4 -->
+      <line x1="0" y1="520" x2="300" y2="520" stroke="#00a86b" stroke-width="1" opacity="0.12"/>
+      <line x1="360" y1="520" x2="840" y2="520" stroke="#00a86b" stroke-width="1" opacity="0.15"/>
+      <line x1="900" y1="520" x2="1200" y2="520" stroke="#00a86b" stroke-width="1" opacity="0.12"/>
+
+      <!-- Row 5 (furthest from horizon, strongest) -->
+      <line x1="0" y1="560" x2="180" y2="560" stroke="#00a86b" stroke-width="1" opacity="0.15"/>
+      <line x1="220" y1="560" x2="500" y2="560" stroke="#00a86b" stroke-width="1" opacity="0.18"/>
+      <line x1="540" y1="560" x2="660" y2="560" stroke="#00a86b" stroke-width="1" opacity="0.20"/>
+      <line x1="700" y1="560" x2="980" y2="560" stroke="#00a86b" stroke-width="1" opacity="0.18"/>
+      <line x1="1020" y1="560" x2="1200" y2="560" stroke="#00a86b" stroke-width="1" opacity="0.15"/>
+
+      <!-- Row 6 (bottom edge) -->
+      <line x1="0" y1="600" x2="400" y2="600" stroke="#00a86b" stroke-width="1" opacity="0.18"/>
+      <line x1="450" y1="600" x2="750" y2="600" stroke="#00a86b" stroke-width="1" opacity="0.22"/>
+      <line x1="800" y1="600" x2="1200" y2="600" stroke="#00a86b" stroke-width="1" opacity="0.18"/>
+
+      <!-- Vertical perspective lines - converging toward vanishing point (600, 380) -->
+      <!-- Left side lines -->
+      <line x1="0" y1="630" x2="480" y2="380" stroke="#00a86b" stroke-width="1" opacity="0.08"/>
+      <line x1="100" y1="630" x2="500" y2="380" stroke="#00a86b" stroke-width="1" opacity="0.06"/>
+      <line x1="200" y1="630" x2="520" y2="380" stroke="#00a86b" stroke-width="1" opacity="0.08"/>
+      <line x1="300" y1="630" x2="540" y2="380" stroke="#00a86b" stroke-width="1" opacity="0.10"/>
+      <line x1="400" y1="630" x2="560" y2="380" stroke="#00a86b" stroke-width="1" opacity="0.12"/>
+      <line x1="500" y1="630" x2="580" y2="380" stroke="#00a86b" stroke-width="1" opacity="0.14"/>
+
+      <!-- Center lines (vertical, strongest) -->
+      <line x1="550" y1="630" x2="590" y2="400" stroke="#00a86b" stroke-width="1" opacity="0.15"/>
+      <line x1="600" y1="630" x2="600" y2="400" stroke="#00a86b" stroke-width="1" opacity="0.18"/>
+      <line x1="650" y1="630" x2="610" y2="400" stroke="#00a86b" stroke-width="1" opacity="0.15"/>
+
+      <!-- Right side lines -->
+      <line x1="700" y1="630" x2="620" y2="380" stroke="#00a86b" stroke-width="1" opacity="0.14"/>
+      <line x1="800" y1="630" x2="640" y2="380" stroke="#00a86b" stroke-width="1" opacity="0.12"/>
+      <line x1="900" y1="630" x2="660" y2="380" stroke="#00a86b" stroke-width="1" opacity="0.10"/>
+      <line x1="1000" y1="630" x2="680" y2="380" stroke="#00a86b" stroke-width="1" opacity="0.08"/>
+      <line x1="1100" y1="630" x2="700" y2="380" stroke="#00a86b" stroke-width="1" opacity="0.06"/>
+      <line x1="1200" y1="630" x2="720" y2="380" stroke="#00a86b" stroke-width="1" opacity="0.08"/>
+    </g>
+
+    <!-- Magnifying glass (center-aligned at x=600) -->
+    <g transform="translate(600, 470)">
+      <!-- Glass circle - centered at origin -->
+      <circle cx="0" cy="0" r="70" fill="none" stroke="rgba(0, 168, 107, 0.35)" stroke-width="4"/>
+      <!-- Handle - extends to bottom-right -->
+      <line x1="50" y1="50" x2="115" y2="115" stroke="rgba(0, 168, 107, 0.25)" stroke-width="12" stroke-linecap="round"/>
+      <!-- Inner glow/highlight point -->
+      <circle cx="0" cy="0" r="8" fill="#00a86b" opacity="0.9"/>
+      <circle cx="0" cy="0" r="25" fill="none" stroke="#00a86b" stroke-width="1" opacity="0.5"/>
+      <circle cx="0" cy="0" r="45" fill="none" stroke="#00a86b" stroke-width="1" opacity="0.25"/>
+    </g>
+
+  </svg>
+
+</body>
+</html>

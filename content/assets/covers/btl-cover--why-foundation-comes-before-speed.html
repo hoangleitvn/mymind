@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200, height=630">
+  <title>BTL Cover: Why Foundation Comes Before Speed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=Public+Sans:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background: #1f2937;
+    }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      margin: 0 auto;
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1200px;
+      height: 630px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <svg class="main-svg" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Background gradient with noise (from BTL design system) -->
+    <defs>
+      <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#374151"/>
+        <stop offset="15%" stop-color="#2d3748"/>
+        <stop offset="35%" stop-color="#1f2937"/>
+        <stop offset="55%" stop-color="#1a202c"/>
+        <stop offset="75%" stop-color="#141b24"/>
+        <stop offset="100%" stop-color="#111827"/>
+      </linearGradient>
+      <filter id="noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.06"/>
+        </feComponentTransfer>
+        <feBlend in="SourceGraphic" mode="overlay"/>
+      </filter>
+    </defs>
+    <rect width="1200" height="630" fill="url(#bgGradient)" filter="url(#noise)"/>
+
+    <!-- ============================================ -->
+    <!-- TEXT CONTENT (centered) -->
+    <!-- ============================================ -->
+
+    <!-- Headline -->
+    <text x="600" y="180" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="64" font-weight="700" letter-spacing="-0.02em">
+      Why Foundation
+    </text>
+    <text x="600" y="255" text-anchor="middle" fill="#f9fafb" font-family="IBM Plex Sans" font-size="64" font-weight="700" letter-spacing="-0.02em">
+      Comes Before Speed
+    </text>
+
+    <!-- Waterline divider (centered, dashed) -->
+    <line x1="360" y1="290" x2="840" y2="290" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3" opacity="0.4"/>
+
+    <!-- Sub-headline -->
+    <text x="600" y="340" text-anchor="middle" fill="#9ca3af" font-family="Public Sans" font-size="28" font-weight="400">
+      Everyone ships fast. Few build to last.
+    </text>
+
+    <!-- BTL Submark (centered below text) -->
+    <!-- Position: center at x=600, y=453 (vertically centered between text end y=340 and safe zone y=566) -->
+    <g transform="translate(600, 453)">
+      <g transform="translate(-48, -48) scale(2)">
+        <!-- Gradients for submark -->
+        <defs>
+          <linearGradient id="submarkTip" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#10b981"/>
+            <stop offset="100%" stop-color="#00a86b"/>
+          </linearGradient>
+          <linearGradient id="submarkBody" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#00a86b"/>
+            <stop offset="40%" stop-color="#065f46"/>
+            <stop offset="100%" stop-color="#022c22"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(0, -1)">
+          <path d="M24 6L32 14H16L24 6Z" fill="url(#submarkTip)"/>
+          <line x1="8" y1="16" x2="40" y2="16" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3" opacity="0.5"/>
+          <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+          <path d="M8 18L24 44L40 18H8Z" fill="url(#submarkBody)"/>
+        </g>
+      </g>
+    </g>
+
+  </svg>
+
+</body>
+</html>

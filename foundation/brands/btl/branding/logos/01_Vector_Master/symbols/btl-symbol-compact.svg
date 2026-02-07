@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    BTL Symbol - Compact (Dark Background)
+    Proportions matched to btl-submark-standard.svg (scaled from 48px)
+
+    Colors (Dark BG per logo.md):
+    - Tip: #10b981 (brand-400)
+    - Body: #00a86b (brand-500)
+  -->
+
+  <g transform="translate(0, -1.33)">
+    <!-- Tip (scaled from M24 6L32 14H16L24 6Z) -->
+    <path d="M32 8 L42.67 18.67 H21.33 Z" fill="#10b981"/>
+
+    <!-- Body (scaled from M8 18L24 44L40 18H8Z) -->
+    <path d="M10.67 24 L32 58.67 L53.33 24 Z" fill="#00a86b"/>
+  </g>
+</svg>

@@ -1,0 +1,416 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1150" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <style>
+      .title { font-size: 24px; font-weight: 700; fill: #1f2937; }
+      .subtitle { font-size: 14px; font-weight: 600; fill: #374151; }
+      .section-title { font-size: 14px; font-weight: 600; fill: #374151; text-transform: uppercase; letter-spacing: 0.5px; }
+      .section-semantic { font-size: 12px; font-weight: 600; fill: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; }
+      .label { font-size: 11px; font-weight: 600; fill: #374151; }
+      .label-light { font-size: 11px; font-weight: 600; fill: #f9fafb; }
+      .hex { font-size: 10px; fill: #6b7280; font-family: monospace; }
+      .hex-light { font-size: 10px; fill: #d1d5db; font-family: monospace; }
+      .ratio { font-size: 9px; font-weight: 500; }
+      .ratio-pass { fill: #059669; }
+      .ratio-fail { fill: #dc2626; }
+      .usage { font-size: 9px; fill: #6b7280; }
+      .note { font-size: 10px; fill: #6b7280; font-style: italic; }
+      .architecture { font-size: 10px; fill: #374151; font-family: monospace; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1150" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="40" y="45" class="title">BTL COLOR SYSTEM v3 — Complete Palette</text>
+  <text x="40" y="65" class="note">Brand + Semantic + Neutral colors with WCAG AA/AAA contrast compliance</text>
+
+  <!-- Architecture Overview -->
+  <rect x="780" y="25" width="380" height="55" rx="6" fill="#f1f5f9" stroke="#e5e7eb"/>
+  <text x="800" y="45" class="architecture">BRAND: Jade (#00a86b) + Charcoal (#1f2937)</text>
+  <text x="800" y="60" class="architecture">SEMANTIC: Success | Warning | Error | Info</text>
+  <text x="800" y="75" class="architecture">NEUTRAL: Gray scale (50–900)</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- BRAND COLORS -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+
+  <text x="40" y="110" class="section-title">Brand: Primary Scale (Jade Green)</text>
+
+  <!-- Primary 300 - Dark mode accent -->
+  <rect x="40" y="125" width="90" height="60" rx="8" fill="#34d399"/>
+  <text x="85" y="150" text-anchor="middle" class="label">300</text>
+  <text x="85" y="165" text-anchor="middle" class="hex">#34d399</text>
+  <text x="85" y="195" text-anchor="middle" class="usage">Dark mode</text>
+
+  <!-- Primary 400 - Lighter -->
+  <rect x="140" y="125" width="90" height="60" rx="8" fill="#10b981"/>
+  <text x="185" y="150" text-anchor="middle" class="label-light">400</text>
+  <text x="185" y="165" text-anchor="middle" class="hex-light">#10b981</text>
+  <text x="185" y="195" text-anchor="middle" class="usage">Hover states</text>
+
+  <!-- Primary 500 - Brand -->
+  <rect x="240" y="125" width="90" height="60" rx="8" fill="#00a86b"/>
+  <text x="285" y="150" text-anchor="middle" class="label-light">500 Brand</text>
+  <text x="285" y="165" text-anchor="middle" class="hex-light">#00a86b</text>
+  <text x="285" y="195" text-anchor="middle" class="usage">Focus, accents</text>
+
+  <!-- Primary 600 - Button Fill -->
+  <rect x="340" y="125" width="90" height="60" rx="8" fill="#008553"/>
+  <text x="385" y="150" text-anchor="middle" class="label-light">600</text>
+  <text x="385" y="165" text-anchor="middle" class="hex-light">#008553</text>
+  <text x="385" y="195" text-anchor="middle" class="usage">Button fills</text>
+
+  <!-- Primary 700 - Text on light -->
+  <rect x="440" y="125" width="90" height="60" rx="8" fill="#007a4c"/>
+  <text x="485" y="150" text-anchor="middle" class="label-light">700</text>
+  <text x="485" y="165" text-anchor="middle" class="hex-light">#007a4c</text>
+  <text x="485" y="195" text-anchor="middle" class="usage">Links, text</text>
+
+  <!-- Primary 800 -->
+  <rect x="540" y="125" width="90" height="60" rx="8" fill="#065f46"/>
+  <text x="585" y="150" text-anchor="middle" class="label-light">800</text>
+  <text x="585" y="165" text-anchor="middle" class="hex-light">#065f46</text>
+  <text x="585" y="195" text-anchor="middle" class="usage">Dark accents</text>
+
+  <!-- Primary 900 - Logo gradient end -->
+  <rect x="640" y="125" width="90" height="60" rx="8" fill="#022c22"/>
+  <text x="685" y="150" text-anchor="middle" class="label-light">900</text>
+  <text x="685" y="165" text-anchor="middle" class="hex-light">#022c22</text>
+  <text x="685" y="195" text-anchor="middle" class="usage">Logo gradient</text>
+
+  <!-- Primary 50/100 - Tints -->
+  <rect x="750" y="125" width="70" height="60" rx="8" fill="#ecfdf5" stroke="#d1fae5" stroke-width="1"/>
+  <text x="785" y="150" text-anchor="middle" class="label">50</text>
+  <text x="785" y="165" text-anchor="middle" class="hex">#ecfdf5</text>
+
+  <rect x="830" y="125" width="70" height="60" rx="8" fill="#d1fae5" stroke="#a7f3d0" stroke-width="1"/>
+  <text x="865" y="150" text-anchor="middle" class="label">100</text>
+  <text x="865" y="165" text-anchor="middle" class="hex">#d1fae5</text>
+
+  <!-- Contrast examples for Primary -->
+  <text x="930" y="125" class="section-semantic">Contrast Check</text>
+
+  <!-- Button example - PASS -->
+  <rect x="930" y="140" width="110" height="32" rx="6" fill="#008553"/>
+  <text x="985" y="161" text-anchor="middle" fill="white" font-size="12" font-weight="600">Button</text>
+  <text x="1050" y="161" class="ratio ratio-pass">4.69:1 ✓</text>
+
+  <!-- Link example - PASS -->
+  <rect x="930" y="178" width="110" height="26" rx="4" fill="white" stroke="#e5e7eb"/>
+  <text x="940" y="195" fill="#007a4c" font-size="11" font-weight="500">Link text</text>
+  <text x="1050" y="195" class="ratio ratio-pass">5.14:1 ✓</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- SEMANTIC COLORS -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- SEMANTIC: SUCCESS (Jade-derived) -->
+  <text x="40" y="250" class="section-title">Semantic: Success (Jade-derived)</text>
+  <text x="320" y="250" class="note">— Reuses brand green for consistency</text>
+
+  <rect x="40" y="265" width="80" height="55" rx="8" fill="#ecfdf5" stroke="#d1fae5" stroke-width="1"/>
+  <text x="80" y="288" text-anchor="middle" class="label">50</text>
+  <text x="80" y="302" text-anchor="middle" class="hex">#ecfdf5</text>
+
+  <rect x="130" y="265" width="80" height="55" rx="8" fill="#10b981"/>
+  <text x="170" y="288" text-anchor="middle" class="label-light">500</text>
+  <text x="170" y="302" text-anchor="middle" class="hex-light">#10b981</text>
+
+  <rect x="220" y="265" width="80" height="55" rx="8" fill="#059669"/>
+  <text x="260" y="288" text-anchor="middle" class="label-light">600</text>
+  <text x="260" y="302" text-anchor="middle" class="hex-light">#059669</text>
+
+  <rect x="310" y="265" width="80" height="55" rx="8" fill="#047857"/>
+  <text x="350" y="288" text-anchor="middle" class="label-light">700 Text</text>
+  <text x="350" y="302" text-anchor="middle" class="hex-light">#047857</text>
+
+  <rect x="400" y="265" width="80" height="55" rx="8" fill="#065f46"/>
+  <text x="440" y="288" text-anchor="middle" class="label-light">800 AAA</text>
+  <text x="440" y="302" text-anchor="middle" class="hex-light">#065f46</text>
+
+  <!-- Success usage -->
+  <rect x="510" y="265" width="180" height="55" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+  <text x="520" y="285" fill="#047857" font-size="11" font-weight="600">✓ Success message</text>
+  <text x="520" y="302" fill="#065f46" font-size="10">Operation completed</text>
+  <text x="700" y="295" class="ratio ratio-pass">4.63:1 ✓</text>
+
+  <!-- SEMANTIC: WARNING (Amber) -->
+  <text x="40" y="355" class="section-title">Semantic: Warning (Amber)</text>
+  <text x="290" y="355" class="note">— High-visibility caution states</text>
+
+  <rect x="40" y="370" width="80" height="55" rx="8" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>
+  <text x="80" y="393" text-anchor="middle" class="label">50</text>
+  <text x="80" y="407" text-anchor="middle" class="hex">#fef3c7</text>
+
+  <rect x="130" y="370" width="80" height="55" rx="8" fill="#f59e0b"/>
+  <text x="170" y="393" text-anchor="middle" class="label">500</text>
+  <text x="170" y="407" text-anchor="middle" class="hex">#f59e0b</text>
+
+  <rect x="220" y="370" width="80" height="55" rx="8" fill="#d97706"/>
+  <text x="260" y="393" text-anchor="middle" class="label-light">600</text>
+  <text x="260" y="407" text-anchor="middle" class="hex-light">#d97706</text>
+
+  <rect x="310" y="370" width="80" height="55" rx="8" fill="#b45309"/>
+  <text x="350" y="393" text-anchor="middle" class="label-light">700 Text</text>
+  <text x="350" y="407" text-anchor="middle" class="hex-light">#b45309</text>
+
+  <rect x="400" y="370" width="80" height="55" rx="8" fill="#92400e"/>
+  <text x="440" y="393" text-anchor="middle" class="label-light">800 AAA</text>
+  <text x="440" y="407" text-anchor="middle" class="hex-light">#92400e</text>
+
+  <!-- Warning usage -->
+  <rect x="510" y="370" width="180" height="55" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="520" y="390" fill="#92400e" font-size="11" font-weight="600">⚠ Warning message</text>
+  <text x="520" y="407" fill="#92400e" font-size="10">Please review carefully</text>
+  <text x="700" y="400" class="ratio ratio-pass">7.25:1 ✓</text>
+
+  <!-- SEMANTIC: ERROR (Red) -->
+  <text x="40" y="460" class="section-title">Semantic: Error (Red)</text>
+  <text x="260" y="460" class="note">— Danger and error signaling</text>
+
+  <rect x="40" y="475" width="80" height="55" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+  <text x="80" y="498" text-anchor="middle" class="label">50</text>
+  <text x="80" y="512" text-anchor="middle" class="hex">#fef2f2</text>
+
+  <rect x="130" y="475" width="80" height="55" rx="8" fill="#ef4444"/>
+  <text x="170" y="498" text-anchor="middle" class="label-light">500</text>
+  <text x="170" y="512" text-anchor="middle" class="hex-light">#ef4444</text>
+
+  <rect x="220" y="475" width="80" height="55" rx="8" fill="#dc2626"/>
+  <text x="260" y="498" text-anchor="middle" class="label-light">600 AA</text>
+  <text x="260" y="512" text-anchor="middle" class="hex-light">#dc2626</text>
+
+  <rect x="310" y="475" width="80" height="55" rx="8" fill="#b91c1c"/>
+  <text x="350" y="498" text-anchor="middle" class="label-light">700 Text</text>
+  <text x="350" y="512" text-anchor="middle" class="hex-light">#b91c1c</text>
+
+  <rect x="400" y="475" width="80" height="55" rx="8" fill="#991b1b"/>
+  <text x="440" y="498" text-anchor="middle" class="label-light">800 AAA</text>
+  <text x="440" y="512" text-anchor="middle" class="hex-light">#991b1b</text>
+
+  <!-- Error usage -->
+  <rect x="510" y="475" width="180" height="55" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+  <text x="520" y="495" fill="#b91c1c" font-size="11" font-weight="600">✗ Error message</text>
+  <text x="520" y="512" fill="#991b1b" font-size="10">Please fix and try again</text>
+  <text x="700" y="505" class="ratio ratio-pass">6.05:1 ✓</text>
+
+  <!-- SEMANTIC: INFO (Slate) -->
+  <text x="40" y="565" class="section-title">Semantic: Info (Slate)</text>
+  <text x="260" y="565" class="note">— Neutral informational (avoids forbidden blue)</text>
+
+  <rect x="40" y="580" width="80" height="55" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="80" y="603" text-anchor="middle" class="label">50</text>
+  <text x="80" y="617" text-anchor="middle" class="hex">#f8fafc</text>
+
+  <rect x="130" y="580" width="80" height="55" rx="8" fill="#64748b"/>
+  <text x="170" y="603" text-anchor="middle" class="label-light">500</text>
+  <text x="170" y="617" text-anchor="middle" class="hex-light">#64748b</text>
+
+  <rect x="220" y="580" width="80" height="55" rx="8" fill="#475569"/>
+  <text x="260" y="603" text-anchor="middle" class="label-light">600 AA</text>
+  <text x="260" y="617" text-anchor="middle" class="hex-light">#475569</text>
+
+  <rect x="310" y="580" width="80" height="55" rx="8" fill="#334155"/>
+  <text x="350" y="603" text-anchor="middle" class="label-light">700 Text</text>
+  <text x="350" y="617" text-anchor="middle" class="hex-light">#334155</text>
+
+  <rect x="400" y="580" width="80" height="55" rx="8" fill="#1e293b"/>
+  <text x="440" y="603" text-anchor="middle" class="label-light">800 AAA</text>
+  <text x="440" y="617" text-anchor="middle" class="hex-light">#1e293b</text>
+
+  <!-- Info usage -->
+  <rect x="510" y="580" width="180" height="55" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+  <text x="520" y="600" fill="#334155" font-size="11" font-weight="600">ℹ Info message</text>
+  <text x="520" y="617" fill="#475569" font-size="10">Additional information</text>
+  <text x="700" y="610" class="ratio ratio-pass">8.58:1 ✓</text>
+
+  <!-- Semantic summary table -->
+  <rect x="750" y="265" width="410" height="175" rx="8" fill="white" stroke="#e5e7eb"/>
+  <rect x="750" y="265" width="410" height="24" rx="8" fill="#f1f5f9"/>
+  <text x="770" y="282" font-size="10" font-weight="600" fill="#374151">State</text>
+  <text x="850" y="282" font-size="10" font-weight="600" fill="#374151">Icon/Border</text>
+  <text x="950" y="282" font-size="10" font-weight="600" fill="#374151">Text (AA)</text>
+  <text x="1050" y="282" font-size="10" font-weight="600" fill="#374151">Text (AAA)</text>
+
+  <line x1="750" y1="289" x2="1160" y2="289" stroke="#e5e7eb"/>
+
+  <text x="770" y="310" font-size="10" fill="#059669" font-weight="600">Success</text>
+  <text x="850" y="310" font-size="10" font-family="monospace" fill="#6b7280">#10b981</text>
+  <text x="950" y="310" font-size="10" font-family="monospace" fill="#6b7280">#047857</text>
+  <text x="1050" y="310" font-size="10" font-family="monospace" fill="#6b7280">#065f46</text>
+
+  <line x1="750" y1="320" x2="1160" y2="320" stroke="#f1f5f9"/>
+
+  <text x="770" y="340" font-size="10" fill="#d97706" font-weight="600">Warning</text>
+  <text x="850" y="340" font-size="10" font-family="monospace" fill="#6b7280">#f59e0b</text>
+  <text x="950" y="340" font-size="10" font-family="monospace" fill="#6b7280">#b45309</text>
+  <text x="1050" y="340" font-size="10" font-family="monospace" fill="#6b7280">#92400e</text>
+
+  <line x1="750" y1="350" x2="1160" y2="350" stroke="#f1f5f9"/>
+
+  <text x="770" y="370" font-size="10" fill="#dc2626" font-weight="600">Error</text>
+  <text x="850" y="370" font-size="10" font-family="monospace" fill="#6b7280">#ef4444</text>
+  <text x="950" y="370" font-size="10" font-family="monospace" fill="#6b7280">#b91c1c</text>
+  <text x="1050" y="370" font-size="10" font-family="monospace" fill="#6b7280">#991b1b</text>
+
+  <line x1="750" y1="380" x2="1160" y2="380" stroke="#f1f5f9"/>
+
+  <text x="770" y="400" font-size="10" fill="#475569" font-weight="600">Info</text>
+  <text x="850" y="400" font-size="10" font-family="monospace" fill="#6b7280">#64748b</text>
+  <text x="950" y="400" font-size="10" font-family="monospace" fill="#6b7280">#475569</text>
+  <text x="1050" y="400" font-size="10" font-family="monospace" fill="#6b7280">#334155</text>
+
+  <line x1="750" y1="410" x2="1160" y2="410" stroke="#e5e7eb"/>
+
+  <text x="770" y="430" font-size="9" fill="#9ca3af">AA = 4.5:1 contrast | AAA = 7:1 contrast</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- NEUTRAL COLORS -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- GRAY SCALE -->
+  <text x="40" y="680" class="section-title">Neutral: Gray Scale (Text &amp; UI)</text>
+
+  <rect x="40" y="695" width="80" height="50" rx="6" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="80" y="717" text-anchor="middle" class="label">50</text>
+  <text x="80" y="730" text-anchor="middle" class="hex">#f9fafb</text>
+
+  <rect x="130" y="695" width="80" height="50" rx="6" fill="#f1f5f9" stroke="#e5e7eb"/>
+  <text x="170" y="717" text-anchor="middle" class="label">100</text>
+  <text x="170" y="730" text-anchor="middle" class="hex">#f1f5f9</text>
+
+  <rect x="220" y="695" width="80" height="50" rx="6" fill="#e5e7eb"/>
+  <text x="260" y="717" text-anchor="middle" class="label">200</text>
+  <text x="260" y="730" text-anchor="middle" class="hex">#e5e7eb</text>
+
+  <rect x="310" y="695" width="80" height="50" rx="6" fill="#d1d5db"/>
+  <text x="350" y="717" text-anchor="middle" class="label">300</text>
+  <text x="350" y="730" text-anchor="middle" class="hex">#d1d5db</text>
+
+  <rect x="400" y="695" width="80" height="50" rx="6" fill="#9ca3af"/>
+  <text x="440" y="717" text-anchor="middle" class="label-light">400</text>
+  <text x="440" y="730" text-anchor="middle" class="hex-light">#9ca3af</text>
+
+  <rect x="490" y="695" width="80" height="50" rx="6" fill="#6b7280"/>
+  <text x="530" y="717" text-anchor="middle" class="label-light">500</text>
+  <text x="530" y="730" text-anchor="middle" class="hex-light">#6b7280</text>
+
+  <rect x="580" y="695" width="80" height="50" rx="6" fill="#4b5563"/>
+  <text x="620" y="717" text-anchor="middle" class="label-light">600</text>
+  <text x="620" y="730" text-anchor="middle" class="hex-light">#4b5563</text>
+
+  <rect x="670" y="695" width="80" height="50" rx="6" fill="#374151"/>
+  <text x="710" y="717" text-anchor="middle" class="label-light">700</text>
+  <text x="710" y="730" text-anchor="middle" class="hex-light">#374151</text>
+
+  <rect x="760" y="695" width="80" height="50" rx="6" fill="#1f2937"/>
+  <text x="800" y="717" text-anchor="middle" class="label-light">800</text>
+  <text x="800" y="730" text-anchor="middle" class="hex-light">#1f2937</text>
+
+  <rect x="850" y="695" width="80" height="50" rx="6" fill="#111827"/>
+  <text x="890" y="717" text-anchor="middle" class="label-light">900</text>
+  <text x="890" y="730" text-anchor="middle" class="hex-light">#111827</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- TEXT ROLES & SURFACES -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- Text contrast examples -->
+  <text x="40" y="790" class="section-title">Text Roles (Light Theme)</text>
+
+  <rect x="40" y="805" width="280" height="100" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="55" y="830" fill="#1f2937" font-size="16" font-weight="600">Headline (Gray-800)</text>
+  <text x="55" y="850" fill="#374151" font-size="13">Body text: Gray-700 (11.69:1) ✓</text>
+  <text x="55" y="870" fill="#6b7280" font-size="12">Secondary: Gray-500 (4.83:1) ✓</text>
+  <text x="55" y="890" fill="#9ca3af" font-size="11">Disabled: Gray-400 (2.54:1) ⚠</text>
+
+  <!-- Dark theme text -->
+  <text x="350" y="790" class="section-title">Text Roles (Dark Theme)</text>
+
+  <rect x="350" y="805" width="280" height="100" rx="8" fill="#1f2937"/>
+  <text x="365" y="830" fill="#f9fafb" font-size="16" font-weight="600">Headline (Gray-50)</text>
+  <text x="365" y="850" fill="#e5e7eb" font-size="13">Body text: Gray-200 (13.5:1) ✓</text>
+  <text x="365" y="870" fill="#9ca3af" font-size="12">Secondary: Gray-400 (4.07:1) ✓</text>
+  <text x="365" y="890" fill="#6b7280" font-size="11">Muted: Gray-500 (2.79:1) ⚠</text>
+
+  <!-- ROLE MAPPING TABLE -->
+  <text x="680" y="790" class="section-title">UI Role Mapping</text>
+
+  <rect x="680" y="805" width="480" height="200" rx="8" fill="white" stroke="#e5e7eb"/>
+
+  <!-- Table header -->
+  <rect x="680" y="805" width="480" height="24" rx="8" fill="#f1f5f9"/>
+  <text x="700" y="822" font-size="10" font-weight="600" fill="#374151">Role</text>
+  <text x="850" y="822" font-size="10" font-weight="600" fill="#374151">Light Theme</text>
+  <text x="1010" y="822" font-size="10" font-weight="600" fill="#374151">Dark Theme</text>
+
+  <!-- Rows -->
+  <line x1="680" y1="829" x2="1160" y2="829" stroke="#e5e7eb"/>
+  <text x="700" y="846" font-size="10" fill="#374151">Primary Button</text>
+  <text x="850" y="846" font-size="10" font-family="monospace" fill="#6b7280">#008553 + white</text>
+  <text x="1010" y="846" font-size="10" font-family="monospace" fill="#6b7280">#008553 + white</text>
+
+  <line x1="680" y1="854" x2="1160" y2="854" stroke="#f1f5f9"/>
+  <text x="700" y="871" font-size="10" fill="#374151">Links / Accent Text</text>
+  <text x="850" y="871" font-size="10" font-family="monospace" fill="#6b7280">#007a4c</text>
+  <text x="1010" y="871" font-size="10" font-family="monospace" fill="#6b7280">#34d399</text>
+
+  <line x1="680" y1="879" x2="1160" y2="879" stroke="#f1f5f9"/>
+  <text x="700" y="896" font-size="10" fill="#374151">Focus Ring</text>
+  <text x="850" y="896" font-size="10" font-family="monospace" fill="#6b7280">#00a86b</text>
+  <text x="1010" y="896" font-size="10" font-family="monospace" fill="#6b7280">#00a86b</text>
+
+  <line x1="680" y1="904" x2="1160" y2="904" stroke="#f1f5f9"/>
+  <text x="700" y="921" font-size="10" fill="#374151">Ghost Button</text>
+  <text x="850" y="921" font-size="10" font-family="monospace" fill="#6b7280">#ecfdf5 + #007a4c</text>
+  <text x="1010" y="921" font-size="10" font-family="monospace" fill="#6b7280">#065f46 + #34d399</text>
+
+  <line x1="680" y1="929" x2="1160" y2="929" stroke="#f1f5f9"/>
+  <text x="700" y="946" font-size="10" fill="#374151">Body Text</text>
+  <text x="850" y="946" font-size="10" font-family="monospace" fill="#6b7280">#374151 (Gray-700)</text>
+  <text x="1010" y="946" font-size="10" font-family="monospace" fill="#6b7280">#e5e7eb (Gray-200)</text>
+
+  <line x1="680" y1="954" x2="1160" y2="954" stroke="#f1f5f9"/>
+  <text x="700" y="971" font-size="10" fill="#374151">Secondary Text</text>
+  <text x="850" y="971" font-size="10" font-family="monospace" fill="#6b7280">#6b7280 (Gray-500)</text>
+  <text x="1010" y="971" font-size="10" font-family="monospace" fill="#6b7280">#9ca3af (Gray-400)</text>
+
+  <line x1="680" y1="979" x2="1160" y2="979" stroke="#f1f5f9"/>
+  <text x="700" y="996" font-size="10" fill="#374151">Page Background</text>
+  <text x="850" y="996" font-size="10" font-family="monospace" fill="#6b7280">#f9fafb (Gray-50)</text>
+  <text x="1010" y="996" font-size="10" font-family="monospace" fill="#6b7280">#111827 (Gray-900)</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- SURFACE SEPARATION -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+
+  <text x="40" y="940" class="section-title">Surface Separation</text>
+
+  <!-- Light theme surfaces -->
+  <text x="40" y="965" font-size="11" fill="#6b7280">Light Theme</text>
+  <rect x="40" y="975" width="180" height="80" rx="8" fill="#f9fafb"/>
+  <rect x="55" y="990" width="150" height="50" rx="6" fill="white" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="130" y="1020" text-anchor="middle" font-size="11" fill="#374151">Card on Background</text>
+  <text x="130" y="1065" text-anchor="middle" class="usage">Border: #d1d5db</text>
+
+  <!-- Dark theme surfaces -->
+  <text x="250" y="965" font-size="11" fill="#6b7280">Dark Theme</text>
+  <rect x="250" y="975" width="180" height="80" rx="8" fill="#111827"/>
+  <rect x="265" y="990" width="150" height="50" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1.5"/>
+  <text x="340" y="1020" text-anchor="middle" font-size="11" fill="#e5e7eb">Card with border</text>
+  <text x="340" y="1065" text-anchor="middle" class="usage">Border: #374151</text>
+
+  <!-- Brand background -->
+  <text x="460" y="965" font-size="11" fill="#6b7280">Brand Background</text>
+  <rect x="460" y="975" width="180" height="80" rx="8" fill="#00a86b"/>
+  <rect x="475" y="990" width="150" height="50" rx="6" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <text x="550" y="1020" text-anchor="middle" font-size="11" fill="white">White content</text>
+  <text x="550" y="1065" text-anchor="middle" class="usage" fill="rgba(255,255,255,0.7)">White @ 15-30%</text>
+
+  <!-- Footer -->
+  <line x1="40" y1="1100" x2="1160" y2="1100" stroke="#e5e7eb"/>
+  <text x="40" y="1125" font-size="10" fill="#9ca3af">BTL Color System v3 · WCAG Target: AAA (7:1) where possible, AA (4.5:1) minimum · Updated 2026-01-12</text>
+  <text x="1160" y="1125" text-anchor="end" font-size="10" fill="#9ca3af">See: audits/2026-01-12__color-system-audit.md</text>
+
+</svg>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+  position: relative;
+}
+.red-bar {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 6pt;
+  background: #EA322A;
+}
+.header {
+  padding: 22pt 50pt 10pt 50pt;
+  border-bottom: 3pt solid #EA322A;
+}
+h1 {
+  color: #2E3840; font-size: 28pt; font-weight: 700;
+  margin: 0;
+}
+.content {
+  flex: 1;
+  padding: 12pt 50pt;
+}
+.evolution {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20pt;
+  margin-bottom: 12pt;
+}
+.step {
+  text-align: center;
+  min-width: 130pt;
+}
+.step-icon {
+  margin-bottom: 8pt;
+}
+.step-box {
+  padding: 8pt 15pt;
+  border-radius: 6pt;
+}
+.step-box.past {
+  background: #F8F8F8;
+  border: 1pt solid #D1D3D5;
+}
+.step-box.current {
+  background: #EA322A;
+}
+.step-year {
+  color: #7B8187; font-size: 9pt;
+  margin: 0 0 2pt 0;
+}
+.step-box.current .step-year {
+  color: #FFC8B1;
+}
+.step-title {
+  color: #2E3840; font-size: 14pt; font-weight: 700;
+  margin: 0 0 2pt 0;
+}
+.step-box.current .step-title {
+  color: #FFFFFF;
+}
+.step-desc {
+  color: #7B8187; font-size: 8pt;
+  margin: 0;
+}
+.step-box.current .step-desc {
+  color: #FFC8B1;
+}
+.arrow {
+  color: #D1D3D5; font-size: 20pt;
+  margin-bottom: 30pt;
+}
+.table-container {
+  background: #F8F8F8;
+  border-radius: 8pt;
+  padding: 10pt;
+}
+.row-header {
+  background: #4E6E81;
+  border-radius: 6pt 6pt 0 0;
+  padding: 6pt 10pt;
+  margin: -10pt -10pt 6pt -10pt;
+  display: flex;
+}
+.row-header p {
+  color: #FFFFFF; font-size: 10pt; font-weight: 600;
+  margin: 0;
+  flex: 1;
+}
+.row {
+  display: flex;
+  padding: 6pt 0;
+  border-bottom: 1pt solid #D1D3D5;
+}
+.row:last-child {
+  border-bottom: none;
+}
+.old {
+  color: #7B8187; font-size: 10pt;
+  margin: 0;
+  flex: 1;
+}
+.new {
+  color: #EA322A; font-size: 10pt; font-weight: 600;
+  margin: 0;
+  flex: 1;
+}
+.footer-bar {
+  height: 6pt; background: #4E6E81;
+}
+</style>
+</head>
+<body>
+<div class="red-bar"></div>
+<div class="header">
+  <h1>The Builder's Evolution</h1>
+</div>
+<div class="content">
+  <div class="evolution">
+    <div class="step">
+      <div class="step-icon">
+        <img src="assets/evolution-spotter.png" style="width: 45pt; height: 45pt;">
+      </div>
+      <div class="step-box past">
+        <p class="step-year">2024</p>
+        <p class="step-title">Spotter</p>
+        <p class="step-desc">Sees problems, reports them</p>
+      </div>
+    </div>
+    <p class="arrow">→</p>
+    <div class="step">
+      <div class="step-icon">
+        <img src="assets/evolution-solver.png" style="width: 45pt; height: 45pt;">
+      </div>
+      <div class="step-box past">
+        <p class="step-year">2025</p>
+        <p class="step-title">Solver</p>
+        <p class="step-desc">Fixes problems when assigned</p>
+      </div>
+    </div>
+    <p class="arrow">→</p>
+    <div class="step">
+      <div class="step-icon">
+        <img src="assets/evolution-builder.png" style="width: 45pt; height: 45pt;">
+      </div>
+      <div class="step-box current">
+        <p class="step-year">2026</p>
+        <p class="step-title">Builder</p>
+        <p class="step-desc">Prevents problems, creates solutions</p>
+      </div>
+    </div>
+  </div>
+  <div class="table-container">
+    <div class="row-header">
+      <p>Task-Taker</p>
+      <p>Builder</p>
+    </div>
+    <div class="row">
+      <p class="old">Waits for instructions</p>
+      <p class="new">Seeks to understand the system</p>
+    </div>
+    <div class="row">
+      <p class="old">Does what's assigned</p>
+      <p class="new">Asks "What problem are we solving?"</p>
+    </div>
+    <div class="row">
+      <p class="old">"I don't know" = stop</p>
+      <p class="new">"I don't know" = go find out</p>
+    </div>
+  </div>
+</div>
+<div class="footer-bar"></div>
+</body>
+</html>

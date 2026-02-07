@@ -5,6 +5,12 @@ status: published
 created: 2026-01-07
 published_date: "2026-01-07T15:29:00.404Z"
 post_url: "https://www.linkedin.com/feed/update/urn:li:share:7414689522376122369/"
+performance_metrics:
+  impressions: 3636
+  reactions: 8
+  comments: 2
+  collected_at: 2026-01-19
+  note: "Partial stats - share URL format analytics unavailable"
 topic: AI-assisted development, vibe coding risks and awareness
 theme: ai-engineering
 persona: tech-leader

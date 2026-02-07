@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serverless Framework to CDK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Manrope:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: #e8e8e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .card {
+            width: 1080px;
+            height: 1080px;
+            background: #0F172A;
+            padding: 72px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(255, 153, 0, 0.15);
+            color: #FF9900;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+            letter-spacing: 1.5px;
+            margin-bottom: 32px;
+            width: fit-content;
+        }
+
+        h1 {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.15;
+            margin-bottom: 48px;
+        }
+
+        h1 span { color: #FF9900; }
+
+        .migration {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 56px;
+        }
+
+        .tool {
+            padding: 20px 32px;
+            border-radius: 12px;
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .tool.from {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid rgba(239, 68, 68, 0.3);
+            color: #FCA5A5;
+        }
+
+        .tool.to {
+            background: rgba(34, 197, 94, 0.1);
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            color: #86EFAC;
+        }
+
+        .arrow {
+            color: #FF9900;
+            font-size: 40px;
+        }
+
+        .reasons {
+            display: flex;
+            gap: 48px;
+        }
+
+        .reason {
+            flex: 1;
+        }
+
+        .reason-num {
+            color: #FF9900;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .reason-title {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .reason-desc {
+            font-size: 16px;
+            color: #94A3B8;
+            line-height: 1.5;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 72px;
+            left: 72px;
+            right: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer img { height: 28px; }
+        .footer span { color: #64748B; font-size: 15px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="tag">IAC DECISION</div>
+
+        <h1>Why We Left<br><span>Serverless Framework</span></h1>
+
+        <div class="migration">
+            <div class="tool from">Serverless Framework</div>
+            <div class="arrow">→</div>
+            <div class="tool to">AWS CDK</div>
+        </div>
+
+        <div class="reasons">
+            <div class="reason">
+                <div class="reason-num">01</div>
+                <div class="reason-title">v4 Pricing</div>
+                <div class="reason-desc">Per-deployment credits add up for services companies</div>
+            </div>
+            <div class="reason">
+                <div class="reason-num">02</div>
+                <div class="reason-title">Two IaC Systems</div>
+                <div class="reason-desc">Lambda + CloudFormation = double maintenance</div>
+            </div>
+            <div class="reason">
+                <div class="reason-num">03</div>
+                <div class="reason-title">One Unified Tool</div>
+                <div class="reason-desc">TypeScript for everything. Free. AWS-backed.</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <img src="../../../../../foundation/brands/innomize/assets/Logo_Horizontal_RGB_Light.png" alt="INNOMIZE">
+            <span>@hoangle</span>
+        </div>
+    </div>
+</body>
+</html>

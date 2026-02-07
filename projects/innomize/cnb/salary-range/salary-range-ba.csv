@@ -1,0 +1,7 @@
+level,title,code,min_salary_vnd,max_salary_vnd
+4.1,Senior BA Manager,BA1,50000000,85000000
+5.1,BA Manager,BA2,45000000,76500000
+6.1,BA Lead,BA3,35000000,59500000
+7.1,Senior Business Analyst,BA4,28000000,47600000
+8.1,Business Analyst,BA5,18000000,30600000
+9,Junior BA,BA6,10000000,17000000

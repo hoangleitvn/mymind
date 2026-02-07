@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Template Editor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <style>
+    /*
+      BTL Template Editor v2
+      ======================
+      Canvas-based editor with direct text editing
+
+      Features:
+      - Click to edit any text element
+      - Sidebar controls synced to canvas
+      - Theme switching
+      - Multiple export sizes
+    */
+
+    :root {
+      --brand-400: #10b981;
+      --brand-500: #00a86b;
+      --brand-600: #008553;
+      --ui-bg: #0a0a0a;
+      --ui-surface: #141414;
+      --ui-surface-hover: #1a1a1a;
+      --ui-border: #2a2a2a;
+      --ui-text: #f9fafb;
+      --ui-muted: #9ca3af;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--ui-bg);
+      min-height: 100vh;
+      font-family: "Public Sans", system-ui, sans-serif;
+      color: var(--ui-text);
+      overflow: hidden;
+    }
+
+    /* ========================================== */
+    /* LAYOUT                                    */
+    /* ========================================== */
+
+    .app {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      height: 100vh;
+    }
+
+    /* ========================================== */
+    /* SIDEBAR                                   */
+    /* ========================================== */
+
+    .sidebar {
+      background: var(--ui-surface);
+      border-right: 1px solid var(--ui-border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .sidebar-header {
+      padding: 20px;
+      border-bottom: 1px solid var(--ui-border);
+    }
+
+    .sidebar-header h1 {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--brand-400);
+      margin-bottom: 4px;
+    }
+
+    .sidebar-header .subtitle {
+      font-size: 12px;
+      color: var(--ui-muted);
+    }
+
+    .sidebar-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar-footer {
+      padding: 16px 20px;
+      border-top: 1px solid var(--ui-border);
+      font-size: 11px;
+      color: var(--ui-muted);
+      line-height: 1.5;
+    }
+
+    /* Control groups */
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .control-group label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--ui-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .control-group input,
+    .control-group select,
+    .control-group textarea {
+      background: var(--ui-bg);
+      border: 1px solid var(--ui-border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-family: "Public Sans", sans-serif;
+      font-size: 13px;
+      color: var(--ui-text);
+      width: 100%;
+      transition: border-color 0.15s;
+    }
+
+    .control-group textarea {
+      min-height: 72px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .control-group input:focus,
+    .control-group select:focus,
+    .control-group textarea:focus {
+      outline: none;
+      border-color: var(--brand-500);
+    }
+
+    .control-hint {
+      font-size: 11px;
+      color: var(--ui-muted);
+      margin-top: 4px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-family: "Public Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--brand-500);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-600);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ui-text);
+      border: 1px solid var(--ui-border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--brand-500);
+    }
+
+    .btn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .btn-grid .btn {
+      font-size: 12px;
+      padding: 8px;
+    }
+
+    /* Theme toggle */
+    .theme-toggle {
+      display: flex;
+      background: var(--ui-bg);
+      border-radius: 6px;
+      padding: 4px;
+    }
+
+    .theme-toggle button {
+      flex: 1;
+      padding: 8px;
+      background: transparent;
+      border: none;
+      border-radius: 4px;
+      font-family: "Public Sans", sans-serif;
+      font-size: 12px;
+      color: var(--ui-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .theme-toggle button.active {
+      background: var(--brand-500);
+      color: white;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--ui-border);
+      margin: 4px 0;
+    }
+
+    /* ========================================== */
+    /* CANVAS AREA                               */
+    /* ========================================== */
+
+    .canvas-area {
+      background: var(--ui-bg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .canvas-toolbar {
+      height: 48px;
+      background: var(--ui-surface);
+      border-bottom: 1px solid var(--ui-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .canvas-info {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--ui-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .zoom-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .zoom-controls button {
+      width: 28px;
+      height: 28px;
+      background: var(--ui-bg);
+      border: 1px solid var(--ui-border);
+      border-radius: 4px;
+      color: var(--ui-text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .zoom-controls button:hover {
+      border-color: var(--brand-500);
+    }
+
+    .zoom-level {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--ui-muted);
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .canvas-viewport {
+      flex: 1;
+      overflow: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .canvas-wrapper {
+      transform-origin: center center;
+      transition: transform 0.2s ease;
+    }
+
+    /* ========================================== */
+    /* THE CANVAS (Template)                     */
+    /* ========================================== */
+
+    .canvas {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Theme variables for canvas */
+    .canvas[data-theme="dark"] {
+      --canvas-bg: #1f2937;
+      --canvas-bg-alt: #111827;
+      --text-primary: #f9fafb;
+      --text-secondary: #d1d5db;
+      --text-muted: #9ca3af;
+      --border-color: #374151;
+    }
+
+    .canvas[data-theme="light"] {
+      --canvas-bg: #f9fafb;
+      --canvas-bg-alt: #ffffff;
+      --text-primary: #111827;
+      --text-secondary: #374151;
+      --text-muted: #6b7280;
+      --border-color: #e5e7eb;
+    }
+
+    /* Editable elements */
+    [data-editable] {
+      cursor: text;
+      outline: none;
+      transition: box-shadow 0.15s;
+      border-radius: 4px;
+    }
+
+    [data-editable]:hover {
+      box-shadow: 0 0 0 2px rgba(0, 168, 107, 0.3);
+    }
+
+    [data-editable]:focus {
+      box-shadow: 0 0 0 2px var(--brand-500);
+    }
+
+    /* ========================================== */
+    /* TOAST                                     */
+    /* ========================================== */
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--brand-500);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========================================== */
+    /* TEMPLATE STYLES                           */
+    /* ========================================== */
+
+    .canvas {
+      background: var(--canvas-bg);
+      font-family: "Public Sans", sans-serif;
+    }
+
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--brand-500);
+      z-index: 10;
+    }
+
+    .content-area {
+      position: absolute;
+      left: 64px;
+      top: 64px;
+      right: 64px;
+      bottom: 160px;
+      display: flex;
+      flex-direction: column;
+      z-index: 5;
+    }
+
+    .eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--brand-500);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      padding: 4px 8px;
+      margin-left: -8px;
+    }
+
+    .headline {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      padding: 8px;
+      margin-left: -8px;
+    }
+
+    .headline .highlight {
+      color: var(--brand-400);
+    }
+
+    .waterline {
+      width: 320px;
+      height: 2px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--brand-500) 0px,
+        var(--brand-500) 8px,
+        transparent 8px,
+        transparent 16px
+      );
+      margin: 16px 0 24px 0;
+    }
+
+    .subheadline {
+      font-family: "Public Sans", sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.5;
+      max-width: 700px;
+      padding: 8px;
+      margin-left: -8px;
+    }
+
+    /* Background graphic */
+    .bg-graphic {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.12;
+      z-index: 1;
+    }
+
+    .canvas[data-theme="light"] .bg-graphic {
+      opacity: 0.08;
+    }
+
+    /* Footer */
+    .footer {
+      position: absolute;
+      left: 64px;
+      right: 64px;
+      bottom: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .author-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--brand-500);
+      object-fit: cover;
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .author-name {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-primary);
+      padding: 2px 4px;
+      margin-left: -4px;
+    }
+
+    .author-brand {
+      font-family: "Public Sans", sans-serif;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .tagline {
+      font-family: "Public Sans", sans-serif;
+      font-size: 18px;
+      color: var(--text-secondary);
+    }
+
+    .tagline .highlight {
+      color: var(--brand-400);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>BTL Template Editor</h1>
+        <p class="subtitle">Click any text to edit directly</p>
+      </div>
+
+      <div class="sidebar-content">
+        <!-- Template Selection -->
+        <div class="control-group">
+          <label>Template</label>
+          <select id="template-select" onchange="loadTemplate(this.value)">
+            <optgroup label="Covers">
+              <option value="cover-title" selected>Title Focus (1456x1048)</option>
+              <option value="cover-quote">Quote (1456x1048)</option>
+              <option value="cover-minimal">Minimal (1200x1200)</option>
+            </optgroup>
+            <optgroup label="Social">
+              <option value="linkedin-post">LinkedIn Post (1200x1200)</option>
+              <option value="linkedin-banner">LinkedIn Banner (1584x396)</option>
+              <option value="twitter-header">Twitter Header (1500x500)</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- Theme -->
+        <div class="control-group">
+          <label>Theme</label>
+          <div class="theme-toggle">
+            <button id="btn-dark" class="active" onclick="setTheme('dark')">Dark</button>
+            <button id="btn-light" onclick="setTheme('light')">Light</button>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Content Fields -->
+        <div class="control-group">
+          <label>Eyebrow</label>
+          <input type="text" id="input-eyebrow" value="BTL MANIFESTO" oninput="updateField('eyebrow', this.value)">
+        </div>
+
+        <div class="control-group">
+          <label>Headline</label>
+          <textarea id="input-headline" oninput="updateField('headline', this.value)">Foundation First</textarea>
+          <p class="control-hint">Use [text] for jade highlight</p>
+        </div>
+
+        <div class="control-group">
+          <label>Subheadline</label>
+          <textarea id="input-subheadline" oninput="updateField('subheadline', this.value)">Everyone ships fast. Few build to last. A manifesto for modern engineering.</textarea>
+        </div>
+
+        <div class="control-group">
+          <label>Author Name</label>
+          <input type="text" id="input-author" value="Hoang Le" oninput="updateField('author', this.value)">
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Elements Toggle -->
+        <div class="control-group">
+          <label>Show Elements</label>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <label style="display: flex; align-items: center; gap: 8px; text-transform: none; letter-spacing: normal; cursor: pointer;">
+              <input type="checkbox" id="show-waterline" checked onchange="toggleElement('waterline', this.checked)">
+              <span>Waterline divider</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; text-transform: none; letter-spacing: normal; cursor: pointer;">
+              <input type="checkbox" id="show-graphic" checked onchange="toggleElement('bg-graphic', this.checked)">
+              <span>Background graphic</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; text-transform: none; letter-spacing: normal; cursor: pointer;">
+              <input type="checkbox" id="show-footer" checked onchange="toggleElement('footer', this.checked)">
+              <span>Footer with author</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Export -->
+        <div class="control-group">
+          <label>Export PNG</label>
+          <div class="btn-grid">
+            <button class="btn btn-secondary" onclick="exportPNG(1)">1x</button>
+            <button class="btn btn-secondary" onclick="exportPNG(2)">2x</button>
+            <button class="btn btn-primary" onclick="exportPNG(3)">3x</button>
+            <button class="btn btn-secondary" onclick="exportPNG(4)">4x</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <strong>Tip:</strong> Click directly on any text in the canvas to edit. Changes sync to fields above.
+      </div>
+    </aside>
+
+    <!-- Canvas Area -->
+    <main class="canvas-area">
+      <div class="canvas-toolbar">
+        <span class="canvas-info" id="canvas-info">TITLE FOCUS · 1456×1048 · DARK</span>
+        <div class="zoom-controls">
+          <button onclick="zoomOut()">−</button>
+          <span class="zoom-level" id="zoom-level">50%</span>
+          <button onclick="zoomIn()">+</button>
+          <button onclick="zoomFit()" title="Fit to view">⊡</button>
+        </div>
+      </div>
+
+      <div class="canvas-viewport" id="canvas-viewport">
+        <div class="canvas-wrapper" id="canvas-wrapper">
+
+          <!-- THE CANVAS -->
+          <div class="canvas" id="canvas" data-theme="dark" style="width: 1456px; height: 1048px;">
+            <div class="accent-bar"></div>
+
+            <!-- Background Graphic (Iceberg) -->
+            <div class="bg-graphic" id="bg-graphic">
+              <svg width="400" height="500" viewBox="0 0 400 500" fill="none">
+                <polygon points="200,40 270,100 130,100" fill="currentColor" style="color: var(--brand-500);" opacity="0.8"/>
+                <line x1="80" y1="100" x2="320" y2="100" stroke="currentColor" style="color: var(--brand-500);" stroke-width="2" stroke-dasharray="8 8"/>
+                <polygon points="130,100 270,100 320,180 340,280 300,380 100,380 60,280 80,180" fill="currentColor" style="color: var(--brand-500);" opacity="0.4"/>
+                <line x1="110" y1="160" x2="290" y2="160" stroke="currentColor" style="color: var(--brand-500);" stroke-width="1" opacity="0.3"/>
+                <line x1="90" y1="230" x2="310" y2="230" stroke="currentColor" style="color: var(--brand-500);" stroke-width="1" opacity="0.3"/>
+                <line x1="80" y1="310" x2="320" y2="310" stroke="currentColor" style="color: var(--brand-500);" stroke-width="1" opacity="0.3"/>
+              </svg>
+            </div>
+
+            <!-- Content -->
+            <div class="content-area">
+              <div class="eyebrow" id="eyebrow" data-editable="eyebrow" contenteditable="true">BTL MANIFESTO</div>
+              <h1 class="headline" id="headline" data-editable="headline" contenteditable="true">Foundation First</h1>
+              <div class="waterline" id="waterline"></div>
+              <p class="subheadline" id="subheadline" data-editable="subheadline" contenteditable="true">Everyone ships fast. Few build to last. A manifesto for modern engineering.</p>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer" id="footer">
+              <div class="author">
+                <img src="../hoangleitvn.jpeg" alt="Author" class="author-avatar" crossorigin="anonymous">
+                <div class="author-info">
+                  <span class="author-name" id="author" data-editable="author" contenteditable="true">Hoang Le</span>
+                  <span class="author-brand">Builds That Last</span>
+                </div>
+              </div>
+              <span class="tagline">Everyone ships <span class="highlight">fast</span>. Few build to <span class="highlight">last</span>.</span>
+            </footer>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">Exported!</div>
+
+  <script>
+    // ==========================================
+    // STATE
+    // ==========================================
+
+    const state = {
+      theme: 'dark',
+      zoom: 0.5,
+      template: 'cover-title',
+      size: { width: 1456, height: 1048 }
+    };
+
+    const templates = {
+      'cover-title': { width: 1456, height: 1048, name: 'Title Focus' },
+      'cover-quote': { width: 1456, height: 1048, name: 'Quote' },
+      'cover-minimal': { width: 1200, height: 1200, name: 'Minimal' },
+      'linkedin-post': { width: 1200, height: 1200, name: 'LinkedIn Post' },
+      'linkedin-banner': { width: 1584, height: 396, name: 'LinkedIn Banner' },
+      'twitter-header': { width: 1500, height: 500, name: 'Twitter Header' }
+    };
+
+    // ==========================================
+    // INITIALIZATION
+    // ==========================================
+
+    function init() {
+      // Set up contenteditable sync
+      document.querySelectorAll('[data-editable]').forEach(el => {
+        el.addEventListener('input', () => syncToInput(el));
+        el.addEventListener('blur', () => syncToInput(el));
+        el.addEventListener('paste', handlePaste);
+      });
+
+      // Initial zoom to fit
+      zoomFit();
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem('btl-theme');
+      if (savedTheme) setTheme(savedTheme);
+    }
+
+    // ==========================================
+    // CONTENT EDITING
+    // ==========================================
+
+    function updateField(field, value) {
+      const element = document.getElementById(field);
+      if (!element) return;
+
+      // Handle highlight syntax for headline
+      if (field === 'headline') {
+        const html = value.replace(/\[([^\]]+)\]/g, '<span class="highlight">$1</span>');
+        element.innerHTML = html;
+      } else {
+        element.textContent = value;
+      }
+    }
+
+    function syncToInput(element) {
+      const field = element.dataset.editable;
+      const input = document.getElementById('input-' + field);
+      if (!input) return;
+
+      // Get text content (strip HTML for input)
+      let value = element.textContent;
+
+      // For headline, convert highlights back to [text] syntax
+      if (field === 'headline') {
+        value = element.innerHTML
+          .replace(/<span class="highlight">([^<]+)<\/span>/g, '[$1]')
+          .replace(/<[^>]+>/g, ''); // Strip any other HTML
+      }
+
+      input.value = value;
+    }
+
+    function handlePaste(e) {
+      e.preventDefault();
+      const text = e.clipboardData.getData('text/plain');
+      document.execCommand('insertText', false, text);
+    }
+
+    // ==========================================
+    // ELEMENT TOGGLES
+    // ==========================================
+
+    function toggleElement(id, show) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.style.display = show ? '' : 'none';
+      }
+    }
+
+    // ==========================================
+    // THEME
+    // ==========================================
+
+    function setTheme(theme) {
+      state.theme = theme;
+      document.getElementById('canvas').setAttribute('data-theme', theme);
+      document.getElementById('btn-dark').classList.toggle('active', theme === 'dark');
+      document.getElementById('btn-light').classList.toggle('active', theme === 'light');
+      localStorage.setItem('btl-theme', theme);
+      updateCanvasInfo();
+    }
+
+    // ==========================================
+    // TEMPLATE LOADING
+    // ==========================================
+
+    function loadTemplate(templateId) {
+      const template = templates[templateId];
+      if (!template) return;
+
+      state.template = templateId;
+      state.size = { width: template.width, height: template.height };
+
+      const canvas = document.getElementById('canvas');
+      canvas.style.width = template.width + 'px';
+      canvas.style.height = template.height + 'px';
+
+      updateCanvasInfo();
+      zoomFit();
+    }
+
+    function updateCanvasInfo() {
+      const template = templates[state.template];
+      const name = template ? template.name.toUpperCase() : 'CUSTOM';
+      const size = `${state.size.width}×${state.size.height}`;
+      const theme = state.theme.toUpperCase();
+      document.getElementById('canvas-info').textContent = `${name} · ${size} · ${theme}`;
+    }
+
+    // ==========================================
+    // ZOOM
+    // ==========================================
+
+    function setZoom(level) {
+      state.zoom = Math.max(0.1, Math.min(1.5, level));
+      document.getElementById('canvas-wrapper').style.transform = `scale(${state.zoom})`;
+      document.getElementById('zoom-level').textContent = Math.round(state.zoom * 100) + '%';
+    }
+
+    function zoomIn() {
+      setZoom(state.zoom + 0.1);
+    }
+
+    function zoomOut() {
+      setZoom(state.zoom - 0.1);
+    }
+
+    function zoomFit() {
+      const viewport = document.getElementById('canvas-viewport');
+      const viewportRect = viewport.getBoundingClientRect();
+      const padding = 80;
+
+      const scaleX = (viewportRect.width - padding) / state.size.width;
+      const scaleY = (viewportRect.height - padding) / state.size.height;
+      const scale = Math.min(scaleX, scaleY, 1);
+
+      setZoom(scale);
+    }
+
+    // ==========================================
+    // EXPORT
+    // ==========================================
+
+    async function exportPNG(scale) {
+      const canvas = document.getElementById('canvas');
+
+      showToast('Exporting...');
+
+      try {
+        // Temporarily remove contenteditable outlines
+        document.querySelectorAll('[data-editable]').forEach(el => {
+          el.blur();
+        });
+
+        // Small delay to let blur take effect
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        const result = await html2canvas(canvas, {
+          scale: scale,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: null,
+          logging: false
+        });
+
+        // Generate filename
+        const template = templates[state.template];
+        const name = template ? template.name.toLowerCase().replace(/\s+/g, '-') : 'custom';
+        const timestamp = new Date().toISOString().slice(0, 10);
+        const filename = `btl-${name}-${state.theme}-${scale}x-${timestamp}.png`;
+
+        // Download
+        const link = document.createElement('a');
+        link.download = filename;
+        link.href = result.toDataURL('image/png');
+        link.click();
+
+        showToast(`Exported: ${filename}`);
+      } catch (error) {
+        console.error('Export failed:', error);
+        showToast('Export failed. Check console for details.');
+      }
+    }
+
+    // ==========================================
+    // TOAST
+    // ==========================================
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    // ==========================================
+    // KEYBOARD SHORTCUTS
+    // ==========================================
+
+    document.addEventListener('keydown', (e) => {
+      // Cmd/Ctrl + S = Export
+      if ((e.metaKey || e.ctrlKey) && e.key === 's') {
+        e.preventDefault();
+        exportPNG(3);
+      }
+      // Cmd/Ctrl + 0 = Fit zoom
+      if ((e.metaKey || e.ctrlKey) && e.key === '0') {
+        e.preventDefault();
+        zoomFit();
+      }
+      // Cmd/Ctrl + = = Zoom in
+      if ((e.metaKey || e.ctrlKey) && e.key === '=') {
+        e.preventDefault();
+        zoomIn();
+      }
+      // Cmd/Ctrl + - = Zoom out
+      if ((e.metaKey || e.ctrlKey) && e.key === '-') {
+        e.preventDefault();
+        zoomOut();
+      }
+    });
+
+    // ==========================================
+    // INIT
+    // ==========================================
+
+    init();
+  </script>
+
+</body>
+</html>

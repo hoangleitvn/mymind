@@ -1,7 +1,7 @@
 ---
 type: linkedin-person
 created: '2025-12-03'
-last_updated: '2025-12-03'
+last_updated: '2026-01-20'
 
 profile:
   name: "John Crickett"
@@ -17,7 +17,7 @@ relationship:
   connection_status: "not_connected"
   priority: "high"
   first_contact: '2025-12-03'
-  last_interaction: '2025-12-03'
+  last_interaction: '2026-01-21'
 
 themes:
   - software-engineering
@@ -26,6 +26,21 @@ themes:
   - engineering-career
 
 engagements:
+  - date: '2026-01-21'
+    type: "comment"
+    file: "comments/2026/01/21/2026-01-21__john-crickett-ai-local-global-context.md"
+    topic: "AI local vs global context, engineer's role"
+    outcome: "drafted"
+  - date: '2026-01-20'
+    type: "comment"
+    file: "comments/2026/01/20/2026-01-20__john-crickett-spec-driven-ai-development.md"
+    topic: "Spec-driven AI development adoption"
+    outcome: "posted"
+  - date: '2026-01-11'
+    type: "reply"
+    file: "comments/2026-01-11__john-crickett-ai-adoption-reply.md"
+    topic: "AI adoption and replacement fears"
+    outcome: "posted"
   - date: '2025-12-03'
     type: "comment"
     file: "comments/2025-12-03-john-crickett-code-liability.md"

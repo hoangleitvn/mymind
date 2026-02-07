@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Manifesto Cover - Dev.to Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #111827;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      font-family: system-ui, sans-serif;
+    }
+
+    .preview-label {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .cover-container {
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .cover {
+      width: 1000px;
+      height: 420px;
+      background: #1f2937;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Top accent bar */
+    .accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: #00a86b;
+    }
+
+    /* Content container - centered safe zone */
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px;
+      max-width: 800px;
+    }
+
+    /* Title - above waterline */
+    .title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: #f9fafb;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 32px;
+    }
+
+    /* Waterline divider */
+    .waterline {
+      width: 100%;
+      max-width: 600px;
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        #4b5563 0px,
+        #4b5563 8px,
+        transparent 8px,
+        transparent 16px
+      );
+      margin-bottom: 28px;
+    }
+
+    /* Tagline - below waterline */
+    .tagline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 500;
+      color: #00a86b;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .dimensions {
+      color: #4b5563;
+      font-size: 12px;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-label">Dev.to Article Cover Preview (1000×420)</div>
+
+  <div class="cover-container">
+    <div class="cover">
+      <!-- Top accent bar -->
+      <div class="accent-bar"></div>
+
+      <!-- Content -->
+      <div class="content">
+        <!-- Title above waterline -->
+        <h1 class="title">The Builds That Last Manifesto</h1>
+
+        <!-- Waterline divider -->
+        <div class="waterline"></div>
+
+        <!-- Tagline below waterline -->
+        <p class="tagline">Everyone ships fast. Few build to last.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dimensions">1000 × 420px · 72 DPI preview</div>
+</body>
+</html>

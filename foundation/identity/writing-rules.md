@@ -11,7 +11,6 @@ These rules help generated content sound human, specific, and authentic—not li
 1. **Preserve content, change only the voice**
    - Keep ideas, claims, POV, tense, and person (I/you/we)
    - Keep roughly the same length and structure
-   - Don't invent stories, numbers, or promises
 
 2. **Use clear, specific language**
    - Short, concrete words over abstract jargon
@@ -23,7 +22,25 @@ These rules help generated content sound human, specific, and authentic—not li
    - Varied sentence length
    - Conversational but professional
 
-4. **Distinguish experience sources**
+4. **Never fabricate**
+   - Only share stories/experiences that exist in your content, moments, or engagements
+   - Don't invent numbers, statistics, or data points
+   - Don't create fictional people, companies, or events
+   - If you need an example and don't have one, say so or use a clearly hypothetical framing
+
+5. **Verify before claiming**
+   - Confirm methods, tools, or frameworks exist before recommending
+   - Name sources instead of "experts say" or "research shows"
+   - Separate facts from inferences ("I observed X" vs "This suggests Y")
+   - Make smallest confident claim - narrow claims you're sure of vs broad uncertain ones
+
+6. **Admit uncertainty**
+   - Say "I'm not sure" when uncertain - never invent to sound confident
+   - "I don't know" is better than plausible-sounding speculation
+   - State assumptions explicitly as assumptions, not facts
+   - Flag when you're inferring vs when you know
+
+7. **Distinguish experience sources**
    - **Personal experience**: Only use "I did/built/shipped" for things you actually did
    - **Observed patterns**: Use "I've seen" or "pattern I keep seeing" for client/team observations
    - **General principles**: Use "you" or impersonal framing for universal advice
@@ -398,14 +415,23 @@ Your authentic voice patterns (preserve these):
 
 ### Before Publishing
 
+**Voice & Style:**
 1. [ ] **No banned words** - Scan for AI vocabulary
 2. [ ] **No banned patterns** - Check for "not X, but Y", rule of three, -ing endings
 3. [ ] **No em-dashes** - Replace with periods or commas
-4. [ ] **Specific numbers** - Replace "significant" with actual data
-5. [ ] **Named sources** - Replace "experts say" with named people
-6. [ ] **Real examples** - Include actual stories, projects, conversations
-7. [ ] **Honest caveats** - Include limitations, failures, trade-offs
-8. [ ] **Read aloud** - Does it sound like you talking?
+4. [ ] **Read aloud** - Does it sound like you talking?
+
+**Honesty & Verification:**
+5. [ ] **Real experiences only** - Every story/example exists in your workspace (content, moments, engagements)
+6. [ ] **No fabricated data** - Every number/stat is real and verifiable
+7. [ ] **Named sources** - Replace "experts say" with named people or delete
+8. [ ] **Assumptions flagged** - Inferences stated as inferences, not facts
+9. [ ] **Could you defend it?** - Every claim has a source in your workspace or verified knowledge
+
+**Substance:**
+10. [ ] **Specific numbers** - Replace "significant" with actual data
+11. [ ] **Real examples** - Include actual stories, projects, conversations
+12. [ ] **Honest caveats** - Include limitations, failures, trade-offs
 
 ### Scoring Criteria
 

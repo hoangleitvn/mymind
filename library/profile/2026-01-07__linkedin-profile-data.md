@@ -13,7 +13,7 @@ source: chrome-browser-capture
 | Field | Value |
 |-------|-------|
 | Name | Hoang Le |
-| Headline | Fractional CTO \| Builds that last \| Ship fast, scale safely \| Cloud, DevSecOps, AI |
+| Headline | Founder @ INNOMIZE & Builds That Last \| Fractional CTO \| Cloud, DevSecOps, AI |
 | Location | Ho Chi Minh City, Vietnam |
 | Followers | 1,668 |
 | Connections | 500+ |
@@ -37,22 +37,26 @@ They have the idea. They have the market insight. What they don't have is a tech
 
 I founded INNOMIZE to solve this. I work as your Fractional CTO or VP of Engineering. Not staff augmentation. Not outsourcing with hourly excuses. Accountability-driven development that gets you from zero to live users.
 
+I also write Builds That Last, a publication exploring what separates software that survives from software that collapses. Foundation-first engineering, technical leadership beyond the code, and the hidden 80% that makes systems last.
+
 What I bring:
 → 15+ years building engineering teams and products (startups and enterprise)
 → 50+ projects shipped: SaaS platforms, enterprise solutions, custom applications
 → Expertise in cloud architecture (AWS, Azure), system integration, and scaling from MVP to growth
 → A team of 40+ engineers in Vietnam delivering quality at 50-60% of US/EU rates
 
-My approach is foundation-first. 90% of your team's energy goes to business logic, not scaffolding. We build for scale from day one so you don't rebuild after product-market fit.
+My approach is foundation-first. 90% of your team's energy goes to business logic, not scaffolding. We build for scale from day one, so you don't rebuild after product-market fit.
 
 I work with:
 • Technical founders stuck in planning who need to ship
 • Non-technical co-founders who need a technical partner they can trust
-• Early-stage companies (pre-product to Series A) who can't afford a full-time CTO
+• Early-stage companies (pre-product to Series A) that can't afford a full-time CTO
 
 The goal is simple: speed to live users with quality that lasts.
 
 If you're building something and need a technical owner (not just a team), let's talk.
+
+📝 Read Builds That Last: https://buildsthatlast.substack.com/
 
 
 ## Analytics (Past 7 Days)
@@ -88,7 +92,26 @@ If you're building something and need a technical owner (not just a team), let's
 
 ## Experience
 
-### 1. Software Engineering Lead
+### 1. Founder & Author
+- **Company:** Builds That Last
+- **Type:** Self-Employed
+- **Duration:** Jan 2026 - Present
+- **Location:** Ho Chi Minh City, Vietnam
+- **Description:**
+Engineering leadership publication exploring what separates software that survives from software that collapses.
+
+Writing about foundation-first engineering practices, technical leadership beyond the code, and the hidden 80% of work that makes systems last.
+
+→ Foundation-first engineering practices
+→ Technical leadership beyond the code
+→ Sustainable software architecture
+→ Lessons from 15+ years of building and maintaining production systems
+
+I'm not claiming to have all the answers. I'm building, learning, and sharing what I discover along the way.
+- **Website:** https://buildthatlast.substack.com
+- **Skills:** Engineering Leadership, Technical Writing, Content Creation
+
+### 2. Software Engineering Lead
 - **Company:** Ingenie
 - **Type:** Contract
 - **Duration:** Jun 2025 - Present (8 mos)
@@ -102,17 +125,12 @@ Responsibilities:
 • Own DevOps and deployment pipelines
 - **Skills:** Engineering Leadership, Team Building and +3 skills
 
-### 2. Director of Engineering
+### 3. Director of Engineering
 - **Company:** Biscayne Technologies
 - **Type:** Contract
 - **Duration:** Nov 2023 - Present (2 yrs 3 mos)
 - **Location:** HCM · On-site
 - **Description:** 
-Director of Engineering
-Director of Engineering
-Biscayne Technologies · ContractBiscayne Technologies · Contract
-Nov 2023 - Present · 2 yrs 3 mosNov 2023 to Present · 2 yrs 3 mos
-HCM · On-siteHCM · On-site
 Director of Engineering at an IT consulting firm serving retail, manufacturing, finance, and logistics clients.
 
 Led the engineering team on custom solutions, integrations, and supply chain applications. Owned technical delivery from architecture through deployment.
@@ -126,16 +144,11 @@ Key outcomes:
 Foundation for my later work: leading distributed teams, delivering accountability-driven results for clients.
 - **Skills:** Engineering Management, Engineering Leadership and +3 skills
 
-### 3. CEO/CTO, Cloud Architect
+### 4. CEO/CTO, Cloud Architect
 - **Company:** INNOMIZE
 - **Duration:** Jul 2017 - Present (8 yrs 7 mos)
 - **Location:** HCMC
 - **Description:** 
-CEO/CTO, Cloud Architect
-CEO/CTO, Cloud Architect
-INNOMIZEINNOMIZE
-Jul 2017 - Present · 8 yrs 7 mosJul 2017 to Present · 8 yrs 7 mos
-HCMCHCMC
 Founded INNOMIZE to bridge the gap between founders with vision and the technical execution they need.
 
 We embed as CTO or VP of Engineering for early-stage companies. Not staff augmentation. Accountability-driven development with ownership.
@@ -149,12 +162,13 @@ Key outcomes:
 Focus areas: Cloud architecture (AWS, Azure), MVP development, team scaling, system integration, embedded technical leadership.
 - **Skills:** Business Development, Technical Leadership and +6 skills
 
-### 4. The Coral Edge (Contract · 8 yrs 7 mos total)
+### 5. The Coral Edge (Contract · 8 yrs 7 mos total)
 
 **Vice President Of Engineering**
 - **Duration:** Jan 2020 - Present (6 yrs 1 mo)
 - **Location:** Tan Binh - HCM · Remote
-- **Description:** VP of Engineering at a boutique consulting firm serving logistics, supply chain, mobile operators, and SaaS clients.
+- **Description:** 
+VP of Engineering at a boutique consulting firm serving logistics, supply chain, mobile operators, and SaaS clients.
 
 Owned technical delivery across the client portfolio. Built and managed development teams in Vietnam. Established engineering standards that held across every project.
 
@@ -171,12 +185,13 @@ This role shaped my approach to embedded engineering leadership: ownership over 
 - **Duration:** Jul 2017 - Dec 2019 (2 yrs 6 mos)
 - **Location:** Ho Chi Minh City, Vietnam
 
-### 5. TMA Solutions (4 yrs 4 mos total)
+### 6. TMA Solutions (4 yrs 4 mos total)
 
 **Technical Lead**
 - **Duration:** Oct 2014 - Apr 2017 (2 yrs 7 mos)
 - **Location:** Ho Chi Minh
-- **Description:** As Technical Lead:
+- **Description:** 
+As Technical Lead:
 • Led integration solutions team, designed architecture, and delivered solutions using WSO2 and Microsoft BizTalk
 • Owned client-facing technical discussions: problem discovery through solution proposal
 • Founded "Cloud Club" internal R&D group to explore AWS, Azure, Node.js, Angular, and NoSQL
@@ -278,4 +293,7 @@ This was where I learned to lead from the front: build technical credibility, th
 
 | Date | Author | Change |
 |------|--------|--------|
+| 2026-01-17 | claude | Updated About section to mention Builds That Last publication |
+| 2026-01-14 | claude | Updated headline to "Founder @ INNOMIZE & Builds That Last \| Fractional CTO \| Cloud, DevSecOps, AI" |
+| 2026-01-14 | claude | Added Builds That Last company to Experience |
 | 2026-01-07 | claude | Initial data capture via Chrome browser |

@@ -1,0 +1,21 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- BTL Submark - Square Dark (No rounded corners) -->
+  <defs>
+    <linearGradient id="tip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="40%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" fill="#1f2937"/>
+  <g transform="translate(0, -1)">
+    <path d="M24 6L32 14H16L24 6Z" fill="url(#tip)"/>
+    <line x1="8" y1="16" x2="40" y2="16" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3"/>
+    <line x1="8" y1="17" x2="40" y2="17" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+    <path d="M8 18L24 44L40 18H8Z" fill="url(#body)"/>
+  </g>
+</svg>

@@ -1,0 +1,703 @@
+<svg width="1200" height="2200" viewBox="0 0 1200 2200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Brand Colors -->
+    <linearGradient id="tip-gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#00a86b"/>
+    </linearGradient>
+    <linearGradient id="body-gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00a86b"/>
+      <stop offset="40%" stop-color="#065f46"/>
+      <stop offset="100%" stop-color="#022c22"/>
+    </linearGradient>
+
+    <!-- Dark Mode Gradients -->
+    <linearGradient id="tip-gradient-dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="body-gradient-dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="40%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+
+    <!-- Fonts -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&amp;family=Public+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap');
+      .heading { font-family: 'IBM Plex Sans', sans-serif; font-weight: 700; }
+      .subhead { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; }
+      .body { font-family: 'Public Sans', sans-serif; font-weight: 400; }
+      .label { font-family: 'Public Sans', sans-serif; font-weight: 500; }
+      .mono { font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+      .brand-text { font-family: 'IBM Plex Sans', sans-serif; font-weight: 700; }
+    </style>
+
+    <!-- Dimension markers -->
+    <marker id="arrow-start" markerWidth="8" markerHeight="8" refX="0" refY="4" orient="auto">
+      <path d="M8 0L0 4L8 8" fill="none" stroke="#ef4444" stroke-width="1"/>
+    </marker>
+    <marker id="arrow-end" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8" fill="none" stroke="#ef4444" stroke-width="1"/>
+    </marker>
+    <marker id="arrow-start-blue" markerWidth="8" markerHeight="8" refX="0" refY="4" orient="auto">
+      <path d="M8 0L0 4L8 8" fill="none" stroke="#3b82f6" stroke-width="1"/>
+    </marker>
+    <marker id="arrow-end-blue" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8" fill="none" stroke="#3b82f6" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="2200" fill="#f9fafb"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="5" fill="#00a86b"/>
+  <text x="60" y="60" class="heading" font-size="32" fill="#1f2937">Builds That Last</text>
+  <text x="60" y="90" class="subhead" font-size="18" fill="#6b7280">Logo &amp; Branding Guidelines</text>
+  <text x="60" y="115" class="mono" font-size="12" fill="#9ca3af" letter-spacing="0.1em">VERSION 1.2 · 2026-01-13</text>
+
+  <!-- Divider -->
+  <line x1="60" y1="140" x2="1140" y2="140" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- ==================== SECTION 1: X-UNIT SYSTEM ==================== -->
+  <text x="60" y="185" class="heading" font-size="24" fill="#1f2937">1. Mathematical Foundation</text>
+  <text x="60" y="210" class="body" font-size="14" fill="#6b7280">All measurements derive from the X-unit (icon width)</text>
+
+  <!-- X-Unit Definition Box -->
+  <rect x="60" y="230" width="500" height="300" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="60" y="230" width="500" height="4" rx="2" fill="#00a86b"/>
+
+  <!-- Large Icon with Measurements -->
+  <g transform="translate(160, 280)">
+    <!-- Grid background for reference -->
+    <g stroke="#f1f5f9" stroke-width="1" stroke-dasharray="2 2">
+      <line x1="16" y1="0" x2="16" y2="100"/>
+      <line x1="48" y1="0" x2="48" y2="100"/>
+      <line x1="80" y1="0" x2="80" y2="100"/>
+    </g>
+
+    <!-- The iceberg icon at 2x scale -->
+    <g transform="scale(2)">
+      <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-gradient)"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+      <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+      <path d="M8 18L24 44L40 18H8Z" fill="url(#body-gradient)"/>
+    </g>
+
+    <!-- Dimension: Full Width = 1x -->
+    <line x1="16" y1="100" x2="80" y2="100" stroke="#ef4444" stroke-width="1" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"/>
+    <text x="48" y="118" class="mono" font-size="11" fill="#ef4444" text-anchor="middle">1x = 64px</text>
+
+    <!-- Dimension: Height -->
+    <line x1="100" y1="12" x2="100" y2="88" stroke="#ef4444" stroke-width="1" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"/>
+    <text x="115" y="54" class="mono" font-size="11" fill="#ef4444">1.19x</text>
+
+    <!-- Dimension: Tip Height -->
+    <line x1="-15" y1="12" x2="-15" y2="28" stroke="#3b82f6" stroke-width="1" marker-start="url(#arrow-start-blue)" marker-end="url(#arrow-end-blue)"/>
+    <text x="-30" y="24" class="mono" font-size="9" fill="#3b82f6" text-anchor="end">0.25x</text>
+
+    <!-- Dimension: Body Height -->
+    <line x1="-15" y1="36" x2="-15" y2="88" stroke="#3b82f6" stroke-width="1" marker-start="url(#arrow-start-blue)" marker-end="url(#arrow-end-blue)"/>
+    <text x="-30" y="66" class="mono" font-size="9" fill="#3b82f6" text-anchor="end">0.81x</text>
+
+    <!-- Center line -->
+    <line x1="48" y1="0" x2="48" y2="95" stroke="#9ca3af" stroke-width="0.5" stroke-dasharray="4 2"/>
+    <text x="48" y="130" class="mono" font-size="8" fill="#9ca3af" text-anchor="middle">center</text>
+  </g>
+
+  <!-- X-Unit Formula -->
+  <g transform="translate(340, 280)">
+    <text x="0" y="0" class="subhead" font-size="14" fill="#1f2937">X-Unit Definition</text>
+    <text x="0" y="30" class="mono" font-size="12" fill="#374151">1x = Icon Width</text>
+    <text x="0" y="50" class="mono" font-size="12" fill="#374151">1x = 32px (base 48px canvas)</text>
+    <text x="0" y="70" class="mono" font-size="12" fill="#374151">1x = 64px (shown at 2x)</text>
+
+    <text x="0" y="110" class="subhead" font-size="14" fill="#1f2937">Canonical Ratios</text>
+    <text x="0" y="135" class="mono" font-size="11" fill="#6b7280">Tip height    : 0.25x</text>
+    <text x="0" y="155" class="mono" font-size="11" fill="#6b7280">Waterline gap : 0.125x</text>
+    <text x="0" y="175" class="mono" font-size="11" fill="#6b7280">Body height   : 0.81x</text>
+    <text x="0" y="195" class="mono" font-size="11" fill="#6b7280">Total height  : 1.19x</text>
+  </g>
+
+  <!-- Clear Space Box -->
+  <rect x="580" y="230" width="560" height="300" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="580" y="230" width="560" height="4" rx="2" fill="#00a86b"/>
+
+  <text x="620" y="270" class="subhead" font-size="16" fill="#1f2937">Clear Space (Exclusion Zone)</text>
+
+  <!-- Clear Space Demo -->
+  <g transform="translate(700, 320)">
+    <!-- Clear zone rectangle -->
+    <rect x="-32" y="-32" width="160" height="150" fill="#ecfdf5" stroke="#00a86b" stroke-width="1" stroke-dasharray="4 4"/>
+
+    <!-- Icon at 1.5x scale -->
+    <g transform="scale(1.5)">
+      <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-gradient)"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+      <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+      <path d="M8 18L24 44L40 18H8Z" fill="url(#body-gradient)"/>
+    </g>
+
+    <!-- Clear space dimensions -->
+    <line x1="-32" y1="80" x2="12" y2="80" stroke="#00a86b" stroke-width="1"/>
+    <text x="-10" y="95" class="mono" font-size="10" fill="#00a86b" text-anchor="middle">16.5%</text>
+
+    <line x1="60" y1="-32" x2="60" y2="9" stroke="#00a86b" stroke-width="1"/>
+    <text x="75" y="-10" class="mono" font-size="10" fill="#00a86b">16.5%</text>
+  </g>
+
+  <g transform="translate(920, 290)">
+    <text x="0" y="0" class="label" font-size="13" fill="#374151">Minimum clear space:</text>
+    <text x="0" y="25" class="mono" font-size="12" fill="#00a86b">16.5% per side (~8px at 48px)</text>
+    <text x="0" y="60" class="label" font-size="13" fill="#374151">This ensures the logo</text>
+    <text x="0" y="80" class="label" font-size="13" fill="#374151">maintains visual impact</text>
+    <text x="0" y="100" class="label" font-size="13" fill="#374151">and brand recognition.</text>
+
+    <text x="0" y="140" class="label" font-size="12" fill="#6b7280">Do not place text, graphics,</text>
+    <text x="0" y="160" class="label" font-size="12" fill="#6b7280">or other elements within</text>
+    <text x="0" y="180" class="label" font-size="12" fill="#6b7280">this exclusion zone.</text>
+  </g>
+
+  <!-- ==================== SECTION 2: LOGO VARIANTS ==================== -->
+  <text x="60" y="590" class="heading" font-size="24" fill="#1f2937">2. Logo Variants</text>
+
+  <!-- Primary Horizontal -->
+  <rect x="60" y="615" width="1080" height="280" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="60" y="615" width="1080" height="4" rx="2" fill="#00a86b"/>
+  <text x="80" y="650" class="label" font-size="12" fill="#6b7280" letter-spacing="0.05em">PRIMARY HORIZONTAL</text>
+
+  <g transform="translate(100, 730)">
+    <!-- Ruler background -->
+    <rect x="-20" y="-30" width="480" height="130" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+
+    <!-- Grid lines -->
+    <g stroke="#f1f5f9" stroke-width="1">
+      <!-- Vertical grid lines every 48px -->
+      <line x1="0" y1="-14" x2="0" y2="100"/>
+      <line x1="48" y1="-14" x2="48" y2="100"/>
+      <line x1="96" y1="-14" x2="96" y2="100"/>
+      <line x1="144" y1="-14" x2="144" y2="100"/>
+      <line x1="192" y1="-14" x2="192" y2="100"/>
+      <line x1="240" y1="-14" x2="240" y2="100"/>
+      <line x1="288" y1="-14" x2="288" y2="100"/>
+      <line x1="336" y1="-14" x2="336" y2="100"/>
+      <line x1="384" y1="-14" x2="384" y2="100"/>
+      <line x1="432" y1="-14" x2="432" y2="100"/>
+      <!-- Horizontal grid lines every 24px -->
+      <line x1="-4" y1="0" x2="460" y2="0"/>
+      <line x1="-4" y1="24" x2="460" y2="24"/>
+      <line x1="-4" y1="48" x2="460" y2="48"/>
+      <line x1="-4" y1="72" x2="460" y2="72"/>
+    </g>
+
+    <!-- Horizontal ruler (top) -->
+    <g transform="translate(-20, -30)">
+      <rect width="480" height="16" fill="#f1f5f9"/>
+      <g class="mono" font-size="8" fill="#9ca3af">
+        <line x1="20" y1="16" x2="20" y2="12" stroke="#d1d5db"/>
+        <text x="20" y="10" text-anchor="middle">0</text>
+        <line x1="68" y1="16" x2="68" y2="12" stroke="#d1d5db"/>
+        <text x="68" y="10" text-anchor="middle">48</text>
+        <line x1="116" y1="16" x2="116" y2="12" stroke="#d1d5db"/>
+        <text x="116" y="10" text-anchor="middle">96</text>
+        <line x1="164" y1="16" x2="164" y2="12" stroke="#d1d5db"/>
+        <text x="164" y="10" text-anchor="middle">144</text>
+        <line x1="212" y1="16" x2="212" y2="12" stroke="#d1d5db"/>
+        <text x="212" y="10" text-anchor="middle">192</text>
+        <line x1="260" y1="16" x2="260" y2="12" stroke="#d1d5db"/>
+        <text x="260" y="10" text-anchor="middle">240</text>
+        <line x1="356" y1="16" x2="356" y2="12" stroke="#d1d5db"/>
+        <text x="356" y="10" text-anchor="middle">336</text>
+        <line x1="460" y1="16" x2="460" y2="12" stroke="#d1d5db"/>
+        <text x="460" y="10" text-anchor="middle">440</text>
+      </g>
+    </g>
+
+    <!-- Vertical ruler (left) -->
+    <g transform="translate(-20, -14)">
+      <rect width="16" height="114" fill="#f1f5f9"/>
+      <g class="mono" font-size="8" fill="#9ca3af">
+        <line x1="16" y1="14" x2="12" y2="14" stroke="#d1d5db"/>
+        <text x="8" y="17" text-anchor="end">0</text>
+        <line x1="16" y1="38" x2="12" y2="38" stroke="#d1d5db"/>
+        <text x="8" y="41" text-anchor="end">24</text>
+        <line x1="16" y1="62" x2="12" y2="62" stroke="#d1d5db"/>
+        <text x="8" y="65" text-anchor="end">48</text>
+        <line x1="16" y1="86" x2="12" y2="86" stroke="#d1d5db"/>
+        <text x="8" y="89" text-anchor="end">72</text>
+      </g>
+    </g>
+
+    <!-- Vertical center alignment guide -->
+    <line x1="-4" y1="36" x2="460" y2="36" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4 2"/>
+    <text x="465" y="39" class="mono" font-size="8" fill="#3b82f6">vertical center</text>
+
+    <!-- Icon at 1.5x scale - VERTICALLY CENTERED -->
+    <!-- Icon height at 1.5x = 57px (y=9 to y=66), center at y=37.5 -->
+    <!-- To center at y=36, translate by -1.5 -->
+    <g transform="translate(0, -1.5) scale(1.5)">
+      <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-gradient)"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+      <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+      <path d="M8 18L24 44L40 18H8Z" fill="url(#body-gradient)"/>
+    </g>
+
+    <!-- Icon bounding box: y=7.5 to 64.5 (height 57px, center at 36) -->
+    <rect x="12" y="7.5" width="48" height="57" fill="none" stroke="#ef4444" stroke-width="0.5" stroke-dasharray="2 2"/>
+
+    <!-- Text - VERTICALLY CENTERED -->
+    <!-- 36px IBM Plex Sans cap height ~26px, visual center at baseline - 13 -->
+    <!-- For center at y=36: baseline = 36 + 13 = 49 -->
+    <text x="84" y="49" class="brand-text" font-size="36" letter-spacing="-0.5">
+      <tspan fill="#00a86b">Builds</tspan>
+      <tspan fill="#1f2937"> That Last</tspan>
+    </text>
+
+    <!-- Text bounding box: cap top at y=23, height=26px, center at 36 -->
+    <rect x="84" y="23" width="340" height="26" fill="none" stroke="#3b82f6" stroke-width="0.5" stroke-dasharray="2 2"/>
+
+    <!-- Spacing dimension (icon to text) -->
+    <line x1="60" y1="70" x2="76" y2="70" stroke="#ef4444" stroke-width="1" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"/>
+    <text x="68" y="85" class="mono" font-size="9" fill="#ef4444" text-anchor="middle">16px</text>
+  </g>
+
+  <!-- Specs for horizontal -->
+  <g transform="translate(680, 710)">
+    <text x="0" y="0" class="subhead" font-size="14" fill="#1f2937">Specifications</text>
+    <text x="0" y="30" class="mono" font-size="11" fill="#6b7280">Icon size: 48×57px (1x × 1.19x)</text>
+    <text x="0" y="50" class="mono" font-size="11" fill="#6b7280">Icon-to-text gap: 16px (0.33x)</text>
+    <text x="0" y="70" class="mono" font-size="11" fill="#6b7280">Text size: 36px (IBM Plex Sans 700)</text>
+    <text x="0" y="90" class="mono" font-size="11" fill="#00a86b">Vertical alignment: center</text>
+    <text x="0" y="110" class="mono" font-size="11" fill="#6b7280">Minimum width: 200px</text>
+  </g>
+
+  <!-- Primary Stacked -->
+  <rect x="60" y="920" width="1080" height="320" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="60" y="920" width="1080" height="4" rx="2" fill="#00a86b"/>
+  <text x="80" y="955" class="label" font-size="12" fill="#6b7280" letter-spacing="0.05em">PRIMARY STACKED</text>
+
+  <g transform="translate(110, 1020)">
+    <!-- Ruler background -->
+    <rect x="-30" y="-30" width="200" height="220" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+
+    <!-- Grid lines -->
+    <g stroke="#f1f5f9" stroke-width="1">
+      <!-- Vertical grid lines every 25px -->
+      <line x1="0" y1="-14" x2="0" y2="190"/>
+      <line x1="35" y1="-14" x2="35" y2="190"/>
+      <line x1="70" y1="-14" x2="70" y2="190"/>
+      <line x1="105" y1="-14" x2="105" y2="190"/>
+      <line x1="140" y1="-14" x2="140" y2="190"/>
+      <!-- Horizontal grid lines every 24px -->
+      <line x1="-14" y1="0" x2="170" y2="0"/>
+      <line x1="-14" y1="24" x2="170" y2="24"/>
+      <line x1="-14" y1="48" x2="170" y2="48"/>
+      <line x1="-14" y1="72" x2="170" y2="72"/>
+      <line x1="-14" y1="96" x2="170" y2="96"/>
+      <line x1="-14" y1="120" x2="170" y2="120"/>
+      <line x1="-14" y1="144" x2="170" y2="144"/>
+      <line x1="-14" y1="168" x2="170" y2="168"/>
+    </g>
+
+    <!-- Horizontal ruler (top) -->
+    <g transform="translate(-30, -30)">
+      <rect width="200" height="16" fill="#f1f5f9"/>
+      <g class="mono" font-size="8" fill="#9ca3af">
+        <line x1="30" y1="16" x2="30" y2="12" stroke="#d1d5db"/>
+        <text x="30" y="10" text-anchor="middle">0</text>
+        <line x1="65" y1="16" x2="65" y2="12" stroke="#d1d5db"/>
+        <text x="65" y="10" text-anchor="middle">35</text>
+        <line x1="100" y1="16" x2="100" y2="12" stroke="#d1d5db"/>
+        <text x="100" y="10" text-anchor="middle">70</text>
+        <line x1="135" y1="16" x2="135" y2="12" stroke="#d1d5db"/>
+        <text x="135" y="10" text-anchor="middle">105</text>
+        <line x1="170" y1="16" x2="170" y2="12" stroke="#d1d5db"/>
+        <text x="170" y="10" text-anchor="middle">140</text>
+      </g>
+    </g>
+
+    <!-- Vertical ruler (left) -->
+    <g transform="translate(-30, -14)">
+      <rect width="16" height="204" fill="#f1f5f9"/>
+      <g class="mono" font-size="8" fill="#9ca3af">
+        <line x1="16" y1="14" x2="12" y2="14" stroke="#d1d5db"/>
+        <text x="8" y="17" text-anchor="end">0</text>
+        <line x1="16" y1="38" x2="12" y2="38" stroke="#d1d5db"/>
+        <text x="8" y="41" text-anchor="end">24</text>
+        <line x1="16" y1="62" x2="12" y2="62" stroke="#d1d5db"/>
+        <text x="8" y="65" text-anchor="end">48</text>
+        <line x1="16" y1="86" x2="12" y2="86" stroke="#d1d5db"/>
+        <text x="8" y="89" text-anchor="end">72</text>
+        <line x1="16" y1="110" x2="12" y2="110" stroke="#d1d5db"/>
+        <text x="8" y="113" text-anchor="end">96</text>
+        <line x1="16" y1="134" x2="12" y2="134" stroke="#d1d5db"/>
+        <text x="8" y="137" text-anchor="end">120</text>
+        <line x1="16" y1="158" x2="12" y2="158" stroke="#d1d5db"/>
+        <text x="8" y="161" text-anchor="end">144</text>
+        <line x1="16" y1="182" x2="12" y2="182" stroke="#d1d5db"/>
+        <text x="8" y="185" text-anchor="end">168</text>
+      </g>
+    </g>
+
+    <!-- Center alignment guide -->
+    <line x1="70" y1="-14" x2="70" y2="190" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4 2"/>
+    <text x="70" y="200" class="mono" font-size="8" fill="#3b82f6" text-anchor="middle">center axis</text>
+
+    <!-- Icon centered at 1.5x scale -->
+    <g transform="translate(34, 0) scale(1.5)">
+      <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-gradient)"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+      <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+      <path d="M8 18L24 44L40 18H8Z" fill="url(#body-gradient)"/>
+    </g>
+
+    <!-- Icon bounding box -->
+    <rect x="46" y="9" width="48" height="57" fill="none" stroke="#ef4444" stroke-width="0.5" stroke-dasharray="2 2"/>
+
+    <!-- Gap dimension -->
+    <line x1="100" y1="66" x2="100" y2="82" stroke="#ef4444" stroke-width="1" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"/>
+    <text x="115" y="78" class="mono" font-size="9" fill="#ef4444">16px</text>
+
+    <!-- Stacked text -->
+    <text x="70" y="115" class="brand-text" font-size="28" letter-spacing="-0.5" text-anchor="middle">
+      <tspan fill="#00a86b">Builds</tspan>
+    </text>
+    <text x="70" y="150" class="brand-text" font-size="28" letter-spacing="-0.5" text-anchor="middle" fill="#1f2937">That Last</text>
+
+    <!-- Text baselines -->
+    <line x1="-14" y1="115" x2="170" y2="115" stroke="#9ca3af" stroke-width="0.5" stroke-dasharray="2 2"/>
+    <line x1="-14" y1="150" x2="170" y2="150" stroke="#9ca3af" stroke-width="0.5" stroke-dasharray="2 2"/>
+  </g>
+
+  <!-- Specs for stacked -->
+  <g transform="translate(400, 1000)">
+    <text x="0" y="0" class="subhead" font-size="14" fill="#1f2937">Specifications</text>
+    <text x="0" y="30" class="mono" font-size="11" fill="#6b7280">Icon size: 48×57px (1x × 1.19x)</text>
+    <text x="0" y="50" class="mono" font-size="11" fill="#6b7280">Icon-to-text gap: 16px (0.33x)</text>
+    <text x="0" y="70" class="mono" font-size="11" fill="#6b7280">Text size: 28px (IBM Plex Sans 700)</text>
+    <text x="0" y="90" class="mono" font-size="11" fill="#6b7280">Line height: 35px (1.25em)</text>
+    <text x="0" y="110" class="mono" font-size="11" fill="#00a86b">All elements center-aligned</text>
+    <text x="0" y="130" class="mono" font-size="11" fill="#6b7280">Minimum height: 160px</text>
+
+    <text x="0" y="170" class="subhead" font-size="14" fill="#1f2937">Use Case</text>
+    <text x="0" y="200" class="body" font-size="12" fill="#6b7280">Square formats, social avatars,</text>
+    <text x="0" y="218" class="body" font-size="12" fill="#6b7280">vertical layouts, app icons</text>
+  </g>
+
+  <!-- ==================== SECTION 3: ICON ANATOMY ==================== -->
+  <text x="60" y="1290" class="heading" font-size="24" fill="#1f2937">3. Icon Anatomy</text>
+
+  <rect x="60" y="1315" width="1080" height="240" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="60" y="1315" width="1080" height="4" rx="2" fill="#00a86b"/>
+
+  <!-- Large Exploded Icon with Grid -->
+  <g transform="translate(120, 1370)">
+    <!-- Grid background -->
+    <g stroke="#e5e7eb" stroke-width="1">
+      <line x1="0" y1="0" x2="0" y2="128"/>
+      <line x1="32" y1="0" x2="32" y2="128"/>
+      <line x1="64" y1="0" x2="64" y2="128"/>
+      <line x1="96" y1="0" x2="96" y2="128"/>
+      <line x1="128" y1="0" x2="128" y2="128"/>
+      <line x1="0" y1="0" x2="128" y2="0"/>
+      <line x1="0" y1="32" x2="128" y2="32"/>
+      <line x1="0" y1="64" x2="128" y2="64"/>
+      <line x1="0" y1="96" x2="128" y2="96"/>
+      <line x1="0" y1="128" x2="128" y2="128"/>
+    </g>
+
+    <!-- Grid labels -->
+    <text x="64" y="-8" class="mono" font-size="8" fill="#9ca3af" text-anchor="middle">32px grid (0.5x)</text>
+
+    <!-- Icon at 2x scale -->
+    <g transform="translate(16, 4) scale(2)">
+      <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-gradient)"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+      <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+      <path d="M8 18L24 44L40 18H8Z" fill="url(#body-gradient)"/>
+    </g>
+
+    <!-- Vertex markers -->
+    <circle cx="64" cy="16" r="3" fill="#ef4444"/>
+    <circle cx="48" cy="32" r="2" fill="#ef4444"/>
+    <circle cx="80" cy="32" r="2" fill="#ef4444"/>
+    <circle cx="32" cy="40" r="2" fill="#3b82f6"/>
+    <circle cx="96" cy="40" r="2" fill="#3b82f6"/>
+    <circle cx="64" cy="92" r="3" fill="#3b82f6"/>
+  </g>
+
+  <!-- Anatomy Labels -->
+  <g transform="translate(300, 1375)">
+    <text x="0" y="0" class="subhead" font-size="14" fill="#1f2937">Components</text>
+
+    <rect x="0" y="20" width="12" height="12" fill="url(#tip-gradient)"/>
+    <text x="20" y="30" class="label" font-size="12" fill="#374151">Tip (Visible 20%)</text>
+    <text x="20" y="45" class="mono" font-size="10" fill="#6b7280">Gradient: #10b981 → #00a86b</text>
+
+    <!-- Waterline with both lines shown -->
+    <g transform="translate(0, 60)">
+      <line x1="0" y1="0" x2="24" y2="0" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+      <line x1="0" y1="2" x2="24" y2="2" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+    </g>
+    <text x="32" y="64" class="label" font-size="12" fill="#374151">Waterline (2 lines)</text>
+    <text x="32" y="79" class="mono" font-size="10" fill="#6b7280">See waterline spec →</text>
+
+    <rect x="0" y="95" width="12" height="12" fill="url(#body-gradient)"/>
+    <text x="20" y="105" class="label" font-size="12" fill="#374151">Body (Foundation 80%)</text>
+    <text x="20" y="120" class="mono" font-size="10" fill="#6b7280">Gradient: #00a86b → #065f46 → #022c22</text>
+  </g>
+
+  <!-- Waterline Specification -->
+  <g transform="translate(560, 1375)">
+    <text x="0" y="0" class="subhead" font-size="14" fill="#1f2937">Waterline Specification</text>
+
+    <text x="0" y="25" class="mono" font-size="10" fill="#374151">Line 1: Dashed (Primary)</text>
+    <text x="0" y="40" class="mono" font-size="9" fill="#6b7280">y=16, stroke-width: 2px</text>
+    <text x="0" y="52" class="mono" font-size="9" fill="#6b7280">dasharray: "4 3" (4px dash, 3px gap)</text>
+    <text x="0" y="64" class="mono" font-size="9" fill="#6b7280">Light: #1f2937 | Dark: #f9fafb</text>
+
+    <text x="0" y="88" class="mono" font-size="10" fill="#374151">Line 2: Glow (Accent)</text>
+    <text x="0" y="103" class="mono" font-size="9" fill="#6b7280">y=17, stroke-width: 1px, solid</text>
+    <text x="0" y="115" class="mono" font-size="9" fill="#6b7280">Light: #00a86b @ 30% opacity</text>
+    <text x="0" y="127" class="mono" font-size="9" fill="#6b7280">Dark: #10b981 @ 40% opacity</text>
+  </g>
+
+  <!-- Geometry specs -->
+  <g transform="translate(780, 1375)">
+    <text x="0" y="0" class="subhead" font-size="14" fill="#1f2937">Geometry (48px base)</text>
+
+    <text x="0" y="25" class="mono" font-size="10" fill="#374151">Tip vertices:</text>
+    <text x="0" y="40" class="mono" font-size="9" fill="#6b7280">apex: (24, 6)</text>
+    <text x="0" y="52" class="mono" font-size="9" fill="#6b7280">left: (16, 14)  right: (32, 14)</text>
+
+    <text x="0" y="72" class="mono" font-size="10" fill="#374151">Body vertices:</text>
+    <text x="0" y="87" class="mono" font-size="9" fill="#6b7280">top-left: (8, 18)  top-right: (40, 18)</text>
+    <text x="0" y="99" class="mono" font-size="9" fill="#6b7280">bottom: (24, 44)</text>
+
+    <text x="0" y="119" class="mono" font-size="10" fill="#374151">Waterline span:</text>
+    <text x="0" y="134" class="mono" font-size="9" fill="#6b7280">x: 8 to 40 (full body width)</text>
+  </g>
+
+  <!-- Ratios -->
+  <g transform="translate(980, 1375)">
+    <text x="0" y="0" class="subhead" font-size="14" fill="#1f2937">Proportions</text>
+
+    <text x="0" y="25" class="mono" font-size="10" fill="#374151">Tip : Body</text>
+    <text x="0" y="40" class="mono" font-size="9" fill="#6b7280">1 : 3.25 (≈ 20% : 80%)</text>
+
+    <text x="0" y="60" class="mono" font-size="10" fill="#374151">Width : Height</text>
+    <text x="0" y="75" class="mono" font-size="9" fill="#6b7280">1 : 1.19</text>
+
+    <text x="0" y="95" class="mono" font-size="10" fill="#374151">Tip : Body Width</text>
+    <text x="0" y="110" class="mono" font-size="9" fill="#6b7280">0.5 : 1</text>
+  </g>
+
+  <!-- ==================== SECTION 4: BACKGROUND USAGE ==================== -->
+  <text x="60" y="1610" class="heading" font-size="24" fill="#1f2937">4. Background Usage</text>
+
+  <!-- Light Background -->
+  <rect x="60" y="1635" width="350" height="220" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="80" y="1665" class="label" font-size="11" fill="#6b7280" letter-spacing="0.05em">LIGHT BACKGROUND</text>
+  <text x="80" y="1680" class="mono" font-size="10" fill="#9ca3af">#ffffff · #f9fafb</text>
+
+  <g transform="translate(130, 1720)">
+    <!-- Mini ruler - aligned with logo: 0=start, 48=icon right edge, 72=text start (24px gap) -->
+    <line x1="0" y1="-15" x2="200" y2="-15" stroke="#e5e7eb" stroke-width="1"/>
+    <line x1="0" y1="-15" x2="0" y2="-10" stroke="#d1d5db"/>
+    <line x1="48" y1="-15" x2="48" y2="-10" stroke="#d1d5db"/>
+    <line x1="72" y1="-15" x2="72" y2="-10" stroke="#d1d5db"/>
+    <line x1="200" y1="-15" x2="200" y2="-10" stroke="#d1d5db"/>
+
+    <g transform="scale(1.2)">
+      <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-gradient)"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+      <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+      <path d="M8 18L24 44L40 18H8Z" fill="url(#body-gradient)"/>
+    </g>
+    <text x="72" y="35" class="brand-text" font-size="20" letter-spacing="-0.3">
+      <tspan fill="#00a86b">Builds</tspan>
+      <tspan fill="#1f2937"> That Last</tspan>
+    </text>
+  </g>
+  
+  <!-- Dark Background -->
+  <rect x="425" y="1635" width="350" height="220" rx="8" fill="#1f2937"/>
+  <text x="445" y="1665" class="label" font-size="11" fill="#9ca3af" letter-spacing="0.05em">DARK BACKGROUND</text>
+  <text x="445" y="1680" class="mono" font-size="10" fill="#6b7280">#1f2937 · #111827</text>
+
+  <g transform="translate(495, 1720)">
+    <!-- Mini ruler - aligned with logo: 0=start, 48=icon right edge, 72=text start (24px gap) -->
+    <line x1="0" y1="-15" x2="200" y2="-15" stroke="#374151" stroke-width="1"/>
+    <line x1="0" y1="-15" x2="0" y2="-10" stroke="#4b5563"/>
+    <line x1="48" y1="-15" x2="48" y2="-10" stroke="#4b5563"/>
+    <line x1="72" y1="-15" x2="72" y2="-10" stroke="#4b5563"/>
+    <line x1="200" y1="-15" x2="200" y2="-10" stroke="#4b5563"/>
+
+    <g transform="scale(1.2)">
+      <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-gradient-dark)"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#f9fafb" stroke-width="2" stroke-dasharray="4 3"/>
+      <line x1="8" y1="17" x2="40" y2="17" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+      <path d="M8 18L24 44L40 18H8Z" fill="url(#body-gradient-dark)"/>
+    </g>
+    <text x="72" y="35" class="brand-text" font-size="20" letter-spacing="-0.3">
+      <tspan fill="#34d399">Builds</tspan>
+      <tspan fill="#f9fafb"> That Last</tspan>
+    </text>
+  </g>
+  
+  <!-- Brand Background -->
+  <rect x="790" y="1635" width="350" height="220" rx="8" fill="#00a86b"/>
+  <text x="810" y="1665" class="label" font-size="11" fill="rgba(255,255,255,0.7)" letter-spacing="0.05em">BRAND BACKGROUND</text>
+  <text x="810" y="1680" class="mono" font-size="10" fill="rgba(255,255,255,0.5)">#00a86b · #065f46</text>
+
+  <g transform="translate(860, 1720)">
+    <!-- Mini ruler - aligned with logo: 0=start, 48=icon right edge, 72=text start (24px gap) -->
+    <line x1="0" y1="-15" x2="200" y2="-15" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <line x1="0" y1="-15" x2="0" y2="-10" stroke="rgba(255,255,255,0.4)"/>
+    <line x1="48" y1="-15" x2="48" y2="-10" stroke="rgba(255,255,255,0.4)"/>
+    <line x1="72" y1="-15" x2="72" y2="-10" stroke="rgba(255,255,255,0.4)"/>
+    <line x1="200" y1="-15" x2="200" y2="-10" stroke="rgba(255,255,255,0.4)"/>
+
+    <g transform="scale(1.2)">
+      <path d="M24 6L32 14H16L24 6Z" fill="#ffffff"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#ffffff" stroke-width="2" stroke-dasharray="4 3"/>
+      <line x1="8" y1="17" x2="40" y2="17" stroke="#ffffff" stroke-width="1" stroke-opacity="0.3"/>
+      <path d="M8 18L24 44L40 18H8Z" fill="#ffffff" fill-opacity="0.6"/>
+    </g>
+    <text x="72" y="35" class="brand-text" font-size="20" letter-spacing="-0.3" fill="#ffffff">
+      Builds That Last
+    </text>
+  </g>
+
+  <!-- Contrast Requirements -->
+  <rect x="60" y="1870" width="1080" height="80" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+  <text x="90" y="1905" class="subhead" font-size="14" fill="#92400e">Minimum Contrast Requirements</text>
+  <text x="90" y="1930" class="body" font-size="13" fill="#78350f">Logo must maintain 4.5:1 contrast ratio against background (WCAG AA). Use monochrome white or black versions on incompatible backgrounds.</text>
+
+  <!-- ==================== SECTION 5: MINIMUM SIZES ==================== -->
+  <text x="60" y="2010" class="heading" font-size="24" fill="#1f2937">5. Minimum Sizes</text>
+
+  <rect x="60" y="2035" width="1080" height="150" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="60" y="2035" width="1080" height="4" rx="2" fill="#00a86b"/>
+
+  <!-- Size specs with CENTER-ALIGNED logos -->
+  <g transform="translate(100, 2060)">
+    <!-- 16px favicon - CENTER ALIGNED -->
+    <rect x="0" y="0" width="90" height="95" rx="4" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+    <!-- Grid lines -->
+    <line x1="45" y1="0" x2="45" y2="95" stroke="#f1f5f9" stroke-width="1"/>
+    <line x1="0" y1="47.5" x2="90" y2="47.5" stroke="#f1f5f9" stroke-width="1"/>
+    <!-- Center crosshair -->
+    <line x1="40" y1="40" x2="50" y2="40" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="45" y1="35" x2="45" y2="45" stroke="#3b82f6" stroke-width="0.5"/>
+    <!-- Icon centered: 16px icon, box center at (45, 40) -->
+    <g transform="translate(37, 32)">
+      <path d="M8 2L11 6H5L8 2Z" fill="#00a86b"/>
+      <path d="M3 7L8 14L13 7H3Z" fill="#065f46"/>
+    </g>
+    <text x="45" y="75" class="mono" font-size="10" fill="#6b7280" text-anchor="middle">16px</text>
+    <text x="45" y="105" class="label" font-size="10" fill="#374151" text-anchor="middle">Favicon</text>
+    <text x="45" y="117" class="mono" font-size="8" fill="#9ca3af" text-anchor="middle">(no waterline)</text>
+
+    <!-- 24px small - CENTER ALIGNED -->
+    <rect x="120" y="0" width="90" height="95" rx="4" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+    <!-- Grid lines -->
+    <line x1="165" y1="0" x2="165" y2="95" stroke="#f1f5f9" stroke-width="1"/>
+    <line x1="120" y1="47.5" x2="210" y2="47.5" stroke="#f1f5f9" stroke-width="1"/>
+    <!-- Center crosshair -->
+    <line x1="160" y1="36" x2="170" y2="36" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="165" y1="31" x2="165" y2="41" stroke="#3b82f6" stroke-width="0.5"/>
+    <!-- Icon centered: 24px icon at 0.5 scale = 24×28.5px, center at (165, 36) -->
+    <g transform="translate(153, 22) scale(0.5)">
+      <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-gradient)"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+      <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+      <path d="M8 18L24 44L40 18H8Z" fill="url(#body-gradient)"/>
+    </g>
+    <text x="165" y="75" class="mono" font-size="10" fill="#6b7280" text-anchor="middle">24px</text>
+    <text x="165" y="105" class="label" font-size="10" fill="#374151" text-anchor="middle">Small</text>
+
+    <!-- 48px standard - CENTER ALIGNED -->
+    <rect x="240" y="0" width="90" height="95" rx="4" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+    <!-- Grid lines -->
+    <line x1="285" y1="0" x2="285" y2="95" stroke="#f1f5f9" stroke-width="1"/>
+    <line x1="240" y1="47.5" x2="330" y2="47.5" stroke="#f1f5f9" stroke-width="1"/>
+    <!-- Center crosshair -->
+    <line x1="280" y1="34" x2="290" y2="34" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="285" y1="29" x2="285" y2="39" stroke="#3b82f6" stroke-width="0.5"/>
+    <!-- Icon centered: 36×43px (0.75 scale), center at (285, 34) -->
+    <g transform="translate(267, 13) scale(0.75)">
+      <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-gradient)"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+      <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+      <path d="M8 18L24 44L40 18H8Z" fill="url(#body-gradient)"/>
+    </g>
+    <text x="285" y="75" class="mono" font-size="10" fill="#6b7280" text-anchor="middle">48px</text>
+    <text x="285" y="105" class="label" font-size="10" fill="#374151" text-anchor="middle">Standard</text>
+
+    <!-- 64px large - CENTER ALIGNED -->
+    <rect x="360" y="0" width="100" height="95" rx="4" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+    <!-- Grid lines -->
+    <line x1="410" y1="0" x2="410" y2="95" stroke="#f1f5f9" stroke-width="1"/>
+    <line x1="360" y1="47.5" x2="460" y2="47.5" stroke="#f1f5f9" stroke-width="1"/>
+    <!-- Center crosshair -->
+    <line x1="405" y1="32" x2="415" y2="32" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="410" y1="27" x2="410" y2="37" stroke="#3b82f6" stroke-width="0.5"/>
+    <!-- Icon centered: 48×57px (1x scale), center at (410, 32) -->
+    <g transform="translate(386, 4) scale(1)">
+      <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-gradient)"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+      <line x1="8" y1="17" x2="40" y2="17" stroke="#00a86b" stroke-width="1" stroke-opacity="0.3"/>
+      <path d="M8 18L24 44L40 18H8Z" fill="url(#body-gradient)"/>
+    </g>
+    <text x="410" y="75" class="mono" font-size="10" fill="#6b7280" text-anchor="middle">64px</text>
+    <text x="410" y="105" class="label" font-size="10" fill="#374151" text-anchor="middle">Large (2x)</text>
+
+    <!-- Horizontal lockup minimum - CENTER ALIGNED -->
+    <rect x="490" y="0" width="240" height="95" rx="4" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+    <!-- Grid lines -->
+    <line x1="610" y1="0" x2="610" y2="95" stroke="#f1f5f9" stroke-width="1"/>
+    <line x1="490" y1="47.5" x2="730" y2="47.5" stroke="#f1f5f9" stroke-width="1"/>
+    <!-- Center crosshair -->
+    <line x1="605" y1="42" x2="615" y2="42" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="610" y1="37" x2="610" y2="47" stroke="#3b82f6" stroke-width="0.5"/>
+    <!-- Lockup centered: icon right at 539, text at 551 = 12px gap (scaled from 24px at 0.5x) -->
+    <g transform="translate(507, 25) scale(0.6)">
+      <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-gradient)"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+      <path d="M8 18L24 44L40 18H8Z" fill="url(#body-gradient)"/>
+    </g>
+    <text x="555" y="48" class="brand-text" font-size="14" letter-spacing="-0.3">
+      <tspan fill="#00a86b">Builds</tspan>
+      <tspan fill="#1f2937"> That Last</tspan>
+    </text>
+    <text x="610" y="75" class="mono" font-size="10" fill="#6b7280" text-anchor="middle">200px min</text>
+    <text x="610" y="105" class="label" font-size="10" fill="#374151" text-anchor="middle">Horizontal Lockup</text>
+
+    <!-- Stacked minimum - CENTER ALIGNED -->
+    <rect x="760" y="0" width="120" height="95" rx="4" fill="#fafafa" stroke="#e5e7eb" stroke-width="1"/>
+    <!-- Grid lines -->
+    <line x1="820" y1="0" x2="820" y2="95" stroke="#f1f5f9" stroke-width="1"/>
+    <line x1="760" y1="47.5" x2="880" y2="47.5" stroke="#f1f5f9" stroke-width="1"/>
+    <!-- Center crosshair -->
+    <line x1="815" y1="40" x2="825" y2="40" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="820" y1="35" x2="820" y2="45" stroke="#3b82f6" stroke-width="0.5"/>
+    <!-- Stacked logo centered (no glow line at small size) -->
+    <g transform="translate(808, 15) scale(0.5)">
+      <path d="M24 6L32 14H16L24 6Z" fill="url(#tip-gradient)"/>
+      <line x1="8" y1="16" x2="40" y2="16" stroke="#1f2937" stroke-width="2" stroke-dasharray="4 3"/>
+      <path d="M8 18L24 44L40 18H8Z" fill="url(#body-gradient)"/>
+    </g>
+    <text x="820" y="48" class="brand-text" font-size="8" letter-spacing="-0.2" text-anchor="middle" fill="#00a86b">Builds</text>
+    <text x="820" y="58" class="brand-text" font-size="8" letter-spacing="-0.2" text-anchor="middle" fill="#1f2937">That Last</text>
+    <text x="820" y="75" class="mono" font-size="10" fill="#6b7280" text-anchor="middle">80px min</text>
+    <text x="820" y="105" class="label" font-size="10" fill="#374151" text-anchor="middle">Stacked</text>
+  </g>
+
+  <!-- Footer -->
+  <line x1="60" y1="2175" x2="1140" y2="2175" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="2195" class="mono" font-size="10" fill="#9ca3af">Builds That Last · Brand Guidelines v1.2 · Generated 2026-01-13</text>
+  <text x="1140" y="2195" class="mono" font-size="10" fill="#9ca3af" text-anchor="end">Page 1 of 1</text>
+
+</svg>

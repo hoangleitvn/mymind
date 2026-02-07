@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTL Icon Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /*
+      BTL Icon Library
+      ================
+      Design System: v2.2 | Philosophy: v1.2
+
+      Icon Style:
+      - Geometric, line-based (2px stroke)
+      - 24x24 viewBox (scalable)
+      - Colors: #10b981 (jade), #f9fafb (light), #9ca3af (muted)
+      - Rounded caps and joins for softer feel
+      - No fills unless semantic (success/error states)
+
+      Usage:
+      - Copy <symbol> definitions to your SVG
+      - Use with <use href="#icon-name" .../>
+    */
+    :root {
+      --brand-400: #10b981;
+      --brand-500: #00a86b;
+      --base-50: #f9fafb;
+      --base-400: #9ca3af;
+      --base-700: #374151;
+      --base-800: #1f2937;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1f2937;
+      font-family: "Public Sans", system-ui, sans-serif;
+      color: #f9fafb;
+      padding: 48px;
+    }
+
+    h1 {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #f9fafb;
+    }
+
+    .subtitle {
+      color: #9ca3af;
+      margin-bottom: 48px;
+    }
+
+    .category {
+      margin-bottom: 48px;
+    }
+
+    .category h2 {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #10b981;
+      margin-bottom: 24px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #374151;
+    }
+
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 24px;
+    }
+
+    .icon-card {
+      background: #111827;
+      border-radius: 8px;
+      padding: 24px;
+      text-align: center;
+      border: 1px solid #374151;
+    }
+
+    .icon-card:hover {
+      border-color: #00a86b;
+    }
+
+    .icon-card svg {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 12px;
+    }
+
+    .icon-name {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    /* Hidden SVG definitions */
+    .icon-defs {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG Symbol Definitions (copy these to your project) -->
+  <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- ======================================== -->
+      <!-- FOUNDATION ICONS                        -->
+      <!-- ======================================== -->
+
+      <!-- Iceberg (BTL signature) -->
+      <symbol id="icon-iceberg" viewBox="0 0 24 24">
+        <path d="M12 2L18 10H6L12 2Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <line x1="4" y1="10" x2="20" y2="10" stroke="currentColor" stroke-width="2" stroke-dasharray="2 2"/>
+        <path d="M6 10L4 20H20L18 10" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- Foundation/Building -->
+      <symbol id="icon-foundation" viewBox="0 0 24 24">
+        <rect x="4" y="18" width="16" height="4" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+        <rect x="6" y="12" width="12" height="6" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M12 4L18 12H6L12 4Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- Architecture -->
+      <symbol id="icon-architecture" viewBox="0 0 24 24">
+        <path d="M12 2L20 8V22H4V8L12 2Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <line x1="4" y1="8" x2="20" y2="8" stroke="currentColor" stroke-width="2"/>
+        <line x1="9" y1="22" x2="9" y2="14" stroke="currentColor" stroke-width="2"/>
+        <line x1="15" y1="22" x2="15" y2="14" stroke="currentColor" stroke-width="2"/>
+        <line x1="9" y1="14" x2="15" y2="14" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+
+      <!-- Layers/Stack -->
+      <symbol id="icon-layers" viewBox="0 0 24 24">
+        <path d="M12 2L22 7L12 12L2 7L12 2Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- ======================================== -->
+      <!-- DEVELOPMENT ICONS                       -->
+      <!-- ======================================== -->
+
+      <!-- Code -->
+      <symbol id="icon-code" viewBox="0 0 24 24">
+        <polyline points="16 18 22 12 16 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="8 6 2 12 8 18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- Terminal -->
+      <symbol id="icon-terminal" viewBox="0 0 24 24">
+        <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+        <polyline points="6 10 10 14 6 18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="14" y1="18" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- Git/Branch -->
+      <symbol id="icon-git" viewBox="0 0 24 24">
+        <circle cx="6" cy="6" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+        <circle cx="18" cy="6" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+        <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M6 9V15" stroke="currentColor" stroke-width="2"/>
+        <path d="M18 9V12C18 14 16 15 14 15H9" stroke="currentColor" stroke-width="2" fill="none"/>
+      </symbol>
+
+      <!-- Database -->
+      <symbol id="icon-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5" rx="9" ry="3" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M3 5V19C3 20.66 7 22 12 22C17 22 21 20.66 21 19V5" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M3 12C3 13.66 7 15 12 15C17 15 21 13.66 21 12" stroke="currentColor" stroke-width="2" fill="none"/>
+      </symbol>
+
+      <!-- ======================================== -->
+      <!-- QUALITY ICONS                           -->
+      <!-- ======================================== -->
+
+      <!-- Test/Shield Check -->
+      <symbol id="icon-test" viewBox="0 0 24 24">
+        <path d="M12 2L20 6V12C20 16.4 16.4 20.4 12 22C7.6 20.4 4 16.4 4 12V6L12 2Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <polyline points="9 12 11 14 15 10" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- Bug -->
+      <symbol id="icon-bug" viewBox="0 0 24 24">
+        <rect x="8" y="6" width="8" height="14" rx="4" stroke="currentColor" stroke-width="2" fill="none"/>
+        <line x1="12" y1="6" x2="12" y2="2" stroke="currentColor" stroke-width="2"/>
+        <line x1="9" y1="3" x2="15" y2="3" stroke="currentColor" stroke-width="2"/>
+        <line x1="4" y1="10" x2="8" y2="10" stroke="currentColor" stroke-width="2"/>
+        <line x1="16" y1="10" x2="20" y2="10" stroke="currentColor" stroke-width="2"/>
+        <line x1="4" y1="16" x2="8" y2="16" stroke="currentColor" stroke-width="2"/>
+        <line x1="16" y1="16" x2="20" y2="16" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+
+      <!-- Documentation -->
+      <symbol id="icon-docs" viewBox="0 0 24 24">
+        <path d="M14 2H6C5 2 4 3 4 4V20C4 21 5 22 6 22H18C19 22 20 21 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <line x1="8" y1="13" x2="16" y2="13" stroke="currentColor" stroke-width="2"/>
+        <line x1="8" y1="17" x2="14" y2="17" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+
+      <!-- Metrics/Chart -->
+      <symbol id="icon-metrics" viewBox="0 0 24 24">
+        <line x1="4" y1="20" x2="20" y2="20" stroke="currentColor" stroke-width="2"/>
+        <line x1="4" y1="20" x2="4" y2="4" stroke="currentColor" stroke-width="2"/>
+        <polyline points="4 16 10 10 14 14 20 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- ======================================== -->
+      <!-- STATUS ICONS                            -->
+      <!-- ======================================== -->
+
+      <!-- Check/Success -->
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- X/Error -->
+      <symbol id="icon-x" viewBox="0 0 24 24">
+        <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- Warning -->
+      <symbol id="icon-warning" viewBox="0 0 24 24">
+        <path d="M12 2L22 20H2L12 2Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="12" cy="17" r="1" fill="currentColor"/>
+      </symbol>
+
+      <!-- Info -->
+      <symbol id="icon-info" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+        <line x1="12" y1="16" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="12" cy="8" r="1" fill="currentColor"/>
+      </symbol>
+
+      <!-- ======================================== -->
+      <!-- ACTION ICONS                            -->
+      <!-- ======================================== -->
+
+      <!-- Arrow Right -->
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+        <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- Refresh/Cycle -->
+      <symbol id="icon-refresh" viewBox="0 0 24 24">
+        <polyline points="23 4 23 10 17 10" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="1 20 1 14 7 14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3.5 9A9 9 0 0 1 20.8 6.3L23 10" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M20.5 15A9 9 0 0 1 3.2 17.7L1 14" stroke="currentColor" stroke-width="2" fill="none"/>
+      </symbol>
+
+      <!-- Settings/Gear -->
+      <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2" fill="none"/>
+      </symbol>
+
+      <!-- Clock/Time -->
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+        <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- ======================================== -->
+      <!-- COMMUNICATION ICONS                     -->
+      <!-- ======================================== -->
+
+      <!-- Comment -->
+      <symbol id="icon-comment" viewBox="0 0 24 24">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- User -->
+      <symbol id="icon-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- Team -->
+      <symbol id="icon-team" viewBox="0 0 24 24">
+        <circle cx="9" cy="7" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+        <circle cx="17" cy="7" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M14 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2" fill="none"/>
+      </symbol>
+
+    </defs>
+  </svg>
+
+  <h1>BTL Icon Library</h1>
+  <p class="subtitle">Geometric, line-based icons for Builds That Last</p>
+
+  <!-- Foundation Icons -->
+  <div class="category">
+    <h2>Foundation</h2>
+    <div class="icon-grid">
+      <div class="icon-card">
+        <svg><use href="#icon-iceberg" color="#10b981"/></svg>
+        <div class="icon-name">icon-iceberg</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-foundation" color="#10b981"/></svg>
+        <div class="icon-name">icon-foundation</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-architecture" color="#10b981"/></svg>
+        <div class="icon-name">icon-architecture</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-layers" color="#10b981"/></svg>
+        <div class="icon-name">icon-layers</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Development Icons -->
+  <div class="category">
+    <h2>Development</h2>
+    <div class="icon-grid">
+      <div class="icon-card">
+        <svg><use href="#icon-code" color="#10b981"/></svg>
+        <div class="icon-name">icon-code</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-terminal" color="#10b981"/></svg>
+        <div class="icon-name">icon-terminal</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-git" color="#10b981"/></svg>
+        <div class="icon-name">icon-git</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-database" color="#10b981"/></svg>
+        <div class="icon-name">icon-database</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quality Icons -->
+  <div class="category">
+    <h2>Quality</h2>
+    <div class="icon-grid">
+      <div class="icon-card">
+        <svg><use href="#icon-test" color="#10b981"/></svg>
+        <div class="icon-name">icon-test</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-bug" color="#10b981"/></svg>
+        <div class="icon-name">icon-bug</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-docs" color="#10b981"/></svg>
+        <div class="icon-name">icon-docs</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-metrics" color="#10b981"/></svg>
+        <div class="icon-name">icon-metrics</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Status Icons -->
+  <div class="category">
+    <h2>Status</h2>
+    <div class="icon-grid">
+      <div class="icon-card">
+        <svg><use href="#icon-check" color="#10b981"/></svg>
+        <div class="icon-name">icon-check</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-x" color="#9ca3af"/></svg>
+        <div class="icon-name">icon-x</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-warning" color="#10b981"/></svg>
+        <div class="icon-name">icon-warning</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-info" color="#10b981"/></svg>
+        <div class="icon-name">icon-info</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Icons -->
+  <div class="category">
+    <h2>Actions</h2>
+    <div class="icon-grid">
+      <div class="icon-card">
+        <svg><use href="#icon-arrow-right" color="#10b981"/></svg>
+        <div class="icon-name">icon-arrow-right</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-refresh" color="#10b981"/></svg>
+        <div class="icon-name">icon-refresh</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-settings" color="#10b981"/></svg>
+        <div class="icon-name">icon-settings</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-clock" color="#10b981"/></svg>
+        <div class="icon-name">icon-clock</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Communication Icons -->
+  <div class="category">
+    <h2>Communication</h2>
+    <div class="icon-grid">
+      <div class="icon-card">
+        <svg><use href="#icon-comment" color="#10b981"/></svg>
+        <div class="icon-name">icon-comment</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-user" color="#10b981"/></svg>
+        <div class="icon-name">icon-user</div>
+      </div>
+      <div class="icon-card">
+        <svg><use href="#icon-team" color="#10b981"/></svg>
+        <div class="icon-name">icon-team</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

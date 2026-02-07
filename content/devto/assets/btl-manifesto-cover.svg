@@ -1,0 +1,83 @@
+<svg width="1000" height="420" viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#111827"/>
+      <stop offset="100%" style="stop-color:#1f2937"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00a86b"/>
+      <stop offset="100%" style="stop-color:#008553"/>
+    </linearGradient>
+    <linearGradient id="icebergTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#00a86b"/>
+    </linearGradient>
+    <linearGradient id="icebergBottom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#065f46"/>
+      <stop offset="100%" style="stop-color:#064e3b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="420" fill="url(#bgGradient)"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1000" height="4" fill="url(#accentGradient)"/>
+
+  <!-- Decorative grid pattern (subtle) -->
+  <g opacity="0.03">
+    <line x1="200" y1="0" x2="200" y2="420" stroke="white" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="420" stroke="white" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="420" stroke="white" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="420" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="140" x2="1000" y2="140" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="280" x2="1000" y2="280" stroke="white" stroke-width="1"/>
+  </g>
+
+  <!-- Iceberg illustration (right side) -->
+  <g transform="translate(720, 60)">
+    <!-- Water line -->
+    <line x1="0" y1="100" x2="220" y2="100" stroke="#00a86b" stroke-width="2" stroke-dasharray="8 8" opacity="0.5"/>
+
+    <!-- 20% label -->
+    <text x="200" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#10b981" text-anchor="end">20%</text>
+
+    <!-- 80% label -->
+    <text x="200" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#065f46" text-anchor="end">80%</text>
+
+    <!-- Iceberg top (visible 20%) -->
+    <polygon points="110,100 80,40 140,40" fill="url(#icebergTop)" opacity="0.9"/>
+
+    <!-- Iceberg bottom (hidden 80%) -->
+    <polygon points="110,100 40,280 180,280" fill="url(#icebergBottom)" opacity="0.7"/>
+  </g>
+
+  <!-- Badge -->
+  <rect x="80" y="70" width="130" height="32" rx="4" fill="#00a86b"/>
+  <text x="145" y="92" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">MANIFESTO</text>
+
+  <!-- Main title -->
+  <text x="80" y="165" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="800" fill="white" letter-spacing="-0.02em">Builds That Last</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="400" fill="#9ca3af">Everyone ships fast. Few build to last.</text>
+
+  <!-- Waterline divider -->
+  <line x1="80" y1="250" x2="580" y2="250" stroke="#00a86b" stroke-width="2" stroke-dasharray="8 8" opacity="0.4"/>
+
+  <!-- Tags/keywords -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500">
+    <rect x="80" y="275" width="130" height="28" rx="4" fill="none" stroke="#00a86b" stroke-width="1.5"/>
+    <text x="145" y="294" fill="#00a86b" text-anchor="middle">Foundation First</text>
+
+    <rect x="225" y="275" width="100" height="28" rx="4" fill="none" stroke="#00a86b" stroke-width="1.5"/>
+    <text x="275" y="294" fill="#00a86b" text-anchor="middle">AI Era</text>
+
+    <rect x="340" y="275" width="140" height="28" rx="4" fill="none" stroke="#00a86b" stroke-width="1.5"/>
+    <text x="410" y="294" fill="#00a86b" text-anchor="middle">Engineering</text>
+  </g>
+
+  <!-- Author -->
+  <text x="80" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#6b7280">Hoang Le · buildsthatlast.substack.com</text>
+
+</svg>
